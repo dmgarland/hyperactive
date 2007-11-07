@@ -58,17 +58,17 @@ class DATABASE_CONFIG
 	var $default = array('driver' => 'mysql',
 								'connect' => 'mysql_connect',
 								'host' => 'localhost',
-								'login' => 'user',
-								'password' => 'password',
-								'database' => 'project_name',
+								'login' => 'root',
+								'password' => '',
+								'database' => 'hyperactive',
 								'prefix' => '');
 
 	var $test = array('driver' => 'mysql',
 							'connect' => 'mysql_connect',
 							'host' => 'localhost',
-							'login' => 'user',
-							'password' => 'password',
-							'database' => 'project_name-test',
+							'login' => 'root',
+							'password' => '',
+							'database' => 'hyperactive_test',
 							'prefix' => '');
 }
 ?>

@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  place_tag_id: 1
+  place_taggable_id: 1
+  place_taggable_type: Content
+  hide_tag: false
+  event_date: <%= Date.today %>    
+  
+two:
+  id: 2
+  place_tag_id: 2
+  place_taggable_id: 1
+  place_taggable_type: Content # TODO: why not Event here? Investigate STI + has_many_polymorphs 
+  hide_tag: false
+  event_date: <%= Date.today %>    
+three:
+  id: 3
+  place_tag_id: 3
+  place_taggable_id: 3
+  place_taggable_type: Event
+  hide_tag: true
+  event_date: <%= Date.today %>  
+past_tagging:
+  id: 4
+  place_tag_id: 2
+  place_taggable_id: 2
+  place_taggable_type: Event
+  hide_tag: false
+  event_date: <%= Date.today - 5 %>   
+    

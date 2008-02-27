@@ -1,0 +1,7 @@
+Hyperactive
+===========
+
+You must run script/generate plugin_migration && rake db:migrate to set up the database.
+
+
+

@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: AnonymousUser</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">AnonymousUser</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/home/yossarian/aptana_workspace/imcalendar/config/__/vendor/plugins/active_rbac/app/models/anonymous_user_rb.html">
+                /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="AnonymousUser.html">AnonymousUser</a> class is a mock version
+of the <a href="User.html">User</a> class. It provides the functionality
+that is relevant for the places where you do not need a logged in user but
+do not want to differentiate between &quot;no user&quot; and &quot;a logged
+in user&quot;.
+</p>
+<p>
+This means, for example, that you can check for an <a
+href="AnonymousUser.html">AnonymousUser</a> to have a certain role, group
+and also access its <a href="AnonymousUser.html#M000006">login</a> and <a
+href="AnonymousUser.html#M000007">email</a>. However, you cannot set any
+value of it through its instances.
+</p>
+<p>
+The <a href="AnonymousUser.html">AnonymousUser</a> class implements the
+singleton pattern. Use AnonymousUser.instance to retrive the Singleton
+instance. The method &quot;current_user&quot; of the
+ApplicationControllerMixin and the <a href="RbacHelper.html">RbacHelper</a>
+will return the currently logged in user or the anonymous user when called.
+They will never return nil.
+</p>
+<p>
+You can configure the <a href="AnonymousUser.html">AnonymousUser</a>
+instance by setting the :anonymous_user configuration value. For example,
+you could have the following in your <em>environment.rb</em>:
+</p>
+<p>
+&lt;pre&gt; module ActiveRbacConfig
+</p>
+<pre>
+  config :anonymous_user_login, 'Anonymous User'
+  config :anonymous_user_email, 'nobody@localhost'
+  config :anonymous_user_roles,  [ 'Nobody' ]
+  config :anonymous_user_groups, [ 'Everybody' ]
+</pre>
+<p>
+end &lt;/pre&gt;
+</p>
+<p>
+You can set the following configuration settings:
+</p>
+<p>
+&lt;dl&gt;
+</p>
+<pre>
+  &lt;dt&gt;:anonymous_user_login&lt;/dt&gt;
+  &lt;dd&gt;The login value for the anonymous user.&lt;/dd&gt;
+
+  &lt;dt&gt;:anonymous_user_email&lt;/dt&gt;
+  &lt;dd&gt;The email adress to assume for the anonymous user.&lt;/dd&gt;
+
+  &lt;dt&gt;:anonymous_user_roles, :anonymous_user_groups&lt;/dt&gt;
+  &lt;dd&gt;The roles and groups the anonymous user has. You have to
+      specify the role's/group's &quot;title&quot; value.&lt;/dd&gt;
+</pre>
+<p>
+&lt;/dl&gt;
+</p>
+<p>
+The existance of the <a href="AnonymousUser.html">AnonymousUser</a> class
+makes many things simpler. For example, you can write the following in your
+templates
+</p>
+<p>
+&lt;pre&gt;
+</p>
+<pre>
+  &lt;% if current_user.has_role?('Admin') %&gt;Hello, Admin&lt;% end %&gt;
+</pre>
+<p>
+&lt;/pre&gt;
+</p>
+<p>
+instead of
+</p>
+<p>
+&lt;pre&gt;
+</p>
+<pre>
+ &lt;% if !current_user.nil? and current_user.has_role?('Admin') %&gt;Hello,
+ Admin&lt;% end %&gt;
+</pre>
+<p>
+&lt;/pre&gt;
+</p>
+<p>
+The same is true for your controllers.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000012">all_groups</a>&nbsp;&nbsp;
+      <a href="#M000010">all_roles</a>&nbsp;&nbsp;
+      <a href="#M000013">all_static_permissions</a>&nbsp;&nbsp;
+      <a href="#M000002">created_at</a>&nbsp;&nbsp;
+      <a href="#M000007">email</a>&nbsp;&nbsp;
+      <a href="#M000011">groups</a>&nbsp;&nbsp;
+      <a href="#M000014">has_permission?</a>&nbsp;&nbsp;
+      <a href="#M000015">has_role?</a>&nbsp;&nbsp;
+      <a href="#M000001">id</a>&nbsp;&nbsp;
+      <a href="#M000016">is_anonymous?</a>&nbsp;&nbsp;
+      <a href="#M000004">last_updated_at</a>&nbsp;&nbsp;
+      <a href="#M000006">login</a>&nbsp;&nbsp;
+      <a href="#M000005">login_failure_count</a>&nbsp;&nbsp;
+      <a href="#M000009">roles</a>&nbsp;&nbsp;
+      <a href="#M000008">state</a>&nbsp;&nbsp;
+      <a href="#M000003">updated_at</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">Singleton</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">all_groups</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns all <a href="AnonymousUser.html#M000011">groups</a> and all parent
+<a href="AnonymousUser.html#M000011">groups</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 149</span>
+149:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all_groups</span>
+150:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@all_groups</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@all_groups</span>.<span class="ruby-identifier">nil?</span>
+151: 
+152:     <span class="ruby-ivar">@all_groups</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+153: 
+154:     <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">group</span> <span class="ruby-keyword kw">in</span> <span class="ruby-identifier">groups</span>
+155:       <span class="ruby-ivar">@all_groups</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">ancestors_and_self</span>
+156:     <span class="ruby-keyword kw">end</span>
+157: 
+158:     <span class="ruby-ivar">@all_groups</span>.<span class="ruby-identifier">flatten!</span>
+159:     <span class="ruby-ivar">@all_groups</span>.<span class="ruby-identifier">uniq!</span>
+160: 
+161:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@all_groups</span>
+162:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">all_roles</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns all <a href="AnonymousUser.html#M000009">roles</a> and all of their
+parents as well as all the <a href="AnonymousUser.html#M000009">roles</a>
+being assigned through the <a href="AnonymousUser.html#M000011">groups</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 115</span>
+115:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all_roles</span>
+116:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@all_roles</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@all_roles</span>.<span class="ruby-identifier">nil?</span>
+117:     
+118:     <span class="ruby-ivar">@all_roles</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+119: 
+120:     <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">role</span> <span class="ruby-keyword kw">in</span> <span class="ruby-identifier">roles</span>
+121:       <span class="ruby-ivar">@all_roles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">role</span>.<span class="ruby-identifier">ancestors_and_self</span>
+122:     <span class="ruby-keyword kw">end</span>
+123: 
+124:     <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">group</span> <span class="ruby-keyword kw">in</span> <span class="ruby-identifier">groups</span>
+125:       <span class="ruby-ivar">@all_roles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">all_roles</span>
+126:     <span class="ruby-keyword kw">end</span>
+127: 
+128:     <span class="ruby-ivar">@all_roles</span>.<span class="ruby-identifier">flatten!</span>
+129:     <span class="ruby-ivar">@all_roles</span>.<span class="ruby-identifier">uniq!</span>
+130: 
+131:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@all_roles</span>
+132:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">all_static_permissions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns all StaticPermissions that have been assigned to the anonymous user
+through all of his <a href="AnonymousUser.html#M000009">roles</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 166</span>
+166:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all_static_permissions</span>
+167:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@permissions</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@permissions</span>.<span class="ruby-identifier">nil?</span>
+168:     
+169:     <span class="ruby-ivar">@permissions</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+170: 
+171:     <span class="ruby-identifier">all_roles</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">role</span><span class="ruby-operator">|</span>
+172:       <span class="ruby-ivar">@permissions</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">role</span>.<span class="ruby-identifier">static_permissions</span>)
+173:     <span class="ruby-keyword kw">end</span>
+174: 
+175:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@permissions</span>
+176:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="#M000002" class="method-signature">
+          <span class="method-name">created_at</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the current point of time in a DateTime object.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000002-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 69</span>
+69:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">created_at</span>
+70:     <span class="ruby-keyword kw">return</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>
+71:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">email</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="AnonymousUser.html#M000007">email</a> adress of the
+anonymous user as configured.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 90</span>
+90:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">email</span>
+91:     <span class="ruby-constant">ActiveRbac</span>.<span class="ruby-identifier">anonymous_user_email</span>
+92:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">groups</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Group.html">Group</a> objects this user has been
+assigned (ActiveRecord <a href="Group.html">Group</a> objects).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 136</span>
+136:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>
+137:     <span class="ruby-comment cmt"># return already fetched roles</span>
+138:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@groups</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@groups</span>.<span class="ruby-identifier">nil?</span>
+139:     
+140:     <span class="ruby-comment cmt"># fetch the role objects for the configured role titles otherwise</span>
+141:     <span class="ruby-ivar">@groups</span> = <span class="ruby-constant">ActiveRbac</span>.<span class="ruby-identifier">anonymous_user_groups</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">groups_title</span><span class="ruby-operator">|</span>
+142:       <span class="ruby-constant">Group</span>.<span class="ruby-identifier">find_by_title</span> <span class="ruby-identifier">groups_title</span>
+143:     <span class="ruby-keyword kw">end</span>
+144:     
+145:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@groups</span>
+146:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">has_permission?</span><span class="method-args">(*permission_titles)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method returns true if the user is granted the permission with one of
+the given permission titles.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 180</span>
+180:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_permission?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">permission_titles</span>)
+181:     <span class="ruby-identifier">all_roles</span>.<span class="ruby-identifier">detect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">role</span><span class="ruby-operator">|</span> 
+182:       <span class="ruby-identifier">role</span>.<span class="ruby-identifier">static_permissions</span>.<span class="ruby-identifier">detect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">permission</span><span class="ruby-operator">|</span>
+183:         <span class="ruby-identifier">permission_titles</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">permission</span>.<span class="ruby-identifier">title</span>)
+184:       <span class="ruby-keyword kw">end</span>
+185:     <span class="ruby-keyword kw">end</span>
+186:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">has_role?</span><span class="method-args">(*role_titles)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method returns true if the user is assigned the role with one of the
+role titles given as parameters. False otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 190</span>
+190:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_role?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">role_titles</span>)
+191:     <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">all_roles</span>.<span class="ruby-identifier">detect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">role</span><span class="ruby-operator">|</span> 
+192:             <span class="ruby-identifier">role_titles</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">role</span>.<span class="ruby-identifier">title</span>)
+193:           <span class="ruby-keyword kw">end</span>
+194:     
+195:     <span class="ruby-keyword kw">return</span> <span class="ruby-operator">!</span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">nil?</span>
+196:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="#M000001" class="method-signature">
+          <span class="method-name">id</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Always returns -1 so the <a href="AnonymousUser.html#M000001">id</a> cannot
+be equal to any ActiveRecord&#8216;s <a
+href="AnonymousUser.html#M000001">id</a> property (assuming you do not
+allow negative ids).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000001-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 64</span>
+64:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">id</span>
+65:     <span class="ruby-value">-1</span>
+66:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">is_anonymous?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true. Yes, this is the <a
+href="AnonymousUser.html">AnonymousUser</a> class - what did you expect?
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 199</span>
+199:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_anonymous?</span>
+200:     <span class="ruby-keyword kw">true</span>
+201:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <span class="method-name">last_updated_at</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="AnonymousUser.html#M000002">created_at</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">login</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="AnonymousUser.html#M000006">login</a> of the anonymous
+user as configured.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 85</span>
+85:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">login</span>
+86:     <span class="ruby-constant">ActiveRbac</span>.<span class="ruby-identifier">anonymous_user_login</span>
+87:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="#M000005" class="method-signature">
+          <span class="method-name">login_failure_count</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Always returns 0
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 80</span>
+80:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">login_failure_count</span>
+81:     <span class="ruby-value">0</span>
+82:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">roles</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Role.html">Role</a> objects this user has been
+assigned (ActiveRecord <a href="Role.html">Role</a> objects).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 101</span>
+101:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">roles</span>
+102:     <span class="ruby-comment cmt"># return already fetched roles</span>
+103:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@roles</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@roles</span>.<span class="ruby-identifier">nil?</span>
+104:     
+105:     <span class="ruby-comment cmt"># fetch the role objects for the configured role titles otherwise</span>
+106:     <span class="ruby-ivar">@roles</span> = <span class="ruby-constant">ActiveRbac</span>.<span class="ruby-identifier">anonymous_user_roles</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">role_title</span><span class="ruby-operator">|</span>
+107:       <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by_title</span> <span class="ruby-identifier">role_title</span>
+108:     <span class="ruby-keyword kw">end</span>
+109:     
+110:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@roles</span>
+111:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">state</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Always eturns the value for &quot;confirmed&quot;.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/app/models/anonymous_user.rb, line 95</span>
+95:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">state</span>
+96:     <span class="ruby-constant">User</span>.<span class="ruby-identifier">states</span>[<span class="ruby-value str">'confirmed'</span>]
+97:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <span class="method-name">updated_at</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="AnonymousUser.html#M000002">created_at</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

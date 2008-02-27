@@ -1,0 +1,7 @@
+<% if @phrase == '' %>
+<% elsif @results.empty?  %>
+  '<%=h @phrase %>' not found!
+<% else %>
+  '<%=h @phrase %>' found in 
+  <%= highlight(@results.join(', '), @phrase) %>
+<% end %>

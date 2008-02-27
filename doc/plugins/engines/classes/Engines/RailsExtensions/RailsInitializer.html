@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Engines::RailsExtensions::RailsInitializer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Engines::RailsExtensions::RailsInitializer</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/home/yossarian/aptana_workspace/imcalendar/config/__/vendor/plugins/engines/lib/engines/rails_extensions/rails_initializer_rb.html">
+                /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/rails_initializer.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The engines plugin changes the way that <a
+href="../../Rails.html">Rails</a> actually loads other plugins. It creates
+instances of the <a href="../../Plugin.html">Plugin</a> class to represent
+each plugin, stored in the <tt>Rails.plugins</tt> <a
+href="../../PluginList.html">PluginList</a>.
+</p>
+<hr size="1"></hr><p>
+Three methods from the original Rails::Initializer module are overridden by
+<a
+href="RailsInitializer.html">Engines::RailsExtensions::RailsInitializer</a>:
+</p>
+<dl>
+<dt><tt>load_plugin</tt></dt><dd>which now creates <a href="../../Plugin.html">Plugin</a> instances and
+calls <a href="../../Plugin.html#M000011">Plugin#load</a>
+
+</dd>
+<dt><tt>after_initialize</tt></dt><dd>which now performs <a
+href="../../Engines.html#M000026">Engines.after_initialize</a> in addition
+to the given config block
+
+</dd>
+<dt><tt>plugin_enabled?</tt></dt><dd>which now respects the result of Engines.load_all_plugins?
+
+</dd>
+</dl>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000035">after_initialize_with_engine_additions</a>&nbsp;&nbsp;
+      <a href="#M000033">load_all_plugins</a>&nbsp;&nbsp;
+      <a href="#M000034">load_plugin_with_engine_additions</a>&nbsp;&nbsp;
+      <a href="#M000036">plugin_enabled_with_engine_additions?</a>&nbsp;&nbsp;
+      <a href="#M000037">plugin_name</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="#M000035" class="method-signature">
+          <span class="method-name">after_initialize_with_engine_additions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allow the engines plugin to do whatever it needs to do after <a
+href="../../Rails.html">Rails</a> has loaded, and then call the actual
+after_initialize block. Currently, this is call <a
+href="../../Engines.html#M000026">Engines.after_initialize</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000035-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000035-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/rails_initializer.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_initialize_with_engine_additions</span>
+67:     <span class="ruby-constant">Engines</span>.<span class="ruby-identifier">after_initialize</span>
+68:     <span class="ruby-identifier">after_initialize_without_engine_additions</span>
+69:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="#M000033" class="method-signature">
+          <span class="method-name">load_all_plugins</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Loads all plugins in configuration.plugin_paths, regardless of the contents
+of configuration.plugins
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000033-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000033-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/rails_initializer.rb, line 34</span>
+34:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load_all_plugins</span>
+35:     <span class="ruby-comment cmt"># a nil value implies we don't care about plugins; load 'em all in a reliable order</span>
+36:     <span class="ruby-identifier">find_plugins</span>(<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">plugin_paths</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">load_plugin</span> <span class="ruby-identifier">path</span> }
+37:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="#M000034" class="method-signature">
+          <span class="method-name">load_plugin_with_engine_additions</span><span class="method-args">(directory)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Loads a plugin, performing the extra load path/public file magic of engines
+by calling <a href="../../Plugin.html#M000011">Plugin#load</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000034-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/rails_initializer.rb, line 41</span>
+41:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load_plugin_with_engine_additions</span>(<span class="ruby-identifier">directory</span>)
+42:     <span class="ruby-identifier">name</span> = <span class="ruby-identifier">plugin_name</span>(<span class="ruby-identifier">directory</span>)
+43:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">loaded_plugins</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+44:     
+45:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;loading plugin from #{directory} with engine additions&quot;</span>
+46:     
+47:     <span class="ruby-comment cmt"># add the Plugin object</span>
+48:     <span class="ruby-identifier">plugin</span> = <span class="ruby-constant">Plugin</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">plugin_name</span>(<span class="ruby-identifier">directory</span>), <span class="ruby-identifier">directory</span>)
+49:     <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">plugins</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">plugin</span>
+50:           
+51:     <span class="ruby-comment cmt"># do the other stuff that load_plugin used to do. This includes</span>
+52:     <span class="ruby-comment cmt"># allowing the plugin's init.rb to set configuration options on</span>
+53:     <span class="ruby-comment cmt"># it's instance, which can then be used in it's initialization</span>
+54:     <span class="ruby-identifier">load_plugin_without_engine_additions</span>(<span class="ruby-identifier">directory</span>)
+55: 
+56:     <span class="ruby-comment cmt"># perform additional loading tasks like mirroring public assets</span>
+57:     <span class="ruby-comment cmt"># and adding app directories to the appropriate load paths</span>
+58:     <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">load</span>
+59:           
+60:     <span class="ruby-keyword kw">true</span>
+61:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
+
+        <div class="method-heading">
+          <a href="#M000036" class="method-signature">
+          <span class="method-name">plugin_enabled_with_engine_additions?</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if the plugin at the given path should be loaded; false
+otherwise. If Engines.load_all_plugins? is true, this method will return
+true regardless of the path given.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000036-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000036-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/rails_initializer.rb, line 76</span>
+76:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">plugin_enabled_with_engine_additions?</span>(<span class="ruby-identifier">path</span>)
+77:       <span class="ruby-constant">Engines</span>.<span class="ruby-identifier">load_all_plugins?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">plugin_enabled_without_engine_additions?</span>(<span class="ruby-identifier">path</span>)
+78:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="#M000037" class="method-signature">
+          <span class="method-name">plugin_name</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the name of the plugin at the given path.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000037-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/rails_initializer.rb, line 81</span>
+81:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">plugin_name</span>(<span class="ruby-identifier">path</span>)
+82:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">path</span>)
+83:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

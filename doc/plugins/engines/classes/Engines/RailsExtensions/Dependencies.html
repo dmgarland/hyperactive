@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Engines::RailsExtensions::Dependencies</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Engines::RailsExtensions::Dependencies</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/home/yossarian/aptana_workspace/imcalendar/config/__/vendor/plugins/engines/lib/engines/rails_extensions/dependencies_rb.html">
+                /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/dependencies.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+One of the magic features that that engines plugin provides is the ability
+to override selected methods in controllers and helpers from your
+application. This is achieved by trapping requests to load those files, and
+then mixing in code from plugins (in the order the plugins were loaded)
+before finally loading any versions from the main <tt>app</tt> directory.
+</p>
+<p>
+The behaviour of this extension is output to the log file for help when
+debugging.
+</p>
+<h2>Example</h2>
+<p>
+A plugin contains the following controller in
+<tt>plugin/app/controllers/my_controller.rb</tt>:
+</p>
+<pre>
+  class MyController &lt; ApplicationController
+    def index
+      @name = &quot;HAL 9000&quot;
+    end
+    def list
+      @robots = Robot.find(:all)
+    end
+  end
+</pre>
+<p>
+In one application that uses this plugin, we decide that the name used in
+the index action should be &quot;Robbie&quot;, not &quot;HAL 9000&quot;. To
+override this single method, we create the corresponding controller in our
+application (<tt>RAILS_ROOT/app/controllers/my_controller.rb</tt>), and
+redefine the method:
+</p>
+<pre>
+  class MyController &lt; ApplicationController
+    def index
+      @name = &quot;Robbie&quot;
+    end
+  end
+</pre>
+<p>
+The list method remains as it was defined in the plugin controller.
+</p>
+<p>
+The same basic principle applies to helpers, and also views and partials
+(although view overriding is performed in <a
+href="Templates.html">Engines::RailsExtensions::Templates</a>; see that
+module for more information).
+</p>
+<h3>What about models?</h3>
+<p>
+Unfortunately, it&#8216;s not possible to provide this kind of magic for
+models. The only reason why it&#8216;s possible for controllers and helpers
+is because they can be recognised by their filenames
+(&quot;whatever_controller&quot;, &quot;jazz_helper&quot;), whereas models
+appear the same as any other typical Ruby library (&quot;node&quot;,
+&quot;user&quot;, &quot;image&quot;, etc.).
+</p>
+<p>
+If mixing were allowed in models, it would mean code mixing for
+<b>every</b> file that was loaded via <tt>require_or_load</tt>, and this
+could result in problems where, for example, a Node model might start to
+include functionality from another file called &quot;node&quot; somewhere
+else in the <tt>$LOAD_PATH</tt>.
+</p>
+<p>
+One way to overcome this is to provide model functionality as a module in a
+plugin, which developers can then include into their own model
+implementations.
+</p>
+<p>
+Another option is to provide an abstract model (see the ActiveRecord::Base
+documentation) and have developers subclass this model in their own
+application if they must.
+</p>
+<hr size="1"></hr><p>
+The <a href="Dependencies.html">Engines::RailsExtensions::Dependencies</a>
+module includes a method to override Dependencies.require_or_load, which is
+called to load code needed by <a href="../../Rails.html">Rails</a> as it
+encounters constants that aren&#8216;t defined.
+</p>
+<p>
+This method is enhanced with the code-mixing features described above.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000038">require_or_load_with_engine_additions</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="#M000038" class="method-signature">
+          <span class="method-name">require_or_load_with_engine_additions</span><span class="method-args">(file_name, const_path=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Attempt to load the given file from any plugins, as well as the
+application. This performs the &#8216;code mixing&#8217; magic, allowing
+application controllers and helpers to override single methods from those
+in plugins. If the file can be found in any plugins, it will be loaded
+first from those locations. Finally, the application version is loaded,
+using Ruby&#8216;s behaviour to replace existing methods with their new
+definitions.
+</p>
+<p>
+If <tt>Engines.disable_code_mixing == true</tt>, the first
+controller/helper on the <tt>$LOAD_PATH</tt> will be used (plugins&#8217;
+<tt>app</tt> directories are always lower on the <tt>$LOAD_PATH</tt> than
+the main <tt>app</tt> directory).
+</p>
+<p>
+If <tt>Engines.disable_application_code_loading == true</tt>, controllers
+will not be loaded from the main <tt>app</tt> directory <b>if</b> they are
+present in any plugins.
+</p>
+<p>
+Returns true if the file could be loaded (from anywhere); false otherwise -
+mirroring the behaviour of <tt>require_or_load</tt> from <a
+href="../../Rails.html">Rails</a> (which mirrors that of Ruby&#8216;s own
+<tt>require</tt>, I believe).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000038-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000038-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/dependencies.rb, line 93</span>
+ 93:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_or_load_with_engine_additions</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">const_path</span>=<span class="ruby-keyword kw">nil</span>)
+ 94:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">require_or_load_without_engine_additions</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">const_path</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Engines</span>.<span class="ruby-identifier">disable_code_mixing</span>
+ 95: 
+ 96:     <span class="ruby-identifier">file_loaded</span> = <span class="ruby-keyword kw">false</span>
+ 97: 
+ 98:     <span class="ruby-comment cmt"># try and load the plugin code first</span>
+ 99:     <span class="ruby-comment cmt"># can't use model, as there's nothing in the name to indicate that the file is a 'model' file</span>
+100:     <span class="ruby-comment cmt"># rather than a library or anything else.</span>
+101:     [<span class="ruby-value str">'controller'</span>, <span class="ruby-value str">'helper'</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file_type</span><span class="ruby-operator">|</span> 
+102:       <span class="ruby-comment cmt"># if we recognise this type</span>
+103:       <span class="ruby-comment cmt"># (this regexp splits out the module/filename from any instances of app/#{type}, so that</span>
+104:       <span class="ruby-comment cmt">#  modules are still respected.)</span>
+105:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">file_name</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/^(.*app\/#{file_type}s\/)?(.*_#{file_type})(\.rb)?$/</span>
+106:         <span class="ruby-identifier">base_name</span> = <span class="ruby-identifier">$2</span>
+107:         <span class="ruby-comment cmt"># ... go through the plugins from first started to last, so that</span>
+108:         <span class="ruby-comment cmt"># code with a high precedence (started later) will override lower precedence</span>
+109:         <span class="ruby-comment cmt"># implementations</span>
+110:         <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
+111:           <span class="ruby-identifier">plugin_file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">root</span>, <span class="ruby-value str">'app'</span>, <span class="ruby-node">&quot;#{file_type}s&quot;</span>, <span class="ruby-identifier">base_name</span>))
+112:           <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;checking plugin '#{plugin.name}' for '#{base_name}'&quot;</span>)
+113:           <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-node">&quot;#{plugin_file_name}.rb&quot;</span>)
+114:             <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;==&gt; loading from plugin '#{plugin.name}'&quot;</span>)
+115:             <span class="ruby-identifier">file_loaded</span> = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">require_or_load_without_engine_additions</span>(<span class="ruby-identifier">plugin_file_name</span>, <span class="ruby-identifier">const_path</span>)
+116:           <span class="ruby-keyword kw">end</span>
+117:         <span class="ruby-keyword kw">end</span>
+118:         
+119:         <span class="ruby-comment cmt"># finally, load any application-specific controller classes using the 'proper'</span>
+120:         <span class="ruby-comment cmt"># rails load mechanism, EXCEPT when we're testing engines and could load this file</span>
+121:         <span class="ruby-comment cmt"># from an engine</span>
+122:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Engines</span>.<span class="ruby-identifier">disable_application_code_loading</span>
+123:           <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-value str">&quot;loading from application disabled.&quot;</span>)
+124:         <span class="ruby-keyword kw">else</span>
+125:           <span class="ruby-comment cmt"># Ensure we are only loading from the /app directory at this point</span>
+126:           <span class="ruby-identifier">app_file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RAILS_ROOT</span>, <span class="ruby-value str">'app'</span>, <span class="ruby-node">&quot;#{file_type}s&quot;</span>, <span class="ruby-node">&quot;#{base_name}&quot;</span>)
+127:           <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-node">&quot;#{app_file_name}.rb&quot;</span>)
+128:             <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;loading from application: #{base_name}&quot;</span>)
+129:             <span class="ruby-identifier">file_loaded</span> = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">require_or_load_without_engine_additions</span>(<span class="ruby-identifier">app_file_name</span>, <span class="ruby-identifier">const_path</span>)
+130:           <span class="ruby-keyword kw">else</span>
+131:             <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-value str">&quot;(file not found in application)&quot;</span>)
+132:           <span class="ruby-keyword kw">end</span>
+133:         <span class="ruby-keyword kw">end</span>        
+134:       <span class="ruby-keyword kw">end</span> 
+135:     <span class="ruby-keyword kw">end</span>
+136:     
+137:     <span class="ruby-comment cmt"># if we managed to load a file, return true. If not, default to the original method.</span>
+138:     <span class="ruby-comment cmt"># Note that this relies on the RHS of a boolean || not to be evaluated if the LHS is true.</span>
+139:     <span class="ruby-identifier">file_loaded</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">require_or_load_without_engine_additions</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">const_path</span>)
+140:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

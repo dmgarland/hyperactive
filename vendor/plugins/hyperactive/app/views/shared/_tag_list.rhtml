@@ -1,0 +1,5 @@
+<% tag_list.split(" ").each do |tag| %>
+    <% url = tag_item_url if tag_type.nil? %>
+    <% url = place_tag_item_url if tag_type == "place"%>
+    <%= link_to(h(tag), "#{url}#{tag}") %> 
+<% end %>

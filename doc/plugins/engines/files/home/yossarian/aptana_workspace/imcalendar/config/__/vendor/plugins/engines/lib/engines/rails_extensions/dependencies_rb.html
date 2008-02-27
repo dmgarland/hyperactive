@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: dependencies.rb</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../../../../../../../../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>dependencies.rb</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>/home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/dependencies.rb
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Mar 29 21:11:15 +0100 2007</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+One of the magic features that that engines plugin provides is the ability
+to override selected methods in controllers and helpers from your
+application. This is achieved by trapping requests to load those files, and
+then mixing in code from plugins (in the order the plugins were loaded)
+before finally loading any versions from the main <tt>app</tt> directory.
+</p>
+<p>
+The behaviour of this extension is output to the log file for help when
+debugging.
+</p>
+<h2>Example</h2>
+<p>
+A plugin contains the following controller in
+<tt>plugin/app/controllers/my_controller.rb</tt>:
+</p>
+<pre>
+  class MyController &lt; ApplicationController
+    def index
+      @name = &quot;HAL 9000&quot;
+    end
+    def list
+      @robots = Robot.find(:all)
+    end
+  end
+</pre>
+<p>
+In one application that uses this plugin, we decide that the name used in
+the index action should be &quot;Robbie&quot;, not &quot;HAL 9000&quot;. To
+override this single method, we create the corresponding controller in our
+application (<tt>RAILS_ROOT/app/controllers/my_controller.rb</tt>), and
+redefine the method:
+</p>
+<pre>
+  class MyController &lt; ApplicationController
+    def index
+      @name = &quot;Robbie&quot;
+    end
+  end
+</pre>
+<p>
+The list method remains as it was defined in the plugin controller.
+</p>
+<p>
+The same basic principle applies to helpers, and also views and partials
+(although view overriding is performed in <a
+href="../../../../../../../../../../../../../classes/Engines/RailsExtensions/Templates.html">Engines::RailsExtensions::Templates</a>;
+see that module for more information).
+</p>
+<h3>What about models?</h3>
+<p>
+Unfortunately, it&#8216;s not possible to provide this kind of magic for
+models. The only reason why it&#8216;s possible for controllers and helpers
+is because they can be recognised by their filenames
+(&quot;whatever_controller&quot;, &quot;jazz_helper&quot;), whereas models
+appear the same as any other typical Ruby library (&quot;node&quot;,
+&quot;user&quot;, &quot;image&quot;, etc.).
+</p>
+<p>
+If mixing were allowed in models, it would mean code mixing for
+<b>every</b> file that was loaded via <tt>require_or_load</tt>, and this
+could result in problems where, for example, a Node model might start to
+include functionality from another file called &quot;node&quot; somewhere
+else in the <tt>$LOAD_PATH</tt>.
+</p>
+<p>
+One way to overcome this is to provide model functionality as a module in a
+plugin, which developers can then include into their own model
+implementations.
+</p>
+<p>
+Another option is to provide an abstract model (see the ActiveRecord::Base
+documentation) and have developers subclass this model in their own
+application if they must.
+</p>
+<hr size="1"></hr><p>
+The <a
+href="../../../../../../../../../../../../../classes/Engines/RailsExtensions/Dependencies.html">Engines::RailsExtensions::Dependencies</a>
+module includes a method to override Dependencies.require_or_load, which is
+called to load code needed by <a
+href="../../../../../../../../../../../../../classes/Rails.html">Rails</a>
+as it encounters constants that aren&#8216;t defined.
+</p>
+<p>
+This method is enhanced with the code-mixing features described above.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

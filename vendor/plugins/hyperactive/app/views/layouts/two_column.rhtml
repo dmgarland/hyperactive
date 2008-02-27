@@ -1,0 +1,135 @@
+<%= render(:partial => "shared/header") %>
+
+<!-- start page -->
+<div id="page-two-column">
+	<!-- start content -->
+	<div id="content_wide">
+		<% if flash[:notice] -%>
+	        <div id="notice"><%= flash[:notice] %></div>
+	    <% end -%>
+		<% if @current_controller == "events" %>
+			<%= render(:partial => "/events/event_nav") %>
+		<% end %>
+		<%= @content_for_layout %>
+	</div>
+	<!-- end content -->
+	<!-- start sidebars -->
+
+	<div id="sidebar2" class="sidebar">
+		<ul>
+			<li>
+				<%= render :partial => 'shared/searchbox' %>
+			</li>
+			<% if controller == "publish" && controller.action_name == "index" %> 
+			<li>
+				<h2>Tags</h2>
+				<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  </li>
+			<li>
+				<h2>Places</h2>
+				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+			<% end %>
+			<li>
+				<h2>Calendar</h2>
+				<div id="calendar_wrap">
+					<table summary="Calendar">
+						<caption>
+						October 2007
+						</caption>
+						<thead>
+							<tr>
+								<th abbr="Monday" scope="col" title="Monday">M</th>
+								<th abbr="Tuesday" scope="col" title="Tuesday">T</th>
+								<th abbr="Wednesday" scope="col" title="Wednesday">W</th>
+								<th abbr="Thursday" scope="col" title="Thursday">T</th>
+								<th abbr="Friday" scope="col" title="Friday">F</th>
+								<th abbr="Saturday" scope="col" title="Saturday">S</th>
+								<th abbr="Sunday" scope="col" title="Sunday">S</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<td abbr="September" colspan="3" id="prev"><a href="#" title="View posts for September 2007">&laquo; Sep</a></td>
+								<td class="pad">&nbsp;</td>
+								<td colspan="3" id="next">&nbsp;</td>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td id="today">4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td>14</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>16</td>
+								<td>17</td>
+								<td>18</td>
+								<td>19</td>
+								<td>20</td>
+								<td>21</td>
+							</tr>
+							<tr>
+								<td>22</td>
+								<td>23</td>
+								<td>24</td>
+								<td>25</td>
+								<td>26</td>
+								<td>27</td>
+								<td>28</td>
+							</tr>
+							<tr>
+								<td>29</td>
+								<td>30</td>
+								<td>31</td>
+								<td class="pad" colspan="4">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</li>
+			<li>
+				<h2>Categories</h2>
+				<ul>
+					<li><a href="#">Aliquam libero</a></li>
+					<li><a href="#">Consectetuer adipiscing elit</a></li>
+					<li><a href="#">Metus aliquam pellentesque</a></li>
+					<li><a href="#">Suspendisse iaculis mauris</a></li>
+					<li><a href="#">Urnanet non molestie semper</a></li>
+					<li><a href="#">Proin gravida orci porttitor</a></li>
+					<li><a href="#">Aliquam libero</a></li>
+					<li><a href="#">Consectetuer adipiscing elit</a></li>
+					<li><a href="#">Metus aliquam pellentesque</a></li>
+					<li><a href="#">Urnanet non molestie semper</a></li>
+					<li><a href="#">Proin gravida orci porttitor</a></li>
+					<li><a href="#">Aliquam libero</a></li>
+					<li><a href="#">Consectetuer adipiscing elit</a></li>
+					<li><a href="#">Metus aliquam pellentesque</a></li>
+					<li><a href="#">Suspendisse iaculis mauris</a></li>
+					<li><a href="#">Urnanet non molestie semper</a></li>
+					<li><a href="#">Proin gravida orci porttitor</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<!-- end sidebars -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<div id="footer">
+	<p>&copy;2007 All Rights Reserved. &nbsp;&bull;&nbsp; Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+</body>
+</html>

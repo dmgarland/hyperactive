@@ -1,0 +1,124 @@
+<%= error_messages_for :content %>
+
+<!--[form:event]-->
+<p><em>*</em> = required field</p>
+<p><label for="content_title">Title<em>*</em></label><br/>
+<%= f.text_field 'title'  %></p>
+
+<p><label for="content_date">Date of Event<em>*</em></label><br/>
+<%= f.datetime_select 'date', :start_year=>Date.today.year  %></p>
+
+<p><label for="content_published_by">Your name:<em>*</em></label><br/>
+<%= f.text_field 'published_by' %></p>
+
+<p><label for="content_contact_email">Contact email address for event:</label><br/>
+<%= f.text_field 'contact_email' %></p>
+
+<p><label for="content_contact_phone">Contact phone number for event:</label><br/>
+<%= f.text_field 'contact_phone' %></p>
+
+<p><label for="content_place_tags">City, region, or neighbourhood<em>*</em> - e.g. London Brixton</label><br/>
+<%= text_field_tag 'place_tags', params[:place_tags] || @content.place_tag_list %></p>
+
+
+<p><label for="content_summary">Place<em>*</em> - include street address, room number, etc.</label><br/>
+<%= f.text_area 'summary', :cols=>80, :rows=>5  %></p>
+
+<p><label for="content_body">Description<em>*</em></label><br/>
+<%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
+
+<% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
+    <p>
+    <div id="categories_list">
+    <%= render(:partial => "categories_checkboxes") %>
+    </div>
+    </p>
+<% end %>
+
+<% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
+    <p><label for="event_published">Published</label><br/>
+    <%= f.check_box 'published' %></p>
+    
+    <p><label for="event_hidden">Hidden</label><br/>
+    <%= f.check_box 'hidden' %></p>
+    
+    <p><label for="event_promoted">Promoted</label><br/>
+    <%= f.check_box 'promoted' %></p>
+        
+<% end %>
+
+<p><label for="content_tag_list">Tags - separate with spaces</label><br/>
+<%= text_field_tag 'tags', params[:tags] || @content.tag_list %></p>
+
+ <% if controller.action_name == "new" %>
+ <p>Repeating event (optional)</p>
+ <p><%= radio_button_tag :event_repeat_type, "none", :selected => true %>
+    <label for="event_has_event_group">Do not repeat this event</label>
+    <br/>
+    
+    <%= radio_button_tag :event_repeat_type, "repeat_simple" %>
+    <label for="event_has_event_group">Repeat</label>
+    <%= select_tag(:event_repeats_every, options_for_select({"every" => 1, "every other" => 2, "every third" => 3, "every fourth" => 4}, :selected => 0))%>
+    <%= select_tag(:event_repeats_dwm, options_for_select(["day", "week", "month"]))%>
+    <br/>
+    
+    <%= radio_button_tag :event_repeat_type, "repeat_complex" %>
+    <label for="event_has_event_group">Repeat on the</label>
+    <%= select_tag(:event_repeats_which_week, options_for_select(%w[ first second third fourth last]))%>
+    <%= select_tag(:event_repeats_week_day, options_for_select(%w[ Monday Tuesday Wednesday Thursday Friday Saturday Sunday ]))%>
+    of the month every      <%= select_tag(:event_repeat_period, options_for_select([["month",1], ["other month",2]]), :selected => true)%>
+    <br/>
+</p>
+<p>Until: <%= select_date (date = Date.today)  %> Note: you can only repeat events for a maximum of 6 months from the date of the first event.</p>
+<% end %>
+
+<noscript>
+<p><a name="noJS">Oops!</a> 
+You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
+Please enable JavaScript in your browser's preferences if you want to add a photo or a link.
+</p>
+</noscript>
+
+<h2>Media uploads</h2>
+
+<p>
+Click on the "add photo", "add video", or "add file upload" link for each file 
+you want to upload. You can upload as many files as you want by clicking the "add" 
+links multiple times.	
+</p>
+
+ <fieldset>
+    <legend>
+        Photos
+    </legend>
+    <%= sub_list_content 'Photo', 'content' %>
+    <%= sub_list_add_link 'Photo', 'Add Photo' %> (click again for multiple photo uploads)
+ </fieldset>
+ 
+  <fieldset>
+    <legend>
+        Videos
+    </legend>
+    <%= sub_list_content 'Video', 'content' %>
+    <%= sub_list_add_link 'Video', 'Add Video' %> (click again for multiple video uploads)
+ </fieldset>
+ 
+ <fieldset>
+    <legend>
+        File Uploads
+    </legend>
+    <%= sub_list_content 'FileUpload', 'content' %>
+    <%= sub_list_add_link 'FileUpload', 'Add File Upload' %> (click again for multiple file uploads)
+ </fieldset>
+ 
+<fieldset>
+    <legend>
+        Links
+    </legend>
+    <%= sub_list_content 'Link', 'content' %>
+    <%= sub_list_add_link 'Link', 'Add Link' %> (click again for multiple links)
+ </fieldset>
+
+
+<!--[eoform:event]-->
+

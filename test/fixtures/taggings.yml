@@ -1,0 +1,32 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+foo_tagging:
+  id: 1
+  tag_id: 1
+  taggable_id: 1
+  taggable_type: Content # TODO: why not Event here? Investigate STI + has_many_polymorphs 
+  hide_tag: false
+  event_date: <%= Date.today %>
+  
+bar_tagging:
+  id: 2
+  tag_id: 2
+  taggable_id: 1
+  taggable_type: Content
+  hide_tag: false
+  event_date: <%= Date.today %>  
+
+hidden_tagging:
+  id: 3
+  tag_id: 3
+  taggable_id: 3
+  taggable_type: Event
+  hide_tag: true
+  event_date: <%= Date.today %>  
+  
+past_tagging:
+  id: 4
+  tag_id: 2
+  taggable_id: 2
+  taggable_type: Event
+  hide_tag: false
+  event_date: <%= Date.today - 5 %> 

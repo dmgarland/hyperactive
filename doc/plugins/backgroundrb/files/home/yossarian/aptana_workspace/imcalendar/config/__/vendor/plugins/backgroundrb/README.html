@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../../../../../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>/home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/backgroundrb/README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sat Dec 09 18:45:52 +0000 2006</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a></h1>
+<p>
+<a href="http://backgroundrb.devjavu.com">backgroundrb.devjavu.com</a>
+(trac) <a
+href="http://svn.devjavu.com/backgroundrb/tags/release-0.2.0">svn.devjavu.com/backgroundrb/tags/release-0.2.0</a>
+(latest release) <a
+href="http://svn.devjavu.com/backgroundrb/trunk">svn.devjavu.com/backgroundrb/trunk</a>
+(svn trunk) <a
+href="http://backgroundrb.rubyforge.org">backgroundrb.rubyforge.org</a>
+(rdoc)
+</p>
+<p>
+Copyright (c) 2006 Ezra Zygmuntowicz and skaar[at]waste[dot]org
+</p>
+<h2>DISCLAIMER</h2>
+<p>
+The 0.2.0 release of <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+is a complete re-write of previous releases and is to be considered
+experimental, in-complete and in many respect untested. Our goal is to
+reach a release recommended for production use by 0.3.x. This said, this
+release is a more robust solution that the previous release.
+</p>
+<p>
+Also not that support for Windows is deprecated with this release of <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>.
+</p>
+<h2>Introduction</h2>
+<p>
+<a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+is a ruby job server and scheduler. It main intent is to be used with Ruby
+on Rails applications for offloading long running tasks. Since a rails
+application blocks while servicing a request it is best to move long
+running tasks off into a background process that is divorced from the http
+request/response cycle.
+</p>
+<p>
+This new release of <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+is also modular and can be used without Rails. So any ruby program or
+framework can use it.
+</p>
+<h2>Technology Overview</h2>
+<p>
+This 0.2.x branch of <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+introduces a completely new architecture then the previous versions.
+Instead of a single process, multi threaded environment, the new system
+uses multi process with IPC to manage workers. So each of your workers will
+run in their own ruby interpreter. The interface that you use within rails
+remains mostly unchanged. You still use the MiddleMan object for your
+interactions with the server but you will need to be aware of the new way
+results are handled. There is now a persistent Result worker where you will
+store your results and retrieve them from. This is because now that your
+workers each run in their own process, you will want them to terminate as
+soon as they are done working to avoid too many running processes. So now
+you just store all your data you want to share in the results hash in you
+worker classes. Like so:
+</p>
+<p>
+def do_work(args)
+</p>
+<pre>
+  logger.info('ExampleWorker do work')
+  results[:do_work_time] = Time.now.to_s
+  results[:progress] = 0
+  # more code here..
+</pre>
+<p>
+end
+</p>
+<p>
+Then these results are available in rails via the results hash:
+</p>
+<p>
+do_work_time = <a
+href="http://:do_work_time">MiddleMan.worker(session[:job_key]).results</a>
+progress = <a
+href="http://:progress">MiddleMan.worker(session[:job_key]).results</a>
+</p>
+<p>
+Also note that when the server starts up, you will see 3 processes running.
+One of the is the MiddleMan server, one is the results worker and one is
+the logger worker. When you do a logger.info(&quot;foo log!&quot;) in your
+workers, you are actually logging to the Logger worker.
+</p>
+<p>
+As you might imagine, this new way of managing multiple processes will
+scale a lot better then the multi threaded single process version ;) But
+also be aware that there is still a thread pool in the middleman that you
+can control the size of. All this does is keep the plugin from spawning too
+many processes. It will allow however many workers you specify to run at
+once and any more then that will just queue up and wit for their turn to
+spawn.
+</p>
+<h2>Dependencies</h2>
+<p>
+You need the following packages installed to use BackgrounDRB:
+</p>
+<ul>
+<li>Slave 1.0.0 (or higher)
+
+</li>
+<li>Daemons 1.0.2 (or higher)
+
+</li>
+</ul>
+<p>
+If you are going to run RailsBase workers, <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+needs to be installed in vendors/plugins/backgroundrb.
+</p>
+<h2>Upgrading from pre 0.2.0 versions</h2>
+<p>
+If you have the old <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+installed as a Rails plugin, you will have to remove the
+script/backgroundrb directory. In the new version script/backgroundrb is a
+script which controls the server process.
+</p>
+<p>
+The old configuration file is largely compatible, although some options are
+obsolete and will just be ignored.
+</p>
+<p>
+Workers now need to be registered for the MiddleMan to accept them. You can
+do this immediately following the worker class definition. See the Workers
+section in this document.
+</p>
+<p>
+The old BackgroundDRb::Rails is now BackgrounDRb::Worker::RailsBase, but
+for now there is a compatibility wrapper class, although this migth go away
+in the future, so we suggest you update your workes.
+</p>
+<p>
+Periodic execution is now externalized from the worker class. You will
+remove calls to &#8216;repeat_every&#8217; and &#8216;first_run&#8217;. See
+the Scheduler section how to define this external to the worker.
+</p>
+<h2>Installation</h2>
+<p>
+<a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+can either be run stand-alone or as a Rails plugin
+</p>
+<h3><a href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a> Rails plugin</h3>
+<p>
+Plain install:
+</p>
+<pre>
+  cd RAILS_ROOT/vendor/plugins
+  svn co \
+    http://svn.devjavu.com/backgroundrb/tags/release-0.2.0 \
+    backgroundrb
+  cd RAILS_ROOT
+  rake backgroundrb:setup
+</pre>
+<p>
+As svn external:
+</p>
+<pre>
+  svn propedit svn:external vendor/plugins
+  [add the following line:]
+  http://svn.devjavu.com/backgroundrb/tags/release-0.2.0 backgroundrb
+  [exit editor]
+
+  svn ci -m 'updating svn:external svn property for backgroundrb' vendor/plugins
+  svn up vendor/plugins
+  rake backgroundrb:setup
+</pre>
+<p>
+See the Rails section on how to use the worker generator. The default file
+locations are:
+</p>
+<pre>
+  RAILS_ROOT/
+    config/backgroundrb.yml.
+    lib/workers
+    log/backgroundrb.log
+    log/backgroundrb.pid
+</pre>
+<h3><a href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a> Standalone</h3>
+<p>
+In stand-alone mode, the conf and workers directories are by default
+relative to the root of the backgroundrb directory. In this mode, you will
+not be able to use Rails workers.
+</p>
+<h2>Configuration</h2>
+<p>
+Example Configuration:
+</p>
+<pre>
+  host: localhost
+  port: 2999
+  worker_dir: lib/my_workers
+  rails_env: development
+  pool_size: 15
+</pre>
+<h2>Server</h2>
+<p>
+The <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+server is controlled through the ./script/backagroundrb scrip below the
+root of the backgroundrb directory (or RAILS_ROOT if you have run
+&#8216;rake backgroundrb:setup&#8217;)
+</p>
+<p>
+To start the server as a daemon, using either the default configuration
+file or the built-in defaults:
+</p>
+<pre>
+  ./script/backgroundrb start
+</pre>
+<p>
+Or with rake in RAILS_ROOT
+</p>
+<pre>
+  rake backgroundrb:start
+</pre>
+<p>
+To run the server in the foreground (which show some detail about when
+workers are created).
+</p>
+<pre>
+  ./script/backgroundrb run
+</pre>
+<p>
+<a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+specific options, which over-rides defaults and configuration file options,
+can be specified after a double dash, as in the following where you set a
+different port:
+</p>
+<pre>
+  ./script/backgroundrb start -- -p 7777
+</pre>
+<p>
+The full list of backgroundrb server options:
+</p>
+<pre>
+  -c, --config file_path           BackgrounDRb config file (path)
+  -h, --host name                  Server host (default: localhost)
+  -l, --list                       List configuration options
+  -p, --port num                   Server port (default: 2000)
+  -r, --rails_env string           Rails environment (default: development)
+  -s, --pool_size num              Thread pool size (default: 5)
+  -t, --tmp_dir dir_path           Override default temporary directory
+  -w, --worker_dir dir_path        Override default worker directory
+</pre>
+<p>
+Full help output is available by running:
+</p>
+<pre>
+  ./script/backgroundrb --help
+</pre>
+<h2>MiddleMan</h2>
+<p>
+The MiddleMan provides an interface to workers in the <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+server. Through the MiddelMan you can create new, access existing, delete
+or schedule workers. The MiddleMan object is exposed as a DRb services.
+</p>
+<h2>Workers</h2>
+<p>
+Workers are created from special worker classes sub-classed from either of
+the following:
+</p>
+<pre>
+  - BackgrounDRb::Worker::Base: plain workers
+  - BackgrounDRb::Worker::RailsBase: workers will load Rails environment
+    and have access to Model classes.
+</pre>
+<p>
+A simple example might be as following (see the Rails secton of this
+document for Rails worker):
+</p>
+<pre>
+  class ExampleWorker &lt; BackgrounDRb::Worker::Base
+
+    # do_work is called when the worker is created
+    def do_work(args)
+      logger.info('ExampleWorker do work')
+      results[:do_work_time] = Time.now.to_s
+      results[:done_with_do_work] ||= true
+    end
+
+    def other_method
+      logger.info('other_method in ExampleWorker called')
+      results[:extra_data] = &quot;Just a plain old string&quot;
+    end
+
+    def arg_method(arg)
+    end
+
+  end
+  ExampleWorker.register
+</pre>
+<p>
+The logger and results methods are described in the next section. Through
+the MiddleMan, you can now create a worker. (The following syntax assumes
+that you are accessing the MiddleMan from Rails)
+</p>
+<pre>
+  key = MiddleMan.new_worker(:class =&gt; :example_worker)
+  worker = MiddleMan.worker(key)
+  worker.other_method
+  worker.delete
+</pre>
+<p>
+The new_worker call will create the worker in a separate process and call
+do_work. It returns a key for the worker object which can be used to access
+the worker, allowing you to call additional methods. You can finally delete
+the worker when you are done, or even leave it around if you expect that
+you need to access it again without needing do_work to be automatically
+called for you.
+</p>
+<p>
+A named worker can be created by using the :job_key option:
+</p>
+<pre>
+  MiddleMan.new_worker(:class =&gt; :example_worker, :job_key =&gt; :foo_name)
+  worker = MiddleMan.worker(:foo_name)
+  worker.other_method
+  worker.delete
+</pre>
+<p>
+If an explicit name is used, MiddleMan.worker will behave as a singleton
+and return an existing worker or create a new worker.
+</p>
+<h2>Console</h2>
+<p>
+It is possible to access the <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+server by running the control script with the &#8216;console&#8217;
+command. This will bring you to an IRB session in the context of a
+MiddleMan DRb object:
+</p>
+<pre>
+  ./script/backgroundrb console
+  &gt;&gt; loaded_worker_classes
+  [&quot;ExampleWorker&quot;, &quot;OtherWorker&quot;]
+  &gt;&gt; new_worker(:class =&gt; :example_worker)
+</pre>
+<p>
+Remember that if you started the server with command line options
+overriding either defaults or options from the configuration file, this
+need to be reflected in the console command as well:
+</p>
+<pre>
+  ./script/backgroundrb start -- -P drbunix -w /srv/testworkers
+  ./script/backgroundrb console -- -P drbunix -w /srv/testworkers
+</pre>
+<h2>Results and Logging</h2>
+<p>
+The <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+server starts two default workers, for worker results and logging. As seen
+above, access to the results and logger methods are provided from the
+workers superclass and can be used without any setup required.
+</p>
+<p>
+Results out-live the workers, so that a worker can complete it&#8216;s work
+and be deleted, but the results still be available after the worker process
+is gone.
+</p>
+<pre>
+  MiddleMan.new_worker(
+    :class =&gt; :example_worker,
+    :job_key =&gt; :test_result
+  )
+  worker = MiddleMan.worker(:test_result)
+  worker.other_method
+  worker.delete
+  p worker.results.to_hash
+  =&gt; { :do_work_time =&gt; &quot;Mon Oct 23 11:40:34 EDT 2006&quot;,
+       :done_with_do_work =&gt; true,
+       :extra_data =&gt; &quot;Just a plain old string&quot; }
+</pre>
+<p>
+It is also possible to update results externally:
+</p>
+<pre>
+  worker.results[:external] = 42
+</pre>
+<p>
+The logger method gives you access to a regular Logger object, which can be
+called inside as well as externally, but does not out live the worker
+object. See the Workers section for examples of use.
+</p>
+<h2>Scheduling</h2>
+<p>
+DISCLAIMER: This is an area of new <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+that is still a moving target. The scheduler is more capable than this
+suggest, as you can load pretty much any Proc object into it. Yet there is
+really no good way to operate or identify them after they are scheduled.
+</p>
+<p>
+In the simplest cases, where you just want do_work to be calles, maybe with
+some argument you do:
+</p>
+<pre>
+  MiddleMan.schedule_worker(
+    :class =&gt; :example_worker,
+    :args =&gt; &quot;some arg to do_work&quot;
+    :job_key =&gt; :simple_schedule,
+    :trigger_args =&gt; {
+      :start =&gt; Time.now + 5.seconds,
+      :end =&gt; Time.now + 10.minutes,
+      :repeat_interval =&gt; 30.seconds
+    }
+</pre>
+<p>
+Workers can be scheduled by two built in &#8216;trigger&#8217; types. A
+simple &#8216;trigger&#8217; is specified with start, stop and interval.
+There is also a &#8216;cron trigger&#8216;
+</p>
+<pre>
+  require 'active_support'
+  MiddleMan.schedule_worker(
+    :class =&gt; :example_worker,
+    :job_key =&gt; :schedule_test,
+    :worker_method =&gt; :other_method,
+    :trigger_args =&gt; {
+      :start =&gt; Time.now + 5.seconds,
+      :end =&gt; Time.now + 10.minutes,
+      :repeat_interval =&gt; 30.seconds
+    }
+</pre>
+<p>
+The cron trigger uses a similar syntax to cron found on UNIX systems:
+</p>
+<pre>
+  MiddleMan.schedule_worker(
+    :class =&gt; simple_class,
+    :job_key =&gt; :schedule_test,
+    :worker_method =&gt; :arg_method,
+    :worker_method_args =&gt; &quot;my argument to arg_method&quot;,
+    :trigger_args =&gt; &quot;0 15 10 * * * *&quot;
+  )
+</pre>
+<p>
+Trigger type can be set explicitly with :trigger_type. The MiddleMan will
+autodetect if it&#8216;s a hash (:trigger) or string (:cron_trigger).
+</p>
+<h2>Rails</h2>
+<h3>Rake Tasks</h3>
+<pre>
+  rake backgroundrb:setup
+  rake backgroundrb:start (using options from configuration file)
+  rake backgroundrb:stop (using options from configuration file)
+</pre>
+<h3>Worker Generator</h3>
+<p>
+The Rails worker generator creates a skeleton RailsBase worker class:
+</p>
+<pre>
+  RAILS_ROOT/script/generate worker Testing
+</pre>
+<p>
+creates:
+</p>
+<pre>
+  lib/workers/testing_worker.rb
+</pre>
+<p>
+that looks like this:
+</p>
+<pre>
+  # Put your code that runs your task inside the do_work method it will
+  # be run automatically in a thread. You have access to all of your
+  # rails models.  You also get logger and results method inside of this
+  # class by default.
+  class TestingWorker &lt; BackgrounDRb::Worker::RailsBase
+
+    def do_work(args)
+      # This method is called in it's own new thread when you
+      # call new worker. args is set to :args
+    end
+
+  end
+  TestingWorker.register
+</pre>
+<h2>Known Issues</h2>
+<ul>
+<li>MiddleMan: There are still a number of places when you interact with the <a
+href="../../../../../../../../../../classes/BackgrounDRb.html">BackgrounDRb</a>
+server through the MiddleMan DRb object, where methods returns objecs which
+on the server has non-serializable data. Worker results are maybe the most
+notable:
+
+<pre>
+  Middleman.worker(:some_worker).results
+</pre>
+<p>
+This will give you a DRbObject, rather than the results hash. In this case
+we have provided a to_hash method.
+</p>
+<pre>
+  Middleman.worker(:some_worker).results.to_hash
+</pre>
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

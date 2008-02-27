@@ -1,0 +1,336 @@
+
+		<HTML>
+		<HEAD>
+		<TITLE>Star  Documentation</TITLE>
+		
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family:monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+		
+		</HEAD>
+		<BODY bgColor='white'>
+		<P class='majorTitle'>Star Documentation</P>
+		
+
+		<P><B>Author:</B> Alex Uhlmann<BR>
+		<B>Last Modified:</B> 09/23/05 19:46:42<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>Star class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>Star Properties:</P><div class='methodsDiv'>
+<a href='#innerRadius_def'>- innerRadius_def</a><br>
+<a href='#outerRadius_def'>- outerRadius_def</a><br>
+<a href='#sides_def'>- sides_def</a><br>
+<a href='#movieclip'>- movieclip</a><br>
+<a href='#lineThickness'>- lineThickness</a><br>
+<a href='#lineRGB'>- lineRGB</a><br>
+<a href='#lineAlpha'>- lineAlpha</a><br>
+<a href='#fillRGB'>- fillRGB</a><br>
+<a href='#fillAlpha'>- fillAlpha</a><br>
+</div><br>
+<P class='ToC'>Star Methods:</P><div class='methodsDiv'>
+<a href='#draw'>- draw</a><br>
+<a href='#drawBy'>- drawBy</a><br>
+<a href='#getInnerRadius'>- getInnerRadius</a><br>
+<a href='#setInnerRadius'>- setInnerRadius</a><br>
+<a href='#getOuterRadius'>- getOuterRadius</a><br>
+<a href='#setOuterRadius'>- setOuterRadius</a><br>
+<a href='#getSides'>- getSides</a><br>
+<a href='#setSides'>- setSides</a><br>
+<a href='#lineStyle'>- lineStyle</a><br>
+<a href='#fillStyle'>- fillStyle</a><br>
+<a href='#gradientStyle'>- gradientStyle</a><br>
+<a href='#setRegistrationPoint'>- setRegistrationPoint</a><br>
+<a href='#clear'>- clear</a><br>
+<a href='#getID'>- getID</a><br>
+<a href='#toString'>- toString</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>Star <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> Documentation not provided.</P>
+		<P class="methodTitle">description:</P>
+		<P>Star is a class for drawing star shaped polygons. Note that the stars by default 
+			'point' to	the right. This is because the method starts drawing
+			at 0 degrees by default, putting the first point to the right of center. 
+			Negative values for sides	draws the star in reverse direction, allowing for
+			knock-outs when used as part of a mask.
+			If you specify a movieclip as first parameter, the shape will be drawn inside this movieclip. 
+			If you omit the mc parameter, the class will create a new movieclip in _root.apContainer_mc.
+			<p>
+			Example 1: draw a star with default parameters.		
+			<blockquote><pre>
+			var myStar:Star = new Star();
+			myStar.draw();
+			</pre></blockquote> 
+			Example 2: draw a star with custom parameters.		
+			<blockquote><pre>
+			var myStar:Star = new Star(275,200,100,25,6);
+			myStar.lineStyle(2,0xff0000,100);
+			myStar.fillStyle(0xff0000,100);
+			myStar.draw();
+			</pre></blockquote>
+			Example 3. <a href="Star_03.html">(Example .swf)</a> A star that only consists of straight lines.
+			<blockquote><pre>
+			var myStar:Star = new Star(275,200,100,0,6);
+			myStar.lineStyle(2,0xff0000,100);
+			myStar.fillStyle(0xff0000,100);
+			myStar.draw();
+			</pre></blockquote>			
+</P>
+		<P class="methodTitle">usage:</P> <pre>var myStar:Star = new Star();</pre>
+		<pre>var myStar:Star = new Star(x, y, innerRadius, outerRadius, sides);</pre>
+		<pre>var myStar:Star = new Star(mc, x, y, innerRadius, outerRadius, sides);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul> 
+<li>mc (MovieClip) existing movieclip to draw in.</li>
+<li>x (Number) X position of the drawing. Center point.</li>
+<li>y (Number) Y position of the drawing. Center point.</li>
+<li>innerRadius (Number) Radius of the indent of the sides.</li>
+<li>outerRadius (Number) Radius of the tips of the sides.</li>
+<li>sides (Number) Number of sides (must be > 2)	 </li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>Star Properties:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='innerRadius_def'></A><u> innerRadius_def</u></P>
+				<P> (Number)(static) default property. Radius of the indent of the sides.</P>
+
+				<P class='methodTitle'><A name='outerRadius_def'></A><u> outerRadius_def</u></P>
+				<P> (Number)(static) default property. Radius of the tips of the sides.</P>
+
+				<P class='methodTitle'><A name='sides_def'></A><u> sides_def</u></P>
+				<P> (Number)(static) default property. Number of sides (must be > 2). Defaults to 4.</P>
+
+				<P class='methodTitle'><A name='movieclip'></A><u> movieclip</u></P>
+				<P> (MovieClip)(read only) Movieclip that contains the drawing.</P>
+
+				<P class='methodTitle'><A name='lineThickness'></A><u> lineThickness</u></P>
+				<P> (Number) Outline thickness.</P>
+
+				<P class='methodTitle'><A name='lineRGB'></A><u> lineRGB</u></P>
+				<P> (Number) Outline color of the drawing as hex number.</P>
+
+				<P class='methodTitle'><A name='lineAlpha'></A><u> lineAlpha</u></P>
+				<P> (Number) Outline transparency (alpha).</P>
+
+				<P class='methodTitle'><A name='fillRGB'></A><u> fillRGB</u></P>
+				<P> (Number) Fill color of the drawing.</P>
+
+				<P class='methodTitle'><A name='fillAlpha'></A><u> fillAlpha</u></P>
+				<P> (Number) Fill transparency.	</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>Star Methods:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='draw'></A><u> draw</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws stars.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.draw();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='drawBy'></A><u> drawBy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws the shape without clearing the movieclip.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.drawBy();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getInnerRadius'></A><u> getInnerRadius</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Return the radius of the indent of the sides.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.getInnerRadius();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number of the radius of the indent of the sides.
+	</P>
+
+				<P class='methodTitle'><A name='setInnerRadius'></A><u> setInnerRadius</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the radius of the indent of the sides.	
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.setInnerRadius(innerRadius);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>innerRadius (Number) radius of the indent of the sides.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getOuterRadius'></A><u> getOuterRadius</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Return the radius of the tips of the sides.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.getOuterRadius();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number of the radius of the tips of the sides.
+	</P>
+
+				<P class='methodTitle'><A name='setOuterRadius'></A><u> setOuterRadius</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the radius of the tips of the sides.	
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.setOuterRadius(outerRadius);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>outerRadius (Number) radius of the tips of the sides.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getSides'></A><u> getSides</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Return the sides of the drawing.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.getSides();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number of sides. 
+	</P>
+
+				<P class='methodTitle'><A name='setSides'></A><u> setSides</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the sides of the drawing.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.setSides(sides);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>sides (Number) the number of sides.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='lineStyle'></A><u> lineStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					define outline.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.lineStyle();</pre>
+			<pre>myStar.lineStyle(lineThickness, lineRGB, lineAlpha);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>lineThickness (Number) Outline thickness.</li>
+<li>lineRGB (Number) Outline color of the drawing as hex number.	</li>
+<li>lineAlpha (Number) Outline transparency (alpha).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='fillStyle'></A><u> fillStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					define fill.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myStar.fillStyle();</pre>
+			<pre>myStar.fillStyle(fillRGB, fillAlpha);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillRGB (Number) Fill color of the drawing.</li>
+<li>fillAlpha (Number) Fill transparency.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='gradientStyle'></A><u> gradientStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Same interface as MovieClip.beginGradientFill(). See manual.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.gradientStyle(fillType, colors, alphas, ratios, matrix);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillType (String)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>colors (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>alphas (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>ratios (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>matrix (Object)  Gradient property. See MovieClip.beginGradientFill().</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='setRegistrationPoint'></A><u> setRegistrationPoint</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the registration point of the shape. Defaults to center. Top left is 0,0. 
+						The parameter object accepts either a position property with the value of "CENTER" 
+						or x and y properties of with coordinates as values of the registration point.
+				<p>
+				Example 1: Set the registration point of an ellipse to the upper left corner (0,0) instead of center.
+				<blockquote><pre>
+				var myEllipse:Ellipse = new Ellipse(275,200,100,50);
+				myEllipse.setRegistrationPoint( {x:0,y:0} );
+				myEllipse.draw();
+				</pre></blockquote>
+				<p>
+				internally AnimationPackage centers all shapes with
+				<blockquote><pre>
+				myInstance.setRegistrationPoint( {position:"CENTER"} );
+				</pre></blockquote>	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.setRegistrationPoint(registrationObj);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>registrationObj (Object)</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='clear'></A><u> clear</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					removes all drawings. Identical to myInstance.movieclip.clear();
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.clear();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getID'></A><u> getID</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns a unique ID of the instance. Usefull for associative arrays.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getID();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='toString'></A><u> toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the name of the class.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.toString();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+			

@@ -1,0 +1,537 @@
+
+		<HTML>
+		<HEAD>
+		<TITLE>Blur  Documentation</TITLE>
+		
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family:monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+		
+		</HEAD>
+		<BODY bgColor='white'>
+		<P class='majorTitle'>Blur Documentation</P>
+		
+
+		<P><B>Author:</B> Alex Uhlmann<BR>
+		<B>Last Modified:</B> 09/28/05 09:58:59<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>Blur class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>Blur Properties:</P><div class='methodsDiv'>
+<a href='#movieclip'>- movieclip</a><br>
+<a href='#duration'>- duration</a><br>
+<a href='#easing'>- easing</a><br>
+<a href='#callback'>- callback</a><br>
+</div><br>
+<P class='ToC'>Blur Methods:</P><div class='methodsDiv'>
+<a href='#alphaIn'>- alphaIn</a><br>
+<a href='#put'>- put</a><br>
+<a href='#alphaOut'>- alphaOut</a><br>
+<a href='#remove'>- remove</a><br>
+<a href='#applyFunc'>- applyFunc</a><br>
+<a href='#animationStyle'>- animationStyle</a><br>
+<a href='#stop'>- stop</a><br>
+<a href='#pause'>- pause</a><br>
+<a href='#resume'>- resume</a><br>
+<a href='#lock'>- lock</a><br>
+<a href='#unlock'>- unlock</a><br>
+<a href='#isTweening'>- isTweening</a><br>
+<a href='#getStartValue'>- getStartValue</a><br>
+<a href='#getEndValue'>- getEndValue</a><br>
+<a href='#getCurrentValue'>- getCurrentValue</a><br>
+<a href='#getDurationElapsed'>- getDurationElapsed</a><br>
+<a href='#getDurationRemaining'>- getDurationRemaining</a><br>
+<a href='#addEventListener'>- addEventListener</a><br>
+<a href='#removeEventListener'>- removeEventListener</a><br>
+<a href='#removeAllEventListeners'>- removeAllEventListeners</a><br>
+<a href='#eventListenerExists'>- eventListenerExists</a><br>
+<a href='#getID'>- getID</a><br>
+<a href='#toString'>- toString</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>Blur <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> Documentation not provided.</P>
+		<P class="methodTitle">description:</P>
+		<P>Creates, removes and manipulates movieclip instances 
+			inside a container movieclip to simulate a blur effect.<p>		
+			There are two ways to use this class. One way is to specify 
+			the duration, easing equation and callback properties outside 
+			the current method, either with setting the properies directly 
+			or with the animationStyle() method like it is used in 
+			de.alex_uhlmann.animationpackage.drawing.
+			<p>
+			Example 1:
+			<blockquote><pre>
+			var myBlur:BlurDuplicate = new BlurDuplicate(mc.inner_mc);
+			myBlur.animationStyle(3000,Sine.easeIn,"onCallback");
+			myBlur.alphaIn();
+			myBlur.put(10,1,2,2);
+			</pre></blockquote>  			
+			Example 2: The alternative way is shorter.
+			<blockquote><pre>	
+			var myBlur:BlurDuplicate = new BlurDuplicate(mc.inner_mc);
+			myBlur.alphaIn(3000,Sine.easeIn,"onCallback");
+			myBlur.put(10,1,2,2);
+			</pre></blockquote>
+			Example 3: <a href="BlurDuplicate_03.html">(Example .swf)</a> Blur in, blur out loop. Use animationStyle() to define default animation properties. 
+			Later, modify animation properties directly, to customize animation.
+			<blockquote><pre>
+			var myBlur:BlurDuplicate = new BlurDuplicate(mc.inner_mc);
+			myBlur.animationStyle(3000,Sine.easeIn,"onCallback");
+			myBlur.alphaIn();
+			myBlur.put(10,1,2,0);
+			myListener.onCallback = function()
+			{
+				myBlur.callback = "onCallback2";
+				myBlur.alphaOut();
+			}
+			myListener.onCallback2 = function()
+			{		
+				myBlur.callback = "onCallback";	
+				myBlur.alphaIn();	
+				myBlur.put(10,1,2,0);
+			}
+			</pre></blockquote> 
+</P>
+		<P class="methodTitle">usage:</P> <tt>var myBlur:BlurDuplicate = new BlurDuplicate(inner_mc);</tt> 
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul> 
+<li>inner_mc (MovieClip) Movieclip to animate. Movieclip should have a parent clip.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>Blur Properties:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='movieclip'></A><u> movieclip</u></P>
+				<P> (MovieClip) Movieclip to animate. Movieclip should have a parent clip.</P>
+
+				<P class='methodTitle'><A name='duration'></A><u> duration</u></P>
+				<P> (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</P>
+
+				<P class='methodTitle'><A name='easing'></A><u> easing</u></P>
+				<P> (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</P>
+
+				<P class='methodTitle'><A name='callback'></A><u> callback</u></P>
+				<P> (String) Function to invoke after animation. See AnimationCore class. </P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>Blur Methods:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='alphaIn'></A><u> alphaIn</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Fade in blur. Works in combination with put method.		
+				<p>		
+				Example 1: Put a blur gradually with animation. Note: The alphaIn method 
+				has to be above the put method.
+				<blockquote><pre>			
+				var myBlur:BlurDuplicate = new BlurDuplicate(mc.inner_mc);
+				myBlur.alphaIn(3000,Sine.easeIn,"onCallback");
+				myBlur.put(10,1,2,2);
+				</pre></blockquote>
+				Example 2: Define animation properties outside of method.
+				<blockquote><pre>
+				var myBlur:BlurDuplicate = new BlurDuplicate(mc.inner_mc);
+				myBlur.animationStyle(3000,Sine.easeIn,"onCallback");
+				myBlur.alphaIn();
+				myBlur.put(10,1,2,2);
+				</pre></blockquote>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.alphaIn();</pre>
+			<pre>myBlur.alphaIn(duration);</pre>
+			<pre>myBlur.alphaIn(duration, callback);</pre>
+			<pre>myBlur.alphaIn(duration, easing, callback);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</li>
+<li>easing (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</li>
+<li>callback (String) Function to invoke after animation. See APCore class.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='put'></A><u> put</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Creates the blur. 			
+				<p> 
+				Example 1: Put a blur instantly.		
+				<blockquote><pre>
+				var myBlur:BlurDuplicate = new BlurDuplicate(mc.inner_mc);				
+				myBlur.put(10,1,2,2);
+				</pre></blockquote> 			
+				Example 2: Put a blur gradually with animation. Note: The alphaIn method 
+				has to be placed above the put method.
+				<blockquote><pre>			
+				var myBlur:BlurDuplicate = new BlurDuplicate(mc.inner_mc);
+				myBlur.alphaIn(3000,Sine.easeIn,"onCallback");
+				myBlur.put(10,1,2,2);
+				</pre></blockquote>
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.put(strength);</pre>
+			<pre>myBlur.put(strength, posFactor, scaleFactor, rotFactor);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>strength (Number) Blur power.</li>
+<li>posFactor (Number) Specifies how far the blur instances are positioned from inner_mc. Defaults to 0.</li>
+<li>scaleFactor (Number) Specifies how much the blur instances are scaled from inner_mc. Defaults to 0.</li>
+<li>rotFactor (Number) Specifies how much the blur instances are rotated from inner_mc. Defaults to 0.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='alphaOut'></A><u> alphaOut</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Fade out blur.	
+				<p>		
+				Example 1: Fade out a blur gradually with Default animation style properties.
+				Note: The alphaOut method has to be placed below the put method.
+				<blockquote><pre>			
+				var myBlur:Blur = new Blur(mc.inner_mc);
+				myBlur.put(10,1,0);
+				myBlur.alphaOut();
+				</pre></blockquote>
+				Example 2: Do the same just with customized animation style properties.
+				<blockquote><pre>
+				var myBlur:Blur = new Blur(mc.inner_mc);
+				myBlur.put(10,1,0);
+				myBlur.alphaOut(3000,Sine.easeIn,"onCallback");
+				</pre></blockquote>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.alphaOut();</pre>
+			<pre>myBlur.alphaOut(duration);</pre>
+			<pre>myBlur.alphaOut(duration, callback);</pre>
+			<pre>myBlur.alphaOut(duration, easing, callback);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</li>
+<li>easing (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</li>
+<li>callback (String) Function to invoke after animation. See APCore class.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='remove'></A><u> remove</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Removes blur instances. Note: alphaOut method removes blur instances automatically.	
+				<p>		
+				Example 1: <a href="Blur_remove_01.html">(Example .swf)</a> Remove a blur after fade in animation instantly.
+				<blockquote><pre>			
+				var myBlur:Blur = new Blur(mc.inner_mc);
+				myBlur.alphaIn(3000,Sine.easeIn,"onCallback");
+				myBlur.put(10,1,2,2);
+				myListener.onCallback = function()
+				{	
+					myBlur.remove();				
+				}
+				</pre></blockquote>
+				Example 2: To delete blur instances of a movieclip directly, 
+				specify the movieclip as a parameter. Do the same like above to illustrate this. 
+				<blockquote><pre>
+				var myBlur:Blur = new Blur(mc.inner_mc);
+				var myOtherBlur:Blur = new Blur();
+				myBlur.alphaIn(3000,Sine.easeIn,"onCallback");
+				myBlur.put(10,1,2,2);
+				delete myBlur;
+				myListener.onCallback = function()
+				{	
+					myOtherBlur.remove(mc);
+				}
+				</pre></blockquote>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.remove();</pre>
+			<pre>myBlur.remove(mc);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>mc (MovieClip) Container movieclip. Movieclip that contains the blur instances.	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> MovieClip that contained the blur instances.
+	</P>
+
+				<P class='methodTitle'><A name='applyFunc'></A><u> applyFunc</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Invoke a specified method of a class with parameters that effects all blur instances. 
+				The class needs to have a movieclip property, which applyFunc will use to set the Blur movieclip instance. 
+				If the last paremeter is a String it is treated as a callback 
+				and therefore send only to one Blur movieclip. Therefore I recommend 
+				using the functions of AnimationPackage that are compatible to these limitations. 
+				Furthermore, you cannot use pause(), stop() and resume() methods on animations created by myBlur.applyFunc().
+				<p>
+				Example 1: <a href="Blur_applyFunc_01.html">(Example .swf)</a> colors blur movieclips slightly red after fading in.
+				<blockquote><pre>			
+				var myBlur:Blur = new Blur(mc.inner_mc);
+				myBlur.alphaIn(3000,Sine.easeIn,"onCallback");
+				myBlur.put(10,1,2,0);
+				myListener.onCallback = function()
+				{	
+					myBlur.applyFunc(new ColorTransform(), "run", [0xff0000, 100, 4000, Quad.easeOut]);
+				}
+				</pre></blockquote>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.applyFunc(scope, funcStr);</pre> 		
+			<pre>myBlur.applyFunc(scope, funcStr, param);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>scope (Number) Object.</li>
+<li>funcStr (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</li>
+<li>param (Array) An optional array of parameters passed to funcStr. Note the limitations described in description. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='animationStyle'></A><u> animationStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					set the animation style properties for your animation.
+				Notice that if your easing equation supports additional parameters you 
+				can send those parameters with the easing parameter in animationStyle.
+				You have to send an Array as easing parameter. The first 
+				element has to be the easing equation in Robert Penner style. The 
+				following parameters can be your additional parameters. i.e.:
+				<blockquote><pre>
+				var myRotation:Rotation = new Rotation(mc);
+				myRotation.animationStyle(2000,[Back.easeOut,4]);
+				myRotation.run(360);
+				</pre></blockquote>
+				See also "Customizable easing equations" in readme for more information.	
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.animationStyle(duration);</pre>
+			<pre>myInstance.animationStyle(duration, callback);</pre>
+			<pre>myInstance.animationStyle(duration, easing, callback);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</li>
+<li>easing (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</li>
+<li>callback (String) Function to invoke after animation. See APCore class.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='stop'></A><u> stop</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					stops the animation if not locked..
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.stop();</tt> 
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully stopped. 
+	<code>false</code> if instance could not be stopped, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='pause'></A><u> pause</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					pauses the animation if not locked. Call resume() to continue animation.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.pause();</tt> 	  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) optional property. Number of milliseconds or frames to pause before continuing animation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully paused. 
+	<code>false</code> if instance could not be paused, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='resume'></A><u> resume</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					continues the animation if not locked. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.resume();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully resumed. 
+	<code>false</code> if instance could not be resumed, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='lock'></A><u> lock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					locks the animation to prevent pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.lock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='unlock'></A><u> unlock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					unlocks the animation to allow pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.unlock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='isTweening'></A><u> isTweening</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					checks if the instance is currently animated.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.isTweening();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance is tweening, 
+	<code>false</code> if instance is not tweening.
+	</P>
+
+				<P class='methodTitle'><A name='getStartValue'></A><u> getStartValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the original, starting value of the current tween. Percentage.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getStartValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getEndValue'></A><u> getEndValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the targeted value of the current tween. Percentage. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getEndValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getCurrentValue'></A><u> getCurrentValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current value of the current tween. Percentage.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getCurrentValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getDurationElapsed'></A><u> getDurationElapsed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the elapsed time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationElapsed();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getDurationRemaining'></A><u> getDurationRemaining</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the remaining time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationRemaining();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='addEventListener'></A><u> addEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Subscribe to a predefined event. The following standard EventDispatcher events are broadcasted<p>
+				<b>onStart</b>, broadcasted when animation starts.<br>
+				<b>onEnd</b>, broadcasted when animation ends.<p>
+				The even object returned, contains the following properties:<p>
+				<b>type</b> (String) event broadcasted.<br>
+				<b>target</b> (Object) event source.<br>			
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.addEventListener(event, listener);</pre>
+			    <pre>myBlur.addEventListener(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to subscribe listener to. GDispatcher specific feature allows to subscribe to all events from an event source if the string "ALL" is passed. </li>
+<li>listener (Object) The listener object to subscribe to the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. The name of a function to call. This function will be called within the scope of the object specified in the second parameter.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeEventListener'></A><u> removeEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Removes a listener from a subscribed event.	
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.removeEventListener(event, listener);</pre>
+			    <pre>myBlur.removeEventListener(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove subscribed listener from. GDispatcher specific feature allows to remove subscribtion to all events if the string "ALL" is passed. Works only if listener has been subscribed via the "ALL" string in addEventListener.</li>
+<li>listener (Object) The listener object to unsubscribe from the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. Only needed if the listener has been subscribed with a handler function.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeAllEventListeners'></A><u> removeAllEventListeners</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Removes all listeners for a specific event, or for all events.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.removeAllEventListeners();</pre>
+			    <pre>myBlur.removeAllEventListeners(event);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove all subscribed listeners from. If not specified, all listeners to any event will be removed.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='eventListenerExists'></A><u> eventListenerExists</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Checks if a listener is already subscribed to a certain event.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myBlur.eventListenerExists(event, listener);</pre>
+				<pre>myBlur.eventListenerExists(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to check subscription.</li>
+<li>listener (Object) The listener object to check subscription.</li>
+<li>handler (String) The handler function to check subscription.	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if event exists on listener. 
+	<code>false</code> if event doesn't exist on listener. 
+	</P>
+
+				<P class='methodTitle'><A name='getID'></A><u> getID</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns a unique ID of the instance. Usefull for associative arrays.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getID();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='toString'></A><u> toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the name of the class.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.toString();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+			

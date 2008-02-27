@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: PublishController</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">PublishController</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/app/controllers/publish_controller_rb.html">
+                app/controllers/publish_controller.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="ApplicationController.html">
+                ApplicationController
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000022">assign_week_number</a>&nbsp;&nbsp;
+      <a href="#M000006">calendar_month</a>&nbsp;&nbsp;
+      <a href="#M000017">check_end_date</a>&nbsp;&nbsp;
+      <a href="#M000018">check_event_group</a>&nbsp;&nbsp;
+      <a href="#M000013">create</a>&nbsp;&nbsp;
+      <a href="#M000024">create_event_group</a>&nbsp;&nbsp;
+      <a href="#M000016">destroy</a>&nbsp;&nbsp;
+      <a href="#M000025">do_video_conversion</a>&nbsp;&nbsp;
+      <a href="#M000014">edit</a>&nbsp;&nbsp;
+      <a href="#M000021">find_correct_day_for_complex_event</a>&nbsp;&nbsp;
+      <a href="#M000001">list</a>&nbsp;&nbsp;
+      <a href="#M000007">list_by_day</a>&nbsp;&nbsp;
+      <a href="#M000003">list_by_event_date</a>&nbsp;&nbsp;
+      <a href="#M000004">list_by_event_group</a>&nbsp;&nbsp;
+      <a href="#M000005">list_by_month</a>&nbsp;&nbsp;
+      <a href="#M000008">list_by_week</a>&nbsp;&nbsp;
+      <a href="#M000010">list_one_week</a>&nbsp;&nbsp;
+      <a href="#M000002">list_promoted</a>&nbsp;&nbsp;
+      <a href="#M000009">list_seven_days</a>&nbsp;&nbsp;
+      <a href="#M000012">new</a>&nbsp;&nbsp;
+      <a href="#M000020">setup_complex_repeat_events</a>&nbsp;&nbsp;
+      <a href="#M000023">setup_event_copy</a>&nbsp;&nbsp;
+      <a href="#M000019">setup_simple_repeat_events</a>&nbsp;&nbsp;
+      <a href="#M000011">show</a>&nbsp;&nbsp;
+      <a href="#M000026">splitdate</a>&nbsp;&nbsp;
+      <a href="#M000015">update</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">UIEnhancements::SubList</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">calendar_month</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 73</span>
+73:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">calendar_month</span>
+74:     <span class="ruby-identifier">list_by_month</span>
+75:     <span class="ruby-ivar">@month_display</span> = <span class="ruby-constant">MonthDisplay</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@date</span>)
+76:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'onecolumn'</span>
+77:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">create</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 140</span>
+140:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+141:     <span class="ruby-ivar">@event</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event</span>])
+142:     <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">is_anonymous?</span>
+143:     <span class="ruby-identifier">check_end_date</span>
+144:     <span class="ruby-identifier">success</span> = <span class="ruby-keyword kw">true</span>
+145:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_photos</span>
+146:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_videos</span>
+147:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_links</span>
+148:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_file_uploads</span>
+149:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">save</span>
+150:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">success</span>
+151:       <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">tag_with</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:tags</span>]
+152:       <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">place_tag_with</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:place_tags</span>]
+153:       <span class="ruby-identifier">check_event_group</span>
+154:       <span class="ruby-identifier">do_video_conversion</span>
+155:       <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-value str">'Event was successfully created.'</span>
+156:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'show'</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@event</span>
+157:     <span class="ruby-keyword kw">else</span>
+158:       <span class="ruby-identifier">prepare_photos</span>
+159:       <span class="ruby-identifier">prepare_videos</span>
+160:       <span class="ruby-identifier">prepare_links</span>      
+161:       <span class="ruby-identifier">prepare_file_uploads</span>
+162:       <span class="ruby-identifier">render</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'new'</span>
+163:     <span class="ruby-keyword kw">end</span>
+164:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">destroy</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 195</span>
+195:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
+196:     <span class="ruby-ivar">@event</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+197:     <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">destroy</span>
+198:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'list'</span>
+199:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">edit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 166</span>
+166:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
+167:     <span class="ruby-ivar">@event</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+168:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="#M000001" class="method-signature">
+          <span class="method-name">list</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000001-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 25</span>
+25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list</span>
+26:     <span class="ruby-ivar">@cloud</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">cloud</span>
+27:     <span class="ruby-ivar">@place_cloud</span> = <span class="ruby-constant">PlaceTag</span>.<span class="ruby-identifier">cloud</span>
+28:     <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(
+29:       <span class="ruby-identifier">:all</span>,  
+30:       <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'hidden = ? and published =?'</span>, <span class="ruby-keyword kw">false</span>, <span class="ruby-keyword kw">true</span>], 
+31:       <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'date desc'</span>, 
+32:       <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">events_per_page</span>, <span class="ruby-identifier">:current</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page_param</span>})
+33:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">list_by_day</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 79</span>
+79:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_by_day</span>
+80:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+81:       <span class="ruby-ivar">@date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>
+82:     <span class="ruby-keyword kw">else</span>
+83:       <span class="ruby-ivar">@date</span> = <span class="ruby-identifier">splitdate</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>])
+84:     <span class="ruby-keyword kw">end</span>  
+85:     <span class="ruby-identifier">datestring</span> = <span class="ruby-ivar">@date</span>.<span class="ruby-identifier">to_s</span>
+86:     <span class="ruby-identifier">page</span> = (<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:page</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">to_i</span>
+87:     <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(
+88:       <span class="ruby-identifier">:all</span>, 
+89:       <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'published = ? and hidden = ? and date = ?'</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">datestring</span>], 
+90:       <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">events_per_page</span>, <span class="ruby-identifier">:current</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>})  
+91:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="#M000003" class="method-signature">
+          <span class="method-name">list_by_event_date</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000003-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 40</span>
+40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_by_event_date</span>
+41:     <span class="ruby-ivar">@event_pages</span>, <span class="ruby-ivar">@events</span> = <span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">:events</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'hidden = ? and published = ?'</span>, <span class="ruby-keyword kw">false</span>, <span class="ruby-keyword kw">true</span>], <span class="ruby-identifier">:order_by</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'date desc'</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">events_per_page</span>)
+42:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="#M000004" class="method-signature">
+          <span class="method-name">list_by_event_group</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 44</span>
+44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_by_event_group</span>
+45:     <span class="ruby-identifier">event_group_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>]
+46:     <span class="ruby-comment cmt">#@event_pages, @events = paginate(:events, :conditions =&gt; ['hidden = ? and published = ?', false, true], :order_by =&gt; 'date desc', :per_page =&gt; events_per_page)</span>
+47:     <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find_all_by_event_group_id</span>(<span class="ruby-identifier">event_group_id</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'published = ? and hidden = ?'</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-keyword kw">false</span>])   
+48:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="#M000005" class="method-signature">
+          <span class="method-name">list_by_month</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 50</span>
+50:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_by_month</span>
+51:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+52:       <span class="ruby-identifier">today</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>
+53:       <span class="ruby-identifier">year</span> = <span class="ruby-identifier">today</span>.<span class="ruby-identifier">year</span>
+54:       <span class="ruby-identifier">month</span> = <span class="ruby-identifier">today</span>.<span class="ruby-identifier">month</span>
+55:     <span class="ruby-keyword kw">else</span>
+56:       <span class="ruby-identifier">year</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;-&quot;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>
+57:       <span class="ruby-identifier">month</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;-&quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+58:     <span class="ruby-keyword kw">end</span>  
+59:     <span class="ruby-ivar">@date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">year</span>,<span class="ruby-identifier">month</span>)
+60:     <span class="ruby-identifier">datestring</span> = <span class="ruby-ivar">@date</span>.<span class="ruby-identifier">to_s</span>
+61:     <span class="ruby-comment cmt"># HACK: make sure the year rolls over if we're in December so this next bit doesn't explode.</span>
+62:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@date</span>.<span class="ruby-identifier">month</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">12</span>
+63:       <span class="ruby-identifier">datestring2</span> = (<span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@date</span>.<span class="ruby-identifier">year</span>,<span class="ruby-ivar">@date</span>.<span class="ruby-identifier">month</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">to_s</span>
+64:     <span class="ruby-keyword kw">else</span>
+65:       <span class="ruby-identifier">datestring2</span> = (<span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@date</span>.<span class="ruby-identifier">year</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>, <span class="ruby-value">1</span>)).<span class="ruby-identifier">to_s</span>
+66:     <span class="ruby-keyword kw">end</span>
+67:     <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(
+68:       <span class="ruby-identifier">:all</span>, 
+69:       <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'published = ? and hidden = ? and date &gt; ? and date &lt; ?'</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">datestring</span>, <span class="ruby-identifier">datestring2</span>], 
+70:       <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">events_per_page</span>, <span class="ruby-identifier">:current</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page_param</span>})
+71:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">list_by_week</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 93</span>
+ 93:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_by_week</span>
+ 94:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+ 95:       <span class="ruby-identifier">today</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>
+ 96:       <span class="ruby-ivar">@date</span> = <span class="ruby-constant">Week</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">today</span>).<span class="ruby-identifier">first_day_in_week</span>
+ 97:     <span class="ruby-keyword kw">else</span>
+ 98:       <span class="ruby-identifier">date</span> = <span class="ruby-identifier">splitdate</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>])
+ 99:       <span class="ruby-ivar">@date</span> = <span class="ruby-constant">Week</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">first_day_in_week</span>
+100:       <span class="ruby-comment cmt"># TODO: refactor everything that currently uses my Month and Week</span>
+101:       <span class="ruby-comment cmt"># code in /lib once I figure out how this works:</span>
+102:       <span class="ruby-comment cmt">#@date = Time.new(year,month,day).beginning_of_week </span>
+103:       <span class="ruby-comment cmt"># There are apparently a whole pile of date code additions to rails that</span>
+104:       <span class="ruby-comment cmt"># I'm not using.     </span>
+105:     <span class="ruby-keyword kw">end</span>  
+106:     <span class="ruby-identifier">list_one_week</span>(<span class="ruby-ivar">@date</span>)
+107:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">list_one_week</span><span class="method-args">(date)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 118</span>
+118:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_one_week</span>(<span class="ruby-identifier">date</span>)
+119:     <span class="ruby-ivar">@date</span> = <span class="ruby-identifier">date</span>
+120:     <span class="ruby-identifier">datestring</span> = <span class="ruby-ivar">@date</span>.<span class="ruby-identifier">to_s</span>
+121:     <span class="ruby-identifier">datestring2</span> = (<span class="ruby-ivar">@date</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span>).<span class="ruby-identifier">to_s</span>
+122:     <span class="ruby-identifier">page</span> = (<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:page</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">to_i</span>
+123:     <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(
+124:       <span class="ruby-identifier">:all</span>, 
+125:       <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'published = ? and hidden = ? and date &gt; ? and date &lt; ?'</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">datestring</span>, <span class="ruby-identifier">datestring2</span>], 
+126:       <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">events_per_page</span>, <span class="ruby-identifier">:current</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>})   
+127:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="#M000002" class="method-signature">
+          <span class="method-name">list_promoted</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000002-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 35</span>
+35:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_promoted</span>
+36:     <span class="ruby-comment cmt">#@tagged_items = Event.tags_count(:limit =&gt; tags_in_cloud)</span>
+37:     <span class="ruby-ivar">@event_pages</span>, <span class="ruby-ivar">@events</span> = <span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">:events</span>,  <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'hidden = ? and published = ? and promoted = ?'</span>, <span class="ruby-keyword kw">false</span>, <span class="ruby-keyword kw">true</span>,<span class="ruby-keyword kw">true</span>], <span class="ruby-identifier">:order_by</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'date desc'</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">events_per_page</span>)
+38:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">list_seven_days</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 109</span>
+109:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_seven_days</span>
+110:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+111:       <span class="ruby-ivar">@date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>
+112:     <span class="ruby-keyword kw">else</span>
+113:       <span class="ruby-ivar">@date</span> = <span class="ruby-identifier">splitdate</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>])
+114:     <span class="ruby-keyword kw">end</span>  
+115:     <span class="ruby-identifier">list_one_week</span>(<span class="ruby-ivar">@date</span>)
+116:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 136</span>
+136:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+137:     <span class="ruby-ivar">@event</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>
+138:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">show</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 129</span>
+129:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+130:     <span class="ruby-ivar">@event</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+131:     <span class="ruby-ivar">@related_events</span> = <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">more_like_this</span>({<span class="ruby-identifier">:field_names</span> =<span class="ruby-operator">&gt;</span> [ <span class="ruby-identifier">:title</span>, <span class="ruby-identifier">:summary</span>, <span class="ruby-identifier">:description</span> ]}, {<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'hidden = ? and published = ?'</span>, <span class="ruby-keyword kw">false</span>, <span class="ruby-keyword kw">true</span>], <span class="ruby-identifier">:order_by</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'title asc'</span>, <span class="ruby-identifier">:limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>})
+132:     <span class="ruby-ivar">@date</span> = <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">&quot;%Y-%m-%d&quot;</span>)
+133:     <span class="ruby-comment cmt"># @related_tags = Event.find_related_tags(@event.tag_names.to_s, :separator =&gt; ',')</span>
+134:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">update</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 170</span>
+170:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+171:     <span class="ruby-ivar">@event</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+172:     <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event</span>])
+173:     <span class="ruby-identifier">check_end_date</span>
+174:     <span class="ruby-identifier">success</span> = <span class="ruby-keyword kw">true</span>
+175:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_photos</span>
+176:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_videos</span>
+177:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_file_uploads</span>
+178:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">initialize_links</span>    
+179:     <span class="ruby-identifier">success</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">save</span>    
+180:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">success</span>
+181:       <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">tag_with</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:tags</span>]
+182:       <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">place_tag_with</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:place_tags</span>]
+183:       <span class="ruby-identifier">do_video_conversion</span>     
+184:       <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-value str">'Event was successfully updated.'</span>
+185:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'show'</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@event</span>
+186:     <span class="ruby-keyword kw">else</span>
+187:       <span class="ruby-identifier">prepare_photos</span>
+188:       <span class="ruby-identifier">prepare_videos</span>
+189:       <span class="ruby-identifier">prepare_file_uploads</span>
+190:       <span class="ruby-identifier">prepare_links</span>
+191:       <span class="ruby-identifier">render</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'edit'</span>
+192:     <span class="ruby-keyword kw">end</span>
+193:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
+          <span class="method-name">assign_week_number</span><span class="method-args">(week)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+assigns a week integer to a week-of-the-month string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 294</span>
+294:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">assign_week_number</span>(<span class="ruby-identifier">week</span>)
+295:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">week</span>
+296:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;first&quot;</span>
+297:         <span class="ruby-keyword kw">return</span> <span class="ruby-value">1</span>
+298:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;second&quot;</span>
+299:         <span class="ruby-keyword kw">return</span> <span class="ruby-value">2</span>
+300:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;third&quot;</span>
+301:         <span class="ruby-keyword kw">return</span> <span class="ruby-value">3</span>
+302:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;fourth&quot;</span>
+303:         <span class="ruby-keyword kw">return</span> <span class="ruby-value">4</span>
+304:     <span class="ruby-keyword kw">end</span>   
+305:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">check_end_date</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+sets the event end date to nil if no end date has been submitted from the
+form.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 212</span>
+212:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_end_date</span>
+213:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event_has_end_date</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+214:       <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">end_date</span> = <span class="ruby-keyword kw">nil</span>
+215:     <span class="ruby-keyword kw">end</span>
+216:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="#M000018" class="method-signature">
+          <span class="method-name">check_event_group</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks whether a submitted event is a repeating event.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000018-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 219</span>
+219:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_event_group</span>
+220:     <span class="ruby-identifier">event_repeat_type</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event_repeat_type</span>]
+221:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">event_repeat_type</span>
+222:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;none&quot;</span>
+223:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;repeat_simple&quot;</span>
+224:         <span class="ruby-identifier">setup_simple_repeat_events</span>
+225:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;repeat_complex&quot;</span>
+226:         <span class="ruby-identifier">setup_complex_repeat_events</span>
+227:     <span class="ruby-keyword kw">end</span>
+228:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="#M000024" class="method-signature">
+          <span class="method-name">create_event_group</span><span class="method-args">(event)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+creates an event group for an event.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 318</span>
+318:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_event_group</span>(<span class="ruby-identifier">event</span>)
+319:       <span class="ruby-identifier">event_group</span> = <span class="ruby-constant">EventGroup</span>.<span class="ruby-identifier">new</span>
+320:       <span class="ruby-identifier">event_group</span>.<span class="ruby-identifier">save</span>
+321:       <span class="ruby-identifier">event</span>.<span class="ruby-identifier">event_group</span> = <span class="ruby-identifier">event_group</span>
+322:       <span class="ruby-identifier">event</span>.<span class="ruby-identifier">save</span>
+323:       <span class="ruby-identifier">event_group</span>
+324:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="#M000025" class="method-signature">
+          <span class="method-name">do_video_conversion</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+kicks off the video conversion process if any videos have been uploaded.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000025-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 327</span>
+327:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">do_video_conversion</span>
+328:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">videos</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+329:       <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">videos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">video</span><span class="ruby-operator">|</span>
+330:         <span class="ruby-identifier">video</span>.<span class="ruby-identifier">convert</span>
+331:       <span class="ruby-keyword kw">end</span>
+332:     <span class="ruby-keyword kw">end</span>
+333:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="#M000021" class="method-signature">
+          <span class="method-name">find_correct_day_for_complex_event</span><span class="method-args">(month, event_repeats_week_day, event_repeats_which_week)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+finds the correct day for a complex repeated event, given a month, a
+weekday, and a repeat period.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 283</span>
+283:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_correct_day_for_complex_event</span>(<span class="ruby-identifier">month</span>, <span class="ruby-identifier">event_repeats_week_day</span>, <span class="ruby-identifier">event_repeats_which_week</span>)
+284:     <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">event_repeats_which_week</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;last&quot;</span>)
+285:       <span class="ruby-ivar">@temp_day</span> = <span class="ruby-identifier">month</span>.<span class="ruby-identifier">last_in_month</span>(<span class="ruby-identifier">event_repeats_week_day</span>)
+286:     <span class="ruby-keyword kw">else</span>
+287:       <span class="ruby-identifier">first_named_weekday_in_month</span> = <span class="ruby-identifier">month</span>.<span class="ruby-identifier">first_in_month</span>(<span class="ruby-identifier">event_repeats_week_day</span>)
+288:       <span class="ruby-ivar">@temp_day</span> = <span class="ruby-identifier">first_named_weekday_in_month</span> <span class="ruby-operator">+</span> (<span class="ruby-value">7</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">assign_week_number</span>(<span class="ruby-identifier">event_repeats_which_week</span>) <span class="ruby-operator">-</span> <span class="ruby-value">1</span>))
+289:     <span class="ruby-keyword kw">end</span>
+290:     <span class="ruby-ivar">@temp_day</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@temp_day</span>.<span class="ruby-identifier">year</span>, <span class="ruby-ivar">@temp_day</span>.<span class="ruby-identifier">month</span>, <span class="ruby-ivar">@temp_day</span>.<span class="ruby-identifier">day</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">hour</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">min</span>)
+291:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="#M000020" class="method-signature">
+          <span class="method-name">setup_complex_repeat_events</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+sets up complex repeat events, like &quot;repeat on the last Tuesday of
+every second month.&quot;
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000020-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 260</span>
+260:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup_complex_repeat_events</span>
+261:     <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">reload</span>
+262:     <span class="ruby-ivar">@event_group</span> = <span class="ruby-identifier">create_event_group</span>(<span class="ruby-ivar">@event</span>)
+263:     <span class="ruby-ivar">@start_date</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">month</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">hour</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">min</span>)
+264:     <span class="ruby-ivar">@until_date</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>][<span class="ruby-identifier">:year</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>][<span class="ruby-identifier">:month</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>][<span class="ruby-identifier">:day</span>].<span class="ruby-identifier">to_i</span>)
+265:     <span class="ruby-identifier">event_repeats_which_week</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event_repeats_which_week</span>]
+266:     <span class="ruby-identifier">event_repeats_week_day</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event_repeats_week_day</span>]
+267:     <span class="ruby-identifier">event_repeat_period</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event_repeat_period</span>]
+268:     <span class="ruby-identifier">month</span> = <span class="ruby-constant">Month</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@start_date</span>)
+269:     <span class="ruby-ivar">@next_date</span> = <span class="ruby-identifier">find_correct_day_for_complex_event</span>(<span class="ruby-identifier">month</span>, <span class="ruby-identifier">event_repeats_week_day</span>, <span class="ruby-identifier">event_repeats_which_week</span>)
+270:     <span class="ruby-keyword kw">if</span>(<span class="ruby-ivar">@start_date</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@next_date</span>)
+271:       <span class="ruby-identifier">month</span> = <span class="ruby-constant">Month</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">month</span>.<span class="ruby-identifier">first_day_in_month</span> <span class="ruby-operator">&gt;&gt;</span> (<span class="ruby-value">1</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">event_repeat_period</span>.<span class="ruby-identifier">to_i</span>))
+272:       <span class="ruby-ivar">@next_date</span> = <span class="ruby-identifier">find_correct_day_for_complex_event</span>(<span class="ruby-identifier">month</span>, <span class="ruby-identifier">event_repeats_week_day</span>, <span class="ruby-identifier">event_repeats_which_week</span>)
+273:     <span class="ruby-keyword kw">end</span>
+274:     <span class="ruby-keyword kw">while</span> (<span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@until_date</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@start_date</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">6</span>)
+275:       <span class="ruby-identifier">setup_event_copy</span>(<span class="ruby-ivar">@next_date</span>)
+276:       <span class="ruby-identifier">month</span> = <span class="ruby-constant">Month</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">month</span>.<span class="ruby-identifier">first_day_in_month</span> <span class="ruby-operator">&gt;&gt;</span> (<span class="ruby-value">1</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">event_repeat_period</span>.<span class="ruby-identifier">to_i</span>))
+277:       <span class="ruby-ivar">@next_date</span>  = <span class="ruby-identifier">find_correct_day_for_complex_event</span>(<span class="ruby-identifier">month</span>, <span class="ruby-identifier">event_repeats_week_day</span>, <span class="ruby-identifier">event_repeats_which_week</span>)
+278:     <span class="ruby-keyword kw">end</span>
+279:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">setup_event_copy</span><span class="method-args">(next_date)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+copies an event and applies a <a
+href="PublishController.html#M000012">new</a> date to it.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 308</span>
+308:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup_event_copy</span>(<span class="ruby-identifier">next_date</span>)
+309:     <span class="ruby-ivar">@event2</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">copy</span>(<span class="ruby-ivar">@event</span>)
+310:     <span class="ruby-ivar">@event2</span>.<span class="ruby-identifier">event_group</span> = <span class="ruby-ivar">@event_group</span>
+311:     <span class="ruby-ivar">@event2</span>.<span class="ruby-identifier">date</span> = <span class="ruby-identifier">next_date</span>
+312:     <span class="ruby-ivar">@event2</span>.<span class="ruby-identifier">save</span>
+313:     <span class="ruby-ivar">@event2</span>.<span class="ruby-identifier">tag_with</span>(<span class="ruby-ivar">@event</span>.<span class="ruby-identifier">tag_list</span>)
+314:     <span class="ruby-ivar">@event2</span>.<span class="ruby-identifier">place_tag_with</span>(<span class="ruby-ivar">@event</span>.<span class="ruby-identifier">place_tag_list</span>)
+315:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="#M000019" class="method-signature">
+          <span class="method-name">setup_simple_repeat_events</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+sets up simple repeated events, like &quot;repeat every second day&quot; or
+&quot;repeat every second week&quot;
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000019-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 231</span>
+231:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup_simple_repeat_events</span>
+232:     <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">reload</span>
+233:     <span class="ruby-ivar">@event_group</span> = <span class="ruby-identifier">create_event_group</span>(<span class="ruby-ivar">@event</span>)
+234:     <span class="ruby-identifier">event_repeats_every</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event_repeats_every</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-comment cmt"># an integer</span>
+235:     <span class="ruby-identifier">period</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:event_repeats_dwm</span>] <span class="ruby-comment cmt"># day, week, or month</span>
+236:     <span class="ruby-ivar">@start_date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">month</span>, <span class="ruby-ivar">@event</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>)
+237:     <span class="ruby-ivar">@next_date</span> = <span class="ruby-ivar">@start_date</span>
+238:     <span class="ruby-ivar">@until_date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>][<span class="ruby-identifier">:year</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>][<span class="ruby-identifier">:month</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>][<span class="ruby-identifier">:day</span>].<span class="ruby-identifier">to_i</span>)
+239:     <span class="ruby-keyword kw">while</span> (<span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@until_date</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@start_date</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">6</span>)     
+240:       <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">period</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;day&quot;</span>)
+241:         <span class="ruby-ivar">@next_date</span> = <span class="ruby-ivar">@next_date</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">event_repeats_every</span>
+242:         <span class="ruby-keyword kw">if</span> (<span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@until_date</span>)
+243:           <span class="ruby-identifier">setup_event_copy</span>(<span class="ruby-ivar">@next_date</span>)
+244:         <span class="ruby-keyword kw">end</span>
+245:       <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">period</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;week&quot;</span>)
+246:         <span class="ruby-ivar">@next_date</span> = <span class="ruby-ivar">@next_date</span> <span class="ruby-operator">+</span> (<span class="ruby-value">7</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">event_repeats_every</span>)
+247:         <span class="ruby-keyword kw">if</span>(<span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@until_date</span>)
+248:           <span class="ruby-identifier">setup_event_copy</span>(<span class="ruby-ivar">@next_date</span>)
+249:         <span class="ruby-keyword kw">end</span>
+250:       <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">period</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;month&quot;</span>)
+251:         <span class="ruby-ivar">@next_date</span> = <span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">event_repeats_every</span>
+252:         <span class="ruby-keyword kw">if</span>(<span class="ruby-ivar">@next_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@until_date</span>)
+253:           <span class="ruby-identifier">setup_event_copy</span>(<span class="ruby-ivar">@next_date</span>)
+254:         <span class="ruby-keyword kw">end</span>
+255:       <span class="ruby-keyword kw">end</span> 
+256:     <span class="ruby-keyword kw">end</span>
+257:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="#M000026" class="method-signature">
+          <span class="method-name">splitdate</span><span class="method-args">(datestring)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000026-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/publish_controller.rb, line 335</span>
+335:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">splitdate</span>(<span class="ruby-identifier">datestring</span>)
+336:     <span class="ruby-identifier">year</span> = <span class="ruby-identifier">datestring</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;-&quot;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>
+337:     <span class="ruby-identifier">month</span> = <span class="ruby-identifier">datestring</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;-&quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+338:     <span class="ruby-identifier">day</span> = <span class="ruby-identifier">datestring</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;-&quot;</span>)[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>  
+339:     <span class="ruby-identifier">date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">year</span>, <span class="ruby-identifier">month</span>, <span class="ruby-identifier">day</span>)
+340:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

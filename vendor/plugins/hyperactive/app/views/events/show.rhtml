@@ -1,0 +1,100 @@
+<% @page_title = @content.title %>
+
+<div class="post">
+<h1 class="title"><%=h @content.title %></h1>
+<p class="byline"><small>Event date: <%=h long_date(@content.date) %></small></p>
+<p>posted by <strong><%=h @content.published_by.titleize %></strong></p>
+<%= image_tag "date.png" %><%= link_to "iCal", :action => 'ical_download', :id => @content %> 
+
+<% if @content.hidden == true %>
+    <p><strong>This event has been hidden under the Indymedia UK editorial guidelines.</strong></p>
+<% end %>
+
+<% if @content.belongs_to_event_group? %>
+    <p>This event is part of a series of repeating events.  To see
+    all the events, <%= link_to("click here", :action => 'list_by_event_group', :id => @content.event_group) %>.</p>
+    <p><% if current_user.has_permission?("hide") and @content.hidden == false %>
+	    <div id="event_group_hiding_controls">    
+	            <%= link_to_remote "Hide all events in this series of events" ,
+	                                :url => {:controller => 'hidden', :action => 'event_group_hiding_controls', :id => @content.id },
+	                                :update => 'event_group_hiding_controls' ,  
+									:before => "$('event_group_hiding_controls').hide()",
+									:complete => visual_effect(:appear, 'event_group_hiding_controls', :duration => 1)                   
+	            %>
+	    </div>
+    <% end %>
+<% end %>
+<p>Places: <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
+<p><%=h @content.place %>
+<div class='entry'><%= auto_link(simple_format(h(@content.summary))) %></div>
+<% if @content.videos.length > 0 %>
+    <h3>Videos</h3>
+    <%= render :partial => "shared/video_summary", :collection => @content.videos %>
+<% end %>
+<% if @content.photos.length > 0 %>
+    <p><h3>Photos</h3></p>
+    <% @content.photos.each do |photo| %>
+        <p><%= link_to (image_tag url_for_file_column(photo, "file", "medium")), url_for_file_column(photo, "file") %><br/>
+        <%=h photo.title %>
+        </p>
+    <% end %>
+<% end %>
+<% if @content.event_group_photos.length > 0 %>
+    <p><h3>Event Group Photos</h3></p>
+    <% @content.event_group_photos.each do |photo| %>
+        <p><%= link_to (image_tag url_for_file_column(photo, "file", "medium")), url_for_file_column(photo, "file") %><br/>
+        <%=h photo.title %>
+        </p>
+    <% end %>
+<% end %>            
+
+<% if @content.file_uploads.length > 0 %>
+    <p><h3>Attached Files</h3><br/>
+    <% @content.file_uploads.each do |file_upload| %>
+        <p><%= link_to image_tag("gedit-icon.png"), url_for_file_column(file_upload, "file") %> 
+        <%=h file_upload.title %></p>
+    <% end %></p>
+<% end %>
+<p><%= auto_link(simple_format(h(@content.body))) %></p>
+<% if @content.links.length > 0 %>
+    <p><h3>Links:</h3><br/>
+    <% @content.links.each do |link| %>
+        <p><%= link_to h(link.title), link.url %><br/>
+        <%=h link.description %></p>
+    <% end %></p>
+<% end %>
+<p><em>Tagged as:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
+
+<% if @content.contact_email != nil %>
+    <p><em>Contact email:</em> <%= mail_to h(@content.contact_email) %></p>
+<% end %>
+<% if @content.contact_phone != nil %>
+    <p><em>Contact phone:</em> <%=h @content.contact_phone %></p>
+<% end %>            
+<p><em>Event created on:</em> <%=h @content.created_on %></p>
+<p><em>Event updated on:</em> <%=h @content.updated_on %></p>
+
+<% if current_user.has_permission?("hide")  %>
+    <div id="event_hiding_controls">
+        <% if @content.hidden == false %>
+            <%= link_to_remote "Hide this event" ,
+                                :url => {:controller => 'hidden', :action => 'event_hiding_controls', :id => @content.id },
+                                :update => 'event_hiding_controls',  
+								:before => "$('event_hiding_controls').hide()",
+								:complete => visual_effect(:appear, 'event_hiding_controls', :duration => 1)                 
+            %>
+        <% else %>
+            <%= link_to_remote "Unhide this event" ,
+                                :url => {:controller => 'hidden', :action => 'event_unhiding_controls', :id => @content.id },
+                                :update => 'event_hiding_controls',
+								:complete => visual_effect(:appear, 'event_hiding_controls', :duration => 1)                   
+            %>
+        <% end %>
+    </div>
+<% end %>
+
+<p><% if editable_by?(current_user, @content)  %>
+<%= link_to 'Edit', edit_event_url(@content) %> |
+<% end %>
+<%= link_to 'Back', events_url %></p>
+</div>

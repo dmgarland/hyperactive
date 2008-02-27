@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+about:
+  id: 1
+  title: About the site
+  body: All about the site.
+editorial:
+  id: 2
+  title: Editorial policy
+  body: The editorial policy for the site.
+  

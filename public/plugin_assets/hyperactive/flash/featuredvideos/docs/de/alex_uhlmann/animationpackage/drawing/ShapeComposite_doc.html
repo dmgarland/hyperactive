@@ -1,0 +1,276 @@
+
+		<HTML>
+		<HEAD>
+		<TITLE>ShapeComposite  Documentation</TITLE>
+		
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family:monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+		
+		</HEAD>
+		<BODY bgColor='white'>
+		<P class='majorTitle'>ShapeComposite Documentation</P>
+		
+
+		<P><B>Author:</B> e2e4, Alex Uhlmann<BR>
+		<B>Last Modified:</B> 09/23/05 19:46:33<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>ShapeComposite class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>ShapeComposite Methods:</P><div class='methodsDiv'>
+<a href='#draw'>- draw</a><br>
+<a href='#drawBy'>- drawBy</a><br>
+<a href='#lineStyle'>- lineStyle</a><br>
+<a href='#fillStyle'>- fillStyle</a><br>
+<a href='#gradientStyle'>- gradientStyle</a><br>
+<a href='#clear'>- clear</a><br>
+<a href='#setRegistrationPoint'>- setRegistrationPoint</a><br>
+<a href='#getChilds'>- getChilds</a><br>
+<a href='#addChild'>- addChild</a><br>
+<a href='#removeChild'>- removeChild</a><br>
+<a href='#accept'>- accept</a><br>
+<a href='#getID'>- getID</a><br>
+<a href='#toString'>- toString</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>ShapeComposite <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> Documentation not provided.</P>
+		<P class="methodTitle">description:</P>
+		<P>ShapeComposite allows you to treat the classes of 
+			de.alex_uhlmann.animationpackage.drawing in a uniform manner.
+			ShapeComposite uses the composite design pattern. [GoF]
+			<p>
+			Example 1: <a href="ShapeComposite_01.html">(Example .swf)</a> 	
+			<pre><blockquote> 
+			//Draw standard rectangles. Primitives.
+			var myRect1:IDrawable = new Rectangle(100,100,100,90);
+			var myRect2:IDrawable = new Rectangle(100,200,100,90);
+			var myRect3:IDrawable = new Rectangle(100,300,100,90);
+			
+			//add the rectangle (primitives, leafs) to the composite myRectangles. The identifier allows you to remove rectangles at a later time with removeChild().		
+			var myRectangles:ShapeComposite = new ShapeComposite();
+			myRectangles.addChild(myRect1,"myRect1");
+			myRectangles.addChild(myRect2,"myRect2");
+			myRectangles.addChild(myRect3,"myRect3");
+			
+			//draw different shapes
+			var myStar:IDrawable = new Star(250,100,50,25,6);
+			var myGear:IDrawable = new Gear(250,200,40,50,8,15,10);
+			var myBurst:IDrawable = new Burst(250,300,40,50,10);
+			var myPoly:IDrawable = new Poly(400,100,50,6);
+			var myRoundRectangle:IDrawable = new RoundRectangle(400,200,50,50,10);
+			var myEllipse:IDrawable = new Ellipse(400,300,80,40);
+			var myArc:IDrawable = new Arc(525,100,40,0,270,"CHORD");
+			var myOpenArc:IDrawable = new Arc(525,200,40,0,270,"OPEN");
+			var myPie:IDrawable = new Arc(525,300,40,0,300,"PIE");
+			
+			//add the shapes (primitives, leafs) to the composite allMyShapes.
+			var allMyShapes:ShapeComposite = new ShapeComposite();
+			allMyShapes.addChild(myStar,"myStar");
+			allMyShapes.addChild(myGear,"myGear");
+			allMyShapes.addChild(myBurst,"myBurst");
+			allMyShapes.addChild(myPoly,"myPoly");
+			allMyShapes.addChild(myRoundRectangle,"myRoundRectangle");
+			allMyShapes.addChild(myEllipse,"myEllipse");
+			allMyShapes.addChild(myArc,"myArc");
+			allMyShapes.addChild(myOpenArc,"myOpenArc");
+			allMyShapes.addChild(myPie,"myPie");
+			
+			//add all the rectangles (composite) to the composite allMyShapes.
+			allMyShapes.addChild(myRectangles,"myRectangles");
+			
+			//treat everything inside the composite allMyShapes in a uniform manner.
+			allMyShapes.lineStyle(2,0x990000);
+			allMyShapes.fillStyle(0xff0000,100);
+			allMyShapes.draw();
+			
+			//animate everything in allMyShapes.
+			var shapeArr:Array = allMyShapes.getChilds();
+			for(var i = 0; i < shapeArr.length; i++) {	
+				var mc:MovieClip = shapeArr[i].movieclip;
+				new ColorTransform(mc).run(0x00ff00,50,10000);	
+				new Rotation(mc).run(360,10000,Elastic.easeOut);
+			}
+			</pre></blockquote>
+			<p> 			
+</P>
+		<P class="methodTitle">usage:</P> <tt>var myShapeComposite:ShapeComposite = new ShapeComposite();</tt> 
+
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>ShapeComposite Methods:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='draw'></A><u> draw</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws all the shapes of the composite.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.draw();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='drawBy'></A><u> drawBy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					draws all the shapes of the composite.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.draw();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='lineStyle'></A><u> lineStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					define outline.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.lineStyle();</pre>
+			<pre>myShapeComposite.lineStyle(lineThickness, lineRGB, lineAlpha);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>lineThickness (Number) Outline thickness.</li>
+<li>lineRGB (Number) Outline color as hex number.	</li>
+<li>lineAlpha (Number) Outline transparency (alpha).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='fillStyle'></A><u> fillStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					 define fill.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.fillStyle();</pre>
+			<pre>myShapeComposite.fillStyle(fillRGB, fillAlpha);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillRGB (Number) Fill color.</li>
+<li>fillAlpha (Number) Fill transparency.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='gradientStyle'></A><u> gradientStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Same interface as MovieClip.beginGradientFill(). See manual.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.gradientStyle(fillType, colors, alphas, ratios, matrix);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillType (String)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>colors (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>alphas (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>ratios (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>matrix (Object)  Gradient property. See MovieClip.beginGradientFill().</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='clear'></A><u> clear</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					removes all drawings. Identical to myInstance.movieclip.clear();
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.clear();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='setRegistrationPoint'></A><u> setRegistrationPoint</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the registration point of the composite.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.setRegistrationPoint(registrationObj);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>registrationObj (Object)</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getChilds'></A><u> getChilds</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns all stored composites and primitives as primitives. 
+					Note that this method ignores hierarchies in your composite 
+					for the sake of easy manipulation of all IDrawable shapes. See class description for an example.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.getChilds();</pre>		
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Array that returns the stored composites and primitives as primitves.
+	</P>
+
+				<P class='methodTitle'><A name='addChild'></A><u> addChild</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					adds a primitive or composite to the composite instance of ShapeComposite 
+	See class description.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.addChild(shape, identifier);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>component (IDrawable) Must be compatible to IDrawable.</li>
+<li>identifier (String) String that identifies shape to the user.	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> IDrawable component that was added.
+	</P>
+
+				<P class='methodTitle'><A name='removeChild'></A><u> removeChild</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					removes a primitive or composite from the composite instance of ShapeComposite 
+	See class description.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.removeChild(identifier);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>identifier (String) String that identifies shape to the user.	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='accept'></A><u> accept</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Allow a visitor to visit its elements. See Visitor design pattern [GoF].
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.accept(visitor);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>visitor (IVisitor) Must be compatible to de.alex_uhlmann.animationpackage.utility.IVisitor.	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getID'></A><u> getID</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns a unique ID of the instance. Usefull for associative arrays.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getID();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='toString'></A><u> toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the name of the class.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.toString();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+			

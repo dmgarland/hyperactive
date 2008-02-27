@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: ActiveRbacMixins::UserMixins::Validation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">ActiveRbacMixins::UserMixins::Validation</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/home/yossarian/aptana_workspace/imcalendar/config/__/vendor/plugins/active_rbac/lib/active_rbac_mixins/user_mixins_rb.html">
+                /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/lib/active_rbac_mixins/user_mixins.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000057">included</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="#M000057" class="method-signature">
+          <span class="method-name">included</span><span class="method-args">(base)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is called when the module is <a
+href="Validation.html#M000057">included</a>.
+</p>
+<p>
+On inclusion, we do a nifty bit of meta programming and make the including
+class validate as ActiveRBAC&#8216;s <a href="../../User.html">User</a>
+class does.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000057-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000057-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/active_rbac/lib/active_rbac_mixins/user_mixins.rb, line 445</span>
+445:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">base</span>)
+446:         <span class="ruby-identifier">base</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword kw">do</span>
+447:           <span class="ruby-identifier">validates_format_of</span>     <span class="ruby-identifier">:login</span>, 
+448:                                   <span class="ruby-identifier">:with</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp re">%r{^[\w \$\^\-\.#\*\+&amp;'&quot;]*$}</span>, 
+449:                                   <span class="ruby-identifier">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'must not contain invalid characters.'</span>
+450:           <span class="ruby-identifier">validates_length_of</span>     <span class="ruby-identifier">:login</span>, 
+451:                                   <span class="ruby-identifier">:in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>, <span class="ruby-identifier">:allow_nil</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>,
+452:                                   <span class="ruby-identifier">:too_long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'must have less than 100 characters.'</span>, 
+453:                                   <span class="ruby-identifier">:too_short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'must have more than two characters.'</span>
+454: 
+455:           <span class="ruby-comment cmt"># We want a valid email address. Note that the checking done here is very</span>
+456:           <span class="ruby-comment cmt"># rough. Email adresses are hard to validate now domain names may include</span>
+457:           <span class="ruby-comment cmt"># language specific characters and user names can be about anything anyway.</span>
+458:           <span class="ruby-comment cmt"># However, this is not *so* bad since users have to answer on their email</span>
+459:           <span class="ruby-comment cmt"># to confirm their registration.</span>
+460:           <span class="ruby-identifier">validates_format_of</span> <span class="ruby-identifier">:email</span>, 
+461:                               <span class="ruby-identifier">:with</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp re">%r{^([\w\-\.\#\$%&amp;!?*\'=(){}|~_]+)@([0-9a-zA-Z\-\.\#\$%&amp;!?*\'=(){}|~]+)+$}</span>,
+462:                               <span class="ruby-identifier">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'must be a valid email address.'</span>
+463: 
+464:           <span class="ruby-comment cmt"># We want to validate the format of the password and only allow alphanumeric</span>
+465:           <span class="ruby-comment cmt"># and some punctiation characters.</span>
+466:           <span class="ruby-comment cmt"># The format must only be checked if the password has been set and the record</span>
+467:           <span class="ruby-comment cmt"># has not been stored yet and it has actually been set at all. Make sure you</span>
+468:           <span class="ruby-comment cmt"># include this condition in your :if parameter to validates_format_of when</span>
+469:           <span class="ruby-comment cmt"># overriding the password format validation.</span>
+470:           <span class="ruby-identifier">validates_format_of</span> <span class="ruby-identifier">:password</span>,
+471:                               <span class="ruby-identifier">:with</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp re">%r{^[\w\.\- !?(){}|~*_]+$}</span>,
+472:                               <span class="ruby-identifier">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'must not contain invalid characters.'</span>,
+473:                               <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">new_password?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">password</span>.<span class="ruby-identifier">nil?</span> }
+474: 
+475:           <span class="ruby-comment cmt"># We want the password to have between 6 and 64 characters.</span>
+476:           <span class="ruby-comment cmt"># The length must only be checked if the password has been set and the record</span>
+477:           <span class="ruby-comment cmt"># has not been stored yet and it has actually been set at all. Make sure you</span>
+478:           <span class="ruby-comment cmt"># include this condition in your :if parameter to validates_length_of when</span>
+479:           <span class="ruby-comment cmt"># overriding the length format validation.</span>
+480:           <span class="ruby-identifier">validates_length_of</span> <span class="ruby-identifier">:password</span>,
+481:                               <span class="ruby-identifier">:within</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">6</span><span class="ruby-operator">..</span><span class="ruby-value">64</span>,
+482:                               <span class="ruby-identifier">:too_long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'must have between 6 and 64 characters.'</span>,
+483:                               <span class="ruby-identifier">:too_short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'must have between 6 and 64 characters.'</span>,
+484:                               <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">new_password?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">password</span>.<span class="ruby-identifier">nil?</span> }
+485:         <span class="ruby-keyword kw">end</span>
+486:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

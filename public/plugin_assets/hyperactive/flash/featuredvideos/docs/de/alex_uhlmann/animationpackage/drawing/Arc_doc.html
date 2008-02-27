@@ -1,0 +1,801 @@
+
+		<HTML>
+		<HEAD>
+		<TITLE>Arc  Documentation</TITLE>
+		
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family:monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+		
+		</HEAD>
+		<BODY bgColor='white'>
+		<P class='majorTitle'>Arc Documentation</P>
+		
+
+		<P><B>Author:</B> Alex Uhlmann<BR>
+		<B>Last Modified:</B> 09/24/05 19:03:51<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>Arc class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>Arc Properties:</P><div class='methodsDiv'>
+<a href='#radius_def'>- radius_def</a><br>
+<a href='#start_def'>- start_def</a><br>
+<a href='#end_def'>- end_def</a><br>
+<a href='#type_def'>- type_def</a><br>
+<a href='#movieclip'>- movieclip</a><br>
+<a href='#lineThickness'>- lineThickness</a><br>
+<a href='#lineRGB'>- lineRGB</a><br>
+<a href='#lineAlpha'>- lineAlpha</a><br>
+<a href='#fillRGB'>- fillRGB</a><br>
+<a href='#fillAlpha'>- fillAlpha</a><br>
+<a href='#duration'>- duration</a><br>
+<a href='#easing'>- easing</a><br>
+<a href='#callback'>- callback</a><br>
+</div><br>
+<P class='ToC'>Arc Methods:</P><div class='methodsDiv'>
+<a href='#draw'>- draw</a><br>
+<a href='#drawBy'>- drawBy</a><br>
+<a href='#animate'>- animate</a><br>
+<a href='#goto'>- goto</a><br>
+<a href='#getRadius'>- getRadius</a><br>
+<a href='#setRadius'>- setRadius</a><br>
+<a href='#getAngleStart'>- getAngleStart</a><br>
+<a href='#setAngleStart'>- setAngleStart</a><br>
+<a href='#getAngleExtent'>- getAngleExtent</a><br>
+<a href='#setAngleExtent'>- setAngleExtent</a><br>
+<a href='#getArcType'>- getArcType</a><br>
+<a href='#setArcType'>- setArcType</a><br>
+<a href='#lineStyle'>- lineStyle</a><br>
+<a href='#fillStyle'>- fillStyle</a><br>
+<a href='#gradientStyle'>- gradientStyle</a><br>
+<a href='#animationStyle'>- animationStyle</a><br>
+<a href='#setRegistrationPoint'>- setRegistrationPoint</a><br>
+<a href='#clear'>- clear</a><br>
+<a href='#roundResult'>- roundResult</a><br>
+<a href='#forceEnd'>- forceEnd</a><br>
+<a href='#getOptimizationMode'>- getOptimizationMode</a><br>
+<a href='#setOptimizationMode'>- setOptimizationMode</a><br>
+<a href='#getTweenMode'>- getTweenMode</a><br>
+<a href='#setTweenMode'>- setTweenMode</a><br>
+<a href='#getDurationMode'>- getDurationMode</a><br>
+<a href='#setDurationMode'>- setDurationMode</a><br>
+<a href='#stop'>- stop</a><br>
+<a href='#pause'>- pause</a><br>
+<a href='#resume'>- resume</a><br>
+<a href='#lock'>- lock</a><br>
+<a href='#unlock'>- unlock</a><br>
+<a href='#isTweening'>- isTweening</a><br>
+<a href='#getStartValue'>- getStartValue</a><br>
+<a href='#setStartValue'>- setStartValue</a><br>
+<a href='#getEndValue'>- getEndValue</a><br>
+<a href='#setEndValue'>- setEndValue</a><br>
+<a href='#getCurrentValue'>- getCurrentValue</a><br>
+<a href='#getCurrentPercentage'>- getCurrentPercentage</a><br>
+<a href='#getDurationElapsed'>- getDurationElapsed</a><br>
+<a href='#getDurationRemaining'>- getDurationRemaining</a><br>
+<a href='#addEventListener'>- addEventListener</a><br>
+<a href='#removeEventListener'>- removeEventListener</a><br>
+<a href='#removeAllEventListeners'>- removeAllEventListeners</a><br>
+<a href='#eventListenerExists'>- eventListenerExists</a><br>
+<a href='#getID'>- getID</a><br>
+<a href='#toString'>- toString</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>Arc <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> Documentation not provided.</P>
+		<P class="methodTitle">description:</P>
+		<P>Arc is a class for drawing regular and elliptical arc segments 
+			and pie shaped wedges. Very useful for creating charts. Similar to 
+			java.awt.geom.Arc2D you can specify the closure type of the arc. 
+			Available closure types are: 
+			<blockquote><pre>
+			OPEN = The closure type for an open arc with no path segments connecting the two ends of the arc segment.  
+			CHORD = The closure type for an arc closed by drawing a straight line segment from the start of the arc segment to the end of the arc segment. 
+			PIE = The closure type for an arc closed by drawing straight line segments from the start of the arc segment to the center of the full ellipse and from that point to the end of the arc segment. 
+			Default closure type is CHORD.
+			</pre></blockquote>
+			If you specify a movieclip as first parameter, the shape will be drawn inside this movieclip. 
+			If you omit the mc parameter, the class will create a new movieclip in _root.apContainer_mc.
+			<p>
+			Example 1: <a href="Arc_01.html">(Example .swf)</a> draw a 3/4 arc with default parameters.		
+			<blockquote><pre>
+			var myArc:Arc = new Arc(275,200);
+			myArc.setEndValue(270);
+			myArc.draw();
+			</pre></blockquote> 
+			Example 2: <a href="Arc_02.html">(Example .swf)</a> draw an open arc, and animate it.		
+			<blockquote><pre>
+			var myArc:Arc = new Arc(275,200);
+			myArc.lineStyle(0x000000);
+			myArc.fillStyle(0xff0000);
+			myArc.setArcType("OPEN");
+			myArc.setStartValue(0);
+			myArc.setEndValue(270);
+			myArc.animate(0,100);
+			</pre></blockquote> 			
+			Example 3: <a href="Arc_03.html">(Example .swf)</a> draw an arc with custom parameters. 
+			<blockquote><pre>
+			var myArc:Arc = new Arc(275,200,200,0,270,"PIE");			
+			myArc.lineStyle(15,0xff0000,50);
+			myArc.fillStyle(0xff0000,50);
+			myArc.draw();
+			</pre></blockquote>
+			Example 4: <a href="Arc_04.html">(Example .swf)</a> draw an animated wedge with custom parameters, that 
+			continues to animated to full size and back.
+			<blockquote><pre>
+			var myArc:Arc = new Arc(275,200,150,0,270);	
+			myArc.setArcType("PIE");
+			myArc.lineStyle(2,0xff0000,50);
+			myArc.fillStyle(0xffff00,100);
+			myArc.animationStyle(2000,Sine.easeInOut,"onCallback");			
+			myArc.animate(0,100);
+			myListener.onCallback = function(source, value)
+			{			
+				if(value == 270) {
+					myArc.animate(100,0);
+				} else {
+					myArc.animate(0,100);
+				}	
+			}
+			</pre></blockquote> 
+</P>
+		<P class="methodTitle">usage:</P> <pre>var myArc:Arc = new Arc();</pre> 
+		<pre>var myArc:Arc = new Arc(x, y, radius, start, end, type);</pre>
+		<pre>var myArc:Arc = new Arc(mc, x, y, radius, start, end, type);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul> 
+<li>mc (MovieClip) existing movieclip to draw in.</li>
+<li>x (Number) X position of the drawing. Center point.</li>
+<li>y (Number) Y position of the drawing. Center point.</li>
+<li>radius (Number) Radius of the drawing.</li>
+<li>start (Number) The starting angle of the arc in degrees.</li>
+<li>end (Number) The angular extent of the arc in degrees.</li>
+<li>type (String) The String constant that represents the closure type of this arc: OPEN, CHORD, or PIE. </li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>Arc Properties:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='radius_def'></A><u> radius_def</u></P>
+				<P> (Number)(static) default property. Radius of the drawing. Defaults to 100.</P>
+
+				<P class='methodTitle'><A name='start_def'></A><u> start_def</u></P>
+				<P> (Number)(static) default property. Specifies the size of the drawing to begin with (in degrees). Negative values draw clockwise. Defaults to 0.</P>
+
+				<P class='methodTitle'><A name='end_def'></A><u> end_def</u></P>
+				<P> (Number)(static) default property. Specifies the size of the drawing to draw to (in degrees). Negative values draw clockwise. Defaults to 360.</P>
+
+				<P class='methodTitle'><A name='type_def'></A><u> type_def</u></P>
+				<P> (Number)(static) default property. Default closure type of arc is CHORD.</P>
+
+				<P class='methodTitle'><A name='movieclip'></A><u> movieclip</u></P>
+				<P> (MovieClip)(read only) Movieclip that contains the drawing.</P>
+
+				<P class='methodTitle'><A name='lineThickness'></A><u> lineThickness</u></P>
+				<P> (Number) Outline thickness.</P>
+
+				<P class='methodTitle'><A name='lineRGB'></A><u> lineRGB</u></P>
+				<P> (Number) Outline color of the drawing as hex number.</P>
+
+				<P class='methodTitle'><A name='lineAlpha'></A><u> lineAlpha</u></P>
+				<P> (Number) Outline transparency (alpha).</P>
+
+				<P class='methodTitle'><A name='fillRGB'></A><u> fillRGB</u></P>
+				<P> (Number) Fill color of the drawing.</P>
+
+				<P class='methodTitle'><A name='fillAlpha'></A><u> fillAlpha</u></P>
+				<P> (Number) Fill transparency.</P>
+
+				<P class='methodTitle'><A name='duration'></A><u> duration</u></P>
+				<P> (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</P>
+
+				<P class='methodTitle'><A name='easing'></A><u> easing</u></P>
+				<P> (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</P>
+
+				<P class='methodTitle'><A name='callback'></A><u> callback</u></P>
+				<P> (String) Function to invoke after animation. See APCore class. </P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>Arc Methods:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='draw'></A><u> draw</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws regular and elliptical arc segments.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.draw();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='drawBy'></A><u> drawBy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws the shape without clearing the movieclip.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.drawBy();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='animate'></A><u> animate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws the animated segments.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> 	<pre>myArc.animate(start, end);</pre>  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>start (Number) Specifies the size of the drawing to begin with (in degrees). Negative values draw clockwise.</li>
+<li>end (Number) Specifies the size of the drawing to draw to (in degrees). Negative values draw clockwise.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='goto'></A><u> goto</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					jumps to a specific step of the animation and stays there.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.goto(percentage);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>percentage (Number) Percentage value of the animation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='getRadius'></A><u> getRadius</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Returns the radius.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.getRadius();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number that represents the radius in pixels. 
+	</P>
+
+				<P class='methodTitle'><A name='setRadius'></A><u> setRadius</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the radius of the drawing.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.setRadius(radius);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>radius (Number) radius in pixels.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getAngleStart'></A><u> getAngleStart</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				deprecated. Use getStartValue instead.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.getAngleStart();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='setAngleStart'></A><u> setAngleStart</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				deprecated. Use setStartValue instead.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.setAngleStart(startAngle);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>startAngle Number</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getAngleExtent'></A><u> getAngleExtent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					deprecated. Use getEndValue instead. Returns the angular extent of the arc.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.getAngleExtent();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number that represents the angular extent of the arc in degrees.
+	</P>
+
+				<P class='methodTitle'><A name='setAngleExtent'></A><u> setAngleExtent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					deprecated. Use setEndValue instead. Sets the angular extent of this arc to the specified value.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.setAngleExtent(angExt);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>angExt Number The angular extent of the arc in degrees.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getArcType'></A><u> getArcType</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Returns the arc closure type of the arc: OPEN, CHORD, or PIE. See class description.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.getArcType();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String of the constant closure type defined in this class.
+	</P>
+
+				<P class='methodTitle'><A name='setArcType'></A><u> setArcType</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the closure type of this arc to the specified value: OPEN, CHORD, or PIE. See class description.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.setArcType(type);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>type (String) The String constant that represents the closure type of this arc: OPEN, CHORD, or PIE. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='lineStyle'></A><u> lineStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					define outline.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.lineStyle();</pre>
+			<pre>myArc.lineStyle(lineThickness, lineRGB, lineAlpha);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>lineThickness (Number) Outline thickness.</li>
+<li>lineRGB (Number) Outline color of the drawing as hex number.	</li>
+<li>lineAlpha (Number) Outline transparency (alpha).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='fillStyle'></A><u> fillStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					define fill.		
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.fillStyle();</pre>
+			<pre>myArc.fillStyle(fillRGB, fillAlpha);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillRGB (Number) Fill color of the drawing.</li>
+<li>fillAlpha (Number) Fill transparency.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='gradientStyle'></A><u> gradientStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Same interface as MovieClip.beginGradientFill(). See manual.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myShapeComposite.gradientStyle(fillType, colors, alphas, ratios, matrix);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillType (String)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>colors (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>alphas (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>ratios (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>matrix (Object)  Gradient property. See MovieClip.beginGradientFill().</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='animationStyle'></A><u> animationStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					set the animation style properties for your animation.
+				Notice that if your easing equation supports additional parameters you 
+				can send those parameters with the easing parameter in animationStyle.
+				You have to send an Array as easing parameter. The first 
+				element has to be the easing equation in Robert Penner style. The 
+				following parameters can be your additional parameters. i.e.:
+				<blockquote><pre>
+				var myRotation:Rotation = new Rotation(mc);
+				myRotation.animationStyle(2000,[Back.easeOut,4]);
+				myRotation.run(360);
+				</pre></blockquote>
+				See also "Customizable easing equations" in readme for more information.
+			
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.animationStyle(duration);</pre>
+			<pre>myArc.animationStyle(duration, callback);</pre>
+			<pre>myArc.animationStyle(duration, easing, callback);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</li>
+<li>easing (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</li>
+<li>callback (String) Function to invoke after animation. See APCore class.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='setRegistrationPoint'></A><u> setRegistrationPoint</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the registration point of the shape. Defaults to center. Top left is 0,0. 
+						The parameter object accepts either a position property with the value of "CENTER" 
+						or x and y properties of with coordinates as values of the registration point.
+				<p>
+				Example 1: Set the registration point of an ellipse to the upper left corner (0,0) instead of center.
+				<blockquote><pre>
+				var myEllipse:Ellipse = new Ellipse(275,200,100,50);
+				myEllipse.setRegistrationPoint( {x:0,y:0} );
+				myEllipse.draw();
+				</pre></blockquote>
+				<p>
+				internally AnimationPackage centers all shapes with
+				<blockquote><pre>
+				myInstance.setRegistrationPoint( {position:"CENTER"} );
+				</pre></blockquote>	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.setRegistrationPoint(registrationObj);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>registrationObj (Object)</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='clear'></A><u> clear</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					removes all drawings. Identical to myInstance.movieclip.clear();
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.clear();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='roundResult'></A><u> roundResult</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					rounds animation results to integers. (might be usefull for animating pixelfonts). Default is false.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.roundResult(rounded);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>rounded (Boolean) <code>true</code> rounds the result. Animates with integers. Less accuracy. <code>false</code> animates with floating point numbers.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='forceEnd'></A><u> forceEnd</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Flash does not guaranteed that time-based tweening will reach 
+				the end value(s) of your animation. By default AnimationPackage 
+				guarantees that the end value(s) will be reached. The forceEnd 
+				method allows you to disable this guarantee and only accept 
+				the values from your easing equation. In certain situations this can 
+				lead to a smoother ending of the animation. Notice that in frame-based 
+				tweening the end value(s) will always be reached.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.forceEnd(forceEndVal);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>forceEndVal (Boolean) <code>true</code> or <code>false</code>.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getOptimizationMode'></A><u> getOptimizationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the optimization mode. See setOptimizationMode for more information. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>getOptimizationMode();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Boolean
+	</P>
+
+				<P class='methodTitle'><A name='setOptimizationMode'></A><u> setOptimizationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Allows to explicitly remove parts of the animation that don't change during 
+					the animation. 
+					This can add additional performance to your animation. Note that 
+					setting this method to true has side effects. If all start and end values match, 
+					the animation won't start and will immediatly invoke an onEnd event. 
+					The order of values returned by getStartValue(s), getCurrentValue(s), 
+					getEndValue(s) and the value property of the eventObject returned 
+					by EventDispatcher might change if you set this method to true. You can 
+					still retrieve the parts of the animation that are actually animated 
+					if you access the Animator instance of your animation class via 
+					myAnimator. Ask <code>myInstance.myAnimator.setter</code> to retrieve 
+					all currently animated parts of the animation. See Animator 
+					documentation. Of cource, if you know your input values you would 
+					probably look at them.<p>
+					Note that the AnimationCore class offers a static setOptimizationModes method 
+					(note the last "s" at the end) that allows you to remove parts of 
+					'all' your animations that don't change during the animation.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.setOptimizationMode(optimize);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>optimize (Boolean)</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getTweenMode'></A><u> getTweenMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current tween mode used by the instance. 
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>getTweenMode();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String that specifies the tween mode. Either AnimationCore.INTERVAL or AnimationCore.FRAMES.
+	</P>
+
+				<P class='methodTitle'><A name='setTweenMode'></A><u> setTweenMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					sets the current tween mode used by the instance. 
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>setTweenMode();</tt> 	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>t (String) Either AnimationCore.INTERVAL for time-based tweening or AnimationCore.FRAMES for frame-based tweening.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if setting tween mode was successful, 
+	<code>false</code> if not successful.
+	</P>
+
+				<P class='methodTitle'><A name='getDurationMode'></A><u> getDurationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current duration mode used by the instance.
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>getDurationMode();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String that specifies the duration mode. Either AnimationCore.MS or AnimationCore.FRAMES.
+	</P>
+
+				<P class='methodTitle'><A name='setDurationMode'></A><u> setDurationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					sets the current duration mode used by the instance. 
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>setDurationMode();</tt> 	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>d (String) Either AnimationCore.MS for milliseconds or AnimationCore.FRAMES.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if setting duration mode was successful, 
+	<code>false</code> if not successful.
+	</P>
+
+				<P class='methodTitle'><A name='stop'></A><u> stop</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					stops the animation if not locked..
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.stop();</tt> 
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully stopped. 
+	<code>false</code> if instance could not be stopped, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='pause'></A><u> pause</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					pauses the animation if not locked. Call resume() to continue animation.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.pause();</tt> 	  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) optional property. Number of milliseconds or frames to pause before continuing animation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully paused. 
+	<code>false</code> if instance could not be paused, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='resume'></A><u> resume</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					continues the animation if not locked. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.resume();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully resumed. 
+	<code>false</code> if instance could not be resumed, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='lock'></A><u> lock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					locks the animation to prevent pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.lock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='unlock'></A><u> unlock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					unlocks the animation to allow pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.unlock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='isTweening'></A><u> isTweening</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					checks if the instance is currently animated.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.isTweening();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance is tweening, 
+	<code>false</code> if instance is not tweening.
+	</P>
+
+				<P class='methodTitle'><A name='getStartValue'></A><u> getStartValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the original, starting value of the current tween. In degrees.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getStartValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='setStartValue'></A><u> setStartValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					sets the original, starting value of the current tween.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.setStartValue(startValue);</tt>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>startValue (Number)	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Boolean, indicates if the assignment was performed.
+	</P>
+
+				<P class='methodTitle'><A name='getEndValue'></A><u> getEndValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the targeted value of the current tween. In degrees.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getEndValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='setEndValue'></A><u> setEndValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					sets the targeted value of the current tween.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.setEndValue(endValue);</tt>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>endValue (Number)	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Boolean, indicates if the assignment was performed.
+	</P>
+
+				<P class='methodTitle'><A name='getCurrentValue'></A><u> getCurrentValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current value of the current tween. In degrees.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getCurrentValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getCurrentPercentage'></A><u> getCurrentPercentage</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current state of the animation in percentage. 
+					Especially usefull in combination with goto().
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getCurrentPercentage();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getDurationElapsed'></A><u> getDurationElapsed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the elapsed time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationElapsed();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getDurationRemaining'></A><u> getDurationRemaining</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the remaining time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationRemaining();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='addEventListener'></A><u> addEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Subscribe to a predefined event. The following standard EventDispatcher events are broadcasted<p>
+				<b>onStart</b>, broadcasted when animation starts.<br>
+				<b>onUpdate</b>, broadcasted when animation updates.<br>
+				<b>onEnd</b>, broadcasted when animation ends.<p>
+				The even object returned, contains the following properties:<p>
+				<b>type</b> (String) event broadcasted.<br>
+				<b>target</b> (Object) event source.<br>
+				<b>value</b> (Number) value to animate.<p>
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.addEventListener(event, listener);</pre>
+			    <pre>myArc.addEventListener(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to subscribe listener to. GDispatcher specific feature allows to subscribe to all events from an event source if the string "ALL" is passed. </li>
+<li>listener (Object) The listener object to subscribe to the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. The name of a function to call. This function will be called within the scope of the object specified in the second parameter.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeEventListener'></A><u> removeEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Removes a listener from a subscribed event.	
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.removeEventListener(event, listener);</pre>
+			    <pre>myArc.removeEventListener(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove subscribed listener from. GDispatcher specific feature allows to remove subscribtion to all events if the string "ALL" is passed. Works only if listener has been subscribed via the "ALL" string in addEventListener.</li>
+<li>listener (Object) The listener object to unsubscribe from the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. Only needed if the listener has been subscribed with a handler function.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeAllEventListeners'></A><u> removeAllEventListeners</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Removes all listeners for a specific event, or for all events.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.removeAllEventListeners();</pre>
+			    <pre>myArc.removeAllEventListeners(event);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove all subscribed listeners from. If not specified, all listeners to any event will be removed.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='eventListenerExists'></A><u> eventListenerExists</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Checks if a listener is already subscribed to a certain event.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myArc.eventListenerExists(event, listener);</pre>
+				<pre>myArc.eventListenerExists(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to check subscription.</li>
+<li>listener (Object) The listener object to check subscription.</li>
+<li>handler (String) The handler function to check subscription.	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if event exists on listener. 
+	<code>false</code> if event doesn't exist on listener. 
+	</P>
+
+				<P class='methodTitle'><A name='getID'></A><u> getID</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns a unique ID of the instance. Usefull for associative arrays.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getID();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='toString'></A><u> toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the name of the class.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.toString();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+			

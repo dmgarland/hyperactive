@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_video:
+  id: 1
+  title: a video
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 2
+another_video:
+  id: 2
+  title: another video
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 2
+unconverted_video:
+  id: 3
+  title: a video that hasn't completed processing yet
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 1

@@ -1,0 +1,1359 @@
+# Logfile created on Wed Feb 27 00:16:48 +0000 2008 by /
+DRb server: ensure_index_exists for class Content
+Asked for a remote server ? true, ENV["FERRET_USE_LOCAL_INDEX"] is "true", looks like we are the server
+Will use local index.
+using index in script/../config/../index/development/content
+default field list: [:body, :title, :date, :place, :summary, :published, :hidden, :published_by]
+DRb server: rebuild index for class(es) [Content] in script/../config/../index/development/content/rebuild
+  [4;36;1mSQL (0.000086)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mContent Columns (0.001331)[0m   [0mSHOW FIELDS FROM content[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1mSELECT count(*) AS count_all FROM content [0m
+reindexing model Content
+  [4;35;1mSQL (0.000054)[0m   [0mBEGIN[0m
+using mysql specific batched find :all. Turn off with  :mysql_fast_batches => false if you encounter problems (i.e. because of non-integer UUIDs in the id column)
+  [4;36;1mContent Load (0.001864)[0m   [0;1mSELECT * FROM content WHERE (content.id > 0) LIMIT 1000[0m
+  [4;35;1mVideo Columns (0.001206)[0m   [0mSHOW FIELDS FROM content[0m
+  [4;36;1mEvent Columns (0.001417)[0m   [0;1mSHOW FIELDS FROM content[0m
+creating doc for class: Event, id: 1
+Adding field body with value 'It's an event where there'll be a bunch of people doing stuff.' to index
+Adding field title with value 'Big bad test event' to index
+Adding field date with value 'Sat Nov 17 21:49:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value '38 Brixton Road
+London
+A Pub' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yoss' to index
+creating doc for class: Event, id: 2
+Adding field body with value 'Proin ante nisl, tincidunt et, feugiat eget, fermentum eget, est. Aenean porttitor pharetra neque. Vivamus lorem ipsum, viverra at, euismod vel, venenatis eu, metus. Aliquam ornare, mi vitae viverra volutpat, orci turpis placerat nibh, eget congue nulla nunc vitae purus. Vivamus nibh eros, iaculis eu, rutrum sit amet, sollicitudin non, dui. Nulla eros diam, tincidunt eu, iaculis vestibulum, vehicula sit amet, tortor. Nam ornare leo dictum quam. Morbi molestie purus non justo. Fusce sem dui, malesuada eu, tristique sed, molestie ut, ante. Vivamus orci diam, feugiat id, lacinia et, lobortis in, massa. Fusce convallis enim luctus orci. Nam est lorem, congue vel, aliquet sed, laoreet malesuada, leo.
+
+Nulla mollis tellus fringilla ipsum. Nunc purus. Quisque turpis lacus, lobortis eu, porttitor sed, lobortis vitae, risus. Mauris mollis pellentesque mauris. Cras pellentesque imperdiet dolor. In neque augue, nonummy eget, aliquet et, tincidunt molestie, tortor viverra fusce.
+' to index
+Adding field title with value 'foo' to index
+Adding field date with value 'Tue Jun 03 23:51:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Nulla mauris nulla, interdum sed, cursus in, adipiscing sed, ante. Maecenas ultricies sem in nibh. Praesent in nisl ut lacus suscipit vehicula. Nulla ac elit vel arcu commodo consequat. Nulla bibendum faucibus est. Nulla facilisi. Integer tempor ultrices sapien. Aenean consequat. Suspendisse dapibus ornare purus. Sed quam. Quisque libero quam, pharetra quis, rhoncus ut, ultrices quis, leo. Suspendisse et risus cursus diam consectetuer ullamcorper. Etiam enim urna, sodales vitae, tincidunt quis, sollicitudin id, enim. Quisque mi mauris, tempus vel, imperdiet ac, elementum ac, ipsum. Fusce fermentum. Nulla facilisi.' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'foo' to index
+creating doc for class: Event, id: 3
+Adding field body with value 'asfdlkj london' to index
+Adding field title with value 'bar' to index
+Adding field date with value 'Mon Dec 03 23:51:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'ds;lfakajds ' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asfd' to index
+creating doc for class: Event, id: 4
+Adding field body with value 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer in lectus. Cras ac neque eget mauris congue rhoncus. Sed non quam ac sapien vehicula tincidunt. Nulla gravida ante semper mi. Sed blandit convallis eros. In nunc dolor, eleifend nec, pulvinar sit amet, sagittis ac, est. Quisque magna sapien, aliquet vitae, viverra eget, pulvinar sit amet, urna. Nulla non metus. Mauris id arcu sed felis cursus auctor. Suspendisse sagittis, nulla sit amet placerat laoreet, augue neque volutpat magna, vitae vulputate arcu justo ut neque. Morbi non eros. Cras semper ante ac magna. Nullam justo pede, hendrerit non, cursus et, fringilla vitae, nisl. 
+
+
+Nulla ullamcorper. Cras nulla orci, placerat sed, venenatis a, bibendum et, purus. Morbi volutpat, libero sit amet interdum molestie, est risus fermentum urna, et feugiat leo lectus in nulla. Suspendisse lorem tellus, posuere ut, tincidunt eget, sodales vitae, magna. Integer in diam sed sem imperdiet semper. Donec vehicula tristique quam. Morbi gravida vestibulum tellus. 
+
+Maecenas ultrices neque a urna. Aliquam eu ipsum. Ut tellus urna, imperdiet ac, suscipit fringilla, consectetuer vulputate, felis. Suspendisse rutrum condimentum quam. Sed pellentesque facilisis erat. Nunc interdum, lacus eu egestas posuere, nunc diam gravida libero, hendrerit mollis est nulla quis odio. Phasellus lacinia. Vivamus imperdiet feugiat ipsum. Phasellus in massa. Sed vitae lectus ut tortor interdum condimentum. Aliquam porttitor risus eget nunc. Fusce nec enim tincidunt metus scelerisque sodales. Sed quis velit. Curabitur nunc sem, fringilla mollis, lacinia sit amet, mattis eget, pede. 
+ Nulla facilisi. Etiam nonummy. 
+
+Curabitur augue nisl, cursus in, venenatis non, vehicula in, justo. Pellentesque est est, tincidunt sed, mattis ut, vehicula non, lectus. Donec pede erat, fringilla in, tincidunt ac, fermentum eu, dui. Etiam sed lorem. Ut est nulla, luctus quis, tempor ut, molestie at, sapien. Quisque volutpat, nibh in sollicitudin porttitor, urna metus faucibus mauris, at adipiscing purus nibh eu eros. In placerat malesuada sapien. Quisque auctor. Donec auctor lectus ac dui. Sed ligula eros, lobortis tincidunt, adipiscing ut, commodo ut, justo. Maecenas augue.' to index
+Adding field title with value 'baz' to index
+Adding field date with value 'Sun Nov 25 18:33:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'This is the place.' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'testy' to index
+creating doc for class: Event, id: 5
+Adding field body with value 'Maecenas ultrices neque a urna. Aliquam eu ipsum. Ut tellus urna, imperdiet ac, suscipit fringilla, consectetuer vulputate, felis. Suspendisse rutrum condimentum quam. Sed pellentesque facilisis erat. Nunc interdum, lacus eu egestas posuere, nunc diam gravida libero, hendrerit mollis est nulla quis odio. Phasellus lacinia. Vivamus imperdiet feugiat ipsum. Phasellus in massa. Sed vitae lectus ut tortor interdum condimentum. Aliquam porttitor risus eget nunc. Fusce nec enim tincidunt metus scelerisque sodales. Sed quis velit. Curabitur nunc sem, fringilla mollis, lacinia sit amet, mattis eget, pede.' to index
+Adding field title with value 'It's an event!' to index
+Adding field date with value 'Tue Nov 18 19:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value '40 Cambria Road
+London' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'Blah!' to index
+creating doc for class: Event, id: 6
+Adding field body with value 'the desc' to index
+Adding field title with value 'Another one' to index
+Adding field date with value 'Tue Nov 18 21:19:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'the place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asdf' to index
+creating doc for class: Event, id: 7
+Adding field body with value 'his Letter was written by Meltem to the German Embassy in the UK.
+
+Dear German Embassy,
+
+My name is Meltem Avcil. I am going to be 14 this month, on the 21st.
+
+I am in detention centre since 27th August 2007.
+
+I only want to say a few things:
+
+I have been in detention for 3 months.
+
+Would your heart take it if your children was in here without seeing her friends and families on the Birthday week and no education.
+
+The only thing I am begging for is don't accept us. Please, my life would be destroyed then.
+
+Please don't accept us.
+
+Thanks very much,
+' to index
+Adding field title with value 'a test video' to index
+Adding field date with value 'Tue Dec 18 21:59:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'Today, Thursday 15 November the UK government will deport Meltem Avcil, a Kurdish refugee who will turn 14-years-old on 21 November.
+
+A protest was called yesterday by SOAS Detainee Support Group outside the German Embassy to call on German government to refuse entry to Meltem.' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yossarian' to index
+creating doc for class: Event, id: 8
+Adding field body with value 'Integer a orci. Integer scelerisque mattis ante. Vivamus viverra diam eget turpis. Phasellus aliquet blandit arcu. Aenean et arcu. Etiam sodales imperdiet dui. Sed euismod venenatis pede. Nulla orci pede, commodo tempus, lacinia nec, imperdiet non, mi. Curabitur libero. Integer in elit. Praesent tempor purus in arcu. Nulla blandit urna ut diam. Vestibulum tellus nunc, adipiscing quis, semper sodales, lobortis vel, mi. Donec hendrerit, ipsum et pellentesque sagittis, libero libero malesuada metus, egestas tincidunt eros erat ac est. Phasellus molestie condimentum eros. Donec euismod orci quis mi.
+
+Vestibulum suscipit sollicitudin odio. Donec sit amet mauris. Mauris lectus erat, imperdiet vitae, ultrices vel, consectetuer vehicula, lectus. Mauris massa augue, iaculis et, sodales non, ornare tempus, pede. Etiam hendrerit lectus imperdiet ipsum lacinia venenatis. Donec elementum sapien nec ipsum venenatis tincidunt. Aenean posuere nisi et nisl. Mauris dapibus. Nunc auctor nisi ut tortor. Pellentesque dapibus, nisi eget dapibus mattis, quam nibh malesuada magna, quis vehicula lectus augue a sapien.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec tortor sapien, suscipit at, volutpat non, elementum cursus, massa. Nulla facilisi. Aenean quis lacus non ante adipiscing tempus. Aliquam lobortis. Mauris ante orci, cursus vel, ultricies at, vehicula sit amet, lectus. Sed sed nisi. Nam in lorem sed augue ullamcorper accumsan. Etiam cursus nibh nec dui. Pellentesque id risus. Vivamus a enim. Cras a nunc. Integer dolor neque, congue non, sodales vitae, pulvinar a, tellus. Maecenas sagittis.
+
+Vivamus bibendum, ante non facilisis feugiat, tortor libero sollicitudin est, ut luctus risus mauris non lorem. Vivamus porta est in nisl. Ut sagittis suscipit lorem. Mauris eleifend dolor id dolor. Nullam congue varius velit. Curabitur in ligula vitae pede porta venenatis. Suspendisse potenti. Morbi malesuada leo in arcu. Nam ornare augue convallis massa. Pellentesque in eros.
+
+Phasellus venenatis ultricies ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ornare. Phasellus eu libero et augue ultrices cursus. Morbi scelerisque tortor eu nibh. Donec et erat. Nunc pretium lorem at risus. Praesent vulputate semper nibh. Aliquam eleifend facilisis dui. Maecenas sed elit quis mauris dignissim eleifend. Fusce nulla nulla, posuere sit amet, bibendum sed, dignissim ut, nunc.
+
+Morbi id lorem. Duis lorem augue, ornare id, viverra ut, aliquet ut, ligula. Sed id nulla at augue volutpat hendrerit. In faucibus molestie elit. Maecenas non mauris lacinia velit mollis feugiat. Integer luctus lacus ullamcorper tortor. Suspendisse potenti. Duis volutpat nibh non erat. Donec commodo. Nullam vel tellus sed eros mollis vestibulum. Suspendisse nulla.
+
+Pellentesque lacinia erat id nulla. Quisque consectetuer. Nullam sed nulla. Maecenas nec mauris. Morbi pretium tristique erat. In at nunc. Integer blandit. Pellentesque ipsum nulla, auctor vel, pretium at, iaculis ut, eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed erat. Donec mauris massa, vestibulum sed, adipiscing quis, tristique et, erat. Mauris vitae orci. Donec purus felis, condimentum non, elementum a, posuere et, nisl. Integer quis est vel tellus commodo semper. Nulla facilisi. Pellentesque dapibus aliquam tortor. Aenean urna nibh, gravida at, feugiat at, ornare eu, pede.
+
+Integer accumsan odio in neque. Mauris tortor massa, accumsan ac, placerat quis, pellentesque eget, metus. In placerat consequat eros. Pellentesque adipiscing. Donec tortor elit, pulvinar dignissim, mattis ac, vulputate ac, neque. Nunc dictum auctor est. Nunc molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam nisl augue, lacinia ut, porttitor non, pharetra vitae, massa. Sed consequat aliquet sem. Quisque imperdiet nibh vel justo. In ac tortor. Suspendisse potenti. Praesent laoreet. Cras arcu neque, dignissim molestie, eleifend nec, vulputate et, erat. Fusce lorem. Proin ac arcu. Morbi venenatis.
+
+Mauris tempus. Sed pretium ante quis dolor volutpat feugiat. Sed lectus. Nullam lacinia, sapien id congue lobortis, diam mi condimentum lectus, laoreet eleifend est sem adipiscing ipsum. Nullam lacinia lectus vel enim. Praesent vel leo. Etiam ullamcorper ipsum at magna. Mauris enim. Quisque eget pede. Vivamus in metus. Mauris auctor elit scelerisque velit. Donec eget elit. Pellentesque fringilla, pede non vehicula tristique, massa turpis semper lectus, non condimentum ipsum sem vel ipsum.
+
+Proin luctus mi nec tortor. Sed iaculis, risus nec laoreet pretium, sapien ante sodales tellus, a hendrerit mauris odio ac quam. Praesent in libero eu neque commodo ultricies. Etiam vestibulum dapibus diam. Vivamus ipsum libero, elementum et, aliquam ut, condimentum non, est. Aliquam porta semper sapien. Sed tempus velit eget tellus. In orci metus, cursus ac, consectetuer non, venenatis vel, justo. Aliquam faucibus neque ac nibh. Maecenas vitae mauris eu velit malesuada placerat. Quisque at nisl vel sapien mattis adipiscing. Maecenas rutrum sollicitudin nunc. Nulla viverra. Nullam bibendum semper ipsum. Donec luctus. Aenean magna sem, cursus ut, pulvinar eu, vestibulum id, sem. Nullam ut metus nec lectus ultricies euismod. Nunc vel est ut velit dignissim venenatis.
+
+Morbi eu ipsum cursus felis rhoncus venenatis. Suspendisse in quam at tellus faucibus semper. Sed ultricies, nulla non varius feugiat, lorem leo accumsan tortor, non aliquam quam nibh nec mi. Nam massa velit, tempor ultricies, placerat interdum, vestibulum nec, orci. Sed felis. Curabitur tincidunt tempus ipsum. Aliquam iaculis nunc sit amet ligula. Proin risus. Vivamus at nulla. Aliquam erat volutpat. Nullam diam erat, vulputate vitae, scelerisque et, lacinia eget, quam. Pellentesque sit amet pede at dui tristique tempor. Pellentesque ac lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam sodales, urna at faucibus venenatis, nunc nulla sollicitudin arcu, eget convallis purus nibh a erat. Suspendisse tristique neque et neque.
+
+Nulla convallis nunc vitae quam. Cras euismod. Ut eget lorem. Proin id elit eu justo vulputate tempor. Pellentesque condimentum vehicula orci. In hac habitasse platea dictumst. Suspendisse ac erat. Vivamus faucibus, massa at mattis semper, pede nisi auctor purus, a tristique urna sapien tincidunt quam. Donec non libero vitae arcu consectetuer porttitor. Sed vitae nibh. Proin iaculis hendrerit quam. Donec fermentum rutrum ante. Cras tristique.
+
+Fusce feugiat. Proin eget turpis. Nunc varius. Aenean ornare metus eget nisl. Morbi pharetra malesuada odio. Pellentesque ullamcorper enim sed magna. In hac habitasse platea dictumst. Nam et metus. Nulla lobortis quam interdum velit. Donec a metus hendrerit odio auctor porta. Aenean lorem ipsum, ultricies eu, pellentesque quis, vehicula sit amet, lectus.
+
+Phasellus sagittis fringilla orci. Proin ut nunc. Donec nec libero. Proin tempor nunc ac nunc. Praesent metus ligula, iaculis a, ornare in, pulvinar vitae, lacus. Proin bibendum lacus non nisl. In nisl ligula, porttitor et, venenatis convallis, luctus non, sapien. In hac habitasse platea dictumst. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam nisi tortor, pulvinar in, malesuada a, mattis vitae, metus. Aenean lobortis, tellus quis pellentesque iaculis, erat tortor bibendum nibh, sed adipiscing tellus leo et velit. Integer ligula. Aliquam mollis, ligula eget lacinia venenatis, justo lacus tincidunt tellus, quis aliquet arcu diam non sapien. Mauris accumsan lorem at arcu. Suspendisse consectetuer, turpis vel ultrices cursus, quam ante suscipit lorem, id vestibulum arcu odio et neque. Nulla orci justo, porttitor ac, vestibulum non, accumsan ac, odio.
+
+Maecenas ornare ligula. Fusce ligula mi, aliquet ac, pharetra ac, nonummy non, dolor. Fusce ut eros sit amet nisi suscipit adipiscing. In vel libero. Vivamus fermentum scelerisque turpis. Quisque quam felis, scelerisque sed, cursus nec, volutpat ut, nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Sed vulputate neque et nulla. Fusce sed neque vel pede tristique convallis. Sed lorem libero, mollis sed, facilisis ac, gravida ac, nisi. Duis cursus diam at erat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum urna nisl, tincidunt sit amet, rhoncus ultricies, eleifend vitae, neque. Etiam ullamcorper.
+
+Curabitur lobortis, lacus a placerat mattis, neque erat lacinia est, eu porta velit quam aliquam odio. Morbi sollicitudin felis non risus. Integer fermentum euismod magna. Aliquam porttitor ipsum eu lacus. Duis nec tellus sed pede ullamcorper suscipit. Suspendisse vel dolor eu ligula eleifend gravida. Aliquam adipiscing risus. Duis suscipit. In hac habitasse platea dictumst. Sed sed orci et elit ultricies mattis. Duis et risus et enim pretium malesuada. Maecenas hendrerit. Morbi mauris. In sit amet tellus vel erat dictum fringilla. Nullam porta leo in velit. Fusce dictum interdum eros. Donec pede nulla, scelerisque eu, tincidunt quis, bibendum ultrices, justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Nulla at pede quis ante fermentum imperdiet. Ut in nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur ac erat. Nulla ac turpis. Proin pharetra scelerisque nibh. Donec convallis. Fusce fermentum, elit non molestie bibendum, velit felis molestie urna, vel bibendum ligula est ut massa. Etiam ut tellus sed risus porttitor faucibus. Curabitur lectus ante, varius quis, interdum a, molestie vel, tortor. Vivamus dapibus facilisis risus. Donec vestibulum, erat at molestie laoreet, tortor lacus volutpat felis, id cursus ipsum leo nec tortor. Morbi nec mauris. Sed purus. Vivamus leo. Vivamus mauris. Quisque mattis enim in sem.
+
+Duis iaculis metus sit amet odio. Etiam leo diam, imperdiet a, faucibus non, interdum ac, lectus. Vivamus urna libero, malesuada vel, sollicitudin nec, hendrerit eget, metus. Etiam vestibulum lectus vitae augue. Sed vehicula arcu at lacus. Praesent nulla magna, viverra et, dapibus sed, mollis quis, lectus. Nulla facilisi. Ut et odio. Curabitur nonummy felis at ipsum. Nam lacinia. Vivamus orci tortor, commodo suscipit, ornare elementum, imperdiet eget, mauris. Maecenas magna mauris, luctus a, nonummy eu, venenatis eget, risus. Duis pellentesque, ante at placerat mollis, nunc libero vulputate purus, quis sodales risus justo vel libero. Aliquam consectetuer condimentum arcu. Cras adipiscing pede sed lacus. Cras mattis dignissim sem. Vestibulum augue. Pellentesque volutpat.
+' to index
+Adding field title with value 'A new event' to index
+Adding field date with value 'Wed Nov 28 00:02:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'A place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'me' to index
+creating doc for class: Event, id: 9
+Adding field body with value 'Integer a orci. Integer scelerisque mattis ante. Vivamus viverra diam eget turpis. Phasellus aliquet blandit arcu. Aenean et arcu. Etiam sodales imperdiet dui. Sed euismod venenatis pede. Nulla orci pede, commodo tempus, lacinia nec, imperdiet non, mi. Curabitur libero. Integer in elit. Praesent tempor purus in arcu. Nulla blandit urna ut diam. Vestibulum tellus nunc, adipiscing quis, semper sodales, lobortis vel, mi. Donec hendrerit, ipsum et pellentesque sagittis, libero libero malesuada metus, egestas tincidunt eros erat ac est. Phasellus molestie condimentum eros. Donec euismod orci quis mi.
+
+Vestibulum suscipit sollicitudin odio. Donec sit amet mauris. Mauris lectus erat, imperdiet vitae, ultrices vel, consectetuer vehicula, lectus. Mauris massa augue, iaculis et, sodales non, ornare tempus, pede. Etiam hendrerit lectus imperdiet ipsum lacinia venenatis. Donec elementum sapien nec ipsum venenatis tincidunt. Aenean posuere nisi et nisl. Mauris dapibus. Nunc auctor nisi ut tortor. Pellentesque dapibus, nisi eget dapibus mattis, quam nibh malesuada magna, quis vehicula lectus augue a sapien.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec tortor sapien, suscipit at, volutpat non, elementum cursus, massa. Nulla facilisi. Aenean quis lacus non ante adipiscing tempus. Aliquam lobortis. Mauris ante orci, cursus vel, ultricies at, vehicula sit amet, lectus. Sed sed nisi. Nam in lorem sed augue ullamcorper accumsan. Etiam cursus nibh nec dui. Pellentesque id risus. Vivamus a enim. Cras a nunc. Integer dolor neque, congue non, sodales vitae, pulvinar a, tellus. Maecenas sagittis.
+
+Vivamus bibendum, ante non facilisis feugiat, tortor libero sollicitudin est, ut luctus risus mauris non lorem. Vivamus porta est in nisl. Ut sagittis suscipit lorem. Mauris eleifend dolor id dolor. Nullam congue varius velit. Curabitur in ligula vitae pede porta venenatis. Suspendisse potenti. Morbi malesuada leo in arcu. Nam ornare augue convallis massa. Pellentesque in eros.
+
+Phasellus venenatis ultricies ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ornare. Phasellus eu libero et augue ultrices cursus. Morbi scelerisque tortor eu nibh. Donec et erat. Nunc pretium lorem at risus. Praesent vulputate semper nibh. Aliquam eleifend facilisis dui. Maecenas sed elit quis mauris dignissim eleifend. Fusce nulla nulla, posuere sit amet, bibendum sed, dignissim ut, nunc.
+
+Morbi id lorem. Duis lorem augue, ornare id, viverra ut, aliquet ut, ligula. Sed id nulla at augue volutpat hendrerit. In faucibus molestie elit. Maecenas non mauris lacinia velit mollis feugiat. Integer luctus lacus ullamcorper tortor. Suspendisse potenti. Duis volutpat nibh non erat. Donec commodo. Nullam vel tellus sed eros mollis vestibulum. Suspendisse nulla.
+
+Pellentesque lacinia erat id nulla. Quisque consectetuer. Nullam sed nulla. Maecenas nec mauris. Morbi pretium tristique erat. In at nunc. Integer blandit. Pellentesque ipsum nulla, auctor vel, pretium at, iaculis ut, eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed erat. Donec mauris massa, vestibulum sed, adipiscing quis, tristique et, erat. Mauris vitae orci. Donec purus felis, condimentum non, elementum a, posuere et, nisl. Integer quis est vel tellus commodo semper. Nulla facilisi. Pellentesque dapibus aliquam tortor. Aenean urna nibh, gravida at, feugiat at, ornare eu, pede.
+
+Integer accumsan odio in neque. Mauris tortor massa, accumsan ac, placerat quis, pellentesque eget, metus. In placerat consequat eros. Pellentesque adipiscing. Donec tortor elit, pulvinar dignissim, mattis ac, vulputate ac, neque. Nunc dictum auctor est. Nunc molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam nisl augue, lacinia ut, porttitor non, pharetra vitae, massa. Sed consequat aliquet sem. Quisque imperdiet nibh vel justo. In ac tortor. Suspendisse potenti. Praesent laoreet. Cras arcu neque, dignissim molestie, eleifend nec, vulputate et, erat. Fusce lorem. Proin ac arcu. Morbi venenatis.
+
+Mauris tempus. Sed pretium ante quis dolor volutpat feugiat. Sed lectus. Nullam lacinia, sapien id congue lobortis, diam mi condimentum lectus, laoreet eleifend est sem adipiscing ipsum. Nullam lacinia lectus vel enim. Praesent vel leo. Etiam ullamcorper ipsum at magna. Mauris enim. Quisque eget pede. Vivamus in metus. Mauris auctor elit scelerisque velit. Donec eget elit. Pellentesque fringilla, pede non vehicula tristique, massa turpis semper lectus, non condimentum ipsum sem vel ipsum.
+
+Proin luctus mi nec tortor. Sed iaculis, risus nec laoreet pretium, sapien ante sodales tellus, a hendrerit mauris odio ac quam. Praesent in libero eu neque commodo ultricies. Etiam vestibulum dapibus diam. Vivamus ipsum libero, elementum et, aliquam ut, condimentum non, est. Aliquam porta semper sapien. Sed tempus velit eget tellus. In orci metus, cursus ac, consectetuer non, venenatis vel, justo. Aliquam faucibus neque ac nibh. Maecenas vitae mauris eu velit malesuada placerat. Quisque at nisl vel sapien mattis adipiscing. Maecenas rutrum sollicitudin nunc. Nulla viverra. Nullam bibendum semper ipsum. Donec luctus. Aenean magna sem, cursus ut, pulvinar eu, vestibulum id, sem. Nullam ut metus nec lectus ultricies euismod. Nunc vel est ut velit dignissim venenatis.
+
+Morbi eu ipsum cursus felis rhoncus venenatis. Suspendisse in quam at tellus faucibus semper. Sed ultricies, nulla non varius feugiat, lorem leo accumsan tortor, non aliquam quam nibh nec mi. Nam massa velit, tempor ultricies, placerat interdum, vestibulum nec, orci. Sed felis. Curabitur tincidunt tempus ipsum. Aliquam iaculis nunc sit amet ligula. Proin risus. Vivamus at nulla. Aliquam erat volutpat. Nullam diam erat, vulputate vitae, scelerisque et, lacinia eget, quam. Pellentesque sit amet pede at dui tristique tempor. Pellentesque ac lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam sodales, urna at faucibus venenatis, nunc nulla sollicitudin arcu, eget convallis purus nibh a erat. Suspendisse tristique neque et neque.
+
+Nulla convallis nunc vitae quam. Cras euismod. Ut eget lorem. Proin id elit eu justo vulputate tempor. Pellentesque condimentum vehicula orci. In hac habitasse platea dictumst. Suspendisse ac erat. Vivamus faucibus, massa at mattis semper, pede nisi auctor purus, a tristique urna sapien tincidunt quam. Donec non libero vitae arcu consectetuer porttitor. Sed vitae nibh. Proin iaculis hendrerit quam. Donec fermentum rutrum ante. Cras tristique.
+
+Fusce feugiat. Proin eget turpis. Nunc varius. Aenean ornare metus eget nisl. Morbi pharetra malesuada odio. Pellentesque ullamcorper enim sed magna. In hac habitasse platea dictumst. Nam et metus. Nulla lobortis quam interdum velit. Donec a metus hendrerit odio auctor porta. Aenean lorem ipsum, ultricies eu, pellentesque quis, vehicula sit amet, lectus.
+
+Phasellus sagittis fringilla orci. Proin ut nunc. Donec nec libero. Proin tempor nunc ac nunc. Praesent metus ligula, iaculis a, ornare in, pulvinar vitae, lacus. Proin bibendum lacus non nisl. In nisl ligula, porttitor et, venenatis convallis, luctus non, sapien. In hac habitasse platea dictumst. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam nisi tortor, pulvinar in, malesuada a, mattis vitae, metus. Aenean lobortis, tellus quis pellentesque iaculis, erat tortor bibendum nibh, sed adipiscing tellus leo et velit. Integer ligula. Aliquam mollis, ligula eget lacinia venenatis, justo lacus tincidunt tellus, quis aliquet arcu diam non sapien. Mauris accumsan lorem at arcu. Suspendisse consectetuer, turpis vel ultrices cursus, quam ante suscipit lorem, id vestibulum arcu odio et neque. Nulla orci justo, porttitor ac, vestibulum non, accumsan ac, odio.
+
+Maecenas ornare ligula. Fusce ligula mi, aliquet ac, pharetra ac, nonummy non, dolor. Fusce ut eros sit amet nisi suscipit adipiscing. In vel libero. Vivamus fermentum scelerisque turpis. Quisque quam felis, scelerisque sed, cursus nec, volutpat ut, nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Sed vulputate neque et nulla. Fusce sed neque vel pede tristique convallis. Sed lorem libero, mollis sed, facilisis ac, gravida ac, nisi. Duis cursus diam at erat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum urna nisl, tincidunt sit amet, rhoncus ultricies, eleifend vitae, neque. Etiam ullamcorper.
+
+Curabitur lobortis, lacus a placerat mattis, neque erat lacinia est, eu porta velit quam aliquam odio. Morbi sollicitudin felis non risus. Integer fermentum euismod magna. Aliquam porttitor ipsum eu lacus. Duis nec tellus sed pede ullamcorper suscipit. Suspendisse vel dolor eu ligula eleifend gravida. Aliquam adipiscing risus. Duis suscipit. In hac habitasse platea dictumst. Sed sed orci et elit ultricies mattis. Duis et risus et enim pretium malesuada. Maecenas hendrerit. Morbi mauris. In sit amet tellus vel erat dictum fringilla. Nullam porta leo in velit. Fusce dictum interdum eros. Donec pede nulla, scelerisque eu, tincidunt quis, bibendum ultrices, justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Nulla at pede quis ante fermentum imperdiet. Ut in nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur ac erat. Nulla ac turpis. Proin pharetra scelerisque nibh. Donec convallis. Fusce fermentum, elit non molestie bibendum, velit felis molestie urna, vel bibendum ligula est ut massa. Etiam ut tellus sed risus porttitor faucibus. Curabitur lectus ante, varius quis, interdum a, molestie vel, tortor. Vivamus dapibus facilisis risus. Donec vestibulum, erat at molestie laoreet, tortor lacus volutpat felis, id cursus ipsum leo nec tortor. Morbi nec mauris. Sed purus. Vivamus leo. Vivamus mauris. Quisque mattis enim in sem.
+
+Duis iaculis metus sit amet odio. Etiam leo diam, imperdiet a, faucibus non, interdum ac, lectus. Vivamus urna libero, malesuada vel, sollicitudin nec, hendrerit eget, metus. Etiam vestibulum lectus vitae augue. Sed vehicula arcu at lacus. Praesent nulla magna, viverra et, dapibus sed, mollis quis, lectus. Nulla facilisi. Ut et odio. Curabitur nonummy felis at ipsum. Nam lacinia. Vivamus orci tortor, commodo suscipit, ornare elementum, imperdiet eget, mauris. Maecenas magna mauris, luctus a, nonummy eu, venenatis eget, risus. Duis pellentesque, ante at placerat mollis, nunc libero vulputate purus, quis sodales risus justo vel libero. Aliquam consectetuer condimentum arcu. Cras adipiscing pede sed lacus. Cras mattis dignissim sem. Vestibulum augue. Pellentesque volutpat.
+' to index
+Adding field title with value 'A new event' to index
+Adding field date with value 'Wed Nov 28 00:02:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'A place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'me' to index
+creating doc for class: Event, id: 10
+Adding field body with value 'In ipsum diam, hendrerit sollicitudin, ornare quis, cursus in, velit. Suspendisse ut turpis gravida purus pretium euismod. Nam ipsum. Etiam vitae sapien. Aenean eget pede. Fusce lobortis euismod diam. Donec sit amet eros. Nunc congue, nulla id condimentum ultricies, tellus arcu consectetuer risus, molestie laoreet ante erat vel dui. Nam at justo eget velit mollis tristique. Vivamus eu lorem vel ipsum malesuada feugiat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Sed sodales sodales magna. Integer nec eros vel mauris congue interdum. Sed ornare vestibulum velit. Phasellus at pede. Maecenas hendrerit. Proin a velit a lorem volutpat consequat. Suspendisse bibendum condimentum turpis. Cras luctus leo.
+
+Quisque imperdiet lorem sit amet mauris. Etiam consequat nibh lacinia justo. Donec eu lectus. Mauris malesuada adipiscing magna. Sed a arcu. Ut eros neque, luctus sit amet, cursus sit amet, accumsan convallis, urna. Mauris sem justo, imperdiet non, condimentum eget, elementum eget, erat. In nunc lacus, scelerisque sit amet, gravida id, eleifend a, tortor. In euismod, ligula non iaculis sagittis, odio eros ullamcorper erat, eu sagittis erat orci vel massa. Mauris sit amet augue. Suspendisse pulvinar bibendum quam. Aenean ullamcorper nunc non augue. Proin scelerisque blandit massa. Quisque eget nunc vel sapien dignissim malesuada. Maecenas dui odio, euismod a, facilisis sed, tristique tristique, libero. Ut vulputate metus porta arcu.
+
+Cras pellentesque lectus vitae lacus. Etiam malesuada pede sagittis libero cursus cursus. Ut imperdiet adipiscing urna. Mauris egestas, risus a sagittis iaculis, tellus sapien bibendum nulla, nec sollicitudin enim dolor at libero. Praesent egestas imperdiet turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus accumsan fringilla sapien. Sed magna. Aliquam condimentum nunc non magna. Mauris fermentum congue leo. Vivamus augue massa, ullamcorper vitae, sodales sit amet, aliquet blandit, massa.
+
+Cras iaculis augue mollis velit. Sed semper nibh sed enim rutrum vulputate. Mauris commodo tempor urna. Vivamus ante sapien, accumsan sit amet, placerat a, dictum a, lectus. Sed viverra urna non ligula. Fusce ut ligula. Vivamus et augue. Nunc in augue vitae est pharetra suscipit. Nullam in sapien vitae est feugiat pellentesque. Nunc blandit molestie nibh.
+
+Fusce ut diam. Aenean cursus. Donec erat. Pellentesque commodo tortor eget nunc. Aliquam quis mi eu nisi dignissim fringilla. Praesent sed diam. Pellentesque vitae urna. Suspendisse potenti. Pellentesque sagittis elementum risus. Etiam mollis ullamcorper metus. Sed viverra felis eget ligula. Mauris ac tortor. Nulla iaculis. Curabitur metus dui, luctus in, faucibus nec, semper a, lectus. Donec euismod, lacus non auctor accumsan, dui libero mattis velit, ut fringilla dui libero vitae leo. Donec felis justo, molestie non, auctor ut, faucibus eget, dolor. Aenean risus diam, ultricies non, imperdiet ac, faucibus eu, ligula. Aliquam orci. Nam sit amet tortor. Morbi iaculis eros sed nunc.
+
+In eget metus. Mauris mattis lectus a ante. Maecenas adipiscing erat vel velit. Sed et dui. Integer in lectus ut libero placerat aliquet. Etiam ullamcorper. Vivamus eu arcu. Pellentesque dignissim egestas dui. Maecenas convallis ligula non magna. Aenean pretium posuere nibh. Fusce ullamcorper cursus dui. Pellentesque sapien nulla, fermentum ut, pellentesque eleifend, pellentesque vel, tellus. Nullam magna nisi, convallis ut, tincidunt sed, tincidunt vehicula, felis. Vivamus dapibus odio nec sem. Aliquam bibendum molestie leo. Curabitur ut erat nec ipsum imperdiet imperdiet. Nulla arcu.
+
+Vestibulum pulvinar erat pulvinar justo. Curabitur turpis. Donec eleifend, odio sed tincidunt egestas, urna lacus pretium justo, sit amet ullamcorper pede dui ac lectus. Donec pretium. Donec scelerisque leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur enim sem, mollis in, pulvinar sit amet, lacinia ut, leo. Duis volutpat fringilla erat. Vivamus vulputate neque a arcu. Vivamus erat libero, lacinia hendrerit, ullamcorper eget, imperdiet eu, sapien. Morbi gravida tincidunt nibh. Etiam tortor. Donec eu elit. Suspendisse porttitor, orci sed eleifend tincidunt, dui odio volutpat sapien, vitae convallis enim arcu sit amet erat.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Sed nec lorem. Etiam eget nisl vitae libero egestas molestie. Aliquam vel arcu. Nam sed pede a nulla imperdiet ultrices. Etiam sit amet massa vitae sapien pulvinar pretium. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Proin facilisis, mi at aliquet molestie, magna lacus volutpat eros, in pellentesque pede quam eget massa. Pellentesque mi quam, fringilla a, pellentesque a, suscipit sit amet, nibh. Nullam bibendum viverra tellus. Phasellus sodales. Mauris fermentum purus eget ante.
+
+Suspendisse id ante. Curabitur non justo vel felis feugiat tempus. Vivamus nec urna at leo rhoncus molestie. Praesent commodo, neque ac tempus elementum, risus nulla suscipit urna, vel aliquet erat odio non metus. Pellentesque tempus tellus quis nulla. Vivamus nec libero in odio ullamcorper condimentum. Nunc hendrerit odio consectetuer lacus. Praesent sed est. Duis enim lorem, varius et, dictum ut, hendrerit quis, nisl. Nulla facilisi.
+
+Nunc vitae tellus. In ultricies malesuada neque. Sed consequat adipiscing ipsum. Morbi pharetra enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lacinia varius tortor. Mauris elit. Aenean massa lorem, ullamcorper quis, nonummy vitae, posuere vitae, risus. Duis quam ipsum, pellentesque et, aliquet quis, tincidunt et, augue. Vestibulum sed nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam suscipit faucibus justo. Vestibulum porta, sem quis pellentesque elementum, elit arcu placerat ligula, non eleifend mauris magna tincidunt ligula. Cras arcu eros, eleifend ut, elementum nec, vehicula et, eros. Cras orci est, adipiscing et, molestie nec, malesuada ac, nunc. Phasellus mauris velit, feugiat sit amet, vestibulum quis, imperdiet eget, metus.
+
+Ut ut dui eget erat volutpat pulvinar. Morbi at dolor et sapien mollis feugiat. Ut at est. Suspendisse felis. Nunc ultrices egestas nibh. In hac habitasse platea dictumst. Aliquam a mi. Morbi sit amet velit. Pellentesque vel felis ut neque tempor euismod. Mauris quis nisl quis metus ullamcorper rhoncus. Pellentesque vitae felis vitae lectus ultrices consectetuer. Aliquam metus. Integer non elit. Duis leo.
+
+Nunc nisl. Donec nec ipsum. Sed in arcu. Fusce placerat nibh dapibus neque. Vivamus lorem erat, ultricies in, pretium eu, adipiscing et, lectus. Morbi purus. Pellentesque eu lectus. Duis arcu quam, interdum eu, ornare commodo, semper quis, risus. Quisque gravida dignissim risus. Duis sodales arcu ut tortor. Donec suscipit pede vel sapien. Integer risus turpis, egestas vitae, molestie eget, rhoncus non, lacus. Aliquam auctor ligula ut nibh. Praesent egestas viverra nisl. Aenean molestie neque ut risus sagittis malesuada. Curabitur lectus mi, placerat eget, viverra nec, varius in, dolor. Proin nec felis. Etiam vel turpis vitae massa bibendum eleifend. In et velit a leo fermentum faucibus. Nullam volutpat ante ut nunc.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin mollis libero ac lorem. Sed ligula est, fringilla non, tempor id, commodo vel, nisl. Nulla elit ligula, porta vel, interdum et, accumsan eu, purus. Proin vitae purus sit amet eros aliquam ornare. Quisque tortor neque, dictum at, commodo blandit, rhoncus vitae, urna. In sed felis at tortor imperdiet luctus. Aenean nulla tortor, rutrum id, interdum sed, lacinia sed, metus. Vestibulum ornare. Sed accumsan, mauris in laoreet luctus, orci eros dictum eros, sed dapibus purus arcu ac orci. Quisque quam felis, interdum eget, nonummy ac, hendrerit at, magna. Nullam quis neque et pede tincidunt sollicitudin. Duis mi.
+
+Sed posuere gravida purus. Duis vehicula dolor nec orci. Cras porta lorem eu arcu. In convallis erat. Cras at lacus. Cras eu nunc vitae dolor condimentum commodo. Donec tincidunt dapibus ipsum. Aenean ipsum lectus, posuere porta, bibendum non, placerat vitae, sapien. Nunc lectus. Cras odio nunc, hendrerit id, dignissim at, bibendum hendrerit, sem. Sed at lectus vel lacus tempor tristique. Proin dictum, tortor a convallis hendrerit, justo diam bibendum tellus, non scelerisque sapien leo vel enim. Vivamus sed lorem. Vivamus faucibus placerat libero. Suspendisse potenti. Donec eget nunc.
+
+Cras consequat. Vivamus ut nisl et mi sollicitudin sollicitudin. Fusce tincidunt mattis justo. Vivamus magna velit, malesuada vitae, porta ac, aliquet a, est. Praesent aliquam. Curabitur sagittis, ipsum vitae pellentesque faucibus, nibh mi porta ante, id aliquam eros elit non magna. Morbi ipsum purus, feugiat id, porta in, varius eget, lectus. Cras accumsan, mi eget consectetuer tempus, est elit lobortis nunc, sed facilisis ligula neque sit amet massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum sit amet felis et felis bibendum ornare. Vestibulum in felis non eros gravida malesuada. Nulla lobortis pede non dolor. Suspendisse feugiat felis a nisl. Nam lorem lectus, ullamcorper id, imperdiet vel, aliquam aliquam, est. Sed eleifend risus condimentum metus. Aliquam vel dolor id lorem ornare sollicitudin.
+
+Cras mi. Sed enim. Suspendisse leo tellus, lobortis id, commodo quis, lobortis sed, sapien. Sed in nisl. Quisque convallis fringilla ligula. Nunc non nulla. Fusce ac velit. Donec rutrum fermentum libero. Sed sed nisl sit amet nibh viverra lacinia. Quisque lorem sapien, hendrerit vitae, sollicitudin sit amet, dignissim et, risus. Aliquam in ante. Vivamus vitae lacus id eros accumsan lobortis. Donec rhoncus neque ut sapien. Vivamus eget est a mauris consectetuer dapibus. Suspendisse gravida auctor ante. Quisque vel ante eu dolor porttitor mollis. Fusce vitae metus at velit faucibus mollis. Donec laoreet volutpat urna. Ut consequat arcu id lectus. Duis in felis. Nunc sed enim ac odio sollicitudin faucibus. Etiam magna.
+' to index
+Adding field title with value 'yoss test' to index
+Adding field date with value 'Wed Dec 03 17:05:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Vivamus condimentum. Praesent et est at libero facilisis malesuada. Nullam facilisis bibendum sem. Donec sit amet lectus. Sed pretium est ac dui. Integer feugiat pellentesque elit. Suspendisse tincidunt nisi tempor ipsum. Quisque mollis, mauris a gravida bibendum, turpis lectus accumsan sapien, et consectetuer mi nisl bibendum dolor. Nullam sit amet mi. Fusce porta nonummy est. Vivamus neque sapien, tristique ut, sodales accumsan, condimentum ut, mi. Vivamus sit amet nisi. In sit amet velit. Vivamus ut dui. Proin tincidunt augue sed nunc.' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yossarian' to index
+creating doc for class: Event, id: 11
+Adding field body with value 'test' to index
+Adding field title with value 'testing after event subclassing and controller rename' to index
+Adding field date with value 'Fri Dec 14 16:34:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'test' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 12
+Adding field body with value 'test' to index
+Adding field title with value 'test with a vid' to index
+Adding field date with value 'Tue Dec 11 19:21:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'test' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yosss' to index
+creating doc for class: Event, id: 13
+Adding field body with value 'blah foo' to index
+Adding field title with value 'foo' to index
+Adding field date with value 'Fri Dec 14 00:15:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'blah blah place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'foo' to index
+creating doc for class: Event, id: 14
+Adding field body with value 'blah foo' to index
+Adding field title with value 'fooaaaa' to index
+Adding field date with value 'Fri Dec 14 00:15:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'blah blah place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'foo' to index
+creating doc for class: Event, id: 16
+Adding field body with value 'as;lkjfd ' to index
+Adding field title with value 'shmerk' to index
+Adding field date with value 'Tue Dec 11 01:06:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'asfd afsd lasfd ' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'adsfs' to index
+creating doc for class: Event, id: 17
+Adding field body with value 'as;lkfdj' to index
+Adding field title with value 'blarg' to index
+Adding field date with value 'Mon Dec 17 01:20:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'as;dlfkj' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'me' to index
+creating doc for class: Event, id: 18
+Adding field body with value 'bloo' to index
+Adding field title with value 'siieeee' to index
+Adding field date with value 'Thu Dec 13 01:22:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'a;lsjdf;lajkds f' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asdfasfdasf' to index
+creating doc for class: Event, id: 19
+Adding field body with value 'asfd' to index
+Adding field title with value 'a test video' to index
+Adding field date with value 'Mon Dec 10 01:23:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'safdadsf' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'aaa' to index
+creating doc for class: Event, id: 20
+Adding field body with value 'asdf' to index
+Adding field title with value 'asdfadsf' to index
+Adding field date with value 'Thu Dec 20 01:25:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'asdf' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asdf' to index
+creating doc for class: Event, id: 21
+Adding field body with value 'foo' to index
+Adding field title with value 'old code' to index
+Adding field date with value 'Thu Dec 13 01:42:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'the place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'old coder' to index
+creating doc for class: Event, id: 22
+Adding field body with value 'foo' to index
+Adding field title with value 'old code' to index
+Adding field date with value 'Thu Dec 13 01:42:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'the place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'old coder' to index
+creating doc for class: Event, id: 23
+Adding field body with value 'asfd' to index
+Adding field title with value 'test with a vid asfdasdfasfd' to index
+Adding field date with value 'Wed Dec 12 20:44:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'asfdadsf' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asfdasdf' to index
+  [4;35;1mArticle Columns (0.001207)[0m   [0mSHOW FIELDS FROM content[0m
+creating doc for class: Article, id: 24
+Adding field body with value '' to index
+Adding field title with value '' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'false' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Article, id: 25
+Adding field body with value 'Quisque fermentum sem vel odio. Nulla tortor. Vestibulum nunc urna, placerat sit amet, mollis id, tempor sed, mauris. Vivamus condimentum sem sit amet dolor. Etiam fermentum porttitor nulla. Aliquam eu ipsum. Etiam leo. Nunc et sapien. Vestibulum egestas, enim nec faucibus vestibulum, dolor mauris tincidunt sapien, tempor varius mi elit non tellus. Phasellus nunc. Nam id felis. Integer tellus leo, sodales vitae, ornare a, fringilla a, dui.
+
+Nullam ultricies. Nullam consectetuer diam. Praesent accumsan fermentum arcu. In rhoncus pede sed nibh eleifend lobortis. Morbi tempus felis ut urna. Praesent elementum mattis urna. Etiam vestibulum, dui vitae sodales viverra, nunc erat interdum lorem, in bibendum nisl ipsum id odio. Sed lacus enim, aliquet pharetra, tempus eget, pharetra nec, tellus. Nam malesuada. Etiam tempus, ante sit amet hendrerit feugiat, tortor risus aliquet nulla, sit amet eleifend leo diam nec metus.
+' to index
+Adding field title with value 'Test article' to index
+Adding field date with value 'Sun Dec 30 19:10:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'Pellentesque lobortis ante eget erat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc ut odio a dolor rutrum tempor. Integer rhoncus, quam vel varius semper, leo augue porttitor enim, vitae iaculis neque nulla feugiat neque. Vestibulum tempor. Sed justo nisi, sagittis sed, condimentum eu, mollis id, ipsum. Praesent et arcu a nisi aliquet sollicitudin. Vivamus ut ante et enim ultrices mattis. Etiam lacus libero, ullamcorper quis, euismod vitae, faucibus ac, lorem. Nullam vel nibh ut massa tempus suscipit. Sed malesuada diam sed massa. Vivamus vitae eros. Phasellus arcu.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yossarian' to index
+creating doc for class: Article, id: 26
+Adding field body with value 'Vestibulum ac lectus eu nunc fringilla auctor. Morbi aliquam velit ut pede. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris risus mauris, posuere a, pharetra in, consectetuer et, nisl. Maecenas at arcu. Pellentesque id urna sit amet purus luctus molestie. Proin ultricies eros. Cras enim libero, porta a, porttitor vel, pellentesque id, leo. Phasellus euismod suscipit orci. Mauris quis diam. Donec vel dui vel tortor rhoncus volutpat. Nulla et est. Vestibulum dapibus tellus sed urna. Vivamus purus nulla, hendrerit et, eleifend a, bibendum ac, neque. Praesent adipiscing ligula sed dui mattis blandit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer tellus lorem, iaculis in, porttitor eu, ultrices elementum, diam. Morbi metus pede, faucibus consequat, ultricies at, sollicitudin sed, arcu. Nam fringilla, ante nec consequat semper, pede purus aliquet ante, nec mattis nunc nulla sed odio. Vestibulum tincidunt egestas elit.
+
+Praesent mauris metus, tempus vitae, euismod eget, faucibus a, ipsum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis sapien enim, feugiat ac, eleifend et, lacinia placerat, odio. Nam non lacus. Nam malesuada pulvinar quam. Fusce sed sapien. Pellentesque risus. Morbi quis sapien. Maecenas arcu ipsum, suscipit ac, auctor sit amet, auctor quis, nisl. Quisque auctor. Fusce facilisis elit at orci. Nullam erat lectus, placerat sed, vulputate facilisis, ornare eget, justo. Donec leo odio, congue vitae, mollis quis, vehicula sed, metus. Aenean mattis tincidunt amet.
+' to index
+Adding field title with value 'Sickness ends' to index
+Adding field date with value 'Thu Jan 03 20:19:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value '35 Percy Street
+London, UK
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'mara' to index
+creating doc for class: Event, id: 27
+Adding field body with value 'Integer lectus. Vivamus non neque. Aenean at eros eu lorem dapibus blandit. Suspendisse id justo a nisl feugiat consectetuer. Aliquam quis felis nec sem porta pretium. Etiam eleifend magna at mauris. Donec rutrum, massa vel consequat posuere, dui sem venenatis turpis, et hendrerit metus augue quis libero. Nunc neque lorem, adipiscing gravida, tristique in, malesuada sed, mauris. Nullam aliquet, justo quis aliquet congue, massa sem cursus dolor, accumsan cursus nulla felis ac mauris. Nunc iaculis est sit amet sapien.
+
+Etiam dictum, lacus non aliquet mattis, turpis odio porttitor turpis, nec accumsan urna nisl et tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur id pede vitae neque iaculis condimentum. Donec fermentum. Donec consectetuer semper turpis. Vivamus consectetuer, eros et tempor interdum, elit diam ornare pede, sed pretium augue tellus quis ante. Morbi commodo. Vestibulum dui. Morbi vitae tellus. Duis vestibulum eros. Suspendisse dignissim.
+
+Mauris a turpis. Integer sapien orci, lacinia eu, dapibus vitae, fermentum nec, nibh. Vivamus a neque. Nulla posuere, libero sit amet feugiat ullamcorper, neque metus molestie urna, a congue metus nunc at urna. Fusce sodales arcu ac lacus. Vivamus vestibulum justo id massa. Etiam ac ante sed nulla dictum cursus. Nullam semper molestie orci. Proin sed massa. Proin rutrum.
+
+Nam consectetuer. Morbi libero nibh, molestie ac, luctus vel, dictum adipiscing, arcu. Fusce dui nunc, pulvinar quis, auctor sit amet, volutpat a, arcu. Ut hendrerit lacinia augue. Praesent ipsum risus massa nunc.
+' to index
+Adding field title with value 'The sickness ends' to index
+Adding field date with value 'Fri Jan 18 20:23:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value '35 Percy Street
+W1T 2DQ' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'mara' to index
+creating doc for class: Article, id: 28
+Adding field body with value 'Etiam lacinia. Suspendisse potenti. Vestibulum imperdiet pellentesque sapien. Vivamus quam dui, sollicitudin ut, varius eu, accumsan sed, ante. Curabitur gravida tincidunt risus. Sed libero felis, lacinia eu, vulputate nec, hendrerit vitae, orci. In dui pede, ultrices at, tempor id, vestibulum at, ligula. Aliquam erat volutpat. Vestibulum id sapien. Nulla augue. Proin dolor pede, ultrices ut, sollicitudin vulputate, iaculis at, mauris. Sed fermentum justo at dolor. Suspendisse potenti. Phasellus et erat vitae dolor iaculis sagittis. Proin hendrerit. Sed nunc diam, molestie ac, pellentesque eu, porttitor aliquam, turpis. Nunc consequat ipsum viverra risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Donec nisi.
+
+Vestibulum congue nisl aliquam odio. Nam volutpat. Proin et enim. Etiam non enim. Pellentesque hendrerit egestas neque. Suspendisse velit. Donec porttitor, augue vel auctor varius, enim risus mollis nisl, vel ultricies urna dolor non magna. Nullam leo. In mi nisi, cursus ullamcorper, fringilla eget, vulputate in, nisl. Praesent et odio. Phasellus dapibus. Sed metus.
+' to index
+Adding field title with value 'Test article with tags' to index
+Adding field date with value 'Mon Dec 31 14:31:00 +0000 2007' to index
+Adding field place with value '' to index
+Adding field summary with value 'In eget ante. Nulla ullamcorper accumsan velit. Nullam sagittis orci et sapien. Maecenas malesuada eleifend nulla. Fusce convallis, urna id sodales malesuada, purus nibh ornare tellus, at porttitor odio arcu sed enim. Nullam nunc mi, rutrum ut, venenatis non, consequat vitae, enim. Aliquam diam pede, faucibus id, tincidunt ac, pulvinar nec, pede. Aliquam tincidunt elementum nunc. Donec gravida metus non nunc. Mauris rhoncus quam a sem. In bibendum commodo pede.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yossa' to index
+creating doc for class: Article, id: 29
+Adding field body with value 'Donec at leo nonummy arcu congue venenatis. Praesent lorem elit, lobortis vitae, faucibus at, scelerisque vel, lectus. Ut erat. Duis pretium. Suspendisse mollis, mi a sollicitudin porta, urna magna sollicitudin nulla, eu consectetuer orci nibh et arcu. Donec mi. Etiam euismod auctor quam. Ut adipiscing, nisi id eleifend blandit, orci velit venenatis arcu, at placerat neque augue non diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce in ipsum non augue aliquam sagittis. Integer vitae velit. Nunc molestie, lectus vitae varius ultrices, purus velit auctor orci, in faucibus risus risus vel ante. Pellentesque aliquam condimentum augue. Cras nunc. In et arcu. Etiam molestie, purus eu iaculis ullamcorper, libero tellus euismod augue, quis consequat nullam.
+' to index
+Adding field title with value 'Tag test' to index
+Adding field date with value 'Tue Jan 01 16:37:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Sed consequat. Fusce vehicula sapien et lectus. Vivamus posuere, ipsum et egestas volutpat, tortor mi suscipit magna, id imperdiet massa dui ac odio. Fusce quis diam ut sapien lobortis fringilla. Donec pulvinar lectus non tortor. Suspendisse potenti. In nonummy scelerisque turpis. Mauris tincidunt metus ac elit consectetuer interdum. Maecenas sagittis. Integer risus neque, gravida quis, sodales nec, mattis in, dolor. Maecenas hendrerit neque a ligula. Nunc fermentum nunc quis nunc. Integer id sapien. Aliquam semper lectus id felis. Pellentesque est tortor, mollis sit amet, gravida quis, bibendum sit amet, enim. Mauris interdum adipiscing justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis ut leo quis diam vehicula porttitor.' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yossarian' to index
+creating doc for class: Event, id: 30
+Adding field body with value 'The desc' to index
+Adding field title with value 'Test event with video' to index
+Adding field date with value 'Sun Jan 13 21:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'The place' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yoss' to index
+creating doc for class: Event, id: 31
+Adding field body with value 'bar' to index
+Adding field title with value 'Test event with photo' to index
+Adding field date with value 'Sun Jan 06 19:16:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'foo' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yoss' to index
+creating doc for class: Article, id: 32
+Adding field body with value 'afds' to index
+Adding field title with value 'Test article with photo' to index
+Adding field date with value 'Sun Jan 06 19:18:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'sdf' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asfd' to index
+creating doc for class: Article, id: 33
+Adding field body with value 'afds' to index
+Adding field title with value 'Test article with photo' to index
+Adding field date with value 'Sun Jan 06 19:18:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'sdf' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asfd' to index
+creating doc for class: Article, id: 34
+Adding field body with value 'afds' to index
+Adding field title with value 'Test article with photo' to index
+Adding field date with value 'Sun Jan 06 19:18:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'sdf' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asfd' to index
+creating doc for class: Event, id: 35
+Adding field body with value 'asdf' to index
+Adding field title with value 'Test event with video' to index
+Adding field date with value 'Thu Jan 17 19:27:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'asfd' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asfd' to index
+creating doc for class: Article, id: 36
+Adding field body with value 'asfdadsf' to index
+Adding field title with value 'Test article with video' to index
+Adding field date with value 'Sun Jan 06 19:29:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'asdfasfd' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'asfd' to index
+creating doc for class: Event, id: 37
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue Feb 05 13:03:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 38
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Fri Feb 08 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 39
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Mon Feb 11 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 40
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Thu Feb 14 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 41
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sun Feb 17 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 42
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Wed Feb 20 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 43
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sat Feb 23 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 44
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue Feb 26 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 45
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Fri Feb 29 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 46
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Mon Mar 03 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 47
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Thu Mar 06 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 48
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sun Mar 09 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 49
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Wed Mar 12 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 50
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sat Mar 15 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 51
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue Mar 18 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 52
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Fri Mar 21 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 53
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Mon Mar 24 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 54
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Thu Mar 27 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 55
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sun Mar 30 00:00:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 56
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Wed Apr 02 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 57
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sat Apr 05 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 58
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue Apr 08 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 59
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Fri Apr 11 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 60
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Mon Apr 14 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 61
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Thu Apr 17 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 62
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sun Apr 20 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 63
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Wed Apr 23 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 64
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sat Apr 26 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 65
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue Apr 29 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 66
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Fri May 02 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 67
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Mon May 05 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 68
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Thu May 08 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 69
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sun May 11 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 70
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Wed May 14 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 71
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sat May 17 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 72
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue May 20 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 73
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Fri May 23 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 74
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Mon May 26 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 75
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Thu May 29 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 76
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sun Jun 01 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 77
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Wed Jun 04 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 78
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sat Jun 07 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 79
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue Jun 10 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 80
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Fri Jun 13 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 81
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Mon Jun 16 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 82
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Thu Jun 19 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 83
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sun Jun 22 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 84
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Wed Jun 25 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 85
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Sat Jun 28 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Event, id: 86
+Adding field body with value 'Pellentesque pulvinar nisi id ligula. Quisque vel augue. Quisque adipiscing odio at quam. Fusce sodales. In iaculis risus id lorem. Nam aliquam lacus id mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam metus lacus, nonummy sed, laoreet sed, accumsan at, neque. Sed vehicula risus dapibus dui. Aenean viverra varius leo. Integer semper, ante vitae rutrum faucibus, tellus turpis commodo diam, eu ornare mauris sapien ut lacus. Nulla placerat urna ut mi.
+
+Nulla facilisi. Vestibulum volutpat. Aliquam sodales pretium leo. Ut malesuada. Pellentesque placerat magna id neque. Nunc sapien dui, facilisis in, accumsan ut, dictum et, neque. Aenean vulputate hendrerit dolor. Phasellus vel tellus. Quisque nonummy feugiat tortor. Proin sollicitudin. Morbi pulvinar velit. Curabitur sodales. Vivamus vel dolor placerat nisi mollis scelerisque. Mauris ac augue. Maecenas a purus nec risus imperdiet gravida. Pellentesque pharetra neque vel felis tristique congue. Aliquam dignissim tempus nulla.
+
+Phasellus faucibus accumsan sem. Duis sit amet tellus eu purus accumsan consectetuer. Nulla facilisi. Sed vestibulum purus sit amet enim. Morbi turpis metus, semper non, mollis et, tristique eget, pede. Quisque pretium sapien sit amet est. Ut consequat mi eget ipsum. Aliquam sollicitudin velit. Vestibulum vel velit at ipsum varius gravida. Etiam lorem sapien, commodo at, interdum interdum, nonummy et, mauris. Fusce luctus facilisis metus. Aliquam erat volutpat. Aenean nunc. Etiam sollicitudin, eros quis tristique rhoncus, dolor tellus consectetuer libero amet.
+' to index
+Adding field title with value 'Foo' to index
+Adding field date with value 'Tue Jul 01 00:00:00 +0100 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Donec id nulla. Nulla facilisi. Morbi accumsan. Aliquam erat volutpat. Etiam tristique nibh vel odio. Donec placerat orci non justo vulputate tristique. Cras quis metus. Nullam a ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis eleifend. Maecenas metus tortor, viverra ullamcorper, auctor nec, sagittis ac, nibh. Etiam dapibus bibendum posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'test' to index
+creating doc for class: Article, id: 107
+Adding field body with value 'Vivamus nisl urna, sodales ut, pellentesque ut, tincidunt id, massa. Vivamus fermentum. Nulla dolor nisi, viverra at, pulvinar nec, tristique ac, nibh. Fusce purus risus, pulvinar et, sodales eget, facilisis non, velit. Donec rhoncus, mi et adipiscing vulputate, ipsum nisl dictum enim, ac facilisis augue arcu in leo. Nam semper, lacus id blandit imperdiet, neque tellus aliquet quam, eu facilisis libero risus eu massa. Aenean blandit augue ac turpis. Vivamus venenatis. Aliquam egestas magna a neque. Cras at eros non sem tempus tempor. Duis aliquam metus quis eros. Vestibulum gravida nunc nec felis. Mauris vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Donec porttitor. Phasellus scelerisque arcu nec arcu. Sed porttitor condimentum nibh. Nam lacinia, nisl at interdum fringilla, est odio faucibus magna, a elementum arcu ante eget mi. Curabitur sem. Sed fringilla, ligula sit amet porttitor rhoncus, dolor est fringilla sapien, vel vehicula velit risus sed nibh. Fusce neque ligula, euismod at, tempus nec, faucibus in, odio. Maecenas eget arcu. Suspendisse potenti. Vivamus feugiat. Nulla et mauris. Ut a dui. Praesent tristique varius eros. Pellentesque volutpat augue nec magna.
+
+Etiam sed enim. Aenean quam ante, vehicula eget, tristique et, rutrum ut, dui. Integer euismod, felis a porta ultricies, magna augue fermentum est, quis pellentesque lorem nisi quis justo. Nunc metus ligula, sollicitudin non, porta auctor, scelerisque eget, augue. Nullam laoreet ornare libero. Maecenas eget est at ipsum ultricies tristique. Cras nullam.
+' to index
+Adding field title with value 'Test articl' to index
+Adding field date with value 'Sun Feb 03 17:25:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Morbi mollis ullamcorper nisl. Morbi egestas, lectus sit amet pulvinar hendrerit, nisl purus pellentesque mi, nec mollis sem urna sit amet est. Pellentesque tristique ultrices est. Sed feugiat posuere ligula. Proin blandit justo id diam. Nulla semper dui a pede. Mauris tempor metus nec risus. Maecenas a erat commodo nisl gravida tincidunt. Duis eget lacus vel dui blandit pharetra. Sed vel posuere.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'yossarian' to index
+creating doc for class: Article, id: 109
+Adding field body with value 'Mauris mattis scelerisque felis. Vivamus ante. Curabitur imperdiet. Integer eu lorem porta diam auctor convallis. Sed non odio. Vivamus mollis mattis est. Duis commodo. Integer ut est. Mauris quis metus. Morbi fermentum odio eget nunc. Etiam viverra iaculis dolor. Nam ac erat.
+
+Quisque molestie metus. Praesent imperdiet tortor at nunc. Proin eleifend dolor. Ut malesuada ipsum sit amet mauris. Donec eros dui, commodo sagittis, rhoncus at, gravida vitae, urna. Integer lacus. Proin enim risus, gravida nec, consectetuer eu, tristique a, odio. Cras eleifend viverra pede. In condimentum. Mauris augue arcu, tempor nec, laoreet id, egestas quis, arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam vel augue id tellus interdum luctus. Aliquam turpis.
+
+Pellentesque congue, purus in cursus volutpat, urna augue facilisis orci, at suscipit est neque id sapien. Maecenas sodales urna vitae sapien. Aliquam dui. Vestibulum vel ipsum id tortor posuere bibendum. Quisque nulla turpis, fringilla in, tempor sed, adipiscing ut, sapien. Nulla dolor odio, dignissim a, placerat et, porta eget, nunc. Nulla sed nibh in tellus dapibus euismod. Nunc purus. Maecenas lacus nibh, vestibulum ut, faucibus eget, dictum quis, elit. Nulla volutpat augue a nunc. Curabitur ac nulla. Ut dapibus porttitor nunc. Vestibulum at arcu. Praesent molestie sapien sed lacus. Aliquam ut enim. In dolor justo, pellentesque eget, consectetuer sed, faucibus ac, lacus.
+
+Etiam purus felis, commodo sed, semper sed, feugiat ut, arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing amet.
+' to index
+Adding field title with value 'Fusce erat nisi viverra fusce.' to index
+Adding field date with value 'Sun Feb 03 17:36:00 +0000 2008' to index
+Adding field place with value '' to index
+Adding field summary with value 'Praesent est dui, dignissim sed, elementum eu, bibendum id, erat. Donec porttitor, nibh sit amet vehicula dignissim, sapien urna iaculis nulla, eget gravida massa arcu ac enim. Nunc porta pretium ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum erat velit, ultrices et, rutrum ut, tristique quis, massa. Phasellus nunc. Phasellus nullam.
+' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value 'y' to index
+creating doc for class: Video, id: 120
+Adding field body with value 'Suspendisse et odio. Suspendisse viverra iaculis tellus. Nunc cursus feugiat justo. Integer varius euismod turpis. Aliquam ac mauris. Nullam accumsan quam ut sapien. Nam risus. Aenean ante nunc metus.
+' to index
+Adding field title with value 'Toivo in action' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Video, id: 121
+Adding field body with value 'It's a place!' to index
+Adding field title with value 'Paul's house' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Video, id: 122
+Adding field body with value 'Mauris posuere. Suspendisse fermentum, mi eu scelerisque placerat, eros urna consectetuer dui, eget ullamcorper ipsum ligula sit amet elit. Pellentesque pulvinar. Sed libero. Praesent id massa nullam.
+' to index
+Adding field title with value 'Riot Simulation' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Video, id: 123
+Adding field body with value 'Duis eu est. Cras a diam. Integer ac est. Fusce faucibus ligula ac nisi sagittis dignissim. Pellentesque nec orci. Nulla facilisi. Morbi ac ligula. Duis urna velit, adipiscing at, mollis vitae nullam.
+' to index
+Adding field title with value 'Xvid test' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Video, id: 124
+Adding field body with value 'Maecenas volutpat tempus magna. Sed nonummy, libero vitae luctus fringilla, massa leo vulputate pede, non tempus neque ipsum nec eros. Sed cursus. Vestibulum consequat pede ut libero. Morbi eget amet.
+' to index
+Adding field title with value 'This is a video' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Video, id: 125
+Adding field body with value 'Donec nibh. Sed ornare eros eget lacus. Nam fringilla bibendum turpis. Sed imperdiet felis nec ligula. Curabitur ipsum. Donec semper arcu a pede. Aenean blandit vehicula sapien. Fusce at leo. Sed sed.
+' to index
+Adding field title with value 'bloop' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Video, id: 126
+Adding field body with value 'Vestibulum ullamcorper laoreet felis. In hac habitasse platea dictumst. Maecenas id risus. Nam id purus. Aliquam erat volutpat. Quisque consequat, pede sollicitudin pharetra rutrum, ligula erat metus.
+' to index
+Adding field title with value 'Torrent?' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+creating doc for class: Video, id: 127
+Adding field body with value 'Ut mattis luctus quam. Aliquam erat volutpat. Duis libero odio, elementum eget, elementum lacinia, viverra at, sem. Cras facilisis magna id nibh. Phasellus pretium neque nec felis blandit porta metus.
+' to index
+Adding field title with value 'Torrent2?' to index
+Adding field date with value '' to index
+Adding field place with value '' to index
+Adding field summary with value '' to index
+Adding field published with value 'true' to index
+Adding field hidden with value 'false' to index
+Adding field published_by with value '' to index
+reindex model Content : 133.68% complete : 0.79 secs to finish
+  [4;36;1mContent Load (0.000405)[0m   [0;1mSELECT * FROM content WHERE (content.id > 127) LIMIT 1000[0m
+  [4;35;1mSQL (0.000056)[0m   [0mCOMMIT[0m
+changing index dir to script/../config/../index/development/content/20080227001654
+index dir is now script/../config/../index/development/content/20080227001654
+DRb server: ensure_index_exists for class Content
+DRb server: ensure_index_exists for class Content
+DRb server: ensure_index_exists for class Content

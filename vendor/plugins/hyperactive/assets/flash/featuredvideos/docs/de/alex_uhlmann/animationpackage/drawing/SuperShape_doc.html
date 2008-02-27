@@ -1,0 +1,845 @@
+
+		<HTML>
+		<HEAD>
+		<TITLE>SuperShape  Documentation</TITLE>
+		
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family:monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+		
+		</HEAD>
+		<BODY bgColor='white'>
+		<P class='majorTitle'>SuperShape Documentation</P>
+		
+
+		<P><B>Author:</B> Alex Uhlmann<BR>
+		<B>Last Modified:</B> 09/24/05 19:03:28<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>SuperShape class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>SuperShape Properties:</P><div class='methodsDiv'>
+<a href='#m_def'>- m_def</a><br>
+<a href='#n1_def'>- n1_def</a><br>
+<a href='#n2_def'>- n2_def</a><br>
+<a href='#n3_def'>- n3_def</a><br>
+<a href='#range_def'>- range_def</a><br>
+<a href='#scaling_def'>- scaling_def</a><br>
+<a href='#detail_def'>- detail_def</a><br>
+<a href='#m'>- m</a><br>
+<a href='#n1'>- n1</a><br>
+<a href='#n2'>- n2</a><br>
+<a href='#n3'>- n3</a><br>
+<a href='#range'>- range</a><br>
+<a href='#scaling'>- scaling</a><br>
+<a href='#detail'>- detail</a><br>
+<a href='#animateFromCenter'>- animateFromCenter</a><br>
+<a href='#movieclip'>- movieclip</a><br>
+<a href='#lineThickness'>- lineThickness</a><br>
+<a href='#lineRGB'>- lineRGB</a><br>
+<a href='#lineAlpha'>- lineAlpha</a><br>
+<a href='#fillRGB'>- fillRGB</a><br>
+<a href='#fillAlpha'>- fillAlpha</a><br>
+</div><br>
+<P class='ToC'>SuperShape Methods:</P><div class='methodsDiv'>
+<a href='#draw'>- draw</a><br>
+<a href='#animate'>- animate</a><br>
+<a href='#animateProps'>- animateProps</a><br>
+<a href='#morph'>- morph</a><br>
+<a href='#addPreset'>- addPreset</a><br>
+<a href='#getPreset'>- getPreset</a><br>
+<a href='#setPreset'>- setPreset</a><br>
+<a href='#lineStyle'>- lineStyle</a><br>
+<a href='#fillStyle'>- fillStyle</a><br>
+<a href='#gradientStyle'>- gradientStyle</a><br>
+<a href='#animationStyle'>- animationStyle</a><br>
+<a href='#clear'>- clear</a><br>
+<a href='#roundResult'>- roundResult</a><br>
+<a href='#forceEnd'>- forceEnd</a><br>
+<a href='#getOptimizationMode'>- getOptimizationMode</a><br>
+<a href='#setOptimizationMode'>- setOptimizationMode</a><br>
+<a href='#getTweenMode'>- getTweenMode</a><br>
+<a href='#setTweenMode'>- setTweenMode</a><br>
+<a href='#getDurationMode'>- getDurationMode</a><br>
+<a href='#setDurationMode'>- setDurationMode</a><br>
+<a href='#stop'>- stop</a><br>
+<a href='#pause'>- pause</a><br>
+<a href='#resume'>- resume</a><br>
+<a href='#lock'>- lock</a><br>
+<a href='#unlock'>- unlock</a><br>
+<a href='#isTweening'>- isTweening</a><br>
+<a href='#getStartValue'>- getStartValue</a><br>
+<a href='#getEndValue'>- getEndValue</a><br>
+<a href='#getCurrentValue'>- getCurrentValue</a><br>
+<a href='#getCurrentPercentage'>- getCurrentPercentage</a><br>
+<a href='#getDurationElapsed'>- getDurationElapsed</a><br>
+<a href='#getDurationRemaining'>- getDurationRemaining</a><br>
+<a href='#addEventListener'>- addEventListener</a><br>
+<a href='#removeEventListener'>- removeEventListener</a><br>
+<a href='#removeAllEventListeners'>- removeAllEventListeners</a><br>
+<a href='#eventListenerExists'>- eventListenerExists</a><br>
+<a href='#getID'>- getID</a><br>
+<a href='#toString'>- toString</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>SuperShape <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> Documentation not provided.</P>
+		<P class="methodTitle">description:</P>
+		<P>SuperShape allows you to draw many different shapes based on the Superformula developed by 
+			<a href="http://www.genicap.com/">Johan Gielis</a>.
+			The Superformula used by SuperShape is one simple equation that can generate a vast diversity of natural shapes.
+			 It produces everything from simple triangles and pentagons, to stars, spirals and petals.
+			More information on the Superformula: <a href="http://astronomy.swin.edu.au/~pbourke/curves/supershape">Paul Bourke</a>.
+			Based on the first Flash implementations of <a href="http://www.flashforum.de/forum/showthread.php?s=&threadid=120213">Flashforum members</a>,
+			Especially based on e2e4 and i++ contributions. 
+			If you specify a movieclip as first parameter, the shape will be drawn inside this movieclip.
+			If you omit the mc parameter, the class will create a new movieclip in _root.apContainer_mc.
+			<p>
+			Here is an application that may help you testing different parameters of SuperShape: <a href="SuperShape_preview.html">(Testing application)</a>
+			<p>
+			Example 1: Some shape manipulations. <a href="SuperShape_01.html">(Example .swf)</a> 
+			<blockquote><pre>
+			var mySuperShape:SuperShape = new SuperShape(300,300);
+			//like the MovieClip lineStyle(), lineStyle in AnimationPackage also omits the line if you call it without a parameter.
+			mySuperShape.lineStyle();
+			mySuperShape.fillStyle(0xff0000);
+			
+			mySuperShape.animationStyle(3000,Sine.easeInOut,"onStart");
+			mySuperShape.setPreset("burst");
+			
+			mySuperShape.addPreset({label:"rounded Polygon", data:{m:5, n1:1, n2:1.7, n3:1.7, range:2, scaling:2, detail:1000}});
+			
+			mySuperShape.morph("burst","rounded Polygon");
+			
+			myListener.onStart = function() {	
+				mySuperShape.callback = "onRoundStar";
+				mySuperShape.animateProps(["n1"],[0.09]);
+			}
+			myListener.onRoundStar = function() {	
+				mySuperShape.callback = "onN1Out";
+				mySuperShape.animateProps(["n1"],[1]);
+			}
+			myListener.onN1Out = function() {	
+				mySuperShape.callback = "onN2In";
+				mySuperShape.animateProps(["n2"],[6]);
+			}
+			myListener.onN2In = function() {	
+				mySuperShape.callback = "onN2Out";
+				mySuperShape.animateProps(["n2"],[1]);
+			}
+			myListener.onN2Out = function() {		
+				mySuperShape.callback = "onN3In";
+				mySuperShape.animateProps(["n2","n3"],[6,6]);
+			}
+			myListener.onN3In = function() {
+				mySuperShape.callback = null;
+				mySuperShape.animateProps(["n2","n3"],[1,1]);
+			}
+			</pre></blockquote>
+			<p>
+			Example 2: Some other shape manipulations. <a href="SuperShape_02.html">(Example .swf)</a>
+			<blockquote><pre>
+			var mySuperShape:SuperShape = new SuperShape(300,300);
+			mySuperShape.lineStyle(3,0xff0000);
+			mySuperShape.fillStyle();
+			mySuperShape.animationStyle(3000,Sine.easeInOut,"on01");
+			mySuperShape.addPreset({label:"0", data:{m:10, n1:0, n2:1.7, n3:0, range:2, scaling:2, detail:1000}});
+			mySuperShape.addPreset({label:"1", data:{m:10, n1:1, n2:1.7, n3:1.7, range:2, scaling:2, detail:1000}});
+			mySuperShape.morph("0","1");
+			myListener.on01 = function() {	
+				mySuperShape.callback = "on23";
+				mySuperShape.addPreset({label:"2", data:{m:10, n1:3, n2:1.3, n3:8, range:2, scaling:2, detail:1000}});
+				mySuperShape.morph("1","2");
+			}
+			myListener.on23 = function() {	
+				mySuperShape.callback = "on34";
+				mySuperShape.addPreset({label:"3", data:{m:10, n1:.2, n2:1.3, n3:8, range:2, scaling:2, detail:1000}});
+				mySuperShape.morph("2","3");
+			}
+			myListener.on34 = function() {	
+				mySuperShape.callback = "on45";
+				mySuperShape.addPreset({label:"4", data:{m:10, n1:1.1, n2:0.5, n3:8, range:2, scaling:2, detail:1000}});
+				mySuperShape.morph("3","4");
+			}
+			myListener.on45 = function() {	
+				mySuperShape.callback = "on56";
+				mySuperShape.addPreset({label:"5", data:{m:10, n1:0.5, n2:0.1, n3:16.4, range:2, scaling:2, detail:1000}});
+				mySuperShape.morph("4","5");
+			}
+			myListener.on56 = function() {		
+				mySuperShape.callback = "on67";
+				mySuperShape.addPreset({label:"6", data:{m:10, n1:0.5, n2:0.1, n3:1, range:2, scaling:2, detail:1000}});
+				mySuperShape.morph("5","6");
+			}
+			myListener.on67 = function() {
+				mySuperShape.callback = null;
+				mySuperShape.addPreset({label:"7", data:{m:10, n1:0.5, n2:0.1, n3:.1, range:2, scaling:2, detail:2000}});
+				mySuperShape.morph("6","7");
+			}
+			</pre></blockquote>
+			Reader Exercise: Do some shape manipulations via the gradientStyle method.
+</P>
+		<P class="methodTitle">usage:</P> <pre>var mySuperShape:SuperShape = SuperShape();</pre>
+		<pre>var mySuperShape:SuperShape = SuperShape(x, y, m, n1, n2, n3, range, scaling, detail);</pre>
+		<pre>var mySuperShape:SuperShape = SuperShape(mc, x, y, m, n1, n2, n3, range, scaling, detail);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul> 
+<li>mc (MovieClip) existing movieclip to draw in.</li>
+<li>x (Number) X position of the drawing. Center point.</li>
+<li>y (Number) Y position of the drawing. Center point.</li>
+<li>m (Number) 0 - 20. Defaults to 4.</li>
+<li>n1 (Number) 0 - 10000. Defaults to 1.</li>
+<li>n2 (Number) 0 - 10000. Defaults to 1.</li>
+<li>n3 (Number) 0 - 10000. Defaults to 1.</li>
+<li>range (Number) 0.5 - 20PI. Defaults to 12.</li>
+<li>scaling (Number) 1 - 5. Defaults to 200.</li>
+<li>detail (Number) 1000 - 50000. Defaults to 10000.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>SuperShape Properties:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='m_def'></A><u> m_def</u></P>
+				<P> (Number)(static) default property. Defaults to 4.</P>
+
+				<P class='methodTitle'><A name='n1_def'></A><u> n1_def</u></P>
+				<P> (Number)(static) default property. Defaults to 1.</P>
+
+				<P class='methodTitle'><A name='n2_def'></A><u> n2_def</u></P>
+				<P> (Number)(static) default property. Defaults to 1.</P>
+
+				<P class='methodTitle'><A name='n3_def'></A><u> n3_def</u></P>
+				<P> (Number)(static) default property. Defaults to 1.</P>
+
+				<P class='methodTitle'><A name='range_def'></A><u> range_def</u></P>
+				<P> (Number)(static) default property. Defaults to 12.</P>
+
+				<P class='methodTitle'><A name='scaling_def'></A><u> scaling_def</u></P>
+				<P> (Number)(static) default property. Defaults to 200.</P>
+
+				<P class='methodTitle'><A name='detail_def'></A><u> detail_def</u></P>
+				<P> (Number)(static) default property. Defaults to 10000.</P>
+
+				<P class='methodTitle'><A name='m'></A><u> m</u></P>
+				<P> (Number) Property of Superformula.</P>
+
+				<P class='methodTitle'><A name='n1'></A><u> n1</u></P>
+				<P> (Number) Property of Superformula.</P>
+
+				<P class='methodTitle'><A name='n2'></A><u> n2</u></P>
+				<P> (Number) Property of Superformula.</P>
+
+				<P class='methodTitle'><A name='n3'></A><u> n3</u></P>
+				<P> (Number) Property of Superformula.</P>
+
+				<P class='methodTitle'><A name='range'></A><u> range</u></P>
+				<P> (Number) Property of Superformula.</P>
+
+				<P class='methodTitle'><A name='scaling'></A><u> scaling</u></P>
+				<P> (Number) Property of Superformula.</P>
+
+				<P class='methodTitle'><A name='detail'></A><u> detail</u></P>
+				<P> (Number) Property of Superformula.</P>
+
+				<P class='methodTitle'><A name='animateFromCenter'></A><u> animateFromCenter</u></P>
+				<P> (Boolean) Causes the shape to be animated from the center. Default is set to false.</P>
+
+				<P class='methodTitle'><A name='movieclip'></A><u> movieclip</u></P>
+				<P> (MovieClip)(read only) Movieclip that contains the drawing.</P>
+
+				<P class='methodTitle'><A name='lineThickness'></A><u> lineThickness</u></P>
+				<P> (Number) Outline thickness.</P>
+
+				<P class='methodTitle'><A name='lineRGB'></A><u> lineRGB</u></P>
+				<P> (Number) Outline color of the drawing as hex number.</P>
+
+				<P class='methodTitle'><A name='lineAlpha'></A><u> lineAlpha</u></P>
+				<P> (Number) Outline transparency (alpha).</P>
+
+				<P class='methodTitle'><A name='fillRGB'></A><u> fillRGB</u></P>
+				<P> (Number) Fill color of the drawing.</P>
+
+				<P class='methodTitle'><A name='fillAlpha'></A><u> fillAlpha</u></P>
+				<P> (Number) Fill transparency.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>SuperShape Methods:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='draw'></A><u> draw</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws supershape.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.draw();</pre>
+			<pre>mySuperShape.draw(start, end);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>start (Number) optional. value to beginn the drawing.</li>
+<li>end (Number) optional. value to end the drawing.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='animate'></A><u> animate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Draws an animated supershape.
+				<p>
+				Example 1: <a href="SuperShape_animate_01.html">(Example .swf)</a> draw a circle backwards with default parameters.
+				<blockquote><pre>
+				var mySuperShape:SuperShape = new SuperShape(275,200);
+				mySuperShape.setPreset("circle");
+				mySuperShape.fillStyle(0xff0000);	
+				mySuperShape.animate(100,0);
+				</pre></blockquote>
+				Example 2: <a href="SuperShape_animate_02.html">(Example .swf)</a> draw a more complex star with custom parameters.
+				<blockquote><pre>
+				var mySuperShape:SuperShape = new SuperShape(200, 200, 19/6, .3, .3, .3, 12, 2, 5000);
+				mySuperShape.fillStyle();
+				mySuperShape.animationStyle(10000);
+				mySuperShape.animate(0,100);
+				</pre></blockquote>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.animate(start, end);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>start (Number) Value to beginn the drawing.</li>
+<li>end (Number) Value to end the drawing.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='animateProps'></A><u> animateProps</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Animates a property or properies specified as a String in propArr to the specified number value or values in endArr.
+					<p>
+					Example 1: <a href="SuperShape_animateProps_01.html">(Example .swf)</a> manipulate the border of a circle.
+					<blockquote><pre>
+					var mySuperShape:SuperShape = new SuperShape(275,200);
+					mySuperShape.lineStyle(6);
+					mySuperShape.fillStyle(0xff0000);
+					mySuperShape.animationStyle(6000,Circ.easeOut,"onDetailOut");
+					mySuperShape.setPreset("circle");
+					mySuperShape.animateProps(["detail"],[3]);
+					myListener.onDetailOut = function() {
+						mySuperShape.animationStyle(6000,Circ.easeIn,null);
+						mySuperShape.animateProps(["detail"],[1000]);
+					}
+					</pre></blockquote><p>
+					See class documentation for another example.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.animateProps(propArr, endArr);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>propArr (Array) Array of Strings. See class properties for available properties.</li>
+<li>endArr (Array) Array of Numbers.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='morph'></A><u> morph</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Morphs a shape from a specified preset to another.
+					To read about presets, take a look at addPreset() and setPreset().
+					See class documentation for an example.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.morph(presetStart, presetEnd);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>presetStart (String) preset label to start mophing.</li>
+<li>presetEnd (String) preset label to moph to.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='addPreset'></A><u> addPreset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Adds a new preset object to SuperShape. Overwrites an existing preset with the same label.
+				A preset is an object that contains parameters that represent a shape.
+				<p>
+				Example 1: <a href="SuperShape_addPreset_01.html">(Example .swf)</a> Add the the german military logo as a preset
+				and draw it with default parameters.
+				<blockquote><pre>
+				var mySuperShape:SuperShape = new SuperShape(275,200);
+				mySuperShape.addPreset({label:"Bundeswehr", data:{m:4, n1:10000, n2:8000, n3:8000, range:2, scaling:2, detail:1000}});
+				mySuperShape.setPreset("Bundeswehr");
+				mySuperShape.draw();
+				</pre></blockquote>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.addPreset(item);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>item (Object) the object that defines the preset. Like an item of the Macromedia DataProvider, item needs to have another label and data object inside.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getPreset'></A><u> getPreset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Returns the preset object.
+				A preset is an object that contains parameters that represent a shape.
+				If you specify the label of an available preset as a parameter, only
+				the chosen preset is return. If you don't send a parameter,
+				all presets will be returned.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.getPreset();</pre>
+			<pre>mySuperShape.getPreset(preset);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>preset (String) the label of an available preset.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Object that contains the preset.
+	</P>
+
+				<P class='methodTitle'><A name='setPreset'></A><u> setPreset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Sets the preset object.
+				A preset is an object that contains parameters that represent a shape. There are predefined presets available.
+				You can add further presets with addPreset().
+				<p>
+				Example 1: <a href="SuperShape_setPreset_01.html">(Example .swf)</a> draw a circle with default parameters.
+				<blockquote><pre>
+				var mySuperShape:SuperShape = new SuperShape(275,200);
+				mySuperShape.setPreset("circle");
+				mySuperShape.draw();
+				</pre></blockquote>
+				Example 2: <a href="SuperShape_setPreset_02.html">(Example .swf)</a> draw an animated square with custom parameters.
+				<blockquote><pre>
+				var mySuperShape:SuperShape = new SuperShape(275,200);
+				mySuperShape.lineStyle(0);
+				mySuperShape.fillStyle(0xff0000);
+				mySuperShape.animationStyle(10000,Sine.easeOut);
+				mySuperShape.setPreset("square");
+				mySuperShape.animate(0,100);
+				</pre></blockquote>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.setPreset(preset);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>preset (String) the label of an available preset.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='lineStyle'></A><u> lineStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					define outline.
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.lineStyle();</pre>
+			<pre>mySuperShape.lineStyle(lineThickness, lineRGB, lineAlpha);</pre>
+	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>lineThickness (Number) Outline thickness.</li>
+<li>lineRGB (Number) Outline color of the drawing as hex number.</li>
+<li>lineAlpha (Number) Outline transparency (alpha).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='fillStyle'></A><u> fillStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					define fill.
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.fillStyle();</pre>
+			<pre>mySuperShape.fillStyle(fillRGB, fillAlpha);</pre>
+	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillRGB (Number) Fill color of the drawing.</li>
+<li>fillAlpha (Number) Fill transparency.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='gradientStyle'></A><u> gradientStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Same interface as MovieClip.beginGradientFill(). See manual.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.gradientStyle(fillType, colors, alphas, ratios, matrix);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fillType (String)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>colors (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>alphas (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>ratios (Array)  Gradient property. See MovieClip.beginGradientFill().</li>
+<li>matrix (Object)  Gradient property. See MovieClip.beginGradientFill().</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='animationStyle'></A><u> animationStyle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					set the animation style properties for your animation.
+				Notice that if your easing equation supports additional parameters you 
+				can send those parameters with the easing parameter in animationStyle.
+				You have to send an Array as easing parameter. The first 
+				element has to be the easing equation in Robert Penner style. The 
+				following parameters can be your additional parameters. i.e.:
+				<blockquote><pre>
+				var myRotation:Rotation = new Rotation(mc);
+				myRotation.animationStyle(2000,[Back.easeOut,4]);
+				myRotation.run(360);
+				</pre></blockquote>
+				See also "Customizable easing equations" in readme for more information.
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.animationStyle(duration);</pre>
+			<pre>mySuperShape.animationStyle(duration, callback);</pre>
+			<pre>mySuperShape.animationStyle(duration, easing, callback);</pre>
+	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</li>
+<li>easing (Object) Easing equation in Robert Penner style. Default equation is Linear.easeNone. www.robertpenner.com/easing/</li>
+<li>callback (String) Function to invoke after animation. See APCore class.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='clear'></A><u> clear</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					removes all drawings. Identical to myInstance.movieclip.clear();
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.clear();</pre>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='roundResult'></A><u> roundResult</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					rounds animation results to integers. (might be usefull for animating pixelfonts). Default is false.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.roundResult(rounded);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>rounded (Boolean) <code>true</code> rounds the result. Animates with integers. Less accuracy. <code>false</code> animates with floating point numbers.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='forceEnd'></A><u> forceEnd</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Flash does not guaranteed that time-based tweening will reach 
+				the end value(s) of your animation. By default AnimationPackage 
+				guarantees that the end value(s) will be reached. The forceEnd 
+				method allows you to disable this guarantee and only accept 
+				the values from your easing equation. In certain situations this can 
+				lead to a smoother ending of the animation. Notice that in frame-based 
+				tweening the end value(s) will always be reached.		
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.forceEnd(forceEndVal);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>forceEndVal (Boolean) <code>true</code> or <code>false</code>.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getOptimizationMode'></A><u> getOptimizationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the optimization mode. See setOptimizationMode for more information. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>getOptimizationMode();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Boolean
+	</P>
+
+				<P class='methodTitle'><A name='setOptimizationMode'></A><u> setOptimizationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Allows to explicitly remove parts of the animation that don't change during 
+					the animation. 
+					This can add additional performance to your animation. Note that 
+					setting this method to true has side effects. If all start and end values match, 
+					the animation won't start and will immediatly invoke an onEnd event. 
+					The order of values returned by getStartValue(s), getCurrentValue(s), 
+					getEndValue(s) and the value property of the eventObject returned 
+					by EventDispatcher might change if you set this method to true. You can 
+					still retrieve the parts of the animation that are actually animated 
+					if you access the Animator instance of your animation class via 
+					myAnimator. Ask <code>myInstance.myAnimator.setter</code> to retrieve 
+					all currently animated parts of the animation. See Animator 
+					documentation. Of cource, if you know your input values you would 
+					probably look at them.<p>
+					Note that the AnimationCore class offers a static setOptimizationModes method 
+					(note the last "s" at the end) that allows you to remove parts of 
+					'all' your animations that don't change during the animation.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.setOptimizationMode(optimize);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>optimize (Boolean)</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='getTweenMode'></A><u> getTweenMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current tween mode used by the instance. 
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>getTweenMode();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String that specifies the tween mode. Either AnimationCore.INTERVAL or AnimationCore.FRAMES.
+	</P>
+
+				<P class='methodTitle'><A name='setTweenMode'></A><u> setTweenMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					sets the current tween mode used by the instance. 
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>setTweenMode();</tt> 	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>t (String) Either AnimationCore.INTERVAL for time-based tweening or AnimationCore.FRAMES for frame-based tweening.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if setting tween mode was successful, 
+	<code>false</code> if not successful.
+	</P>
+
+				<P class='methodTitle'><A name='getDurationMode'></A><u> getDurationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current duration mode used by the instance.
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>getDurationMode();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String that specifies the duration mode. Either AnimationCore.MS or AnimationCore.FRAMES.
+	</P>
+
+				<P class='methodTitle'><A name='setDurationMode'></A><u> setDurationMode</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					sets the current duration mode used by the instance. 
+					Please check with AnimationCore.setTweenModes for more information.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>setDurationMode();</tt> 	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>d (String) Either AnimationCore.MS for milliseconds or AnimationCore.FRAMES.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if setting duration mode was successful, 
+	<code>false</code> if not successful.
+	</P>
+
+				<P class='methodTitle'><A name='stop'></A><u> stop</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					stops the animation if not locked..
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.stop();</tt> 
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully stopped. 
+	<code>false</code> if instance could not be stopped, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='pause'></A><u> pause</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					pauses the animation if not locked. Call resume() to continue animation.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.pause();</tt> 	  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) optional property. Number of milliseconds or frames to pause before continuing animation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully paused. 
+	<code>false</code> if instance could not be paused, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='resume'></A><u> resume</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					continues the animation if not locked. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.resume();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully resumed. 
+	<code>false</code> if instance could not be resumed, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='lock'></A><u> lock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					locks the animation to prevent pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.lock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='unlock'></A><u> unlock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					unlocks the animation to allow pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.unlock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='isTweening'></A><u> isTweening</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					checks if the instance is currently animated.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.isTweening();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance is tweening, 
+	<code>false</code> if instance is not tweening.
+	</P>
+
+				<P class='methodTitle'><A name='getStartValue'></A><u> getStartValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the original, starting value of the current tween. Percentage.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getStartValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getEndValue'></A><u> getEndValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the targeted value of the current tween. Percentage. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getEndValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getCurrentValue'></A><u> getCurrentValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current value of the current tween. Percentage.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getCurrentValue();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getCurrentPercentage'></A><u> getCurrentPercentage</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the current state of the animation in percentage. 
+					Especially usefull in combination with goto().
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getCurrentPercentage();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getDurationElapsed'></A><u> getDurationElapsed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the elapsed time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationElapsed();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getDurationRemaining'></A><u> getDurationRemaining</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the remaining time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationRemaining();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='addEventListener'></A><u> addEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Subscribe to a predefined event. The following standard EventDispatcher events are broadcasted<p>
+				<b>onStart</b>, broadcasted when animation starts.<br>
+				<b>onUpdate</b>, broadcasted when animation updates.<br>
+				<b>onEnd</b>, broadcasted when animation ends.<p>
+				The even object returned, contains the following properties:<p>
+				<b>type</b> (String) event broadcasted.<br>
+				<b>target</b> (Object) event source.<br>
+				<b>value</b> (Number) value to animate.<p>
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.addEventListener(event, listener);</pre>
+			    <pre>mySuperShape.addEventListener(event, listener, handler);</pre>
+	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to subscribe listener to. GDispatcher specific feature allows to subscribe to all events from an event source if the string "ALL" is passed.</li>
+<li>listener (Object) The listener object to subscribe to the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. The name of a function to call. This function will be called within the scope of the object specified in the second parameter.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeEventListener'></A><u> removeEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Removes a listener from a subscribed event.
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.removeEventListener(event, listener);</pre>
+			    <pre>mySuperShape.removeEventListener(event, listener, handler);</pre>
+	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove subscribed listener from. GDispatcher specific feature allows to remove subscribtion to all events if the string "ALL" is passed. Works only if listener has been subscribed via the "ALL" string in addEventListener.</li>
+<li>listener (Object) The listener object to unsubscribe from the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. Only needed if the listener has been subscribed with a handler function.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeAllEventListeners'></A><u> removeAllEventListeners</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Removes all listeners for a specific event, or for all events.
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.removeAllEventListeners();</pre>
+			    <pre>mySuperShape.removeAllEventListeners(event);</pre>
+	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove all subscribed listeners from. If not specified, all listeners to any event will be removed.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='eventListenerExists'></A><u> eventListenerExists</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Checks if a listener is already subscribed to a certain event.
+	
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>mySuperShape.eventListenerExists(event, listener);</pre>
+				<pre>mySuperShape.eventListenerExists(event, listener, handler);</pre>
+	
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to check subscription.</li>
+<li>listener (Object) The listener object to check subscription.</li>
+<li>handler (String) The handler function to check subscription.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if event exists on listener.
+	<code>false</code> if event doesn't exist on listener.
+	</P>
+
+				<P class='methodTitle'><A name='getID'></A><u> getID</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns a unique ID of the instance. Usefull for associative arrays.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getID();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='toString'></A><u> toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the name of the class.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.toString();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+			

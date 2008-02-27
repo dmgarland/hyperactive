@@ -1,0 +1,24 @@
+<% @video = video %>
+<div id="<%= "video_#{video.id}" %>">
+  <fieldset>
+    <label class="first" for="video[]_item_id">
+    Video 
+    </label><br/><br/>
+    <% if controller.action_name == 'edit' %>
+        <%= image_tag url_for_file_column(video, "file", "thumb") %><br/><br/>
+    <% end %>
+    <label for="video[]_title">
+      Title*<br/>
+      <%= text_field 'video[]', 'title', :size => 30 %>
+    </label><br/><br/>
+    <label for="video[]_file">
+    File* - allowed file types are "mov", "mpg", "mpeg", "mp4", "avi", "wmv"<br/>
+    <%= file_column_field("video[]", "file") %>
+    </label><br/><br/>
+    <label for="video[]_title">
+      Description - duration, codec, a bit about it<br/>
+      <%= text_area 'video[]', 'body', :rows => 5 %>
+    </label><br/><br/>
+    <%= sub_list_remove_link video, 'Video', 'Del' %>
+  </fieldset>
+</div>

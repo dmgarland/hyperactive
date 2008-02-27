@@ -1,0 +1,411 @@
+
+		<HTML>
+		<HEAD>
+		<TITLE>Pause  Documentation</TITLE>
+		
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family:monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+		
+		</HEAD>
+		<BODY bgColor='white'>
+		<P class='majorTitle'>Pause Documentation</P>
+		
+
+		<P><B>Author:</B> Alex Uhlmann<BR>
+		<B>Last Modified:</B> 09/23/05 19:47:21<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>Pause class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>Pause Properties:</P><div class='methodsDiv'>
+<a href='#duration'>- duration</a><br>
+</div><br>
+<P class='ToC'>Pause Methods:</P><div class='methodsDiv'>
+<a href='#run'>- run</a><br>
+<a href='#animate'>- animate</a><br>
+<a href='#goto'>- goto</a><br>
+<a href='#waitMS'>- waitMS</a><br>
+<a href='#waitFrames'>- waitFrames</a><br>
+<a href='#stop'>- stop</a><br>
+<a href='#pauseMe'>- pauseMe</a><br>
+<a href='#resume'>- resume</a><br>
+<a href='#lock'>- lock</a><br>
+<a href='#unlock'>- unlock</a><br>
+<a href='#isTweening'>- isTweening</a><br>
+<a href='#getDurationElapsed'>- getDurationElapsed</a><br>
+<a href='#getDurationRemaining'>- getDurationRemaining</a><br>
+<a href='#addEventListener'>- addEventListener</a><br>
+<a href='#removeEventListener'>- removeEventListener</a><br>
+<a href='#removeAllEventListeners'>- removeAllEventListeners</a><br>
+<a href='#eventListenerExists'>- eventListenerExists</a><br>
+<a href='#getID'>- getID</a><br>
+<a href='#toString'>- toString</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>Pause <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> Documentation not provided.</P>
+		<P class="methodTitle">description:</P>
+		<P>Take a break and do something afterwards. <p>		
+			You can invoke any function if you specify the scope param. If you don't specify 
+			it, then Pause will invoke the callback to all listeners of APCore.	
+			If no listener was specified, Pause will invoke	the callback on itself. 
+			Pause implements the IAnimatable interface and therefore can be used just 
+			like any other IAnimatable class (i.e. in composite classes like Sequence or 
+			with constructor initialization, animate and run methods). Nevertheless, 
+			the examples below use the waitMS and waitFrames methods to pause with Pause.
+			<p>
+			Use waitMS to wait a certain amount of time (in milliseconds)
+			and call a function afterwards.
+			<p>
+			Example 1: subscribe a listener to all events from AnimationPackage (APCore), 
+			and setup the onStart and onCallback functions. Use the Pause class 
+			to wait one second and send the onStart event. Inside onStart 
+			use Pause to wait again and send the onCallback event, 
+			this time with two specified parameters. Inside onCallback, wait again. 
+			Then, invoke a custom function (fooFunc) in _root scope. Send two parameters.
+			<blockquote><pre>	
+			APCore.initialize();
+			var myListener:Object = new Object();
+			APCore.addListener(myListener);
+			new Pause().waitMS(1000,"onStart");
+			myListener.onStart = function() {	
+				trace("onStart "+arguments);
+				new Pause().waitMS(1000, "onCallback", ["foo", "bar"]);
+			}
+			
+			myListener.onCallback = function(source, params) {
+				trace("onCallback "+arguments);	
+				new Pause().waitMS(1000, _root, "fooFunc", ["foo", "bar"]);
+			}
+			
+			function fooFunc(bar:String, foo:String) {
+				trace("fooFunc "+arguments);
+			}
+			</pre></blockquote>	
+			
+			Example 2: Do the same like above, just with frames. 
+			Use waitFrames to wait a certain amount of time (in frames)
+			and call a function afterwards.
+			<blockquote><pre>
+			APCore.initialize();
+			var myListener:Object = new Object();
+			APCore.addListener(myListener);
+			new Pause().waitFrames(10,"onStart");
+			myListener.onStart = function() {	
+				trace("onStart "+arguments);
+				new Pause().waitFrames(10, "onCallback", ["foo", "bar"]);
+			}
+			myListener.onCallback = function(source, params) {
+				trace("onCallback "+arguments);	
+				new Pause().waitFrames(10, _root, "fooFunc", ["foo", "bar"]);
+			}
+			function fooFunc(bar:String, foo:String) {
+				trace("fooFunc "+arguments);
+			}
+			</pre></blockquote> 
+
+
+
+</P>
+		<P class="methodTitle">usage:</P> 
+		<pre>var myPause:Pause = new Pause();</pre>
+		<pre>var myPause:Pause = new Pause(type, duration, callbackParam);</pre>
+		<pre>var myPause:Pause = new Pause(type, duration, callbackParam, param);</pre>
+		<pre>var myPause:Pause = new Pause(type, duration, scope, callbackParam);</pre>
+		<pre>var myPause:Pause = new Pause(type, duration, scope, callbackParam, param);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul> 
+<li>type (String) Type of Pause. Either MS for time based pausing or FRAME for frame based pausing.</li>
+<li>duration (Number) The duration to be paused. </li>
+<li>scope (Object) scope of callbackParam.</li>
+<li>callbackParam (String) Function to invoke after animation.</li>
+<li>param (Array) Parameters to send to callbackParam.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>Pause Properties:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='duration'></A><u> duration</u></P>
+				<P> (Number) Duration of animation in milliseconds or frames. Default is milliseconds.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>Pause Methods:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='run'></A><u> run</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Rotates a movieclip from its the current _rotation property value 
+				to a specified amount in a specified time and easing equation.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> 
+			<pre>myInstance.run();</pre>
+			<pre>myInstance.(type, duration, callbackParam);</pre>
+			<pre>myInstance.(type, duration, callbackParam, param);</pre>
+			<pre>myInstance.(type, duration, scope, callbackParam);</pre>
+			<pre>myInstance.(type, duration, scope, callbackParam, param);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>type (String) Type of Pause. Either MS for time based pausing or FRAME for frame based pausing.</li>
+<li>duration (Number) The duration to be paused. </li>
+<li>scope (Object) scope of callbackParam.</li>
+<li>callbackParam (String) Function to invoke after animation.</li>
+<li>param (Array) Parameters to send to callbackParam.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='animate'></A><u> animate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					similar to the run() method. Offers start and end parameters.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.animate(start, end);</pre> 	  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>start (Number) start value. Percentage.</li>
+<li>end (Number) end value. Percentage.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='goto'></A><u> goto</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					jumps to a specific step of the animation and stays there.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myInstance.goto(percentage);</pre>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>percentage (Number) Percentage value of the animation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='waitMS'></A><u> waitMS</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Documentation not provided.</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myPause.waitMS(milliseconds, callbackParam);</pre>
+			<pre>myPause.waitMS(milliseconds, callbackParam, param);</pre>
+			<pre>myPause.waitMS(milliseconds, scope, callbackParam);</pre>
+			<pre>myPause.waitMS(milliseconds, scope, callbackParam, param);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>milliseconds (Number) milliseconds to wait</li>
+<li>scope (Object) scope of callbackParam.</li>
+<li>callbackParam (String) Function to invoke after animation.</li>
+<li>param (Array) Parameters to send to callbackParam.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='waitFrames'></A><u> waitFrames</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Documentation not provided.</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myPause.waitFrames(milliseconds, callbackParam);</pre>
+			<pre>myPause.waitFrames(milliseconds, callbackParam, param);</pre>
+			<pre>myPause.waitFrames(milliseconds, scope, callbackParam);</pre>
+			<pre>myPause.waitFrames(milliseconds, scope, callbackParam, param);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>milliseconds (Number) milliseconds to wait</li>
+<li>scope (Object) scope of callbackParam.</li>
+<li>callbackParam (String) Function to invoke after animation.</li>
+<li>param (Array) Parameters to send to callbackParam.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> void
+	</P>
+
+				<P class='methodTitle'><A name='stop'></A><u> stop</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					stops the animation if not locked..
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.stop();</tt> 
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully stopped. 
+	<code>false</code> if instance could not be stopped, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='pauseMe'></A><u> pauseMe</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					pauses the animation if not locked. Call resume() to continue animation.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.pauseMe();</tt> 	  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>duration (Number) optional property. Number of milliseconds or frames to pause before continuing animation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully paused. 
+	<code>false</code> if instance could not be paused, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='resume'></A><u> resume</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					continues the animation if not locked. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.resume();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance was successfully resumed. 
+	<code>false</code> if instance could not be resumed, because it was locked.
+	</P>
+
+				<P class='methodTitle'><A name='lock'></A><u> lock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					locks the animation to prevent pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.lock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='unlock'></A><u> unlock</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					unlocks the animation to allow pausing, resuming and stopping. Default is unlocked.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.unlock();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='isTweening'></A><u> isTweening</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					checks if the instance is currently animated.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.isTweening();</tt> 	
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if instance is tweening, 
+	<code>false</code> if instance is not tweening.
+	</P>
+
+				<P class='methodTitle'><A name='getDurationElapsed'></A><u> getDurationElapsed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the elapsed time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationElapsed();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='getDurationRemaining'></A><u> getDurationRemaining</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the remaining time or frames since the current tween started tweening.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getDurationRemaining();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='addEventListener'></A><u> addEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Subscribe to a predefined event. The following standard EventDispatcher events are broadcasted<p>
+				<b>onStart</b>, broadcasted when animation starts.<br>
+				<b>onEnd</b>, broadcasted when animation ends.<p>
+				The even object returned, contains the following properties:<p>
+				<b>type</b> (String) event broadcasted.<br>
+				<b>target</b> (Object) event source.<br>
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myPause.addEventListener(event, listener);</pre>
+			    <pre>myPause.addEventListener(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to subscribe listener to. GDispatcher specific feature allows to subscribe to all events from an event source if the string "ALL" is passed. </li>
+<li>listener (Object) The listener object to subscribe to the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. The name of a function to call. This function will be called within the scope of the object specified in the second parameter.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeEventListener'></A><u> removeEventListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					Removes a listener from a subscribed event.	
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myPause.removeEventListener(event, listener);</pre>
+			    <pre>myPause.removeEventListener(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove subscribed listener from. GDispatcher specific feature allows to remove subscribtion to all events if the string "ALL" is passed. Works only if listener has been subscribed via the "ALL" string in addEventListener.</li>
+<li>listener (Object) The listener object to unsubscribe from the specified event.</li>
+<li>handler (String) Optional. GDispatcher specific feature. Only needed if the listener has been subscribed with a handler function.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='removeAllEventListeners'></A><u> removeAllEventListeners</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Removes all listeners for a specific event, or for all events.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myPause.removeAllEventListeners();</pre>
+			    <pre>myPause.removeAllEventListeners(event);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to remove all subscribed listeners from. If not specified, all listeners to any event will be removed.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='eventListenerExists'></A><u> eventListenerExists</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					GDispatcher specific feature. Checks if a listener is already subscribed to a certain event.
+			
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>myPause.eventListenerExists(event, listener);</pre>
+				<pre>myPause.eventListenerExists(event, listener, handler);</pre>
+		  
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>event (String) Event to check subscription.</li>
+<li>listener (Object) The listener object to check subscription.</li>
+<li>handler (String) The handler function to check subscription.	</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if event exists on listener. 
+	<code>false</code> if event doesn't exist on listener. 
+	</P>
+
+				<P class='methodTitle'><A name='getID'></A><u> getID</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns a unique ID of the instance. Usefull for associative arrays.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.getID();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number
+	</P>
+
+				<P class='methodTitle'><A name='toString'></A><u> toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the name of the class.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.toString();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+			

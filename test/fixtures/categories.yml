@@ -1,0 +1,12 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+gm_food:
+  id: 1
+  name: Anti-GM
+  description: Events having to do with anti-GM food.
+  active: true
+  
+another:
+  id: 2
+  name: Anti-militarism
+  description: Anti-war and peace news.
+  active: false

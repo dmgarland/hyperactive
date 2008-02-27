@@ -1,0 +1,134 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/Month.html#M000037">>> (Month)</a><br />
+    <a href="classes/Event.html#M000076">after_save (Event)</a><br />
+    <a href="classes/PublishController.html#M000022">assign_week_number (PublishController)</a><br />
+    <a href="classes/PlaceTagging.html#M000034">before_destroy (PlaceTagging)</a><br />
+    <a href="classes/Tagging.html#M000035">before_destroy (Tagging)</a><br />
+    <a href="classes/Event.html#M000074">belongs_to_event_group? (Event)</a><br />
+    <a href="classes/ApplicationHelper.html#M000088">build_tag_cloud (ApplicationHelper)</a><br />
+    <a href="classes/SearchController.html#M000048">by_place_tag (SearchController)</a><br />
+    <a href="classes/SearchController.html#M000047">by_tag (SearchController)</a><br />
+    <a href="classes/PublishController.html#M000006">calendar_month (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000017">check_end_date (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000018">check_event_group (PublishController)</a><br />
+    <a href="classes/Tag.html#M000046">cloud (Tag)</a><br />
+    <a href="classes/PlaceTag.html#M000071">cloud (PlaceTag)</a><br />
+    <a href="classes/EventFeedController.html#M000033">construct_feed (EventFeedController)</a><br />
+    <a href="classes/Video.html#M000051">convert (Video)</a><br />
+    <a href="classes/Event.html#M000072">copy (Event)</a><br />
+    <a href="classes/Admin/PageController.html#M000096">create (Admin::PageController)</a><br />
+    <a href="classes/PublishController.html#M000013">create (PublishController)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000104">create (Admin::CategoryController)</a><br />
+    <a href="classes/PublishController.html#M000024">create_event_group (PublishController)</a><br />
+    <a href="classes/Month.html#M000040">day_in_month (Month)</a><br />
+    <a href="classes/MonthDisplay.html#M000059">days (MonthDisplay)</a><br />
+    <a href="classes/Month.html#M000041">days_in_month (Month)</a><br />
+    <a href="classes/DateHelper.html#M000085">days_of_week (DateHelper)</a><br />
+    <a href="classes/Admin/PageController.html#M000099">destroy (Admin::PageController)</a><br />
+    <a href="classes/PublishController.html#M000016">destroy (PublishController)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000107">destroy (Admin::CategoryController)</a><br />
+    <a href="classes/PublishController.html#M000025">do_video_conversion (PublishController)</a><br />
+    <a href="classes/VideoConversionWorker.html#M000045">do_work (VideoConversionWorker)</a><br />
+    <a href="classes/Admin/PageController.html#M000097">edit (Admin::PageController)</a><br />
+    <a href="classes/PublishController.html#M000014">edit (PublishController)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000105">edit (Admin::CategoryController)</a><br />
+    <a href="classes/HiddenController.html#M000064">event_group_hiding_controls (HiddenController)</a><br />
+    <a href="classes/Event.html#M000075">event_group_photos (Event)</a><br />
+    <a href="classes/HiddenController.html#M000066">event_hiding_controls (HiddenController)</a><br />
+    <a href="classes/HiddenController.html#M000068">event_unhiding_controls (HiddenController)</a><br />
+    <a href="classes/ApplicationController.html#M000053">events_per_feed (ApplicationController)</a><br />
+    <a href="classes/ApplicationController.html#M000052">events_per_page (ApplicationController)</a><br />
+    <a href="classes/PublishController.html#M000021">find_correct_day_for_complex_event (PublishController)</a><br />
+    <a href="classes/SearchController.html#M000049">find_events (SearchController)</a><br />
+    <a href="classes/MonthDisplay.html#M000061">find_initial_day (MonthDisplay)</a><br />
+    <a href="classes/Month.html#M000038">first_day_in_month (Month)</a><br />
+    <a href="classes/Week.html#M000078">first_day_in_week (Week)</a><br />
+    <a href="classes/EventGroup.html#M000050">first_event_in_group (EventGroup)</a><br />
+    <a href="classes/Month.html#M000042">first_in_month (Month)</a><br />
+    <a href="classes/Event.html#M000073">has_end_date? (Event)</a><br />
+    <a href="classes/EventHiddenMailer.html#M000028">hide (EventHiddenMailer)</a><br />
+    <a href="classes/HiddenController.html#M000067">hide_event (HiddenController)</a><br />
+    <a href="classes/HiddenController.html#M000065">hide_event_group (HiddenController)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000100">index (Admin::CategoryController)</a><br />
+    <a href="classes/HiddenController.html#M000062">index (HiddenController)</a><br />
+    <a href="classes/HomeController.html#M000057">index (HomeController)</a><br />
+    <a href="classes/Admin/PageController.html#M000092">index (Admin::PageController)</a><br />
+    <a href="classes/Month.html#M000039">last_day_in_month (Month)</a><br />
+    <a href="classes/Month.html#M000043">last_in_month (Month)</a><br />
+    <a href="classes/HiddenController.html#M000063">list (HiddenController)</a><br />
+    <a href="classes/Admin/PageController.html#M000093">list (Admin::PageController)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000101">list (Admin::CategoryController)</a><br />
+    <a href="classes/PublishController.html#M000001">list (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000007">list_by_day (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000003">list_by_event_date (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000004">list_by_event_group (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000005">list_by_month (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000008">list_by_week (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000010">list_one_week (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000002">list_promoted (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000009">list_seven_days (PublishController)</a><br />
+    <a href="classes/ApplicationHelper.html#M000091">long_date (ApplicationHelper)</a><br />
+    <a href="classes/PublishController.html#M000012">new (PublishController)</a><br />
+    <a href="classes/MonthDisplay.html#M000058">new (MonthDisplay)</a><br />
+    <a href="classes/Week.html#M000077">new (Week)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000103">new (Admin::CategoryController)</a><br />
+    <a href="classes/Admin/PageController.html#M000095">new (Admin::PageController)</a><br />
+    <a href="classes/Month.html#M000036">new (Month)</a><br />
+    <a href="classes/ApplicationController.html#M000055">page_param (ApplicationController)</a><br />
+    <a href="classes/ActiveRecord/Base.html#M000084">place_tag_delete (ActiveRecord::Base)</a><br />
+    <a href="classes/ApplicationHelper.html#M000090">place_tag_item_url (ApplicationHelper)</a><br />
+    <a href="classes/ActiveRecord/Base.html#M000083">place_tag_list (ActiveRecord::Base)</a><br />
+    <a href="classes/ActiveRecord/Base.html#M000082">place_tag_with (ActiveRecord::Base)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000108">protect_controller (Admin::CategoryController)</a><br />
+    <a href="classes/ApplicationController.html#M000056">protect_controller (ApplicationController)</a><br />
+    <a href="classes/ActiveRbac/ComponentController.html#M000087">protect_me (ActiveRbac::ComponentController)</a><br />
+    <a href="classes/ActiveRbac/ComponentController.html#M000086">protect_with_active_rbac (ActiveRbac::ComponentController)</a><br />
+    <a href="classes/PublishController.html#M000020">setup_complex_repeat_events (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000023">setup_event_copy (PublishController)</a><br />
+    <a href="classes/PublishController.html#M000019">setup_simple_repeat_events (PublishController)</a><br />
+    <a href="classes/PageController.html#M000027">show (PageController)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000102">show (Admin::CategoryController)</a><br />
+    <a href="classes/PublishController.html#M000011">show (PublishController)</a><br />
+    <a href="classes/Admin/PageController.html#M000094">show (Admin::PageController)</a><br />
+    <a href="classes/TimelineController.html#M000070">show_calendar (TimelineController)</a><br />
+    <a href="classes/PublishController.html#M000026">splitdate (PublishController)</a><br />
+    <a href="classes/ActiveRecord/Base.html#M000081">tag_delete (ActiveRecord::Base)</a><br />
+    <a href="classes/ApplicationHelper.html#M000089">tag_item_url (ApplicationHelper)</a><br />
+    <a href="classes/ActiveRecord/Base.html#M000080">tag_list (ActiveRecord::Base)</a><br />
+    <a href="classes/ActiveRecord/Base.html#M000079">tag_with (ActiveRecord::Base)</a><br />
+    <a href="classes/ApplicationController.html#M000054">tags_in_cloud (ApplicationController)</a><br />
+    <a href="classes/MonthDisplay.html#M000060">to_s (MonthDisplay)</a><br />
+    <a href="classes/EventHiddenMailer.html#M000029">unhide (EventHiddenMailer)</a><br />
+    <a href="classes/HiddenController.html#M000069">unhide_event (HiddenController)</a><br />
+    <a href="classes/EventFeedController.html#M000030">upcoming (EventFeedController)</a><br />
+    <a href="classes/EventFeedController.html#M000032">upcoming_place (EventFeedController)</a><br />
+    <a href="classes/EventFeedController.html#M000031">upcoming_tagged (EventFeedController)</a><br />
+    <a href="classes/PublishController.html#M000015">update (PublishController)</a><br />
+    <a href="classes/Admin/PageController.html#M000098">update (Admin::PageController)</a><br />
+    <a href="classes/Admin/CategoryController.html#M000106">update (Admin::CategoryController)</a><br />
+    <a href="classes/Month.html#M000044">weeks_in_month (Month)</a><br />
+  </div>
+</div>
+</body>
+</html>

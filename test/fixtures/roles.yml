@@ -1,0 +1,16 @@
+admin:
+  id: 1
+  title: Admin
+
+anonymous:
+  id: 2
+  title: Anonymous
+  
+registered:
+  id: 3
+  title: Registered
+  
+hider:
+  id: 4
+  title: Hider
+  parent_id: 3

@@ -1,0 +1,30 @@
+<% if video.processing_status == 2 %>
+    <div id="videoplayer<%= video.id %>">
+        <p>This item requires Macromedia Flash Player 7.</p>
+        <p>To get the latest version please <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">click here</a>.</p>
+    </div>
+    <script type="text/javascript">
+        var so = new SWFObject("/flash/vidplayer.swf?filePath=<%= url_for_file_column(video, 'file') %>.flv&thumbPath=<%= url_for_file_column(video, 'file')%>.jpg", "vidplayer", "320", "240", "8", "");
+        so.addParam("menu", "false");
+        so.write("videoplayer<%= video.id %>");
+    </script>
+    <strong><%=h video.title.titleize %></strong><br />
+    <%=h video.body %><br/>
+	
+	<%# Removing direct links to files so that only torrent links are visible. %>
+	<%# Uncomment the links by removing the '#' if you want to show them.  %>
+	
+    <%# link_to image_tag("icon_video.gif"), url_for_file_column(video, "file") %> 
+    <%# link_to "download original", url_for_file_column(video, "file") %>
+	<%# link_to image_tag("icon_video.gif"), oggify(url_for_file_column(video, "file")) %> 
+	<%# link_to "download ogg", oggify(url_for_file_column(video, "file")) %>
+	
+	<%= link_to image_tag("icon_video.gif"), torrentify(url_for_file_column(video, "file")) %> 
+	<%= link_to "download torrent", torrentify(url_for_file_column(video, "file")) %>
+<% else %>
+    <strong><%=h video.title.titleize %></strong><br />
+    <%=h video.body %><br/>
+    <%= link_to image_tag("icon_video.gif"), url_for_file_column(video, "file") %> 
+    <%= link_to "download original", url_for_file_column(video, "file") %>
+    <p>This video is still being converted, or else there has been some kind of error.</p>
+<% end %>

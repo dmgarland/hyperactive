@@ -1,0 +1,4 @@
+<h1>Search results for &lsquo;<%= h @search_terms %>&rsquo;</h1>
+<%= render(:partial => "results_list", :object => @content) %>
+<%= render(:partial => "shared/pagination", :object => @content) %>
+

@@ -1,0 +1,12 @@
+<% if !@content.nil? %>
+    <% if !@content.empty? %>
+    <h1>Events in &lsquo;<%= h @tagname %>&rsquo;</h1>
+        <%= link_to (image_tag ('/images/feed-icon-28x28.png')), {:controller => 'event_feed', :action => 'upcoming_place', :scope => params[:scope]} %>
+        <%= render(:partial => "results_list", :object => @content) %>
+        <%= paginating_links(@content) %>
+    <% else %>
+        There are events for this tag, but they're in the past.
+    <% end %>
+<% else %>
+    Nothing has been tagged with <strong>&lsquo;<%=h @tagname %>&rsquo;</strong>
+<% end %>

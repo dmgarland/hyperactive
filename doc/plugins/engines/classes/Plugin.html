@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Plugin</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Plugin</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/home/yossarian/aptana_workspace/imcalendar/config/__/vendor/plugins/engines/lib/engines/plugin_rb.html">
+                /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+An instance of <a href="Plugin.html">Plugin</a> is created for each plugin
+loaded by <a href="Rails.html">Rails</a>, and stored in the
+<tt>Rails.plugins</tt> <a href="PluginList.html">PluginList</a> (see <a
+href="Engines/RailsExtensions/RailsInitializer.html">Engines::RailsExtensions::RailsInitializer</a>
+for more details).
+</p>
+<p>
+Once the engines plugin is loaded, other plugins can take advantage of
+their own instances by accessing either <a
+href="Engines.html#M000020">Engines.current</a>, or the preferred mechanism
+</p>
+<pre>
+  Rails.plugins[:plugin_name]
+</pre>
+<p>
+Useful properties of this object include Plugin#version, which plugin
+developers can set in their <tt>init.rb</tt> scripts:
+</p>
+<pre>
+   Rails.plugins[:my_plugin].version = &quot;1.4.2&quot;
+</pre>
+<p>
+<a href="Plugin.html">Plugin</a> developers can also access the contents of
+their <tt>about.yml</tt> files via Plugin#about, which returns a Hash if
+the <tt>about.yml</tt> file exists for this plugin. Note that if
+<tt>about.yml</tt> contains a &quot;version&quot; key, it will
+automatically be loaded into the <tt>version</tt> attribute described
+above.
+</p>
+<p>
+If this plugin contains paths in directories other than
+<tt>app/controllers</tt>, <tt>app/helpers</tt>, <tt>app/models</tt> and
+<tt>components</tt>, authors can declare this by adding extra paths to
+code_paths:
+</p>
+<pre>
+   Rails.plugin[:my_plugin].code_paths &lt;&lt; &quot;app/sweepers&quot; &lt;&lt; &quot;vendor/my_lib&quot;
+</pre>
+<p>
+Other properties of the <a href="Plugin.html">Plugin</a> instance can also
+be set.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000006">default_code_paths</a>&nbsp;&nbsp;
+      <a href="#M000007">default_controller_paths</a>&nbsp;&nbsp;
+      <a href="#M000008">default_public_directory</a>&nbsp;&nbsp;
+      <a href="#M000012">inject_into_load_path</a>&nbsp;&nbsp;
+      <a href="#M000016">latest_migration</a>&nbsp;&nbsp;
+      <a href="#M000011">load</a>&nbsp;&nbsp;
+      <a href="#M000010">load_about_information</a>&nbsp;&nbsp;
+      <a href="#M000017">migrate</a>&nbsp;&nbsp;
+      <a href="#M000015">migration_directory</a>&nbsp;&nbsp;
+      <a href="#M000013">mirror_public_assets</a>&nbsp;&nbsp;
+      <a href="#M000009">new</a>&nbsp;&nbsp;
+      <a href="#M000014">public_asset_directory</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">about</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The about.yml information as a Hash, if it exists
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">code_paths</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Plugins can add code paths to this attribute in init.rb if they need plugin
+directories to be added to the <a href="Plugin.html#M000011">load</a> path,
+i.e.
+
+<pre>
+  plugin.code_paths &lt;&lt; 'app/other_classes'
+</pre>
+<p>
+Defaults to [&quot;app/controllers&quot;, &quot;app/helpers&quot;,
+&quot;app/models&quot;, &quot;components&quot;] (see <a
+href="Plugin.html#M000006">default_code_paths</a>). NOTE: if you want to
+set this, you must ensure that the engines plugin is loaded before any
+plugins which reference this since it&#8216;s not available before the
+engines plugin has worked its magic.
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">controller_paths</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Plugins can add paths to this attribute in init.rb if they need controllers
+loaded from additional locations. See also <a
+href="Plugin.html#M000007">default_controller_paths</a>, and the caveat
+surrounding the code_paths accessor.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The name of this plugin
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">public_directory</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The directory in this plugin to mirror into the shared directory under
+<tt>public</tt>. See <a
+href="Engines.html#M000024">Engines.initialize_base_public_directory</a>
+for more information.
+
+<p>
+Defaults to &quot;assets&quot; (see <a
+href="Plugin.html#M000008">default_public_directory</a>).
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">root</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The directory in which this plugin is located
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">version</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The version of this plugin
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(name, path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Plugin.html#M000009">new</a> <a
+href="Plugin.html">Plugin</a> instance, and loads any other data from
+<tt>about.yml</tt>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 91</span>
+ 91:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">path</span>)
+ 92:     <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+ 93:     <span class="ruby-ivar">@root</span> = <span class="ruby-identifier">path</span>
+ 94:     
+ 95:     <span class="ruby-ivar">@code_paths</span> = <span class="ruby-identifier">default_code_paths</span>
+ 96:     <span class="ruby-ivar">@controller_paths</span> = <span class="ruby-identifier">default_controller_paths</span>
+ 97:     <span class="ruby-ivar">@public_directory</span> = <span class="ruby-identifier">default_public_directory</span>
+ 98:     
+ 99:     <span class="ruby-identifier">load_about_information</span>
+100:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">inject_into_load_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds all directories in the <tt>app</tt> and <tt>lib</tt> directories
+within the engine to the three relevant <a
+href="Plugin.html#M000011">load</a> paths mechanism that <a
+href="Rails.html">Rails</a> might use:
+</p>
+<ul>
+<li><tt>$LOAD_PATH</tt>
+
+</li>
+<li><tt>Dependencies.load_paths</tt>
+
+</li>
+<li><tt>ActionController::Routing.controller_paths</tt>
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 139</span>
+139:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inject_into_load_path</span>
+140: 
+141:     <span class="ruby-identifier">load_path_index</span> = <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">index</span>(<span class="ruby-constant">Engines</span>.<span class="ruby-identifier">rails_final_load_path</span>)
+142:     <span class="ruby-identifier">dependency_index</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Dependencies</span>.<span class="ruby-identifier">load_paths</span>.<span class="ruby-identifier">index</span>(<span class="ruby-constant">Engines</span>.<span class="ruby-identifier">rails_final_dependency_load_path</span>)
+143:     
+144:     <span class="ruby-comment cmt"># Add relevant paths under the engine root to the load path</span>
+145:     <span class="ruby-identifier">code_paths</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">p</span>) }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> 
+146:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+147:         <span class="ruby-comment cmt"># Add to the load paths</span>
+148:         <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">load_path_index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">path</span>)
+149:         <span class="ruby-comment cmt"># Add to the dependency system, for autoloading.</span>
+150:         <span class="ruby-operator">::</span><span class="ruby-constant">Dependencies</span>.<span class="ruby-identifier">load_paths</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">dependency_index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">path</span>)
+151:       <span class="ruby-keyword kw">end</span>
+152:     <span class="ruby-keyword kw">end</span>
+153:     
+154:     <span class="ruby-comment cmt"># Add controllers to the Routing system specifically. We actually add our paths</span>
+155:     <span class="ruby-comment cmt"># to the configuration too, since routing is started AFTER plugins are. Plugins</span>
+156:     <span class="ruby-comment cmt"># which are loaded by engines specifically (i.e. because of the '*' in </span>
+157:     <span class="ruby-comment cmt"># +config.plugins+) will need their paths added directly to the routing system, </span>
+158:     <span class="ruby-comment cmt"># since at that point it has already been configured.</span>
+159:     <span class="ruby-identifier">controller_paths</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">p</span>) }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+160:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+161:         <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Routing</span>.<span class="ruby-identifier">controller_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">path</span>
+162:         <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">controller_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">path</span>
+163:       <span class="ruby-keyword kw">end</span>
+164:     <span class="ruby-keyword kw">end</span>
+165: 
+166:     <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">uniq!</span>
+167:     <span class="ruby-operator">::</span><span class="ruby-constant">Dependencies</span>.<span class="ruby-identifier">load_paths</span>.<span class="ruby-identifier">uniq!</span>
+168:     <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Routing</span>.<span class="ruby-identifier">controller_paths</span>.<span class="ruby-identifier">uniq!</span>
+169:     <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">controller_paths</span>.<span class="ruby-identifier">uniq!</span>
+170:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">latest_migration</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the version number of the latest migration for this plugin. Returns
+nil if this plugin has no migrations.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 203</span>
+203:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">latest_migration</span>
+204:     <span class="ruby-identifier">migrations</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-identifier">migration_directory</span><span class="ruby-operator">+</span><span class="ruby-value str">&quot;/*.rb&quot;</span>]
+205:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">migrations</span>.<span class="ruby-identifier">empty?</span>
+206:     <span class="ruby-identifier">migrations</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">p</span>) }.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/0*(\d+)\_/</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+207:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">load</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Load the plugin. Since <a href="Rails.html">Rails</a> takes care of
+evaluating <tt>init.rb</tt> and adding <tt>lib</tt> to the
+<tt>$LOAD_PATH</tt>, we don&#8216;t need to do that here (see
+Engines::RailsExtensions::RailsInitializer.load_plugins_with_engine_additions).
+</p>
+<p>
+Here we add controller/helper code to the appropriate <a
+href="Plugin.html#M000011">load</a> paths (see <a
+href="Plugin.html#M000012">inject_into_load_path</a>) and mirror the plugin
+assets into the shared public directory (<a
+href="Plugin.html#M000013">mirror_public_assets</a>).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 123</span>
+123:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load</span>
+124:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Plugin '#{name}': starting load.&quot;</span>
+125:     
+126:     <span class="ruby-identifier">inject_into_load_path</span>
+127:     <span class="ruby-identifier">mirror_public_assets</span>
+128:     
+129:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Plugin '#{name}': loaded.&quot;</span>
+130:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">load_about_information</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Load the information from <tt>about.yml</tt>. This Hash is then accessible
+from about.
+</p>
+<p>
+If <tt>about.yml</tt> includes a &quot;version&quot;, this will be assigned
+automatically into version.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 107</span>
+107:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load_about_information</span>
+108:     <span class="ruby-identifier">about_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">root</span>, <span class="ruby-value str">'about.yml'</span>)
+109:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">about_path</span>)
+110:       <span class="ruby-ivar">@about</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">about_path</span>).<span class="ruby-identifier">read</span>)
+111:       <span class="ruby-ivar">@about</span>.<span class="ruby-identifier">stringify_keys!</span>
+112:       <span class="ruby-ivar">@version</span> = <span class="ruby-ivar">@about</span>[<span class="ruby-value str">&quot;version&quot;</span>]
+113:     <span class="ruby-keyword kw">end</span>
+114:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">migrate</span><span class="method-args">(version = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Migrate this plugin to the given version. See <a
+href="Engines/PluginMigrator.html">Engines::PluginMigrator</a> for more
+information.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 211</span>
+211:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">migrate</span>(<span class="ruby-identifier">version</span> = <span class="ruby-keyword kw">nil</span>)
+212:     <span class="ruby-constant">Engines</span><span class="ruby-operator">::</span><span class="ruby-constant">PluginMigrator</span>.<span class="ruby-identifier">migrate_plugin</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">version</span>)
+213:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">migration_directory</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The directory containing this plugin&#8216;s migrations
+(<tt>plugin/db/migrate</tt>)
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 197</span>
+197:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">migration_directory</span>
+198:     <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">root</span>, <span class="ruby-value str">'db'</span>, <span class="ruby-value str">'migrate'</span>)
+199:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">mirror_public_assets</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Replicates the subdirectories under the plugins&#8216;s <tt>assets</tt> (or
+<tt>public</tt>) directory into the corresponding public directory. See
+also Plugin#public_directory for more.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 174</span>
+174:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mirror_public_assets</span>
+175:   
+176:     <span class="ruby-keyword kw">begin</span> 
+177:       <span class="ruby-identifier">source</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">root</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">public_directory</span>)
+178:       <span class="ruby-comment cmt"># if there is no public directory, just return after this file</span>
+179:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">source</span>)
+180: 
+181:       <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Attempting to copy plugin plugin asset files from '#{source}' to '#{Engines.public_directory}'&quot;</span>
+182: 
+183:       <span class="ruby-constant">Engines</span>.<span class="ruby-identifier">mirror_files_from</span>(<span class="ruby-identifier">source</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Engines</span>.<span class="ruby-identifier">public_directory</span>, <span class="ruby-identifier">name</span>))
+184:       
+185:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+186:       <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;WARNING: Couldn't create the public file structure for plugin '#{name}'; Error follows:&quot;</span>
+187:       <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">e</span>
+188:     <span class="ruby-keyword kw">end</span>
+189:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">public_asset_directory</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The path to this plugin&#8216;s public files
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 192</span>
+192:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">public_asset_directory</span>
+193:     <span class="ruby-node">&quot;#{File.basename(Engines.public_directory)}/#{name}&quot;</span>
+194:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">default_code_paths</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The default set of code paths which will be added to $LOAD_PATH and
+Dependencies.load_paths
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 69</span>
+69:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_code_paths</span>
+70:       <span class="ruby-comment cmt"># lib will actually be removed from the load paths when we call</span>
+71:       <span class="ruby-comment cmt"># uniq! in #inject_into_load_paths, but it's important to keep it</span>
+72:       <span class="ruby-comment cmt"># around (for the documentation tasks, for instance).</span>
+73:       <span class="ruby-node">%w(app/controllers app/helpers app/models components lib)</span>
+74:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">default_controller_paths</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The default set of code paths which will be added to the routing system
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 77</span>
+77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_controller_paths</span>
+78:       <span class="ruby-node">%w(app/controllers components)</span>
+79:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">default_public_directory</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Attempts to detect the directory to use for public files. If
+<tt>assets</tt> exists in the plugin, this will be used. If <tt>assets</tt>
+is missing but <tt>public</tt> is found, <tt>public</tt> will be used.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/plugin.rb, line 84</span>
+84:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_public_directory</span>
+85:       <span class="ruby-node">%w(assets public)</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">dir</span>)) }.<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;assets&quot;</span>
+86:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

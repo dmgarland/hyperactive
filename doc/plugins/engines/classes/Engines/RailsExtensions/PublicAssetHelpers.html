@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Engines::RailsExtensions::PublicAssetHelpers</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Engines::RailsExtensions::PublicAssetHelpers</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/home/yossarian/aptana_workspace/imcalendar/config/__/vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers_rb.html">
+                /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The engines plugin makes it trivial to share public assets using plugins.
+To do this, include an <tt>assets</tt> directory within your plugin, and
+put your javascripts, stylesheets and images in subdirectories of that
+folder:
+</p>
+<pre>
+  my_plugin
+    |- init.rb
+    |- lib/
+    |- assets/
+         |- javascripts/
+         |    |- my_functions.js
+         |
+         |- stylesheets/
+         |    |- my_styles.css
+         |
+         |- images/
+              |- my_face.jpg
+</pre>
+<p>
+Files within the <tt>asset</tt> structure are automatically mirrored into a
+publicly-accessible folder each time your application starts (see <a
+href="../../Plugin.html#M000013">Plugin#mirror_public_assets</a>).
+</p>
+<h2>Using plugin assets in views</h2>
+<p>
+It&#8216;s also simple to use <a href="../../Rails.html">Rails</a>&#8217;
+helpers in your views to use plugin assets. The default helper methods have
+been enhanced by the engines plugin to accept a <tt>:plugin</tt> option,
+indicating the plugin containing the desired asset.
+</p>
+<p>
+For example, it&#8216;s easy to use plugin assets in your layouts:
+</p>
+<pre>
+  &lt;%= stylesheet_link_tag &quot;my_styles&quot;, :plugin =&gt; &quot;my_plugin&quot;, :media =&gt; &quot;screen&quot; %&gt;
+  &lt;%= javascript_include_tag &quot;my_functions&quot;, :plugin =&gt; &quot;my_plugin&quot; %&gt;
+</pre>
+<p>
+&#8230; and similarly in views and partials, it&#8216;s easy to use plugin
+images:
+</p>
+<pre>
+  &lt;%= image_tag &quot;my_face&quot;, :plugin =&gt; &quot;my_plugin&quot; %&gt;
+  &lt;!-- or --&gt;
+  &lt;%= image_path &quot;my_face&quot;, :plugin =&gt; &quot;my_plugin&quot; %&gt;
+</pre>
+<p>
+Where the default helpers allow the specification of more than one file
+(i.e. the javascript and stylesheet helpers), you can do similarly for
+multiple assets from within a single plugin.
+</p>
+<hr size="1"></hr><p>
+This module enhances four of the methods from
+ActionView::Helpers::AssetTagHelper:
+</p>
+<pre>
+ * stylesheet_link_tag
+ * javascript_include_tag
+ * image_path
+ * image_tag
+</pre>
+<p>
+Each one of these methods now accepts the key/value pair <tt>:plugin =&gt;
+&quot;plugin_name&quot;</tt>, which can be used to specify the originating
+plugin for any assets.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000043">image_path_with_engine_additions</a>&nbsp;&nbsp;
+      <a href="#M000044">image_tag_with_engine_additions</a>&nbsp;&nbsp;
+      <a href="#M000042">javascript_include_tag_with_engine_additions</a>&nbsp;&nbsp;
+      <a href="#M000046">plugin_asset_path</a>&nbsp;&nbsp;
+      <a href="#M000045">pluginify_sources</a>&nbsp;&nbsp;
+      <a href="#M000041">stylesheet_link_tag_with_engine_additions</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="#M000046" class="method-signature">
+          <span class="method-name">plugin_asset_path</span><span class="method-args">(plugin_name, type, asset)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the publicly-addressable relative URI for the given asset, type and
+plugin
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000046-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers.rb, line 110</span>
+110:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">plugin_asset_path</span>(<span class="ruby-identifier">plugin_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">asset</span>)
+111:     <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No plugin called '#{plugin_name}' - please use the full name of a loaded plugin.&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">plugins</span>[<span class="ruby-identifier">plugin_name</span>].<span class="ruby-identifier">nil?</span>
+112:     <span class="ruby-node">&quot;/#{Rails.plugins[plugin_name].public_asset_directory}/#{type}/#{asset}&quot;</span>
+113:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="#M000045" class="method-signature">
+          <span class="method-name">pluginify_sources</span><span class="method-args">(type, *sources)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert sources to the paths for the given plugin, if any plugin option is
+given
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000045-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000045-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers.rb, line 102</span>
+102:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">pluginify_sources</span>(<span class="ruby-identifier">type</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">sources</span>)
+103:     <span class="ruby-identifier">options</span> = <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">stringify_keys</span> <span class="ruby-operator">:</span> { }
+104:     <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">plugin_asset_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value str">&quot;plugin&quot;</span>], <span class="ruby-identifier">type</span>, <span class="ruby-identifier">s</span>) } <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">&quot;plugin&quot;</span>]
+105:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">&quot;plugin&quot;</span>) <span class="ruby-comment cmt"># we don't want it appearing in the HTML</span>
+106:     <span class="ruby-identifier">sources</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options</span> <span class="ruby-comment cmt"># re-add options      </span>
+107:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="#M000043" class="method-signature">
+          <span class="method-name">image_path_with_engine_additions</span><span class="method-args">(source, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds plugin functionality to <a href="../../Rails.html">Rails</a>&#8217;
+default image_path method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000043-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers.rb, line 80</span>
+80:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">image_path_with_engine_additions</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span>={})
+81:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+82:     <span class="ruby-identifier">source</span> = <span class="ruby-constant">Engines</span><span class="ruby-operator">::</span><span class="ruby-constant">RailsExtensions</span><span class="ruby-operator">::</span><span class="ruby-constant">PublicAssetHelpers</span>.<span class="ruby-identifier">plugin_asset_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value str">&quot;plugin&quot;</span>], <span class="ruby-value str">&quot;images&quot;</span>, <span class="ruby-identifier">source</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">&quot;plugin&quot;</span>]
+83:     <span class="ruby-identifier">image_path_without_engine_additions</span>(<span class="ruby-identifier">source</span>)
+84:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="#M000044" class="method-signature">
+          <span class="method-name">image_tag_with_engine_additions</span><span class="method-args">(source, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds plugin functionality to <a href="../../Rails.html">Rails</a>&#8217;
+default image_tag method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000044-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers.rb, line 87</span>
+87:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">image_tag_with_engine_additions</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span>={})
+88:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+89:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">&quot;plugin&quot;</span>]
+90:       <span class="ruby-identifier">source</span> = <span class="ruby-constant">Engines</span><span class="ruby-operator">::</span><span class="ruby-constant">RailsExtensions</span><span class="ruby-operator">::</span><span class="ruby-constant">PublicAssetHelpers</span>.<span class="ruby-identifier">plugin_asset_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value str">&quot;plugin&quot;</span>], <span class="ruby-value str">&quot;images&quot;</span>, <span class="ruby-identifier">source</span>)
+91:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">&quot;plugin&quot;</span>)
+92:     <span class="ruby-keyword kw">end</span>
+93:     <span class="ruby-identifier">image_tag_without_engine_additions</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span>)
+94:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="#M000042" class="method-signature">
+          <span class="method-name">javascript_include_tag_with_engine_additions</span><span class="method-args">(*sources)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds plugin functionality to <a href="../../Rails.html">Rails</a>&#8217;
+default javascript_include_tag method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000042-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers.rb, line 71</span>
+71:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">javascript_include_tag_with_engine_additions</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">sources</span>)
+72:     <span class="ruby-identifier">javascript_include_tag_without_engine_additions</span>(<span class="ruby-operator">*</span><span class="ruby-constant">Engines</span><span class="ruby-operator">::</span><span class="ruby-constant">RailsExtensions</span><span class="ruby-operator">::</span><span class="ruby-constant">PublicAssetHelpers</span>.<span class="ruby-identifier">pluginify_sources</span>(<span class="ruby-value str">&quot;javascripts&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">sources</span>))
+73:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="#M000041" class="method-signature">
+          <span class="method-name">stylesheet_link_tag_with_engine_additions</span><span class="method-args">(*sources)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds plugin functionality to <a href="../../Rails.html">Rails</a>&#8217;
+default stylesheet_link_tag method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000041-source">
+<pre>
+    <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/public_asset_helpers.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stylesheet_link_tag_with_engine_additions</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">sources</span>)
+67:     <span class="ruby-identifier">stylesheet_link_tag_without_engine_additions</span>(<span class="ruby-operator">*</span><span class="ruby-constant">Engines</span><span class="ruby-operator">::</span><span class="ruby-constant">RailsExtensions</span><span class="ruby-operator">::</span><span class="ruby-constant">PublicAssetHelpers</span>.<span class="ruby-identifier">pluginify_sources</span>(<span class="ruby-value str">&quot;stylesheets&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">sources</span>))
+68:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

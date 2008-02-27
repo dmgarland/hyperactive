@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Engines::RailsExtensions::Migrations</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Engines::RailsExtensions::Migrations</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/home/yossarian/aptana_workspace/imcalendar/config/__/vendor/plugins/engines/lib/engines/rails_extensions/migrations_rb.html">
+                /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/migrations.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Plugins and <a href="Migrations.html">Migrations</a>: Background</h1>
+<p>
+<a href="../../Rails.html">Rails</a> uses migrations to describe changes to
+the databases as your application evolves. Each change to your application
+- adding and removing models, most commonly - might require tweaks to your
+schema in the form of new tables, or new columns on existing tables, or
+possibly the removal of tables or columns. <a
+href="Migrations.html">Migrations</a> can even include arbitrary code to
+<b>transform</b> data as the underlying schema changes.
+</p>
+<p>
+The point is that at any particular stage in your application&#8216;s
+development, migrations serve to transform the database into a state where
+it is compatible and appropriate at that time.
+</p>
+<h2>What about plugins?</h2>
+<p>
+If you want to share models using plugins, chances are that you might also
+want to include the corresponding migrations to create tables for those
+models. With the engines plugin installed, plugins can carry migration data
+easily:
+</p>
+<pre>
+  vendor/
+    |
+    plugins/
+      |
+      my_plugin/
+        |- init.rb
+        |- lib/
+        |- db/
+            |-migrate/
+                |- 001_do_something.rb
+                |- 002_and_something_else.rb
+                |- ...
+</pre>
+<p>
+When you install a plugin which contains migrations, you are undertaking a
+further step in the development of your application, the same as the
+addition of any other code. With this in mind, you may want to &#8216;roll
+back&#8217; the installation of this plugin at some point, and the database
+should be able to migrate back to the point without this plugin in it too.
+</p>
+<h2>An example</h2>
+<p>
+For example, our current application is at version 14 (according to the
+<tt>schema_info</tt> table), when we decide that we want to add a tagging
+plugin. The tagging plugin chosen includes migrations to create the tables
+it requires (say, <em>tags</em> and <em>taggings</em>, for instance), along
+with the models and helpers one might expect.
+</p>
+<p>
+After installing this plugin, these tables should be created in our
+database. Rather than running the migrations directly from the plugin, they
+should be integrated into our main migration stream in order to accurately
+reflect the state of our application&#8216;s database *at this moment in
+time*.
+</p>
+<pre>
+  $ script/generate plugin_migration
+        exists  db/migrate
+        create  db/migrate/015_migrate_tagging_plugin_to_version_3.rb
+</pre>
+<p>
+This migration will take our application to version 15, and contains the
+following, typical migration code:
+</p>
+<pre>
+  class MigrateTaggingPluginToVersion3 &lt; ActiveRecord::Migration
+    def self.up
+      Rails.plugins[:tagging].migrate(3)
+    end
+    def self.down
+      Rails.plugins[:tagging].migrate(0)
+    end
+  end
+</pre>
+<p>
+When we migrate our application up, using <tt>rake db:migrate</tt> as
+normal, the plugin will be migrated up to its latest version (3 in this
+example). If we ever decide to migrate the application back to the state it
+was in at version 14, the plugin migrations will be taken back down to
+version 0 (which, typically, would remove all tables the plugin migrations
+define).
+</p>
+<h2>Upgrading plugins</h2>
+<p>
+It might happen that later in an application&#8216;s life, we update to a
+new version of the tagging plugin which requires some changes to our
+database. The tagging plugin provides these changes in the form of its own
+migrations.
+</p>
+<p>
+In this case, we just need to re-run the plugin_migration generator to
+create a new migration from the current revision to the newest one:
+</p>
+<pre>
+  $ script/generate plugin_migration
+       exists db/migrate
+       create db/migrate/023_migrate_tagging_plugin_to_version_5.rb
+</pre>
+<p>
+The contents of this migration are:
+</p>
+<pre>
+  class MigrateTaggingPluginToVersion3 &lt; ActiveRecord::Migration
+    def self.up
+      Rails.plugins[:tagging].migrate(5)
+    end
+    def self.down
+      Rails.plugins[:tagging].migrate(3)
+    end
+  end
+</pre>
+<p>
+Notice that if we were to migrate down to revision 22 or lower, the tagging
+plugin will be migrated back down to version 3 - the version we were
+previously at.
+</p>
+<h1>Creating migrations in plugins</h1>
+<p>
+In order to use the plugin migration functionality that engines provides, a
+plugin only needs to provide regular migrations in a <tt>db/migrate</tt>
+folder within it.
+</p>
+<h1>Explicitly migrating plugins</h1>
+<p>
+It&#8216;s possible to migrate plugins within your own migrations, or any
+other code. Simply get the <a href="../../Plugin.html">Plugin</a> instance,
+and its <a href="../../Plugin.html#M000017">Plugin#migrate</a> method with
+the version you wish to end up at:
+</p>
+<pre>
+  Rails.plugins[:whatever].migrate(version)
+</pre>
+<hr size="1"></hr><p>
+The <a href="Migrations.html">Engines::RailsExtensions::Migrations</a>
+module defines extensions for <a href="../../Rails.html">Rails</a>&#8217;
+migration systems. Specifically:
+</p>
+<ul>
+<li>Adding a hook to initialize_schema_information to create the plugin schema
+info table.
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000040">initialize_schema_information_with_engine_additions</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="#M000040" class="method-signature">
+          <span class="method-name">initialize_schema_information_with_engine_additions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create the schema tables, and ensure that the plugin schema table is also
+initialized. The plugin schema info table is defined by <a
+href="../PluginMigrator.html#M000049">Engines::PluginMigrator.schema_info_table_name</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000040-source">
+<pre>
+     <span class="ruby-comment cmt"># File /home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/lib/engines/rails_extensions/migrations.rb, line 137</span>
+137:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_schema_information_with_engine_additions</span>
+138:     <span class="ruby-identifier">initialize_schema_information_without_engine_additions</span>
+139:     
+140:     <span class="ruby-comment cmt"># create the plugin schema stuff.    </span>
+141:     <span class="ruby-keyword kw">begin</span>
+142:       <span class="ruby-identifier">execute</span> <span class="ruby-value str">&quot;CREATE TABLE \#{Engines::PluginMigrator.schema_info_table_name}\n(plugin_name \#{type_to_sql(:string)}, version \#{type_to_sql(:integer)})\n&quot;</span>
+143:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementInvalid</span>
+144:       <span class="ruby-comment cmt"># Schema has been initialized</span>
+145:     <span class="ruby-keyword kw">end</span>
+146:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

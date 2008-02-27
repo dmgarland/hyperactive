@@ -1,0 +1,202 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+a_birthday:
+  id: 1
+  title: The Birthday
+  date: 2006-2-23
+  body: This is a birthday. 
+  published_by: yoss
+  place: Japan
+  published: true
+  promoted: true
+  hidden: false
+  type: Event
+  
+zapatista_uprising:
+  id: 2
+  title: The Zapatista Uprising
+  date: 1994-01-01 00:00:00
+  body: El sup on the rampage.
+  published_by: yoss
+  place: Chiapas
+  published: true
+  hidden: false
+  user_id: 2
+  type: Event
+    
+hidden_event:
+  id: 3
+  title: A Hidden Event
+  date: <%= Date.today %>
+  body: This event is hidden.
+  published_by: yoss
+  place: A hidden place
+  published: true
+  hidden: true
+  type: Event
+    
+london_meeting1:
+  id: 5
+  title: London Meeting 1
+  date: <%= Date.today + 5 %>
+  body: A meeting in London.
+  published_by: yoss
+  place: Camberwell Squatted Centre
+  published: true
+  hidden: false
+  event_group_id: 1
+  type: Event
+    
+london_meeting2:
+  id: 6
+  title: London Meeting 2
+  date: <%= Date.today + 5 %>
+  body: A meeting in London.
+  published_by: yoss
+  place: Camberwell Squatted Centre
+  published: true
+  promoted: true  
+  hidden: false
+  event_group_id: 1
+  type: Event
+  
+london_meeting3:
+  id: 7
+  title: London Meeting 2
+  date: <%= Date.today %>
+  body: A meeting in London.
+  published_by: yoss
+  place: Camberwell Squatted Centre
+  published: true
+  promoted: false  
+  hidden: false
+  event_group_id: 1  
+  type: Event
+
+unpublished_event:
+  id: 8
+  title: An unpublished event
+  date: <%= Date.today %>
+  body: This event is not published.
+  published_by: yoss
+  place: An unpublished place
+  published: false
+  hidden: false
+  type: Event  
+  
+past_event:
+  id: 9
+  title: An event in the past
+  date: 2006-2-23
+  body: This event is in the past.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: false  
+  type: Event
+  
+article1:
+  id: 10
+  title: An article
+  body: This is an Article.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: false  
+  created_on: 2006-2-23
+  type: Article 
+  
+article2:
+  id: 11
+  title: An article
+  body: This is an Article.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: false  
+  created_on: 2006-2-23  
+  type: Article    
+
+article3:
+  id: 12
+  title: An article
+  body: This is an Article.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: false  
+  created_on: 2006-2-23  
+  type: Article 
+  
+article4:
+  id: 13
+  title: An article
+  body: This is an Article.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: false  
+  created_on: 2006-2-23
+  type: Article  
+
+hidden_article:
+  id: 14
+  title: A hidden article
+  body: This is an Article.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: true  
+  created_on: 2006-2-23
+  type: Article 
+
+promoted_article:
+  id: 15
+  title: An article
+  body: This is an Article.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: false  
+  promoted: true
+  created_on: 2006-2-23  
+  type: Article   
+
+promoted_article2:
+  id: 16
+  title: An article
+  body: This is an Article.
+  published_by: yoss
+  place: A place
+  published: true
+  hidden: false  
+  promoted: true
+  created_on: 2006-2-23  
+  type: Article     
+  
+first_video:
+  id: 17
+  title: a video
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 2
+  type: Video
+  
+another_video:
+  id: 18
+  title: another video
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 2
+  type: Video
+
+unconverted_video:
+  id: 19
+  title: a video that hasn't completed processing yet
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 1  
+  type: Video  

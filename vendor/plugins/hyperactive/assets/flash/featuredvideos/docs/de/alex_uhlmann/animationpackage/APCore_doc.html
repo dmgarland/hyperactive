@@ -1,0 +1,234 @@
+
+		<HTML>
+		<HEAD>
+		<TITLE>APCore  Documentation</TITLE>
+		
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family:monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+		
+		</HEAD>
+		<BODY bgColor='white'>
+		<P class='majorTitle'>APCore Documentation</P>
+		
+
+		<P><B>Author:</B> Alex Uhlmann<BR>
+		<B>Last Modified:</B> 09/23/05 19:47:37<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>APCore class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>APCore Methods:</P><div class='methodsDiv'>
+<a href='#APCore.initialize'>- APCore.initialize</a><br>
+<a href='#APCore.getAnimationClip'>- APCore.getAnimationClip</a><br>
+<a href='#APCore.setAnimationClip'>- APCore.setAnimationClip</a><br>
+<a href='#APCore.watchFPS'>- APCore.watchFPS</a><br>
+<a href='#APCore.unwatchFPS'>- APCore.unwatchFPS</a><br>
+<a href='#APCore.getFPS'>- APCore.getFPS</a><br>
+<a href='#APCore.setFPS'>- APCore.setFPS</a><br>
+<a href='#APCore.milliseconds2frames'>- APCore.milliseconds2frames</a><br>
+<a href='#APCore.addListener'>- APCore.addListener</a><br>
+<a href='#APCore.removeListener'>- APCore.removeListener</a><br>
+<a href='#toString'>- toString</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>APCore <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> Documentation not provided.</P>
+		<P class="methodTitle">description:</P>
+		<P>Most classes in AnimationPackage subclass the singelton APCore, either directly or indirectly.
+It implements listener functionality and common used methods 
+and creates the animationClip (apContainer_mc) in _root timeline, 
+which is a movieclip that contains everything made by AnimationPackage unless you explicitly prevent this.
+			For example if you use the classes of de.alex_uhlmann.animationpackage.drawing you are able to specify a movieclip of any timeline 
+			that will be used to draw the shape. If you don't specify anything, a new movieclip, created in _root.apContainer_mc will be used to draw the shape.
+
+</P>
+		<P class="methodTitle">usage:</P> <tt>private class constructor</tt> <p>
+			<b>Event handling</b>
+			<p>
+			There are basically two ways to handle events in AnimationPackage. One way is using callbacks.
+			(based on the internal AsBroadcaster)
+			The other is using com.gskinner.events.GDispatcher or mx.events.EventDispatcher. 
+			Take a look into the readme.htm under "usage" for more information. Since you need the static initialize(), addListener(), 
+			and removeListener() methods of APCore to use callbacks, here is an example using the callback structure to handle custom events.
+			<p>
+			To subscribe an object to events use
+<tt>APCore.addListener(obj);</tt>
+i.e. if you want a movieclip to move back and forth, you can do it like:
+<blockquote><pre>               
+			APCore.initialize();
+			var myListener:Object = new Object();
+			APCore.addListener(myListener);
+			var myMove:Move = new Move(mc);
+			myMove.animationStyle(2000,Expo.easeInOut,"onCallback");
+			myMove.run(500,200);
+			myListener.onCallback = function()
+			{
+				myMove.callback = "onCallback2";
+				myMove.run(100,200);
+			}
+			myListener.onCallback2 = function()
+			{		
+				myMove.callback = "onCallback";	
+				myMove.run(500,200);
+			}
+</pre></blockquote>	
+			<a href="APCore_01.html">(Example .swf)</a> 
+			<p>
+			<b>Controlling your frame rate</b>
+			<p>
+			APCore offers some methods concerning your movie's frame rate (fps = frames per second). 
+			As soon as you use a class of AnimationPackage the APCore.initialize method is called and 
+			calculates your movie's fps. This calculation takes one second till it gets the only result. 
+			Then, due to performance reasons, the calculation will not be continued. If you still want to calculate your fps 
+			you can do so by calling APCore.watchFPS(). Stop watching the fps with APCore.unwatchFPS(). 
+			For duration mode "MS" in tween mode "FRAMES" you might even set the fps with APCore.setFPS(). 
+			Note, that this will not modify your movie's actual fps (this is not possible with ActionScript). 
+			See AnimationCore class and AnimationCore.setDurationMode for details.
+
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>APCore Methods:</P>
+			<div class='methodsDiv' >
+			
+
+				<P class='methodTitle'><A name='APCore.initialize'></A><u> APCore.initialize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, Initializes AnimationPackage including the internal broadcaster. Every class that needs listener 
+					functionality will call this method. Needed if no other class of AnimationPackage that needs 
+					listener functionality was constructed before or if you want to access 
+					the only APCore instance (i.e. for getNextDepth() or createClip() methods). APCore is a Singelton [GoF].
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.initialize();</tt> 	  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> (APCore) the only instance of APCore. Singelton [GoF]
+	</P>
+
+				<P class='methodTitle'><A name='APCore.getAnimationClip'></A><u> APCore.getAnimationClip</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, residence of the animationClip. See class documentation and APCore.setAnimationClip.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.getAnimationClip(target);</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> (MovieClip) movieclip in which the apContainer_mc has been created.
+	</P>
+
+				<P class='methodTitle'><A name='APCore.setAnimationClip'></A><u> APCore.setAnimationClip</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, allow to set the timeline for the animationClip (apContainer_mc). Default is _root timeline.
+	The animationClip is a movieclip that contains everything made by AnimationPackage 
+				unless you explicitly prevent this. See class documentation.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.setAnimationClip(target);</tt>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>target (MovieClip) movieclip in which the apContainer_mc will be created.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='APCore.watchFPS'></A><u> APCore.watchFPS</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, watches your movie's frame rate (fps = frames per second). 
+					Each second it receives a new result.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.watchFPS();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='APCore.unwatchFPS'></A><u> APCore.unwatchFPS</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, stop watching your movie's frame rate (fps = frames per second). 
+					Since watching your fps costs a little performance, I recommend to stop 
+					watching your fps if  you don't need to anymore.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.unwatchFPS();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='APCore.getFPS'></A><u> APCore.getFPS</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, returns the last calculated value of your movie's frame rate (fps = frames per second). 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.getFPS();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> Number that specifies the number of frames your movie plays in one second.
+	</P>
+
+				<P class='methodTitle'><A name='APCore.setFPS'></A><u> APCore.setFPS</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, sets the frame rate (fps = frames per second) stored in AnimationPackage.
+				For duration mode "MS" in tween mode "FRAMES" you might set the fps with APCore.setFPS(). 
+				Note, that this will not modify your movie's actual fps (this is not possible with ActionScript). 
+				See AnimationCore class and AnimationCore.setDurationMode for details.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.setFPS();</tt>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>fps_local (Number) that specifies the number of frames your movie plays in one second. (fps)</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Void.</P>
+
+				<P class='methodTitle'><A name='APCore.milliseconds2frames'></A><u> APCore.milliseconds2frames</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					static, converts milliseconds to frames according to the current fps (frames per second) 
+					stored in AnimationPackage.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.milliseconds2frames();</tt>
+	</P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>ms (Number) milliseconds to convert to frames.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> Number of frames that are expected to run in one second.
+	</P>
+
+				<P class='methodTitle'><A name='APCore.addListener'></A><u> APCore.addListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				To subscribe an object to all events from AnimationPackage. 
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.addListener(obj);</tt>  
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if subscription was successful, 
+	<code>false</code> if not successful.
+	</P>
+
+				<P class='methodTitle'><A name='APCore.removeListener'></A><u> APCore.removeListener</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				To unsubscribe an object to all events from AnimationPackage.                
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>APCore.removeListener(obj);</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> <code>true</code> if successful, <code>false</code> 
+	if not successful.
+	</P>
+
+				<P class='methodTitle'><A name='toString'></A><u> toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+					returns the name of the class.
+	</P>
+				<P><span class='methodAttributesTitle'>usage:</span> <tt>myInstance.toString();</tt>
+	</P>
+<P><span class='methodAttributesTitle'>returns:</span> String
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+			

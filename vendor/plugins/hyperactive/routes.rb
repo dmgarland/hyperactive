@@ -1,0 +1,111 @@
+ActionController::Routing::Routes.draw do |map|
+  # Add your own custom routes here.
+  # The priority is based upon order of creation: first created -> highest priority.
+  
+  # Here's a sample route:
+  # map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+  # Keep in mind you can assign values other than :controller and :action
+
+    # map the admin stuff into '/admin/'
+  connect '/admin/group/:action/:id',
+      :controller => 'active_rbac/group'
+  connect '/admin/role/:action/:id',
+      :controller => 'active_rbac/role'
+  connect '/admin/static_permission/:action/:id',
+      :controller => 'active_rbac/static_permission'
+  connect '/admin/user/:action/:id',
+      :controller => 'active_rbac/user'
+
+
+  map.list_by_month '/events/list_by_month',
+                :controller => 'events',
+                :action => 'list_by_month'
+
+  map.list_by_week '/events/list_by_week',
+                :controller => 'events',
+                :action => 'list_by_week'
+
+  map.list_by_day '/events/list_by_day',
+                :controller => 'events',
+                :action => 'list_by_day'  
+  
+  map.calendar_month '/events/calendar_month',
+                :controller => 'events',
+                :action => 'calendar_month'
+
+  map.resources :videos
+  map.resources :events, :collection => { :list_promoted => :get }
+  map.resources :articles
+  
+  map.categories 'admin/categories/', :controller => 'admin/category'
+  map.pages 'admin/pages', :controller => 'admin/page'
+  map.users 'admin/users', :controller => 'active_rbac/user'
+  map.roles 'admin/roles', :controller => 'active_rbac/role'
+  map.static_permissions 'admin/static_permissions', :controller => 'active_rbac/static_permission'
+  map.login 'login', :controller => 'active_rbac/login', :action => 'login'
+  map.logout 'logout', :controller => 'active_rbac/login', :action => 'logout'
+  map.register 'register', :controller => 'active_rbac/registration'
+  map.publish 'publish', :controller => 'publish'
+
+  # map the login and registration controller somewhere prettier than "active_rbac/foo"
+  connect '/login', :controller => 'active_rbac/login',
+      :action => 'login'
+  connect '/logout', :controller => 'active_rbac/login',
+      :action => 'logout'
+  connect '/register/confirm/:user/:token',
+      :controller => 'active_rbac/registration',
+      :action => 'confirm'
+  connect '/register/:action/:id',
+      :controller => 'active_rbac/registration'
+  # hide '/active_rbac/*'
+  connect '/active_rbac/*foo',
+      :controller => 'error'
+      
+  connect 'page/:title', 
+                :controller => 'page', 
+                :action => 'show', 
+                :title => 'default'
+
+  map.timeline '/timeline/timeline/', 
+                :controller => 'timeline',
+                :action => 'timeline'
+   
+  # search mappings
+  map.tag_item '/search/by_tag/:scope',
+                :controller => 'search',
+                :action => 'by_tag',
+                :scope => 'internal_nyc'
+
+  map.place_tag_item '/search/by_place_tag/:scope',
+                :controller => 'search',
+                :action => 'by_place_tag',
+                :scope => 'internal_nyc'
+  
+  map.search 'search/:search',
+                :controller => 'search',
+                :action => ':find_content'
+  
+  
+  
+  map.featured_in_player '/featured_videos_json',
+                :controller => 'videos',
+                :action => 'featured_in_player'
+  
+  # base url of application
+  map.base '/', :controller => 'home'
+                
+
+  # ActiveRbac's RegistrationController confirmation action needs a special route
+  #map.connect '/active_rbac/registration/confirm/:user/:token',
+  #            :controller => 'active_rbac/registration',
+  #            :action => 'confirm'
+
+  connect '', :controller => "home"
+  connect '/admin/', :controller => "admin/category"
+  # Allow downloading Web Service WSDL as a file with an extension
+  # instead of a file named 'wsdl'
+  connect ':controller/service.wsdl', :action => 'wsdl'
+
+  # Install the default route as the lowest priority.
+  connect ':controller/:action/:id'
+end

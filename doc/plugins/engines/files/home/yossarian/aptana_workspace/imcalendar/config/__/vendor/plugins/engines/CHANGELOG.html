@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: CHANGELOG</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../../../../../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>CHANGELOG</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>/home/yossarian/aptana_workspace/imcalendar/config/../vendor/plugins/engines/CHANGELOG
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Mar 29 21:11:15 +0100 2007</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>1.2.0 - MASSIVE INTERNAL REFACTORING</h1>
+<ul>
+<li>!!!Support for <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> &lt; 1.2
+has been dropped!!!; if you are using <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> =&lt;
+1.1.6, please use <a
+href="../../../../../../../../../../classes/Engines.html">Engines</a>
+1.1.6, available from <a
+href="http://svn.rails-engines.org/engines/tags/rel_1.1.6">svn.rails-engines.org/engines/tags/rel_1.1.6</a>
+
+</li>
+<li><a href="../../../../../../../../../../classes/Engines.html">Engines</a>
+are dead! Long live plugins! There is now no meaningful notion of an engine
+- all plugins can take advantage of the more powerful features that the
+engines plugin provides by including app directories, etc.
+
+</li>
+<li>Init_engine.rb is no longer used; please use the plugin-standard init.rb
+instead.
+
+</li>
+<li>Engines.start is no longer required; please use the config.plugins array
+provided by <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> instead
+
+</li>
+<li>To get the most benefit from <a
+href="../../../../../../../../../../classes/Engines.html">Engines</a>, set
+config.plugins to [&quot;engines&quot;, &quot;*&quot;] to load the engines
+plugin first, and then all other plugins in their normal order after.
+
+</li>
+<li>Access all loaded plugins via the new Rails.plugins array, and by name
+using Rails.plugins[:plugin_name].
+
+</li>
+<li>Access plugin metadata loaded automatically from about.yml:
+Rails.plugins[:name].about. Plugin#version is provided directly, for easy
+access.
+
+</li>
+<li><a
+href="../../../../../../../../../../classes/Module.html#M000003">Module.config</a>
+is has been removed - use mattr_accessor instead, and initialize your
+default values via the init.rb mechanism.
+
+</li>
+<li>Public asset helpers have been rewritten; instead of engine_stylesheet, now
+use stylesheet_link_tag :name, :plugin =&gt; &quot;plugin_name&quot;
+
+</li>
+<li><a href="../../../../../../../../../../classes/Plugin.html">Plugin</a>
+migrations have been reworked to integrate into the main migration stream.
+Please run script/generate plugin_migration to create plugin migrations in
+your main application.
+
+</li>
+<li>The fixture method for loading fixtures against any class has been removed;
+instead, engines will now provide a mechanism for loading fixtures from all
+plugins, by mirroring fixtures into a common location.
+
+</li>
+<li>All references to engines have been removed; For example, any rake tasks
+which applied to engines now apply to all plugins. The default <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> rake
+tasks for plugins are overridden where necessary.
+
+</li>
+<li>Layouts can now be shared via plugins - inspiration gratefully taken from
+PluginAWeek&#8216;s plugin_routing :)
+
+</li>
+<li>Actual routing from plugins is now possible, by including routes.rb in your
+plugin directory and using the from_plugin method in config/routes.rb
+(Ticket 182)
+
+</li>
+<li>Controllers are no longer loaded twice if they&#8216;re not present in the
+normal app/ directory (Ticket 177)
+
+</li>
+<li>The preferred location for javascripts/stylesheets/etc is now
+&#8216;assets&#8217; rather than &#8216;public&#8216;
+
+</li>
+<li>Ensure that plugins started before routing have their controllers
+appropriately added to config.controller_paths (Ticket 258)
+
+</li>
+<li>Removed Engines.version - it&#8216;s not longer relevant, now we&#8216;re
+loading version information from about.yml files.
+
+</li>
+<li>Added a huge amount of documentation to all new modules.
+
+</li>
+<li>Added new warning message if installation of engines 1.2.x is attempted in
+a <a href="../../../../../../../../../../classes/Rails.html">Rails</a>
+1.1.x application
+
+</li>
+<li>Added details of the removal of the config method to UPGRADING
+
+</li>
+<li>Removed the plugins:info rake task in favour of adding information to
+script/about via the Rails::Info module (Ticket 261)
+
+</li>
+<li>Improved handling of testing and documentation tasks for plugins
+
+</li>
+</ul>
+<h1>1.1.4</h1>
+<ul>
+<li>Fixed creation of multipart emails (Ticket 190)
+
+</li>
+<li>Added a temporary fix to the code-mixing issue. In your engine&#8216;s
+test/test_helper.rb, please add the following lines:
+
+<pre>
+ # Ensure that the code mixing and view loading from the application is disabled
+ Engines.disable_app_views_loading = true
+ Engines.disable_app_code_mixing = true
+</pre>
+<p>
+which will prevent code mixing for controllers and helpers, and loading
+views from the application. One thing to remember is to load any
+controllers/helpers using &#8216;require_or_load&#8217; in your tests, to
+ensure that the engine behaviour is respected (Ticket 135)
+</p>
+</li>
+<li>Added tasks to easily test engines individually (Ticket 120)
+
+</li>
+<li>Fixture extensions will now fail with an exception if the corresponding
+class cannot be loaded (Ticket 138)
+
+</li>
+<li>Patch for new routing/controller loading in <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.1.6.
+The routing code is now replaced with the contents of
+config.controller_paths, along with controller paths from any started
+engines (Ticket 196)
+
+</li>
+<li><a href="../../../../../../../../../../classes/Rails.html">Rails</a>&#8217;
+Configuration instance is now stored, and available from all engines and
+plugins.
+
+</li>
+</ul>
+<h1>1.1.3</h1>
+<ul>
+<li>Fixed README to show &#8216;models&#8217; rather than &#8216;model&#8217;
+class (Ticket 167)
+
+</li>
+<li>Fixed dependency loading to work with <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.1.4
+(Ticket 180)
+
+</li>
+</ul>
+<h1>1.1.2</h1>
+<ul>
+<li>Added better fix to version checking (Ticket 130, jdell@gbdev.com).
+
+</li>
+<li>Fixed generated init_engine.rb so that VERSION module doesn&#8216;t cause
+probems (Ticket 131, japgolly@gmail.com)
+
+</li>
+<li>Fixed error with <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.0 when
+trying to ignore the engine_schema_info table (Ticket 132,
+snowblink@gmail.com)
+
+</li>
+<li>Re-added old style rake tasks (Ticket 133)
+
+</li>
+<li>No longer adding all subdirectories of &lt;engine&gt;/app or
+&lt;engine&gt;/lib, as this can cause issues when files are grouped in
+modules (Ticket 149, kasatani@gmail.com)
+
+</li>
+<li>Fixed engine precidence ordering for <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.1
+(Ticket 146)
+
+</li>
+<li>Added new Engines.each method to assist in processing the engines in the
+desired order (Ticket 146)
+
+</li>
+<li>Fixed annoying error message at appears when starting the console in
+development mode (Ticket 134)
+
+</li>
+<li><a href="../../../../../../../../../../classes/Engines.html">Engines</a> is
+now super-careful about loading the correct version of <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> from
+vendor (Ticket 154)
+
+</li>
+</ul>
+<h1>1.1.1</h1>
+<ul>
+<li>Fixed migration rake task failing when given a specific version (Ticket
+115)
+
+</li>
+<li>Added new rake task &quot;test:engines&quot; which will test engines (and
+other plugins) but ensure that the test database is cloned from development
+beforehand (Ticket 125)
+
+</li>
+<li>Fixed issue where &#8216;engine_schema_info&#8217; table was included in
+schema dumps (Ticket 87)
+
+</li>
+<li>Fixed multi-part emails (Ticket 121)
+
+</li>
+<li>Added an &#8216;install.rb&#8217; file to new engines created by the
+bundled generator, which installs the engines plugin automatically if it
+doesn&#8216;t already exist (Ticket 122)
+
+</li>
+<li>Added a default VERSION module to generated engines (Ticket 123)
+
+</li>
+<li>Refactored copying of engine&#8216;s public files to a method of an Engine
+instance. You can now call Engines.get(:engine_name).copy_public_files
+(Ticket 108)
+
+</li>
+<li>Changed engine generator templates from .rb files to .erb files (Ticket
+106)
+
+</li>
+<li>Fixed the test_helper.erb file to use the correct testing extensions and
+not load any schema - the schema will be cloned automatically via rake
+test:engines
+
+</li>
+<li>Fixed problem when running with <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.1.1
+where version wasn&#8216;t determined correctly (Ticket 129)
+
+</li>
+<li>Fixed bug preventing engines from loading when both <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.1.0 and
+1.1.1 gems are installed and in use.
+
+</li>
+<li>Updated version (d&#8216;oh!)
+
+</li>
+</ul>
+<h1>1.1.0</h1>
+<ul>
+<li>Improved regexp matching for <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.0
+engines with peculiar paths
+
+</li>
+<li>Engine instance objects can be accessed via <a
+href="../../../../../../../../../../classes/Engines.html">Engines</a>[:name],
+an alias for Engines.get(:name) (Ticket 99)
+
+</li>
+<li>init_engine.rb is now processed as the final step in the Engine.start
+process, so it can access files within the lib directory, which is now in
+the $LOAD_PATH at that point. (Ticket 99)
+
+</li>
+<li>Clarified MIT license (Ticket 98)
+
+</li>
+<li>Updated Rake tasks to integrate smoothly with <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> 1.1
+namespaces
+
+</li>
+<li>Changed the version to &quot;1.1.0 (svn)&quot;
+
+</li>
+<li>Added more information about using the plugin with Edge <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> to the
+README
+
+</li>
+<li>moved extensions into lib/engines/ directory to enable use of <a
+href="../../../../../../../../../../classes/Engines.html">Engines</a>
+module in extension code.
+
+</li>
+<li>Added conditional require_or_load method which attempts to detect the
+current <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> version.
+To use the Edge <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> version
+of the loading mechanism, add the line:
+
+</li>
+<li>Engines.config :edge, true
+
+</li>
+<li>to your environment.rb file.
+
+</li>
+<li>Merged changes from /branches/edge and /branches/rb_1.0 into /trunk
+
+</li>
+<li>engine_schema_info now respects the prefix/suffixes set for
+ActiveRecord::Base (Ticket 67)
+
+</li>
+<li>added ActiveRecord::Base.wrapped_table_name(name) method to assist in
+determining the correct table name
+
+</li>
+</ul>
+<h1>1.0.6</h1>
+<ul>
+<li>Added ability to determine version information for engines: rake
+engine_info
+
+</li>
+<li>Added a custom logger for the <a
+href="../../../../../../../../../../classes/Engines.html">Engines</a>
+module, to stop pollution of the <a
+href="../../../../../../../../../../classes/Rails.html">Rails</a> logs.
+
+</li>
+<li>Added some more tests (in particular, see
+rails_engines/applications/engines_test).
+
+</li>
+<li>Another attempt at solving Ticket 53 - controllers and helpers should now
+be loadable from modules, and if a full path (including
+RAILS_ROOT/ENGINES_ROOT) is given, it should be safely stripped from the
+require filename such that corresponding files can be located in any active
+engines. In other words, controller/helper overloading should now
+completely work, even if the controllers/helpers are in modules.
+
+</li>
+<li>Added (finally) patch from Ticket 22 - ActionMailer helpers should now load
+
+</li>
+<li>Removed support for Engines.start :engine, :engine_name =&gt;
+&#8216;whatever&#8217;. It was pointless.
+
+</li>
+<li>Fixed engine name referencing; engine_stylesheet/engine_javascript can now
+happily use shorthand engine names (i.e. :test == :test_engine) (Ticket 45)
+
+</li>
+<li>Fixed minor documentation error (&#8216;Engine.start&#8217; ==&gt;
+&#8216;Engines.start&#8217;) (Ticket 57)
+
+</li>
+<li>Fixed double inclusion of RAILS_ROOT in engine_migrate rake task (Ticket
+61)
+
+</li>
+<li>Added ability to force config values even if given as a hash (Ticket 62)
+
+</li>
+</ul>
+<h1>1.0.5</h1>
+<ul>
+<li>Fixed bug stopping fixtures from loading with PostgreSQL
+
+</li>
+</ul>
+<h1>1.0.4</h1>
+<ul>
+<li>Another attempt at loading controllers within modules (Ticket 56)
+
+</li>
+</ul>
+<h1>1.0.3</h1>
+<ul>
+<li>Fixed serious dependency bug stopping controllers being loaded (Ticket 56)
+
+</li>
+</ul>
+<h1>1.0.2</h1>
+<ul>
+<li>Fixed bug with overloading controllers in modules from /app directory
+
+</li>
+<li>Fixed exception thrown when public files couldn&#8216;t be created;
+exception is now logged (Ticket 52)
+
+</li>
+<li>Fixed problem with generated test_helper.rb file via File.expand_path
+(Ticket 50)
+
+</li>
+</ul>
+<h1>1.0.1</h1>
+<ul>
+<li>Added engine generator for creation of new engines
+
+</li>
+<li>Fixed &#8216;Engine&#8217; typo in README
+
+</li>
+<li>Fixed bug in fixtures extensions
+
+</li>
+<li>Fixed /lib path management bug
+
+</li>
+<li>Added method to determine public directory location from Engine object
+
+</li>
+<li>Fixed bug in the error message in get_engine_dir()
+
+</li>
+<li>Added proper component loading
+
+</li>
+<li>Added preliminary tests for the config() methods module
+
+</li>
+</ul>
+<h1>pre-v170</h1>
+<ul>
+<li>Fixed copyright notices to point to DHH, rather than me.
+
+</li>
+<li>Moved extension require statements into lib/engines.rb, so the will be
+loaded if another module/file calls require &#8216;engines
+
+</li>
+<li>Added a CHANGELOG file (this file)
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

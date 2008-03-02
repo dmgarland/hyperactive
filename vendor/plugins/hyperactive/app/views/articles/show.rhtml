@@ -30,7 +30,7 @@
 <% if @content.file_uploads.length > 0 %>
     <p><h3>Attached Files</h3><br/>
     <% @content.file_uploads.each do |file_upload| %>
-        <p><%= link_to image_tag("gedit-icon.png"), url_for_file_column(file_upload, "file") %> 
+        <p><%= link_to image_tag("gedit-icon.png", :plugin => 'hyperactive'), url_for_file_column(file_upload, "file") %> 
         <%=h file_upload.title %></p>
     <% end %></p>
 <% end %>

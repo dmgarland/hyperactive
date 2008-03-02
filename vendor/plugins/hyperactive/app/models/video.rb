@@ -39,7 +39,7 @@ class Video < Media
                           :args => {
                             :absolute_path => video_file_to_convert, 
                             :torrent_tracker => TORRENT_TRACKER,
-                            :video_id => self.id.to_s })
+                            :video_id => self.id.to_s }) unless RAILS_ENV == 'test'
   end
   
   def video_type

@@ -4,7 +4,7 @@
         <p>To get the latest version please <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">click here</a>.</p>
     </div>
     <script type="text/javascript">
-        var so = new SWFObject("/flash/vidplayer.swf?filePath=<%= url_for_file_column(video, 'file') %>.flv&thumbPath=<%= url_for_file_column(video, 'file')%>.jpg", "vidplayer", "320", "240", "8", "");
+        var so = new SWFObject("/plugin_assets/hyperactive/flash/vidplayer.swf?filePath=<%= url_for_file_column(video, 'file') %>.flv&thumbPath=<%= url_for_file_column(video, 'file')%>.jpg", "vidplayer", "320", "240", "8", "");
         so.addParam("menu", "false");
         so.write("videoplayer<%= video.id %>");
     </script>

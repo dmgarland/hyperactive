@@ -20,7 +20,7 @@
 			    	<%= render :partial => '/shared/video_summary', :locals => {:video_summary => @featured_videos.first} unless @featured_videos.blank? %>
 				</div>
 			    <script type="text/javascript">
-			        var so = new SWFObject("/flash/featuredvideos.swf", "vidplayer", "190", "190", "7", "");
+			        var so = new SWFObject("/plugin_assets/hyperactive/flash/featuredvideos.swf", "vidplayer", "190", "190", "7", "");
 			        so.addParam("menu", "false");
 			        so.write("featuredvideos");
 			    </script>				

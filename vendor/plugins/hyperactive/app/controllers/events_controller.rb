@@ -1,5 +1,5 @@
-require 'app/models/tag.rb'
-require 'app/models/place_tag.rb'
+require 'vendor/plugins/hyperactive/app/models/tag.rb'
+require 'vendor/plugins/hyperactive/app/models/place_tag.rb'
 
 class EventsController < ContentController
 

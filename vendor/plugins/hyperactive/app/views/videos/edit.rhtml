@@ -1,0 +1,10 @@
+<h1>Editing video</h1>
+
+<% form_for(:content, :url => video_path(@content), :html => { :method => :put, :multipart => true }) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p><%= submit_tag 'Save changes' %></p>
+<% end %>   
+<p><%= button_to 'Delete this video', {:action => 'destroy', :id => @content}, {:confirm => 'Are you sure?'} %></p>
+
+<p><%= link_to 'Show', :action => 'show', :id => @content %> |
+<%= link_to 'Back', :action => 'list' %></p>

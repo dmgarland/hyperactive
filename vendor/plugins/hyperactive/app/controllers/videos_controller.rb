@@ -1,4 +1,4 @@
-class VideosController < ApplicationController
+class VideosController < ContentController
   
   layout "home"
   
@@ -8,16 +8,16 @@ class VideosController < ApplicationController
   require_dependency 'post'
   
   def create
-    @video = Video.new(params[:video])
+    @content = Video.new(params[:content])
     respond_to do |format|
-      if simple_captcha_valid? && @video.save
-        @video.convert
+      if simple_captcha_valid? && @content.save
+        @content.convert
         flash[:notice] = "Video was successfully created."
-        format.html { redirect_to video_url(@video) }
-        format.xml  { head :created, :location => video_url(@video) }
+        format.html { redirect_to video_url(@content) }
+        format.xml  { head :created, :location => video_url(@content) }
       else
         format.html { 
-          @video.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
+          @content.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
           render :action => "new" 
         }
         format.xml  { render :xml => @content.errors.to_xml }
@@ -25,33 +25,25 @@ class VideosController < ApplicationController
     end    
   end
   
-  def destroy
-    
-  end
-  
-  def index
-    @cloud = Tag.cloud
-    @place_cloud = PlaceTag.cloud    
-    @videos = Video.find_where(:all, :order => 'created_on DESC', :page => {:size => objects_per_page, :current => page_param}) do |content| 
-    end         
+def update
+    @content = model_class.find(params[:id])
+    @content.update_attributes(params[:content])
     respond_to do |format|
-      format.html # index.rhtml
-      format.xml  { render :xml => @content.to_xml }
-    end
+      if simple_captcha_valid? && @content.save
+        @content.convert
+        flash[:notice] = "Video was successfully created."
+        format.html { redirect_to video_url(@content) }
+        format.xml  { head :created, :location => video_url(@content) }
+      else
+        format.html { 
+          @content.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
+          render :action => "new" 
+        }
+        format.xml  { render :xml => @content.errors.to_xml }
+      end
+    end    
   end  
-  
-  def list
     
-  end
-  
-  def new
-    @video = Video.new
-  end
-
-  def show
-    @video = Video.find(params[:id])
-  end
-  
   def featured_in_player
     videos = Video.find(:all, :limit => 3, :order => 'created_on DESC')
     featured_vids = []
@@ -67,5 +59,12 @@ class VideosController < ApplicationController
       format.json {render :text => "vids=#{featured_vids.to_json}"}
     end
   end
+  
+  protected
+  
+  def model_class
+    Video
+  end
+  
   
 end

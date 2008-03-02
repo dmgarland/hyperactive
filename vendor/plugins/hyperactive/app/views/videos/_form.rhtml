@@ -1,17 +1,16 @@
-<%= error_messages_for 'video' %>
+<%= error_messages_for :content %>
 
 <% if controller.action_name == 'edit' %>
-    <%= image_tag url_for_file_column(video, "file", "thumb") %><br/><br/>
+    <%= image_tag url_for_file_column(:content, "file", "thumb") %><br/><br/>
 <% end %>
-<label for="video_title">
-  Title*<br/>
-  <%= text_field 'video', 'title', :size => 30 %>
-</label><br/><br/>
-<label for="video_file">
+<label for="content_title">Title*<br/></label>
+  <%= f.text_field :title, :size => 30 %>
+<br/><br/>
+<label for="content_file">
 File* - allowed file types are <%= Video.allowed_file_types.join(", ") %><br/>
-<%= file_column_field("video", "file") %>
+<%= file_column_field("content", "file") %>
 </label><br/><br/>
 <label for="video_description">
   Description - duration, codec, a bit about it<br/>
-  <%= text_area 'video', 'body', :rows => 5 %>  
+  <%= f.text_area :body, :rows => 5 %>  
 </label><br/><br/>

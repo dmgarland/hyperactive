@@ -1,11 +1,14 @@
-<% @page_title = @video.title %>
+<% @page_title = @content.title %>
 
 <div id="content-wrap">
 
 	<div id="subpage">
 		<div class="singlepost">
-			<%= render :partial => 'shared/video', :locals => {:video => @video} %>
+			<%= render :partial => 'shared/video', :locals => {:video => @content} %>
 		</div>
 	</div>
-	
+
+	<p><% if editable_by?(current_user, @content)  %>
+	<%= link_to 'Edit', edit_video_url(@content) %> |
+	<% end %><%= link_to 'Back', videos_url %></p>	
 </div>

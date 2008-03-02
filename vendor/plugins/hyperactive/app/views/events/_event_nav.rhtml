@@ -1,11 +1,11 @@
 <% if (@date == nil) %>
-    <%= link_to (image_tag ('/images/date.png')), calendar_month_url %> <%= link_to "calendar view", calendar_month_url %>
-    <%= link_to (image_tag ('/images/calendar_view_month.png')), list_by_month_url %> <%= link_to "month list", list_by_month_url %>
-    <%= link_to (image_tag ('/images/calendar_view_week.png')), list_by_week_url %> <%= link_to "week list", list_by_week_url %>
-    <%= link_to (image_tag ('/images/calendar_view_day.png')), list_by_day_url %> <%= link_to "day list", list_by_day_url %>
+    <%= link_to (image_tag ('date.png', :plugin => 'hyperactive')), calendar_month_url %> <%= link_to "calendar view", calendar_month_url %>
+    <%= link_to (image_tag ('calendar_view_month.png', :plugin => 'hyperactive')), list_by_month_url %> <%= link_to "month list", list_by_month_url %>
+    <%= link_to (image_tag ('calendar_view_week.png', :plugin => 'hyperactive')), list_by_week_url %> <%= link_to "week list", list_by_week_url %>
+    <%= link_to (image_tag ('calendar_view_day.png', :plugin => 'hyperactive')), list_by_day_url %> <%= link_to "day list", list_by_day_url %>
 <% else %>
-    <%= link_to (image_tag ('/images/date.png')), calendar_month_url, :date => @date %> <%= link_to "calendar view", calendar_month_url, :date => @date %>
-    <%= link_to (image_tag ('/images/calendar_view_month.png')), list_by_month_url, :date => @date %> <%= link_to "month list", list_by_month_url, :date => @date %>
-    <%= link_to (image_tag ('/images/calendar_view_week.png')), list_by_week_url, :date => @date %> <%= link_to "week list", list_by_week_url, :date => @date %>
-    <%= link_to (image_tag ('/images/calendar_view_day.png')), list_by_day_url, :date => @date %> <%= link_to "day list", list_by_day_url, :date => @date %>
+    <%= link_to (image_tag ('date.png', :plugin => 'hyperactive')), calendar_month_url, :date => @date %> <%= link_to "calendar view", calendar_month_url, :date => @date %>
+    <%= link_to (image_tag ('calendar_view_month.png', :plugin => 'hyperactive')), list_by_month_url, :date => @date %> <%= link_to "month list", list_by_month_url, :date => @date %>
+    <%= link_to (image_tag ('calendar_view_week.png', :plugin => 'hyperactive')), list_by_week_url, :date => @date %> <%= link_to "week list", list_by_week_url, :date => @date %>
+    <%= link_to (image_tag ('calendar_view_day.png', :plugin => 'hyperactive')), list_by_day_url, :date => @date %> <%= link_to "day list", list_by_day_url, :date => @date %>
 <% end %>

@@ -18,19 +18,19 @@ class VideosControllerTest < Test::Unit::TestCase
   def test_index
     get :index
     assert_response :success
-    assert assigns(:videos)
+    assert assigns(:content)
   end
   
   def test_new
     get :new
     assert_response :success
-    assert assigns(:video)
+    assert assigns(:content)
   end
   
   def test_show
     get :show, :id => @content_id
     assert_response :success
-    assert assigns(:video)
+    assert assigns(:content)
   end
   
 end

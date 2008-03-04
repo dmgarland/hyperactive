@@ -1,7 +1,7 @@
 <% if !@content.nil? %>
     <% if !@content.empty? %>
     <h1>Events tagged with &lsquo;<%= h @tagname %>&rsquo;</h1>
-        <%= link_to (image_tag ('/images/feed-icon-28x28.png')), {:controller => 'event_feed', :action => 'upcoming_tagged', :scope => params[:scope]} %>
+        <%= link_to (image_tag('feed-icon-28x28.png', :plugin => 'hyperactive')), {:controller => 'event_feed', :action => 'upcoming_tagged', :scope => params[:scope]} %>
         <%= render(:partial => "results_list", :object => @content) %>
         <%= paginating_links(@content) %>
     <% else %>

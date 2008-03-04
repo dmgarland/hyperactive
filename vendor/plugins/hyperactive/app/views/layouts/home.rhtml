@@ -43,11 +43,11 @@
 			</li>
 			<% if @current_controller == "home" && @current_action == "index" %> 
 			<li>
+				<h2>Neighbourhoods</h2>
+				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> </li>
+			<li>
 				<h2>Tags</h2>
 				<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  </li>
-			<li>
-				<h2>Places</h2>
-				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
 			<% end %>
 			<li>
 				<h2><%= link_to "Calendar", calendar_month_url %></h2>

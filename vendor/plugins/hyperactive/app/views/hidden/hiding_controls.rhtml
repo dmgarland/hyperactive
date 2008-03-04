@@ -1,4 +1,4 @@
-<p>Please state a reason for hiding the event:</p>
+<p>Please state a reason for hiding:</p>
 <% form_remote_tag(:url => {:controller => :hidden, :action => :hide, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:hide_reason, nil, :size => "50x3")%>

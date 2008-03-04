@@ -1,6 +1,8 @@
 class HiddenController < ApplicationController
   
   layout 'home'
+  before_filter :protect_controller, :except => [:list, :index]
+  
   
   def index
     redirect_to :action => 'list'
@@ -40,14 +42,15 @@ class HiddenController < ApplicationController
   end
   
   def hide
-    event = Event.find(params[:id])
-    event.hidden = 1
-    event.save
+    content = Content.find(params[:id])
+    content.hidden = true
+    content.save!
+    class_name = content.class.to_s.humanize.downcase
     #set_tagging_visibility(event, false)
-    EventHiddenMailer.deliver_hide(event, params[:hide_reason], current_user)
-    flash[:notice] = "The event has been hidden and an email sent."
+    EventHiddenMailer.deliver_hide(content, params[:hide_reason], current_user)
+    flash[:notice] = "The #{class_name} has been hidden and an email sent."
     render :update do |page|
-      page.redirect_to event_url(event)
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
     end
   end
    
@@ -57,21 +60,18 @@ class HiddenController < ApplicationController
   end
   
   def unhide
-    event = Event.find(params[:id])
-    event.hidden = 0
-    event.save
+    content = Content.find(params[:id])
+    content.hidden = false
+    content.save!
+    class_name = content.class.to_s.humanize.downcase    
     #set_tagging_visibility(event, true)
-    EventHiddenMailer.deliver_unhide(event, params[:unhide_reason], current_user)
-    flash[:notice] = "The event has been unhidden and an email sent."
+    EventHiddenMailer.deliver_unhide(content, params[:unhide_reason], current_user)
+    flash[:notice] = "The #{class_name} has been unhidden and an email sent."
     render :update do |page|
-      page.redirect_to event_url(event)
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
     end
   end
-  
-  protected
-  
-  before_filter :protect_controller, :except => [:list, :index]
-  
+    
   private
   
   # TODO: this is gross, but it's the quickest way i can think of 

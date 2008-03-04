@@ -4,6 +4,12 @@ require 'hidden_controller'
 # Re-raise errors caught by the controller.
 class HiddenController; def rescue_action(e) raise e end; end
 
+# This class tests that the hiding of content works.  In theory we could use some
+# more tests here, to take care of each Content subclass, but it may not be worth 
+# doing it at this stage.  Note the content_controller_test.rb, which is included
+# in all Content subclass tests, does exercise the showing and hiding of all
+# Content subclasses, so more may not be necessary here.
+#
 class HiddenControllerTest < Test::Unit::TestCase
   
   fixtures :content, :event_groups, :users, :roles, :roles_users, :tags, :taggings, :place_tags, :place_taggings

@@ -23,7 +23,7 @@ module ContentControllerTest
     assert_template 'show'
     assert_not_nil assigns(:content)
     assert assigns(:content).valid?
-    assert_no_match(/Hide this event/, @response.body, "Unhidden event shouldn't show hiding controls if user not logged in.")
+    assert_no_match(/Hide this #{class_name}/, @response.body, "Unhidden event shouldn't show hiding controls if user not logged in.")
   end
   
   def test_a_show_as_admin
@@ -32,19 +32,19 @@ module ContentControllerTest
     assert_template 'show'
     assert_not_nil assigns(:content)
     assert assigns(:content).valid?
-    assert_match(/Hide this/, @response.body, "Unhidden content should show hiding controls.")
+    assert_match(/Hide this #{class_name}/, @response.body, "Unhidden content should show hiding controls.")
   end  
   
   def test_a_show_hidden
     get :show, {:id => @hidden_id}
-    assert_no_match(/Unhide this event/, @response.body)
-    assert_match(/This event has been hidden/, @response.body)
+    assert_no_match(/Unhide this #{class_name}/, @response.body)
+    assert_match(/This #{class_name} has been hidden/, @response.body)
   end
   
   def test_a_show_hidden_as_admin
     get :show, {:id => @hidden_id}, as_admin
-    assert_match(/This event has been hidden/, @response.body)
-    assert_match(/Unhide this event/, @response.body)
+    assert_match(/This #{class_name} has been hidden/, @response.body)
+    assert_match(/Unhide this #{class_name}/, @response.body)
   end  
 
   def test_new
@@ -77,5 +77,10 @@ module ContentControllerTest
     assert_equal num_content + 1, model_class.count
   end  
   
+  private
+  
+  def class_name
+    model_class.to_s.humanize.downcase
+  end
   
 end

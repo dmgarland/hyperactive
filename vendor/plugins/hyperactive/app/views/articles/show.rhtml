@@ -5,7 +5,7 @@
 <p class="byline"><small>Published: <%=h long_date(@content.created_on) %></small></p>
 <p>posted by <strong><%=h @content.published_by.titleize %></strong></p>
 
-<%= render :partial => 'shared/hidden_notice' %>
+<%= render :partial => 'shared/content/hidden_notice' %>
 
 <p>Places: <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
 <p><%=h @content.place %>
@@ -52,24 +52,7 @@
 <p><em>Event created on:</em> <%=h @content.created_on %></p>
 <p><em>Event updated on:</em> <%=h @content.updated_on %></p>
 
-<% if current_user.has_permission?("hide")  %>
-    <div id="event_hiding_controls">
-        <% if @content.hidden == false %>
-            <%= link_to_remote "Hide this event" ,
-                                :url => {:controller => 'hidden', :action => 'event_hiding_controls', :id => @content.id },
-                                :update => 'event_hiding_controls',  
-								:before => "$('event_hiding_controls').hide()",
-								:complete => visual_effect(:appear, 'event_hiding_controls', :duration => 1)                 
-            %>
-        <% else %>
-            <%= link_to_remote "Unhide this event" ,
-                                :url => {:controller => 'hidden', :action => 'event_unhiding_controls', :id => @content.id },
-                                :update => 'event_hiding_controls',
-								:complete => visual_effect(:appear, 'event_hiding_controls', :duration => 1)                   
-            %>
-        <% end %>
-    </div>
-<% end %>
+<%= render :partial => 'shared/content/hiding_controls' %>
 
 <p><% if editable_by?(current_user, @content)  %>
 <%= link_to 'Edit', edit_article_url(@content) %> |

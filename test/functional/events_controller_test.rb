@@ -232,7 +232,6 @@ class EventControllerTest < Test::Unit::TestCase
   
   def test_update_as_registered_when_content_owner
     post :update, event_stub(2), as_registered
-    event = Event.find(2)
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => 2
     assert_equal "A Changed Event", assigns(:content).title

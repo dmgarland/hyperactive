@@ -55,7 +55,7 @@ class Event < Post
     end
   end
   
-  def update_all_taggings_with_date
+  def update_all_taggings_with_date  
     taggings.each do |tagging|
       tagging.event_date = date
       tagging.save  

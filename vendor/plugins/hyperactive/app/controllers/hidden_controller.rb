@@ -34,12 +34,12 @@ class HiddenController < ApplicationController
     end  
   end
   
-  def event_hiding_controls
+  def hiding_controls
     @id = params[:id]
     render :layout => false
   end
   
-  def hide_event
+  def hide
     event = Event.find(params[:id])
     event.hidden = 1
     event.save
@@ -51,12 +51,12 @@ class HiddenController < ApplicationController
     end
   end
    
-  def event_unhiding_controls
+  def unhiding_controls
     @id = params[:id]
     render :layout => false
   end
   
-  def unhide_event
+  def unhide
     event = Event.find(params[:id])
     event.hidden = 0
     event.save

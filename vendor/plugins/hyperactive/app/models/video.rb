@@ -1,5 +1,8 @@
 class Video < Media
   
+  require_dependency 'tag'
+  require_dependency 'place_tag'
+  
   include DRbUndumped # allows objects of this class to be serialized and sent over the wire to the BackgrounDRb server
 
   WEB_ROOT = 'system/'

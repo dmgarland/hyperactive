@@ -32,7 +32,7 @@ module ContentControllerTest
     assert_template 'show'
     assert_not_nil assigns(:content)
     assert assigns(:content).valid?
-    assert_match(/Hide this event/, @response.body, "Unhidden event should show hiding controls.")
+    assert_match(/Hide this/, @response.body, "Unhidden content should show hiding controls.")
   end  
   
   def test_a_show_hidden
@@ -65,7 +65,7 @@ module ContentControllerTest
                             }, 
                   :tags => "foo bar",
                   :place_tags => ""
-    
+                  
     content = model_class.find_by_title("Test content")
     assert_match("foo", content.tag_list)
     assert_match("bar", content.tag_list)

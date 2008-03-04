@@ -1,5 +1,5 @@
 <p>Please state your reason for unhiding the event:</p>
-<% form_remote_tag(:url => {:controller => :hidden, :action => :unhide_event, :id => @id }) do -%>
+<% form_remote_tag(:url => {:controller => :hidden, :action => :unhide, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:unhide_reason, nil, :size => "50x3")%>
      </div>

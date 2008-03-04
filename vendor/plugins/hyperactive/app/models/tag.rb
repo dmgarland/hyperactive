@@ -1,7 +1,7 @@
 class Tag < ActiveRecord::Base
  
   has_many_polymorphs :taggables, 
-    :from => [:events, :articles], 
+    :from => [:videos, :events, :articles], 
     :through => :taggings,
     :dependent => :destroy
       

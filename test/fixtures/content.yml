@@ -200,3 +200,43 @@ unconverted_video:
   file: foo.mov
   processing_status: 1  
   type: Video  
+  
+video4:
+  id: 20
+  title: a video
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 2
+  type: Video
+  
+video5:
+  id: 21
+  title: another video
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  promoted: true 
+  file: foo.mov
+  processing_status: 2
+  type: Video
+
+video6:
+  id: 22
+  title: a video that hasn't completed processing yet
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  promoted: true    
+  processing_status: 2
+  hidden: false
+  type: Video    
+  
+hidden_video:
+  id: 23
+  title: hidden video
+  body: hey, i'm a video! length 2 min 55 sec
+  content_id: 1
+  file: foo.mov
+  processing_status: 2
+  hidden: true
+  type: Video  

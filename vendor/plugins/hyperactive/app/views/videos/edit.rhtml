@@ -4,7 +4,7 @@
   <%= render :partial => 'form', :locals => { :f => f } %>
   <p><%= submit_tag 'Save changes' %></p>
 <% end %>   
-<p><%= button_to 'Delete this video', {:action => 'destroy', :id => @content}, {:confirm => 'Are you sure?'} %></p>
+<p><%= button_to 'Delete this video', video_path(@content), :method => :delete, :confirm => 'Are you sure?' %></p>
 
 <p><%= link_to 'Show', :action => 'show', :id => @content %> |
 <%= link_to 'Back', :action => 'list' %></p>

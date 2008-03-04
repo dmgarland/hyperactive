@@ -1,7 +1,7 @@
 class PlaceTag < ActiveRecord::Base
 
   has_many_polymorphs :place_taggables, 
-      :from => [:events, :articles], 
+      :from => [:events, :articles, :videos], 
       :through => :place_taggings,
       :dependent => :destroy
 

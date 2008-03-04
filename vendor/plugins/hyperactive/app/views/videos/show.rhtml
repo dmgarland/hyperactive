@@ -3,6 +3,7 @@
 <div id="content-wrap">
 
 	<div id="subpage">
+		<%= render :partial => 'shared/hidden_notice' %>
 		<div class="singlepost">
 			<%= render :partial => 'shared/video', :locals => {:video => @content} %>
 		</div>

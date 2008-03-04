@@ -5,7 +5,7 @@
 <p class="byline"><small>Published: <%=h long_date(@content.created_on) %></small></p>
 <p>posted by <strong><%=h @content.published_by.titleize %></strong></p>
 
-<% if @content.hidden == true %>
+<% if @content.hidden %>
     <p><strong>This event has been hidden under the Indymedia UK editorial guidelines.</strong></p>
 <% end %>
 

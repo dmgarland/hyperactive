@@ -35,19 +35,19 @@ class HiddenControllerTest < Test::Unit::TestCase
   
   
   def test_event_hiding_controls
-    get :event_hiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
+    get :hiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
     assert_response :success
-    assert_template 'event_hiding_controls'
+    assert_template 'hiding_controls'
   end
   
   def test_hide_event_without_being_logged_in
-    post :hide_event, :id => 1
+    post :hide, :id => 1
     assert_redirected_to :action => "index"
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end  
   
   def test_hide_event
-    post :hide_event, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    post :hide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
     event = Event.find(1)
     assert_response :success
     assert_equal event.hidden, true, "Hidden event should be hidden."
@@ -69,9 +69,9 @@ class HiddenControllerTest < Test::Unit::TestCase
   end  
   
   def test_event_unhiding_controls
-    get :event_unhiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    get :unhiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id }
     assert_response :success
-    assert_template 'event_unhiding_controls'    
+    assert_template 'unhiding_controls'    
   end
 
   def test_unhide_event_without_being_logged_in
@@ -81,7 +81,7 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
   
   def test_unhide_event
-    post :unhide_event, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    post :unhide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
     event = Event.find(1)
     assert_response :success
     assert_equal event.hidden, false, "Unhidden event should not be hidden."

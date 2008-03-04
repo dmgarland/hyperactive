@@ -6,9 +6,7 @@
 <p>posted by <strong><%=h @content.published_by.titleize %></strong></p>
 <%= image_tag "date.png", :plugin => 'hyperactive' %><%= link_to "iCal", :action => 'ical_download', :id => @content %> 
 
-<% if @content.hidden == true %>
-    <p><strong>This event has been hidden under the Indymedia UK editorial guidelines.</strong></p>
-<% end %>
+<%= render :partial => 'shared/hidden_notice' %>
 
 <% if @content.belongs_to_event_group? %>
     <p>This event is part of a series of repeating events.  To see

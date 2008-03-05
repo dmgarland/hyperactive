@@ -13,7 +13,7 @@
 
 <% if @content.videos.length > 0 %>
     <h3>Videos</h3>
-    <%= render :partial => "shared/video_summary", :collection => @content.videos %>
+    <%= render :partial => "videos/video_summary", :collection => @content.videos %>
 <% end %>
 
 <% if @content.photos.length > 0 %>

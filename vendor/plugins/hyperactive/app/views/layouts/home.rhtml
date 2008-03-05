@@ -17,7 +17,7 @@
 			<li>
 				<h2>Featured Videos</h2>
 			    <div id="featuredvideos">
-			    	<%= render :partial => '/shared/video_summary', :locals => {:video_summary => @featured_videos.first} unless @featured_videos.blank? %>
+			    	<%= render :partial => 'videos/video_summary', :locals => {:video_summary => @featured_videos.first} unless @featured_videos.blank? %>
 				</div>
 			    <script type="text/javascript">
 			        var so = new SWFObject("/plugin_assets/hyperactive/flash/featuredvideos.swf", "vidplayer", "190", "190", "7", "");

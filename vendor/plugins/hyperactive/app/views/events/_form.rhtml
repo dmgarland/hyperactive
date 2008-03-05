@@ -17,9 +17,7 @@
 <p><label for="content_contact_phone">Contact phone number for event:</label><br/>
 <%= f.text_field 'contact_phone' %></p>
 
-<p><label for="content_place_tags">City, region, or neighbourhood<em>*</em> - e.g. London Brixton</label><br/>
-<%= text_field_tag 'place_tags', params[:place_tags] || @content.place_tag_list %></p>
-
+<%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
 <p><label for="content_summary">Place<em>*</em> - include street address, room number, etc.</label><br/>
 <%= f.text_area 'summary', :cols=>80, :rows=>5  %></p>
@@ -37,8 +35,7 @@
 
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
-<p><label for="content_tag_list">Tags - separate with spaces</label><br/>
-<%= text_field_tag 'tags', params[:tags] || @content.tag_list %></p>
+<%= render :partial => 'shared/content/tag_entry_controls' %>
 
  <% if controller.action_name == "new" %>
  <p>Repeating event (optional)</p>

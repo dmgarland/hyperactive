@@ -7,6 +7,8 @@
   <%= f.text_field :title, :size => 30 %>
 <br/><br/>
 
+<%= render :partial => 'shared/content/place_tag_entry_controls' %>
+
 <label for="content_file">
 File* - allowed file types are <%= Video.allowed_file_types.join(", ") %><br/>
 <%= file_column_field("content", "file") %>
@@ -18,3 +20,5 @@ File* - allowed file types are <%= Video.allowed_file_types.join(", ") %><br/>
 </label><br/><br/>
 
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
+
+<%= render :partial => 'shared/content/tag_entry_controls' %>

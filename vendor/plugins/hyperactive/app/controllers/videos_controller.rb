@@ -31,7 +31,7 @@ def update
     @content = model_class.find(params[:id])
     @content.update_attributes(params[:content])
     respond_to do |format|
-      if simple_captcha_valid? && @content.save
+      if @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
         @content.convert
@@ -39,10 +39,7 @@ def update
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }
       else
-        format.html { 
-          @content.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
-          render :action => "new" 
-        }
+        format.html { render :action => "new" }
         format.xml  { render :xml => @content.errors.to_xml }
       end
     end    

@@ -35,7 +35,7 @@ def update
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
         @content.convert
-        flash[:notice] = "Video was successfully created."
+        flash[:notice] = "Video was successfully updated."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }
       else

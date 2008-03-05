@@ -1,8 +1,12 @@
 <div class="post">
 	<h1 class="title"><%= link_to h(list_summary.title.titleize), content_url_for(list_summary) %></h1>
-	<% if list_summary.class == Event %>
-	<p class="byline"><small><%= icon_image_for(list_summary) %> <%=h long_date(list_summary.date) %></small></p>
+	<p class="byline"><small><%= icon_image_for(list_summary) %> 
+	<% if list_summary.class == Event %>	
+		<%=h long_date(list_summary.date) %>
+	<% else %>
+		<%=h long_date(list_summary.created_on) %>	
 	<% end %>
+	</small></p>
 	<div class="entry">
 		<p><%=h list_summary.summary %></p>
 		<p class="links"><%= link_to h("Read More"), content_url_for(list_summary) %></p>

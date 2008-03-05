@@ -4,7 +4,7 @@
 	<% if list_summary.class == Event %>	
 		<%=h long_date(list_summary.date) %>
 	<% else %>
-		<%=h long_date(list_summary.created_on) %>	
+		<%=h long_date(list_summary.created_on) unless list_summary.created_on.nil? %>	
 	<% end %>
 	</small></p>
 	<div class="entry">

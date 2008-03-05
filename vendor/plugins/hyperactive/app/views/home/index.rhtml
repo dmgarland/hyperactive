@@ -1,4 +1,4 @@
-<%= render(:partial => "/articles/article_list", :object => @featured_articles) %>
+<%= render(:partial => "shared/content/list_summary", :collection => @featured_articles) %>
 <%= link_to "More featured events", list_promoted_events_url %>
 <!-- start sidebars inside content -->
 <!--  sidebar_content_left -->

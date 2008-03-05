@@ -6,11 +6,15 @@
 <label for="content_title">Title*<br/></label>
   <%= f.text_field :title, :size => 30 %>
 <br/><br/>
+
 <label for="content_file">
 File* - allowed file types are <%= Video.allowed_file_types.join(", ") %><br/>
 <%= file_column_field("content", "file") %>
 </label><br/><br/>
+
 <label for="video_description">
   Description - duration, codec, a bit about it<br/>
   <%= f.text_area :body, :rows => 5 %>  
 </label><br/><br/>
+
+<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>

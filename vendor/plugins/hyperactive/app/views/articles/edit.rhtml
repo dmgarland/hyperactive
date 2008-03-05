@@ -1,4 +1,4 @@
-<h1>Editing event</h1>
+<h1>Editing article</h1>
 
 <% form_for(:content, :url => article_path(@content), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>

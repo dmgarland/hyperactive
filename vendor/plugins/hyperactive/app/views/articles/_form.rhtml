@@ -34,16 +34,7 @@
     </p>
 <% end %>
 
-<% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
-    <p><label for="event_published">Published</label><br/>
-    <%= f.check_box 'published' %></p>
-    
-    <p><label for="event_hidden">Hidden</label><br/>
-    <%= f.check_box 'hidden' %></p>
-    
-    <p><label for="event_promoted">Promoted</label><br/>
-    <%= f.check_box 'promoted' %></p>       
-<% end %>
+<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
 <p><label for="content_tag_list">Tags - separate with spaces</label><br/>
 <%= text_field_tag 'tags', params[:tags] || @content.tag_list %></p>

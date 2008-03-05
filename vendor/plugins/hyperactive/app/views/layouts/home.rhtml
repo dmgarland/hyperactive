@@ -43,7 +43,7 @@
 			</li>
 			<% if @current_controller == "home" && @current_action == "index" %> 
 			<li>
-				<h2>Neighbourhoods</h2>
+				<h2>Neighbourhoods...</h2>
 				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> </li>
 			<li>
 				<h2>Tags</h2>

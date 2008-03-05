@@ -1,6 +1,6 @@
 module ContentControllerTest
   
-  def test_list
+  def test_index
     get :index
     assert_response :success
     assert_template 'index'

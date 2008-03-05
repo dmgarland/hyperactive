@@ -53,6 +53,8 @@ module ApplicationHelper
       article_url(entity)
     elsif entity.class == Event
       event_url(entity)
+    elsif entity.class == Video
+      video_url(entity)
     end
   end
   

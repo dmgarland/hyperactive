@@ -13,7 +13,7 @@ require 'mongrel_cluster/recipes'
 # form the root of the application path.
 
 set :application, "imcalendar"
-set :repository, "svn://escapegoat.org/imcalendar/#{application}"
+set :repository, "svn://escapegoat.org/hyperactive/trunk"
 
 # =============================================================================
 # ROLES

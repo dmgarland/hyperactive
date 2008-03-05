@@ -1,4 +1,4 @@
-<%= render(:partial => "shared/header") %>
+<%= render(:partial => "header") %>
 
 <!-- start page -->
 <div id="page-two-column">
@@ -128,8 +128,6 @@
 	<div style="clear: both;">&nbsp;</div>
 </div>
 <!-- end page -->
-<div id="footer">
-	<p>&copy;2007 All Rights Reserved. &nbsp;&bull;&nbsp; Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
-</div>
+<%= render :partial => 'layouts/footer' %>
 </body>
 </html>

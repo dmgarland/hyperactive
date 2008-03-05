@@ -48,4 +48,22 @@ module ApplicationHelper
     content_tag :li, link_to(text, link), :class => ("current_page_item" if on)
   end    
 
+  def content_url_for(entity)
+    if entity.class == Article
+      article_url(entity)
+    elsif entity.class == Event
+      event_url(entity)
+    end
+  end
+  
+  def icon_image_for(entity)
+    if entity.class == Article
+      image_tag "icon_article.gif", :plugin => 'hyperactive'
+    elsif entity.class == Event
+      image_tag "date.png", :plugin => 'hyperactive'
+    elsif entity.class == Video
+      image_tag "icon_video.gif", :plugin => 'hyperactive'
+    end    
+  end  
+
 end

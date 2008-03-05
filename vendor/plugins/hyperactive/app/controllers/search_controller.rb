@@ -4,13 +4,14 @@ class SearchController < ApplicationController
   
   def by_tag
     @tagname = params[:scope]
-    @date = (params[:date] ||= Date.today)
-    datestring = @date.to_s
+#    @date = (params[:date] ||= Date.today)
+#    datestring = @date.to_s
     page = (params[:page] ||= 1).to_i
     @tag = Tag.find_by_name(@tagname)
     if !@tag.nil?
       @content = @tag.taggables.find(:all, 
-        :conditions => ['published = ? and hidden = ? and date >= ?', true, false, datestring],  
+#        :conditions => ['published = ? and hidden = ? and date >= ?', true, false, datestring],  
+        :conditions => ['published = ? and hidden = ?', true, false],  
         :order => "date ASC, title",
         :page => {:size => objects_per_page, :current => page}
         )
@@ -20,13 +21,14 @@ class SearchController < ApplicationController
 
   def by_place_tag
     @tagname = params[:scope]
-    @date = (params[:date] ||= Date.today)
-    datestring = @date.to_s
+#    @date = (params[:date] ||= Date.today)
+#    datestring = @date.to_s
     page = (params[:page] ||= 1).to_i
     @tag = PlaceTag.find_by_name(@tagname)
     if !@tag.nil?
       @content = @tag.place_taggables.find(:all, 
-      :conditions => ['published = ? and hidden = ? and date >= ?', true, false, datestring], 
+#      :conditions => ['published = ? and hidden = ? and date >= ?', true, false, datestring], 
+      :conditions => ['published = ? and hidden = ?', true, false], 
       :order => "date ASC, title",
       :page => {:size => objects_per_page, :current => page})
     end

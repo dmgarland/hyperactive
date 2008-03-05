@@ -1,5 +1,5 @@
 <h2>Tags</h2>
 <%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>
 <h1>Listing events</h1>
-<%= render(:partial => "event_list", :object => @content) %>
+<%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <%= render(:partial => "shared/pagination", :object => @event_pages) %>

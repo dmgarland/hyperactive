@@ -4,4 +4,4 @@
    <%= link_to('>', :date=>@date.>>(1)) %>
    <%= link_to('>>', :date=>@date.>>(12)) %>  
 </p> 
-<%= render(:partial => "event_list", :object => @content) %>
+<%= render(:partial => "shared/content/list_summary", :collection => @content) %>

@@ -9,7 +9,7 @@ class HiddenController < ApplicationController
   end
   
   def list
-    @events = Event.find(
+    @content = Content.find(
       :all, 
       :conditions => ['hidden = ? and published =?', true, true], 
       :order => 'date ASC',

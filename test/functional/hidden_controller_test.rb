@@ -30,7 +30,7 @@ class HiddenControllerTest < Test::Unit::TestCase
     get :list
     assert_response :success
     assert_template 'list'
-    assert_not_nil assigns(:events)
+    assert_not_nil assigns(:content)
   end
   
   def test_event_hiding_controls_without_being_logged_in

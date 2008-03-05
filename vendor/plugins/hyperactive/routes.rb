@@ -81,11 +81,9 @@ ActionController::Routing::Routes.draw do |map|
                 :action => 'by_place_tag',
                 :scope => 'internal_nyc'
   
-  map.search 'search/:search',
+  map.search '/search/find_content/',
                 :controller => 'search',
-                :action => ':find_content'
-  
-  
+                :action => 'find_content'  
   
   map.featured_in_player '/featured_videos_json',
                 :controller => 'videos',

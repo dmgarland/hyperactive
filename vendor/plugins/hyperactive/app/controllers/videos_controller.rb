@@ -1,6 +1,6 @@
 class VideosController < ContentController
   
-  layout "home"
+  layout "two_column"
   
   # Rails does not pull out single-table inheritance subclasses properly on its own.
   # Must require the STI superclass explicitly in controllers.

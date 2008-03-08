@@ -20,7 +20,7 @@ Released   : 20071004
 	<%= javascript_include_tag :effects, :plugin => 'hyperactive' %>		
      <% if controller.action_name == "timeline" %>
         <%= javascript_include_tag 'uk-timeline', :plugin => 'hyperactive' %>
-        <script src="http://simile.mit.edu/timeline/api/timeline-api.js" type="text/javascript"></script>
+		<%= javascript_include_tag 'timeline/timeline-api', :plugin => 'hyperactive' %>
      <% end %>
      <% if (@current_action == "show" && @current_controller == "videos") || (@current_controller == "home" && @current_action == "index")  %>
         <%= javascript_include_tag 'swfobject', :plugin => 'hyperactive' %>

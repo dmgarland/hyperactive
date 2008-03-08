@@ -5,7 +5,7 @@ class TimelineController < ApplicationController
   
   def show_calendar
     # find all the events that are active
-    events = Event.find(:all, :events,  :conditions => ['hidden = ? and published =?', false, true])
+    events = Event.find(:all, :events,  :conditions => ['hidden = ? and published =?', false, true], :limit => 100)
     timeline_events = []
     
     # convert them into the format expected by the timeline
@@ -17,6 +17,7 @@ class TimelineController < ApplicationController
       timeline_event.description = event.summary.gsub(/</, "").gsub(/>/, "")  + "<p><a href='" + url_for(:controller => 'events', :action => 'show', :id => event) + "'>view full event</a></p>"
       if event.photos.length > 0
         photo = event.photos.first
+        puts event.id
         timeline_event.image = url_for(base_url, :only_path => false) + "photo/file/" + photo.file_relative_path("thumb")
       end
       if event.end_date

@@ -7,6 +7,11 @@ class VideosController < ContentController
   require_dependency 'content'    
   require_dependency 'post'
   
+  def show
+    @previous_videos = Video.find(:all, :conditions => ['hidden = ? and published = ? and id != ?', false, true, params[:id]], :limit => 5, :order => 'created_on DESC')
+    super
+  end
+  
   def create
     @content = Video.new(params[:content])
     respond_to do |format|

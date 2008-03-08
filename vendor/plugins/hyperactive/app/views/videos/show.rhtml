@@ -20,28 +20,38 @@
 </div>
 
 <% content_for :sidebar do %>
-<ul>
-	<li>
-		<%= render :partial => 'shared/searchbox' %>
-	</li>
-</ul>
-<% if !@content.content.nil? %>
-<ul>
-	<li>
-		<h2>Related <%= @content.content.class.to_s.downcase %></h2>
-		<p>This video was originally uploaded as part of the following <%= @content.content.class.to_s.downcase %>.</p>
-		<%= render :partial => 'shared/content/list_title', :object => @content.content %>
-	</li>
-</ul>
-<% end %>
-<% if !@related_content.empty? %>
-<ul>
-	<li>
-		<h2>More like this</h2>
+	<ul>
+		<li>
+			<%= render :partial => 'shared/searchbox' %>
+		</li>
+	</ul>
+	<% if !@content.content.nil? %>
 		<ul>
-		<%= render :partial => 'shared/content/list_title', :collection => @related_content %>
+			<li>
+				<h2>Related <%= @content.content.class.to_s.downcase %></h2>
+				<p>This video was originally uploaded as part of the following <%= @content.content.class.to_s.downcase %>.</p>
+				<%= render :partial => 'shared/content/list_title', :object => @content.content %>
+			</li>
 		</ul>
-	</li>
-</ul>
-<% end %>
+	<% end %>
+	<% if !@related_content.empty? %>
+		<ul>
+			<li>
+				<h2>More like this</h2>
+				<ul>
+				<%= render :partial => 'shared/content/list_title', :collection => @related_content %>
+				</ul>
+			</li>
+		</ul>
+	<% end %>
+	<% if !@previous_videos.empty? %>
+		<ul>
+			<li>
+				<h2>Other recent videos</h2>
+				<ul>
+				<%= render :partial => 'shared/content/list_title', :collection => @previous_videos %>
+				</ul>
+			</li>
+		</ul>
+	<% end %>
 <% end %>

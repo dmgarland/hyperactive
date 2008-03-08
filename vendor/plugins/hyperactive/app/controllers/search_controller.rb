@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
 
-  layout "home"
+  layout "two_column"
   
   def by_tag
     @tagname = params[:scope]

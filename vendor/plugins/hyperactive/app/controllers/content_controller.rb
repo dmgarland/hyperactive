@@ -51,7 +51,7 @@ class ContentController < ApplicationController
 
   def show
     @content = model_class.find(params[:id])
-    @related_content = @content.more_like_this({:field_names => [ :title, :summary, :body ]}, {:conditions => ['hidden = ? and published = ?', false, true], :order_by => 'title asc', :limit => 5}) unless model_class == Video
+    @related_content = @content.more_like_this({:field_names => [ :title, :summary, :body ]}, {:conditions => ['hidden = ? and published = ?', false, true], :order_by => 'title asc', :limit => 5})
     if model_class == Event
       @date = @content.date.strftime("%Y-%m-%d")
     end

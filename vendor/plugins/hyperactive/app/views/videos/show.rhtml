@@ -20,5 +20,28 @@
 </div>
 
 <% content_for :sidebar do %>
-<p>This is some sidebar content</p>
+<ul>
+	<li>
+		<%= render :partial => 'shared/searchbox' %>
+	</li>
+</ul>
+<% if !@content.content.nil? %>
+<ul>
+	<li>
+		<h2>Related <%= @content.content.class.to_s.downcase %></h2>
+		<p>This video was originally uploaded as part of the following <%= @content.content.class.to_s.downcase %>.</p>
+		<%= render :partial => 'shared/content/list_title', :object => @content.content %>
+	</li>
+</ul>
+<% end %>
+<% if !@related_content.empty? %>
+<ul>
+	<li>
+		<h2>More like this</h2>
+		<ul>
+		<%= render :partial => 'shared/content/list_title', :collection => @related_content %>
+		</ul>
+	</li>
+</ul>
+<% end %>
 <% end %>

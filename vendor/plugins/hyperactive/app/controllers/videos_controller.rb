@@ -61,7 +61,6 @@ def update
       featured_vids << featured_video
     end
     respond_to do |format|
-      #@headers["Content-Type"] = 
       format.json {render :text => "vids=#{featured_vids.to_json}"}
     end
   end

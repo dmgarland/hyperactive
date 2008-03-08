@@ -8,7 +8,15 @@ class VideosController < ContentController
   require_dependency 'post'
   
   def show
-    @previous_videos = Video.find(:all, :conditions => ['hidden = ? and published = ? and id != ?', false, true, params[:id]], :limit => 5, :order => 'created_on DESC')
+    @previous_videos = Video.find_where(:all, :limit => 5, :order => 'created_on DESC') do |video|
+      video.hidden == false
+      video.published == true
+      video.id != params[:id]
+    end
+    @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
+      video.processing_status == 2
+      video.promoted == true
+    end
     super
   end
   

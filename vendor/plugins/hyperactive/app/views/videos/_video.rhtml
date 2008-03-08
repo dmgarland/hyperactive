@@ -1,3 +1,4 @@
+<h1><%=h video.title.titleize %></h1>
 <% if video.processing_status == 2 %>
     <div id="videoplayer<%= video.id %>">
         <p>This item requires Macromedia Flash Player 7.</p>
@@ -12,7 +13,6 @@
 	  so.addVariable('autostart','false');
       so.write("videoplayer<%= video.id %>");
 	</script>	
-    <strong><%=h video.title.titleize %></strong><br />
     <%=h video.body %><br/>
 	
 	<%# Removing direct links to files so that only torrent links are visible. %>

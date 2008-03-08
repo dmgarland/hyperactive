@@ -89,6 +89,10 @@ ActionController::Routing::Routes.draw do |map|
                 :controller => 'videos',
                 :action => 'featured_in_player'
   
+  map.video_feed '/video_feed/latest', 
+                :controller => 'video_feed', 
+                :action => 'latest'
+  
   # base url of application
   map.base '/', :controller => 'home'
                 

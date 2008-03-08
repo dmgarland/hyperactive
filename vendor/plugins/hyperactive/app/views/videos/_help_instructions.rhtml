@@ -1,10 +1,43 @@
 <%= link_to_function image_tag("help.png", :plugin => 'hyperactive'), "new Effect.BlindDown('help-instructions')" %>
 <%= link_to_function "How to download", "new Effect.BlindDown('help-instructions')" %>
 <div id="help-instructions" style="display:none;">
-	Need to put some text here explaining 
+	<h2>Video download help</h2>
+	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can 
+	download it for screenings.  However, we don't currently have the capacity to serve these big files 
+	ourselves.  Instead, we offer a download via Bittorrent, a peer-to-peer filesharing sytem.</p> 
+	<p>In order to download the full-quality video, you will need to have some software installed on your computer.
+	Basically you have two choices:
 	<ul>
-		<li>how to download VLC</li> 
-		<li>how to download Miro</li>
-		<li>how to use a bittorrent client and what it means in terms of security</li>
+		<li>Bittorrent + VLC</li>
+		<li>Miro</li>
 	</ul>
+	</p>
+	
+	<h2>Bittorrent + VLC</h2>
+	<%= link_to "Bittorrent client software", "http://www.bittorrent.com/download" %> shares 
+	the file you're downloading with other people as you download it.  If you want to help us distribute 
+	video files, please leave your Bittorrent client open after your download finishes and you'll be donating
+	your bandwidth and making everyone's downloads faster.</p>
+	
+	<p>All of the full-quality video has been converted into a free format called Ogg Theora.  The easiest way 
+	to watch them is to use the excellent <%= link_to "VLC", "http://www.videolan.org/vlc/" %> video player which
+	you can <%= link_to "download here", "http://www.videolan.org/vlc/" %>.  Alternatively, you may download 
+	<%= link_to "the Ogg plugin for Quicktime", "http://xiph.org/quicktime/" %>, or 
+	<%= link_to "the Ogg plugin for Windows Media Player", "http://www.illiminable.com/ogg/" %>.</p>
+	
+	<h2>Miro</h2>
+	<p>Another easy way to see the full-quality video on our site is to press this button:
+	<p>
+		<a href="http://subscribe.getMiro.com/?url1=<%= url_for(video_feed_url) %>" title="Miro: Internet TV"><img src="http://subscribe.getmiro.com/img/buttons/wes1.png" alt="Miro Video Player" border="0" /></a>
+	</p>	
+	This will allow you to download Miro, which takes care of
+	both Bittorrent and video-playing software in one easy to use package.  You can find out more about its features 
+	<%= link_to "at the Miro site", "http://www.getmiro.com/features/" %>. Once you've installed Miro, you can subscribe 
+	to our <%= link_to "video feed", video_feed_url %> to receive all of our latest videos, or click the 'download torrent'
+	link underneath the video above to download only the video file you want.</p>
+
+	<h2>Security note</h2>
+	<p><%= image_tag "exclamation.png", :plugin => 'hyperactive' %>If you are incredibly paranoid about other 
+	people knowing that you are downloading a video, please note that your computer's IP address will be visible
+	to the other people who you are sharing the video with.  In this case, don't use Bittorrent or Miro.</p>	
 </div>

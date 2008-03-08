@@ -21,16 +21,7 @@
 	
 	<%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), torrentify(url_for_file_column(video, "file")) %> 
 	<%= link_to "download torrent", torrentify(url_for_file_column(video, "file")) %>
-	<%= link_to_function image_tag("help.png", :plugin => 'hyperactive'), "new Effect.BlindDown('help-instructions')" %>
-	<%= link_to_function "How to download", "new Effect.BlindDown('help-instructions')" %>
-	<div id="help-instructions" style="display:none;">
-		Need to put some text here explaining 
-		<ul>
-			<li>how to download VLC</li> 
-			<li>how to download Miro</li>
-			<li>how to use a bittorrent client and what it means in terms of security</li>
-		</ul>
-	</div>
+	<%= render(:partial => 'videos/help_instructions')%>
 <% else %>
     <strong><%=h video.title.titleize %></strong><br />
     <%=h video.body %><br/>

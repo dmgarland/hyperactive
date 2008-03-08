@@ -4,9 +4,7 @@
 <div id="page-two-column">
 	<!-- start content -->
 	<div id="content_wide">
-		<% if flash[:notice] -%>
-	        <div id="notice"><%= flash[:notice] %></div>
-	    <% end -%>
+		<%= render(:partial => "layouts/flash_notice") %>
 		<% if @current_controller == "events" %>
 			<%= render(:partial => "/events/event_nav") %>
 		<% end %>
@@ -129,5 +127,3 @@
 </div>
 <!-- end page -->
 <%= render :partial => 'layouts/footer' %>
-</body>
-</html>

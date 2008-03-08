@@ -51,7 +51,10 @@ def update
   end  
     
   def featured_in_player
-    videos = Video.find(:all, :limit => 3, :order => 'created_on DESC')
+    videos = Video.find_where(:all, :limit => 3, :order => 'created_on DESC') do |video|
+      video.promoted == true
+      video.processing_status == 2
+    end
     featured_vids = []
     videos.each do |video|
       featured_video = VideoSummary.new

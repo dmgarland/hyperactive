@@ -22,6 +22,7 @@ class HomeController < ApplicationController
       :conditions => ['hidden = ? and published = ? and promoted = ? and date >= ?', false, true, true, Date.today])
     @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
       video.processing_status == 2
+      video.promoted == true
     end
     @featured_articles = Article.find(
       :all,

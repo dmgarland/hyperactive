@@ -55,7 +55,8 @@ module ResourceFeeder
             xml.id("tag:#{request.host_with_port},#{published_at.xmlschema}:#{call_or_read(options[:item][:guid] || options[:item][:link] || resource_link, resource)}")
             xml.published(published_at.xmlschema)
             xml.updated((resource.respond_to?(:updated_at) ? call_or_read(options[:item][:pub_date] || :updated_at, resource) : published_at).xmlschema)
-            xml.link(:rel => 'enclosure', :length => call_or_read(options[:item][:length], resource), :type => call_or_read(options[:item][:video_type], resource), :href => request.protocol + request.host_with_port + "/" + call_or_read(options[:item][:http_link], resource))
+            # Removing the direct http link from the feed for now.  Would be nice to make this a configuration option accessible in environment.rb
+            # xml.link(:rel => 'enclosure', :length => call_or_read(options[:item][:length], resource), :type => call_or_read(options[:item][:video_type], resource), :href => request.protocol + request.host_with_port + "/" + call_or_read(options[:item][:http_link], resource))
             xml.link(:rel => 'enclosure', :length => call_or_read(options[:item][:length], resource), :type => 'application/x-bittorrent', :href => request.protocol + request.host_with_port + "/" + call_or_read(options[:item][:torrent_link], resource))
             xml.tag!("media:thumbnail", :url => request.protocol + request.host_with_port + "/" + call_or_read(options[:item][:thumbnail], resource))
             

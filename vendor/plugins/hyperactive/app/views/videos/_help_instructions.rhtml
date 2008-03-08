@@ -1,5 +1,7 @@
-<%= link_to_function image_tag("help.png", :plugin => 'hyperactive'), "new Effect.BlindDown('help-instructions')" %>
-<%= link_to_function "How to download", "new Effect.BlindDown('help-instructions')" %>
+<span id="help-links">
+	<%= link_to_function image_tag("help.png", :plugin => 'hyperactive'), "new Effect.BlindDown('help-instructions');" %>
+	<%= link_to_function "How to download", "new Effect.BlindDown('help-instructions');$('help-links').hide();" %>
+</span>
 <div id="help-instructions" style="display:none;">
 	<h2>Video download help</h2>
 	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can 

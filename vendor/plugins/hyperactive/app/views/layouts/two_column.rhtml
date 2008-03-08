@@ -14,18 +14,11 @@
 	<!-- start sidebars -->
 
 	<div id="sidebar2" class="sidebar">
+		<% default_content_for :sidebar do %>
 		<ul>
 			<li>
 				<%= render :partial => 'shared/searchbox' %>
 			</li>
-			<% if controller == "publish" && controller.action_name == "index" %> 
-			<li>
-				<h2>Tags</h2>
-				<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  </li>
-			<li>
-				<h2>Places</h2>
-				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
-			<% end %>
 			<li>
 				<h2>Calendar</h2>
 				<div id="calendar_wrap">
@@ -121,6 +114,7 @@
 				</ul>
 			</li>
 		</ul>
+		<% end %>
 	</div>
 	<!-- end sidebars -->
 	<div style="clear: both;">&nbsp;</div>

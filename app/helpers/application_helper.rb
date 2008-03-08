@@ -13,6 +13,12 @@ module ApplicationHelper
     end
   end
   
+  def default_content_for(name, &block)
+    name = name.kind_of?(Symbol) ? ":#{name}" : name
+    out = eval("yield #{name}", block.binding)
+    concat(out || capture(&block), block.binding)
+  end  
+  
   # Create a link to a tag's view page.
   def tag_item_url
     "/search/by_tag/"

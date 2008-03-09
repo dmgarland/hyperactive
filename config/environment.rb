@@ -74,7 +74,7 @@ require 'ruby-debug'
 require 'vpim/icalendar'
 
 TORRENT_TRACKER = 'http://london.escapegoat.org:6969'
-
+SITE_NAME = 'Indymedia London'
 #require 'tag'
 #require 'place_tag'
 Debugger.start

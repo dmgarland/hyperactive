@@ -2,7 +2,7 @@ class VideoFeedController < ApplicationController
   
   def latest
     videos = Video.find(:all, :order => 'created_on DESC', :limit => 20)
-    construct_feed(videos, "Latest videos")
+    construct_feed(videos, "#{SITE_NAME}: Latest videos")
   end
   
   def construct_feed(videos,feedtitle)

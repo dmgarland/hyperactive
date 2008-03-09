@@ -13,7 +13,7 @@ Released   : 20071004
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Indymedia London | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
+<title><%= SITE_NAME %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
     <%= stylesheet_link_tag 'default', :plugin => 'hyperactive' %>
     <%= javascript_include_tag :prototype, :plugin => 'hyperactive' %>
 	<%= javascript_include_tag :application, :plugin => 'hyperactive' %>	

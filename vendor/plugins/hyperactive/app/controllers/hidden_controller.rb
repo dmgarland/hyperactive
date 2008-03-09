@@ -29,7 +29,7 @@ class HiddenController < ApplicationController
       event.save
     end
     event = event_group.events.first
-    EventHiddenMailer.deliver_hide(event, params[:hide_reason], current_user)
+    ContentHideMailer.deliver_hide(event, params[:hide_reason], current_user)
     flash[:notice] = "The events have been hidden and an email sent."
     render :update do |page|
       page.redirect_to event_url(event)
@@ -51,7 +51,7 @@ class HiddenController < ApplicationController
     content.save!
     class_name = content.class.to_s.humanize.downcase
     #set_tagging_visibility(event, false)
-    EventHiddenMailer.deliver_hide(content, params[:hide_reason], current_user)
+    ContentHideMailer.deliver_hide(content, params[:hide_reason], current_user)
     flash[:notice] = "The #{class_name} has been hidden and an email sent."
     render :update do |page|
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
@@ -61,7 +61,7 @@ class HiddenController < ApplicationController
   def report
     content = Content.find(params[:id])
     class_name = content.class.to_s.humanize.downcase
-    EventHiddenMailer.deliver_report(content, params[:hide_reason], current_user)
+    ContentHideMailer.deliver_report(content, params[:hide_reason], current_user)
     flash[:notice] = "The #{class_name} has been reported to site admins via email."
     render :update do |page|
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
@@ -83,7 +83,7 @@ class HiddenController < ApplicationController
     content.save!
     class_name = content.class.to_s.humanize.downcase    
     #set_tagging_visibility(event, true)
-    EventHiddenMailer.deliver_unhide(content, params[:unhide_reason], current_user)
+    ContentHideMailer.deliver_unhide(content, params[:unhide_reason], current_user)
     flash[:notice] = "The #{class_name} has been unhidden and an email sent."
     render :update do |page|
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content

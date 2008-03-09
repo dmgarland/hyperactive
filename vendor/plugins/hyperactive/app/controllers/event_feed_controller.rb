@@ -5,7 +5,7 @@ class EventFeedController < ApplicationController
        :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
        :order => 'created_on ASC', 
        :limit => events_per_feed)
-    feedtitle = "Upcoming Events"
+    feedtitle = "#{SITE_NAME}: Upcoming Events"
     construct_feed(events, feedtitle)
   end
   
@@ -18,7 +18,7 @@ class EventFeedController < ApplicationController
         :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
         :limit => events_per_feed)
     end
-    feedtitle = "Upcoming Events Tagged With '#{tag.name}'"
+    feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}'"
     construct_feed(events, feedtitle)
   end
   
@@ -31,7 +31,7 @@ class EventFeedController < ApplicationController
         :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
         :limit => events_per_feed)
     end
-    feedtitle = "Upcoming Events Tagged With '#{tag.name}"
+    feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}"
     construct_feed(events, feedtitle)
   end
   

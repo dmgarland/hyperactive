@@ -23,7 +23,7 @@ class VideosController < ContentController
       if simple_captcha_valid? && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        @content.convert
+        @content.convert 
         flash[:notice] = "Video was successfully created."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }
@@ -37,14 +37,14 @@ class VideosController < ContentController
     end    
   end
   
-def update
+  def update
     @content = model_class.find(params[:id])
     @content.update_attributes(params[:content])
     respond_to do |format|
       if @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        @content.convert
+        @content.convert unless params[:file].blank?
         flash[:notice] = "Video was successfully updated."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }

@@ -9,6 +9,15 @@ class EventHiddenMailer < ActionMailer::Base
     @headers    = {}
   end
   
+  def report(event,reasons, user)
+    @subject    = 'Problem reported with content'
+    @body      = {:event => event, :reasons => reasons, :user => user}
+    @recipients = 'yossarian@aktivix.org'
+    @from       = 'calendar@events.indymedia.org.uk'
+    @sent_on    = Time.now
+    @headers    = {}
+  end  
+  
   def unhide(event,reasons, user)
     @subject    = 'Event Unhidden'
     @body       = {:event => event, :reasons => reasons, :user => user}

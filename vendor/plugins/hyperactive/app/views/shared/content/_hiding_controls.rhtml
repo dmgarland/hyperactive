@@ -1,18 +1,16 @@
-<% if current_user.has_permission?("hide")  %>
-    <div id="hiding-controls">
-        <% if @content.hidden == false %>
-            <%= link_to_remote "Hide this #{@content.class.to_s.humanize.downcase}" ,
-                                :url => {:controller => 'hidden', :action => 'hiding_controls', :id => @content.id },
-                                :update => 'hiding-controls',  
-								:before => "$('hiding-controls').hide()",
-								:complete => visual_effect(:appear, 'hiding-controls', :duration => 1)                 
-            %>
-        <% else %>
-            <%= link_to_remote "Unhide this #{@content.class.to_s.humanize.downcase}" ,
-                                :url => {:controller => 'hidden', :action => 'unhiding_controls', :id => @content.id },
-                                :update => 'hiding-controls',
-								:complete => visual_effect(:appear, 'hiding-controls', :duration => 1)                   
-            %>
-        <% end %>
-    </div>
-<% end %>
+<div id="hiding-controls">
+    <% if @content.hidden == false %>
+        <%= link_to_remote "Inappropriate #{@content.class.to_s.humanize.downcase}?" ,
+                            :url => {:controller => 'hidden', :action => 'hiding_controls', :id => @content.id },
+                            :update => 'hiding-controls',  
+							:before => "$('hiding-controls').hide()",
+							:complete => visual_effect(:appear, 'hiding-controls', :duration => 1)                 
+        %>
+    <% else %>
+        <%= link_to_remote "Unhide this #{@content.class.to_s.humanize.downcase}" ,
+                            :url => {:controller => 'hidden', :action => 'unhiding_controls', :id => @content.id },
+                            :update => 'hiding-controls',
+							:complete => visual_effect(:appear, 'hiding-controls', :duration => 1)                   
+        %>
+    <% end %>
+</div>

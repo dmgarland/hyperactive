@@ -1,7 +1,7 @@
 class HiddenController < ApplicationController
   
   layout 'home'
-  before_filter :protect_controller, :except => [:list, :index]
+  before_filter :protect_controller, :except => [:list, :index, :hiding_controls, :report, :unhiding_controls]
   
   
   def index
@@ -38,9 +38,13 @@ class HiddenController < ApplicationController
   
   def hiding_controls
     @id = params[:id]
-    render :layout => false
+    if current_user.has_permission?("hide")
+      render :layout => false
+    else
+      render :template => 'hidden/report_this_controls', :layout => false
+    end
   end
-  
+   
   def hide
     content = Content.find(params[:id])
     content.hidden = true
@@ -53,10 +57,24 @@ class HiddenController < ApplicationController
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
     end
   end
+
+  def report
+    content = Content.find(params[:id])
+    class_name = content.class.to_s.humanize.downcase
+    EventHiddenMailer.deliver_report(content, params[:hide_reason], current_user)
+    flash[:notice] = "The #{class_name} has been reported to site admins via email."
+    render :update do |page|
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
+    end
+  end   
    
   def unhiding_controls
     @id = params[:id]
-    render :layout => false
+    if current_user.has_permission?("hide")
+      render :layout => false
+    else
+      render :template => 'hidden/unreport_this_controls', :layout => false
+    end      
   end
   
   def unhide

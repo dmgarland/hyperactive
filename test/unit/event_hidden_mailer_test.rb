@@ -31,6 +31,15 @@ class ContentHideMailerTest < Test::Unit::TestCase
     assert_match(/1/, response.body)
   end
 
+  def test_report
+    response = ContentHideMailer.create_report(@content, @reasons, @user)
+    assert_equal response.subject, "Problem reported with content"
+    assert_match(/"The Birthday"/, response.body)
+    assert_match(/marcos/, response.body)
+    assert_match(/1/, response.body)
+  end
+
+
   def test_unhide
     response = ContentHideMailer.create_unhide(@content, @reasons, @user)
     assert_equal response.subject, "Content Unhidden"

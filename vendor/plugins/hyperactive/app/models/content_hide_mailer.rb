@@ -1,26 +1,26 @@
-class EventHiddenMailer < ActionMailer::Base
+class ContentHideMailer < ActionMailer::Base
 
-  def hide(event,reasons, user)
-    @subject    = 'Event Hidden'
-    @body      = {:event => event, :reasons => reasons, :user => user}
+  def hide(content,reasons, user)
+    @subject    = 'Content Hidden'
+    @body      = {:content => content, :reasons => reasons, :user => user}
     @recipients = 'yossarian@aktivix.org'
     @from       = 'calendar@events.indymedia.org.uk'
     @sent_on    = Time.now
     @headers    = {}
   end
   
-  def report(event,reasons, user)
+  def report(content,reasons, user)
     @subject    = 'Problem reported with content'
-    @body      = {:event => event, :reasons => reasons, :user => user}
+    @body      = {:content => content, :reasons => reasons, :user => user}
     @recipients = 'yossarian@aktivix.org'
     @from       = 'calendar@events.indymedia.org.uk'
     @sent_on    = Time.now
     @headers    = {}
   end  
   
-  def unhide(event,reasons, user)
-    @subject    = 'Event Unhidden'
-    @body       = {:event => event, :reasons => reasons, :user => user}
+  def unhide(content,reasons, user)
+    @subject    = 'Content Unhidden'
+    @body       = {:content => content, :reasons => reasons, :user => user}
     @recipients = 'yossarian@aktivix.org'
     @from       = 'calendar@events.indymedia.org.uk'
     @sent_on    = Time.now

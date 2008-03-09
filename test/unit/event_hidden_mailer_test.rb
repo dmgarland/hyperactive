@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class EventHiddenMailerTest < Test::Unit::TestCase
+class ContentHideMailerTest < Test::Unit::TestCase
   
   fixtures :content, :users
 
@@ -18,30 +18,30 @@ class EventHiddenMailerTest < Test::Unit::TestCase
     @expected.set_content_type "text", "plain", { "charset" => CHARSET }
     @expected.mime_version = '1.0'
     
-    @event = Event.find(1)
+    @content = Event.find(1)
     @user = User.find(1)
     @reasons = "Email hiding or unhiding reasons"
   end
 
   def test_hide
-    response = EventHiddenMailer.create_hide(@event, @reasons, @user)
-    assert_equal response.subject, "Event Hidden"
-    assert_match(/The event "The Birthday"/, response.body)
+    response = ContentHideMailer.create_hide(@content, @reasons, @user)
+    assert_equal response.subject, "Content Hidden"
+    assert_match(/"The Birthday"/, response.body)
     assert_match(/marcos/, response.body)
     assert_match(/1/, response.body)
   end
 
   def test_unhide
-    response = EventHiddenMailer.create_unhide(@event, @reasons, @user)
-    assert_equal response.subject, "Event Unhidden"
-    assert_match(/The event "The Birthday"/, response.body)
+    response = ContentHideMailer.create_unhide(@content, @reasons, @user)
+    assert_equal response.subject, "Content Unhidden"
+    assert_match(/"The Birthday"/, response.body)
     assert_match(/marcos/, response.body)
     assert_match(/1/, response.body)
   end
 
   private
     def read_fixture(action)
-      IO.readlines("#{FIXTURES_PATH}/event_hidden_mailer/#{action}")
+      IO.readlines("#{FIXTURES_PATH}/content_hide_mailer/#{action}")
     end
 
     def encode(subject)

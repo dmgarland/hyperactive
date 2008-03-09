@@ -23,7 +23,7 @@ module ContentControllerTest
     assert_template 'show'
     assert_not_nil assigns(:content)
     assert assigns(:content).valid?
-    assert_no_match(/Hide this #{class_name}/, @response.body, "Unhidden event shouldn't show hiding controls if user not logged in.")
+    assert_match(/Inappropriate #{class_name}/, @response.body, "Unhidden content should show hiding controls even if user not logged in.")
   end
   
   def test_a_show_as_admin
@@ -32,12 +32,12 @@ module ContentControllerTest
     assert_template 'show'
     assert_not_nil assigns(:content)
     assert assigns(:content).valid?
-    assert_match(/Hide this #{class_name}/, @response.body, "Unhidden content should show hiding controls.")
+    assert_match(/Inappropriate #{class_name}/, @response.body, "Unhidden content should show hiding controls.")
   end  
   
   def test_a_show_hidden
     get :show, {:id => @hidden_id}
-    assert_no_match(/Unhide this #{class_name}/, @response.body)
+    assert_match(/Unhide this #{class_name}/, @response.body)
     assert_match(/This #{class_name} has been hidden/, @response.body)
   end
   

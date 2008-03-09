@@ -44,7 +44,7 @@ class VideosController < ContentController
       if @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        @content.convert unless params[:file].blank?
+        @content.convert unless no_video_uploaded?
         flash[:notice] = "Video was successfully updated."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }
@@ -79,5 +79,9 @@ class VideosController < ContentController
     Video
   end
   
+  def no_video_uploaded?
+    upload = params[:content][:file]
+    upload.class == StringIO || upload.class == String
+  end
   
 end

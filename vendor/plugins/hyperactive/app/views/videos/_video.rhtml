@@ -5,14 +5,14 @@
         <p>To get the latest version please <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">click here</a>.</p>
     </div>
 	<script type="text/javascript">
-	  var so = new SWFObject('/plugin_assets/hyperactive/flash/mediaplayer.swf','mpl','320','260','7');
-	  so.addParam('allowfullscreen','true');
-	  so.addVariable('file','<%= url_for_file_column(video, "file") %>.flv');
-	  so.addVariable('image','<%= url_for_file_column(video, "file")%>.jpg');	  
-	  so.addVariable('backcolor','0xFFFFFF');
-	  so.addVariable('autostart','false');
-	  so.addVariable('usefullscreen', 'true');
-      so.write("videoplayer<%= video.id %>");
+		var so = new SWFObject('/plugin_assets/hyperactive/flash/mediaplayer.swf','mpl','320','260','7');
+		so.addParam('allowfullscreen','true');
+		so.addVariable('file','<%= url_for_file_column(video, "file") %>.flv');
+		so.addVariable('image','<%= url_for_file_column(video, "file")%>.jpg');	  
+		so.addVariable('backcolor','0xFFFFFF');
+		so.addVariable('autostart','false');
+		so.addVariable('usefullscreen', 'true');
+		so.write("videoplayer<%= video.id %>");
 	</script>	
     <%=h video.body %><br/>
 	

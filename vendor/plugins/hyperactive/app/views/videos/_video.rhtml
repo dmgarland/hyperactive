@@ -11,6 +11,7 @@
 	  so.addVariable('image','<%= url_for_file_column(video, "file")%>.jpg');	  
 	  so.addVariable('backcolor','0xFFFFFF');
 	  so.addVariable('autostart','false');
+	  so.addVariable('usefullscreen', 'true');
       so.write("videoplayer<%= video.id %>");
 	</script>	
     <%=h video.body %><br/>

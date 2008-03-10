@@ -34,13 +34,12 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
   
   def test_event_hiding_controls_without_being_logged_in
-    get :event_hiding_controls, :id => 1
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    get :hiding_controls, :id => 1
+    assert_template "hidden/report_this_controls", "Users who can't hide should be shown the 'report this' controls"
   end
   
   
-  def test_event_hiding_controls
+  def test_hiding_controls
     get :hiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
     assert_response :success
     assert_template 'hiding_controls'
@@ -69,9 +68,8 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
   
   def test_event_unhiding_controls_without_being_logged_in
-    get :event_unhiding_controls, {:id => 1}
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    get :unhiding_controls, {:id => 1}
+    assert_template "hidden/unreport_this_controls", "Users who can't hide should be shown the 'unreport this' controls containing a security message."
   end  
   
   def test_event_unhiding_controls

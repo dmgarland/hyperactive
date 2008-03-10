@@ -15,7 +15,7 @@ class Video < Media
   validates_length_of :title, :maximum=>255
   validates_length_of :body, :maximum=>255
   validates_presence_of :file
-  validates_file_format_of :file, :in => ["3gp",  "avi", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"]
+  validates_file_format_of :file, :in => ["3gp",  "avi", "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"]
   belongs_to :content
   
   attr_accessor :video_type, :relative_video_file, :relative_ogg_file, :relative_torrent_file
@@ -29,7 +29,7 @@ class Video < Media
   # views already.
   #
   def self.allowed_file_types
-    ["3gp",  "avi", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"]
+    ["3gp",  "avi",  "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"]
   end
 
   # Gets an absolute path to this video's file and send it to the 

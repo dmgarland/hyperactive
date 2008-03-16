@@ -30,7 +30,7 @@ module ApplicationHelper
   
   def long_date(date)
     "#{date.strftime('%A %B %d, %G')}"
-  end
+  end  
   
   def editable_by?(user, event)
     current_user.has_permission?("edit_all_content") || (current_user.has_permission?("edit_own_content") && event.user == current_user)

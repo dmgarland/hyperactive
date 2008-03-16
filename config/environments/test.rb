@@ -18,5 +18,10 @@ config.action_controller.perform_caching             = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-#config.plugins = ["has_many_polymorphs", "active_rbac", "engines", "file_column", "paginating_find", "resource_feeder", "simply_helpful", "sub_list"]
+
+# The click_to_globalize plugin fries the test environment.
+# I can't figure out how to exclude a single plugin, so I'll have to specify which plugins
+# should be loaded in the test environment.  This can be commented out if we stop using
+# click_to_globalize at some point.
+config.plugins = ["active_rbac", "engines", "has_many_polymorphs", "acts_as_ferret", "backgroundrb", "ez-where", "file_column", "paginating_find", "resource_feeder", "simply_helpful", "sub_list", "globalize", "simple_captcha", "hyperactive"]
 

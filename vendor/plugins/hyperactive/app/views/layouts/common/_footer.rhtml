@@ -1,6 +1,7 @@
 <div id="footer">
 	<p><%= link_to "Hyperactive CMS", "http://escapegoat.org/projects/hyperactive" %></p>
-	<p>To contribute to this project, <%= link_to "take a look at the project site", "http://escapegoat.org/projects/hyperactive" %></p>
+	<p><%= "To contribute to this project".t %> <%= link_to "take a look at the project site", "http://escapegoat.org/projects/hyperactive" %></p>
 </div>
+<%= click_to_globalize unless RAILS_ENV == 'test' -%>
 </body>
 </html>

@@ -2,28 +2,47 @@
 # Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   
+  # Include the ActiveRbac plugin code which runs the authentication and
+  # role-based access control system
   include ActiveRbacMixins::ApplicationControllerMixin
   helper RbacHelper
   
+  # For convenience, instantiate properties containing the current 
+  # controller and action names on each request
   before_filter :instantiate_controller_and_action_names  
   
+  # Set up the click-to-globalize plugin so that we can easily do translations
+  #
+  # Available languages which can be clicked-to-globalize
+  self.languages = { :danish => 'da-DK' }
+
+  # Defines who can click on text to globalize it
+  def globalize?
+    debugger
+    current_user.has_permission?("edit_all_content")
+  end  
+  
+  # The default number of content objects that get retrieved for display on list pages
   def objects_per_page
     10
   end
   
+  # The default number of content objects that get retrieved for display in feeds
   def events_per_feed
     10
   end
   
+  # The default number of tags to display in a cloud
   def tags_in_cloud
     50
   end
   
+  # A convenience method which either grabs the page param or returns 1
   def page_param
     (params[:page] ||= 1).to_i
   end
   
-  # applies security to protected methods - only Admin users can access these.
+  # Applies security to protected methods - only Admin users can access these.
   def protect_controller
     if current_user.has_role?("Admin")
       return true
@@ -32,6 +51,7 @@ class ApplicationController < ActionController::Base
     end
   end  
   
+  # What do we do if someone tries to access something they're not supposed to see?
   def security_error
     redirect_to base_url
     flash[:notice] = "You are not allowed to access this page."

@@ -14,10 +14,10 @@ Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
   
   # Skip frameworks you're not going to use (only works if using vendor/rails)
-  # config.frameworks -= [ :action_web_service, :action_mailer ]
+  # config.frameworks -= [ :action_web_service ]#, :action_mailer ]
 
   # Only load the plugins named here, by default all plugins in vendor/plugins are loaded
-  # config.plugins = %W( exception_notification ssl_requirement )
+  #config.plugins = %W( engines active_rbac hyperactive click_to_globalize * )
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
@@ -86,3 +86,6 @@ ActiveRecord::Base.verification_timeout = 14400
 # This is necessary to ensure that keys in JSON strings get quoted:
 ActiveSupport::JSON.unquote_hash_key_identifiers = false
 
+# Globalize configuration for internationalization purposes
+include Globalize
+Locale.set_base_language('en-GB')

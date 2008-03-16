@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   
   # Defines who can click on text to globalize it
   def globalize?
-    current_user.has_permission?("edit_all_content") && RAILS_ENV != 'test'
+    current_user.has_permission?("translate_ui") && RAILS_ENV != 'test'
   end
   
   # make the globalize? method available to helpers so it can be used in views

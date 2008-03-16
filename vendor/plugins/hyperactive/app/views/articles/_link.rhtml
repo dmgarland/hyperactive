@@ -2,18 +2,18 @@
 <div id="<%= "link_#{link.id}" %>">
   <fieldset>
     <label class="first" for="link[]_item_id">
-    Link 
+    <%= 'Link'.t %> 
     </label><br/><br/>
     <label for="link[]_title">
-      Title*<br/>
+      <%= 'Title'.t %>*<br/>
       <%= text_field 'link[]', 'title', :size => 30 %>
     </label><br/><br/>
     <label for="link[]_url">
-    URL*<br/>
+    <%= 'URL'.t %>*<br/>
     <%= text_field 'link[]', 'url', :size => 30 %>
     </label><br/><br/>
     <label for="link[]_description">
-    Description<br/>
+    <%= 'Description'.t %><br/>
     <%= text_area 'link[]', 'description', {:cols => 30, :rows => 3} %>
     </label><br/><br/>
     <%= sub_list_remove_link link, 'Link', 'Del' %>

@@ -8,9 +8,9 @@
 	<div id="sidebar_content_1" class="sidebar_content">
 		<ul>
 			<li>
-				<h2>First title on the left column</h2>
+				<h2>Unused column 1</h2>
 				<ul>
-<!-- Some stuff could go here -->
+					<!-- Some stuff could go here -->
 				</ul>
 				<a href="/events"><%= "View all upcoming events".t %></a>
 			</li>
@@ -20,11 +20,10 @@
 	<div id="sidebar_content_2" class="sidebar_content">
 		<ul>
 			<li>
-				<h2>Should be a new column on the right</h2>
+				<h2>Unused column 2</h2>
 				<ul>
-					<!-- Some other stuff could go here -->					
+					<p>Some other stuff could go here</p>				
 				</ul>
-				<a href="/events">View all upcoming events</a>
 			</li>
 		</ul>
 	</div>
@@ -35,14 +34,14 @@
 	<ul>
 		<li>
 			<%= render :partial => 'videos/featured_flash_player' %>
-			<%= link_to "View all videos ", videos_path %>
+			<%= link_to "View all videos".t, videos_path %>
 		</li>
 		<li>
-			<h2>Featured Events</h2>
+			<h2><%= 'Featured Events'.t %></h2>
 			<ul>
 				<%= render :partial => '/events/event_title_list', :collection => @events %>
 			</ul>
-			<%= link_to "View all upcoming events", events_path %>
+			<%= link_to "View all upcoming events".t, events_path %>
 		</li>
 	</ul>
 </div>

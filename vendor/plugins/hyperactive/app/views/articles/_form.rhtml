@@ -1,28 +1,28 @@
 <%= error_messages_for :content %>
 
 <!--[form:event]-->
-<p><em>*</em> = required field</p>
-<p><label for="content_title">Title<em>*</em></label><br/>
+<p><em>*</em> = <%= 'required field'.t %></p>
+<p><label for="content_title"><%= 'Title'.t %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
 
-<p><label for="content_date">Date of Event<em>*</em></label><br/>
+<p><label for="content_date"><%= 'Date of Event'.t %><em>*</em></label><br/>
 <%= f.datetime_select 'date', :start_year=>Date.today.year  %></p>
 
-<p><label for="content_published_by">Your name:<em>*</em></label><br/>
+<p><label for="content_published_by"><%= 'Your name:'.t %><em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 
-<p><label for="content_contact_email">Contact email address for event:</label><br/>
+<p><label for="content_contact_email"><%= 'Contact email address:'.t %></label><br/>
 <%= f.text_field 'contact_email' %></p>
 
-<p><label for="content_contact_phone">Contact phone number for event:</label><br/>
+<p><label for="content_contact_phone"><%= 'Contact phone number:'.t %></label><br/>
 <%= f.text_field 'contact_phone' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
-<p><label for="content_summary">Summary<em>*</em></label><br/>
+<p><label for="content_summary"><%= 'Summary'.t %><em>*</em></label><br/>
 <%= f.text_area 'summary', :cols=>80, :rows=>5  %></p>
 
-<p><label for="content_body">Description<em>*</em></label><br/>
+<p><label for="content_body"><%= 'Description'.t %><em>*</em></label><br/>
 <%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
 
 <% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
@@ -38,18 +38,18 @@
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 
 <noscript>
-<p><a name="noJS">Oops!</a> 
-You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
-Please enable JavaScript in your browser's preferences if you want to add a photo or a link.
+<p><a name="noJS"><%= 'Oops!'.t %></a> 
+<%= "You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
+Please enable JavaScript in your browser's preferences if you want to add a photo or a link.".t %>
 </p>
 </noscript>
 
-<h2>Media uploads</h2>
+<h2><%= 'Media uploads'.t %></h2>
 
 <p>
-Click on the "add photo", "add video", or "add file upload" link for each file 
+<%= 'Click on the "add photo", "add video", or "add file upload" link for each file 
 you want to upload. You can upload as many files as you want by clicking the "add" 
-links multiple times.	
+links multiple times.'.t %>	
 </p>
 
  <fieldset>

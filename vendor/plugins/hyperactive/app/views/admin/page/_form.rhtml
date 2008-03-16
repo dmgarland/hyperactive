@@ -1,16 +1,16 @@
 <%= error_messages_for 'page' %>
 
 <!--[form:page]-->
-<p><label for="page_title">Title</label><br/>
+<p><label for="page_title"><%= 'Title'.t %></label><br/>
 <%= text_field 'page', 'title'  %></p>
 
-<p><label for="page_body">Body</label><br/>
+<p><label for="page_body"><%= 'Body'.t %></label><br/>
 <%= text_area 'page', 'body'  %></p>
 
-<p><label for="page_created_on">Created on</label><br/>
+<p><label for="page_created_on"><%= 'Created on'.t %></label><br/>
 <%= datetime_select 'page', 'created_on'  %></p>
 
-<p><label for="page_updated_on">Updated on</label><br/>
+<p><label for="page_updated_on"><%= 'Updated on'.t %></label><br/>
 <%= datetime_select 'page', 'updated_on'  %></p>
 <!--[eoform:page]-->
 

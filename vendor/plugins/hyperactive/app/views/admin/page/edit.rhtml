@@ -2,8 +2,8 @@
 
 <% form_tag :action => 'update', :id => @page do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag 'Edit' %>
+  <%= submit_tag 'Edit'.t %>
 <% end %>
 
-<%= link_to 'Show', :action => 'show', :id => @page %> |
-<%= link_to 'Back', :action => 'list' %>
+<%= link_to 'Show'.t, :action => 'show', :id => @page %> |
+<%= link_to 'Back'.t, :action => 'list' %>

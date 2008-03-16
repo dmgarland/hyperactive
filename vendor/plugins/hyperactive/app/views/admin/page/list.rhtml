@@ -1,4 +1,4 @@
-<h1>Listing pages</h1>
+<h1><%= 'Listing pages'.t %></h1>
 
 <table>
   <tr>
@@ -12,9 +12,9 @@
   <% for column in Page.content_columns %>
     <td><%=h page.send(column.name) %></td>
   <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => page %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => page %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => page }, :confirm => 'Are you sure?', :method => "post" %></td>
+    <td><%= link_to 'Show'.t, :action => 'show', :id => page %></td>
+    <td><%= link_to 'Edit'.t, :action => 'edit', :id => page %></td>
+    <td><%= link_to 'Destroy'.t, { :action => 'destroy', :id => page }, :confirm => 'Are you sure?', :method => "post" %></td>
   </tr>
 <% end %>
 </table>

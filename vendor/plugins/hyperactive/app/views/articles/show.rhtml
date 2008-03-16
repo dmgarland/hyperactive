@@ -2,22 +2,22 @@
 
 <div class="post">
 <h1 class="title"><%=h @content.title %></h1>
-<p class="byline"><small>Published: <%=h long_date(@content.created_on) %></small></p>
-<p>posted by <strong><%=h @content.published_by.titleize %></strong></p>
+<p class="byline"><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small></p>
+<p><%= 'posted by'.t %> <strong><%=h @content.published_by.titleize %></strong></p>
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 
-<p>Places: <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
+<p><%= 'Places'.t %>: <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
 <p><%=h @content.place %>
 <div class='entry'><%= auto_link(simple_format(h(@content.summary))) %></div>
 
 <% if @content.videos.length > 0 %>
-    <h3>Videos</h3>
+    <h3><%= 'Videos'.t %></h3>
     <%= render :partial => "videos/video_summary", :collection => @content.videos %>
 <% end %>
 
 <% if @content.photos.length > 0 %>
-    <p><h3>Photos</h3></p>
+    <p><h3><%= 'Photos'.t %></h3></p>
     <% @content.photos.each do |photo| %>
         <p><%= link_to (image_tag url_for_file_column(photo, "file", "medium")), url_for_file_column(photo, "file") %><br/>
         <%=h photo.title %>
@@ -26,7 +26,7 @@
 <% end %>
 
 <% if @content.file_uploads.length > 0 %>
-    <p><h3>Attached Files</h3><br/>
+    <p><h3><%= 'Attached Files'.t %></h3><br/>
     <% @content.file_uploads.each do |file_upload| %>
         <p><%= link_to image_tag("gedit-icon.png", :plugin => 'hyperactive'), url_for_file_column(file_upload, "file") %> 
         <%=h file_upload.title %></p>
@@ -35,27 +35,27 @@
 
 <p><%= auto_link(simple_format(h(@content.body))) %></p>
 <% if @content.links.length > 0 %>
-    <p><h3>Links:</h3><br/>
+    <p><h3><%= 'Links'.t %></h3><br/>
     <% @content.links.each do |link| %>
         <p><%= link_to h(link.title), link.url %><br/>
         <%=h link.description %></p>
     <% end %></p>
 <% end %>
-<p><em>Tagged as:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
+<p><em><%= 'Tagged as'.t %>:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
 
 <% if @content.contact_email != nil %>
-    <p><em>Contact email:</em> <%= mail_to h(@content.contact_email) %></p>
+    <p><em><%= 'Contact email'.t %>:</em> <%= mail_to h(@content.contact_email) %></p>
 <% end %>
 <% if @content.contact_phone != nil %>
-    <p><em>Contact phone:</em> <%=h @content.contact_phone %></p>
+    <p><em><%= 'Contact phone'.t %>:</em> <%=h @content.contact_phone %></p>
 <% end %>            
-<p><em>Event created on:</em> <%=h @content.created_on %></p>
-<p><em>Event updated on:</em> <%=h @content.updated_on %></p>
+<p><em><%= 'Created on'.t %>:</em> <%=h @content.created_on %></p>
+<p><em><%= 'Updated on'.t %>:</em> <%=h @content.updated_on %></p>
 
 <%= render :partial => 'shared/content/hiding_controls' %>
 
 <p><% if editable_by?(current_user, @content)  %>
-<%= link_to 'Edit', edit_article_url(@content) %> |
+<%= link_to 'Edit'.t, edit_article_url(@content) %> |
 <% end %>
-<%= link_to 'Back', articles_url %></p>
+<%= link_to 'Back'.t, articles_url %></p>
 </div>

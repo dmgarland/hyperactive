@@ -12,7 +12,7 @@
 				<ul>
 <!-- Some stuff could go here -->
 				</ul>
-				<a href="/events">View all upcoming events</a>
+				<a href="/events"><%= "View all upcoming events".t %></a>
 			</li>
 		</ul>
 	</div>
@@ -53,13 +53,13 @@
 
 		</li>
 		<li>
-			<h2>Neighbourhoods...</h2>
+			<h2><%= "Neighbourhoods".t %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> </li>
 		<li>
-			<h2>Tags</h2>
+			<h2><%= "Tags".t %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  </li>
 		<li>
-			<h2><%= link_to "Calendar", calendar_month_url %></h2>
+			<h2><%= link_to "Calendar".t, calendar_month_url %></h2>
 			<div id="calendar_wrap">
 				<table summary="Calendar">
 					<caption>

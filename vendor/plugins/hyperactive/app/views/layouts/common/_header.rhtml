@@ -52,21 +52,9 @@ Released   : 20071004
 	<ul id="main">
 		<%= tab_for("Publish", publish_url, :controller_name => "publish") %>
 		<%= tab_for("Articles", articles_url, :controller_name => "articles") %>
-		<%= tab_for("Events", events_url, :controller_name => "event") %>
+		<%= tab_for("Events", events_url, :controller_name => "events") %>
 		<%= tab_for("Videos", videos_url, :controller_name => "videos") %>
-		<% if current_user.has_permission?("see_admin_nav") %>		
-			<%= tab_for("Categories", categories_url, :controller_name => "category") %>
-			<%= tab_for("Pages", pages_url, :controller_name => "page") %>
-			<%= tab_for("Users", users_url, :controller_name => "user") %>
-			<%= tab_for("Roles", roles_url, :controller_name => "role") %>
-			<%= tab_for("Permissions", static_permissions_url, :controller_name => "static_permission") %>
-		<% end %> 
-		<% unless current_user.is_anonymous? %>
-			<%= tab_for("Logout", logout_url, {:controller_name => "login", :action_name => "logout"}) %>
-		<% else %>
-			<%= tab_for("Login", login_url, {:controller_name => "login", :action_name => "login"}) %>		
-			<%= tab_for("Register", register_url, :controller_name => "registration") %>		
-		<% end %>
+		<%= tab_for("Account", account_url, :controller_name => "login") %>
 	</ul>
 </div>
 <!-- end header -->

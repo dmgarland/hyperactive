@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Industrial
+Description: A three-column, fixed-width blog design.
+Version    : 1.0
+Released   : 20071004
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%= SITE_NAME %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
+    <%= stylesheet_link_tag 'default', :plugin => 'hyperactive' %>
+    <%= javascript_include_tag :prototype, :plugin => 'hyperactive' %>
+	<%= javascript_include_tag :application, :plugin => 'hyperactive' %>	
+	<%= javascript_include_tag :effects, :plugin => 'hyperactive' %>
+	<%= javascript_include_tag :controls, :plugin => 'hyperactive' %>	
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+</head>
+<body>
+
+<!-- start header -->
+<div id="logo">
+	<p><%= link_to image_tag("logo_greyscale.png", :plugin => 'hyperactive'), '/home' %></p>
+	<h1><%= link_to "#{SITE_NAME}", {:controller => '/home'} %></h1>
+	<p>By Free CSS Templates</p>
+</div>
+<div id="menu">
+	<ul id="main">
+	<%= tab_for("Categories", categories_url, :controller_name => "category") %>
+	<%= tab_for("Pages", pages_url, :controller_name => "page") %>
+	<%= tab_for("Users", users_url, :controller_name => "user") %>
+	<%= tab_for("Roles", roles_url, :controller_name => "role") %>
+	<%= tab_for("Permissions", static_permissions_url, :controller_name => "static_permission") %>
+	</ul>
+</div>
+<!-- end header -->

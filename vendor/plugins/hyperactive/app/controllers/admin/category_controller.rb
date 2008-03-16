@@ -1,6 +1,6 @@
 class Admin::CategoryController < ApplicationController
   
-  layout "two_column"
+  layout "admin"
 
   def index
     list

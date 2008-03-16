@@ -79,7 +79,7 @@ SITE_NAME = 'Indymedia London'
 #require 'place_tag'
 Debugger.start
 
-ActiveRbac.controller_layout = "two_column" 
+ActiveRbac.controller_layout = "admin" 
 #ActiveRbac.controller_registration_signup_fields << "login"
 ActiveRecord::Base.verification_timeout = 14400
 

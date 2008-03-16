@@ -42,6 +42,7 @@ ActionController::Routing::Routes.draw do |map|
   map.users 'admin/users', :controller => 'active_rbac/user'
   map.roles 'admin/roles', :controller => 'active_rbac/role'
   map.static_permissions 'admin/static_permissions', :controller => 'active_rbac/static_permission'
+  map.account 'account', :controller => 'active_rbac/login', :action => 'index'
   map.login 'login', :controller => 'active_rbac/login', :action => 'login'
   map.logout 'logout', :controller => 'active_rbac/login', :action => 'logout'
   map.register 'register', :controller => 'active_rbac/registration'

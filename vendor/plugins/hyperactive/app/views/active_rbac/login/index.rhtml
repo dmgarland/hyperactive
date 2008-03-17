@@ -1,6 +1,0 @@
-<% unless current_user.is_anonymous? %>
-	<%= tab_for("Logout", logout_url, {:controller_name => "login", :action_name => "logout"}) %>
-<% else %>
-	<%= tab_for("Login", login_url, {:controller_name => "login", :action_name => "login"}) %>		
-	<%= tab_for("Register", register_url, :controller_name => "registration") %>		
-<% end %>

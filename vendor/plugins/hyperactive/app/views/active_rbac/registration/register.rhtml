@@ -1,9 +1,9 @@
-<h1>Register</h1>
+<h1><%= 'Register'.t %></h1>
 
 <%= error_messages_for 'user' %>
 
 <% form_for :user, :url => { :action => :register } do |form| %>
-<label for="user_login">Desired User Name</label>
+<label for="user_login"><%= 'Desired User Name'.t %></label>
 <%= text_field 'user', 'login' %>
 <%= render(:partial => 'password') %>
 

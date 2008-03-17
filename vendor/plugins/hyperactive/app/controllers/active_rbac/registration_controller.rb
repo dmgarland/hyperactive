@@ -2,7 +2,7 @@
 # and retrieve lost passwords
 class ActiveRbac::RegistrationController < ActiveRbac::ComponentController
   # Use the configured layout.
-  layout ActiveRbac.controller_layout
+  layout "two_column"
 
   # Redirect to signup page
   def index

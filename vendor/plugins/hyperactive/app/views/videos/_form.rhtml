@@ -3,19 +3,19 @@
 <% if controller.action_name == 'edit' %>
     <%= image_tag url_for_file_column(:content, "file", "thumb") %><br/><br/>
 <% end %>
-<label for="content_title">Title*<br/></label>
+<label for="content_title"><%= 'Title'.t %>*<br/></label>
   <%= f.text_field :title, :size => 30 %>
 <br/><br/>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
 <label for="content_file">
-File* - allowed file types are <%= Video.allowed_file_types.join(", ") %><br/>
+<%= 'File'.t %>* - <%= 'allowed file types are'.t %> <%= Video.allowed_file_types.join(", ") %><br/>
 <%= file_column_field("content", "file") %>
 </label><br/><br/>
 
 <label for="video_description">
-  Description - duration, codec, a bit about it<br/>
+  <%= 'Description'.t %> <br/>
   <%= f.text_area :body, :rows => 5 %>  
 </label><br/><br/>
 

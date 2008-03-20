@@ -1,8 +1,8 @@
 <h1><%=h video.title.titleize %></h1>
 <% if video.processing_status == 2 %>
     <div id="videoplayer<%= video.id %>">
-        <p>This item requires Macromedia Flash Player 7.</p>
-        <p>To get the latest version please <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">click here</a>.</p>
+        <p><%= "This item requires Macromedia Flash Player 7.".t %></p>
+        <p><%= "To get the latest version please".t %> <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"><%= "click here".t %></a>.</p>
     </div>
 	<script type="text/javascript">
 		var so = new SWFObject('/plugin_assets/hyperactive/flash/mediaplayer.swf','mpl','320','260','7');
@@ -14,9 +14,9 @@
 		so.addVariable('usefullscreen', 'true');
 		so.write("videoplayer<%= video.id %>");
 	</script>	
-	<p><em>Places:</em> <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
+	<p><em><%= "Places:".t %></em> <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
     <%=h video.body %><br/>
-	<p><em>Tagged as:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
+	<p><em><%= "Tagged as:".t %></em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
 	<%# Removing direct links to files so that only torrent links are visible. %>
 	<%# Uncomment the links by removing the '#' if you want to show them.  %>
 	
@@ -33,5 +33,5 @@
     <%=h video.body %><br/>
     <%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), url_for_file_column(video, "file") %> 
     <%= link_to "download original", url_for_file_column(video, "file") %>
-    <p>This video is still being converted, or else there has been some kind of error.</p>
+    <p><%= "This video is still being converted, or else there has been some kind of error.".t %></p>
 <% end %>

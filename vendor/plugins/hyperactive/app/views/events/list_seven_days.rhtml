@@ -1,3 +1,3 @@
-<h1>In the coming week:</h1>
+<h1><%= 'In the coming week:'.t %></h1>
 <%= long_date(@date) %> to <%= long_date(@date + 7) %>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>

@@ -2,27 +2,27 @@
 
 <!--[form:event]-->
 <p><em>*</em> = required field</p>
-<p><label for="content_title">Title<em>*</em></label><br/>
+<p><label for="content_title"><%= 'Title'.t %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
 
-<p><label for="content_date">Date of Event<em>*</em></label><br/>
+<p><label for="content_date"><%= 'Date of Event'.t %><em>*</em></label><br/>
 <%= f.datetime_select 'date', :start_year=>Date.today.year  %></p>
 
-<p><label for="content_published_by">Your name:<em>*</em></label><br/>
+<p><label for="content_published_by"><%= 'Your name:'.t %><em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 
-<p><label for="content_contact_email">Contact email address for event:</label><br/>
+<p><label for="content_contact_email"><%= 'Contact email address for event:'.t %></label><br/>
 <%= f.text_field 'contact_email' %></p>
 
-<p><label for="content_contact_phone">Contact phone number for event:</label><br/>
+<p><label for="content_contact_phone"><%= 'Contact phone number for event:'.t %></label><br/>
 <%= f.text_field 'contact_phone' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
-<p><label for="content_summary">Place<em>*</em> - include street address, room number, etc.</label><br/>
+<p><label for="content_summary"><%= 'Place'.t %><em>*</em> - <%= 'include street address, room number, etc.'.t %></label><br/>
 <%= f.text_area 'summary', :cols=>80, :rows=>5  %></p>
 
-<p><label for="content_body">Description<em>*</em></label><br/>
+<p><label for="content_body"><%= 'Description'.t %><em>*</em></label><br/>
 <%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
 
 <% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
@@ -38,72 +38,72 @@
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 
  <% if controller.action_name == "new" %>
- <p>Repeating event (optional)</p>
+ <p><%= 'Repeating event (optional)'.t %></p>
  <p><%= radio_button_tag :event_repeat_type, "none", :selected => true %>
-    <label for="event_has_event_group">Do not repeat this event</label>
+    <label for="event_has_event_group"><%= 'Do not repeat this event'.t %></label>
     <br/>
     
     <%= radio_button_tag :event_repeat_type, "repeat_simple" %>
-    <label for="event_has_event_group">Repeat</label>
+    <label for="event_has_event_group"><%= 'Repeat'.t %></label>
     <%= select_tag(:event_repeats_every, options_for_select({"every" => 1, "every other" => 2, "every third" => 3, "every fourth" => 4}, :selected => 0))%>
     <%= select_tag(:event_repeats_dwm, options_for_select(["day", "week", "month"]))%>
     <br/>
     
     <%= radio_button_tag :event_repeat_type, "repeat_complex" %>
-    <label for="event_has_event_group">Repeat on the</label>
+    <label for="event_has_event_group"><%= 'Repeat on the'.t %></label>
     <%= select_tag(:event_repeats_which_week, options_for_select(%w[ first second third fourth last]))%>
     <%= select_tag(:event_repeats_week_day, options_for_select(%w[ Monday Tuesday Wednesday Thursday Friday Saturday Sunday ]))%>
     of the month every      <%= select_tag(:event_repeat_period, options_for_select([["month",1], ["other month",2]]), :selected => true)%>
     <br/>
 </p>
-<p>Until: <%= select_date (date = Date.today)  %> Note: you can only repeat events for a maximum of 6 months from the date of the first event.</p>
+<p><%= 'Until:'.t %> <%= select_date (date = Date.today)  %> <%= 'Note: you can only repeat events for a maximum of 6 months from the date of the first event.'.t %></p>
 <% end %>
 
 <noscript>
-<p><a name="noJS">Oops!</a> 
-You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
-Please enable JavaScript in your browser's preferences if you want to add a photo or a link.
+<p><a name="noJS"><%= 'Oops!'.t %></a> 
+<%= "You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
+Please enable JavaScript in your browser's preferences if you want to add a photo or a link.".t %>
 </p>
 </noscript>
 
-<h2>Media uploads</h2>
+<h2><%= 'Media uploads'.t %></h2>
 
 <p>
-Click on the "add photo", "add video", or "add file upload" link for each file 
+<%= 'Click on the "add photo", "add video", or "add file upload" link for each file 
 you want to upload. You can upload as many files as you want by clicking the "add" 
-links multiple times.	
+links multiple times.	'.t %>
 </p>
 
  <fieldset>
     <legend>
-        Photos
+        <%= 'Photos'.t %>
     </legend>
     <%= sub_list_content 'Photo', 'content' %>
-    <%= sub_list_add_link 'Photo', 'Add Photo' %> (click again for multiple photo uploads)
+    <%= sub_list_add_link 'Photo', 'Add Photo' %> <%= '(click again for multiple photo uploads)'.t %>
  </fieldset>
  
   <fieldset>
     <legend>
-        Videos
+        <%= 'Videos'.t %>
     </legend>
     <%= sub_list_content 'Video', 'content' %>
-    <%= sub_list_add_link 'Video', 'Add Video' %> (click again for multiple video uploads)
+    <%= sub_list_add_link 'Video', 'Add Video' %> <%= '(click again for multiple video uploads)'.t %>
  </fieldset>
  
  <fieldset>
     <legend>
-        File Uploads
+        <%= 'File Uploads'.t %>
     </legend>
     <%= sub_list_content 'FileUpload', 'content' %>
-    <%= sub_list_add_link 'FileUpload', 'Add File Upload' %> (click again for multiple file uploads)
+    <%= sub_list_add_link 'FileUpload', 'Add File Upload' %> <%= '(click again for multiple file uploads)'.t %>
  </fieldset>
  
 <fieldset>
     <legend>
-        Links
+        <%= 'Links'.t %>
     </legend>
     <%= sub_list_content 'Link', 'content' %>
-    <%= sub_list_add_link 'Link', 'Add Link' %> (click again for multiple links)
+    <%= sub_list_add_link 'Link', 'Add Link' %> <%= '(click again for multiple links)'.t %>
  </fieldset>
 
 

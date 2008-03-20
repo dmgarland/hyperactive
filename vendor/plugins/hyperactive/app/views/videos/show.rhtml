@@ -13,8 +13,8 @@
 </p>
 	<p>
 		<% if editable_by?(current_user, @content)  %>
-			<%= link_to 'Edit', edit_video_url(@content) %> |
-		<% end %><%= link_to 'Back', videos_url %>
+			<%= link_to 'Edit'.t, edit_video_url(@content) %> |
+		<% end %><%= link_to 'Back'.t, videos_url %>
 	</p>	
 	
 </div>
@@ -23,8 +23,8 @@
 	<% if !@content.content.nil? %>
 		<ul>
 			<li>
-				<h2>Related <%= @content.content.class.to_s.downcase %></h2>
-				<p>This video was originally uploaded as part of the following <%= @content.content.class.to_s.downcase %>.</p>
+				<h2><%= "Related #{@content.content.class.to_s.downcase}".t %></h2>
+				<p><%= "This video was originally uploaded as part of the following #{@content.content.class.to_s.downcase}".t %>.</p>
 				<%= render :partial => 'shared/content/list_title', :object => @content.content %>
 			</li>
 		</ul>
@@ -32,7 +32,7 @@
 	<% if !@related_content.empty? %>
 		<ul>
 			<li>
-				<h2>More like this</h2>
+				<h2><%= "More like this".t %></h2>
 				<ul>
 				<%= render :partial => 'shared/content/list_title', :collection => @related_content %>
 				</ul>
@@ -49,7 +49,7 @@
 	<% if !@previous_videos.empty? %>
 		<ul>
 			<li>
-				<h2>Previous videos</h2>
+				<h2><%= "Previous videos".t %></h2>
 				<ul>
 				<%= render :partial => 'shared/content/list_title', :collection => @previous_videos %>
 				</ul>

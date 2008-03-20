@@ -1,6 +1,6 @@
-<h1>New Video</h1>
+<h1><%= "New Video".t %></h1>
 <% form_for(:content, :url => videos_path, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
   <%= render(:partial => 'shared/captcha') %>
-  <%= submit_tag "Create" %>
+  <%= submit_tag "Create".t %>
 <% end %>	

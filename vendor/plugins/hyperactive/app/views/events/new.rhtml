@@ -1,4 +1,4 @@
-<h1>New event</h1>
+<h1><%= 'New event'.t %></h1>
 
 <% form_for(:content, :url => events_path, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>

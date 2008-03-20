@@ -1,5 +1,5 @@
 <p><strong><%=h @page.title %></strong></p>
 <p><%= auto_link(simple_format(@page.body)) %></p>
 
-<p><strong>Created on:</strong> <%=h @page.created_on %></p>
-<p><strong>Updated on:</strong> <%=h @page.updated_on %></p>
+<p><strong><%= 'Created on:'.t %></strong> <%=h @page.created_on %></p>
+<p><strong><%= 'Updated on:'.t %></strong> <%=h @page.updated_on %></p>

@@ -54,8 +54,6 @@
 
 <%= render :partial => 'shared/content/hiding_controls' %>
 
-<p><% if editable_by?(current_user, @content)  %>
-<%= link_to 'Edit'.t, edit_article_url(@content) %> |
-<% end %>
-<%= link_to 'Back'.t, articles_url %></p>
+<p><%= link_to 'Back'.t, articles_url %></p>
+
 </div>

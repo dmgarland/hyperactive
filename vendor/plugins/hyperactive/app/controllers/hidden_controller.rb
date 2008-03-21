@@ -39,6 +39,7 @@ class HiddenController < ApplicationController
   def hiding_controls
     @id = params[:id]
     if current_user.has_permission?("hide")
+      @content = Content.find(@id)
       render :layout => false
     else
       render :template => 'hidden/report_this_controls', :layout => false

@@ -23,7 +23,7 @@ class ContentSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache_for(content)
-    expire_page(:controller => content.class.to_s.pluralize, :action => 'show', :id => content.id)
+    expire_page(:controller => content.class.downcase.to_s.pluralize, :action => 'show', :id => content.id)
   end
   
 end

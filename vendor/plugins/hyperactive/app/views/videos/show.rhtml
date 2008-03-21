@@ -12,9 +12,7 @@
 	<%= render :partial => 'shared/content/hiding_controls' %>
 </p>
 	<p>
-		<% if editable_by?(current_user, @content)  %>
-			<%= link_to 'Edit'.t, edit_video_url(@content) %> |
-		<% end %><%= link_to 'Back'.t, videos_url %>
+		<%= link_to 'Back'.t, videos_url %>
 	</p>	
 	
 </div>

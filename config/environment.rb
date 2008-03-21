@@ -44,6 +44,14 @@ Rails::Initializer.run do |config|
   # See Rails::Configuration for more options
   config.action_mailer.delivery_method = :sendmail
   
+  # Let's put cached pages in a more convenient place than the root of the 
+  # public directory.  Note that this requires that the Apache setup points at
+  # public/cache so that Apache serves cached pages properly.
+  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"  
+  
+  # Load up the cache sweepers when hyperactive starts
+  config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
+  
   
   # Load any gems found in vendor/gems.  See http://errtheblog.com/posts/50-vendor-everything
   # for more on this.

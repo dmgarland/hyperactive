@@ -4,13 +4,14 @@
                             :url => {:controller => 'hidden', :action => 'hiding_controls', :id => @content.id },
                             :update => 'hiding-controls',  
 							:before => "$('hiding-controls').hide()",
-							:complete => visual_effect(:appear, 'hiding-controls', :duration => 1)                 
+							:complete => "new Effect.BlindDown('hiding-controls');"                 
         %>
     <% else %>
         <%= link_to_remote "Unhide this #{@content.class.to_s.humanize.downcase}".t,
                             :url => {:controller => 'hidden', :action => 'unhiding_controls', :id => @content.id },
                             :update => 'hiding-controls',
-							:complete => visual_effect(:appear, 'hiding-controls', :duration => 1)                   
+							:before => "$('hiding-controls').hide()",
+							:complete => "new Effect.BlindDown('hiding-controls');"                 
         %>
     <% end %>
 </div>

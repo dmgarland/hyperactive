@@ -5,6 +5,8 @@ class ContentController < ApplicationController
   require 'calendar_dates/month_display.rb'
   require 'calendar_dates/week.rb'
   
+  caches_page :show
+  
   # Rails does not pull out single-table inheritance subclasses properly on its own.
   # Must require the STI superclass explicitly in controllers.
   require_dependency 'content'    

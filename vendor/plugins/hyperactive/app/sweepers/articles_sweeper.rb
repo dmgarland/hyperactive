@@ -1,4 +1,4 @@
-class ArticleSweeper < ActionController::Caching::Sweeper
+class ArticlesSweeper < ActionController::Caching::Sweeper
   
   observe Article
   

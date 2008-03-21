@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   include ActiveRbacMixins::ApplicationControllerMixin  
   helper RbacHelper
   
+  # Include the ExceptionNotifier plugin so we get emails if the site exploedes
+  #
+  include ExceptionNotifiable
+  
   # For convenience, instantiate properties containing the current 
   # controller and action names on each request
   before_filter :instantiate_controller_and_action_names

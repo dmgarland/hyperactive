@@ -11,6 +11,12 @@ class ArticleSweeper < ActionController::Caching::Sweeper
     expire_article_page(article)
   end
   
+  def after_destroy(article)
+    expire_home_page
+    expire_article_page(article)
+  end
+  
+  
   private
 
   def expire_home_page

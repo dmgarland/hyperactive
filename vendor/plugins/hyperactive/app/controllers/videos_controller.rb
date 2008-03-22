@@ -26,7 +26,7 @@ class VideosController < ContentController
       if simple_captcha_valid? && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        @content.convert 
+        do_video_conversion 
         flash[:notice] = "Video was successfully created."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }
@@ -47,7 +47,7 @@ class VideosController < ContentController
       if @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        @content.convert unless no_video_uploaded?
+        do_video_conversion
         flash[:notice] = "Video was successfully updated."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }
@@ -82,4 +82,13 @@ class VideosController < ContentController
     Video
   end
   
+  def find_videos_needing_conversion
+    videos_needing_conversion = []
+    uploaded_video = params[:content][:file]
+    if uploaded_video.class != StringIO && uploaded_video.class != String
+      videos_needing_conversion << @content
+    end
+    return videos_needing_conversion
+  end
+    
 end

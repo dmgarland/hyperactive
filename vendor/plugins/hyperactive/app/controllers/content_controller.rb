@@ -81,7 +81,7 @@ class ContentController < ApplicationController
     if success && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        do_video_conversion unless no_video_uploaded?
+        do_video_conversion
       if(model_class == Event)
         @content.update_all_taggings_with_date
         check_event_group
@@ -114,7 +114,7 @@ class ContentController < ApplicationController
     if success
       @content.tag_with params[:tags]
       @content.place_tag_with params[:place_tags]
-      do_video_conversion unless no_video_uploaded?
+      do_video_conversion
       if(model_class == Event)  
         @content.update_all_taggings_with_date
       end
@@ -156,16 +156,31 @@ class ContentController < ApplicationController
   end
   
   def do_video_conversion
-    if @content.videos.length > 0
-      @content.videos.each do |video|
+    videos_to_convert = find_videos_needing_conversion
+    if videos_to_convert.length > 0
+      videos_to_convert.each do |video|
         video.convert
       end
     end
   end  
   
-  def no_video_uploaded?
-    upload = params[:content][:file]
-    upload.class == StringIO || upload.class == String
-  end  
-  
+  # Tricky.  Checks throught the incoming params[:video] hash, selects an array
+  # of :ids for uploaded video objects which contain a file, and then selects
+  # objects from the @content.videos array which correspond to those :ids, or which 
+  # have a processing_status of nil (meaning they are new).
+  #
+  # Note that this is all necessary because we actually have two arrays, one of which
+  # is the incoming params[:video].values from the form, and the other of which consists
+  # of video objects attached to the @content.
+  #
+  def find_videos_needing_conversion
+    uploaded_videos = params[:video].to_a
+    uploaded_videos_with_file = uploaded_videos.select {|uploaded_video| uploaded_video[1][:file].class != StringIO && uploaded_video[1][:file].class != String }
+    video_ids_to_convert = uploaded_videos_with_file.map {|uvwf| uvwf.first.to_i}
+    videos_needing_conversion = @content.videos.select do |video|
+      video_ids_to_convert.include?(video.id) || video.processing_status.nil?
+    end
+    return videos_needing_conversion
+  end
+ 
 end

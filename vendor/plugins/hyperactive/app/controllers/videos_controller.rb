@@ -82,9 +82,4 @@ class VideosController < ContentController
     Video
   end
   
-  def no_video_uploaded?
-    upload = params[:content][:file]
-    upload.class == StringIO || upload.class == String
-  end
-  
 end

@@ -81,7 +81,7 @@ class ContentController < ApplicationController
     if success && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        do_video_conversion
+        do_video_conversion unless no_video_uploaded?
       if(model_class == Event)
         @content.update_all_taggings_with_date
         check_event_group
@@ -114,7 +114,7 @@ class ContentController < ApplicationController
     if success
       @content.tag_with params[:tags]
       @content.place_tag_with params[:place_tags]
-      do_video_conversion
+      do_video_conversion unless no_video_uploaded?
       if(model_class == Event)  
         @content.update_all_taggings_with_date
       end
@@ -161,6 +161,11 @@ class ContentController < ApplicationController
         video.convert
       end
     end
+  end  
+  
+  def no_video_uploaded?
+    upload = params[:content][:file]
+    upload.class == StringIO || upload.class == String
   end  
   
 end

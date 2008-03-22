@@ -19,8 +19,13 @@ class VideosSweeper < ContentSweeper
   
   private
 
+  # The featured_in_player method returns JSON which can be consumed by the 
+  # Flash component to show a list of featured videos.  If videos get updated,
+  # this JSON needs to be expired.
   def expire_featured_videos
     expire_page(:controller => 'videos', :action => 'featured_in_player')
   end
+  
+
   
 end

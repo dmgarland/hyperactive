@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   
   # Include the ExceptionNotifier plugin so we get emails if the site exploedes
   #
-  include ExceptionNotifiable
+  include ExceptionNotifiable unless RAILS_ENV == 'test'
   
   # For convenience, instantiate properties containing the current 
   # controller and action names on each request

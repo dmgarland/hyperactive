@@ -98,10 +98,12 @@ include Globalize
 Locale.set_base_language('en-GB')
 Locale.set('en-GB')
 
-# Who gets emails when the site explodes?
-ExceptionNotifier.exception_recipients = %w(yossarian@aktivix.org)
-ExceptionNotifier.sender_address = %("Application Error" <error@london.escapegoat.org>)
-ExceptionNotifier.email_prefix = "[Hyperactive] "
+unless RAILS_ENV == 'test'
+  # Who gets emails when the site explodes?
+  ExceptionNotifier.exception_recipients = %w(yossarian@aktivix.org)
+  ExceptionNotifier.sender_address = %("Application Error" <error@london.escapegoat.org>)
+  ExceptionNotifier.email_prefix = "[Hyperactive] "
+end
 
 # In production mode, loads every view translation into memory once from the database
 # when the application starts, avoiding database calls from globalize.

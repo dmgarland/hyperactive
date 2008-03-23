@@ -144,17 +144,23 @@ class ContentController < ApplicationController
     prepare_file_uploads
   end 
   
+  # Checks permissions and ownership to see if a given user can edit content.
+  #
   def can_edit?
     return true if current_user.has_permission?("edit_all_content")  
     return true if current_user.has_permission?("edit_own_content")  && Event.find(params[:id]).user == current_user
     security_error
   end
   
+  # Checks permissions to see if the current user can destroy content.
+  #
   def can_destroy?
     return true if current_user.has_permission?("destroy")  
     security_error
   end
   
+  # Tells uploaded videos to convert themselves using ffmpeg.
+  #
   def do_video_conversion
     videos_to_convert = find_videos_needing_conversion
     if videos_to_convert.length > 0

@@ -5,9 +5,6 @@
 <p><label for="content_title"><%= 'Title'.t %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
 
-<p><label for="content_date"><%= 'Date of Event'.t %><em>*</em></label><br/>
-<%= f.datetime_select 'date', :start_year=>Date.today.year  %></p>
-
 <p><label for="content_published_by"><%= 'Your name:'.t %><em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 

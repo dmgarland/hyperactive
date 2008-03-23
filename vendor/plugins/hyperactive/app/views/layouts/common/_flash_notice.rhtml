@@ -1,3 +1,7 @@
-<% if flash[:notice] -%>
-    <div id="notice"><%= flash[:notice] %></div>
-<% end -%>
+<div id="error_div_id" class="flash flash_error"></div>
+<div id="notice_div_id" class="flash flash_notice"></div>
+<script type="text/javascript">
+  Flash.transferFromCookies();
+  Flash.writeDataTo('error', $('error_div_id'));
+  Flash.writeDataTo('notice', $('notice_div_id'));
+</script>

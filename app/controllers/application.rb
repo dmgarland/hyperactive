@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   # page caches upon creation - currently we are getting for example "Article was 
   # successfully created" message stuck into the cached page, which this should fix.
   # 
-  include CacheableFlash
+  include CacheableFlash unless RAILS_ENV == 'test'
   
   # For convenience, instantiate properties containing the current 
   # controller and action names on each request

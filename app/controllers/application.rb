@@ -12,6 +12,15 @@ class ApplicationController < ActionController::Base
   #
   include ExceptionNotifiable unless RAILS_ENV == 'test'
   
+  # Include the CacheableFlash plugin. This stores the flash[:notice] and other Rails flash
+  # messages in a cookie, inserting them into the page with javascript when the request
+  # completes.  This way we solve a few problems:  we can still get flash[:messages] on 
+  # cached pages, and we won't get the flash[:message] written into the page when the 
+  # page caches upon creation - currently we are getting for example "Article was 
+  # successfully created" message stuck into the cached page, which this should fix.
+  # 
+  include CacheableFlash
+  
   # For convenience, instantiate properties containing the current 
   # controller and action names on each request
   before_filter :instantiate_controller_and_action_names

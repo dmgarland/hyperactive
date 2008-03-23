@@ -1,2 +1,2 @@
-require "json"
+require "json/add/rails"
 require "cacheable_flash"

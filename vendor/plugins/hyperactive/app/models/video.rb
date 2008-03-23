@@ -35,14 +35,10 @@ class Video < Media
   # Gets an absolute path to this video's file and send it to the 
   # VideoConversionWorker for conversion.
   def convert
-    video_file_to_convert = File.expand_path(RAILS_ROOT) + "/public/system/video/file/" + file_relative_path
-    MiddleMan.new_worker(:class => 
-                          :video_conversion_worker, 
-                          :job_key => "video"+self.id.to_s, 
-                          :args => {
-                            :absolute_path => video_file_to_convert, 
-                            :torrent_tracker => TORRENT_TRACKER,
-                            :video_id => self.id.to_s }) unless RAILS_ENV == 'test'
+    video_file_to_convert = File.expand_path(RAILS_ROOT) + "/public/system/video/file/" + file_relative_path   
+    worker = MiddleMan.worker(:video_conversion_worker)
+    args = {:absolute_path => video_file_to_convert, :torrent_tracker => TORRENT_TRACKER, :video_id => self.id.to_s }
+    worker.convert_video(args)
   end
   
   def video_type

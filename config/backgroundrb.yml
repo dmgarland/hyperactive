@@ -2,7 +2,7 @@
 port: "22222"
 timer_sleep: 60
 load_rails: true
-environment: production
+environment: <%= RAILS_ENV %>
 host: localhost
 log: foreground
 database_yml: config/database.yml

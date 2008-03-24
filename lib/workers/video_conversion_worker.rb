@@ -11,7 +11,7 @@ class VideoConversionWorker < BackgrounDRb::MetaWorker
   #
   def convert_video(args)
     video_file = args[:absolute_path]
-    video_id = args[:video_id]
+    video_id = args[:video_id].to_i
     torrent_tracker = args[:torrent_tracker]
     unless RAILS_ENV == 'test'
       video_record = Video.find(video_id) 

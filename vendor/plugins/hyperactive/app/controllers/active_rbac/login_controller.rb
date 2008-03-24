@@ -16,11 +16,12 @@ class ActiveRbac::LoginController < ActiveRbac::ComponentController
   # high-traffic pages on the site can be served by Apache without any (slow) 
   # database access or (slow) Ruby code execution.
   #
+  # If the user is anonymous, we redirect them the login page, if not we display the
+  # index template automatically.
+  #
   def index
     if current_user.is_anonymous?
       redirect_to :action => 'login'
-    else 
-      redirect_to :action => 'logout'
     end
   end
 

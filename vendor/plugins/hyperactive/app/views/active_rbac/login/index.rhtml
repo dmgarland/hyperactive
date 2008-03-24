@@ -1,0 +1,14 @@
+<h3>Your account</h3>
+
+<p>
+You are currently logged in as user '<%=h current_user.login %>'.
+</p>
+
+<% if current_user.has_permission?("see_admin_nav") %>
+	<p>
+		You are an administrative user. From here you can 
+		<%= link_to "view the site admin pages", users_url %>.	
+	</p>
+<% end %>
+
+<p>You may log out at the <%= link_to "logout", logout_url %> page.</p>

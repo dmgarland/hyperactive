@@ -25,6 +25,7 @@ class HomeController < ApplicationController
       video.processing_status == 2
       video.hidden == false
       video.promoted == false
+      video.published == true
     end
     @featured_articles = Article.find(
       :all,

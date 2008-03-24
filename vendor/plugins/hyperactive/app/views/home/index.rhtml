@@ -43,12 +43,6 @@
 			<%= render :partial => 'videos/featured_flash_player' %>
 		</li>
 		<li>
-			<h2><%= 'Recent Videos'.t %></h2>
-			<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @recent_videos %>
-			</ul>
-		</li>
-		<li>
 			<h2><%= link_to "Calendar".t, calendar_month_url %></h2>
 			<div id="calendar_wrap">
 				<table summary="Calendar">

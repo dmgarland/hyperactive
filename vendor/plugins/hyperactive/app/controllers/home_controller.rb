@@ -27,7 +27,7 @@ class HomeController < ApplicationController
     end
     @featured_articles = Article.find(
       :all,
-      :limit => 2,
+      :limit => 5,
       :order => "created_on DESC",
       :conditions => ['hidden = ? and published = ? and promoted = ?', false, true, true])
   end

@@ -59,6 +59,8 @@ module ApplicationHelper
       article_url(entity)
     elsif entity.class == Event
       event_url(entity)
+    elsif entity.class == Video
+      video_url(entity)
     end
   end
   
@@ -70,6 +72,26 @@ module ApplicationHelper
     elsif entity.class == Video
       image_tag "icon_video.gif", :plugin => 'hyperactive'
     end    
+  end  
+  
+  # A convenience method giving access to the thumbnail for this 
+  # content object.
+  #
+  def thumbnail_for(entity)
+    if entity.class == Video
+      video_thumb = url_for_file_column(entity, "file")
+      link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)
+    elsif entity.class == Article || entity.class == Event
+      if entity.has_thumbnail?
+        if entity.photos.length > 0
+          link_to(image_tag(url_for_file_column(entity.photos.first, "file", "thumb"), :class => 'left'), entity)
+        elsif entity.contains_videos?
+          video = entity.videos.first
+          video_thumb = url_for_file_column(video, "file")
+          link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), video)          
+        end
+      end
+    end
   end  
 
 end

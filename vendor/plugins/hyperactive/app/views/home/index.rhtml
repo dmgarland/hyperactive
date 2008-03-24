@@ -1,31 +1,18 @@
 <!-- start content -->
 <div id="content">
 <%= render(:partial => "layouts/common/flash_notice") %>
-<%= render(:partial => "shared/content/list_summary", :collection => @featured_articles) %>
-<%= link_to "More featured events", list_promoted_events_url %>
+<%= render(:partial => "shared/content/list_summary", :collection => first_featured_article) %>
+
 <!-- start sidebars inside content -->
 <!--  sidebar_content_left -->
 	<div id="sidebar_content_1" class="sidebar_content">
-		<ul>
-			<li>
-				<h2>Unused column 1</h2>
-				<ul>
-					<!-- Some stuff could go here -->
-				</ul>
-				<a href="/events"><%= "View all upcoming events".t %></a>
-			</li>
-		</ul>
+	<%= render_subfeature(1) %>
+	<%= render_subfeature(2) %>
 	</div>
 	<!--  sidebar_content_right -->
 	<div id="sidebar_content_2" class="sidebar_content">
-		<ul>
-			<li>
-				<h2>Unused column 2</h2>
-				<ul>
-					<p>Some other stuff could go here</p>				
-				</ul>
-			</li>
-		</ul>
+	<%= render_subfeature(3) %>
+	<%= render_subfeature(4) %>
 	</div>
 </div>
 <!-- end content -->
@@ -34,14 +21,12 @@
 	<ul>
 		<li>
 			<%= render :partial => 'videos/featured_flash_player' %>
-			<%= link_to "View all videos".t, videos_path %>
 		</li>
 		<li>
 			<h2><%= 'Featured Events'.t %></h2>
 			<ul>
 				<%= render :partial => '/events/event_title_list', :collection => @events %>
 			</ul>
-			<%= link_to "View all upcoming events".t, events_path %>
 		</li>
 	</ul>
 </div>

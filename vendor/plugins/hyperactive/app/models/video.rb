@@ -65,4 +65,13 @@ class Video < Media
     relative_ogg_file + ".torrent"
   end
   
+  # A convenience method telling us whether this content has a thumbnail
+  # which we can use in a view.  This is inherited from Content, and is
+  # overridden here so that it's always true, since all video objects 
+  # should have a thumbnail.
+  #
+  def has_thumbnail?
+    true
+  end
+  
 end

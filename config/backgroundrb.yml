@@ -1,12 +1,13 @@
 --- 
-port: "22222"
-timer_sleep: 60
-load_rails: true
-environment: development
-host: localhost
-log: foreground
-database_yml: config/database.yml
-acl: 
-  deny: all
-  allow: localhost 127.0.0.1
-  order: deny,allow
+:backgroundrb:
+  :ip: 0.0.0.0
+
+:development:
+  :backgroundrb:
+    :port: 11111    
+    :log: foreground # foreground mode,print log messages on console
+
+:production:
+  :backgroundrb:
+    :port: 22222      
+    :debug_log: false # disable log workers and other logging 

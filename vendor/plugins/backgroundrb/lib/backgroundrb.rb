@@ -172,5 +172,5 @@ class BackgrounDRb::WorkerProxy
   end
 end
 
-MiddleMan = BackgrounDRb::WorkerProxy.init
+#MiddleMan = BackgrounDRb::WorkerProxy.init
 

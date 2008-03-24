@@ -61,8 +61,6 @@ module ApplicationHelper
       event_url(entity)
     elsif entity.is_a?(Video)
       video_url(entity)
-    elsif entity.is_a?(Page)
-      page_url(entity)
     end
   end
   
@@ -92,7 +90,7 @@ module ApplicationHelper
         elsif entity.contains_videos?
           video = entity.videos.first
           video_thumb = url_for_file_column(video, "file")
-          link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), video)          
+          link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)          
         end
       end
     end

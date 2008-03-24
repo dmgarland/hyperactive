@@ -1,3 +1,3 @@
 class Link < ActiveRecord::Base
-  belongs_to :event
+  belongs_to :content
 end

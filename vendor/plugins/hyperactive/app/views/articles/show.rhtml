@@ -35,11 +35,11 @@
 
 <p><%= auto_link(simple_format(h(@content.body))) %></p>
 <% if @content.links.length > 0 %>
-    <p><h3><%= 'Links'.t %></h3><br/>
+    <h3><%= 'Links'.t %></h3>
     <% @content.links.each do |link| %>
-        <p><%= link_to h(link.title), link.url %><br/>
+        <%= link_to h(link.title), link.url %><br/>
         <%=h link.description %></p>
-    <% end %></p>
+    <% end %>
 <% end %>
 <p><em><%= 'Tagged as'.t %>:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
 

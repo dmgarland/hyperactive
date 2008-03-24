@@ -5,15 +5,35 @@
 
 <!-- start sidebars inside content -->
 <!--  sidebar_content_left -->
-	<div id="sidebar_content_1" class="sidebar_content">
-	<%= render_subfeature(1) %>
-	<%= render_subfeature(2) %>
+	<div id="subfeature_content_1" class="sidebar_content">
+		<%= render_subfeature(1) %>
+		<%= render_subfeature(2) %>
 	</div>
 	<!--  sidebar_content_right -->
-	<div id="sidebar_content_2" class="sidebar_content">
-	<%= render_subfeature(3) %>
-	<%= render_subfeature(4) %>
+	<div id="subfeature_content_2" class="sidebar_content">
+		<%= render_subfeature(3) %>
+		<%= render_subfeature(4) %>
 	</div>
+	<div id="recent_articles" class="sidebar_content">
+		<ul>
+			<li>
+				<h2><%= 'Recent Articles'.t %></h2>
+				<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @recent_articles %>			
+				</ul>
+			</li>
+		</ul>
+	</div>	
+	<div id="recent_events" class="sidebar_content">
+		<ul>
+			<li>
+				<h2><%= 'Recent Events'.t %></h2>
+				<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
+				</ul>
+			</li>
+		</ul>
+	</div>		
 </div>
 <!-- end content -->
 <!-- start sidebars -->
@@ -23,25 +43,11 @@
 			<%= render :partial => 'videos/featured_flash_player' %>
 		</li>
 		<li>
-			<h2><%= 'Featured Events'.t %></h2>
+			<h2><%= 'Recent Videos'.t %></h2>
 			<ul>
-				<%= render :partial => '/events/event_title_list', :collection => @events %>
+				<%= render :partial => '/shared/content/list_title', :collection => @recent_videos %>
 			</ul>
 		</li>
-	</ul>
-</div>
-<div id="sidebar2" class="sidebar">
-	<%= render :partial => 'shared/searchbox' %>
-	<ul>
-		<li>
-
-		</li>
-		<li>
-			<h2><%= "Neighbourhoods".t %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> </li>
-		<li>
-			<h2><%= "Tags".t %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  </li>
 		<li>
 			<h2><%= link_to "Calendar".t, calendar_month_url %></h2>
 			<div id="calendar_wrap">
@@ -60,13 +66,13 @@
 							<th abbr="Sunday" scope="col" title="Sunday">S</th>
 						</tr>
 					</thead>
-					<tfoot>
+			<!--		<tfoot>
 						<tr>
 							<td abbr="September" colspan="3" id="prev"><a href="#" title="View posts for September 2007">&laquo; Sep</a></td>
 							<td class="pad">&nbsp;</td>
 							<td colspan="3" id="next">&nbsp;</td>
 						</tr>
-					</tfoot>
+					</tfoot> -->
 					<tbody>
 						<tr>
 							<td>1</td>
@@ -113,7 +119,42 @@
 					</tbody>
 				</table>
 			</div>
+		</li>		
+	</ul>
+</div>
+<div id="sidebar2" class="sidebar">
+	<%= render :partial => 'shared/searchbox' %>
+	<ul>
+		<li>
 		</li>
+		<li>
+			<h2><%= 'Featured Events'.t %></h2>
+			<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
+			</ul>
+		</li>			
+		<li>
+			<h2><%= "Neighbourhoods".t %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+		</li>
+		<li>
+			<h2><%= "Tags".t %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
+		</li>
+		<li>
+			<h2><%= 'Info'.t %></h2>
+			<ul>
+				<%= render :partial => '/page/list_title', :collection => @pages %>
+			</ul>
+		</li>		
+		<li>
+			<h2><%= 'Other Indymedias'.t %></h2>
+			<ul>
+				<li>
+					<%= link_to "foo indy", "http://foo.indymedia.org" %>
+				</li>
+			</ul>
+		</li>			
 	</ul>
 </div>
 <!-- end sidebars -->

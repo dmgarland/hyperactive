@@ -55,22 +55,26 @@ module ApplicationHelper
   end    
   
   def content_url_for(entity)
-    if entity.class == Article
+    if entity.is_a?(Article)
       article_url(entity)
-    elsif entity.class == Event
+    elsif entity.is_a?(Event)
       event_url(entity)
-    elsif entity.class == Video
+    elsif entity.is_a?(Video)
       video_url(entity)
+    elsif entity.is_a?(Page)
+      page_url(entity)
     end
   end
   
   def icon_image_for(entity)
-    if entity.class == Article
+    if entity.is_a?(Article)
       image_tag "icon_article.gif", :plugin => 'hyperactive'
-    elsif entity.class == Event
+    elsif entity.is_a?(Event)
       image_tag "date.png", :plugin => 'hyperactive'
-    elsif entity.class == Video
+    elsif entity.is_a?(Video)
       image_tag "icon_video.gif", :plugin => 'hyperactive'
+    elsif entity.is_a?(Page)
+      image_tag "icon_post.gif", :plugin => 'hyperactive'
     end    
   end  
   

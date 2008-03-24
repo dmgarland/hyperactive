@@ -11,25 +11,32 @@ class HomeController < ApplicationController
   def index
     @cloud = Tag.cloud(:limit => tags_in_cloud)
     @place_cloud = PlaceTag.cloud(:limit => tags_in_cloud)
-    @events = Event.find(
+    @featured_events = Event.find(
+      :all, 
+      :limit => 5, 
+      :order => "date ASC", 
+      :conditions => ['hidden = ? and published = ? and promoted = ? and date >= ?', false, true, true, Date.today])
+    @recent_events = Event.find(
       :all, 
       :conditions => ['hidden = ? and published = ? and promoted = ? and date >= ?', false, true, false, Date.today], 
       :order => 'date ASC',
-      :page => {:size => objects_per_page, :current => page_param})
-    @featured_events = Event.find(
-      :all, 
-      :limit => 3, 
-      :order => "date ASC", 
-      :conditions => ['hidden = ? and published = ? and promoted = ? and date >= ?', false, true, true, Date.today])
-    @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
+      :limit => objects_per_page)
+    @recent_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
       video.processing_status == 2
-      video.promoted == true
+      video.hidden == false
+      video.promoted == false
     end
     @featured_articles = Article.find(
       :all,
       :limit => 5,
       :order => "created_on DESC",
       :conditions => ['hidden = ? and published = ? and promoted = ?', false, true, true])
+    @recent_articles = Article.find(
+      :all,
+      :limit => objects_per_page,
+      :order => "created_on DESC",
+      :conditions => ['hidden = ? and published = ? and promoted = ?', false, true, false])
+    @pages = Page.find(:all, :order => "title DESC")
   end
   
 end

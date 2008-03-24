@@ -1,13 +1,3 @@
---- 
 :backgroundrb:
-  :ip: 0.0.0.0
-
-:development:
-  :backgroundrb:
-    :port: 11112    
-    :log: foreground # foreground mode,print log messages on console
-
-:production:
-  :backgroundrb:
-    :port: 22222      
-    :debug_log: false # disable log workers and other logging 
+  :port: 11006
+  :ip: 0.0.0.0 

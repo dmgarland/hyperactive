@@ -9,8 +9,8 @@ class HomeController < ApplicationController
   featured_events = []
   
   def index
-    @cloud = Tag.cloud
-    @place_cloud = PlaceTag.cloud
+    @cloud = Tag.cloud(:limit => tags_in_cloud)
+    @place_cloud = PlaceTag.cloud(:limit => tags_in_cloud)
     @events = Event.find(
       :all, 
       :conditions => ['hidden = ? and published = ? and promoted = ? and date >= ?', false, true, false, Date.today], 

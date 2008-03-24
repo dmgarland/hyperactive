@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   
   # The default number of tags to display in a cloud
   def tags_in_cloud
-    50
+    20
   end
   
   # A convenience method which either grabs the page param or returns 1

@@ -109,31 +109,49 @@ task :helper_demo do
 end
 
 namespace :deploy do
-  # the backgroundrb tasks currently don't work because of permissions problems,
-  # but i'll leave them here for the next time i get a chance to work on them.
+  
+  # This is my experimental solution to the problem of restarting backgroundrb during deployment.
   #
-  # the basic problem is that capistrano is not running as www-data, so an 
-  # attempt to restart backgroundrb results in permissions error.  i don't 
-  # want to run backgroundrb as root, as this will cause all kinds of problems 
-  # and be a massive security hole.
   namespace :backgroundrb do
     
     desc "Start backgroundrb for video encoding"
     task :start do
-      run "cd #{deploy_to}/current; rake backgroundrb:start"
+      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:start RAILS_ENV=production"
     end
     
     desc "Stop backgroundrb for video encoding"
     task :stop do
-      run "cd #{deploy_to}/current; rake backgroundrb:stop"
+      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:stop RAILS_ENV=production"
     end
     
     desc "Restart backgroundrb for video encoding"
     task :restart do
-      run "cd #{deploy_to}/current; rake backgroundrb:restart"
+      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:restart RAILS_ENV=production"
     end
     
   end # end of backgroundrb namespace
+  
+  # A crude attempt at getting ferret to restart during deployment
+  namespace :ferret do
+    
+    desc "Start the ferret drb server for search indexing"
+    task :start do
+      run "cd #{deploy_to}current; sudo -u www-data RAILS_ENV=production script/ferret_start"
+    end
+    
+    desc "Stop the ferret drb server for search indexing"
+    task :stop do
+      run "cd #{deploy_to}current; RAILS_ENV=production; sudo -u www-data script/ferret_stop"      
+    end
+    
+    desc "Restart the ferret drb server for search indexing"
+    task :restart do
+      deploy.ferret.stop
+      sleep(1)
+      deploy.ferret.start
+    end
+    
+  end # end of ferret namespace  
   
   namespace :mongrel do
     [ :stop, :start, :restart ].each do |t|
@@ -177,10 +195,12 @@ namespace :deploy do
   desc "A task demonstrating the use of transactions."
   task :long_deploy do
     transaction do
+      backgroundrb.stop
       update_code
       deploy.web:disable
       symlink
       migrate
+      backgroundrb.start
     end
     chown_to_www_data  
     restart

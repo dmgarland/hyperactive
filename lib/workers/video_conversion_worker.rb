@@ -27,6 +27,9 @@ class VideoConversionWorker < BackgrounDRb::Rails
       video_record.processing_status = 2 #SUCCESS #ProcessingStatuses[:success]
       video_record.file_size = File.size?(@video_file)
       video_record.save
+      # blow out any cached versions of the video-related pages.
+      FileUtils.rm "#{RAILS_ROOT}/public/system/cache/videos/#{@video_id}.html", :force => true   # never raises exception
+      FileUtils.rm "#{RAILS_ROOT}/public/system/cache/featured_videos_json.html", :force => true   # never raises exception
     end
   end
 

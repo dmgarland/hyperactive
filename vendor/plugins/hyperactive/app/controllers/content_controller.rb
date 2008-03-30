@@ -6,7 +6,7 @@ class ContentController < ApplicationController
   require 'calendar_dates/week.rb'
   
   caches_page :show
-  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
+  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy, :create_comment]
   
   # Rails does not pull out single-table inheritance subclasses properly on its own.
   # Must require the STI superclass explicitly in controllers.

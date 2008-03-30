@@ -1,7 +1,6 @@
 <% if editable_by?(current_user, @content)  %>
-<p>or</p>
+<p><%= "or".t %></p>
 <div>
-	<strong>Edit this <%= @content.class.to_s.downcase %></strong>
-	<p><%= link_to 'Edit'.t, :controller => @content.class.to_s.downcase.pluralize, :action => 'edit', :id => @content %></p>
+	<strong><%= link_to "Edit this #{@content.class.to_s.downcase}".t,  :controller => @content.class.to_s.downcase.pluralize, :action => 'edit', :id => @content %></strong>
 </div>
 <% end %>

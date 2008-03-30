@@ -137,11 +137,12 @@ class ContentController < ApplicationController
   def create_comment
     @content = Content.find(params[:id])
     @comment = Comment.new(params[:comment])
-    if @comment.valid? 
+    if @comment.valid? && simple_captcha_valid?
       @content.comments << @comment
       flash[:notice] = "Your comment has been added."
       redirect_to :action => 'show', :id => @content
     else
+      @comment.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)      
       render :action => 'show'
     end
   end

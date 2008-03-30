@@ -136,18 +136,17 @@ namespace :deploy do
     
     desc "Start the ferret drb server for search indexing"
     task :start do
-      run "cd #{deploy_to}current; sudo -u www-data RAILS_ENV=production script/ferret_start"
+      run "cd #{latest_release}; sudo -u www-data script/ferret_server --root=#{latest_release} --environment=production start"
     end
     
     desc "Stop the ferret drb server for search indexing"
     task :stop do
-      run "cd #{deploy_to}current; RAILS_ENV=production; sudo -u www-data script/ferret_stop"      
+      run "cd #{latest_release}; sudo -u www-data script/ferret_server --root=#{latest_release} --environment=production stop"
     end
     
     desc "Restart the ferret drb server for search indexing"
     task :restart do
       deploy.ferret.stop
-      sleep(1)
       deploy.ferret.start
     end
     
@@ -196,14 +195,16 @@ namespace :deploy do
   task :long_deploy do
     transaction do
       backgroundrb.stop
+      ferret.stop
       update_code
       deploy.web:disable
       symlink
       migrate
-      backgroundrb.start
     end
     chown_to_www_data  
     restart
+    ferret.start
+    backgroundrb.start
     deploy.web:enable
     cleanup
   end

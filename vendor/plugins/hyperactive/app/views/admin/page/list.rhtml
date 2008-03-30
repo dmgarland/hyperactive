@@ -10,7 +10,7 @@
 <% for page in @pages %>
   <tr>
   <% for column in Page.content_columns %>
-    <td><%=h page.send(column.name) %></td>
+    <td><%=h page.send(column.name).slice(0, 50) %></td>
   <% end %>
     <td><%= link_to 'Show'.t, :action => 'show', :id => page %></td>
     <td><%= link_to 'Edit'.t, :action => 'edit', :id => page %></td>

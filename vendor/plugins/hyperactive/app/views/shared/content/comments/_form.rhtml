@@ -1,4 +1,4 @@
-<h2><%= "Add a comment:".t %></h2>
+<h3><%= "Add a comment:".t %></h3>
 <% form_for :comment, :url => {:controller => @content.class.to_s.downcase.pluralize, :action => 'create_comment', :id => @content} do |f| %>
 	<p><strong><%= "Title:".t %></strong><br/><%= f.text_field :title %></p>
 	<p><strong><%= "Your name:".t %></strong><br/><%= f.text_field :published_by %></p>

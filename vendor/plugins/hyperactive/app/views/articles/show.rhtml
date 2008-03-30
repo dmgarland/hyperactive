@@ -1,5 +1,5 @@
 <% @page_title = @content.title %>
-
+<%= error_messages_for :comment %>
 <div class="post">
 <h1 class="title"><%=h @content.title %></h1>
 <p class="byline"><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small></p>

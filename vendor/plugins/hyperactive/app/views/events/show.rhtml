@@ -1,11 +1,11 @@
 <% @page_title = @content.title %>
-
+<%= error_messages_for :comment %>
 <div class="post">
 <h1 class="title"><%=h @content.title %></h1>
 <p class="byline"><small><%= 'Event date:'.t %> <%=h long_date(@content.date) %></small></p>
 <p><%= "posted by".t %> <strong><%=h @content.published_by.titleize %></strong></p>
 
-<%= image_tag "date.png", :plugin => 'hyperactive' %><%= link_to "iCal", :action => 'ical_download', :id => @content %> 
+<%= image_tag "date.png", :plugin => 'hyperactive' %><%= link_to("iCal", :action => 'ical_download', :id => @content) %> 
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 

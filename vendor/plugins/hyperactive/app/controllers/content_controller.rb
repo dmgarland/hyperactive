@@ -58,6 +58,7 @@ class ContentController < ApplicationController
     if model_class == Event
       @date = @content.date.strftime("%Y-%m-%d")
     end
+    @comment = Comment.new
     # @related_tags = Event.find_related_tags(@event.tag_names.to_s, :separator => ',')
   end  
 
@@ -134,10 +135,14 @@ class ContentController < ApplicationController
   
   def create_comment
     @content = Content.find(params[:id])
-    comment = Comment.new(params[:comment])
-    @content.comments << comment
-    @content.save
-    redirect_to :action => 'show', :id => @content
+    @comment = Comment.new(params[:comment])
+    if @comment.valid? 
+      @content.comments << @comment
+      flash[:notice] = "Your comment has been added."
+      redirect_to :action => 'show', :id => @content
+    else
+      render :action => 'show'
+    end
   end
 
   protected

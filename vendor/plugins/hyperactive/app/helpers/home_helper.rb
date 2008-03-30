@@ -2,7 +2,12 @@ module HomeHelper
   
   def first_featured_article
     first_article = @featured_articles.slice(0)
-    return [first_article]
+    if first_article.nil? 
+      first_article_array = []
+    else
+      first_article_array = [first_article]
+    end
+    return first_article_array
   end
   
   def render_subfeature(index)

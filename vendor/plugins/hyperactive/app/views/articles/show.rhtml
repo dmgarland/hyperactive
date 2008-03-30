@@ -43,17 +43,16 @@
 <% end %>
 <p><em><%= 'Tagged as'.t %>:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
 
-<% if @content.contact_email != nil %>
+<% if !@content.contact_email.blank? %>
     <p><em><%= 'Contact email'.t %>:</em> <%= mail_to h(@content.contact_email) %></p>
-<% end %>
-<% if @content.contact_phone != nil %>
-    <p><em><%= 'Contact phone'.t %>:</em> <%=h @content.contact_phone %></p>
-<% end %>            
-<p><em><%= 'Created on'.t %>:</em> <%=h @content.created_on %></p>
-<p><em><%= 'Updated on'.t %>:</em> <%=h @content.updated_on %></p>
+<% end %>       
 
 <%= render :partial => 'shared/content/hiding_controls' %>
 
 <p><%= link_to 'Back'.t, articles_url %></p>
+
+<h2><%= "Comments".t %></h2>
+<%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
+<%= render :partial => 'shared/content/comments/form' %>
 
 </div>

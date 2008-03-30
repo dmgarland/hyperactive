@@ -76,4 +76,9 @@
 <%= render :partial => 'shared/content/hiding_controls' %>
 
 <p><%= link_to 'Back'.t, events_url %></p>
+
+<h2><%= "Comments".t %></h2>
+<%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
+<%= render :partial => 'shared/content/comments/form' %>
+
 </div>

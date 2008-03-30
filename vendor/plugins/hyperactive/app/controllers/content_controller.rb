@@ -131,6 +131,13 @@ class ContentController < ApplicationController
     @content.destroy
     redirect_to :action => 'index'
   end
+  
+  def create_comment
+    @comment = Comment.new(params[:comment])
+    @comment.content_id = params[:id]
+    @comment.save
+    redirect_to :action => 'show', :id => @comment.content
+  end
 
   protected
 

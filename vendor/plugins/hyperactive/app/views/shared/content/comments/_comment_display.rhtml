@@ -1,0 +1,10 @@
+<h3 class="title"><%=h comment_display.title %></h3>
+<p class="byline">
+    <small>
+        <%= 'Published'.t %>: <%=h long_date(comment_display.created_on) %>
+		<%= "by".t %>
+		<%= comment_display.published_by %>
+    </small>
+</p>
+<%= auto_link(simple_format(h(comment_display.body))) %>
+

@@ -1,57 +1,58 @@
 <% @page_title = @content.title %>
-
 <div id="content-wrap">
-
-	<div id="subpage">
-		<%= render :partial => 'shared/content/hidden_notice' %>
-		<div class="singlepost">
-			<%= render :partial => 'videos/video', :locals => {:video => @content} %>
-		</div>
-	</div>
-<p>
-	<%= render :partial => 'shared/content/hiding_controls' %>
-</p>
-	<p>
-		<%= link_to 'Back'.t, videos_url %>
-	</p>	
-	
+    <div id="subpage">
+        <%= render :partial => 'shared/content/hidden_notice' %>
+        <div class="singlepost">
+            <%= render :partial => 'videos/video', :locals => {:video => @content} %>
+        </div>
+    </div>
+    <p>
+        <%= render :partial => 'shared/content/hiding_controls' %>
+    </p>
+    <p>
+        <%= link_to 'Back'.t, videos_url %>
+    </p>
+    <h2><%= "Comments".t %></h2>
+    <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
+    <%= render :partial => 'shared/content/comments/form' %>
 </div>
-
 <% content_for :sidebar do %>
-	<% if !@content.content.nil? %>
-		<ul>
-			<li>
-				<h2><%= "Related #{@content.content.class.to_s.downcase}".t %></h2>
-				<p><%= "This video was originally uploaded as part of the following #{@content.content.class.to_s.downcase}".t %>.</p>
-				<%= render :partial => 'shared/content/list_title', :object => @content.content %>
-			</li>
-		</ul>
-	<% end %>
-	<% if !@related_content.empty? %>
-		<ul>
-			<li>
-				<h2><%= "More like this".t %></h2>
-				<ul>
-				<%= render :partial => 'shared/content/list_title', :collection => @related_content %>
-				</ul>
-			</li>
-		</ul>
-	<% end %>
-	<% if !@previous_videos.empty? %>
-		<ul>
-			<li>
-			<%= render :partial => 'videos/featured_flash_player' %>	
-			</li>
-		</ul>
-	<% end %>
-	<% if !@previous_videos.empty? %>
-		<ul>
-			<li>
-				<h2><%= "Previous videos".t %></h2>
-				<ul>
-				<%= render :partial => 'shared/content/list_title', :collection => @previous_videos %>
-				</ul>
-			</li>
-		</ul>
-	<% end %>
+<% if !@content.content.nil? %>
+<ul>
+    <li>
+        <h2><%= "Related #{@content.content.class.to_s.downcase}".t %></h2>
+        <p>
+            <%= "This video was originally uploaded as part of the following #{@content.content.class.to_s.downcase}".t %>.
+        </p>
+        <%= render :partial => 'shared/content/list_title', :object => @content.content %>
+    </li>
+</ul>
+<% end %>
+<% if !@related_content.empty? %>
+<ul>
+    <li>
+        <h2><%= "More like this".t %></h2>
+        <ul>
+            <%= render :partial => 'shared/content/list_title', :collection => @related_content %>
+        </ul>
+    </li>
+</ul>
+<% end %>
+<% if !@previous_videos.empty? %>
+<ul>
+    <li>
+        <%= render :partial => 'videos/featured_flash_player' %>
+    </li>
+</ul>
+<% end %>
+<% if !@previous_videos.empty? %>
+<ul>
+    <li>
+        <h2><%= "Previous videos".t %></h2>
+        <ul>
+            <%= render :partial => 'shared/content/list_title', :collection => @previous_videos %>
+        </ul>
+    </li>
+</ul>
+<% end %>
 <% end %>

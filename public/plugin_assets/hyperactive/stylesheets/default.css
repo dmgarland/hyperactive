@@ -13,7 +13,7 @@ body {
 	color: #666666;
 }
 
-h1, h2, h3, {
+h1, h2, h3 {
 	margin-top: 0;
 }
 
@@ -37,7 +37,7 @@ ul {
 a {
 	text-decoration: none;
 	border-bottom: none;
-	background:;
+	background: none;
 	color: #D56E22;
 }
 

@@ -96,4 +96,8 @@ module ApplicationHelper
     end
   end  
 
+  def safe_display(string)
+    white_list(RedCloth.new(string, [:filter_html]).to_html)
+  end
+
 end

@@ -14,10 +14,10 @@
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
 <p><label for="content_summary"><%= 'Summary'.t %><em>*</em></label><br/>
-<%= f.text_area 'summary', :cols=>80, :rows=>5  %></p>
+<%= textile_editor 'content', 'summary', :cols=>80, :rows=>5  %></p>
 
 <p><label for="content_body"><%= 'Description'.t %><em>*</em></label><br/>
-<%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
+<%= textile_editor 'content', 'body', :cols=>80, :rows=>20  %></p>
 
 <% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
     <p>
@@ -78,6 +78,6 @@ links multiple times.'.t %>
     <%= sub_list_add_link 'Link', 'Add Link' %> (click again for multiple links)
  </fieldset>
 
-
+<%= textile_editor_initialize -%>
 <!--[eoform:event]-->
 

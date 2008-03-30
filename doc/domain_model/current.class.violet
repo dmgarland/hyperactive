@@ -239,7 +239,7 @@ relative_torrent_file : string</string>
     <void property="attributes"> 
      <void property="text"> 
       <string>body : string
-user : User
+published_by : string
 created_on : datetime
 updated_on : datetime</string> 
      </void> 

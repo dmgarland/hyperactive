@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 34) do
+ActiveRecord::Schema.define(:version => 2) do
 
   create_table "authors", :force => true do |t|
     t.column "name", :string
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(:version => 34) do
 
   add_index "categories_events", ["category_id"], :name => "category_id"
   add_index "categories_events", ["event_id"], :name => "event_id"
+
+  create_table "comments", :force => true do |t|
+    t.column "title",             :string,                 :default => "", :null => false
+    t.column "body",              :text,                   :default => "", :null => false
+    t.column "created_on",        :datetime
+    t.column "updated_on",        :datetime
+    t.column "published_by",      :string,                 :default => "", :null => false
+    t.column "moderation_status", :string,   :limit => 50
+    t.column "content_id",        :integer,                                :null => false
+  end
+
+  add_index "comments", ["content_id"], :name => "fk_comments_content"
 
   create_table "content", :force => true do |t|
     t.column "title",             :string,   :default => "",    :null => false
@@ -272,15 +284,13 @@ ActiveRecord::Schema.define(:version => 34) do
   add_index "users", ["password"], :name => "users_password_index"
 
   create_table "videos", :force => true do |t|
-    t.column "title",             :string,   :default => "", :null => false
-    t.column "file",              :string,   :default => "", :null => false
-    t.column "content_id",        :integer
-    t.column "created_on",        :datetime
-    t.column "updated_on",        :datetime
-    t.column "body",              :string
-    t.column "processing_status", :integer
+    t.column "title",      :string,   :default => "", :null => false
+    t.column "file",       :string,   :default => "", :null => false
+    t.column "event_id",   :integer,  :default => 0,  :null => false
+    t.column "created_on", :datetime
+    t.column "updated_on", :datetime
   end
 
-  add_index "videos", ["content_id"], :name => "fk_event_video"
+  add_index "videos", ["event_id"], :name => "fk_event_video"
 
 end

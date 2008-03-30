@@ -133,10 +133,11 @@ class ContentController < ApplicationController
   end
   
   def create_comment
-    @comment = Comment.new(params[:comment])
-    @comment.content_id = params[:id]
-    @comment.save
-    redirect_to :action => 'show', :id => @comment.content
+    @content = Content.find(params[:id])
+    comment = Comment.new(params[:comment])
+    @content.comments << comment
+    @content.save
+    redirect_to :action => 'show', :id => @content
   end
 
   protected

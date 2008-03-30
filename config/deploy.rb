@@ -136,12 +136,12 @@ namespace :deploy do
     
     desc "Start the ferret drb server for search indexing"
     task :start do
-      run "cd #{latest_release}; sudo -u www-data script/ferret_server --root=#{latest_release} --environment=production start"
+      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=production start"
     end
     
     desc "Stop the ferret drb server for search indexing"
     task :stop do
-      run "cd #{latest_release}; sudo -u www-data script/ferret_server --root=#{latest_release} --environment=production stop"
+      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=production stop"
     end
     
     desc "Restart the ferret drb server for search indexing"
@@ -193,9 +193,9 @@ namespace :deploy do
   
   desc "A task demonstrating the use of transactions."
   task :long_deploy do
+    backgroundrb.stop
+    ferret.stop
     transaction do
-      backgroundrb.stop
-      ferret.stop
       update_code
       deploy.web:disable
       symlink

@@ -14,9 +14,6 @@
 <p><label for="content_contact_email"><%= 'Contact email address for event:'.t %></label><br/>
 <%= f.text_field 'contact_email' %></p>
 
-<p><label for="content_contact_phone"><%= 'Contact phone number for event:'.t %></label><br/>
-<%= f.text_field 'contact_phone' %></p>
-
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
 <p><label for="content_summary"><%= 'Place'.t %><em>*</em> - <%= 'include street address, room number, etc.'.t %></label><br/>
@@ -56,7 +53,7 @@
     of the month every      <%= select_tag(:event_repeat_period, options_for_select([["month",1], ["other month",2]]), :selected => true)%>
     <br/>
 </p>
-<p><%= 'Until:'.t %> <%= select_date (date = Date.today)  %> <%= 'Note: you can only repeat events for a maximum of 6 months from the date of the first event.'.t %></p>
+<p><%= 'Until:'.t %> <%= select_date (date = Date.today)  %> <%= "Note: you can only repeat events for a maximum of 6 months from the date of the first event.".t %></p>
 <% end %>
 
 <noscript>

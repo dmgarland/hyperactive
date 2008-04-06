@@ -10,6 +10,10 @@ class CommentSweeper < ActionController::Caching::Sweeper
     expire_cache_for(comment.content)
   end
   
+  def after_update(comment)
+    expire_cache_for(comment.content)
+  end
+  
   private
 
   # Expire the comment's associated content show page when a comment is made.

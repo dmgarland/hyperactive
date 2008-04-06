@@ -18,6 +18,18 @@ class ContentHideMailer < ActionMailer::Base
     @body       = {:content => content, :reasons => reasons, :user => user}
   end
   
+  def report_comment(comment, reasons, user)
+    setup_email
+    @subject    = 'Problem reported with comment'
+    @body       = {:comment => comment, :reasons => reasons, :user => user}
+  end
+  
+  def hide_comment(comment, reasons, user)
+    setup_email
+    @subject    = 'Comment hidden'
+    @body       = {:comment => comment, :reasons => reasons, :user => user}
+  end
+  
   private 
   
   def setup_email

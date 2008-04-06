@@ -41,7 +41,7 @@
     <h3><%= 'Links'.t %></h3>
     <% @content.links.each do |link| %>
         <%= link_to h(link.title), link.url %><br/>
-        <%=h link.description %></p>
+        <%=h link.description %>
     <% end %>
 <% end %>
 <p><em><%= 'Tagged as'.t %>:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
@@ -55,7 +55,7 @@
 <p><%= link_to 'Back'.t, articles_url %></p>
 
 <h2><%= "Comments".t %></h2>
-<%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
+<%= render :partial => 'shared/content/comments/comment_display', :collection => @content.published_comments %>
 <%= render :partial => 'shared/content/comments/form' %>
 
 </div>

@@ -8,6 +8,8 @@ class Content < ActiveRecord::Base
   has_many :photos
   has_many :file_uploads 
   has_many :comments
+  
+  has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"
     
   # A convenience method to tell us whether this content is attached to 
   # an article or event.  Currently this should only ever return true for

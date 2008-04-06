@@ -8,3 +8,4 @@
 </p>
 <%= auto_link(simple_format(h(comment_display.body))) %>
 
+<%= render :partial => 'shared/content/comments/hiding_controls', :locals => {:comment => comment_display } %>

@@ -92,6 +92,16 @@ class HiddenController < ApplicationController
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
     end
   end
+  
+  def hide_comment
+    comment = Comment.find(params[:id])
+    comment.moderation_status = "hidden"
+    comment.save!
+    content = comment.content
+  end
+  
+  def unhide_comment
+  end
     
   private
   

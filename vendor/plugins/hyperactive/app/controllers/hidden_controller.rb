@@ -93,27 +93,7 @@ class HiddenController < ApplicationController
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
     end
   end
-  
-  def hide_comment
-    comment = Comment.find(params[:id])
-    comment.moderation_status = "hidden"
-    if comment.save!
-      class_name = content.class.to_s.humanize.downcase    
-      flash[:notice] = "The comment has been hidden."
-      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
-    end
-  end
-  
-  def unhide_comment
-    comment = Comment.find(params[:id])
-    comment.moderation_status = "published"
-    if comment.save!
-      class_name = content.class.to_s.humanize.downcase    
-      flash[:notice] = "The comment has been unhidden."
-      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
-    end    
-  end
-  
+    
   def comment_hiding_controls
     @id = params[:id]
     if current_user.has_permission?("hide")
@@ -143,8 +123,6 @@ class HiddenController < ApplicationController
     end
   end
   
- 
-  
   def hide_comment
     comment = Comment.find(params[:id])
     comment.moderation_status = "hidden"
@@ -156,7 +134,17 @@ class HiddenController < ApplicationController
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => comment.content
     end
   end
-    
+  
+  def unhide_comment
+    comment = Comment.find(params[:id])
+    comment.moderation_status = "published"
+    if comment.save!
+      class_name = content.class.to_s.humanize.downcase    
+      flash[:notice] = "The comment has been unhidden."
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
+    end    
+  end
+  
   private
   
   # TODO: this is gross, but it's the quickest way i can think of 

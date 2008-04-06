@@ -3,6 +3,8 @@ class HiddenController < ApplicationController
   layout 'home'
   before_filter :protect_controller, :except => [:list, :index, :hiding_controls, :report, :unhiding_controls]
   
+  cache_sweeper :content_sweeper, :only => [:hide, :unhide]
+  
   
   def index
     redirect_to :action => 'list'

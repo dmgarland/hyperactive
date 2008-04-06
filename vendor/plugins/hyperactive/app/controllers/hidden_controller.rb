@@ -1,9 +1,10 @@
 class HiddenController < ApplicationController
   
   layout 'home'
-  before_filter :protect_controller, :except => [:list, :index, :hiding_controls, :report, :unhiding_controls]
+  before_filter :protect_controller, :except => [:list, :index, :hiding_controls, :report, :unhiding_controls, :comment_hiding_controls, :comment_unhiding_controls, :report_comment]
   
   cache_sweeper :content_sweeper, :only => [:hide, :unhide]
+  cache_sweeper :comment_sweeper, :only => [:hide_comment, :unhide_comment]
   
   
   def index
@@ -96,11 +97,64 @@ class HiddenController < ApplicationController
   def hide_comment
     comment = Comment.find(params[:id])
     comment.moderation_status = "hidden"
-    comment.save!
-    content = comment.content
+    if comment.save!
+      class_name = content.class.to_s.humanize.downcase    
+      flash[:notice] = "The comment has been hidden."
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
+    end
   end
   
   def unhide_comment
+    comment = Comment.find(params[:id])
+    comment.moderation_status = "published"
+    if comment.save!
+      class_name = content.class.to_s.humanize.downcase    
+      flash[:notice] = "The comment has been unhidden."
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
+    end    
+  end
+  
+  def comment_hiding_controls
+    @id = params[:id]
+    if current_user.has_permission?("hide")
+      @comment = Comment.find(@id)
+      render :layout => false
+    else
+      render :template => 'hidden/report_comment_controls', :layout => false
+    end
+  end  
+
+  def comment_unhiding_controls
+    @id = params[:id]
+    if current_user.has_permission?("hide")
+      render :layout => false
+    else
+      render :text => "You are not allowed to unhide things."
+    end      
+  end  
+  
+  def report_comment
+    comment = Comment.find(params[:id])
+    class_name = comment.content.class.to_s.humanize.downcase
+    ContentHideMailer.deliver_report_comment(comment, params[:hide_reason], current_user)
+    flash[:notice] = "The comment has been reported to site admins via email."
+    render :update do |page|
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => comment.content
+    end
+  end
+  
+ 
+  
+  def hide_comment
+    comment = Comment.find(params[:id])
+    comment.moderation_status = "hidden"
+    comment.save!
+    class_name = comment.content.class.to_s.humanize.downcase
+    ContentHideMailer.deliver_hide_comment(comment, params[:hide_reason], current_user)
+    flash[:notice] = "The comment has been hidden and reported via email."
+    render :update do |page|
+      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => comment.content
+    end
   end
     
   private

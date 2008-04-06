@@ -4,7 +4,7 @@ class ContentHideMailer < ActionMailer::Base
     @subject    = 'Content Hidden'
     @body      = {:content => content, :reasons => reasons, :user => user}
     @recipients = 'yossarian@aktivix.org'
-    @from       = 'calendar@events.indymedia.org.uk'
+    @from       = 'site@ny.indymedia.dk'
     @sent_on    = Time.now
     @headers    = {}
   end
@@ -13,7 +13,7 @@ class ContentHideMailer < ActionMailer::Base
     @subject    = 'Problem reported with content'
     @body      = {:content => content, :reasons => reasons, :user => user}
     @recipients = 'yossarian@aktivix.org'
-    @from       = 'calendar@events.indymedia.org.uk'
+    @from       = 'site@ny.indymedia.dk'
     @sent_on    = Time.now
     @headers    = {}
   end  
@@ -22,7 +22,7 @@ class ContentHideMailer < ActionMailer::Base
     @subject    = 'Content Unhidden'
     @body       = {:content => content, :reasons => reasons, :user => user}
     @recipients = 'yossarian@aktivix.org'
-    @from       = 'calendar@events.indymedia.org.uk'
+    @from       = 'site@ny.indymedia.dk'
     @sent_on    = Time.now
     @headers    = {}
   end

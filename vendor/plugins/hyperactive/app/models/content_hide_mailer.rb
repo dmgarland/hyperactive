@@ -21,8 +21,8 @@ class ContentHideMailer < ActionMailer::Base
   private 
   
   def setup_email
-    @recipients = 'yossarian@aktivix.org'
-    @from       = "indy site <site@ny.indymedia.dk>"
+    @recipients = MODERATION_EMAIL_RECIPIENTS
+    @from       = MODERATION_EMAIL_FROM
     @sent_on    = Time.now
     @headers    = {}    
   end

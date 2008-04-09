@@ -9,6 +9,9 @@ class HiddenController < ApplicationController
   # ok testing some more radrails here.
   # 
   # what's up?  this is now working great!
+  # this is very strange.
+  # 
+  # but nice
   
     
   def index

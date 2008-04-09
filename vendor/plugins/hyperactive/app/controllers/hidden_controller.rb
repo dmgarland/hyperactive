@@ -6,9 +6,9 @@ class HiddenController < ApplicationController
   cache_sweeper :content_sweeper, :only => [:hide, :unhide]
   cache_sweeper :comment_sweeper, :only => [:hide_comment, :unhide_comment]
   
-  # testing save on aptana.  don't commit this...
+  # ok testing some more radrails here.
   # 
-  # ok it's a big fat fucking test.  working great. 
+  # what's up?  this is now working great!
   
     
   def index

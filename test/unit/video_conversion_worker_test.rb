@@ -58,7 +58,7 @@ class VideoConversionWorkerTest < Test::Unit::TestCase
                                     :args => {:absolute_path => @video, :video_id => "1" })
     assert_equal 1, @middleman.jobs.keys.length
     assert_equal "video1", @middleman.jobs.keys.first
-    assert_equal("1", @middleman.get_worker(worker_key).video_id)
+    assert_equal(1, @middleman.get_worker(worker_key).video_id)
     assert_equal(@video, @middleman.get_worker(worker_key).video_file) 
     sleep 1
     assert File.exists?("#{@video}.jpg")

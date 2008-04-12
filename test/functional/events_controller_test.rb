@@ -126,6 +126,7 @@ class EventControllerTest < Test::Unit::TestCase
                               :title => "A test multiple event", 
                               :date => DateTime.new(2007, 5, 1),
                               :body => "This should repeat",
+                              :summary => "A summary",
                               :published_by => "Yoss",
                               :place => "London",
                             }, 
@@ -165,6 +166,7 @@ class EventControllerTest < Test::Unit::TestCase
                               :title => "A test multiple event", 
                               :date => DateTime.new(2007, 5, 1),
                               :body => "This should repeat",
+                              :summary => "A summary",                              
                               :published_by => "Yoss",
                               :place => "London",
                               

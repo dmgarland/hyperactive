@@ -21,6 +21,19 @@ CREATE TABLE `categories_events` (
   KEY `event_id` (`event_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `created_on` datetime default NULL,
+  `updated_on` datetime default NULL,
+  `published_by` varchar(255) NOT NULL default '',
+  `moderation_status` varchar(50) default NULL,
+  `content_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `fk_comments_content` (`content_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `content` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) NOT NULL default '',
@@ -47,7 +60,7 @@ CREATE TABLE `content` (
   `file_size` int(11) default NULL,
   PRIMARY KEY  (`id`),
   KEY `fk_event_event_group` (`event_group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `event_groups` (
   `id` int(11) NOT NULL auto_increment,
@@ -120,7 +133,7 @@ CREATE TABLE `globalize_translations` (
   PRIMARY KEY  (`id`),
   KEY `index_globalize_translations_on_tr_key_and_language_id` (`tr_key`,`language_id`),
   KEY `globalize_translations_table_name_and_item_and_language` (`table_name`,`item_id`,`language_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7040 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7298 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `groups` (
   `id` int(11) NOT NULL auto_increment,
@@ -158,7 +171,7 @@ CREATE TABLE `links` (
   `post_id` int(11) default NULL,
   PRIMARY KEY  (`id`),
   KEY `fk2_link_event` (`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `pages` (
   `id` int(11) NOT NULL auto_increment,
@@ -176,7 +189,7 @@ CREATE TABLE `photos` (
   `content_id` int(11) default NULL,
   PRIMARY KEY  (`id`),
   KEY `fk2_photo_event` (`content_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `place_taggings` (
   `id` int(11) NOT NULL auto_increment,
@@ -187,14 +200,14 @@ CREATE TABLE `place_taggings` (
   `event_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `place_taggable_index` (`place_tag_id`,`place_taggable_id`,`place_taggable_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=231 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=328 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `place_tags` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_place_tags_on_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `plugin_schema_info` (
   `plugin_name` varchar(255) default NULL,
@@ -209,7 +222,7 @@ CREATE TABLE `roles` (
   `parent_id` int(10) default NULL,
   PRIMARY KEY  (`id`),
   KEY `roles_parent_id_index` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `roles_static_permissions` (
   `role_id` int(10) NOT NULL default '0',
@@ -237,7 +250,7 @@ CREATE TABLE `sessions` (
   PRIMARY KEY  (`id`),
   KEY `index_sessions_on_session_id` (`session_id`),
   KEY `index_sessions_on_updated_at` (`updated_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `static_permissions` (
   `id` int(11) NOT NULL auto_increment,
@@ -246,7 +259,7 @@ CREATE TABLE `static_permissions` (
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `static_permissions_title_index` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `taggings` (
   `id` int(11) NOT NULL auto_increment,
@@ -257,14 +270,14 @@ CREATE TABLE `taggings` (
   `event_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_taggings_on_tag_id_and_taggable_id_and_taggable_type` (`tag_id`,`taggable_id`,`taggable_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `tags` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_tags_on_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `user_registrations` (
   `id` int(11) NOT NULL auto_increment,
@@ -298,13 +311,11 @@ CREATE TABLE `videos` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) NOT NULL default '',
   `file` varchar(255) NOT NULL default '',
-  `content_id` int(11) default NULL,
+  `event_id` int(11) NOT NULL default '0',
   `created_on` datetime default NULL,
   `updated_on` datetime default NULL,
-  `body` varchar(255) default NULL,
-  `processing_status` int(11) default NULL,
   PRIMARY KEY  (`id`),
-  KEY `fk_event_video` (`content_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
+  KEY `fk_event_video` (`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO schema_info (version) VALUES (34)
+INSERT INTO schema_info (version) VALUES (3)

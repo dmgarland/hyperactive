@@ -25,7 +25,7 @@ class VideosControllerTest < Test::Unit::TestCase
     post :create, :content => {
                               :title => "Test content",
                               :file => upload("test/fixtures/fight_test.wmv"),
-                              :body => "This is a test",
+                              :summary => "This is a test",
                               :published_by => "Yoss", 
                               :place => "London" 
                             }, 

@@ -21,12 +21,18 @@ class HomeController < ApplicationController
       :conditions => ['hidden = ? and published = ? and promoted = ? and date >= ?', false, true, false, Date.today], 
       :order => 'date ASC',
       :limit => objects_per_page)
-#    @recent_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
-#      video.processing_status == 2
-#      video.hidden == false
-#      video.promoted == false
-#      video.published == true
-#    end
+    @recent_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
+      video.processing_status == 2
+      video.hidden == false
+      video.promoted == false
+      video.published == true
+    end
+    @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
+      video.processing_status == 2
+      video.hidden == false
+      video.promoted == true
+      video.published == true
+    end    
     @featured_articles = Article.find(
       :all,
       :limit => 5,

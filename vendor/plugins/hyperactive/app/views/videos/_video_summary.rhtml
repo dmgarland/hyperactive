@@ -3,6 +3,6 @@
 <% video_thumb = url_for_file_column(video_summary, "file") %>
 <%= link_to(image_tag(video_thumb + ".small.jpg"), video_summary) %><br/>
 <strong><%=link_to(h(video_summary.title.titleize), video_summary) %></strong><br />
-<%=h video_summary.body %><br/>
+<%=h video_summary.summary %><br/>
 </p>
 </div>

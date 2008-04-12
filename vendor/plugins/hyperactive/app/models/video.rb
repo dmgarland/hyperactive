@@ -11,9 +11,8 @@ class Video < Media
               :root_path => File.join(RAILS_ROOT, "public/system"), 
               :web_root => WEB_ROOT
  
-  validates_presence_of :title
+  validates_presence_of :title, :summary
   validates_length_of :title, :maximum=>255
-  validates_length_of :body, :maximum=>255
   validates_presence_of :file
   validates_file_format_of :file, :in => ["3gp",  "avi", "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"]
   belongs_to :content

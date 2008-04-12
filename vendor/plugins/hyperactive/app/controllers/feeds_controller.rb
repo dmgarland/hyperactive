@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
   
 
   def latest_articles
-    articles = Article.find(:all, :order => 'creaded_on DESC', :limit => 20)
+    articles = Article.find(:all, :order => 'created_on DESC', :limit => 20)
     construct_article_feed(articles, "#{SITE_NAME}: Latest articles")
   end
 
@@ -14,7 +14,7 @@ class FeedsController < ApplicationController
   def upcoming_events
     events = Event.find(:all, 
        :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
-       :order => 'created_on ASC', 
+       :order => 'date ASC', 
        :limit => events_per_feed)
     feedtitle = "#{SITE_NAME}: Upcoming Events"
     construct_event_feed(events, feedtitle)
@@ -61,7 +61,7 @@ class FeedsController < ApplicationController
   
   
   def construct_event_feed(events,feedtitle)
-    options = {:feed => {:title => "IMC-UK: #{feedtitle}",
+    options = {:feed => {:title => feedtitle,
               :item => {:pub_date => :date },
               :link => {:controller => 'events', :action => 'show'}}
               }

@@ -30,11 +30,11 @@ Released   : 20071004
         <%= javascript_include_tag 'swfobject', :plugin => 'hyperactive' %>
      <% end %>     
     <% if controller.action_name == "by_place_tag" %>
-        <%= auto_discovery_link_tag(:rss, :controller => 'event_feed', :action => 'upcoming_place', :scope => params[:scope]) %>
+        <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_by_place', :scope => params[:scope]) %>
     <% elsif controller.action_name == "by_tag" %>
-        <%= auto_discovery_link_tag(:rss, :controller => 'event_feed', :action => 'upcoming_tagged', :scope => params[:scope]) %>
+        <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_tagged', :scope => params[:scope]) %>
     <% else %>
-        <%= auto_discovery_link_tag(:rss, :controller => 'event_feed', :action => 'upcoming') %>
+        <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'latest_articles') %>
     <% end %>
 <meta name="keywords" content="" />
 <meta name="description" content="" />

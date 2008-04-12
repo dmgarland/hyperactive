@@ -5,6 +5,7 @@ a_birthday:
   title: The Birthday
   date: 2006-2-23
   body: This is a birthday. 
+  summary: Foo foo foo  
   published_by: yoss
   place: Japan
   published: true
@@ -17,6 +18,7 @@ zapatista_uprising:
   title: The Zapatista Uprising
   date: 1994-01-01 00:00:00
   body: El sup on the rampage.
+  summary: Foo foo foo  
   published_by: yoss
   place: Chiapas
   published: true
@@ -29,6 +31,7 @@ hidden_event:
   title: A Hidden Event
   date: <%= Date.today %>
   body: This event is hidden.
+  summary: Foo foo foo  
   published_by: yoss
   place: A hidden place
   published: true
@@ -40,6 +43,7 @@ london_meeting1:
   title: London Meeting 1
   date: <%= Date.today + 5 %>
   body: A meeting in London.
+  summary: Foo foo foo  
   published_by: yoss
   place: Camberwell Squatted Centre
   published: true
@@ -52,6 +56,7 @@ london_meeting2:
   title: London Meeting 2
   date: <%= Date.today + 5 %>
   body: A meeting in London.
+  summary: Foo foo foo  
   published_by: yoss
   place: Camberwell Squatted Centre
   published: true
@@ -65,6 +70,7 @@ london_meeting3:
   title: London Meeting 2
   date: <%= Date.today %>
   body: A meeting in London.
+  summary: Foo foo foo  
   published_by: yoss
   place: Camberwell Squatted Centre
   published: true
@@ -78,6 +84,7 @@ unpublished_event:
   title: An unpublished event
   date: <%= Date.today %>
   body: This event is not published.
+  summary: Foo foo foo  
   published_by: yoss
   place: An unpublished place
   published: false
@@ -89,6 +96,7 @@ past_event:
   title: An event in the past
   date: 2006-2-23
   body: This event is in the past.
+  summary: Foo foo foo  
   published_by: yoss
   place: A place
   published: true
@@ -99,6 +107,7 @@ article1:
   id: 10
   title: An article
   body: This is an Article.
+  summary: Foo foo foo
   published_by: yoss
   place: A place
   published: true
@@ -110,6 +119,7 @@ article2:
   id: 11
   title: An article
   body: This is an Article.
+  summary: Foo foo foo
   published_by: yoss
   place: A place
   published: true
@@ -121,6 +131,7 @@ article3:
   id: 12
   title: An article
   body: This is an Article.
+  summary: Foo foo foo
   published_by: yoss
   place: A place
   published: true
@@ -132,6 +143,7 @@ article4:
   id: 13
   title: An article
   body: This is an Article.
+  summary: Foo foo foo
   published_by: yoss
   place: A place
   published: true
@@ -143,6 +155,7 @@ hidden_article:
   id: 14
   title: A hidden article
   body: This is an Article.
+  summary: Foo foo foo
   published_by: yoss
   place: A place
   published: true
@@ -154,6 +167,7 @@ promoted_article:
   id: 15
   title: An article
   body: This is an Article.
+  summary: Foo foo foo  
   published_by: yoss
   place: A place
   published: true
@@ -166,6 +180,7 @@ promoted_article2:
   id: 16
   title: An article
   body: This is an Article.
+  summary: Foo foo foo  
   published_by: yoss
   place: A place
   published: true
@@ -177,7 +192,7 @@ promoted_article2:
 first_video:
   id: 17
   title: a video
-  body: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
   processing_status: 2
@@ -186,7 +201,7 @@ first_video:
 another_video:
   id: 18
   title: another video
-  body: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
   processing_status: 2
@@ -195,7 +210,7 @@ another_video:
 unconverted_video:
   id: 19
   title: a video that hasn't completed processing yet
-  body: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
   processing_status: 1  
@@ -204,7 +219,7 @@ unconverted_video:
 video4:
   id: 20
   title: a video
-  body: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
   processing_status: 2
@@ -213,7 +228,7 @@ video4:
 video5:
   id: 21
   title: another video
-  body: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   promoted: true 
   file: foo.mov
@@ -223,7 +238,7 @@ video5:
 video6:
   id: 22
   title: a video that hasn't completed processing yet
-  body: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
   promoted: true    
@@ -234,7 +249,7 @@ video6:
 hidden_video:
   id: 23
   title: hidden video
-  body: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
   processing_status: 2

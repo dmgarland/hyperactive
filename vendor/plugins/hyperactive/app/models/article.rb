@@ -1,5 +1,5 @@
 class Article < Post
 
-    validates_presence_of :title, :body, :published_by
+    validates_presence_of :title, :body, :summary, :published_by
     
 end

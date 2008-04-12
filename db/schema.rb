@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "authors", :force => true do |t|
     t.column "name", :string
@@ -10,7 +10,7 @@ ActiveRecord::Schema.define(:version => 2) do
 
   create_table "categories", :force => true do |t|
     t.column "name",        :string,   :default => "",    :null => false
-    t.column "description", :text,     :default => "",    :null => false
+    t.column "description", :text,                        :null => false
     t.column "active",      :boolean,  :default => false, :null => false
     t.column "created_on",  :datetime
     t.column "updated_on",  :datetime
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 2) do
   add_index "categories_events", ["event_id"], :name => "event_id"
 
   create_table "comments", :force => true do |t|
-    t.column "title",             :string,                 :default => "", :null => false
-    t.column "body",              :text,                   :default => "", :null => false
+    t.column "title",             :string,                                 :null => false
+    t.column "body",              :text,                                   :null => false
     t.column "created_on",        :datetime
     t.column "updated_on",        :datetime
     t.column "published_by",      :string,                 :default => "", :null => false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 2) do
     t.column "hidden",            :boolean,  :default => false, :null => false
     t.column "created_on",        :datetime
     t.column "updated_on",        :datetime
-    t.column "summary",           :text,     :default => "",    :null => false
+    t.column "summary",           :text,                        :null => false
     t.column "source",            :text
     t.column "published_by",      :string,   :default => "",    :null => false
     t.column "promoted",          :boolean,  :default => false, :null => false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 2) do
     t.column "contact_email",     :string
     t.column "contact_phone",     :string
     t.column "user_id",           :integer
-    t.column "type",              :string,   :default => "",    :null => false
+    t.column "type",              :string,                      :null => false
     t.column "file",              :string
     t.column "content_id",        :integer
     t.column "processing_status", :integer
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(:version => 2) do
 
   create_table "pages", :force => true do |t|
     t.column "title",      :string,   :default => "", :null => false
-    t.column "body",       :text,     :default => "", :null => false
+    t.column "body",       :text,                     :null => false
     t.column "created_on", :datetime
     t.column "updated_on", :datetime
   end
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(:version => 2) do
   create_table "place_taggings", :force => true do |t|
     t.column "place_tag_id",        :integer,                     :null => false
     t.column "place_taggable_id",   :integer,                     :null => false
-    t.column "place_taggable_type", :string,   :default => "",    :null => false
+    t.column "place_taggable_type", :string,                      :null => false
     t.column "hide_tag",            :boolean,  :default => false, :null => false
     t.column "event_date",          :datetime
   end
@@ -194,7 +194,7 @@ ActiveRecord::Schema.define(:version => 2) do
   add_index "place_taggings", ["place_tag_id", "place_taggable_id", "place_taggable_type"], :name => "place_taggable_index", :unique => true
 
   create_table "place_tags", :force => true do |t|
-    t.column "name", :string, :default => "", :null => false
+    t.column "name", :string, :null => false
   end
 
   add_index "place_tags", ["name"], :name => "index_place_tags_on_name", :unique => true
@@ -244,7 +244,7 @@ ActiveRecord::Schema.define(:version => 2) do
   create_table "taggings", :force => true do |t|
     t.column "tag_id",        :integer,                     :null => false
     t.column "taggable_id",   :integer,                     :null => false
-    t.column "taggable_type", :string,   :default => "",    :null => false
+    t.column "taggable_type", :string,                      :null => false
     t.column "hide_tag",      :boolean,  :default => false, :null => false
     t.column "event_date",    :datetime
   end
@@ -252,14 +252,14 @@ ActiveRecord::Schema.define(:version => 2) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type"], :name => "index_taggings_on_tag_id_and_taggable_id_and_taggable_type", :unique => true
 
   create_table "tags", :force => true do |t|
-    t.column "name", :string, :default => "", :null => false
+    t.column "name", :string, :null => false
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "user_registrations", :force => true do |t|
-    t.column "user_id",    :integer,  :limit => 10, :default => 0,  :null => false
-    t.column "token",      :text,                   :default => "", :null => false
+    t.column "user_id",    :integer,  :limit => 10, :default => 0, :null => false
+    t.column "token",      :text,                                  :null => false
     t.column "created_at", :datetime
     t.column "expires_at", :datetime
   end

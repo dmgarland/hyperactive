@@ -60,6 +60,7 @@ module ContentControllerTest
                               :title => "Test content",
                               :date => DateTime.new(2007,1,1),
                               :body => "This is a test",
+                              :summary => "A summary",
                               :published_by => "Yoss", 
                               :place => "London" 
                             }, 

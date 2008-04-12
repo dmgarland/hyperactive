@@ -79,6 +79,7 @@ require 'acts_as_ferret'
 require 'tag_extensions'
 require 'ruby-debug'
 require 'vpim/icalendar'
+require 'redcloth'
 
 TORRENT_TRACKER = 'http://london.escapegoat.org:6969'
 SITE_NAME = 'Indymedia London'
@@ -97,6 +98,14 @@ ActiveSupport::JSON.unquote_hash_key_identifiers = false
 include Globalize
 Locale.set_base_language('en-GB')
 Locale.set('en-GB')
+
+# Email configuration
+# 
+# What address should hide/unhide/inappropriate content notifications be sent to?
+MODERATION_EMAIL_RECIPIENTS = 'yossarian@aktivix.org'
+#
+# Who should moderation emails originate from?
+MODERATION_EMAIL_FROM = "indy site <site@london.escapegoat.org>"
 
 unless RAILS_ENV == 'test'
   # Who gets emails when the site explodes?

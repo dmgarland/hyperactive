@@ -1,2 +1,5 @@
 <h1><%= 'Listing Events by Event Date'.t %></h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
+<% content_for :sidebar do %>
+	<%= render :partial => "events/sidebar/feedbox" %>
+<% end %>

@@ -4,3 +4,6 @@
 </p> 
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <%= paginating_links(@content, :params => params) %>
+<% content_for :sidebar do %>
+	<%= render :partial => "events/sidebar/feedbox" %>
+<% end %>

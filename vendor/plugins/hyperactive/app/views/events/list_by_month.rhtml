@@ -5,3 +5,6 @@
    <%= link_to('>>', :date=>@date.>>(12)) %>  
 </p> 
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
+<% content_for :sidebar do %>
+	<%= render :partial => "events/sidebar/feedbox" %>
+<% end %>

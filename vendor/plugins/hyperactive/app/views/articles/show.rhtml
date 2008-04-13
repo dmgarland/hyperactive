@@ -59,3 +59,7 @@
 <%= render :partial => 'shared/content/comments/form' %>
 
 </div>
+
+<% content_for :sidebar do %>
+	<%= render :partial => "articles/sidebar/feedbox" %>
+<% end %>

@@ -1,0 +1,10 @@
+<% if !@related_content.empty? %>
+<ul>
+    <li>
+        <h2><%= "More like this".t %></h2>
+        <ul>
+            <%= render :partial => 'shared/content/list_title', :collection => @related_content %>
+        </ul>
+    </li>
+</ul>
+<% end %>

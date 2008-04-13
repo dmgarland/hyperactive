@@ -1,0 +1,12 @@
+<% if !@content.nil? %>
+<ul>
+    <li>
+        <h2><%= "Upcoming events feed".t %></h2>
+        <p>
+            <%= "Subscribe to our".t %> <%=  link_to "upcoming events feed".t, upcoming_events_feed_url %>
+			<%= "or visit our" %> <%= link_to "feed center".t, feed_center_url %> 
+			<%= "for more feeds" %>.
+        </p>
+    </li>
+</ul>
+<% end %>

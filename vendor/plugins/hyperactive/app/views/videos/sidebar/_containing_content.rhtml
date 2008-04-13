@@ -1,0 +1,11 @@
+<% if !@content.content.nil? %>
+<ul>
+    <li>
+        <h2><%= "Related #{@content.content.class.to_s.downcase}".t %></h2>
+        <p>
+            <%= "This video was originally uploaded as part of the following #{@content.content.class.to_s.downcase}".t %>.
+        </p>
+        <%= render :partial => 'shared/content/list_title', :object => @content.content %>
+    </li>
+</ul>
+<% end %>

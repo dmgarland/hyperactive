@@ -10,6 +10,11 @@ class FeedsControllerTest < Test::Unit::TestCase
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
+  
+  def test_index
+    get :index
+    assert_response :success
+  end
 
 # Unfortunately there seems to be something weird going on with respect to
 # testing anything to do with resource_feeder.  It uses some method_missing

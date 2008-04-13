@@ -13,7 +13,7 @@ class ActiveRecord::Base
   def tag_with tags
     delete_all_tags
     tags.split(" ").each do |tag|
-      Tag.find_or_create_by_name(tag.downcase).taggables << self
+      Tag.find_or_create_by_name(tag.downcase.gsub(",","")).taggables << self
     end
   end
 
@@ -36,7 +36,7 @@ class ActiveRecord::Base
   def place_tag_with place_tags
     delete_all_place_tags
     place_tags.split(" ").each do |tag|
-      PlaceTag.find_or_create_by_name(tag.downcase).place_taggables << self
+      PlaceTag.find_or_create_by_name(tag.downcase.gsub(",","")).place_taggables << self
     end  
   end
   

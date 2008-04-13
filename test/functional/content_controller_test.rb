@@ -64,12 +64,14 @@ module ContentControllerTest
                               :published_by => "Yoss", 
                               :place => "London" 
                             }, 
-                  :tags => "foo bar",
+                  :tags => "blah, foo bar",
                   :place_tags => ""
                   
     content = model_class.find_by_title("Test content")
     assert_match("foo", content.tag_list)
     assert_match("bar", content.tag_list)
+    assert_match("blah", content.tag_list)
+    assert_no_match(/,/, content.tag_list)
     if model_class == Event
       assert content.taggings.map(&:event_date).include?(content.date)
     end

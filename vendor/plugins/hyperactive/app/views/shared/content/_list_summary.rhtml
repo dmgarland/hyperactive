@@ -6,6 +6,7 @@
 	<% else %>
 		<%=h long_date(list_summary.created_on) unless list_summary.created_on.nil? %>	
 	<% end %>
+	<%= "by" %> <%=h list_summary.published_by %>
 	</small></p>
 	<div class="entry">
 		<% if list_summary.has_thumbnail? %>

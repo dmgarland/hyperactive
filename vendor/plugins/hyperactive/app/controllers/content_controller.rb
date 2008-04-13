@@ -143,13 +143,14 @@ class ContentController < ApplicationController
       redirect_to :action => 'show', :id => @content
     else
       @comment.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)      
-      render :action => 'show'
+      render :template => 'shared/content/comments/form'
     end
   end
   
   def show_comment_form
+    @comment = Comment.new
     @content = model_class.find(params[:id])
-    render :partial => "shared/content/comments/form",:layout => false
+    render :template => "shared/content/comments/form"# ,:layout => false
   end
 
   protected

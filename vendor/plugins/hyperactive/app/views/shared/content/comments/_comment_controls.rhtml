@@ -1,9 +1,4 @@
 <div id="comment_form">
-    <%= link_to_remote "Leave a comment".t,
-                        :url => {:controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content },
-                        :update => 'comment_form',  
-                        :before => "$('comment_form').hide()",
-                        :complete => "new Effect.BlindDown('comment_form');"                 
-    %>
+	<%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %>
 </div>
 

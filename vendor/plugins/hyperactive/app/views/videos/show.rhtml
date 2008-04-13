@@ -1,5 +1,5 @@
 <% @page_title = @content.title %>
-<%= error_messages_for :comment %>
+
 <div id="content-wrap">
     <div id="subpage">
         <%= render :partial => 'shared/content/hidden_notice' %>
@@ -15,7 +15,7 @@
     </p>
     <h2><%= "Comments".t %></h2>
     <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
-    <%= render :partial => 'shared/content/comments/form' %>
+	<%= render :partial => 'shared/content/comments/comment_controls' %>
 </div>
 <% content_for :sidebar do %>
 	<%= render :partial => 'videos/sidebar/containing_content' %>

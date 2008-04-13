@@ -79,7 +79,6 @@ require 'acts_as_ferret'
 require 'tag_extensions'
 require 'ruby-debug'
 require 'vpim/icalendar'
-require 'redcloth'
 
 TORRENT_TRACKER = 'http://london.escapegoat.org:6969'
 SITE_NAME = 'Indymedia London'

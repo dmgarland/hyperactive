@@ -146,6 +146,11 @@ class ContentController < ApplicationController
       render :action => 'show'
     end
   end
+  
+  def show_comment_form
+    @content = model_class.find(params[:id])
+    render :partial => "shared/content/comments/form",:layout => false
+  end
 
   protected
 

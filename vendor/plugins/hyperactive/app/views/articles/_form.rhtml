@@ -1,6 +1,5 @@
 <%= error_messages_for :content %>
 
-<!--[form:event]-->
 <p><em>*</em> = <%= 'required field'.t %></p>
 <p><label for="content_title"><%= 'Title'.t %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
@@ -14,10 +13,10 @@
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
 <p><label for="content_summary"><%= 'Summary'.t %><em>*</em></label><br/>
-<%= textile_editor 'content', 'summary', :cols=>80, :rows=>5  %></p>
+<%= f.text_area 'summary', :cols=>80, :rows=>5  %></p>
 
 <p><label for="content_body"><%= 'Description'.t %><em>*</em></label><br/>
-<%= textile_editor 'content', 'body', :cols=>80, :rows=>20  %></p>
+<%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
 
 <% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
     <p>
@@ -78,6 +77,5 @@ links multiple times.'.t %>
     <%= sub_list_add_link 'Link', 'Add Link' %> (click again for multiple links)
  </fieldset>
 
-<%= textile_editor_initialize -%>
-<!--[eoform:event]-->
+
 

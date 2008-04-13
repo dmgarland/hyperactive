@@ -3,7 +3,11 @@ class Content < ActiveRecord::Base
   set_table_name "content"
     
   acts_as_ferret({:fields => [:title, :body, :summary, :place, :published_by, :hidden, :published, :date], :remote => true } )      
-    
+  
+  include HtmlPurifier
+  
+  before_save :save_purified_html
+  
   has_many :videos
   has_many :photos
   has_many :file_uploads 
@@ -42,5 +46,13 @@ class Content < ActiveRecord::Base
   def has_thumbnail?
     self.photos.length > 0 || self.videos.length > 0
   end
- 
+  
+  protected
+  
+  def save_purified_html
+    self.summary_html = only_allow_some_html(self.summary)
+    self.body_html = only_allow_some_html(self.body)
+  end
+  
+
 end

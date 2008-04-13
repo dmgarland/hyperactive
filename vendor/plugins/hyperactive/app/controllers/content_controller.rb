@@ -191,7 +191,7 @@ class ContentController < ApplicationController
     end
   end  
   
-  # Tricky.  Checks throught the incoming params[:video] hash, selects an array
+  # Tricky.  Checks through the incoming params[:video] hash, selects an array
   # of :ids for uploaded video objects which contain a file, and then selects
   # objects from the @content.videos array which correspond to those :ids, or which 
   # have a processing_status of nil (meaning they are new).
@@ -209,5 +209,5 @@ class ContentController < ApplicationController
     end
     return videos_needing_conversion
   end
- 
+  
 end

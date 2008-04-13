@@ -72,9 +72,6 @@ end
 # Mime::Type.register "application/x-mobile", :mobile
 
 # Include your application configuration below
-
-
-
 require 'acts_as_ferret'
 require 'tag_extensions'
 require 'ruby-debug'

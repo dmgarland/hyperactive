@@ -1,5 +1,9 @@
 class FeedsController < ApplicationController
   
+  layout 'two_column'
+
+  def index
+  end
 
   def latest_articles
     articles = Article.find(:all, :order => 'created_on DESC', :limit => 20)
@@ -28,9 +32,11 @@ class FeedsController < ApplicationController
         :all, 
         :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
         :limit => events_per_feed)
+      feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}'"
+      construct_event_feed(events, feedtitle)
+    else 
+      construct_event_feed([], feedtitle)
     end
-    feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}'"
-    construct_event_feed(events, feedtitle)
   end
   
   def upcoming_events_by_place
@@ -41,9 +47,11 @@ class FeedsController < ApplicationController
         :all, 
         :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
         :limit => events_per_feed)
+      feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}"
+      construct_event_feed(events, feedtitle)
+    else
+      construct_event_feed([], feedtitle)
     end
-    feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}"
-    construct_event_feed(events, feedtitle)
   end
     
   private

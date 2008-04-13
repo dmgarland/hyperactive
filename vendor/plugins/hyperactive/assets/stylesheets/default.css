@@ -377,3 +377,26 @@ img.right {
 #footer a {
 	color: #FFFFFF;
 }
+
+#feed {
+	width: 658px;
+        margin: 0 auto;
+        margin-top: 10px;
+	padding: 4px 2px 0 5px;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	background: #efefef;
+        vertical-align: middle;
+}
+
+#feed .icon {
+	background: url("../images/feediconlarge.gif") no-repeat;
+	height: 28px;
+	display: block;
+        padding: 5px 5px 0 35px;
+	font-size: 1.1em;
+}
+
+#feed span {
+	font-weight: normal;
+}

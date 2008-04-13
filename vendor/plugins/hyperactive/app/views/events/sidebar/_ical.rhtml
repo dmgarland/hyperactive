@@ -1,0 +1,9 @@
+<ul>
+    <li>
+        <h2><%= image_tag "date.png", :plugin => 'hyperactive' %> <%= "Download as iCal".t %></h2>
+        <p>
+			<%= "You may".t %> <%= link_to("import this event into your calendar", :action => 'ical_download', :id => @content) %> <%="using iCal".t %>. 
+        </p>
+    </li>
+</ul>
+

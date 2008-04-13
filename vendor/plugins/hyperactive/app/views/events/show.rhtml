@@ -5,8 +5,6 @@
 <p class="byline"><small><%= 'Event date:'.t %> <%=h long_date(@content.date) %></small></p>
 <p><%= "posted by".t %> <strong><%=h @content.published_by.titleize %></strong></p>
 
-<%= image_tag "date.png", :plugin => 'hyperactive' %><%= link_to("iCal", :action => 'ical_download', :id => @content) %> 
-
 <%= render :partial => 'shared/content/hidden_notice' %>
 
 <% if @content.belongs_to_event_group? %>
@@ -85,4 +83,5 @@
 
 <% content_for :sidebar do %>
 	<%= render :partial => "events/sidebar/feedbox" %>
+	<%= render :partial => "events/sidebar/ical" %>
 <% end %>

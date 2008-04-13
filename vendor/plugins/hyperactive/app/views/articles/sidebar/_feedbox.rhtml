@@ -1,7 +1,7 @@
 <% if !@content.nil? %>
 <ul>
     <li>
-        <h2><%= "Latest articles feed".t %></h2>
+        <h2><%= image_tag "feed-icon-14x14.png", :plugin => 'hyperactive' %> <%= "Latest articles feed".t %></h2>
         <p>
             <%= "Subscribe to our".t %> <%=  link_to "latest articles feed".t, latest_articles_feed_url %>
 			<%= "or visit our" %> <%= link_to "feed center".t, feed_center_url %> 

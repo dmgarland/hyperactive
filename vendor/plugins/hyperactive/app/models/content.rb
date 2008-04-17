@@ -51,7 +51,6 @@ class Content < ActiveRecord::Base
   
   def save_purified_html
     self.summary_html = only_allow_some_html(self.summary)
-    self.body_html = only_allow_some_html(self.body)
   end
   
 

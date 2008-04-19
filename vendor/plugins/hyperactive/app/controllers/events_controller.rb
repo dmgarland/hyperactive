@@ -3,6 +3,16 @@ require 'vendor/plugins/hyperactive/app/models/place_tag.rb'
 
 class EventsController < ContentController
 
+  def upcoming
+    @cloud = Tag.cloud
+    @place_cloud = PlaceTag.cloud
+    @content = model_class.find(
+      :all,  
+      :conditions => ['hidden = ? and published =? and date >=?', false, true, Date.today.to_s], 
+      :order => 'date ASC', 
+      :page => {:size => objects_per_page, :current => page_param})
+  end
+
   def list_by_event_date
     @content = Event.find(
       :all, 

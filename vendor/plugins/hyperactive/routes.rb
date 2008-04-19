@@ -17,6 +17,10 @@ ActionController::Routing::Routes.draw do |map|
       :controller => 'active_rbac/user'
 
 
+  map.upcoming_events 'events/upcoming',
+                :controller => 'events',
+                :action => 'upcoming'  
+  
   map.list_by_month '/events/list_by_month',
                 :controller => 'events',
                 :action => 'list_by_month'

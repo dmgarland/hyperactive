@@ -35,6 +35,7 @@ Released   : 20071004
 </div>
 <div id="menu">
 	<ul id="main">
+	<%= tab_for("Main".t, admin_main_url, :controller_name => "main") %>
 	<%= tab_for("Categories".t, categories_url, :controller_name => "category") %>
 	<%= tab_for("Pages".t, pages_url, :controller_name => "page") %>
 	<%= tab_for("Users".t, users_url, :controller_name => "user") %>

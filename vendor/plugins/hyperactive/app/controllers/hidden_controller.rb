@@ -145,11 +145,12 @@ class HiddenController < ApplicationController
   def unhide_comment
     comment = Comment.find(params[:id])
     comment.moderation_status = "published"
-    if comment.save!
-      class_name = content.class.to_s.humanize.downcase    
-      flash[:notice] = "The comment has been unhidden."
-      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
-    end    
+    comment.save!
+    ContentHideMailer.deliver_unhide_comment(comment, params[:unhide_reason], current_user)
+    flash[:notice] = "The comment has been unhidden."
+    render :update do |page|
+      page.redirect_to latest_comments_url
+    end
   end
   
   private

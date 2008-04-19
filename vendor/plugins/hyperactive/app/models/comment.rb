@@ -10,4 +10,8 @@ class Comment < ActiveRecord::Base
     self.moderation_status = "published"
   end
   
+  def is_hidden?
+    self.moderation_status == "hidden"
+  end
+  
 end

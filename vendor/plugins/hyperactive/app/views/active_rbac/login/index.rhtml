@@ -7,7 +7,7 @@ You are currently logged in as user '<%=h current_user.login %>'.
 <% if current_user.has_permission?("see_admin_nav") %>
 	<p>
 		You are an administrative user. From here you can 
-		<%= link_to "view the site admin pages", users_url %>.	
+		<%= link_to "view the site admin pages", admin_main_url %>.	
 	</p>
 <% end %>
 

@@ -1,0 +1,19 @@
+<% if comment_display.is_hidden? 
+		hidden_notice = "HIDDEN - "
+	else
+		hidden_notice = ""
+end %>
+
+<h3 class="title"><%= hidden_notice %><%=h comment_display.title %></h3>
+<p class="byline">
+    <small>
+        <%= 'Published'.t %>: <%=h long_date(comment_display.created_on) %>
+		<%= "by".t %>
+		<%= comment_display.published_by %>
+    </small>
+</p>
+<%= auto_link(simple_format(h(comment_display.body))) %>
+
+<%= render :partial => 'shared/content/comments/hiding_controls', :locals => {:comment => comment_display } %>
+<p><%= link_to "View in context".t, content_url_for(comment_display.content) %></p>
+<hr/>

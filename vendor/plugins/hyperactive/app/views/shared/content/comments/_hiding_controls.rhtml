@@ -3,14 +3,14 @@
 <div id="<%= comment_hide_div %>">
     <% if comment.moderation_status == "published" %>
         <%= link_to_remote "Inappropriate comment?".t,
-                            :url => {:controller => 'hidden', :action => 'comment_hiding_controls', :id => comment.id },
+                            :url => {:controller => '/hidden', :action => 'comment_hiding_controls', :id => comment.id },
                             :update => comment_hide_div,  
                             :before => "$('#{comment_hide_div}').hide()",
                             :complete => "new Effect.BlindDown('#{comment_hide_div}');"                 
         %>
     <% elsif comment.moderation_status == "hidden" %>
         <%= link_to_remote "Unhide this comment?".t,
-                            :url => {:controller => 'hidden', :action => 'comment_unhiding_controls', :id => comment.id },
+                            :url => {:controller => '/hidden', :action => 'comment_unhiding_controls', :id => comment.id },
                             :update => comment_hide_div,
                             :before => "$('#{comment_hide_div}').hide()",
                             :complete => "new Effect.BlindDown('#{comment_hide_div}');"                 

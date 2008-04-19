@@ -1,5 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
   id: 1
+  title: test comment
+  body: test test
+  created_on: 2006-2-23
 two:
   id: 2
+  title: test comment
+  body: test test
+  created_on: 2006-2-23

@@ -30,6 +30,12 @@ class ContentHideMailer < ActionMailer::Base
     @body       = {:comment => comment, :reasons => reasons, :user => user}
   end
   
+  def unhide_comment(comment, reasons, user)
+    setup_email
+    @subject    = 'Comment unhidden'
+    @body       = {:comment => comment, :reasons => reasons, :user => user}
+  end  
+  
   private 
   
   def setup_email

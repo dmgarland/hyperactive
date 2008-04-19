@@ -8,10 +8,10 @@
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 
+<div class='entry'><%= white_list(@content.summary_html) %></div>
+
 <p><%= 'Places'.t %>: <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
 <p><%=h @content.place %></p>
-
-<div class='entry'><%= white_list(@content.summary_html) %></div>
 
 <% if @content.videos.length > 0 %>
     <h3><%= 'Videos'.t %></h3>

@@ -20,7 +20,7 @@ class EventControllerTest < Test::Unit::TestCase
     @hidden_id = content(:hidden_event).id
   end
    
-  def test_coming
+  def test_upcoming
     get :upcoming
     assert_response :success
     assert_template 'upcoming' 

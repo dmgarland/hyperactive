@@ -20,6 +20,13 @@ class EventControllerTest < Test::Unit::TestCase
     @hidden_id = content(:hidden_event).id
   end
    
+  def test_coming
+    get :upcoming
+    assert_response :success
+    assert_template 'upcoming' 
+    assert_not_nil assigns(:content)
+  end
+   
   def test_list_by_day
     get :list_by_day
     assert_response :success

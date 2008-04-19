@@ -8,10 +8,6 @@ class HomeController < ApplicationController
   
   featured_events = []
   
-  def test
-    render :layout => false
-  end
-  
   def index
     @cloud = Tag.cloud(:limit => tags_in_cloud)
     @place_cloud = PlaceTag.cloud(:limit => tags_in_cloud)

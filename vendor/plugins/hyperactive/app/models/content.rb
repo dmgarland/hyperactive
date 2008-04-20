@@ -70,8 +70,10 @@ class Content < ActiveRecord::Base
     self.summary_html = only_allow_some_html(self.summary)
   end
   
+  # Sets the moderation_status to published unless it's already been set, 
+  # which could happen if an admin user set it during content creation.
   def set_moderation_status_to_published
-    self.moderation_status = "published"
+    self.moderation_status = "published" if self.moderation_status.blank?
   end
   
 end

@@ -78,7 +78,36 @@ module ContentControllerTest
     assert_response :redirect
     assert_redirected_to :action => 'show'
     assert_equal num_content + 1, model_class.count
+    assert_equal "published", content.moderation_status
   end  
+  
+  def test_moderation_status_retained_when_specifically_set_at_creation
+    num_content = model_class.count
+    post :create, :content => {
+                              :title => "Test content2",
+                              :date => DateTime.new(2007,1,1),
+                              :body => "This is a test",
+                              :summary => "A summary",
+                              :moderation_status => "promoted",
+                              :published_by => "Yoss", 
+                              :place => "London" 
+                            }, 
+                  :tags => "blah, foo bar",
+                  :place_tags => ""
+                  
+    content = model_class.find_by_title("Test content2")
+    assert_match("foo", content.tag_list)
+    assert_match("bar", content.tag_list)
+    assert_match("blah", content.tag_list)
+    assert_no_match(/,/, content.tag_list)
+    if model_class == Event
+      assert content.taggings.map(&:event_date).include?(content.date)
+    end
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+    assert_equal num_content + 1, model_class.count
+    assert_equal "promoted", content.moderation_status    
+  end
   
   private
   

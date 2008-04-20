@@ -39,7 +39,32 @@ class VideosControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'show'
     assert_equal num_content + 1, model_class.count
+    assert_equal "published", content.moderation_status    
   end    
+  
+  def test_moderation_status_retained_when_specifically_set_at_creation
+    num_content = model_class.count
+    
+    post :create, :content => {
+                              :title => "Test content",
+                              :file => upload("test/fixtures/fight_test.wmv"),
+                              :summary => "This is a test",
+                              :moderation_status => "promoted",
+                              :published_by => "Yoss", 
+                              :place => "London" 
+                            }, 
+                  :tags => "foo bar",
+                  :place_tags => ""
+    
+    content = model_class.find_by_title("Test content")
+    assert_equal "Test content", content.title
+    assert_match("foo", content.tag_list)
+#    assert_match("bar", content.tag_list)
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+    assert_equal num_content + 1, model_class.count
+    assert_equal "promoted", content.moderation_status    
+  end  
   
   
   def model_class

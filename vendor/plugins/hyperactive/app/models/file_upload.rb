@@ -9,6 +9,6 @@ class FileUpload < ActiveRecord::Base
               :web_root => 'system/'
               
   validates_file_format_of :file, :in => ["mp3", "ogg", "pdf", "doc", "svg", "swf", "xls", "odf", "ppt"] 
-  belongs_to :content
+  belongs_to :post, :foreign_key => 'content_id'
 
 end

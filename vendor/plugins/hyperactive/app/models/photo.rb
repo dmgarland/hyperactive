@@ -8,5 +8,5 @@ class Photo < ActiveRecord::Base
               
   validates_file_format_of :file, :in => ["gif", "png", "jpg"] 
   validates_length_of :title, :maximum=>255
-  belongs_to :content
+  belongs_to :post, :foreign_key => 'content_id'
 end

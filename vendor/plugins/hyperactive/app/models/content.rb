@@ -9,9 +9,6 @@ class Content < ActiveRecord::Base
   before_save :save_purified_html
   before_create :set_moderation_status_to_published
   
-  has_many :videos
-  has_many :photos
-  has_many :file_uploads 
   has_many :comments
   
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"

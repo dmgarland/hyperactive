@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "authors", :force => true do |t|
     t.column "name", :string
@@ -37,28 +37,28 @@ ActiveRecord::Schema.define(:version => 3) do
   add_index "comments", ["content_id"], :name => "fk_comments_content"
 
   create_table "content", :force => true do |t|
-    t.column "title",             :string,   :default => "",    :null => false
+    t.column "title",             :string,   :default => "", :null => false
     t.column "date",              :datetime
     t.column "body",              :text
-    t.column "place",             :string,   :default => "",    :null => false
-    t.column "published",         :boolean,  :default => true,  :null => false
-    t.column "hidden",            :boolean,  :default => false, :null => false
+    t.column "place",             :string,   :default => "", :null => false
     t.column "created_on",        :datetime
     t.column "updated_on",        :datetime
-    t.column "summary",           :text,                        :null => false
+    t.column "summary",           :text,                     :null => false
     t.column "source",            :text
-    t.column "published_by",      :string,   :default => "",    :null => false
-    t.column "promoted",          :boolean,  :default => false, :null => false
+    t.column "published_by",      :string,   :default => "", :null => false
     t.column "end_date",          :datetime
     t.column "event_group_id",    :integer
     t.column "contact_email",     :string
     t.column "contact_phone",     :string
     t.column "user_id",           :integer
-    t.column "type",              :string,                      :null => false
+    t.column "type",              :string,                   :null => false
     t.column "file",              :string
     t.column "content_id",        :integer
     t.column "processing_status", :integer
     t.column "file_size",         :integer
+    t.column "body_html",         :text
+    t.column "summary_html",      :text,                     :null => false
+    t.column "moderation_status", :string
   end
 
   add_index "content", ["event_group_id"], :name => "fk_event_event_group"

@@ -11,14 +11,12 @@ class Event < Post
     new_event.date = event.date
     new_event.body = event.body
     new_event.place = event.place
-    new_event.published = event.published
-    new_event.hidden = event.hidden
+    new_event.moderation_status = event.moderation_status
     new_event.created_on = event.created_on
     new_event.updated_on = event.updated_on
     new_event.summary = event.summary
     new_event.source = event.source      
     new_event.published_by = event.published_by  
-    new_event.promoted = event.promoted
     new_event.user = event.user
     new_event.event_group = event.event_group
     new_event.photos = event.photos
@@ -69,13 +67,13 @@ class Event < Post
   def after_save
     if !tag_list.blank?
       taggings.each do |tagging|
-        tagging.hide_tag = hidden
+        tagging.hide_tag = self.is_hidden?
         tagging.save
       end
     end
     if !place_tag_list.blank?
       place_taggings.each do |place_tagging|
-        place_tagging.hide_tag = hidden
+        place_tagging.hide_tag = self.is_hidden?
         place_tagging.save
       end
     end

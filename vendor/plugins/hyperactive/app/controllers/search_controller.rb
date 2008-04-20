@@ -11,7 +11,7 @@ class SearchController < ApplicationController
     if !@tag.nil?
       @content = @tag.taggables.find(:all, 
 #        :conditions => ['published = ? and hidden = ? and date >= ?', true, false, datestring],  
-        :conditions => ['published = ? and hidden = ?', true, false],  
+        :conditions => ['moderation_status != ?', "hidden"],  
         :order => "date ASC, title",
         :page => {:size => objects_per_page, :current => page}
         )
@@ -28,7 +28,7 @@ class SearchController < ApplicationController
     if !@tag.nil?
       @content = @tag.place_taggables.find(:all, 
 #      :conditions => ['published = ? and hidden = ? and date >= ?', true, false, datestring], 
-      :conditions => ['published = ? and hidden = ?', true, false], 
+      :conditions => ['moderation_status != ?', "hidden"],  
       :order => "date ASC, title",
       :page => {:size => objects_per_page, :current => page})
     end
@@ -39,7 +39,7 @@ class SearchController < ApplicationController
       @search_terms = params[:search][:search_terms]
       @content = Content.paginating_ferret_search(:q => @search_terms,
         :page_size => objects_per_page, 
-        :conditions => ['published = ? and hidden = ?', true, false],         
+        :conditions => ['moderation_status != ?', "hidden"],  
         :current => page_param)
     end
   end

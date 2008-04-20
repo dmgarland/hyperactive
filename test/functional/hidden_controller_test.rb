@@ -54,15 +54,15 @@ class HiddenControllerTest < Test::Unit::TestCase
     post :hide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
     event = Event.find(1)
     assert_response :success
-    assert_equal event.hidden, true, "Hidden event should be hidden."
+    assert_equal "hidden", event.moderation_status, "Hidden event should be hidden."
     assert_equal "The event has been hidden and an email sent.", flash[:notice]
     event.taggings.each do |tagging|
       assert_equal tagging.hide_tag, true
-      assert_equal tagging.hide_tag, event.hidden
+      assert_equal tagging.hide_tag, event.is_hidden?
     end
     event.place_taggings.each do |place_tagging|
       assert_equal place_tagging.hide_tag, true
-      assert_equal place_tagging.hide_tag, event.hidden
+      assert_equal place_tagging.hide_tag, event.is_hidden?
     end
   end
   
@@ -87,15 +87,15 @@ class HiddenControllerTest < Test::Unit::TestCase
     post :unhide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
     event = Event.find(1)
     assert_response :success
-    assert_equal event.hidden, false, "Unhidden event should not be hidden."
+    assert_equal event.moderation_status, "published", "Unhidden event should not be hidden."
     assert_equal "The event has been unhidden and an email sent.", flash[:notice]
     event.taggings.each do |tagging|
       assert_equal tagging.hide_tag, false
-      assert_equal tagging.hide_tag, event.hidden
+      assert_equal tagging.hide_tag, event.is_hidden?
     end   
     event.place_taggings.each do |place_tagging|
       assert_equal place_tagging.hide_tag, false
-      assert_equal place_tagging.hide_tag, event.hidden
+      assert_equal place_tagging.hide_tag, event.is_hidden?
     end
   end
   
@@ -122,7 +122,7 @@ class HiddenControllerTest < Test::Unit::TestCase
     assert_response :success
     event_group = EventGroup.find(1)
     event_group.events.each do |event|
-      assert_equal true, event.hidden, "Event should be hidden after EventGroup hide."
+      assert_equal "hidden", event.moderation_status, "Event should be hidden after EventGroup hide."
     end
   end
   

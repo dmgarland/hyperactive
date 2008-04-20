@@ -60,14 +60,12 @@ class EventTest < Test::Unit::TestCase
     assert_equal @event.date, copy.date
     assert_equal @event.body, copy.body
     assert_equal @event.place, copy.place
-    assert_equal @event.published, copy.published
-    assert_equal @event.hidden, copy.hidden
+    assert_equal @event.moderation_status, copy.moderation_status
     assert_equal @event.created_on, copy.created_on
     assert_equal @event.updated_on, copy.updated_on
     assert_equal @event.summary, copy.summary
     assert_equal @event.source, copy.source
     assert_equal @event.published_by, copy.published_by
-    assert_equal @event.promoted, copy.promoted
     assert_equal @event.user, copy.user
     assert_equal @event.event_group, copy.event_group
     assert_equal @event.photos, copy.photos

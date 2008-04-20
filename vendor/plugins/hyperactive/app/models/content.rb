@@ -7,6 +7,7 @@ class Content < ActiveRecord::Base
   include HtmlPurifier
   
   before_save :save_purified_html
+  before_create :set_moderation_status_to_published
   
   has_many :videos
   has_many :photos
@@ -47,11 +48,30 @@ class Content < ActiveRecord::Base
     self.photos.length > 0 || self.videos.length > 0
   end
   
+  def is_hidden?
+    self.moderation_status == "hidden"  
+  end
+
+  def is_published?
+    self.moderation_status == "published"
+  end
+  
+  def is_promoted?
+    self.moderation_status == "promoted"
+  end
+  
+  def is_not_hidden?
+    self.moderation_status != "hidden"
+  end
+    
   protected
   
   def save_purified_html
     self.summary_html = only_allow_some_html(self.summary)
   end
   
-
+  def set_moderation_status_to_published
+    self.moderation_status = "published"
+  end
+  
 end

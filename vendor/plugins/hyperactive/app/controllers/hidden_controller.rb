@@ -21,7 +21,7 @@ class HiddenController < ApplicationController
   def list
     @content = Content.find(
       :all, 
-      :conditions => ['hidden = ? and published =?', true, true], 
+      :conditions => ['moderation_status = ?', "published"], 
       :order => 'date ASC',
       :page => {:size => 50, :current => page_param})
   end
@@ -35,7 +35,7 @@ class HiddenController < ApplicationController
   def hide_event_group
     event_group = EventGroup.find(params[:id])
     event_group.events.each do |event|
-      event.hidden = 1
+      event.moderation_status = "hidden"
       event.save
     end
     event = event_group.events.first
@@ -58,7 +58,7 @@ class HiddenController < ApplicationController
    
   def hide
     content = Content.find(params[:id])
-    content.hidden = true
+    content.moderation_status = "hidden"
     content.save!
     class_name = content.class.to_s.humanize.downcase
     #set_tagging_visibility(event, false)
@@ -90,7 +90,7 @@ class HiddenController < ApplicationController
   
   def unhide
     content = Content.find(params[:id])
-    content.hidden = false
+    content.moderation_status = "published"
     content.save!
     class_name = content.class.to_s.humanize.downcase    
     #set_tagging_visibility(event, true)

@@ -8,7 +8,7 @@ class EventsController < ContentController
     @place_cloud = PlaceTag.cloud
     @content = model_class.find(
       :all,  
-      :conditions => ['hidden = ? and published =? and date >=?', false, true, Date.today.to_s], 
+      :conditions => ['moderation_status != ? and date >=?', "hidden", Date.today.to_s], 
       :order => 'date ASC', 
       :page => {:size => objects_per_page, :current => page_param})
   end
@@ -16,14 +16,14 @@ class EventsController < ContentController
   def list_by_event_date
     @content = Event.find(
       :all, 
-      :conditions => ['hidden = ? and published = ?', false, true],
+      :conditions => ['moderation_status != ?', "hidden"],
       :order => 'date DESC',
       :page => {:size => objects_per_page, :current => page_param})
   end
   
   def list_by_event_group
     event_group_id = params[:id]
-    @content = Event.find_all_by_event_group_id(event_group_id, :conditions => ['published = ? and hidden = ?', true, false])   
+    @content = Event.find_all_by_event_group_id(event_group_id, :conditions => ['moderation_status != ?', "hidden"])   
   end
   
   def list_by_month
@@ -45,7 +45,7 @@ class EventsController < ContentController
     end
     @content = Event.find(
       :all, 
-      :conditions => ['published = ? and hidden = ? and date > ? and date < ?', true, false, datestring, datestring2], 
+      :conditions => ['moderation_status != ? and date > ? and date < ?', "hidden", datestring, datestring2], 
       :order => 'date ASC',
       :page => {:size => objects_per_page, :current => page_param})
   end
@@ -66,7 +66,7 @@ class EventsController < ContentController
     page = (params[:page] ||= 1).to_i
     @content = Event.find(
       :all, 
-      :conditions => ['published = ? and hidden = ? and date = ?', true, false, datestring], 
+      :conditions => ['moderation_status != ? and date = ?', "hidden", datestring], 
       :page => {:size => objects_per_page, :current => page})  
   end
   
@@ -102,7 +102,7 @@ class EventsController < ContentController
     page = (params[:page] ||= 1).to_i
     @content = Event.find(
       :all, 
-      :conditions => ['published = ? and hidden = ? and date > ? and date < ?', true, false, datestring, datestring2], 
+      :conditions => ['moderation_status != ? and date > ? and date < ?', "hidden", datestring, datestring2], 
       :page => {:size => objects_per_page, :current => page})   
   end
   

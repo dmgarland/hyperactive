@@ -11,11 +11,10 @@ class VideosController < ContentController
   cache_sweeper :videos_sweeper, :only => [:featured_in_player]  
   
   def show
-    @previous_videos = Video.find(:all, :conditions => ['hidden = ? and published = ? and id != ?', false, true, params[:id]], :limit => 5, :order => 'created_on DESC')
+    @previous_videos = Video.find(:all, :conditions => ['moderation_status = ? and id != ?', "published", params[:id]], :limit => 5, :order => 'created_on DESC')
     @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
       video.processing_status == 2
-      video.promoted == true
-      video.published == true
+      video.moderation_status == "published"
     end
     super
   end
@@ -60,7 +59,7 @@ class VideosController < ContentController
     
   def featured_in_player
     videos = Video.find_where(:all, :limit => 3, :order => 'created_on DESC') do |video|
-      video.promoted == true
+      video.moderation_status == "promoted"
       video.processing_status == 2
     end
     featured_vids = []

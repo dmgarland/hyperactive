@@ -34,7 +34,7 @@ class ContentController < ApplicationController
     @place_cloud = PlaceTag.cloud
     @content = model_class.find(
       :all,  
-      :conditions => ['hidden = ? and published =?', false, true], 
+      :conditions => ['moderation_status != ?', "hidden"], 
       :order => 'created_on desc', 
       :page => {:size => objects_per_page, :current => page_param})
   end
@@ -47,15 +47,14 @@ class ContentController < ApplicationController
     end
     @content = model_class.find(
       :all, 
-      :conditions => ['hidden = ? and published = ? and promoted = ?', false, true,true],
-      
+      :conditions => ['moderation_status = ?', "promoted"],     
       :order => order_string,
       :page => {:size => objects_per_page, :current => page_param})
   end  
 
   def show
     @content = model_class.find(params[:id])
-    @related_content = @content.more_like_this({:field_names => [ :title, :summary, :body ]}, {:conditions => ['hidden = ? and published = ?', false, true], :order_by => 'title asc', :limit => 5})
+    @related_content = @content.more_like_this({:field_names => [ :title, :summary, :body ]}, {:conditions => ['moderation_status = ?', "published"], :order_by => 'title asc', :limit => 5})
     if model_class == Event
       @date = @content.date.strftime("%Y-%m-%d")
     end

@@ -101,13 +101,15 @@ class SearchControllerTest < Test::Unit::TestCase
     assert_equal 0, assigns(:content).size, "There should be no events returned when searching for events that are hidden."     
   end
   
-  def test_search_shouldnt_return_unpublished_content
-    get :find_content, :search => {:search_terms => "unpublished"}
-    assert_response :success
-    assert_template 'find_content'
-    assert_not_nil assigns(:content)
-    assert_equal 0, assigns(:content).size, "There should be no events returned when searching for events that are not published."     
-  end  
+   # This is temporarily disabled as there is no such thing as unpublished content.
+   #
+#  def test_search_shouldnt_return_unpublished_content
+#    get :find_content, :search => {:search_terms => "unpublished"}
+#    assert_response :success
+#    assert_template 'find_content'
+#    assert_not_nil assigns(:content)
+#    assert_equal 0, assigns(:content).size, "There should be no events returned when searching for events that are not published."     
+#  end  
 
 #  This test is disabled because I haven't done any work on returning only
 #  future events (search is now for all Content types rather than just events)

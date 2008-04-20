@@ -8,9 +8,7 @@ a_birthday:
   summary: Foo foo foo  
   published_by: yoss
   place: Japan
-  published: true
-  promoted: true
-  hidden: false
+  moderation_status: promoted
   type: Event
   
 zapatista_uprising:
@@ -21,8 +19,7 @@ zapatista_uprising:
   summary: Foo foo foo  
   published_by: yoss
   place: Chiapas
-  published: true
-  hidden: false
+  moderation_status: published
   user_id: 2
   type: Event
     
@@ -34,8 +31,7 @@ hidden_event:
   summary: Foo foo foo  
   published_by: yoss
   place: A hidden place
-  published: true
-  hidden: true
+  moderation_status: hidden
   type: Event
     
 london_meeting1:
@@ -46,8 +42,7 @@ london_meeting1:
   summary: Foo foo foo  
   published_by: yoss
   place: Camberwell Squatted Centre
-  published: true
-  hidden: false
+  moderation_status: published
   event_group_id: 1
   type: Event
     
@@ -59,9 +54,7 @@ london_meeting2:
   summary: Foo foo foo  
   published_by: yoss
   place: Camberwell Squatted Centre
-  published: true
-  promoted: true  
-  hidden: false
+  moderation_status: promoted
   event_group_id: 1
   type: Event
   
@@ -73,23 +66,9 @@ london_meeting3:
   summary: Foo foo foo  
   published_by: yoss
   place: Camberwell Squatted Centre
-  published: true
-  promoted: false  
-  hidden: false
+  moderation_status: published
   event_group_id: 1  
   type: Event
-
-unpublished_event:
-  id: 8
-  title: An unpublished event
-  date: <%= Date.today %>
-  body: This event is not published.
-  summary: Foo foo foo  
-  published_by: yoss
-  place: An unpublished place
-  published: false
-  hidden: false
-  type: Event  
   
 past_event:
   id: 9
@@ -99,8 +78,7 @@ past_event:
   summary: Foo foo foo  
   published_by: yoss
   place: A place
-  published: true
-  hidden: false  
+  moderation_status: published
   type: Event
   
 article1:
@@ -110,8 +88,7 @@ article1:
   summary: Foo foo foo
   published_by: yoss
   place: A place
-  published: true
-  hidden: false  
+  moderation_status: published
   created_on: 2006-2-23
   type: Article 
   
@@ -122,8 +99,7 @@ article2:
   summary: Foo foo foo
   published_by: yoss
   place: A place
-  published: true
-  hidden: false  
+  moderation_status: published
   created_on: 2006-2-23  
   type: Article    
 
@@ -134,8 +110,7 @@ article3:
   summary: Foo foo foo
   published_by: yoss
   place: A place
-  published: true
-  hidden: false  
+  moderation_status: published
   created_on: 2006-2-23  
   type: Article 
   
@@ -146,8 +121,7 @@ article4:
   summary: Foo foo foo
   published_by: yoss
   place: A place
-  published: true
-  hidden: false  
+  moderation_status: published
   created_on: 2006-2-23
   type: Article  
 
@@ -158,8 +132,7 @@ hidden_article:
   summary: Foo foo foo
   published_by: yoss
   place: A place
-  published: true
-  hidden: true  
+  moderation_status: hidden
   created_on: 2006-2-23
   type: Article 
 
@@ -170,9 +143,7 @@ promoted_article:
   summary: Foo foo foo  
   published_by: yoss
   place: A place
-  published: true
-  hidden: false  
-  promoted: true
+  moderation_status: promoted
   created_on: 2006-2-23  
   type: Article   
 
@@ -183,9 +154,7 @@ promoted_article2:
   summary: Foo foo foo  
   published_by: yoss
   place: A place
-  published: true
-  hidden: false  
-  promoted: true
+  moderation_status: promoted
   created_on: 2006-2-23  
   type: Article     
   
@@ -196,6 +165,7 @@ first_video:
   content_id: 1
   file: foo.mov
   processing_status: 2
+  moderation_status: published  
   type: Video
   
 another_video:
@@ -205,6 +175,7 @@ another_video:
   content_id: 1
   file: foo.mov
   processing_status: 2
+  moderation_status: published  
   type: Video
 
 unconverted_video:
@@ -214,6 +185,7 @@ unconverted_video:
   content_id: 1
   file: foo.mov
   processing_status: 1  
+  moderation_status: published  
   type: Video  
   
 video4:
@@ -223,6 +195,7 @@ video4:
   content_id: 1
   file: foo.mov
   processing_status: 2
+  moderation_status: published  
   type: Video
   
 video5:
@@ -230,9 +203,9 @@ video5:
   title: another video
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
-  promoted: true 
   file: foo.mov
   processing_status: 2
+  moderation_status: promoted  
   type: Video
 
 video6:
@@ -241,9 +214,8 @@ video6:
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
-  promoted: true    
+  moderation_status: promoted   
   processing_status: 2
-  hidden: false
   type: Video    
   
 hidden_video:
@@ -253,5 +225,5 @@ hidden_video:
   content_id: 1
   file: foo.mov
   processing_status: 2
-  hidden: true
+  moderation_status: hidden
   type: Video  

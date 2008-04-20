@@ -17,7 +17,7 @@ class FeedsController < ApplicationController
   
   def upcoming_events
     events = Event.find(:all, 
-       :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
+       :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
        :order => 'date ASC', 
        :limit => events_per_feed)
     feedtitle = "#{SITE_NAME}: Upcoming Events"
@@ -30,7 +30,7 @@ class FeedsController < ApplicationController
     if !tag.nil?
       events = tag.taggables.find(
         :all, 
-        :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
+        :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
         :limit => events_per_feed)
       feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}'"
       construct_event_feed(events, feedtitle)
@@ -45,7 +45,7 @@ class FeedsController < ApplicationController
     if !tag.nil?
       events = tag.place_taggables.find(
         :all, 
-        :conditions => ['published = ? and hidden = ? and date >= ?', true, false, Date.today],
+        :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
         :limit => events_per_feed)
       feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}"
       construct_event_feed(events, feedtitle)

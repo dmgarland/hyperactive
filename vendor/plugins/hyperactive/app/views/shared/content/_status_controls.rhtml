@@ -1,10 +1,5 @@
 <% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
-    <p><label for="content_published"><%= 'Published'.t %></label><br/>
-    <%= f.check_box 'published' %></p>
-    
-    <p><label for="content_hidden"><%= 'Hidden'.t %></label><br/>
-    <%= f.check_box 'hidden' %></p>
-    
-    <p><label for="content_promoted"><%= 'Promoted'.t %></label><br/>
-    <%= f.check_box 'promoted' %></p>       
+    <p><label for="content_moderation_status"><%= 'Moderation status'.t %></label><br/>
+    	<%= f.select 'moderation_status', %w(published promoted hidden) %>
+	</p>
 <% end %>

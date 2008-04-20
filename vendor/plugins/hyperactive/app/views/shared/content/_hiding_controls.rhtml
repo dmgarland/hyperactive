@@ -1,5 +1,5 @@
 <div id="hiding-controls">
-    <% if @content.hidden == false %>
+    <% if @content.is_not_hidden? %>
         <%= link_to_remote "Inappropriate #{@content.class.to_s.humanize.downcase}?".t,
                             :url => {:controller => 'hidden', :action => 'hiding_controls', :id => @content.id },
                             :update => 'hiding-controls',  

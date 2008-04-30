@@ -8,7 +8,7 @@ class VideosController < ContentController
   require_dependency 'post'
   
   caches_page :featured_in_player
-  cache_sweeper :videos_sweeper, :only => [:featured_in_player]  
+  cache_sweeper :videos_sweeper, :only => [:create, :update, :destroy]  
   
   def show
     @previous_videos = Video.find(:all, :conditions => ['moderation_status = ? and id != ?', "published", params[:id]], :limit => 5, :order => 'created_on DESC')

@@ -6,4 +6,4 @@ address: 127.0.0.1
 user: www-data
 group: www-data
 pid_file: log/mongrel.pid
-servers: 2
+servers: 5

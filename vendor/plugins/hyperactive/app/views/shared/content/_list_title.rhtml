@@ -1,3 +1,8 @@
 <li>
-	<%= icon_image_for(list_title) %> <%= link_to h(list_title.title), content_url_for(list_title) %><br/>
+	<%= icon_image_for(list_title) %> 
+	<%= link_to h(list_title.title), content_url_for(list_title) %>
+	<% if lists_title.is_as?(Event) %>
+		<%= long_date(list_title.date) %>
+	<% end %>
+	<br/>
 </li>

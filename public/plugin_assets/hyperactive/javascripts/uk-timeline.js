@@ -10,7 +10,7 @@ function onLoad() {
         Timeline.createBandInfo({
             width:          "70%", 
             intervalUnit:   Timeline.DateTime.MONTH, 
-            intervalPixels: 100,
+            intervalPixels: 200,
             eventSource:    eventSource,
             date:           d,
             theme:          theme

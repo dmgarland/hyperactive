@@ -19,6 +19,8 @@
   <%= f.text_area :summary, :rows => 5 %>  
 </label><br/><br/>
 
+<%= render :partial => 'shared/content/comments/allows_comments_controls', :locals => {:f => f} %>
+
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
 <%= render :partial => 'shared/content/tag_entry_controls' %>

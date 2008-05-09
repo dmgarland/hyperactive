@@ -12,7 +12,7 @@ class HiddenController; def rescue_action(e) raise e end; end
 #
 class HiddenControllerTest < Test::Unit::TestCase
   
-  fixtures :content, :event_groups, :users, :roles, :roles_users, :tags, :taggings, :place_tags, :place_taggings
+  fixtures :content, :event_groups, :users, :roles, :roles_users, :tags, :taggings, :place_tags, :place_taggings, :comments
 
   def setup
     @controller = HiddenController.new
@@ -32,10 +32,15 @@ class HiddenControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:content)
   end
   
-  def test_event_hiding_controls_without_being_logged_in
+  def test_hiding_controls_without_being_logged_in
     get :hiding_controls, :id => 1
     assert_template "hidden/report_this_controls", "Users who can't hide should be shown the 'report this' controls"
   end
+  
+  def test_comment_hiding_controls_without_being_logged_in
+    get :comment_hiding_controls, :id => 1
+    assert_template "hidden/report_comment_controls", "Users who can't hide should be shown the 'report this' controls"
+  end  
   
   
   def test_hiding_controls
@@ -44,13 +49,25 @@ class HiddenControllerTest < Test::Unit::TestCase
     assert_template 'hiding_controls'
   end
   
-  def test_hide_event_without_being_logged_in
+  def test_comment_hiding_controls
+    get :comment_hiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
+    assert_response :success
+    assert_template 'comment_hiding_controls'
+  end  
+  
+  def test_hide_content_without_being_logged_in
     post :hide, :id => 1
     assert_redirected_to :action => "index"
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end  
   
-  def test_hide_event
+  def test_hide_comment_without_being_logged_in
+    post :hide_comment, :id => 1
+    assert_redirected_to :action => "index"
+    assert_equal "You are not allowed to access this page.", flash[:notice]
+  end    
+  
+  def test_hide_content
     post :hide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
     event = Event.find(1)
     assert_response :success
@@ -66,22 +83,34 @@ class HiddenControllerTest < Test::Unit::TestCase
     end
   end
   
-  def test_event_unhiding_controls_without_being_logged_in
+  def test_unhiding_controls_without_being_logged_in
     get :unhiding_controls, {:id => 1}
     assert_template "hidden/unreport_this_controls", "Users who can't hide should be shown the 'unreport this' controls containing a security message."
   end  
-  
-  def test_event_unhiding_controls
+   
+  def test_unhiding_controls
     get :unhiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id }
     assert_response :success
     assert_template 'unhiding_controls'    
   end
+  
+  def test_comment_unhiding_controls
+    get :comment_unhiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    assert_response :success
+    assert_template 'comment_unhiding_controls'    
+  end  
 
   def test_unhide_event_without_being_logged_in
     post :unhide_event, {:id => 1}
     assert_redirected_to :action => "index"
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end
+  
+  def test_unhide_comment_without_being_logged_in
+    post :unhide_comment, {:id => 1}
+    assert_redirected_to :action => "index"
+    assert_equal "You are not allowed to access this page.", flash[:notice]
+  end  
   
   def test_unhide_event
     post :unhide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
@@ -98,6 +127,14 @@ class HiddenControllerTest < Test::Unit::TestCase
       assert_equal place_tagging.hide_tag, event.is_hidden?
     end
   end
+  
+  def test_unhide_comment
+    post :unhide_comment, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    comment = Comment.find(1)
+    assert_response :success
+    assert_equal comment.moderation_status, "published", "Unhidden comment should not be hidden."
+    assert_equal "The comment has been unhidden.", flash[:notice]
+  end  
   
   def test_hide_event_group_controls_without_being_logged_in
     get :event_group_hiding_controls, {:id => 1}

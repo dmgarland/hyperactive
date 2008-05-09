@@ -54,7 +54,7 @@
 
 <p><%= link_to 'Back'.t, articles_url %></p>
 
-<h2><%= "Comments".t %></h2>
+<% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
 <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.published_comments %>
 <%= render :partial => 'shared/content/comments/comment_controls' %>
 

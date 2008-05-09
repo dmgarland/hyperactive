@@ -4,8 +4,12 @@ one:
   title: test comment
   body: test test
   created_on: 2006-2-23
+  published_by: foo
+  content_id: 1
 two:
   id: 2
   title: test comment
   body: test test
   created_on: 2006-2-23
+  published_by: foo
+  content_id: 1

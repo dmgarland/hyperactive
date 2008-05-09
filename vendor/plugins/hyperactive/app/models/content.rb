@@ -8,7 +8,7 @@ class Content < ActiveRecord::Base
   
   before_save :save_purified_html
   before_create :set_moderation_status_to_published
-  
+   
   has_many :comments
   
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"
@@ -36,6 +36,14 @@ class Content < ActiveRecord::Base
   #
   def contains_videos?
     self.videos.length > 0
+  end
+  
+  def has_comments?
+    self.comments.length > 0
+  end
+  
+  def allows_comments?
+    self.allows_comments
   end
   
   # A convenience method telling us whether this content has a thumbnail

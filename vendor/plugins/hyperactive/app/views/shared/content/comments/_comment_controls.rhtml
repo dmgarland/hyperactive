@@ -1,4 +1,5 @@
-<div id="comment_form">
-	<%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %>
-</div>
-
+<% if @content.allows_comments %>
+	<div id="comment_form">
+		<%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %>
+	</div>
+<% end %>

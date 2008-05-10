@@ -5,18 +5,9 @@
 unless Rake::TaskManager.methods.include?(:redefine_task)
   module Rake
     module TaskManager
-#      def redefine_task(task_class, args, &block)
-#        task_name, deps = resolve_args(args)
-#        task_name = task_class.scope_name(@scope, task_name)
-#        deps = [deps] unless deps.respond_to?(:to_ary)
-#        deps = deps.collect {|d| d.to_s }
-#        task = @tasks[task_name.to_s] = task_class.new(task_name, self)
-#        task.application = self
-#        task.add_comment(@last_comment)
-#        #@last_comment = nil
-#        task.enhance(deps, &block)
-#        task
-#      end
+      # This code has been patched so that it can work with rake 0.8.1
+      # See the code on rails-engines.org.
+      # 
       def redefine_task(task_class, args, &block)
         task_name, deps = resolve_args([args])
         task_name = task_class.scope_name(@scope, task_name)
@@ -29,8 +20,6 @@ unless Rake::TaskManager.methods.include?(:redefine_task)
         task.enhance(deps, &block)
         task
       end
-
-
     end
     class Task
       class << self

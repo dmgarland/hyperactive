@@ -20,7 +20,7 @@ class VideosController < ContentController
   end
   
   def create
-    @content = Video.new(params[:content])
+    @content = Video.new(params[:content])  
     respond_to do |format|
       if simple_captcha_valid? && @content.save
         @content.tag_with params[:tags]

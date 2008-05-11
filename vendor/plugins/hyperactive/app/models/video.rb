@@ -73,4 +73,13 @@ class Video < Media
     true
   end
   
+  # A convenience method returning the content object that this content  
+  # is attached to. Currently this should only work for Video.
+  # We could just use "self.content" but this method makes 
+  # things hopefully a little more clear as to what's going on.
+  #
+  def related_content
+    self.content
+  end      
+  
 end

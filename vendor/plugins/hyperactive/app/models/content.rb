@@ -21,23 +21,7 @@ class Content < ActiveRecord::Base
   def has_related_content?
     self.respond_to?(:content) && !self.content.nil?
   end
-  
-  # A convenience method returning the content object that this content  
-  # is attached to. Currently this should only work for Video.
-  # We could just use "self.content" but this method makes 
-  # things hopefully a little more clear as to what's going on.
-  #
-  def related_content
-    self.content
-  end    
-  
-  # A convenience method telling us whether this content object has any
-  # videos attached to it.
-  #
-  def contains_videos?
-    self.videos.length > 0
-  end
-  
+      
   def has_comments?
     self.comments.length > 0
   end

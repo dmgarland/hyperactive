@@ -41,7 +41,7 @@ class ContentSweeper < ActionController::Caching::Sweeper
     if content.has_related_content?
       expire_page(:controller => content.related_content.class.to_s.downcase.pluralize, :action => 'show', :id => content.related_content.id)
     end
-    if content.contains_videos?
+    if content.is_a?(Post) && content.contains_videos?
       content.videos.each do |video|
         expire_page(:controller => 'videos', :action => 'show', :id => video.id)
       end

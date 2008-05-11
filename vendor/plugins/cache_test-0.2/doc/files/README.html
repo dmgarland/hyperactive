@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Tue Oct 17 16:41:58 CEST 2006</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Cache Test Plugin</h1>
+<p>
+This plugin adds assertions in test cases to check the caching logic of
+your application.
+</p>
+<h2>1. Installation</h2>
+<p>
+Unpack into the vendor/plugin and that should be it.
+</p>
+<h2>2. Usage</h2>
+<h3>Testing page caching</h3>
+<p>
+First create an integration test. Then, to test caching of the
+&quot;/pages/about&quot; and &quot;/pages/contact&quot; pages, add a method
+like this:
+</p>
+<pre>
+  def test_caching
+    assert_cache_pages(&quot;/pages/about&quot;, &quot;/pages/contact&quot;)
+  end
+</pre>
+<p>
+The assert_cache_pages method will
+</p>
+<ul>
+<li>first make sure that the urls are not cached,
+
+</li>
+<li>execute a get on each request,
+
+</li>
+<li>assert that the corresponding cache files have been created.
+
+</li>
+</ul>
+<p>
+You can also give a block to the assert_cache_pages method. Instead of
+executing a get on each url, it will yield the urls. For example:
+</p>
+<pre>
+  def test_caching
+    assert_cache_pages(&quot;/pages/about&quot;, &quot;/pages/contact&quot;) do |url_about, url_contact|
+      post url_about
+      post url_contact
+    end
+  end
+</pre>
+<h3>Testing expiration of pages</h3>
+<p>
+You will also certainly want (and that&#8217;s really the most interesting
+part) to check if your cached pages expires when the user is doing some
+action. For that, here is the assert_expire method:
+</p>
+<pre>
+  def test_expiring
+    assert_expire_pages(&quot;/news/list&quot;, &quot;/news/show/1&quot;) do |*urls|
+      post &quot;/news/delete/1&quot;
+    end
+  end
+</pre>
+<p>
+Here the assert_expire_pages method will
+</p>
+<ul>
+<li>check that the urls are cached,
+
+</li>
+<li>execute the post request,
+
+</li>
+<li>and assert that the urls are no more cached.
+
+</li>
+</ul>
+<p>
+This is great for testing your cache sweepers logic.
+</p>
+<h3>Testing action caching</h3>
+<p>
+To test caching of the &quot;bar&quot; action of the foo
+&quot;controller&quot; in an integration test, do
+</p>
+<pre>
+  assert_cache_actions(:controller =&gt; &quot;foo&quot;, :action =&gt; &quot;bar&quot;) do
+    get &quot;/foo/bar&quot;
+  end
+</pre>
+<p>
+The assert_cache_actions method will
+</p>
+<ul>
+<li>first make sure that the actions are not cached,
+
+</li>
+<li>yield the given block
+
+</li>
+<li>assert that the corresponding action fragment have been stored.
+
+</li>
+</ul>
+<h3>Testing expiration of actions</h3>
+<p>
+To check that some actions are expired, use the assert_expire_actions
+method:
+</p>
+<pre>
+  assert_expire_actions(:controller =&gt; &quot;foo&quot;, :action =&gt; &quot;bar&quot;) do |*urls|
+    post &quot;/foo/expire_cache&quot;
+  end
+</pre>
+<p>
+Here the assert_expire_actions method will
+</p>
+<ul>
+<li>check that the actions fragments are cached,
+
+</li>
+<li>execute the post request,
+
+</li>
+<li>and assert that the fragments are no more cached.
+
+</li>
+</ul>
+<p>
+In functional test, there can be only one controller, so you are not
+required to give the :controller option and if they are no parameters to
+the action, you can simply call
+</p>
+<pre>
+  assert_cache_actions(:foo, :bar) do
+    get :bar
+    get :foo
+  end
+</pre>
+<h2>Testing fragments caching</h2>
+<p>
+To check that your fragments are cached when doing some action, do
+</p>
+<pre>
+  assert_cache_fragments(:controller =&gt; &quot;foo&quot;, :action =&gt; &quot;bar&quot;, :action_suffix =&gt; &quot;baz&quot;) do
+    get &quot;/foo/bar&quot;
+  end
+</pre>
+<h2>Testing expiration of fragments</h2>
+<p>
+To check that your fragments are expired when doing some action, do
+</p>
+<pre>
+  assert_expire_fragments(:controller =&gt; &quot;foo&quot;, :action =&gt; &quot;bar&quot;, :action_suffix =&gt; &quot;baz&quot;) do
+    get &quot;/foo/expire&quot;
+  end
+</pre>
+<p>
+In functional test, your not required to give the :controller option.
+</p>
+<h2>3. License</h2>
+<p>
+This plugin is licensed under the MIT license. Complete license text is
+included in the <a href="MIT-LICENSE.html">MIT-LICENSE</a> file.
+</p>
+<h2>4. Author</h2>
+<p>
+This plugin was created by Damien Merenne &lt;dam@cosinux.org&gt; and is
+located at <a
+href="http://blog.cosinux.org/pages/page-cache-test">blog.cosinux.org/pages/page-cache-test</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

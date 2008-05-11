@@ -30,8 +30,7 @@ class ContentController < ApplicationController
   end
   
   def index
-    @cloud = Tag.cloud
-    @place_cloud = PlaceTag.cloud
+    @cloud = Tag.cloud(:limit => 20)
     @content = model_class.find(
       :all,  
       :conditions => ['moderation_status != ?', "hidden"], 

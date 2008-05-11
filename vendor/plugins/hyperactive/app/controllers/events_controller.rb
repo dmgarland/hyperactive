@@ -4,8 +4,7 @@ require 'vendor/plugins/hyperactive/app/models/place_tag.rb'
 class EventsController < ContentController
 
   def upcoming
-    @cloud = Tag.cloud
-    @place_cloud = PlaceTag.cloud
+    @cloud = Tag.cloud(:limit => 20)
     @content = model_class.find(
       :all,  
       :conditions => ['moderation_status != ? and date >=?', "hidden", Date.today.to_s], 

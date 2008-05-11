@@ -5,7 +5,7 @@ class VideosController < ContentController
   # Rails does not pull out single-table inheritance subclasses properly on its own.
   # Must require the STI superclass explicitly in controllers.
   require_dependency 'content'    
-  require_dependency 'post'
+  require_dependency 'media'
   
   caches_page :featured_in_player
   cache_sweeper :videos_sweeper, :only => [:create, :update, :destroy]  

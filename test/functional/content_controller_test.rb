@@ -65,13 +65,16 @@ module ContentControllerTest
                               :place => "London" 
                             }, 
                   :tags => "blah, foo bar",
-                  :place_tags => ""
+                  :place_tags => "london, brixton"
                   
     content = model_class.find_by_title("Test content")
+    assert_equal "Test content", content.title
     assert_match("foo", content.tag_list)
     assert_match("bar", content.tag_list)
-    assert_match("blah", content.tag_list)
-    assert_no_match(/,/, content.tag_list)
+    assert_match("london", content.place_tag_list)
+    assert_match("brixton", content.place_tag_list)
+    assert_no_match(/,/, content.tag_list) 
+    assert_no_match(/,/, content.place_tag_list)
     if model_class == Event
       assert content.taggings.map(&:event_date).include?(content.date)
     end

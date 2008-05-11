@@ -29,13 +29,17 @@ class VideosControllerTest < Test::Unit::TestCase
                               :published_by => "Yoss", 
                               :place => "London" 
                             }, 
-                  :tags => "foo bar",
-                  :place_tags => ""
+                  :tags => "foo bar, blah",
+                  :place_tags => "london, brixton"
     
     content = model_class.find_by_title("Test content")
     assert_equal "Test content", content.title
     assert_match("foo", content.tag_list)
-#    assert_match("bar", content.tag_list)
+    assert_match("bar", content.tag_list)
+    assert_match("london", content.place_tag_list)
+    assert_match("brixton", content.place_tag_list)
+    assert_no_match(/,/, content.tag_list) 
+    assert_no_match(/,/, content.place_tag_list)
     assert_response :redirect
     assert_redirected_to :action => 'show'
     assert_equal num_content + 1, model_class.count

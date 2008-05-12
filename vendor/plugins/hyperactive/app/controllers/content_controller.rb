@@ -17,13 +17,16 @@ class ContentController < ApplicationController
   include UIEnhancements::SubList
   helper :SubList
   
-  sub_list 'Photo', 'content' do |photo|
+  # Note: this is a specially hacked sub_list which properly assigns the 
+  # content to the parent subclass.
+  #
+  sub_list 'Photo', 'content', 'post' do |photo|
   end
   
-  sub_list 'Video', 'content' do |video|
+  sub_list 'Video', 'content', 'post' do |video|
   end
 
-  sub_list 'FileUpload', 'content' do |file_upload|
+  sub_list 'FileUpload', 'content', 'post' do |file_upload|
   end
   
   sub_list 'Link', 'content' do |link|

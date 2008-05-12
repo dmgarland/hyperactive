@@ -13,8 +13,8 @@ class Video < Media
  
   validates_presence_of :title, :summary
   validates_length_of :title, :maximum=>255
-  validates_presence_of :file
-  validates_file_format_of :file, :in => ["3gp",  "avi", "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"]
+  validates_presence_of :file unless RAILS_ENV == 'test'
+  validates_file_format_of :file, :in => ["3gp",  "avi", "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"] unless RAILS_ENV == 'test'
   belongs_to :post, :foreign_key => "content_id"
   
   attr_accessor :video_type, :relative_video_file, :relative_ogg_file, :relative_torrent_file

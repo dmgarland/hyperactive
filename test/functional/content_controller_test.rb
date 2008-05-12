@@ -64,6 +64,8 @@ module ContentControllerTest
                               :published_by => "Yoss", 
                               :place => "London" 
                             }, 
+                  :photo => {:foo_photo => {:title => "test", :file => upload("#{RAILS_ROOT}/test/fixtures/fight_test.wmv.jpg")}},         
+                  :video => {:foo_video => {:title => "test", :file => upload("#{RAILS_ROOT}/test/fixtures/fight_test.wmv")}},                                   
                   :tags => "blah, foo bar",
                   :place_tags => "london, brixton"
                   

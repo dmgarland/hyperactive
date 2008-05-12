@@ -32,7 +32,7 @@ CREATE TABLE `comments` (
   `content_id` int(11) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `fk_comments_content` (`content_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `content` (
   `id` int(11) NOT NULL auto_increment,
@@ -40,14 +40,11 @@ CREATE TABLE `content` (
   `date` datetime default NULL,
   `body` text,
   `place` varchar(255) NOT NULL default '',
-  `published` tinyint(1) NOT NULL default '1',
-  `hidden` tinyint(1) NOT NULL default '0',
   `created_on` datetime default NULL,
   `updated_on` datetime default NULL,
   `summary` text NOT NULL,
   `source` text,
   `published_by` varchar(255) NOT NULL default '',
-  `promoted` tinyint(1) NOT NULL default '0',
   `end_date` datetime default NULL,
   `event_group_id` int(11) default NULL,
   `contact_email` varchar(255) default NULL,
@@ -58,9 +55,13 @@ CREATE TABLE `content` (
   `content_id` int(11) default NULL,
   `processing_status` int(11) default NULL,
   `file_size` int(11) default NULL,
+  `body_html` text,
+  `summary_html` text NOT NULL,
+  `moderation_status` varchar(255) default NULL,
+  `allows_comments` tinyint(1) default '1',
   PRIMARY KEY  (`id`),
   KEY `fk_event_event_group` (`event_group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `event_groups` (
   `id` int(11) NOT NULL auto_increment,
@@ -133,7 +134,7 @@ CREATE TABLE `globalize_translations` (
   PRIMARY KEY  (`id`),
   KEY `index_globalize_translations_on_tr_key_and_language_id` (`tr_key`,`language_id`),
   KEY `globalize_translations_table_name_and_item_and_language` (`table_name`,`item_id`,`language_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7298 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7333 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `groups` (
   `id` int(11) NOT NULL auto_increment,
@@ -200,7 +201,7 @@ CREATE TABLE `place_taggings` (
   `event_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `place_taggable_index` (`place_tag_id`,`place_taggable_id`,`place_taggable_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=328 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `place_tags` (
   `id` int(11) NOT NULL auto_increment,
@@ -250,7 +251,7 @@ CREATE TABLE `sessions` (
   PRIMARY KEY  (`id`),
   KEY `index_sessions_on_session_id` (`session_id`),
   KEY `index_sessions_on_updated_at` (`updated_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `static_permissions` (
   `id` int(11) NOT NULL auto_increment,
@@ -259,7 +260,7 @@ CREATE TABLE `static_permissions` (
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `static_permissions_title_index` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `taggings` (
   `id` int(11) NOT NULL auto_increment,
@@ -270,14 +271,14 @@ CREATE TABLE `taggings` (
   `event_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_taggings_on_tag_id_and_taggable_id_and_taggable_type` (`tag_id`,`taggable_id`,`taggable_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=251 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `tags` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_tags_on_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `user_registrations` (
   `id` int(11) NOT NULL auto_increment,
@@ -305,7 +306,7 @@ CREATE TABLE `users` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `users_login_index` (`login`),
   KEY `users_password_index` (`password`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `videos` (
   `id` int(11) NOT NULL auto_increment,
@@ -318,4 +319,4 @@ CREATE TABLE `videos` (
   KEY `fk_event_video` (`event_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO schema_info (version) VALUES (3)
+INSERT INTO schema_info (version) VALUES (10)

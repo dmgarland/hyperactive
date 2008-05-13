@@ -138,7 +138,7 @@ module ActsAsFerret #:nodoc:
                 record ||= options[:base_class].constantize.find(id)
                 content = record.content_for_field_name(field.to_s)
               end
-              puts "have doc: #{doc[:id]} with #{field} == #{content}"
+              #puts "have doc: #{doc[:id]} with #{field} == #{content}"
               token_count = 0
               
               ts = options[:analyzer].token_stream(field, content)

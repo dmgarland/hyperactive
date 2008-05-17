@@ -39,7 +39,7 @@ module ResourceFeeder
       resource_link = lambda { |r| SimplyHelpful::PolymorphicRoutes.polymorphic_url(r, options[:url_writer]) }
 
       xml.instruct!
-      xml.feed "xml:lang" => "en-US", "xmlns" => 'http://www.w3.org/2005/Atom' do
+      xml.feed "xml:lang" => "en-US", "xmlns" => 'http://www.w3.org/2005/Atom',  "xmlns:media" => "http://search.yahoo.com/mrss" do
         xml.title(options[:feed][:title], :type => 'text')
         xml.id("#{request.protocol}#{request.host_with_port}#{request.request_uri}")
         xml.link(:rel => 'alternate', :type => 'text/html', :href => options[:feed][:link])

@@ -35,7 +35,7 @@
     <% end %></p>
 <% end %>
 
-<%= white_list(@content.body_html) %>
+<%= auto_link(simple_format(h(@content.body))) %>
 
 <% if @content.links.length > 0 %>
     <h3><%= 'Links'.t %></h3>

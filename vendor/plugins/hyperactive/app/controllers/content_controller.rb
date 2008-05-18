@@ -80,7 +80,7 @@ class ContentController < ApplicationController
     success &&= initialize_videos
     success &&= initialize_links
     success &&= initialize_file_uploads
-    success &&= simple_captcha_valid? 
+    success &&= !current_user.is_anonymous? || simple_captcha_valid? 
     if success && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]

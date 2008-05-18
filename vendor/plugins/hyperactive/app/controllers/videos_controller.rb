@@ -22,7 +22,7 @@ class VideosController < ContentController
   def create
     @content = Video.new(params[:content])  
     respond_to do |format|
-      if simple_captcha_valid? && @content.save
+      if (!current_user.is_anonymous? || simple_captcha_valid?) && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
         do_video_conversion 

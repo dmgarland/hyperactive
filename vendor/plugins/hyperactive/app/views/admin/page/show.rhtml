@@ -1,8 +1,8 @@
-<% for column in Page.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @page.send(column.name) %>
-</p>
-<% end %>
+<p><strong><%=h @page.title %></strong></p>
+<p><%= auto_link(simple_format(@page.body)) %></p>
+
+<p><strong><%= 'Created on:'.t %></strong> <%=h @page.created_on %></p>
+<p><strong><%= 'Updated on:'.t %></strong> <%=h @page.updated_on %></p>
 
 <%= link_to 'Edit'.t, :action => 'edit', :id => @page %> |
 <%= link_to 'Back'.t, :action => 'list' %>

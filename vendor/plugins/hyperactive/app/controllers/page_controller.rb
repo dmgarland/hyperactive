@@ -1,6 +1,6 @@
 class PageController < ApplicationController
 
-  layout "home"
+  layout "two_column"
 
   def show
     @page = Page.find_by_title(params['title'])

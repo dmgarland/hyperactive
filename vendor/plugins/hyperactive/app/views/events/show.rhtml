@@ -8,9 +8,11 @@
 <%= render :partial => 'shared/content/hidden_notice' %>
 
 <% if @content.belongs_to_event_group? %>
-    <p><%= 'This event is part of a series of repeating events.  To see
-    all the events,'.t %> <%= link_to("click here".t, :action => 'list_by_event_group', :id => @content.event_group) %>.</p>
-    <p><% if current_user.has_permission?("hide") and @content.hidden == false %>
+    <p>
+    	<%= 'This event is part of a series of repeating events.  To see
+    	all the events,'.t %> <%= link_to("click here".t, :action => 'list_by_event_group', :id => @content.event_group) %>.
+	</p>
+<!--    <% if current_user.has_permission?("hide") and @content.hidden == false %>
 	    <div id="event_group_hiding_controls">    
 	            <%= link_to_remote "Hide all events in this series of events".t,
 	                                :url => {:controller => 'hidden', :action => 'event_group_hiding_controls', :id => @content.id },
@@ -19,7 +21,7 @@
 									:complete => visual_effect(:appear, 'event_group_hiding_controls', :duration => 1)                   
 	            %>
 	    </div>
-    <% end %>
+    <% end %> -->
 <% end %>
 <p><%= 'Places:'.t %><%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
 <p><%=h @content.place %>

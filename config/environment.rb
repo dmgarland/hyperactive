@@ -98,7 +98,7 @@ Locale.set('en-GB')
 # Email configuration
 # 
 # What address should hide/unhide/inappropriate content notifications be sent to?
-MODERATION_EMAIL_RECIPIENTS = 'yossarian@aktivix.org'
+MODERATION_EMAIL_RECIPIENTS = 'imc-london-moderation@lists.indymedia.org'
 #
 # Who should moderation emails originate from?
 MODERATION_EMAIL_FROM = "indy site <site@london.escapegoat.org>"

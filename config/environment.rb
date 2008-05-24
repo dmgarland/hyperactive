@@ -110,6 +110,10 @@ unless RAILS_ENV == 'test'
   ExceptionNotifier.email_prefix = "[Hyperactive] "
 end
 
+# Whether the site should use its own stylesheet at public/stylesheets 
+# instead of the stylesheet from the hyperactive plugin.
+USE_LOCAL_CSS = false
+
 # In production mode, loads every view translation into memory once from the database
 # when the application starts, avoiding database calls from globalize.
 #Dispatcher.to_prepare :globalize_view_translations do

@@ -15,5 +15,5 @@ end %>
 <%= auto_link(simple_format(h(comment_display.body))) %>
 
 <%= render :partial => 'shared/content/comments/hiding_controls', :locals => {:comment => comment_display } %>
-<p><%= link_to "View in context".t, content_url_for(comment_display.content) %></p>
+<p><%= link_to "View in context".t, content_url_for(comment_display.content) %> | <%= link_to 'Edit', :action => 'edit_comment', :id => comment_display %></p>
 <hr/>

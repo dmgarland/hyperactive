@@ -20,6 +20,14 @@ module ApplicationHelper
     concat(out || capture(&block), block.binding)
   end  
   
+  def css_from_plugin?
+    if USE_LOCAL_CSS
+      return nil
+    else
+      return 'hyperactive'
+    end
+  end  
+  
   # Create a link to a tag's view page.
   def tag_item_url
     "/search/by_tag/"

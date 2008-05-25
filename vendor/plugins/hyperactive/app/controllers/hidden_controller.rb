@@ -5,15 +5,7 @@ class HiddenController < ApplicationController
   
   cache_sweeper :content_sweeper, :only => [:hide, :unhide]
   cache_sweeper :comment_sweeper, :only => [:hide_comment, :unhide_comment]
-  
-  # ok testing some more radrails here.
-  # 
-  # what's up?  this is now working great!
-  # this is very strange.
-  # 
-  # but nice
-  
-    
+     
   def index
     redirect_to :action => 'list'
   end
@@ -32,20 +24,6 @@ class HiddenController < ApplicationController
     render :layout => false
   end
   
-  def hide_event_group
-    event_group = EventGroup.find(params[:id])
-    event_group.events.each do |event|
-      event.moderation_status = "hidden"
-      event.save
-    end
-    event = event_group.events.first
-    ContentHideMailer.deliver_hide(event, params[:hide_reason], current_user)
-    flash[:notice] = "The events have been hidden and an email sent."
-    render :update do |page|
-      page.redirect_to event_url(event)
-    end  
-  end
-  
   def hiding_controls
     @id = params[:id]
     if current_user.has_permission?("hide")
@@ -57,15 +35,20 @@ class HiddenController < ApplicationController
   end
    
   def hide
-    content = Content.find(params[:id])
-    content.moderation_status = "hidden"
-    content.save!
-    class_name = content.class.to_s.humanize.downcase
-    #set_tagging_visibility(event, false)
-    ContentHideMailer.deliver_hide(content, params[:hide_reason], current_user)
-    flash[:notice] = "The #{class_name} has been hidden and an email sent."
-    render :update do |page|
-      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
+    if params[:hide_all_events_in_event_group]
+      @event_group = Event.find(params[:id]).event_group
+      hide_event_group
+    else
+      content = Content.find(params[:id])
+      content.moderation_status = "hidden"
+      content.save!
+      class_name = content.class.to_s.humanize.downcase
+      #set_tagging_visibility(event, false)
+      ContentHideMailer.deliver_hide(content, params[:hide_reason], current_user)
+      flash[:notice] = "The #{class_name} has been hidden and an email sent."
+      render :update do |page|
+        page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
+      end    
     end
   end
 
@@ -158,6 +141,19 @@ class HiddenController < ApplicationController
   end
   
   private
+  
+  def hide_event_group
+    @event_group.events.each do |event|
+      event.moderation_status = "hidden"
+      event.save
+    end
+    event = @event_group.events.first
+    ContentHideMailer.deliver_hide(event, params[:hide_reason], current_user)
+    flash[:notice] = "The events have been hidden and an email sent."
+    render :update do |page|
+      page.redirect_to event_url(event)
+    end  
+  end  
   
   # TODO: this is gross, but it's the quickest way i can think of 
   # to ensure that tags for hidden events don't show up in tag clouds

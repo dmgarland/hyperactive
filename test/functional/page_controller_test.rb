@@ -5,13 +5,16 @@ require 'page_controller'
 class PageController; def rescue_action(e) raise e end; end
 
 class PageControllerTest < Test::Unit::TestCase
+  
+  fixtures :pages
+  
   def setup
     @controller = PageController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
 
-  # Replace this with your real tests.
+
   def test_show
     get :show, :title => 'About the site'
 

@@ -12,9 +12,6 @@
     	<%= 'This event is part of a series of repeating events.  To see
     	all the events,'.t %> <%= link_to("click here".t, :action => 'list_by_event_group', :id => @content.event_group) %>.
 	</p>
-
-<!-- this is where the multiple-event hiding controls used to appear -->
-
 <% end %>
 <p><%= 'Places:'.t %><%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
 <p><%=h @content.place %>

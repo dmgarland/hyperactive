@@ -155,7 +155,7 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
   
   def test_hide_event_group
-    post :hide_event_group, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    post :hide, {:id => content(:london_meeting1), :hide_all_events_in_event_group => true}, {:rbac_user_id => users(:marcos).id }
     assert_response :success
     event_group = EventGroup.find(1)
     event_group.events.each do |event|

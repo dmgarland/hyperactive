@@ -2,6 +2,15 @@
 <% form_remote_tag(:url => {:controller => :hidden, :action => :hide, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:hide_reason, nil, :size => "50x3")%>
+	 <% if @content.is_a?(Event) && @content.belongs_to_event_group? %>
+	 	<p>
+	 		<%= "This event is part of a series of repeated events.  You can hide all of the events at once by ticking the box below.".t %>
+	 	</p>
+	 	<p>
+	 		<%= check_box_tag(:hide_all_events_in_event_group) %>
+			<label for="hide_all_events_in_event_group"><%= "Hide all events in this event group?".t %></label>
+	 	</p>
+	 <% end %>
      </div>
      <%= submit_tag "Hide".t %>
  <% end %>

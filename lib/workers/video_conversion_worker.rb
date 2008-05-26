@@ -4,6 +4,9 @@
 # by default.
 class VideoConversionWorker < BackgrounDRb::Rails
   
+  require 'digest/sha1'
+  require "#{RAILS_ROOT}/vendor/plugins/hyperactive/lib/rubytorrent/rubytorrent.rb"
+  
   attr_accessor :video_file, :video_id
   
   # This method is called in it's own new thread when you
@@ -23,6 +26,11 @@ class VideoConversionWorker < BackgrounDRb::Rails
     `nice -n +19 ffmpeg2theora #{@video_file}`
     # note: the creation of torrent metafiles depends on the bittornado package, install it into your OS through your package manager
     `btmakemetafile.bittornado #{@torrent_tracker}/announce #{@video_file.chomp(File.extname(@video_file)) + ".ogg"}`
+    
+    torrent = @video_file.chomp(File.extname(@video_file)) + ".ogg.torrent"
+    torrent_worker = MiddleMan.get_worker(1)
+    torrent_worker.add_torrent(torrent)
+    
     unless RAILS_ENV == 'test'
       video_record.processing_status = 2 #SUCCESS #ProcessingStatuses[:success]
       video_record.file_size = File.size?(@video_file)
@@ -32,6 +40,69 @@ class VideoConversionWorker < BackgrounDRb::Rails
       FileUtils.rm "#{RAILS_ROOT}/public/system/cache/featured_videos_json.html", :force => true   # never raises exception
     end
   end
+  
+  
+  # Constructs a torrent file.  For whatever reason, the generated files aren't usable
+  # by libtransmission, so this was all a big waste of time. I'll leave it in for
+  # the moment in case I can get it to work with further hacking.  The other option 
+  # would be to figure out how to extend the libtransmission gem wrapper to take
+  # advantage of libtransmission's ability to make metainfo files.
+  #
+  # To invoke it instead of the btmakemetafile line above, we'd use:
+  # torrent = construct_torrent("#{@video_file.chomp(File.extname(@video_file))}.ogg")
+  #
+  def construct_torrent(file, comment="")
+    files = file
+    mi = RubyTorrent::MetaInfo.new
+    mii = RubyTorrent::MetaInfoInfo.new
+    mii.name = file
+    mii.length = files.inject(0) { |s, f| s + File.size(f) }   
+    mii.piece_length = 32 * 1024
+    mii.pieces = ""
+    i = 0
+    read_pieces(files, mii.piece_length) do |piece|
+      mii.pieces += Digest::SHA1.digest(piece)
+      i += 1
+    end
+    mi.info = mii
+    tier = 1
+    trackers = [@torrent_tracker]
+    mi.announce = URI.parse(@torrent_tracker)
+    mi.announce_list = trackers.map do |tier|
+      tier.map { |x| URI.parse(x) }
+    end 
+    mi.comment = comment
+    mi.created_by = "RubyTorrent make-metainfo (http://rubytorrent.rubyforge.org)"
+    mi.creation_date = Time.now  
+    name = "#{mii.name}.torrent" 
+    File.open(name, "w") do |f|
+      f.write mi.to_bencoding
+    end
+    return name    
+  end
+  
+  
+  private
+  
+  # Reads the pieces of the file into a buffer
+  #
+  def read_pieces(files, length)
+    buf = ""
+    files.each do |f|
+      File.open(f) do |fh|
+        begin
+          read = fh.read(length - buf.length)
+          if (buf.length + read.length) == length
+            yield(buf + read)
+            buf = ""
+          else
+            buf += read
+          end
+        end until fh.eof?
+      end
+    end
+    yield buf
+  end   
 
 end
 

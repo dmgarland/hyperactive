@@ -24,8 +24,9 @@ class VideoConversionWorker < BackgrounDRb::Rails
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 320x240 #{@video_file}.jpg`
     `nice -n +19 ffmpeg -i #{@video_file} -ab 48 -ar 22050 -s 320x240 #{@video_file}.flv`
     `nice -n +19 ffmpeg2theora #{@video_file}`
-    # note: the creation of torrent metafiles depends on the bittornado package, install it into your OS through your package manager
-    `btmakemetafile.bittornado #{@torrent_tracker}/announce #{@video_file.chomp(File.extname(@video_file)) + ".ogg"}`
+    # note: the creation of torrent metafiles depends on the transmissioncli package, install it into your OS through your package manager
+    ogg_file = @video_file.chomp(File.extname(@video_file)) + ".ogg"
+    `transmissioncli -c #{ogg_file} -a  #{@torrent_tracker}/announce --port 51414 #{ogg_file + ".torrent"}`
     
     torrent = @video_file.chomp(File.extname(@video_file)) + ".ogg.torrent"
     torrent_worker = MiddleMan.get_worker(1)

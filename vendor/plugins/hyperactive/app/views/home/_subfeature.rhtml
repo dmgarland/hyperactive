@@ -1,6 +1,6 @@
 	<ul>
 		<li>
 			<h2><%= link_to(h(subfeature.title), article_url(subfeature)) %></h2>
-			<%= h subfeature.summary.to(150) + "..." %>
+			<%= subfeature.summary.to(150) + "..." %>
 		</li>
 	</ul>

@@ -114,7 +114,7 @@ end
 # instead of the stylesheet from the hyperactive plugin.
 USE_LOCAL_CSS = false
 
-WhiteListHelper.tags = %w(strong em b i p code pre tt br ul ol li a blockquote)
+WhiteListHelper.tags = %w(strong em b i p code pre tt br ul ol li a blockquote strike)
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 

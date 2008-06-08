@@ -77,7 +77,7 @@ require 'tag_extensions'
 require 'ruby-debug'
 require 'vpim/icalendar'
 
-TORRENT_TRACKER = 'http://london.escapegoat.org:6969'
+TORRENT_TRACKER = 'http://london.escapegoat.org:6969' unless defined? TORRENT_TRACKER
 SITE_NAME = 'Indymedia London'
 #require 'tag'
 #require 'place_tag'

@@ -4,9 +4,6 @@ class Content < ActiveRecord::Base
     
   acts_as_ferret({:fields => [:title, :body, :summary, :place, :published_by, :hidden, :published, :date], :remote => true } )      
   
-  include HtmlPurifier
-  
-  before_save :save_purified_html
   before_create :set_moderation_status_to_published
    
   has_many :comments
@@ -54,10 +51,6 @@ class Content < ActiveRecord::Base
   end
     
   protected
-  
-  def save_purified_html
-    self.summary_html = only_allow_some_html(self.summary)
-  end
   
   # Sets the moderation_status to published unless it's already been set, 
   # which could happen if an admin user set it during content creation.

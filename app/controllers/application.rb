@@ -2,6 +2,13 @@
 # Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   
+  # Sanitize any parameters submitted via forms before doing anything else
+  # I am thinking that this could eventually be moved into a less global place, 
+  # like maybe into the ContentController on specific actions, but let's put it
+  # here for now while it's being tried out.
+  # 
+  before_filter :sanitize_params
+  
   # Include the ActiveRbac plugin code which runs the authentication and
   # role-based access control system
   #

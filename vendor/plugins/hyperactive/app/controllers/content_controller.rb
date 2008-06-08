@@ -1,5 +1,21 @@
 class ContentController < ApplicationController
 
+  uses_tiny_mce(:options => {:theme => 'advanced',
+                           :browsers => %w{msie gecko safari opera},
+                           :theme_advanced_toolbar_location => "top",
+                           :theme_advanced_toolbar_align => "left",
+                           :theme_advanced_statusbar_location => "bottom",
+                           :theme_advanced_resizing => true,
+                           :theme_advanced_resize_horizontal => false,
+                           :theme_advanced_resizing_use_cookie => true,
+                           :paste_auto_cleanup_on_paste => true,
+                           :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink image separator cleanup code},
+                           :theme_advanced_buttons2 => [],
+                           :theme_advanced_buttons3 => [],
+                           :plugins => %w{paste cleanup}},
+              :only => [:new, :edit, :create, :update])  
+
+
   layout "two_column"
   helper :date
   require 'calendar_dates/month_display.rb'

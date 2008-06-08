@@ -15,7 +15,10 @@ Released   : 20071004
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><%= SITE_NAME %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
     <%= stylesheet_link_tag 'default', :plugin => css_from_plugin? %>
-    <%= javascript_include_tag :prototype, :plugin => 'hyperactive' %>
+  	<%# javascript_include_tiny_mce_if_used %>
+	<%= javascript_include_tag 'tiny_mce/tiny_mce', :plugin => 'tiny_mce' %>
+  	<%= tiny_mce if using_tiny_mce? %>   
+	<%= javascript_include_tag :prototype, :plugin => 'hyperactive' %>
 	<%= javascript_include_tag :application, :plugin => 'hyperactive' %>	
 	<%= javascript_include_tag :effects, :plugin => 'hyperactive' %>
 	<%= javascript_include_tag :controls, :plugin => 'hyperactive' %>

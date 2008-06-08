@@ -17,7 +17,7 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [ :action_web_service ]#, :action_mailer ]
 
   # Only load the plugins named here, by default all plugins in vendor/plugins are loaded
-  #config.plugins = %W( engines active_rbac hyperactive click_to_globalize * )
+  #config.plugins = [:engines, :white_list, :sanitize_params, :hyperactive, :all] 
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
@@ -113,6 +113,10 @@ end
 # Whether the site should use its own stylesheet at public/stylesheets 
 # instead of the stylesheet from the hyperactive plugin.
 USE_LOCAL_CSS = false
+
+WhiteListHelper.tags = %w(strong em b i p code pre tt br ul ol li a blockquote)
+WhiteListHelper.attributes = %w(href src alt title)
+WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 
 # In production mode, loads every view translation into memory once from the database
 # when the application starts, avoiding database calls from globalize.

@@ -15,7 +15,7 @@
 <% end %>
 <p><%= 'Places:'.t %><%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
 <p><%=h @content.place %>
-<div class='entry'><%= auto_link(simple_format(h(@content.summary))) %></div>
+<div class='entry'><%= auto_link(@content.summary) %></div>
 <% if @content.videos.length > 0 %>
     <h3><%= 'Videos'.t %></h3>
     <%= render :partial => "videos/video_summary", :collection => @content.videos %>
@@ -44,7 +44,7 @@
         <%=h file_upload.title %></p>
     <% end %></p>
 <% end %>
-<p><%= auto_link(simple_format(h(@content.body))) %></p>
+<p><%= auto_link(@content.body) %></p>
 <% if @content.links.length > 0 %>
     <p><h3>Links:</h3><br/>
     <% @content.links.each do |link| %>

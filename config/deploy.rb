@@ -180,16 +180,15 @@ namespace :deploy do
   desc "A task demonstrating the use of transactions."
   task :long_deploy do
     backgroundrb.stop
-    ferret.stop
     transaction do
       update_code
       deploy.web:disable
       symlink
+      chown_to_www_data  
       migrate
     end
-    chown_to_www_data  
     restart
-    ferret.start
+    ferret.restart
     backgroundrb.start
     deploy.web:enable
     cleanup

@@ -30,7 +30,7 @@
 	<%= render(:partial => 'videos/help_instructions')%>
 <% else %>
     <strong><%=h video.title.titleize %></strong><br />
-    <%=h video.body %><br/>
+    <%= auto_link(video.body) %><br/>
     <%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), url_for_file_column(video, "file") %> 
     <%= link_to "download original", url_for_file_column(video, "file") %>
     <p><%= "This video is still being converted, or else there has been some kind of error.".t %></p>

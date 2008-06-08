@@ -8,7 +8,7 @@
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 
-<div class='entry'><%= white_list(@content.summary_html) %></div>
+<div class='entry'><%= auto_link(@content.summary) %></div>
 
 <p><%= 'Places'.t %>: <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
 <p><%=h @content.place %></p>
@@ -35,7 +35,7 @@
     <% end %></p>
 <% end %>
 
-<%= auto_link(simple_format(h(@content.body))) %>
+<%= auto_link(@content.body) %>
 
 <% if @content.links.length > 0 %>
     <h3><%= 'Links'.t %></h3>

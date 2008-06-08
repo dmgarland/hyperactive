@@ -32,7 +32,7 @@ role :db,  "london.escapegoat.org", :primary => true
 # =============================================================================
 # OPTIONAL VARIABLES
 # =============================================================================
-set :deploy_to, "/var/rails/imcalendar/" # defaults to "/u/apps/#{application}"
+set :deploy_to, "/home/yossarian/www/london.escapegoat.org/" # defaults to "/u/apps/#{application}"
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 set :user, "yossarian"            # defaults to the currently logged in user
 set :keep_releases, 2            # number of deployed releases to keep
@@ -152,30 +152,16 @@ namespace :deploy do
     
   end # end of ferret namespace  
   
-  namespace :mongrel do
-    [ :stop, :start, :restart ].each do |t|
-      desc "#{t.to_s.capitalize} the mongrel appserver"
-      task t, :roles => :app do
-        #invoke_command checks the use_sudo variable to determine how to run the mongrel_rails command
-        invoke_command "mongrel_rails cluster::#{t.to_s} -C #{mongrel_conf}", :via => run_method
-      end
-    end
-  end # end of mongrel namespace
   
-  desc "Custom restart task for mongrel cluster"
+  desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
-    deploy.mongrel.restart
+    run "touch #{current_path}/tmp/restart.txt"
   end
-  
-  desc "Custom start task for mongrel cluster"
-  task :start, :roles => :app do
-    deploy.mongrel.start
+
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
   end
-  
-  desc "Custom stop task for mongrel cluster"
-  task :stop, :roles => :app do
-    deploy.mongrel.stop
-  end  
 
   desc "An after-update task to copy the correct database and backgroundrb configurations into place."
   task :after_update_code, :roles => :app do

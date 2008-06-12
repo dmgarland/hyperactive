@@ -24,12 +24,14 @@
 			</li>
 		</ul>
 	</div>	
-	<div id="recent_events" class="sidebar_content">
+	<div id="unused" class="sidebar_content">
 		<ul>
 			<li>
-				<h2><%= 'Upcoming Events'.t %></h2>
+				<h2>Featured articles</h2>
 				<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
+					<li>A featured article</li>
+					<li>A featured article</li>
+					<li>A featured article</li>
 				</ul>
 			</li>
 		</ul>
@@ -40,8 +42,23 @@
 <div id="sidebar1" class="sidebar">
 	<ul>
 		<li>
-			<%= render :partial => 'videos/featured_flash_player' %>
-		</li>
+			<h2><%= 'Featured Events'.t %></h2>
+			<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
+			</ul>
+		</li>	
+		<li>
+			<h2>Posters!</h2>
+			<ul>
+				The UN idea of a featured poster would go here.
+			</ul>
+		</li>	
+		<li>
+			<h2><%= 'Upcoming Events'.t %></h2>
+			<ul>
+			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
+			</ul>
+		</li>				
 		<li>
 			<h2><%= link_to "Calendar".t, calendar_month_url %></h2>
 			<div id="calendar_wrap">
@@ -113,20 +130,15 @@
 					</tbody>
 				</table>
 			</div>
-		</li>		
+		</li>
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">
 	<%= render :partial => 'shared/searchbox' %>
 	<ul>
 		<li>
-		</li>
-		<li>
-			<h2><%= 'Featured Events'.t %></h2>
-			<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
-			</ul>
-		</li>			
+			<%= render :partial => 'videos/featured_flash_player' %>
+		</li>	
 		<li>
 			<h2><%= "Neighbourhoods".t %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 

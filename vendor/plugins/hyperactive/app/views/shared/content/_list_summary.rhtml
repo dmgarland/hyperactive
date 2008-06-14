@@ -9,10 +9,9 @@
 	<%= "by" %> <%=h list_summary.published_by %>
 	</small></p>
 	<div class="entry">
-		<% if list_summary.has_thumbnail? %>
+		<p><% if list_summary.has_thumbnail? %>
 			<%= thumbnail_for(list_summary) %>
 		<% end %>
-		<p><%= list_summary.summary %></p>
-		<p class="links"><%= link_to h("Read More".t), content_url_for(list_summary) %></p>
+		<%= list_summary.summary %></p>
 	</div>
 </div>

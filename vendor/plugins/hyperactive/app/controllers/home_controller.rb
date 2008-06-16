@@ -29,17 +29,32 @@ class HomeController < ApplicationController
       video.processing_status == 2
       video.moderation_status == "promoted"
     end    
-    @featured_articles = Article.find(
-      :all,
-      :limit => 5,
-      :order => "created_on DESC",
-      :conditions => ['moderation_status = ?', "promoted"])
     @recent_articles = Article.find(
       :all,
       :limit => objects_per_page,
       :order => "created_on DESC",
       :conditions => ['moderation_status = ?', "published"])
     @pages = Page.find(:all, :order => "title DESC")
+    @promoted_articles = Article.find(:all, :limit => objects_per_page, :order => "created_on DESC",
+      :conditions => ["moderation_status = ?", "promoted"])   
+    setup_featured_articles
   end
   
+  protected
+  
+  # TODO: it's gross that the @top_article is an array, make a new view partial for this
+  # so we can get rid of this.  The front page probably should use something other than 
+  # shared/content/list_summary or whatever it's using anyway.
+  #
+  def setup_featured_articles
+    top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['stick_at_top = ? and moderation_status = ?', true, "featured"])
+    if top_article.nil?
+      top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['moderation_status = ?', "featured"])
+    end
+    @top_article = [top_article]
+    @top_featured_articles = Article.find(:all, :limit => 4, :order => "created_on DESC",
+      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id])
+    @featured_articles = Article.find(:all, :limit => objects_per_page, :offset => 4, :order => "created_on DESC",
+      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id])
+  end 
 end

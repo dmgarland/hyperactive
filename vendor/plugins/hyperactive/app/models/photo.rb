@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
   file_column :file, 
               :magick => { 
-                :versions => { "thumb" => "100x100", "medium" => "480x480>" }
+                :versions => { "thumb" => "100x100", "big_thumb" => "180x180", "medium" => "480x480>" }
               }, 
               :root_path => File.join(RAILS_ROOT, "public/system"), 
               :web_root => 'system/'

@@ -96,4 +96,25 @@ module ApplicationHelper
     end
   end  
 
+  # Same as thumbnail for but in a somewhat larger size.  Note that videos only
+  # have one thumbnail size, so this will return the same thing as thumbnail_for 
+  # for a video.
+  # 
+  def big_thumbnail_for(entity)
+    if entity.class == Video
+      video_thumb = url_for_file_column(entity, "file")
+      link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)
+    elsif entity.class == Article || entity.class == Event
+      if entity.has_thumbnail?
+        if entity.photos.length > 0
+          link_to(image_tag(url_for_file_column(entity.photos.first, "file", "big_thumb"), :class => 'left'), entity)
+        elsif entity.contains_videos?
+          video = entity.videos.first
+          video_thumb = url_for_file_column(video, "file")
+          link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)          
+        end
+      end
+    end
+  end  
+
 end

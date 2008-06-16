@@ -1,25 +1,25 @@
 <!-- start content -->
 <div id="content">
 <%= render(:partial => "layouts/common/flash_notice") %>
-<%= render(:partial => "shared/content/list_summary", :collection => first_featured_article) %>
+<%= render(:partial => "shared/content/list_summary", :collection => @top_article) %>
 
 <!-- start sidebars inside content -->
 <!--  sidebar_content_left -->
 	<div id="subfeature_content_1" class="sidebar_content">
+		<%= render_subfeature(0) %>
 		<%= render_subfeature(1) %>
-		<%= render_subfeature(2) %>
 	</div>
 	<!--  sidebar_content_right -->
 	<div id="subfeature_content_2" class="sidebar_content">
+		<%= render_subfeature(2) %>
 		<%= render_subfeature(3) %>
-		<%= render_subfeature(4) %>
 	</div>
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
 			<li>
-				<h2><%= 'Recent Articles'.t %></h2>
+				<h2><%= 'Older Features'.t %></h2>
 				<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @recent_articles %>			
+				<%= render :partial => '/shared/content/list_title', :collection => @featured_articles %>			
 				</ul>
 			</li>
 		</ul>
@@ -27,11 +27,9 @@
 	<div id="unused" class="sidebar_content">
 		<ul>
 			<li>
-				<h2>Featured articles</h2>
+				<h2><%= 'Promoted Articles'.t %></h2>
 				<ul>
-					<li>A featured article</li>
-					<li>A featured article</li>
-					<li>A featured article</li>
+				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>			
 				</ul>
 			</li>
 		</ul>
@@ -49,9 +47,14 @@
 		</li>	
 		<li>
 			<h2>Posters!</h2>
-			<ul>
-				The UN idea of a featured poster would go here.
-			</ul>
+			<div id="event_poster">
+				<div>
+				<p>
+					<%= big_thumbnail_for(most_recent_promoted_event_with_image) unless most_recent_promoted_event_with_image.nil? %><br/>
+					<%= most_recent_promoted_event_with_image.title %>
+				</p>
+				</div>
+			</div>
 		</li>	
 		<li>
 			<h2><%= 'Upcoming Events'.t %></h2>

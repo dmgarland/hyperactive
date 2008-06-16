@@ -29,6 +29,10 @@ class HomeControllerTest < Test::Unit::TestCase
     assert_no_match(/A Hidden Event/, @response.body)
   end
   
+  def test_index_with_stick_at_top_is_stuck_at_top
+
+  end
+  
   def test_index_retrieves_tag_clouds
     get :index
     assert_response :success

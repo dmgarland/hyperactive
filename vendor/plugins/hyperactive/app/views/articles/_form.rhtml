@@ -1,5 +1,10 @@
 <%= error_messages_for :content %>
 
+<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
+
+<%= render :partial => 'articles/stick_at_top_controls', :locals => {:f => f} %>
+
+
 <p><em>*</em> = <%= 'required field'.t %></p>
 <p><label for="content_title"><%= 'Title'.t %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
@@ -27,8 +32,6 @@
 <% end %>
 
 <%= render :partial => 'shared/content/comments/allows_comments_controls', :locals => {:f => f} %>
-
-<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 

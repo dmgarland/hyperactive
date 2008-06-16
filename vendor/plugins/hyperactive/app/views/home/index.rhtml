@@ -1,7 +1,7 @@
 <!-- start content -->
 <div id="content">
 <%= render(:partial => "layouts/common/flash_notice") %>
-<%= render(:partial => "shared/content/list_summary", :collection => @top_article) %>
+<%= render(:partial => "shared/content/list_summary", :object => @top_article) unless @top_article.nil? %>
 
 <!-- start sidebars inside content -->
 <!--  sidebar_content_left -->
@@ -19,7 +19,7 @@
 			<li>
 				<h2><%= 'Older Features'.t %></h2>
 				<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @featured_articles %>			
+				<%= render :partial => '/shared/content/list_title', :collection => @featured_articles unless @featured_articles.nil? %>			
 				</ul>
 			</li>
 		</ul>
@@ -51,7 +51,7 @@
 				<div>
 				<p>
 					<%= big_thumbnail_for(most_recent_promoted_event_with_image) unless most_recent_promoted_event_with_image.nil? %><br/>
-					<%= most_recent_promoted_event_with_image.title %>
+					<%= most_recent_promoted_event_with_image.title unless most_recent_promoted_event_with_image.nil?  %>
 				</p>
 				</div>
 			</div>

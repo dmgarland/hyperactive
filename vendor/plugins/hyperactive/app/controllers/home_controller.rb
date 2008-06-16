@@ -47,14 +47,13 @@ class HomeController < ApplicationController
   # shared/content/list_summary or whatever it's using anyway.
   #
   def setup_featured_articles
-    top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['stick_at_top = ? and moderation_status = ?', true, "featured"])
-    if top_article.nil?
-      top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['moderation_status = ?', "featured"])
+    @top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['stick_at_top = ? and moderation_status = ?', true, "featured"])
+    if @top_article.nil?
+      @top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['moderation_status = ?', "featured"])
     end
-    @top_article = [top_article]
     @top_featured_articles = Article.find(:all, :limit => 4, :order => "created_on DESC",
-      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id]) unless top_article.nil?
+      :conditions => ["moderation_status = ? and id != ?", "featured",  @top_article.id]) unless @top_article.nil?
     @featured_articles = Article.find(:all, :limit => objects_per_page, :offset => 4, :order => "created_on DESC",
-      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id]) unless top_article.nil?
+      :conditions => ["moderation_status = ? and id != ?", "featured",  @top_article.id]) unless @top_article.nil?
   end 
 end

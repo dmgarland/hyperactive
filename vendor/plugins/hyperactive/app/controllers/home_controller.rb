@@ -53,8 +53,8 @@ class HomeController < ApplicationController
     end
     @top_article = [top_article]
     @top_featured_articles = Article.find(:all, :limit => 4, :order => "created_on DESC",
-      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id])
+      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id]) unless top_article.nil?
     @featured_articles = Article.find(:all, :limit => objects_per_page, :offset => 4, :order => "created_on DESC",
-      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id])
+      :conditions => ["moderation_status = ? and id != ?", "featured",  top_article.id]) unless top_article.nil?
   end 
 end

@@ -14,12 +14,22 @@
 		<%= render_subfeature(2) %>
 		<%= render_subfeature(3) %>
 	</div>
+	<div id="special_content" class="sidebar_content_wide">
+		<ul>
+			<li>
+				<h2>Special Features</h2>
+					If people like the idea, this box can contain some special text, like a featured analysis, 
+					or maybe a tour of the new site.  It is not currently updateable through the admin system
+					but it could be made updateable relatively easily.
+			</li>
+		</ul>
+	</div>
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
 			<li>
 				<h2><%= 'Older Features'.t %></h2>
 				<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @featured_articles unless @featured_articles.nil? %>			
+					<%= render :partial => '/shared/content/list_title', :collection => @featured_articles unless @featured_articles.nil? %>			
 				</ul>
 			</li>
 		</ul>

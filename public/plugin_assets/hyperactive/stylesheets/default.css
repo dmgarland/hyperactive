@@ -258,6 +258,41 @@ img.right {
 
 
 
+
+/* Special content bar */
+
+.sidebar_content_wide {
+	float: left;
+	width: 400px;
+	padding: 0 0 0 5px;
+}
+
+.sidebar_content_wide ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar_content_wide li {
+	padding: 0 0 5px 0;
+}
+
+.sidebar_content_wide li ul {
+}
+
+.sidebar_content_wide li li {
+	padding: 2px 0 2px 12px;
+	background: url(../images/img04.gif) no-repeat 10px 9px;
+}
+
+.sidebar_content_wide li h2 {
+	margin: 0 0 5px 0;
+	padding: 2px 5px;
+	background: url(../images/img02.gif) repeat-x;
+	border: 1px solid #F2F2F2;
+	font-size: 12px;
+}
+
 /* Sidebars */
 
 .sidebar {

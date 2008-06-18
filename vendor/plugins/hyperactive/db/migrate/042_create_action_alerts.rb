@@ -2,7 +2,10 @@ class CreateActionAlerts < ActiveRecord::Migration
   def self.up
     create_table :action_alerts do |t|
       t.column :title, :string, :null => false
-      t.column :body, :text, :null => false
+      t.column :summary, :text, :null => false
+      t.column :on_front_page, :boolean, :null => false, :default => false
+      t.column :created_on, :timestamp
+      t.column :updated_on, :timestamp
     end
   end
 

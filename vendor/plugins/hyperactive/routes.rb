@@ -103,6 +103,10 @@ ActionController::Routing::Routes.draw do |map|
   #
   map.feed_center 'feeds',
                 :controller => 'feeds'
+                
+  map.action_alert_feed '/feeds/action_alerts',
+                :controller => 'feeds',
+                :action => 'action_alerts'
   
   map.video_feed '/feeds/latest_videos', 
                 :controller => 'feeds', 

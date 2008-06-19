@@ -1,6 +1,9 @@
 class Admin::PageController < ApplicationController
 
+  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
+
   uses_tiny_mce(:options => {:theme => 'advanced',
+  
                            :browsers => %w{msie gecko safari opera},
                            :theme_advanced_toolbar_location => "top",
                            :theme_advanced_toolbar_align => "left",

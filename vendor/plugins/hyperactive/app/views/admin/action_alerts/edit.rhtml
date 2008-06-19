@@ -1,0 +1,9 @@
+<h1>Editing action alert</h1>
+
+<% form_tag :action => 'update', :id => @action_alert do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit'.t %>
+<% end %>
+
+<%= link_to 'Show'.t, :action => 'show', :id => @action_alert %> |
+<%= link_to 'Back'.t, :action => 'list' %>

@@ -1,22 +1,22 @@
 class ContentSweeper < ActionController::Caching::Sweeper
   
-  observe Content
+  observe ActionAlert, Content, Page
   
   def after_create(content)
     expire_home_page
-    expire_cache_for_content_related_to(content)    
+    expire_cache_for_content_related_to(content) if content.is_a?(Content)
   end
 
   def after_update(content)
     expire_home_page
-    expire_cache_for(content)
-    expire_cache_for_content_related_to(content)        
+    expire_cache_for(content) if content.is_a?(Content)
+    expire_cache_for_content_related_to(content) if content.is_a?(Content) 
   end
   
   def after_destroy(content)
     expire_home_page
-    expire_cache_for(content)
-    expire_cache_for_content_related_to(content)        
+    expire_cache_for(content) if content.is_a?(Content)
+    expire_cache_for_content_related_to(content) if content.is_a?(Content)      
   end
   
   private
@@ -25,7 +25,7 @@ class ContentSweeper < ActionController::Caching::Sweeper
   # cache of the home page in case the content is on the home page.
   #
   def expire_home_page
-    expire_page(:controller => 'home', :action => 'index')
+    expire_page(:controller => '/home', :action => 'index')
   end
   
   # Expire the cache for the content show page.  

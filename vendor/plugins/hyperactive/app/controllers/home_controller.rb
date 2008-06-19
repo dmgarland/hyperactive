@@ -38,6 +38,7 @@ class HomeController < ApplicationController
     @promoted_articles = Article.find(:all, :limit => objects_per_page, :order => "created_on DESC",
       :conditions => ["moderation_status = ?", "promoted"])   
     setup_featured_articles
+    setup_action_alert
   end
   
   protected
@@ -56,4 +57,11 @@ class HomeController < ApplicationController
     @featured_articles = Article.find(:all, :limit => objects_per_page, :offset => 4, :order => "created_on DESC",
       :conditions => ["moderation_status = ? and id != ?", "featured",  @top_article.id]) unless @top_article.nil?
   end 
+  
+  # If there are currently any action alerts which are marked as showing up on the front page, 
+  # get the most recent one so it can be inserted into the page.
+  #
+  def setup_action_alert
+    @action_alert = ActionAlert.find(:first, :order => "created_on DESC", :conditions => ['on_front_page = ?', true])
+  end
 end

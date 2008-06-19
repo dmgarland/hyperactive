@@ -1,5 +1,11 @@
 <!-- start content -->
 <div id="content">
+<% if !@action_alert.nil? %>
+	<div id="action-alert">
+		<p><strong>Action alert!: <%= @action_alert.summary %></strong></p>
+	</div>
+<% end %>
+
 <%= render(:partial => "layouts/common/flash_notice") %>
 <%= render(:partial => "shared/content/list_summary", :object => @top_article) unless @top_article.nil? %>
 

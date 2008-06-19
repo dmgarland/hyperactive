@@ -5,6 +5,11 @@ class FeedsController < ApplicationController
   def index
   end
 
+  def action_alerts
+    action_alerts = ActionAlert.find(:all, :order => 'created_on DESC', :limit => 20)
+    construct_action_alerts_feed(action_alerts, "#{SITE_NAME}: Action Alerts")
+  end
+
   def latest_articles
     articles = Article.find(:all, :order => 'created_on DESC', :limit => 20)
     construct_article_feed(articles, "#{SITE_NAME}: Latest articles")
@@ -55,6 +60,17 @@ class FeedsController < ApplicationController
   end
     
   private
+  
+  def construct_action_alerts_feed(action_alerts, feedtitle)
+    options = {:feed => {:title => feedtitle,
+              :item => {:pub_date => :created_on },
+              :link => {:controller => 'action_alerts', :action => 'list'}}
+              }
+    respond_to do |wants|
+      wants.rss { render_rss_feed_for action_alerts, options }
+      wants.atom { render_atom_feed_for action_alerts, options}
+    end                  
+  end
   
   def construct_article_feed(articles, feedtitle)
     options = {:feed => {:title => feedtitle,

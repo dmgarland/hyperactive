@@ -1,0 +1,26 @@
+<h1><%= 'Listing action alerts'.t %></h1>
+
+<table>
+  <tr>
+  <% for column in ActionAlert.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for action_alert in @action_alerts %>
+  <tr>
+  <% for column in ActionAlert.content_columns %>
+    <td><%=h action_alert.send(column.name).to_s.slice(0, 50) %></td>
+  <% end %>
+    <td><%= link_to 'Show'.t, :action => 'show', :id => action_alert %></td>
+    <td><%= link_to 'Edit'.t, :action => 'edit', :id => action_alert %></td>
+    <td><%= link_to 'Destroy'.t, { :action => 'destroy', :id => action_alert }, :confirm => 'Are you sure?', :method => "post" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= paginating_links(@action_alerts) %>
+
+<br />
+
+<%= link_to 'New action alert', :action => 'new' %>

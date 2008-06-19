@@ -1,4 +1,4 @@
-<p><%= auto_link(simple_format(@action_alert.summary)) %></p>
+<%= render :partial => 'show' %>
 
 <p><strong><%= 'Created on:'.t %></strong> <%=h @action_alert.created_on %></p>
 <p><strong><%= 'Updated on:'.t %></strong> <%=h @action_alert.updated_on %></p>

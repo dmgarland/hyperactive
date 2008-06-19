@@ -1,5 +1,7 @@
 <h1>Editing action alert</h1>
 
+<%= render :partial => 'show' %>
+
 <% form_tag :action => 'update', :id => @action_alert do %>
   <%= render :partial => 'form' %>
   <%= submit_tag 'Edit'.t %>

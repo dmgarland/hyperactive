@@ -5,8 +5,8 @@
 ActiveRecord::Schema.define(:version => 14) do
 
   create_table "action_alerts", :force => true do |t|
-    t.column "summary",       :string,   :limit => 140,                    :null => false
-    t.column "on_front_page", :boolean,                 :default => false, :null => false
+    t.column "summary",       :string,                      :null => false
+    t.column "on_front_page", :boolean,  :default => false, :null => false
     t.column "created_on",    :datetime
     t.column "updated_on",    :datetime
   end

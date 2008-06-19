@@ -2,16 +2,18 @@
 
 <table>
   <tr>
-  <% for column in ActionAlert.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
+    <th>Summary</th>
+	<th>On front page?</th>
+	<th>Created on</th>	
+	<th>Updated on</th>
   </tr>
   
 <% for action_alert in @action_alerts %>
   <tr>
-  <% for column in ActionAlert.content_columns %>
-    <td><%=h action_alert.send(column.name).to_s.slice(0, 50) %></td>
-  <% end %>
+    <td><%= action_alert.description %></td>
+    <td><%= action_alert.on_front_page %></td>
+    <td><%= long_date(action_alert.created_on) %></td>
+    <td><%= long_date(action_alert.updated_on) %></td>
     <td><%= link_to 'Show'.t, :action => 'show', :id => action_alert %></td>
     <td><%= link_to 'Edit'.t, :action => 'edit', :id => action_alert %></td>
     <td><%= link_to 'Destroy'.t, { :action => 'destroy', :id => action_alert }, :confirm => 'Are you sure?', :method => "post" %></td>

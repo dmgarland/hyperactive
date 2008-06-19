@@ -40,10 +40,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :videos
   map.resources :events, :collection => { :list_promoted => :get }
   map.resources :articles
+  map.resources :action_alerts
   
   map.admin_main 'admin/main', :controller => 'admin/main'
   map.latest_comments 'admin/main/latest_comments', :controller => 'admin/main', :action => 'latest_comments'
-  map.action_alerts 'admin/action_alerts', :controller => 'admin/action_alerts'
+  map.admin_action_alerts 'admin/action_alerts', :controller => 'admin/action_alerts'
   map.categories 'admin/categories/', :controller => 'admin/category'
   map.pages 'admin/pages', :controller => 'admin/page'
   map.users 'admin/users', :controller => 'active_rbac/user'

@@ -5,6 +5,22 @@ class Admin::ActionAlertsController < ApplicationController
  
   layout "admin"
 
+  uses_tiny_mce(:options => {:theme => 'advanced',
+                           :browsers => %w{msie gecko safari opera},
+                           :theme_advanced_toolbar_location => "top",
+                           :theme_advanced_toolbar_align => "left",
+                           :theme_advanced_statusbar_location => "bottom",
+                           :theme_advanced_resizing => true,
+                           :theme_advanced_resize_horizontal => false,
+                           :theme_advanced_resizing_use_cookie => true,
+                           :paste_auto_cleanup_on_paste => true,
+                           :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink separator cleanup code},
+                           :theme_advanced_buttons2 => [],
+                           :theme_advanced_buttons3 => [],
+                           :plugins => %w{paste cleanup}},
+              :only => [:new, :edit, :create, :update, :preview]) 
+
+
   def index
     list
     render :action => 'list'
@@ -19,6 +35,10 @@ class Admin::ActionAlertsController < ApplicationController
       :all, 
       :order => 'updated_on ASC',
       :page => {:size => objects_per_page, :current => page_param})
+  end
+  
+  def preview
+    @action_alert = ActionAlert.new(params[:action_alert])
   end
 
   def show

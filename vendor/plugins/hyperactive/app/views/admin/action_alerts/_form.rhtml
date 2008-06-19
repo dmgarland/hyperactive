@@ -1,8 +1,22 @@
 <%= error_messages_for 'action_alert' %>
 
+<p>
+	An action alert is a short message which will show up on the front page of the site.
+	It may also be sent out as a text message.  You can include HTML in an action alert,
+	but keep in mind that it is limited in length to 255 characters in total.  Also keep
+	in mind that the text message sent out will be limited to the first 140 characters, and
+	won't include any HTML.
+</p>
+
+<p>
+	Try to get it right the first time.  Anyone who receives the text messages will probably see
+	the message as it's first shown, and may not receive any edits you make afterwards. 
+</p>
+	
+
 <!--[form:page]-->
 <p><label for="action_alert_summary"><%= 'Summary'.t %></label><br/>
-<%= text_field 'action_alert', 'summary'  %></p>
+<%= text_area 'action_alert', 'summary', :cols=>80, :rows=>10  %></p>
 
 <p><label for="action_alert_on_front_page"><%= 'Show on front page?'.t %></label><br/>
 <%= check_box 'action_alert', 'on_front_page'  %></p>

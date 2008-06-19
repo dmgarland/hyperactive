@@ -1,0 +1,7 @@
+<h1><%= 'Previewing action alert'.t %></h1>
+
+<%= render :partial => 'show' %>
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Create".t %>
+<% end %>

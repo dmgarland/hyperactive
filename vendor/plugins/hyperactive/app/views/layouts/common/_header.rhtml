@@ -51,12 +51,13 @@ Released   : 20071004
 <% end %>
 <!-- start header -->
 <div id="logo">
-	<p><%= link_to image_tag("logo_greyscale.png", :plugin => 'hyperactive'), {:controller => '/home', :action => 'index' } %></p>
+	<p><%= link_to image_tag("logo_greyscale.png", :plugin => 'hyperactive'), base_url %></p>
 	<h1><%= link_to "#{SITE_NAME}", {:controller => '/home', :action => 'index' } %></h1>
 	<!-- <p>By Free CSS Templates</p> -->
 </div>
 <div id="menu">
 	<ul id="main">
+		<%= tab_for("Home".t, base_url, :controller_name => "home") %>
 		<%= tab_for("Publish".t, publish_url, :controller_name => "publish") %>
 		<%= tab_for("Articles".t, articles_url, :controller_name => "articles") %>
 		<%= tab_for("Events".t, upcoming_events_url, :controller_name => "events") %>

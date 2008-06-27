@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   include ActiveRbacMixins::ApplicationControllerMixin  
   helper RbacHelper
   
-  # Include the ExceptionNotifier plugin so we get emails if the site exploedes
+  # Include the ExceptionNotifier plugin so we get emails if the site explodes
   #
   include ExceptionNotifiable unless RAILS_ENV == 'test'
   

@@ -3,7 +3,7 @@ class Admin::CategoryController < ApplicationController
   before_filter :protect_controller
 
   include SslRequirement
-  ssl_required
+  ssl_required :index
   
   layout "admin"
 

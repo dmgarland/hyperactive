@@ -38,14 +38,23 @@ module SslRequirement
   protected
     # Returns true if the current action is supposed to run as SSL
     def ssl_required?
-      (self.class.read_inheritable_attribute(:ssl_required_actions) || []).include?(action_name.to_sym)
+      #(self.class.read_inheritable_attribute(:ssl_required_actions) || []).include?(action_name.to_sym)
+      ssl_check(:ssl_required_actions)
     end
     
     def ssl_allowed?
-      (self.class.read_inheritable_attribute(:ssl_allowed_actions) || []).include?(action_name.to_sym)
+      #(self.class.read_inheritable_attribute(:ssl_allowed_actions) || []).include?(action_name.to_sym)
+      ssl_check(:ssl_allowed_actions)
     end
 
   private
+
+  def ssl_check(actions)
+    a = self.class.read_inheritable_attribute(actions)
+    a.include?(:all) || a.include?(action_name.to_sym)
+  end
+
+  
     def ensure_proper_protocol
       return true if ssl_allowed?
 

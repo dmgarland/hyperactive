@@ -1,7 +1,9 @@
 class Admin::CategoryController < ApplicationController
   
+  before_filter :protect_controller
+
   include SslRequirement
-  ssl_required :all
+  ssl_required
   
   layout "admin"
 
@@ -53,9 +55,7 @@ class Admin::CategoryController < ApplicationController
     Category.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
-  
-  before_filter :protect_controller
-  
+    
   def protect_controller
     if !current_user.nil? and current_user.has_role?("Admin")
       return true

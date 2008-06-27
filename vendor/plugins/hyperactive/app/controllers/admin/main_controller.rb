@@ -1,5 +1,8 @@
 class Admin::MainController < ApplicationController
 
+  include SslRequirement
+  ssl_required :all
+
   layout "admin"
   
   cache_sweeper :comment_sweeper, :only => [:update_comment]

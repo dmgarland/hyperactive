@@ -1,5 +1,8 @@
 class Admin::CategoryController < ApplicationController
   
+  include SslRequirement
+  ssl_required :all
+  
   layout "admin"
 
   def index

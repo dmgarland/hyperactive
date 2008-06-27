@@ -1,5 +1,8 @@
 class Admin::ActionAlertsController < ApplicationController
 
+  include SslRequirement
+  ssl_required :all
+
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
   before_filter :protect_controller
  

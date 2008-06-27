@@ -1,5 +1,8 @@
 class Admin::PageController < ApplicationController
 
+  include SslRequirement
+  ssl_required :all
+
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
 
   uses_tiny_mce(:options => {:theme => 'advanced',

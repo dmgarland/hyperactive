@@ -33,6 +33,10 @@ class ContentController < ApplicationController
   include UIEnhancements::SubList
   helper :SubList
   
+  include SslRequirement
+  ssl_required :create, :update, :destroy
+
+  
   # Note: this is a specially hacked sub_list which properly assigns the 
   # content to the parent subclass.
   #

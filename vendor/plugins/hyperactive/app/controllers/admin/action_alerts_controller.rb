@@ -1,8 +1,5 @@
 class Admin::ActionAlertsController < ApplicationController
 
-  include SslRequirement
-  ssl_required :all
-
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
   before_filter :protect_controller
  
@@ -23,6 +20,8 @@ class Admin::ActionAlertsController < ApplicationController
                            :plugins => %w{paste cleanup}},
               :only => [:new, :edit, :create, :update, :preview]) 
 
+  include SslRequirement
+  ssl_required :all
 
   def index
     list

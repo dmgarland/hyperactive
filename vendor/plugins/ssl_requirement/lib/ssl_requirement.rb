@@ -18,6 +18,9 @@
 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+# HACK: I've added a patch to allow ssl_required :all to work.
+#
 module SslRequirement
   def self.included(controller)
     controller.extend(ClassMethods)

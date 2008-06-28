@@ -3,9 +3,6 @@
 class ActiveRbac::LoginController < ActiveRbac::ComponentController
  
   layout 'two_column'
-
-  include SslRequirement
-  ssl_required :login, :index 
  
   # Displays an index page which allows the user to take account-related actions
   # based on whether or not they are logged in, and their roles and permissions.

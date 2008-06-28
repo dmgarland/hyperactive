@@ -2,6 +2,10 @@
 # all ActiveRbac controllers.
 class ActiveRbac::ComponentController
   before_filter :protect_with_active_rbac
+
+  include SslRequirement
+  ssl_required :login, :index 
+  
   protected
     def protect_with_active_rbac
       # only protect certain controllers

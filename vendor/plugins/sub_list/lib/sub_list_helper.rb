@@ -20,7 +20,7 @@ module SubListHelper
     model = model.to_s.tableize.singularize
     models = model.pluralize
     
-    link_to_remote( label, :update => models, :position => :bottom, :complete => visual_effect( :appear, models ), :url => { :action => "add_#{model}" }, :only_path => false, :protocol => 'https://' )
+    link_to_remote( label, :update => models, :position => :bottom, :complete => visual_effect( :appear, models ), :url => { :action => "add_#{model}" } )
   end
   
   def sub_list_content( model = 'Note', parent = 'incomplete' )

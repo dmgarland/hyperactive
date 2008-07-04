@@ -34,7 +34,7 @@ class ContentController < ApplicationController
   helper :SubList
   
   include SslRequirement
-  ssl_required :create, :update, :destroy, :new, :edit, :add_photo, :add_file_upload, :add_video, :add_link
+  ssl_required :create, :update, :destroy, :new, :edit, :add_photo, :add_file_upload, :add_video, :add_link, :create_comment
   
   # Note: this is a specially hacked sub_list which properly assigns the 
   # content to the parent subclass.

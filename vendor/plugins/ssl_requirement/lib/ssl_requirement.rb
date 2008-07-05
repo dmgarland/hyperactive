@@ -50,7 +50,7 @@ module SslRequirement
 
   private
     def ensure_proper_protocol
-      return true if ssl_allowed?
+      return true if ssl_allowed? && !ssl_required!
 
       if ssl_required? && !request.ssl?
         redirect_to "https://" + request.host + request.request_uri

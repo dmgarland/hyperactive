@@ -33,6 +33,8 @@ class ContentController < ApplicationController
   include UIEnhancements::SubList
   helper :SubList
 
+  # Require SSL for certain actions, mostly having to do with form submissions
+  #
   ssl_required :create, :update, :destroy, :new, :edit, :add_photo, :add_file_upload, :add_video, :add_link, :create_comment, :show_comment_form
   
   # Note: this is a specially hacked sub_list which properly assigns the 

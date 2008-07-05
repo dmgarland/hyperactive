@@ -37,7 +37,7 @@ class SearchController < ApplicationController
   end
 
   def find_content
-    if (params[:search])
+    if (params[:search][:search_terms])
       @search_terms = params[:search][:search_terms]
       @content = Content.paginating_ferret_search(:q => @search_terms,
         :page_size => objects_per_page, 

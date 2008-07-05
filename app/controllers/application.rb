@@ -37,6 +37,14 @@ class ApplicationController < ActionController::Base
   include SslRequirement
   ssl_allowed :all
 
+  # Turn off the SSL requirement when not in production mode, so we can continue
+  # to develop and test using Mongrel or Webrick or whatever.
+  #
+  alias :original_ssl_required? :ssl_required?
+  def ssl_required?
+    RAILS_ENV == 'production' && original_ssl_required?
+  end
+
   
   
   # Set up the click-to-globalize plugin so that we can easily do translations

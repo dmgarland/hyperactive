@@ -1,4 +1,7 @@
 <h1><%= 'Search results for'.t %> &lsquo;<%= h @search_terms %>&rsquo;</h1>
-        <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
-<%= render(:partial => "shared/pagination", :object => @content) %>
-
+<% if @search_terms.blank? %>
+	<%= "Please enter some search terms".t %>.
+<% else %>
+	<%= render(:partial => "shared/content/list_summary", :collection => @content) %>
+	<%= render(:partial => "shared/pagination", :object => @content) %>
+<% end %>

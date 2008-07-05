@@ -1,7 +1,9 @@
 class SearchController < ApplicationController
 
   layout "two_column"
-   
+  
+  ssl_required :find_content
+  
   def by_tag
     @tagname = params[:scope]
 #    @date = (params[:date] ||= Date.today)

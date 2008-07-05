@@ -34,6 +34,8 @@ class ApplicationController < ActionController::Base
   
   # Include the SSL requirement plugin and allow any action to be accessed as SSL.
   # 
+  include SslRequirement
+  ssl_allowed :all
 
   
   

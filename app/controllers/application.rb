@@ -32,6 +32,11 @@ class ApplicationController < ActionController::Base
   # controller and action names on each request
   before_filter :instantiate_controller_and_action_names
   
+  # Include the SSL requirement plugin and allow any action to be accessed as SSL.
+  # 
+  include SslRequirement
+  ssl_allowed :all
+  
   # Set up the click-to-globalize plugin so that we can easily do translations
   #
   # Available languages which can be clicked-to-globalize

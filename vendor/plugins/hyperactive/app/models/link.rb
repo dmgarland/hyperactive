@@ -9,6 +9,9 @@ class Link < ActiveRecord::Base
     if self.url =~ /javascript:/
       self.url = "http://ha.ckers.org/xss.html"
     end
+    if self.url =~ /script:/
+      self.url = "http://ha.ckers.org/xss.html"
+    end
   end
 
 end

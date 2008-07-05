@@ -35,7 +35,7 @@ class ContentController < ApplicationController
 
   include SslRequirement
   ssl_required :create, :update, :destroy, :new, :edit, :add_photo, :add_file_upload, :add_video, :add_link, :create_comment, :show_comment_form
-  ssl_allowed :all
+  ssl_allowed :index
   
   # Note: this is a specially hacked sub_list which properly assigns the 
   # content to the parent subclass.

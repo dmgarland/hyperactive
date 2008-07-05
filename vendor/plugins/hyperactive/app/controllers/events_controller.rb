@@ -112,7 +112,7 @@ class EventsController < ContentController
       e.dtstart       @content.date
       e.dtend         @content.date
       e.summary       @content.title
-      e.description   @content.summary + "\n\n" + @content.body
+      e.description   strip_tags(@content.summary) + "\n\n" + strip_tags(@content.body)
     end
     icsfile = cal.encode
     send_data(icsfile, :type => "text/calendar", :filename => "#{@content.title.downcase.gsub(/ /, "_")}.ics")

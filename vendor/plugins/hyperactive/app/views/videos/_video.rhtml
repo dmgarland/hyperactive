@@ -7,8 +7,8 @@
 	<script type="text/javascript">
 		var so = new SWFObject('/plugin_assets/hyperactive/flash/mediaplayer.swf','mpl','320','260','7');
 		so.addParam('allowfullscreen','true');
-		so.addVariable('file','<%= url_for_file_column(video, "file") %>.flv');
-		so.addVariable('image','<%= url_for_file_column(video, "file")%>.jpg');	  
+		so.addVariable('file','<%= video.file.url %>.flv');
+		so.addVariable('image','<%= video.file.url %>.jpg');	  
 		so.addVariable('backcolor','0xFFFFFF');
 		so.addVariable('autostart','false');
 		so.addVariable('usefullscreen', 'true');
@@ -20,18 +20,18 @@
 	<%# Removing direct links to files so that only torrent links are visible. %>
 	<%# Uncomment the links by removing the '#' if you want to show them.  %>
 	
-    <%# link_to image_tag("icon_video.gif"), url_for_file_column(video, "file") %> 
-    <%# link_to "download original", url_for_file_column(video, "file") %>
-	<%# link_to image_tag("icon_video.gif"), oggify(url_for_file_column(video, "file")) %> 
-	<%# link_to "download ogg", oggify(url_for_file_column(video, "file")) %>
+    <%# link_to image_tag("icon_video.gif"), video.file.url %> 
+    <%# link_to "download original", video.file.url %>
+	<%# link_to image_tag("icon_video.gif"), oggify(video.file.url) %> 
+	<%# link_to "download ogg", oggify(video.file.url) %>
 	
-	<%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), torrentify(url_for_file_column(video, "file")) %> 
-	<%= link_to "download torrent", torrentify(url_for_file_column(video, "file")) %>
+	<%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), torrentify(video.file.url) %> 
+	<%= link_to "download torrent", torrentify(video.file.url) %>
 	<%= render(:partial => 'videos/help_instructions')%>
 <% else %>
     <strong><%=h video.title.titleize %></strong><br />
     <%= auto_link(video.body) %><br/>
-    <%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), url_for_file_column(video, "file") %> 
-    <%= link_to "download original", url_for_file_column(video, "file") %>
+    <%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), video.file.url %> 
+    <%= link_to "download original", video.file.url %>
     <p><%= "This video is still being converted, or else there has been some kind of error.".t %></p>
 <% end %>

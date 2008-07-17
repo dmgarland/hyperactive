@@ -23,6 +23,6 @@ config.action_mailer.delivery_method = :test
 # I can't figure out how to exclude a single plugin, so I'll have to specify which plugins
 # should be loaded in the test environment.  This can be commented out if we stop using
 # click_to_globalize at some point.
-config.plugins = ["tiny_mce", "ssl_requirement", "active_rbac",  "engines", "has_many_polymorphs", "acts_as_ferret", "backgroundrb", "ez-where", "file_column", "paginating_find", "resource_feeder", "simply_helpful", "sub_list", "globalize", "simple_captcha", "white_list", "sanitize_params", "upload_column", "hyperactive"]
+config.plugins = ["tiny_mce", "ssl_requirement", "active_rbac",  "engines", "has_many_polymorphs", "acts_as_ferret", "backgroundrb", "ez-where", "paginating_find", "resource_feeder", "simply_helpful", "sub_list", "globalize", "simple_captcha", "white_list", "sanitize_params", "upload_column", "hyperactive"]
 
 

@@ -81,7 +81,6 @@ module ApplicationHelper
   #
   def thumbnail_for(entity)
     if entity.class == Video
-      #video_thumb = entity. #url_for_file_column(entity, "file")
       link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)
     elsif entity.class == Article || entity.class == Event
       if entity.has_thumbnail?

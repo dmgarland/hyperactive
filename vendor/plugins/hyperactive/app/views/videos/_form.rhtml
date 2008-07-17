@@ -11,7 +11,7 @@
 
 <label for="content_file">
 <%= 'File'.t %>* - <%= 'allowed file types are'.t %> <%= Video.allowed_file_types.join(", ") %><br/>
-<%= file_column_field("content", "file") %>
+<%= upload_column_field("content", "file") %>
 </label><br/><br/>
 
 <label for="video_description">

@@ -7,9 +7,8 @@ class Video < Media
 
   WEB_ROOT = 'system/'
 
-  file_column :file, 
-              :root_path => File.join(RAILS_ROOT, "public/system"), 
-              :web_root => WEB_ROOT
+  upload_column :file, 
+                :root_path => File.join(RAILS_ROOT, "public/system")
  
   validates_presence_of :title, :summary
   validates_length_of :title, :maximum=>255

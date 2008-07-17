@@ -23,7 +23,7 @@
 <% if @content.photos.length > 0 %>
     <p><h3><%= 'Photos'.t %></h3></p>
     <% @content.photos.each do |photo| %>
-        <p><%= link_to (image_tag url_for_file_column(photo, "file", "medium")), url_for_file_column(photo, "file") %><br/>
+        <p><%= link_to (image_tag photo.file.medium.url), photo.file.url %><br/>
         <%=h photo.title %>
         </p>
     <% end %>
@@ -31,7 +31,7 @@
 <% if @content.event_group_photos.length > 0 %>
     <p><h3><%= 'Event Group Photos'.t %></h3></p>
     <% @content.event_group_photos.each do |photo| %>
-        <p><%= link_to (image_tag url_for_file_column(photo, "file", "medium")), url_for_file_column(photo, "file") %><br/>
+        <p><%= link_to (image_tag photo.file.medium.url), photo.file.url %><br/>
         <%=h photo.title %>
         </p>
     <% end %>
@@ -40,7 +40,7 @@
 <% if @content.file_uploads.length > 0 %>
     <p><h3><%= 'Attached Files'.t %></h3><br/>
     <% @content.file_uploads.each do |file_upload| %>
-        <p><%= link_to image_tag("gedit-icon.png", :plugin => 'hyperactive'), url_for_file_column(file_upload, "file") %> 
+        <p><%= link_to image_tag("gedit-icon.png", :plugin => 'hyperactive'), file_upload.file.url %> 
         <%=h file_upload.title %></p>
     <% end %></p>
 <% end %>

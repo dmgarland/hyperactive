@@ -5,7 +5,7 @@
     <%= 'Photo'.t %> 
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
-        <%= image_tag url_for_file_column(photo, "file", "thumb") %><br/><br/>
+        <%= image_tag photo.file.thumb.url %><br/><br/>
     <% end %>
     <label for="photo[]_title">
       <%= 'Title'.t %>*<br/>
@@ -13,7 +13,7 @@
     </label><br/><br/>
     <label for="photo[]_file">
     <%= 'File'.t %>*<br/>
-    <%= file_column_field("photo[]", "file") %>
+    <%= upload_column_field("photo[]", "file") %>
     </label><br/><br/>
 
     <%= sub_list_remove_link photo, 'Photo', 'Del' %>

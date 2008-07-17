@@ -5,7 +5,7 @@
     <%= 'File upload'.t %> 
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
-        <%= link_to(file_upload.title, url_for_file_column(file_upload, "file")) %><br/><br/>
+        <%= link_to(file_upload.title, file_upload.file.url) %><br/><br/>
     <% end %>
     <label for="file_upload[]_title">
       <%= 'Title'.t %>*<br/>
@@ -13,7 +13,7 @@
     </label><br/><br/>
     <label for="file_upload[]_file">
     <%= 'File'.t %>*<br/>
-    <%= file_column_field("file_upload[]", "file") %>
+    <%= upload_column_field("file_upload[]", "file") %>
     </label><br/><br/>
 
     <%= sub_list_remove_link file_upload, 'FileUpload', 'Del' %>

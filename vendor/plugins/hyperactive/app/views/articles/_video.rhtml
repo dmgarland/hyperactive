@@ -5,7 +5,7 @@
     <%= 'Video'.t %> 
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
-        <%= image_tag url_for_file_column(video, "file", "thumb") %><br/><br/>
+        <%= image_tag video.file.thumb %><br/><br/>
     <% end %>
     <label for="video[]_title">
       <%= 'Title'.t %>*<br/>
@@ -13,7 +13,7 @@
     </label><br/><br/>
     <label for="video[]_file">
     <%= 'File'.t %>* - <%= 'allowed file types are'.t %> <%= Video.allowed_file_types.join(", ") %><br/>
-    <%= file_column_field("video[]", "file") %>
+    <%= upload_column_field("video[]", "file") %>
     </label><br/><br/>
     <label for="video[]_title">
       <%= 'Description'.t %><br/>

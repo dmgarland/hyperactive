@@ -8,6 +8,11 @@ class Photo < ActiveRecord::Base
   image_column  :file, 
                 :versions => { "thumb" => "100x100", "big_thumb" => "180x400", "medium" => "480x480>" },
                 :root_path => File.join(RAILS_ROOT, "public/system/")
+
+# eventually we'll want: 
+#
+#              :root_path => File.join(RAILS_ROOT, "public/system/#{self.date_path}"), 
+
   
   def date_path
     if self.new_record?
@@ -16,12 +21,5 @@ class Photo < ActiveRecord::Base
       return Date.today.strftime("%Y/%m/%d")
     end
   end
-
-#  file_column :file, 
-#              :magick => { 
-#                :versions => { "thumb" => "100x100", "big_thumb" => "180x400", "medium" => "480x480>" }
-#              }, 
-#              :root_path => File.join(RAILS_ROOT, "public/system/foo"), 
-#              :web_root => "system/#{self.date_path}"
     
 end

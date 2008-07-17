@@ -49,7 +49,14 @@ class Content < ActiveRecord::Base
   def is_not_hidden?
     self.moderation_status != "hidden"
   end
-    
+
+#  This doesn't do anything yet but might when we move towards getting the 
+#  content archives cacheable.
+#  
+#  def date_path
+#    self.created_on.strftime("%Y/%m/%d")
+#  end
+  
   protected
   
   # Sets the moderation_status to published unless it's already been set, 

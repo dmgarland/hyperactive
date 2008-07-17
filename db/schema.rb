@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 15) do
 
   create_table "action_alerts", :force => true do |t|
     t.column "summary",       :string,                      :null => false
@@ -183,9 +183,10 @@ ActiveRecord::Schema.define(:version => 14) do
   end
 
   create_table "photos", :force => true do |t|
-    t.column "file",       :string,  :default => "", :null => false
-    t.column "title",      :string,  :default => "", :null => false
+    t.column "file",       :string,   :default => "", :null => false
+    t.column "title",      :string,   :default => "", :null => false
     t.column "content_id", :integer
+    t.column "created_on", :datetime
   end
 
   add_index "photos", ["content_id"], :name => "fk2_photo_event"

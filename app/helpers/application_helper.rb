@@ -88,15 +88,15 @@ module ApplicationHelper
   #
   def thumbnail_for(entity)
     if entity.class == Video
-      video_thumb = url_for_file_column(entity, "file")
+      video_thumb = entity.file.url
       link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)
     elsif entity.class == Article || entity.class == Event
       if entity.has_thumbnail?
         if entity.photos.length > 0
-          link_to(image_tag(url_for_file_column(entity.photos.first, "file", "thumb"), :class => 'left'), entity)
+          link_to(image_tag(entity.photos.first.file.thumb.url, :class => 'left'), entity)
         elsif entity.contains_videos?
           video = entity.videos.first
-          video_thumb = url_for_file_column(video, "file")
+          video_thumb = video.file.url
           link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)          
         end
       end

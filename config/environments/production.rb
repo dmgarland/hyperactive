@@ -28,3 +28,9 @@ ActionMailer::Base.sendmail_settings = {
   :location       => '/usr/sbin/sendmail',
   :arguments      => '-i -t -f site@london.escapegoat.org'
 }
+
+# Does a random test to see if the app should delete all expired sessions
+# now.  The odds are 1 in whatever value is provided here.  0 will disable
+# this option.  Default is 1000.  A busy site may want 10000 or higher.
+#
+CGI::Session::ActiveRecordStore::Session.auto_clean_sessions = 500

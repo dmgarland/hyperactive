@@ -121,13 +121,6 @@ WhiteListHelper.tags = %w(strong em b i p code pre tt br ul ol li a blockquote s
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 
-# Does a random test to see if the app should delete all expired sessions
-# now.  The odds are 1 in whatever value is provided here.  0 will disable
-# this option.  Default is 1000.  A busy site may want 10000 or higher.
-#
-CGI::Session::ActiveRecordStore::Session.auto_clean_sessions = 500
-
-
 # In production mode, loads every view translation into memory once from the database
 # when the application starts, avoiding database calls from globalize.
 #Dispatcher.to_prepare :globalize_view_translations do

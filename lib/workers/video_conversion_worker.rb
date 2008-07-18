@@ -12,16 +12,13 @@ class VideoConversionWorker < BackgrounDRb::Rails
   # This method is called in it's own new thread when you
   # call new worker. args is set to :args  
   def do_work(args)
-    puts "entered worker."
     @video_file = args[:absolute_path]
     @video_id = args[:video_id].to_i
     @torrent_tracker = args[:torrent_tracker]
-    puts "properties are set"
     unless RAILS_ENV == 'test'
       video_record = Video.find(@video_id) 
       video_record.processing_status = 1 #the_video.PROCESSING #ProcessingStatuses[:processing]
       video_record.save
-      puts "video record saved"
     end  
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 180x136 #{@video_file}.small.jpg`
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 320x240 #{@video_file}.jpg`

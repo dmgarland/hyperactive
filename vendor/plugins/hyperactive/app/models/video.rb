@@ -22,6 +22,22 @@ class Video < Media
   SUCCESS = 2
   #ERROR = 3 # not used currently as I'm not sure how to trap errors.
 
+  # A callback method which determines the path where images will be stored.  
+  # Upload_column automatically uses this method to figure out the directory path to create for 
+  # each uploaded image.  
+  # 
+  # This approach splits up image uploads by date, so that we don't put thousands of videos in the same directory
+  # and end up running out of file descriptors.
+  #   
+  def file_store_dir
+    if !self.created_on.nil?
+      return self.created_on.strftime("video/%Y/%m/%d/") +  self.id.to_s
+    else
+      return Date.today.strftime("video/%Y/%m/%d/") +  self.id.to_s
+    end
+  end
+
+
   # TODO: I'd like to have the validates_file_format_of use this array but it 
   # returns method_missing for some reason I can't fathom.  It is being used in the
   # views already.

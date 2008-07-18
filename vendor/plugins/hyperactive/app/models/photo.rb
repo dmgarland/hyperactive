@@ -24,7 +24,5 @@ class Photo < ActiveRecord::Base
       return Date.today.strftime("photo/%Y/%m/%d/") +  self.id.to_s
     end
   end
-  
-
     
 end

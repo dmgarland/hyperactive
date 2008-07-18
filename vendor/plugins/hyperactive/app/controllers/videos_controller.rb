@@ -67,7 +67,7 @@ class VideosController < ContentController
       featured_video = VideoSummary.new
       featured_video.title = video.title
       featured_video.id = video.id
-      featured_video.file_path = "/system/video/file/#{video.file_relative_path}.small.jpg"
+      featured_video.file_path = video.file.url + '.small.jpg' #"/system/video/file/#{video.file_relative_path}.small.jpg"
       featured_vids << featured_video
     end
     respond_to do |format|

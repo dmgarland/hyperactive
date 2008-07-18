@@ -8,8 +8,9 @@ class Video < Media
   WEB_ROOT = 'system/'
 
   upload_column :file, 
-                :root_path => File.join(RAILS_ROOT, "public/system"), 
-                :extensions => ["3gp",  "avi",  "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"]
+                :extensions => ["3gp",  "avi",  "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"],
+                :root_path => File.join(RAILS_ROOT, "public", "system"),
+                :web_root => "/system"
  
   validates_presence_of :title, :summary
   validates_length_of :title, :maximum=>255
@@ -22,11 +23,11 @@ class Video < Media
   SUCCESS = 2
   #ERROR = 3 # not used currently as I'm not sure how to trap errors.
 
-  # A callback method which determines the path where images will be stored.  
+  # A callback method which determines the path where files will be stored.  
   # Upload_column automatically uses this method to figure out the directory path to create for 
-  # each uploaded image.  
+  # each uploaded file.  
   # 
-  # This approach splits up image uploads by date, so that we don't put thousands of videos in the same directory
+  # This approach splits up uploads by date, so that we don't put thousands of files in the same directory
   # and end up running out of file descriptors.
   #   
   def file_store_dir
@@ -48,11 +49,12 @@ class Video < Media
 
   # Gets an absolute path to this video's file and send it to the 
   # VideoConversionWorker for conversion.
+  # 
   def convert
-    video_file_to_convert = File.expand_path(RAILS_ROOT) + "/public/system/video/file/" + file_relative_path
+    video_file_to_convert = File.expand_path(RAILS_ROOT) + "/public/" + self.file.url
     MiddleMan.new_worker(:class => 
                           :video_conversion_worker, 
-                          :job_key => "video"+self.id.to_s, 
+                          :job_key => "video"+self.object_id.to_s, 
                           :args => {
                             :absolute_path => video_file_to_convert, 
                             :torrent_tracker => TORRENT_TRACKER,
@@ -64,15 +66,15 @@ class Video < Media
   end
   
   def relative_video_file
-     "#{WEB_ROOT}video/file/#{file_relative_path}"
+     self.file.url
   end
 
   def relative_ogg_file
-    relative_video_file.chomp(File.extname(file_relative_path)) + ".ogg"
+    self.file.url.chomp(File.extname(self.file.url)) + ".ogg"
   end
   
   def thumbnail
-    relative_video_file + ".jpg"
+    self.file.url + ".jpg"
   end
   
   def relative_torrent_file

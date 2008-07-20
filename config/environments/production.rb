@@ -33,4 +33,4 @@ ActionMailer::Base.sendmail_settings = {
 # now.  The odds are 1 in whatever value is provided here.  0 will disable
 # this option.  Default is 1000.  A busy site may want 10000 or higher.
 #
-CGI::Session::ActiveRecordStore::Session.auto_clean_sessions = 500
+#CGI::Session::ActiveRecordStore::Session.auto_clean_sessions = 500

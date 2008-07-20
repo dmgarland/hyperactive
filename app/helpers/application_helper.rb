@@ -93,8 +93,7 @@ module ApplicationHelper
     elsif entity.class == Article || entity.class == Event
       if entity.has_thumbnail?
         if entity.photos.length > 0
-          #link_to(image_tag(entity.photos.first.file.thumb.url, :class => 'left'), entity)
-          link_to(image_tag(entity.photos.first.file.url, :class => 'left'), entity)
+          link_to(image_tag(entity.photos.first.file.thumb.url, :class => 'left'), entity)
         elsif entity.contains_videos?
           video = entity.videos.first
           video_thumb = video.file.url

@@ -3,7 +3,7 @@ class MovePhotosToNewFilePaths < ActiveRecord::Migration
     photos = Photo.find(:all)
     photos.each do |photo|
       from_dir = "#{File.expand_path(RAILS_ROOT)}/public/system/photo/file/#{photo.id.to_s}"
-      from = "/#{from_dir}/#{photo.file}"
+      from = "#{File.expand_path(RAILS_ROOT)}/public/system/photo/file/#{photo.id.to_s}/#{photo.file}"
       if File.exists?(from)
         to_dir = Date.today.strftime("#{File.expand_path(RAILS_ROOT)}/public/system/photo/%Y/%m/%d/#{photo.id.to_s}")
         to = Date.today.strftime("#{File.expand_path(RAILS_ROOT)}/public/system/photo/%Y/%m/%d/#{photo.id.to_s}/#{photo.file}")

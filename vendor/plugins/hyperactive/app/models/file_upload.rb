@@ -6,24 +6,26 @@ class FileUpload < ActiveRecord::Base
   
   upload_column :file, 
               :extensions => ["mp3", "ogg", "pdf", "doc", "svg", "swf", "xls", "odf", "ppt"],
-              :root_path => File.join(RAILS_ROOT, "public", "system"),
-              :web_root => "/system"
+                :root_dir => File.join(RAILS_ROOT, "public", "system"),
+                :web_root => "/system", 
+                :store_dir => proc {|record, file| 
+                                      if !record.created_on.nil?
+                                        return record.created_on.strftime("file_upload/%Y/%m/%d/") +  record.id.to_s
+                                      else
+                                        return Date.today.strftime("file_upload/%Y/%m/%d/") +  record.id.to_s
+                                      end
+                                   }
               
   belongs_to :post, :foreign_key => 'content_id'
 
-  # A callback method which determines the path where files will be stored.  
-  # Upload_column automatically uses this method to figure out the directory path to create for 
-  # each uploaded file.  
-  # 
-  # This approach splits up uploads by date, so that we don't put thousands of files in the same directory
-  # and end up running out of file descriptors.
-  #   
-  def file_store_dir
-    if !self.created_on.nil?
-      return self.created_on.strftime("file_upload/%Y/%m/%d/") +  self.id.to_s
-    else
-      return Date.today.strftime("file_upload/%Y/%m/%d/") +  self.id.to_s
-    end
-  end
+  before_destroy :delete_files 
+  before_save :delete_files
+  
+  # Recursively deletes all files and then the directory which the files
+  # were stored in.
+  #
+  def delete_files
+    FileUtils.remove_dir(file.store_dir)
+  end 
 
 end

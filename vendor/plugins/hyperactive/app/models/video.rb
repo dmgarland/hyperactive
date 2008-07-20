@@ -9,8 +9,15 @@ class Video < Media
 
   upload_column :file, 
                 :extensions => ["3gp",  "avi",  "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"],
-                :root_path => File.join(RAILS_ROOT, "public", "system"),
-                :web_root => "/system"
+                :root_dir => File.join(RAILS_ROOT, "public", "system"),
+                :web_root => "/system", 
+                :store_dir => proc {|record, file| 
+                                      if !record.created_on.nil?
+                                        return record.created_on.strftime("video/%Y/%m/%d/") +  record.id.to_s
+                                      else
+                                        return Date.today.strftime("video/%Y/%m/%d/") +  record.id.to_s
+                                      end
+                                   }
  
   validates_presence_of :title, :summary
   validates_length_of :title, :maximum=>255
@@ -23,21 +30,15 @@ class Video < Media
   SUCCESS = 2
   #ERROR = 3 # not used currently as I'm not sure how to trap errors.
 
-  # A callback method which determines the path where files will be stored.  
-  # Upload_column automatically uses this method to figure out the directory path to create for 
-  # each uploaded file.  
-  # 
-  # This approach splits up uploads by date, so that we don't put thousands of files in the same directory
-  # and end up running out of file descriptors.
-  #   
-  def file_store_dir
-    if !self.created_on.nil?
-      return self.created_on.strftime("video/%Y/%m/%d/") +  self.id.to_s
-    else
-      return Date.today.strftime("video/%Y/%m/%d/") +  self.id.to_s
-    end
-  end
-
+  before_destroy :delete_files 
+  before_save :delete_files
+  
+  # Recursively deletes all files and then the directory which the files
+  # were stored in.
+  #
+  def delete_files
+    FileUtils.remove_dir(file.store_dir)
+  end 
 
   # TODO: I'd like to have the validates_file_format_of use this array but it 
   # returns method_missing for some reason I can't fathom.  It is being used in the

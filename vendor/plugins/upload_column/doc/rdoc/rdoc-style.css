@@ -1,0 +1,241 @@
+* {
+margin: 0;;
+padding: 0;;
+}
+
+body, html {
+font-size: 12px;;
+background: #084070;;
+color: #333;;
+font-family: Helvetica, Arial, sans-serif;;
+}
+
+/* Layout */
+
+#navigation {
+float:left;;
+width: 30%;;
+}
+
+#navigation div.wrapper {
+margin: 10px 10px 30px;;
+}
+
+#content {
+float: left;;
+width: 70%;;
+}
+
+#content div.wrapper {
+margin: 10px 10px 30px 0;;
+padding: 10px;;
+background: white;;
+border-bottom: 5px solid #32e110;;
+}
+
+
+/* for that dumb redirect index page I can't avoid */
+#redirect {
+text-align: center;
+}
+
+#redirect a {
+
+}
+
+/* Sidebar */
+
+div.list {
+background: #dde2e7;;
+overflow: hidden;;
+margin: 10px 0;;
+position: relative;;
+border-bottom: 5px solid #32e110;;
+}
+
+div.list h3 {
+font-size: 1.4em;;
+margin: 10px 0 0;;
+padding: 0 10px 3px;;
+border-bottom: 2px solid #32e110;;
+}
+
+div.list form {
+background: #32e110;;
+height: 25px;;
+padding: 3px 10px 0;;
+}
+
+div.list label {
+padding-top: 2px;;
+display: block;;
+float: left;;
+width: 33%;;
+color: white;;
+font-weight: bold;;
+}
+
+div.list input {
+width: 66%;;
+float: right;;
+}
+
+div.list ul {
+margin: 10px;;
+list-style: none;;
+overflow: hidden;;
+}
+
+div.list li {
+margin: 1px 0;;
+}
+
+.list_header_link {
+position: absolute;;
+top: 10px;;
+right: 5px;;
+}
+
+/* Header */
+
+#header {
+background: #dde2e7;;
+padding: 15px 10px;;
+border-bottom: 5px solid #32e110;;
+}
+
+#header h1 {
+font-size: 20px;;
+}
+
+#header p.full_path {
+position: absolute;;
+top: 10px;;
+right: 10px;;
+}
+
+/* General design */
+
+a {
+color: #32e110;;
+}
+
+p {
+margin: 1em 0;;
+}
+
+/* Content */
+
+#content h3 a {
+text-decoration: none;;
+font-size: 1.1em;;
+}
+
+#content table {
+width: 100%;;
+}
+
+#content div.a_method {
+padding: 0 0 5px 20px;;
+border-bottom: 1px dashed #32e110;;
+margin: 0 0 15px;;
+}
+
+#content div.a_method h3 {
+margin-left: -20px;;
+}
+
+#content ul {
+margin-left: 40px;;
+}
+
+#content ol {
+margin-left: 40px;;
+}
+
+#content h1, #content h2, #content h3 {
+margin: 1em 0 0.5em;;
+}
+
+#content h1.title {
+margin: 0;;
+font-size: 1.2em;;
+color: #aaa;;
+}
+
+
+/* Definition Lists */
+
+dl {
+margin: 10px 0;;
+}
+
+dd {
+margin: 20px 0;;
+padding: 5px 5px 5px 25%;;
+border: 1px dashed #ccc;;
+}
+
+dt {
+margin-bottom: -45px;;
+display: block;;
+width: 25%;;
+padding: 5px;;
+}
+
+#method {
+display: none;;
+}
+
+
+div.source {
+display: none;;
+}
+
+p.source_link {
+text-align: center;
+}
+
+/* source code highlighting */
+
+/* Code formatting */
+
+pre {
+color: black;;
+padding: 5px;;
+margin: 1em 0;;
+border: 1px solid #4f7;;
+background: #bfe;;
+font-size: 12px;;
+font-family: Monaco, Courier, monospace;;
+overflow: auto;;
+}
+
+pre .ruby-value {
+color: #0000cd;;
+}
+
+pre .ruby-value.str, pre .ruby-node {
+color: #26b345;;
+}
+
+pre .ruby-ivar, pre .ruby-cvar {
+
+}
+
+pre .ruby-comment {
+color: #0066ff;;
+}
+
+pre .ruby-constant {
+color: #438a9a;;
+}
+
+pre .ruby-keyword {
+color: #1414FF;;
+font-weight: bold;;
+}
+
+pre .ruby-symbol {
+color: #c60d12;;
+}

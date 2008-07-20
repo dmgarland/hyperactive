@@ -7,22 +7,24 @@ class Photo < ActiveRecord::Base
   image_column  :file, 
                 :versions => { :thumb => "100x100", :big_thumb => "180x400", :medium => "480x480" },
                 :extensions => ["gif", "png", "jpg"],
-                :root_path => File.join(RAILS_ROOT, "public", "system"),
-                :web_root => "/system"
-
-  # A callback method which determines the path where images will be stored.  
-  # Upload_column automatically uses this method to figure out the directory path to create for 
-  # each uploaded image.  
-  # 
-  # This approach splits up image uploads by date, so that we don't put thousands of images in the same directory
-  # and end up running out of file descriptors.
-  #   
-  def file_store_dir
-    if !self.created_on.nil?
-      return self.created_on.strftime("photo/%Y/%m/%d/") +  self.id.to_s
-    else
-      return Date.today.strftime("photo/%Y/%m/%d/") +  self.id.to_s
-    end
-  end
-    
+                :root_dir => File.join(RAILS_ROOT, "public", "system"),
+                :web_root => "/system", 
+                :store_dir => proc {|record, file| 
+                                      if !record.created_on.nil?
+                                        return record.created_on.strftime("photo/%Y/%m/%d/") +  record.id.to_s
+                                      else
+                                        return Date.today.strftime("photo/%Y/%m/%d/") +  record.id.to_s
+                                      end
+                                   }
+                
+  before_destroy :delete_files 
+  before_save :delete_files
+  
+  # Recursively deletes all files and then the directory which the photo's files
+  # were stored in.
+  #
+  def delete_files
+    FileUtils.remove_dir(file.store_dir)
+  end 
+   
 end

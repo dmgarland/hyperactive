@@ -9,14 +9,16 @@ class MovePhotosToNewFilePaths < ActiveRecord::Migration
         to = Date.today.strftime("#{File.expand_path(RAILS_ROOT)}/public/system/photo/%Y/%m/%d/#{photo.id.to_s}/#{photo.file.filename}")
         FileUtils.mkdir_p(to_dir)
         FileUtils.cp(from, to)
+        ext = File.extname(from)
+        filename_base = File.basename(from, ext)
         if File.exists?("#{from_dir}/medium/#{photo.file.filename}")
-          FileUtils.cp("#{from_dir}/medium/#{photo.file.filename}", "#{to_dir}/#{photo.file.filename_base}-medium.#{photo.file.filename_extension}")
+          FileUtils.cp("#{from_dir}/medium/#{photo.file.filename}", "#{to_dir}/#{filename_base}-medium.#{ext}")
         end
         if File.exists?("#{from_dir}/thumb/#{photo.file.filename}")
-          FileUtils.cp("#{from_dir}/thumb/#{photo.file.filename}", "#{to_dir}/#{photo.file.filename_base}-thumb.#{photo.file.filename_extension}")
+          FileUtils.cp("#{from_dir}/thumb/#{photo.file.filename}", "#{to_dir}/#{filename_base}-thumb.#{ext}")
         end
         if File.exists?("#{from_dir}/big_thumb/#{photo.file.filename}")
-          FileUtils.cp("#{from_dir}/big_thumb/#{photo.file.filename}", "#{to_dir}/#{photo.file.filename_base}-big_thumb.#{photo.file.filename_extension}")
+          FileUtils.cp("#{from_dir}/big_thumb/#{photo.file.filename}", "#{to_dir}/#{filename_base}-big_thumb.#{ext}")
         end
         photo.created_on = Date.today
         photo.save

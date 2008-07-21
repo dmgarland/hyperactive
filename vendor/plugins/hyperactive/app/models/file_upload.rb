@@ -19,7 +19,7 @@ class FileUpload < ActiveRecord::Base
   belongs_to :post, :foreign_key => 'content_id'
 
   before_destroy :delete_files 
-  before_save :delete_files
+  before_update :delete_files
   
   # Recursively deletes all files and then the directory which the files
   # were stored in.

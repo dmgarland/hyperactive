@@ -18,7 +18,7 @@ class Photo < ActiveRecord::Base
                                    }
                 
   before_destroy :delete_files 
-  before_save :delete_files
+  before_update :delete_files
   
   # Recursively deletes all files and then the directory which the files
   # were stored in.

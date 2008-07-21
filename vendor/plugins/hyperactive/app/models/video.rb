@@ -31,7 +31,7 @@ class Video < Media
   #ERROR = 3 # not used currently as I'm not sure how to trap errors.
 
   before_destroy :delete_files 
-  before_save :delete_files
+  before_update :delete_files
   
   # Recursively deletes all files and then the directory which the files
   # were stored in.

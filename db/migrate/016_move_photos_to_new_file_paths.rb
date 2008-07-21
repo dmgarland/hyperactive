@@ -12,13 +12,13 @@ class MovePhotosToNewFilePaths < ActiveRecord::Migration
         ext = File.extname(from)
         filename_base = File.basename(from, ext)
         if File.exists?("#{from_dir}/medium/#{photo.file.filename}")
-          FileUtils.cp("#{from_dir}/medium/#{photo.file.filename}", "#{to_dir}/#{filename_base}-medium.#{ext}")
+          FileUtils.cp("#{from_dir}/medium/#{photo.file.filename}", "#{to_dir}/#{filename_base}-medium#{ext}")
         end
         if File.exists?("#{from_dir}/thumb/#{photo.file.filename}")
-          FileUtils.cp("#{from_dir}/thumb/#{photo.file.filename}", "#{to_dir}/#{filename_base}-thumb.#{ext}")
+          FileUtils.cp("#{from_dir}/thumb/#{photo.file.filename}", "#{to_dir}/#{filename_base}-thumb#{ext}")
         end
         if File.exists?("#{from_dir}/big_thumb/#{photo.file.filename}")
-          FileUtils.cp("#{from_dir}/big_thumb/#{photo.file.filename}", "#{to_dir}/#{filename_base}-big_thumb.#{ext}")
+          FileUtils.cp("#{from_dir}/big_thumb/#{photo.file.filename}", "#{to_dir}/#{filename_base}-big_thumb#{ext}")
         end
         photo.created_on = Date.today
         photo.save

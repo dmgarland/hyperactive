@@ -6,7 +6,7 @@ class MoveVideosAndFileUploadsToNewFilePaths < ActiveRecord::Migration
       if File.exists?(from_dir)
         to_dir = video.created_on.strftime("#{File.expand_path(RAILS_ROOT)}/public/system/video/%Y/%m/%d")
         FileUtils.mkdir_p(to_dir)
-        FileUtils.cp_r(from_dir, "to_dir/#{video.id.to_s}")
+        FileUtils.cp_r(from_dir, "#{to_dir}/#{video.id.to_s}")
       end
     end
     file_uploads = FileUpload.find(:all)

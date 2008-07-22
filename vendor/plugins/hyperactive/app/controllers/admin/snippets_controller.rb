@@ -2,6 +2,9 @@ class Admin::SnippetsController < ApplicationController
 
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy] 
   before_filter :protect_controller
+  skip_before_filter :sanitize_params
+  before_filter :sanitize_params_allowing_images
+  
   
   layout 'admin'
   
@@ -14,7 +17,7 @@ class Admin::SnippetsController < ApplicationController
                            :theme_advanced_resize_horizontal => false,
                            :theme_advanced_resizing_use_cookie => true,
                            :paste_auto_cleanup_on_paste => true,
-                           :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink separator cleanup code},
+                           :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink image separator cleanup code},
                            :theme_advanced_buttons2 => [],
                            :theme_advanced_buttons3 => [],
                            :plugins => %w{paste cleanup}},
@@ -76,7 +79,7 @@ class Admin::SnippetsController < ApplicationController
   # PUT /snippets/1.xml
   def update
     @snippet = Snippet.find(params[:id])
-
+    
     respond_to do |format|
       if @snippet.update_attributes(params[:snippet])
         flash[:notice] = 'Snippet was successfully updated.'
@@ -111,5 +114,15 @@ class Admin::SnippetsController < ApplicationController
       flash[:notice] = "You are not allowed to access this page."
     end
   end  
+  
+  def sanitize_params_allowing_images
+    WhiteListHelper.tags.merge("img")
+    WhiteListHelper.attributes.merge("align")
+    WhiteListHelper.attributes.merge("class")    
+    sanitize_params
+    WhiteListHelper.tags.reject!{|t| t == "img"}
+    WhiteListHelper.attributes.reject!{|t| t == "align"}
+    WhiteListHelper.attributes.reject!{|t| t == "class"}
+  end
   
 end

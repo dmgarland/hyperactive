@@ -1,5 +1,6 @@
 class Admin::SnippetsController < ApplicationController
-  
+
+  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy] 
   before_filter :protect_controller
   
   layout 'admin'
@@ -18,6 +19,9 @@ class Admin::SnippetsController < ApplicationController
                            :theme_advanced_buttons3 => [],
                            :plugins => %w{paste cleanup}},
               :only => [:new, :edit, :create, :update, :preview])   
+  
+  include SslRequirement
+  ssl_required :all  
   
   # GET /snippets
   # GET /snippets.xml

@@ -1,6 +1,6 @@
 class ContentSweeper < ActionController::Caching::Sweeper
   
-  observe ActionAlert, Content, Page
+  observe ActionAlert, Content, Page, Snippet
   
   def after_create(content)
     expire_home_page

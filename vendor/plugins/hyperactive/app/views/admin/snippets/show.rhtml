@@ -1,0 +1,23 @@
+<p>
+  <b>Title:</b>
+  <%=h @snippet.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @snippet.body %>
+</p>
+
+<p>
+  <b>Created on:</b>
+  <%=h @snippet.created_on %>
+</p>
+
+<p>
+  <b>Updated on:</b>
+  <%=h @snippet.updated_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_snippet_path(@snippet) %> |
+<%= link_to 'Back', admin_snippets_path %>

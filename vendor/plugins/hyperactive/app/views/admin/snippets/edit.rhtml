@@ -1,0 +1,15 @@
+<h1>Editing snippet</h1>
+
+<%= error_messages_for :snippet %>
+
+<% form_for(:snippet, :url => admin_snippet_path(@snippet), :html => { :method => :put }) do |f| %>
+
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', admin_snippet_path(@snippet) %> |
+<%= link_to 'Back', admin_snippets_path %>

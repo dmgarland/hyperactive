@@ -1,0 +1,26 @@
+<h1>Listing snippets</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Created on</th>
+    <th>Updated on</th>
+  </tr>
+  
+<% for snippet in @snippets %>
+  <tr>
+    <td><%=h snippet.title %></td>
+    <td><%=h snippet.body %></td>
+    <td><%=h snippet.created_on %></td>
+    <td><%=h snippet.updated_on %></td>
+    <td><%= link_to 'Show', admin_snippet_path(snippet) %></td>
+    <td><%= link_to 'Edit', admin_edit_snippet_path(snippet) %></td>
+    <td><%= link_to 'Destroy', admin_snippet_path(snippet), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New snippet', new_admin_snippet_path %>

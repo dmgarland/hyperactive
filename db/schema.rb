@@ -244,6 +244,7 @@ ActiveRecord::Schema.define(:version => 18) do
     t.column "body",       :text
     t.column "created_on", :datetime
     t.column "updated_on", :datetime
+    t.column "key",        :string
   end
 
   create_table "static_permissions", :force => true do |t|

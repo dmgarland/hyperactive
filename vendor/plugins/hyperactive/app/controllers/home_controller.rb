@@ -39,6 +39,7 @@ class HomeController < ApplicationController
       :conditions => ["moderation_status = ?", "promoted"])   
     setup_featured_articles
     setup_action_alert
+    @snippet = Snippet.find_by_key("homepage")
   end
   
   protected

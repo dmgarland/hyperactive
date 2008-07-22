@@ -1,4 +1,24 @@
 class Admin::SnippetsController < ApplicationController
+  
+  before_filter :protect_controller
+  
+  layout 'admin'
+  
+  uses_tiny_mce(:options => {:theme => 'advanced',
+                           :browsers => %w{msie gecko safari opera},
+                           :theme_advanced_toolbar_location => "top",
+                           :theme_advanced_toolbar_align => "left",
+                           :theme_advanced_statusbar_location => "bottom",
+                           :theme_advanced_resizing => true,
+                           :theme_advanced_resize_horizontal => false,
+                           :theme_advanced_resizing_use_cookie => true,
+                           :paste_auto_cleanup_on_paste => true,
+                           :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink separator cleanup code},
+                           :theme_advanced_buttons2 => [],
+                           :theme_advanced_buttons3 => [],
+                           :plugins => %w{paste cleanup}},
+              :only => [:new, :edit, :create, :update, :preview])   
+  
   # GET /snippets
   # GET /snippets.xml
   def index
@@ -76,4 +96,16 @@ class Admin::SnippetsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  protected
+  
+  def protect_controller
+    if !current_user.nil? and current_user.has_role?("Admin")
+      return true
+    else
+      redirect_to "/publish/list"
+      flash[:notice] = "You are not allowed to access this page."
+    end
+  end  
+  
 end

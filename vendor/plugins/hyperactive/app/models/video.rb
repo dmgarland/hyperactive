@@ -31,7 +31,7 @@ class Video < Media
   #ERROR = 3 # not used currently as I'm not sure how to trap errors.
 
   before_destroy :delete_files 
-  before_update :delete_files if file.new_file?
+  before_update :delete_files_if_new_uploaded
   
   # Recursively deletes all files and then the directory which the files
   # were stored in.
@@ -39,6 +39,16 @@ class Video < Media
   def delete_files
     FileUtils.remove_dir(file.store_dir)
   end 
+  
+  
+  # Recursively deletes all files and then the directory which the files
+  # were stored in, if a new file was uploaded during this request.
+  #
+  def delete_files_if_new_uploaded
+    if self.file.new_file?
+      FileUtils.remove_dir(file.store_dir)
+    end
+  end
 
   # TODO: I'd like to have the validates_file_format_of use this array but it 
   # returns method_missing for some reason I can't fathom.  It is being used in the

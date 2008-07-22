@@ -18,7 +18,7 @@ class Photo < ActiveRecord::Base
                                    }
                 
   before_destroy :delete_files 
-  before_update :delete_files if file.new_file?
+  before_update :delete_files_if_new_uploaded
   
   # Recursively deletes all files and then the directory which the files
   # were stored in.
@@ -26,5 +26,16 @@ class Photo < ActiveRecord::Base
   def delete_files
     FileUtils.remove_dir(file.store_dir)
   end 
+  
+  
+  # Recursively deletes all files and then the directory which the files
+  # were stored in, if a new file was uploaded during this request.
+  #
+  def delete_files_if_new_uploaded
+    if self.file.new_file?
+      FileUtils.remove_dir(file.store_dir)
+    end
+  end
+  
    
 end

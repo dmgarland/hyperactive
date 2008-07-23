@@ -22,17 +22,15 @@
 <p><label for="content_body"><%= 'Description'.t %><em>*</em></label><br/>
 <%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
 
-<% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
-    <p>
-    <div id="categories_list">
-    <%= render(:partial => "categories_checkboxes") %>
-    </div>
-    </p>
-<% end %>
-
 <%= render :partial => 'shared/content/comments/allows_comments_controls', :locals => {:f => f} %>
 
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
+
+<p>
+  <div id="categories_list">
+    <%= render(:partial => "categories_checkboxes") %>
+  </div>
+</p>
 
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 

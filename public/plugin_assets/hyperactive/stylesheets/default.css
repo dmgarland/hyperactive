@@ -15,6 +15,7 @@ body {
 
 h1, h2, h3 {
 	margin-top: 0;
+	color: #7b82ac;
 }
 
 h1 {
@@ -27,11 +28,6 @@ h2 {
 
 h3 {
 	font-size: 1em;
-}
-
-
-ul {
-	list-style-image: url(../images/img07.gif);
 }
 
 a {
@@ -52,6 +48,7 @@ a img {
 img.left {
 	float: left;
 	margin: 0 20px 0 0;
+	border: 1px solid #000000;
 }
 
 img.right {
@@ -124,12 +121,12 @@ img.right {
 }
 
 #menu a:hover {
-	background: #940f04;
+	background: #7b82ac;
 }
 
 #menu .current_page_item a {
 	background: url(../images/img02.gif) repeat-x;
-	color: #940F04;
+	color: #7b82ac;
 }
 
 /* Page */
@@ -232,7 +229,8 @@ img.right {
 
 .sidebar_content ul {
 	margin: 0;
-	padding: 0;
+	padding: 0 10px 10px 0;
+	min-height: 135px;
 	list-style: none;
 }
 
@@ -244,13 +242,13 @@ img.right {
 }
 
 .sidebar_content li li {
-	padding: 2px 0 2px 12px;
-	background: url(../images/img04.gif) no-repeat 10px 9px;
+	/*padding: 2px 0 2px 12px;
+	background: url(../images/img04.gif) no-repeat 10px 9px;*/
 }
 
 .sidebar_content li h2 {
 	margin: 0 0 5px 0;
-	padding: 2px 5px;
+	padding: 10px 5px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -287,7 +285,7 @@ img.right {
 
 .sidebar_content_wide li h2 {
 	margin: 0 0 5px 0;
-	padding: 2px 5px;
+	padding: 5px 5px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -315,13 +313,13 @@ img.right {
 }
 
 .sidebar li li {
-	padding: 5px 0 5px 25px;
-	background: url(../images/img04.gif) no-repeat 10px 9px;
+	padding: 5px 0 5px 20px;
+	background: url(../images/img04.gif) no-repeat 5px 9px;*/
 }
 
 .sidebar li h2 {
 	margin: 0 0 10px 0;
-	padding: 5px 10px;
+	padding: 10px 10px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -331,7 +329,6 @@ img.right {
 
 #searchform {
 	margin: 0;
-	padding: 0;
 }
 
 #searchform br {
@@ -399,7 +396,7 @@ img.right {
 
 #footer {
 	padding: 30px 0 50px 0;
-	background: #940F04 url(../images/img05.gif) repeat-x;
+	background: #48528e url(../images/img05.gif) repeat-x;
 }
 
 #footer p {

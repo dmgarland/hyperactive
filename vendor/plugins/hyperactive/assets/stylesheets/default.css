@@ -29,11 +29,6 @@ h3 {
 	font-size: 1em;
 }
 
-
-ul {
-	list-style-image: url(../images/img07.gif);
-}
-
 a {
 	text-decoration: none;
 	border-bottom: none;
@@ -52,6 +47,7 @@ a img {
 img.left {
 	float: left;
 	margin: 0 20px 0 0;
+	border: 1px solid #000000;
 }
 
 img.right {
@@ -232,7 +228,8 @@ img.right {
 
 .sidebar_content ul {
 	margin: 0;
-	padding: 0;
+	padding: 0 10px 10px 0;
+	min-height: 120px;
 	list-style: none;
 }
 

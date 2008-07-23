@@ -5,17 +5,17 @@ function toggleTag(cbValue, checked) {
     var tagFound = false;
     var tagField = $('tags');
     var tags = tagField.value.trim();
-    var tagsArray = tags.split(",").invoke('trim');
+    var tagsArray = tags.split(" "); //.invoke('trim');
     if(checked) {
         if(tagsArray.detect(function(tag) { return tag.trim() == cbValue.trim(); })){
             if(tags.length > 0) {
-                tagField.value += ", " + cbValue;
+                tagField.value += " " + cbValue;
             } else {
                 tagField.value = cbValue;
             }
         } else {
             if(tags.length > 0) {
-                tagField.value += ", " + cbValue;
+                tagField.value += " " + cbValue;
             }else{
                 tagField.value = cbValue;
             }
@@ -23,7 +23,7 @@ function toggleTag(cbValue, checked) {
         }
     } else {
         tagsArray = tagsArray.without(cbValue);
-        tagField.value = tagsArray.join(", ");
+        tagField.value = tagsArray.join(" ");
     }
 }
 

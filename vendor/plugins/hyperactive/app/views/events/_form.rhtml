@@ -26,12 +26,6 @@
 
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
-<p>
-  <div id="categories_list">
-    <%= render(:partial => "categories_checkboxes") %>
-  </div>
-</p>
-
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 
  <% if controller.action_name == "new" %>

@@ -28,3 +28,26 @@ function toggleTag(cbValue, checked) {
 }
 
 String.prototype.trim = function() { return this.replace(/^\s+|\s+$/, ''); };
+
+// Gets user info from a cookie so that we can change the DOM to show customized pages.  This allows us to do 
+// pseudo-customization of otherwise cached pages.
+
+var UserInfo = new Object();
+
+UserInfo.data = {};
+
+UserInfo.transferFromCookies = function() {
+  var data = JSON.parse(unescape(Cookie.get("user-info")));
+  if(!data) data = {};
+  UserInfo.data = data;
+};
+
+UserInfo.writeDataTo = function(name, element) {
+  element = $(element);
+  var content = "";
+  if(UserInfo.data[name]) {
+    content = UserInfo.data[name].toString().gsub(/\+/, ' ');
+  }
+  element.innerHTML = unescape(content);
+};
+

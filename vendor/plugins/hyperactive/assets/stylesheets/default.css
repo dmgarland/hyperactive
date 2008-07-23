@@ -15,6 +15,7 @@ body {
 
 h1, h2, h3 {
 	margin-top: 0;
+	color: #940F04;
 }
 
 h1 {
@@ -33,11 +34,11 @@ a {
 	text-decoration: none;
 	border-bottom: none;
 	background: none;
-	color:#940F04;
+	color:#7b82ac;
 }
 
 a:hover {
-	border-bottom: 1px dotted #940F04;
+	border-bottom: 1px dotted #7b82ac;
 }
 
 a img {
@@ -120,7 +121,7 @@ img.right {
 }
 
 #menu a:hover {
-	background: #940f04;
+	background: #940F04;
 }
 
 #menu .current_page_item a {
@@ -229,7 +230,7 @@ img.right {
 .sidebar_content ul {
 	margin: 0;
 	padding: 0 10px 10px 0;
-	min-height: 120px;
+	min-height: 135px;
 	list-style: none;
 }
 
@@ -247,7 +248,7 @@ img.right {
 
 .sidebar_content li h2 {
 	margin: 0 0 5px 0;
-	padding: 2px 5px;
+	padding: 10px 5px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -284,7 +285,7 @@ img.right {
 
 .sidebar_content_wide li h2 {
 	margin: 0 0 5px 0;
-	padding: 2px 5px;
+	padding: 5px 5px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -312,13 +313,13 @@ img.right {
 }
 
 .sidebar li li {
-/*	padding: 5px 0 5px 25px;
-	background: url(../images/img04.gif) no-repeat 10px 9px;*/
+	padding: 5px 0 5px 20px;
+	background: url(../images/img04.gif) no-repeat 5px 9px;*/
 }
 
 .sidebar li h2 {
 	margin: 0 0 10px 0;
-	padding: 5px 10px;
+	padding: 10px 10px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -328,7 +329,6 @@ img.right {
 
 #searchform {
 	margin: 0;
-	padding: 0;
 }
 
 #searchform br {
@@ -339,15 +339,15 @@ img.right {
 
 #tag_cloud { line-height: 170%; } 
 .cloud { text-decoration: none !important; } 
-.cloud1 { font-size: 100%; color: #940F04 !important; } 
-.cloud2 { font-size: 110%; color: #940F04 !important; } 
-.cloud3 { font-size: 120%; color: #940F04 !important; } 
-.cloud4 { font-size: 130%; color: #940F04 !important; } 
-.cloud5 { font-size: 140%; color: #940F04 !important; } 
-.cloud6 { font-size: 150%; color: #940F04 !important; } 
-.cloud7 { font-size: 160%; color: #940F04 !important; } 
-.cloud8 { font-size: 170%; color: #940F04 !important; } 
-.cloud9 { font-size: 180%; color: #940F04 !important; } 
+.cloud1 { font-size: 100%; color: #7b82ac !important; } 
+.cloud2 { font-size: 110%; color: #7b82ac !important; } 
+.cloud3 { font-size: 120%; color: #7b82ac !important; } 
+.cloud4 { font-size: 130%; color: #7b82ac !important; } 
+.cloud5 { font-size: 140%; color: #7b82ac !important; } 
+.cloud6 { font-size: 150%; color: #7b82ac !important; } 
+.cloud7 { font-size: 160%; color: #7b82ac !important; } 
+.cloud8 { font-size: 170%; color: #7b82ac !important; } 
+.cloud9 { font-size: 180%; color: #7b82ac !important; } 
 
 /* Calendar */
 

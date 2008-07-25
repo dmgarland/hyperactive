@@ -79,6 +79,9 @@ require 'vpim/icalendar'
 
 TORRENT_TRACKER = 'http://escapegoat.org:6969' unless defined? TORRENT_TRACKER
 SITE_NAME = 'Indymedia London'
+BANNER_IMAGE = "banner.png"
+SHOW_SITE_NAME_IN_BANNER = false
+
 #require 'tag'
 #require 'place_tag'
 Debugger.start

@@ -9,17 +9,16 @@ body {
 	padding: 0;
 	background: #FFFFFF url(../images/img01.gif) repeat-x;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 11px;
 	color: #666666;
 }
 
 h1, h2, h3 {
 	margin-top: 0;
-	color: #940F04;
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 1.6em;
 }
 
 h2 {
@@ -30,15 +29,22 @@ h3 {
 	font-size: 1em;
 }
 
+
+
+/* ul {
+	list-style-image: url(../images/img07.gif);
+} */
+
 a {
 	text-decoration: none;
 	border-bottom: none;
 	background: none;
-	color:#7b82ac;
+	color: #940f04;
 }
 
 a:hover {
-	border-bottom: 1px dotted #7b82ac;
+	border-bottom: 1px dotted #6f0b03;
+	color: #6f0b03
 }
 
 a img {
@@ -51,9 +57,9 @@ img.left {
 	border: 1px solid #000000;
 }
 
-img.right {
-	float: right;
-	margin: 0 0 0 20px;
+img.right {	
+	margin: auto;
+	border: 1px solid #000000;
 }
 
 /* Header */
@@ -62,7 +68,8 @@ img.right {
 	width: 880px;
 	height: 100px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0;
+	background: url(../images/new_banner.jpg) left no-repeat;
 }
 
 #logo h1, #logo p {
@@ -79,7 +86,7 @@ img.right {
 
 
 #logo p {
-	padding: 10px 30px 0 3px;
+	padding: 0;
 }
 
 #logo a {	
@@ -93,7 +100,7 @@ img.right {
 #menu {
 	width: 880px;
 	height: 32px;
-	margin: 0 50px;
+	margin: 0 auto;
 	padding: 0 10px;
 }
 
@@ -121,12 +128,12 @@ img.right {
 }
 
 #menu a:hover {
-	background: #940F04;
+	background: #940f04;
 }
 
 #menu .current_page_item a {
 	background: url(../images/img02.gif) repeat-x;
-	color: #940F04;
+	color: #940f04;
 }
 
 /* Page */
@@ -175,12 +182,18 @@ img.right {
 	width: 659px;
 }
 
+#action-alert {
+	margin-bottom: 20px;
+	padding: 0 0 0 5px;
+	line-height: 150%;
+	background: #e2e2e2;
+}
 
 .post {	
-	margin-bottom: 20px;
-	padding-bottom: 15px;
+	margin-bottom: 5px; /* was 20 */
+	padding-bottom: 5px; /* was 15 */
 	border-bottom: 1px solid #F2F2F2;
-	line-height: 200%;
+	line-height: 150%;
 }
 
 .title {
@@ -192,7 +205,7 @@ img.right {
 }
 
 .title a:hover {
-	border-bottom: 1px dotted #660000;
+	border-bottom: 1px dotted #940f04;
 }
 
 .byline {
@@ -219,6 +232,7 @@ img.right {
 	border-bottom: 1px dotted #CCCCCC;
 }
 
+
 /* Sidebars content */
 
 .sidebar_content {
@@ -229,22 +243,24 @@ img.right {
 
 .sidebar_content ul {
 	margin: 0;
-	padding: 0 10px 10px 0;
-	min-height: 135px;
+	padding: 0;
+	min-height: 140px;
 	list-style: none;
 }
 
 .sidebar_content li {
-	padding: 0 0 5px 0;
+	padding: 0 0 10px 0;
 }
 
 .sidebar_content li ul {
 }
 
 .sidebar_content li li {
-	/*padding: 2px 0 2px 12px;
-	background: url(../images/img04.gif) no-repeat 10px 9px;*/
+	padding: 2px 0 2px 12px;
+/*	background: url(../images/img04.gif) no-repeat 10px 9px;*/
 }
+
+/* disabling the line above gets rid of the dot without messing up the rest.*/
 
 .sidebar_content li h2 {
 	margin: 0 0 5px 0;
@@ -253,7 +269,6 @@ img.right {
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
 }
-
 
 
 
@@ -291,6 +306,7 @@ img.right {
 	font-size: 12px;
 }
 
+
 /* Sidebars */
 
 .sidebar {
@@ -313,13 +329,13 @@ img.right {
 }
 
 .sidebar li li {
-	padding: 5px 0 5px 20px;
-	background: url(../images/img04.gif) no-repeat 5px 9px;*/
+	padding: 5px 0 5px 25px;
+	background: url(../images/img04.gif) no-repeat 10px 9px;
 }
 
 .sidebar li h2 {
 	margin: 0 0 10px 0;
-	padding: 10px 10px;
+	padding: 5px 10px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -329,6 +345,7 @@ img.right {
 
 #searchform {
 	margin: 0;
+	padding: 0;
 }
 
 #searchform br {
@@ -337,19 +354,19 @@ img.right {
 
 /*Tagcloud*/
 
-#tag_cloud { line-height: 170%; } 
+#tag_cloud { line-height: 150%; } 
 .cloud { text-decoration: none !important; } 
-.cloud1 { font-size: 100%; color: #7b82ac !important; } 
-.cloud2 { font-size: 110%; color: #7b82ac !important; } 
-.cloud3 { font-size: 120%; color: #7b82ac !important; } 
-.cloud4 { font-size: 130%; color: #7b82ac !important; } 
-.cloud5 { font-size: 140%; color: #7b82ac !important; } 
-.cloud6 { font-size: 150%; color: #7b82ac !important; } 
-.cloud7 { font-size: 160%; color: #7b82ac !important; } 
-.cloud8 { font-size: 170%; color: #7b82ac !important; } 
-.cloud9 { font-size: 180%; color: #7b82ac !important; } 
+.cloud1 { font-size: 100%; color: #222222 !important; } 
+.cloud2 { font-size: 110%; color: #333333 !important; } 
+.cloud3 { font-size: 120%; color: #444444 !important; } 
+.cloud4 { font-size: 130%; color: #555555 !important; } 
+.cloud5 { font-size: 140%; color: #666666 !important; } 
+.cloud6 { font-size: 150%; color: #777777 !important; } 
+.cloud7 { font-size: 160%; color: #888888 !important; } 
+.cloud8 { font-size: 170%; color: #999999 !important; } 
+.cloud9 { font-size: 180%; color: #aaaaaa !important; } 
 
-/* Calendar */
+/* Calendar is gone, right?
 
 #calendar_wrap {
 	padding: 0 0 0 20px;
@@ -390,13 +407,14 @@ img.right {
 
 #calendar_wrap tfoot td#next a {
 	border: none;
-}
+} 
+*/
 
 /* Footer */
 
 #footer {
 	padding: 30px 0 50px 0;
-	background: #940F04 url(../images/img05.gif) repeat-x;
+	background: #940f04 url(../images/img05.gif) repeat-x;
 }
 
 #footer p {

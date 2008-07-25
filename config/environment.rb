@@ -91,9 +91,9 @@ ActiveRecord::Base.verification_timeout = 14400
 ActiveSupport::JSON.unquote_hash_key_identifiers = false
 
 # Globalize configuration for internationalization purposes
-include Globalize
-Locale.set_base_language('en-GB')
-Locale.set('en-GB')
+#include Globalize
+#Locale.set_base_language('en-GB')
+#Locale.set('en-GB')
 
 # Email configuration
 # 

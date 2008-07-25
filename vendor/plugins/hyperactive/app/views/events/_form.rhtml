@@ -1,5 +1,7 @@
 <%= error_messages_for :content %>
 
+<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
+
 <!--[form:event]-->
 <p><em>*</em> = required field</p>
 <p><label for="content_title"><%= 'Title'.t %><em>*</em></label><br/>
@@ -23,8 +25,6 @@
 <%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
 
 <%= render :partial => 'shared/content/comments/allows_comments_controls', :locals => {:f => f} %>
-
-<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 

@@ -1,5 +1,4 @@
-set :deploy_to, "/home/yossarian/www/london.escapegoat.org/current"
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster_staging.yml"
+set :deploy_to, "/home/yossarian/www/london.escapegoat.org"
 
 role :web, "london.escapegoat.org"
 role :app, "london.escapegoat.org"

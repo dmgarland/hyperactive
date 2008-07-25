@@ -1,4 +1,4 @@
-require 'mongrel_cluster/recipes'
+require 'capistrano/ext/multistage'
 
 # This defines a deployment "recipe" that you can feed to capistrano
 # (http://manuals.rubyonrails.com/read/book/17). It allows you to automate
@@ -12,7 +12,7 @@ require 'mongrel_cluster/recipes'
 # correspond to. The deploy_to path must be the path on each machine that will
 # form the root of the application path.
 
-set :application, "imcalendar"
+set :application, "hyperactive"
 set :repository, "svn://escapegoat.org/hyperactive/trunk"
 
 # =============================================================================
@@ -24,16 +24,17 @@ set :repository, "svn://escapegoat.org/hyperactive/trunk"
 # be used to single out a specific subset of boxes in a particular role, like
 # :primary => true.
 
-role :web, "london.escapegoat.org"
-role :app, "london.escapegoat.org"
-role :db,  "london.escapegoat.org", :primary => true
+# roles are now found in the deployment files for each environment, 
+# i.e. config/deploy/production.rb and config/deploy/staging.rb
+#
+#role :web, "london.escapegoat.org"
+#role :app, "london.escapegoat.org"
+#role :db,  "london.escapegoat.org", :primary => true
 
 
 # =============================================================================
 # OPTIONAL VARIABLES
 # =============================================================================
-set :deploy_to, "/home/yossarian/www/london.escapegoat.org/" # defaults to "/u/apps/#{application}"
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 set :user, "yossarian"            # defaults to the currently logged in user
 set :keep_releases, 2            # number of deployed releases to keep
 # set :scm, :darcs               # defaults to :subversion

@@ -117,17 +117,17 @@ namespace :deploy do
     
     desc "Start backgroundrb for video encoding"
     task :start do
-      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:start RAILS_ENV=production"
+      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:start RAILS_ENV=#{stage}"
     end
     
     desc "Stop backgroundrb for video encoding"
     task :stop do
-      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:stop RAILS_ENV=production"
+      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:stop RAILS_ENV=#{stage}"
     end
     
     desc "Restart backgroundrb for video encoding"
     task :restart do
-      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:restart RAILS_ENV=production"
+      run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:restart RAILS_ENV=#{stage}"
     end
     
   end # end of backgroundrb namespace
@@ -137,12 +137,12 @@ namespace :deploy do
     
     desc "Start the ferret drb server for search indexing"
     task :start do
-      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=production start"
+      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=#{stage} start"
     end
     
     desc "Stop the ferret drb server for search indexing"
     task :stop do
-      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=production stop"
+      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=#{stage} stop"
     end
     
     desc "Restart the ferret drb server for search indexing"

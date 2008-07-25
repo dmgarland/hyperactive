@@ -120,7 +120,7 @@ USE_LOCAL_CSS = false
 # What are the possible content moderation statuses?
 CONTENT_MODERATION_STATUSES = %w(published promoted hidden featured)
 
-WhiteListHelper.tags = %w(strong em b i p code pre tt br ul ol li a blockquote strike)
+WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strike)
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 

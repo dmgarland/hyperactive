@@ -69,7 +69,7 @@ img.right {
 	width: 880px;
 	height: 100px;
 	margin: 0 auto;
-	padding: 0;
+	padding: 10px 0;
 	background: url(../images/new_banner.jpg) left no-repeat;
 }
 

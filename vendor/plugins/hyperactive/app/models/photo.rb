@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
   belongs_to :post, :foreign_key => 'content_id'
   
   image_column  :file, 
-                :versions => { :thumb => "c100x100", :big_thumb => "180x400", :medium => "480x480" },
+                :versions => { :thumb => "c100x100", :big_thumb => "180x400", :medium => "480x480>" },
                 :extensions => ["gif", "png", "jpg"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),
                 :web_root => "/system", 

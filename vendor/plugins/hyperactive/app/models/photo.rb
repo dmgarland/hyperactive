@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
   belongs_to :post, :foreign_key => 'content_id'
   
   image_column  :file, 
-                :versions => { :thumb => "100x100", :big_thumb => "180x400", :medium => "480x480" },
+                :versions => { :thumb => "c100x100", :big_thumb => "180x400", :medium => "480x480" },
                 :extensions => ["gif", "png", "jpg"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),
                 :web_root => "/system", 
@@ -24,7 +24,7 @@ class Photo < ActiveRecord::Base
   # were stored in.
   #
   def delete_files
-    FileUtils.remove_dir(file.store_dir)
+    FileUtils.remove_dir(file.store_dir) if File.exists?(file.store_dir)
   end 
   
   
@@ -33,7 +33,7 @@ class Photo < ActiveRecord::Base
   #
   def delete_files_if_new_uploaded
     if self.file.new_file?
-      FileUtils.remove_dir(file.store_dir)
+      FileUtils.remove_dir(file.store_dir) if File.exists?(file.store_dir)
     end
   end
   

@@ -101,7 +101,7 @@ class FeedsController < ApplicationController
               :item => {
                 :pub_date => :date,
                 :video_type => :video_type,
-                :length => :file_size,
+                :length => :media_size,
                 :thumbnail => :thumbnail,
                 :http_link => :relative_ogg_file,
                 :torrent_link => :relative_torrent_file}

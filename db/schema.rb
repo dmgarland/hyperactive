@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 18) do
+ActiveRecord::Schema.define(:version => 19) do
 
   create_table "action_alerts", :force => true do |t|
     t.column "summary",       :string,                      :null => false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 18) do
     t.column "file",              :string
     t.column "content_id",        :integer
     t.column "processing_status", :integer
-    t.column "file_size",         :integer
+    t.column "media_size",        :integer
     t.column "moderation_status", :string
     t.column "allows_comments",   :boolean,  :default => true
     t.column "stick_at_top",      :boolean

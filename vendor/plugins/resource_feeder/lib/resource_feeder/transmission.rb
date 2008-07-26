@@ -34,7 +34,7 @@ module ResourceFeeder
       options[:item][:video_type]  ||= [ :video_type, :type ]
       options[:item][:http_link]   ||= [ :relative_ogg_file, :relative_video_file ]
       options[:item][:torrent_link] ||= [:relative_torrent_file]
-      options[:item][:length]      ||= [ :file_size ]
+      options[:item][:length]      ||= [ :media_size ]
       options[:item][:thumbnail]   ||= [ :thumbnail ] 
       resource_link = lambda { |r| SimplyHelpful::PolymorphicRoutes.polymorphic_url(r, options[:url_writer]) }
 

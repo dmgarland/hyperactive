@@ -257,11 +257,10 @@ img.right {
 }
 
 .sidebar_content li li {
-	padding: 2px 0 2px 12px;
-/*	background: url(../images/img04.gif) no-repeat 10px 9px;*/
+	padding: 2px 0 2px 20px;
+	background: url(../images/icon_article.gif) no-repeat 0px 5px;
 }
 
-/* disabling the line above gets rid of the dot without messing up the rest.*/
 
 .sidebar_content li h2 {
 	margin: 0 0 5px 0;
@@ -302,8 +301,45 @@ img.right {
 	font-size: 12px;
 }
 
+/*Sidebar Events*/
 
-/* Sidebars */
+
+
+.sidebar_events {
+	float: left;
+	width: 200px;
+	padding: 0 0 0 21px;
+}
+
+.sidebar_events ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar_events li {
+	padding: 0 0 10px 0;
+}
+
+.sidebar_events li ul {
+}
+
+.sidebar_events li li {
+	padding: 2px 0 2px 20px;
+	background: url(../images/icon_event.gif) no-repeat 0px 5px;
+}
+/* this is where the dot somes from */
+
+.sidebar_events li h2 {
+	margin: 0 0 10px 0;
+	padding: 5px 10px;
+	background: url(../images/img02.gif) repeat-x;
+	border: 1px solid #F2F2F2;
+	font-size: 12px;
+}
+
+
+/* Sidebar right */
 
 .sidebar {
 	float: left;
@@ -318,7 +354,7 @@ img.right {
 }
 
 .sidebar li {
-	padding: 0 0 20px 0;
+	padding: 0 0 10px 0;
 }
 
 .sidebar li ul {
@@ -328,6 +364,7 @@ img.right {
 	padding: 5px 0 5px 25px;
 	background: url(../images/img04.gif) no-repeat 10px 9px;
 }
+/* this is where the dot somes from */
 
 .sidebar li h2 {
 	margin: 0 0 10px 0;
@@ -336,6 +373,11 @@ img.right {
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
 }
+
+/* .sidebar li li a {
+	padding: 0 0 0 15px;
+} */
+
 
 /* Search */
 
@@ -422,6 +464,10 @@ img.right {
 
 #footer a {
 	color: #FFFFFF;
+}
+
+#footer a:hover {
+	color: #000000;
 }
 
 #feed {

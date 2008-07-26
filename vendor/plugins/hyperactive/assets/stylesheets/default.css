@@ -347,12 +347,12 @@ img.right {
 
 .event-list {
 	padding: 2px 0 2px 20px;
-	background: url(../images/icon_event.gif) no-repeat 0px 5px;
+	background: url(../images/date.png) no-repeat 0px 5px;
 }
 
 .video-list {
 	padding: 2px 0 2px 20px;
-	background: url(../images/iimg04.gif) no-repeat 0px 5px;
+	background: url(../images/icon_video.gif) no-repeat 0px 5px;
 }
 
 /* Search */
@@ -403,6 +403,11 @@ img.right {
 #footer b, a:hover {
 	color: #000000;
 }
+
+/* #footer b a {
+	color: #000000;
+} */
+
 
 #feed {
 	width: 658px;

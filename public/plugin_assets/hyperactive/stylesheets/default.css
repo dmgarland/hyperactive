@@ -23,11 +23,11 @@ h1 {
 }
 
 h2 {
-	font-size: 1.6em;
+	font-size: 1.4em;
 }
 
 h3 {
-	font-size: 1em;
+	font-size: 1.3em;
 }
 
 
@@ -63,11 +63,15 @@ img.right {
 	border: 1px solid #000000;
 }
 
+li li {
+	padding: 0 0 0 25px;
+}
+
 /* Header */
 
 #logo {
 	width: 880px;
-	height: 100px;
+	height: 73px;
 	margin: 0 auto;
 	padding: 0;
 	background: url(../images/new_banner.jpg) left no-repeat;
@@ -257,11 +261,9 @@ img.right {
 }
 
 .sidebar_content li li {
-	padding: 2px 0 2px 12px;
-/*	background: url(../images/img04.gif) no-repeat 10px 9px;*/
-}
+	padding: 2px 0 2px 20px;
+} 
 
-/* disabling the line above gets rid of the dot without messing up the rest.*/
 
 .sidebar_content li h2 {
 	margin: 0 0 5px 0;
@@ -303,6 +305,7 @@ img.right {
 }
 
 
+
 /* Sidebars */
 
 .sidebar {
@@ -318,15 +321,14 @@ img.right {
 }
 
 .sidebar li {
-	padding: 0 0 20px 0;
+	padding: 0 0 10px 0;
 }
 
 .sidebar li ul {
 }
 
 .sidebar li li {
-	padding: 5px 0 5px 25px;
-	background: url(../images/img04.gif) no-repeat 10px 9px;
+	padding: 0 0 0 25px;
 }
 
 .sidebar li h2 {
@@ -336,6 +338,26 @@ img.right {
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
 }
+
+/* .sidebar li li a {
+	padding: 0 0 0 15px;
+} */
+
+.list {
+	padding: 5px 0 5px 25px;
+	background: url(../images/img04.gif) no-repeat 10px 5px;
+}
+
+.article {
+	padding: 2px 0 2px 20px;
+	background: url(../images/icon_article.gif) no-repeat 0px 5px;
+}
+
+.event {
+	padding: 2px 0 2px 20px;
+	background: url(../images/date.png) no-repeat 0px 5px;
+}
+
 
 /* Search */
 
@@ -362,49 +384,7 @@ img.right {
 .cloud8 { font-size: 170%; color: #999999 !important; } 
 .cloud9 { font-size: 180%; color: #aaaaaa !important; } 
 
-/* Calendar is gone, right?
 
-#calendar_wrap {
-	padding: 0 0 0 20px;
-	text-align: center;
-}
-
-#calendar_wrap table {
-	width: 90%;
-}
-
-#calendar_wrap th {
-	border-bottom: 1px solid #CCCCCC;
-}
-
-#calendar_wrap td {
-	border-bottom: 1px solid #F2F2F2;
-}
-
-#calendar_wrap tfoot td {
-	border: none;
-}
-
-#calendar_wrap tfoot td#prev {
-	text-align: left;
-	font-weight: bold;
-	border: none;
-}
-
-#calendar_wrap tfoot td#prev a {
-	border: none;
-}
-
-#calendar_wrap tfoot td#next {
-	text-align: right;
-	font-weight: bold;
-	border: none;
-}
-
-#calendar_wrap tfoot td#next a {
-	border: none;
-} 
-*/
 
 /* Footer */
 
@@ -422,6 +402,10 @@ img.right {
 
 #footer a {
 	color: #FFFFFF;
+}
+
+#footer a:hover {
+	color: #000000;
 }
 
 #feed {

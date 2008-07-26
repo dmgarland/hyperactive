@@ -1,5 +1,4 @@
-<li>
-	<%= icon_image_for(list_title) %> 
+<li class="<%= list_title.class.to_s.downcase %>">
 	<%= link_to h(list_title.title), content_url_for(list_title) %>
 	<% if list_title.is_a?(Event) %>
 		<br/><%= long_date(list_title.date) %>

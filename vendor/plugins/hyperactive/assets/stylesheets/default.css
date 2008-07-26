@@ -23,11 +23,11 @@ h1 {
 }
 
 h2 {
-	font-size: 1.6em;
+	font-size: 1.4em;
 }
 
 h3 {
-	font-size: 1em;
+	font-size: 1.3em;
 }
 
 
@@ -67,7 +67,7 @@ img.right {
 
 #logo {
 	width: 880px;
-	height: 100px;
+	height: 73px;
 	margin: 0 auto;
 	padding: 0;
 	background: url(../images/new_banner.jpg) left no-repeat;

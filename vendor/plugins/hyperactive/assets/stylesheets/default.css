@@ -348,16 +348,20 @@ li li {
 	background: url(../images/img04.gif) no-repeat 10px 5px;
 }
 
-.article {
+.article-list {
 	padding: 2px 0 2px 20px;
 	background: url(../images/icon_article.gif) no-repeat 0px 5px;
 }
 
-.event {
+.event-list {
 	padding: 2px 0 2px 20px;
 	background: url(../images/date.png) no-repeat 0px 5px;
 }
 
+.video-list {
+	padding: 2px 0 2px 20px;
+	background: url(../images/icon_video.gif) no-repeat 0px 5px;
+}
 
 /* Search */
 

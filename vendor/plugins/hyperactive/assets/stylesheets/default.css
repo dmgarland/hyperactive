@@ -174,12 +174,14 @@ img.right {
 
 /* Notice and Error Messages */
 
-.errorExplanation, .flash flash_error {
-	background: #BC7272;
+.errorExplanation, .flash_error {
+	color: #000000;
+	background: #BC7268;
 	border: solid 1pt #AA1515;
 }
 
-.flash flash_notice {
+.flash_notice {
+	color: #000000;
 	background: #89DBEE;
 	border: solid 1pt #008000;
 }
@@ -414,7 +416,11 @@ img.right {
 	color: #FFFFFF;
 }
 
-#footer b, a:hover {
+#footer b {
+	color: #000000;
+}
+
+#footer a:hover {
 	color: #000000;
 }
 

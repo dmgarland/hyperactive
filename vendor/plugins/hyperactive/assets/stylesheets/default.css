@@ -63,9 +63,6 @@ img.right {
 	border: 1px solid #000000;
 }
 
-li li {
-	padding: 0 0 0 25px;
-}
 
 /* Header */
 
@@ -199,6 +196,7 @@ li li {
 	padding-bottom: 10px; /* was 15 */
 	border-bottom: 1px solid #F2F2F2;
 	line-height: 150%;
+	clear: both;
 }
 
 .title {
@@ -218,7 +216,7 @@ li li {
 }
 
 .entry {
-	padding: 0 20px;
+	padding: 0;
 }
 
 .links {
@@ -289,12 +287,6 @@ li li {
 	list-style: none;
 }
 
-.sidebar_content_wide li {
-
-}
-
-.sidebar_content_wide li ul {
-}
 
 .sidebar_content_wide li h2 {
 	margin: 0 0 5px 0;
@@ -357,6 +349,7 @@ li li {
 	padding: 2px 0 2px 20px;
 	background: url(../images/date.png) no-repeat 0px 5px;
 }
+
 
 .video-list {
 	padding: 2px 0 2px 20px;

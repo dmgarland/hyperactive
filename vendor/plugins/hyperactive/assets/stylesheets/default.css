@@ -172,6 +172,20 @@ img.right {
 	border: 1px solid #E7E7E7;
 }
 
+/* Notice and Error Messages */
+
+.errorExplanation, .flash flash_error {
+	background: #BC7272;
+	border: solid 1pt #AA1515;
+}
+
+.flash flash_notice {
+	background: #89DBEE;
+	border: solid 1pt #008000;
+}
+
+
+
 /* Content */
 
 #content {

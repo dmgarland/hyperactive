@@ -63,6 +63,10 @@ img.right {
 	border: 1px solid #000000;
 }
 
+li li {
+	padding: 0 0 0 25px;
+}
+
 /* Header */
 
 #logo {
@@ -258,8 +262,7 @@ img.right {
 
 .sidebar_content li li {
 	padding: 2px 0 2px 20px;
-	background: url(../images/icon_article.gif) no-repeat 0px 5px;
-}
+} 
 
 
 .sidebar_content li h2 {
@@ -301,45 +304,9 @@ img.right {
 	font-size: 12px;
 }
 
-/*Sidebar Events*/
 
 
-
-.sidebar_events {
-	float: left;
-	width: 200px;
-	padding: 0 0 0 21px;
-}
-
-.sidebar_events ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.sidebar_events li {
-	padding: 0 0 10px 0;
-}
-
-.sidebar_events li ul {
-}
-
-.sidebar_events li li {
-	padding: 2px 0 2px 20px;
-	background: url(../images/date.png) no-repeat 0px 5px;
-}
-/* this is where the dot somes from */
-
-.sidebar_events li h2 {
-	margin: 0 0 10px 0;
-	padding: 5px 10px;
-	background: url(../images/img02.gif) repeat-x;
-	border: 1px solid #F2F2F2;
-	font-size: 12px;
-}
-
-
-/* Sidebar right */
+/* Sidebars */
 
 .sidebar {
 	float: left;
@@ -361,10 +328,8 @@ img.right {
 }
 
 .sidebar li li {
-	padding: 5px 0 5px 25px;
-	background: url(../images/img04.gif) no-repeat 10px 9px;
+	padding: 0 0 0 25px;
 }
-/* this is where the dot somes from */
 
 .sidebar li h2 {
 	margin: 0 0 10px 0;
@@ -377,6 +342,21 @@ img.right {
 /* .sidebar li li a {
 	padding: 0 0 0 15px;
 } */
+
+.list {
+	padding: 5px 0 5px 25px;
+	background: url(../images/img04.gif) no-repeat 10px 5px;
+}
+
+.article {
+	padding: 2px 0 2px 20px;
+	background: url(../images/icon_article.gif) no-repeat 0px 5px;
+}
+
+.event {
+	padding: 2px 0 2px 20px;
+	background: url(../images/date.png) no-repeat 0px 5px;
+}
 
 
 /* Search */
@@ -404,49 +384,7 @@ img.right {
 .cloud8 { font-size: 170%; color: #999999 !important; } 
 .cloud9 { font-size: 180%; color: #aaaaaa !important; } 
 
-/* Calendar is gone, right?
 
-#calendar_wrap {
-	padding: 0 0 0 20px;
-	text-align: center;
-}
-
-#calendar_wrap table {
-	width: 90%;
-}
-
-#calendar_wrap th {
-	border-bottom: 1px solid #CCCCCC;
-}
-
-#calendar_wrap td {
-	border-bottom: 1px solid #F2F2F2;
-}
-
-#calendar_wrap tfoot td {
-	border: none;
-}
-
-#calendar_wrap tfoot td#prev {
-	text-align: left;
-	font-weight: bold;
-	border: none;
-}
-
-#calendar_wrap tfoot td#prev a {
-	border: none;
-}
-
-#calendar_wrap tfoot td#next {
-	text-align: right;
-	font-weight: bold;
-	border: none;
-}
-
-#calendar_wrap tfoot td#next a {
-	border: none;
-} 
-*/
 
 /* Footer */
 

@@ -82,9 +82,34 @@ SITE_NAME = 'Indymedia London'
 BANNER_IMAGE = "banner.png"
 SHOW_SITE_NAME_IN_BANNER = false
 
-#require 'tag'
-#require 'place_tag'
+# Should the site use ssl for publishing, logins, etc?
+#
+USE_SSL = false
+
+# Email configuration
+# 
+# What address should hide/unhide/inappropriate content notifications be sent to?
+MODERATION_EMAIL_RECIPIENTS = 'imc-london-moderation@lists.indymedia.org'
+#
+# Who should moderation emails originate from?
+MODERATION_EMAIL_FROM = "indy site <site@london.escapegoat.org>"
+
+# Whether the site should use its own stylesheet at public/stylesheets 
+# instead of the stylesheet from the hyperactive plugin.
+USE_LOCAL_CSS = false
+
+# What are the possible content moderation statuses?
+CONTENT_MODERATION_STATUSES = %w(published promoted hidden featured)
+
 Debugger.start
+
+# Who gets emails when the site explodes?
+#
+unless RAILS_ENV == 'test'
+  ExceptionNotifier.exception_recipients = %w(yossarian@aktivix.org)
+  ExceptionNotifier.sender_address = %("Application Error" <error@london.escapegoat.org>)
+  ExceptionNotifier.email_prefix = "[Hyperactive] "
+end
 
 ActiveRbac.controller_layout = "admin" 
 #ActiveRbac.controller_registration_signup_fields << "login"
@@ -98,27 +123,6 @@ include Globalize
 Locale.set_base_language('en-GB')
 Locale.set('en-GB')
 
-# Email configuration
-# 
-# What address should hide/unhide/inappropriate content notifications be sent to?
-MODERATION_EMAIL_RECIPIENTS = 'imc-london-moderation@lists.indymedia.org'
-#
-# Who should moderation emails originate from?
-MODERATION_EMAIL_FROM = "indy site <site@london.escapegoat.org>"
-
-unless RAILS_ENV == 'test'
-  # Who gets emails when the site explodes?
-  ExceptionNotifier.exception_recipients = %w(yossarian@aktivix.org)
-  ExceptionNotifier.sender_address = %("Application Error" <error@london.escapegoat.org>)
-  ExceptionNotifier.email_prefix = "[Hyperactive] "
-end
-
-# Whether the site should use its own stylesheet at public/stylesheets 
-# instead of the stylesheet from the hyperactive plugin.
-USE_LOCAL_CSS = false
-
-# What are the possible content moderation statuses?
-CONTENT_MODERATION_STATUSES = %w(published promoted hidden featured)
 
 WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strike)
 WhiteListHelper.attributes = %w(href src alt title)

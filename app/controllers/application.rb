@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   #
   alias :original_ssl_required? :ssl_required?
   def ssl_required?
-    RAILS_ENV == 'production' && original_ssl_required?
+    USE_SSL && original_ssl_required?
   end
 
   

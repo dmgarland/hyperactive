@@ -36,6 +36,11 @@ class HomeController < ApplicationController
     setup_featured_articles
     setup_action_alert
     @snippet = Snippet.find_by_key("homepage")
+    feed_file = "#{RAILS_ROOT}/public/system/cache/uk_feed.rhtml"
+    if File.exists?(feed_file)
+      file = File.new(feed_file)
+      @uk_feed = file.read
+    end
   end
   
   protected
@@ -50,8 +55,6 @@ class HomeController < ApplicationController
       @top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['moderation_status = ?', "featured"])
     end
     @top_featured_articles = Article.find(:all, :limit => 4, :order => "created_on DESC",
-      :conditions => ["moderation_status = ? and id != ?", "featured",  @top_article.id]) unless @top_article.nil?
-    @featured_articles = Article.find(:all, :limit => objects_per_page, :offset => 4, :order => "created_on DESC",
       :conditions => ["moderation_status = ? and id != ?", "featured",  @top_article.id]) unless @top_article.nil?
   end 
   

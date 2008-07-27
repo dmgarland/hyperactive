@@ -32,20 +32,21 @@
 	<% end %>
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
-			<li>
-				<h2><%= 'Older Features'.t %></h2>
+			<li>				
+				<h2><%= 'Promoted Newswire'.t %></h2>
 				<ul>
-					<%= render :partial => '/shared/content/list_title', :collection => @featured_articles unless @featured_articles.nil? %>			
+				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>			
 				</ul>
+
 			</li>
 		</ul>
 	</div>	
 	<div id="unused" class="sidebar_content">
 		<ul>
 			<li>
-				<h2><%= 'Promoted Newswire'.t %></h2>
+				<h2><%= 'Around the UK'.t %></h2>
 				<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>			
+					<%= @uk_feed unless @uk_feed.nil? %>
 				</ul>
 			</li>
 		</ul>

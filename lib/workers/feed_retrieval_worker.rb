@@ -14,8 +14,8 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
   require 'action_controller'
   require 'action_view'    
 
-  repeat_every 10.minutes
-  first_run Time.now
+#  repeat_every 10.minutes
+#  first_run Time.now
 
   # This method is called in it's own new thread when you
   # call new worker. args is set to :args  
@@ -25,9 +25,10 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
     puts "retrieving: #{url}"
     rss = SimpleRSS.parse(open(url))
     @feed_items = rss.items[0..9]
-    puts "rss retrieved: #{@feed_items}"
+    puts "rss retrieved: #{@feed_items} \n\n\n"
     output = ""
     @feed_items.each do |feed_item|
+      puts "feed item: #{feed_item.title} \n\n\n"
       output +=  @action_view.render :partial => "feeds/external/list_title", :locals => {:list_title => feed_item}
     end
     puts "output: #{output}"

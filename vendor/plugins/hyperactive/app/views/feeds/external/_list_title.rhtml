@@ -1,3 +1,4 @@
 <li class="article-list">
-	<%= link_to(list_title.title.gsub!(/<%/, ""), list_title.link.gsub!(/<%/, "") %>
+	<% debugger %>
+	<%= link_to(list_title.title.gsub(/<%/, ""), list_title.link.gsub(/<%/, "")) %>
 </li>

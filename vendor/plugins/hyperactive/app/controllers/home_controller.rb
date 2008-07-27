@@ -15,19 +15,15 @@ class HomeController < ApplicationController
       :all, 
       :limit => 5, 
       :order => "date ASC", 
-      :conditions => ['moderation_status = ? and date >= ?', "promoted", Date.today])
+      :conditions => ['moderation_status = ? and date >= ?', "featured", Date.today])
     @recent_events = Event.find(
       :all, 
-      :conditions => ['moderation_status = ? and date >= ?', "published", Date.today], 
+      :conditions => ['moderation_status = ? and date >= ?', "promoted", Date.today], 
       :order => 'date ASC',
       :limit => objects_per_page)
-    @recent_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
-      video.processing_status == 2
-      video.moderation_status == "published"
-    end
     @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
       video.processing_status == 2
-      video.moderation_status == "promoted"
+      video.moderation_status == "featured"
     end    
     @recent_articles = Article.find(
       :all,

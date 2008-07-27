@@ -172,6 +172,22 @@ img.right {
 	border: 1px solid #E7E7E7;
 }
 
+/* Notice and Error Messages */
+
+.errorExplanation, .flash_error {
+	color: #000000;
+	background: #BC7268;
+	border: solid 1pt #AA1515;
+}
+
+.flash_notice {
+	color: #000000;
+	background: #89DBEE;
+	border: solid 1pt #008000;
+}
+
+
+
 /* Content */
 
 #content {
@@ -400,9 +416,18 @@ img.right {
 	color: #FFFFFF;
 }
 
-#footer b, a:hover {
+#footer b {
 	color: #000000;
 }
+
+#footer a:hover {
+	color: #000000;
+}
+
+/* #footer b a {
+	color: #000000;
+} */
+
 
 #feed {
 	width: 658px;

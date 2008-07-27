@@ -1,17 +1,20 @@
 <div class="post">
-	<h1 class="title"><%= link_to h(list_summary.title), content_url_for(list_summary) %></h1>
-	<p class="byline"><small><%= icon_image_for(list_summary) %> 
-	<% if list_summary.class == Event %>	
-		<%=h long_date(list_summary.date) %>
+	<h1 class="title"><%= link_to h(top_featured.title), content_url_for(top_featured) %></h1>
+	<p class="byline">
+	<small> 
+	<% if top_featured.class == Event %>	
+		<%=h long_date(top_featured.date) %>
 	<% else %>
-		<%=h long_date(list_summary.created_on) unless list_summary.created_on.nil? %>	
+		<%=h long_date(top_featured.created_on) unless top_featured.created_on.nil? %>	
 	<% end %>
-	<%= "by" %> <%=h list_summary.published_by %>
+	<%= "by" %> <%=h top_featured.published_by %>
+	| <%= link_to("read more &rarr;", content_url_for(top_featured)) %>
 	</small></p>
 	<div class="entry">
-		<p><% if list_summary.has_thumbnail? %>
-			<%= thumbnail_for(list_summary) %>
+		<p><% if top_featured.has_thumbnail? %>
+			<%= thumbnail_for(top_featured) %>
 		<% end %>
-		<%= list_summary.summary %></p>
+		<%= top_featured.summary %>
+		</p>
 	</div>
 </div>

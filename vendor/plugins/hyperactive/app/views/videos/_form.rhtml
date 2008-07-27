@@ -1,5 +1,8 @@
 <%= error_messages_for :content %>
 
+<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
+
+
 <% if controller.action_name == 'edit' %>
     <%= image_tag "/#{@content.thumbnail}" %><br/><br/>
 <% end %>
@@ -20,7 +23,5 @@
 </label><br/><br/>
 
 <%= render :partial => 'shared/content/comments/allows_comments_controls', :locals => {:f => f} %>
-
-<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
 <%= render :partial => 'shared/content/tag_entry_controls' %>

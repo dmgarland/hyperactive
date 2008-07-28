@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-  ROUTES_PROTOCOL = (ENV["RAILS_ENV"] =~ /development/ ? "http://" : "https://")
+  ROUTES_PROTOCOL = "http://"#(ENV["RAILS_ENV"] =~ /development/ ? "http://" : "https://")
   
   # Add your own custom routes here.
   # The priority is based upon order of creation: first created -> highest priority.

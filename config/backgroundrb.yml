@@ -15,3 +15,6 @@ autostart:
   1:
     job_key: torrent_worker
     class: torrent_worker
+  2: 
+    job_key: feed_retrieval_worker
+    class: feed_retrieval_worker

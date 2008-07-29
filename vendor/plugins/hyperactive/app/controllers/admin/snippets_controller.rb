@@ -61,6 +61,7 @@ class Admin::SnippetsController < ApplicationController
   # POST /snippets
   # POST /snippets.xml
   def create
+    debugger
     @snippet = Snippet.new(params[:snippet])
 
     respond_to do |format|

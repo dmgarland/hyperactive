@@ -1,14 +1,14 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'snippets_controller'
+require File.dirname(__FILE__) + '/../../test_helper'
+require 'admin/snippets_controller'
 
 # Re-raise errors caught by the controller.
-class SnippetsController; def rescue_action(e) raise e end; end
+class Admin::SnippetsController; def rescue_action(e) raise e end; end
 
-class SnippetsControllerTest < Test::Unit::TestCase
+class Admin::SnippetsControllerTest < Test::Unit::TestCase
   fixtures :snippets
 
   def setup
-    @controller = SnippetsController.new
+    @controller = Admin::SnippetsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
@@ -26,10 +26,10 @@ class SnippetsControllerTest < Test::Unit::TestCase
   
   def test_should_create_snippet
     old_count = Snippet.count
-    post :create, :snippet => { }
+    post :create, :snippet => {:title => "foo" }
     assert_equal old_count+1, Snippet.count
     
-    assert_redirected_to snippet_path(assigns(:snippet))
+    assert_redirected_to admin_snippet_path(assigns(:snippet))
   end
 
   def test_should_show_snippet
@@ -44,7 +44,7 @@ class SnippetsControllerTest < Test::Unit::TestCase
   
   def test_should_update_snippet
     put :update, :id => 1, :snippet => { }
-    assert_redirected_to snippet_path(assigns(:snippet))
+    assert_redirected_to admin_snippet_path(assigns(:snippet))
   end
   
   def test_should_destroy_snippet

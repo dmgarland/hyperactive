@@ -92,18 +92,28 @@ MODERATION_EMAIL_RECIPIENTS = 'imc-london-moderation@lists.indymedia.org'
 
 # Who should moderation emails originate from?
 #
-MODERATION_EMAIL_FROM = "indy site <site@london.escapegoat.org>"
+MODERATION_EMAIL_FROM = "indy site <site@london.indymedia.org.uk>"
 
 # Whether the site should use its own stylesheet at public/stylesheets 
 # instead of the stylesheet from the hyperactive plugin.
 #
 USE_LOCAL_CSS = false
 
+# Who gets emails when the site explodes?
+#
+unless RAILS_ENV == 'test'
+  ExceptionNotifier.exception_recipients = %w(yossarian@aktivix.org)
+  ExceptionNotifier.sender_address = %("Application Error" <error@london.indymedia.org.uk>)
+  ExceptionNotifier.email_prefix = "[Hyperactive] "
+end
 
 
+###########################################################################
+###########################################################################
+#
 # Most of the stuff below this point shouldn't need to be edited by
 # most sites.
-
+#
 require 'acts_as_ferret'
 require 'tag_extensions'
 require 'ruby-debug'
@@ -115,14 +125,6 @@ CONTENT_MODERATION_STATUSES = %w(published promoted hidden featured)
 
 
 Debugger.start
-
-# Who gets emails when the site explodes?
-#
-unless RAILS_ENV == 'test'
-  ExceptionNotifier.exception_recipients = %w(yossarian@aktivix.org)
-  ExceptionNotifier.sender_address = %("Application Error" <error@london.escapegoat.org>)
-  ExceptionNotifier.email_prefix = "[Hyperactive] "
-end
 
 ActiveRbac.controller_layout = "admin" 
 #ActiveRbac.controller_registration_signup_fields << "login"

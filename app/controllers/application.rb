@@ -2,6 +2,17 @@
 # Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   
+  # Because we're deployed on mod_rails and also have mod_removeip installed on the server, Rails thinks that 
+  # all requests are local (since mod_rails is getting its request from 127.0.0.1 and there is no remote_ip.
+  # This means our normal configuration setup for a production Rails app doesn't quite work and we're *always*
+  # showing stack traces on errors.  This snippet of code fixes it. 
+  # 
+  # See http://thebalance.metautonomo.us/2008/05/30/the-local_request-that-isnt/ for a longer explanation.
+  # 
+  def local_request?
+    false
+  end
+  
   # Sanitize any parameters submitted via forms before doing anything else
   # I am thinking that this could eventually be moved into a less global place, 
   # like maybe into the ContentController on specific actions, but let's put it

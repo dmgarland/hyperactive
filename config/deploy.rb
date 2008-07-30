@@ -168,8 +168,8 @@ namespace :deploy do
   task :after_update_code, :roles => :app do
     db_config = "#{shared_path}/database.yml.production"
     run "cp #{db_config} #{release_path}/config/database.yml"
-    backgroundrb_config = "#{shared_path}/backgroundrb.yml.production"
-    run "cp #{backgroundrb_config} #{release_path}/config/backgroundrb.yml"
+    #backgroundrb_config = "#{shared_path}/backgroundrb.yml.production"
+    #run "cp #{backgroundrb_config} #{release_path}/config/backgroundrb.yml"
   end
   
   

@@ -12,8 +12,8 @@ class TorrentWorker < BackgrounDRb::Rails
     do_work
   end
 
- # Create a new Transmission session
- #
+  # Create a new Transmission session
+  #
   def do_work
     puts "@transmission object initialized"
     @transmission = Transmission.new
@@ -83,6 +83,7 @@ class TorrentWorker < BackgrounDRb::Rails
   private
   
   def find_and_add_all_torrent_files
+    puts "Adding all torrents."
     Dir['**/*.torrent'].each do |path|
       add_torrent(path)
     end

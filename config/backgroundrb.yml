@@ -13,8 +13,8 @@ acl:
 
 autostart:
   1:
-    job_key: torrent_worker
+    job_key: torrents
     class: torrent_worker
   2: 
-    job_key: feed_retriever
+    job_key: feeds
     class: feed_retrieval_worker

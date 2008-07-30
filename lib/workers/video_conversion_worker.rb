@@ -27,7 +27,8 @@ class VideoConversionWorker < BackgrounDRb::Rails
     puts "files created"
     # note: the creation of torrent metafiles depends on the transmissioncli package, install it into your OS through your package manager
     ogg_file = @video_file.chomp(File.extname(@video_file)) + ".ogg"
-    `transmissioncli -c #{ogg_file} -a  #{@torrent_tracker}/announce --port 51414 #{ogg_file + ".torrent"}`
+    #`transmissioncli -c #{ogg_file} -a  #{@torrent_tracker}/announce --port 51414 #{ogg_file + ".torrent"}`
+    `btmakemetafile.bittornado #{@torrent_tracker}/announce #{ogg_file}`
     
     torrent = @video_file.chomp(File.extname(@video_file)) + ".ogg.torrent"
     torrent_worker = MiddleMan.get_worker(1)

@@ -31,7 +31,7 @@
     <p><h3><%= 'Attached Files'.t %></h3><br/>
     <% @content.file_uploads.each do |file_upload| %>
         <p><%= link_to image_tag("gedit-icon.png", :plugin => 'hyperactive'), file_upload.file.url %> 
-        <%=h file_upload.title %></p>
+        <strong><%=h file_upload.title %></strong></p>
     <% end %></p>
 <% end %>
 

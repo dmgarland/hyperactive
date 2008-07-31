@@ -21,7 +21,7 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
   # call new worker. args is set to :args  
   def do_work(args)
     @action_view = ActionView::Base.new(Rails::Configuration.new.view_path, {}, DummyController.new)    
-    url = args[:url]
+    url = "http://www.indymedia.org.uk/en/promotednewswire.rss" #args[:url]
     puts "retrieving: #{url}"
     rss = SimpleRSS.parse(open(url))
     @feed_items = rss.items[0..9]

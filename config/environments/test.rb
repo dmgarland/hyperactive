@@ -1,5 +1,10 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+# TODO: This shouldn't really be necessary but for whatever reason this file isn't
+# being loaded automatically by the test environment.
+# 
+require "#{RAILS_ROOT}/vendor/plugins/hyperactive/lib/hyperactive_mixins/application_controller_mixin"
+
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that
 # your test database is "scratch space" for the test suite and is wiped
@@ -24,5 +29,4 @@ config.action_mailer.delivery_method = :test
 # should be loaded in the test environment.  This can be commented out if we stop using
 # click_to_globalize at some point.
 config.plugins = ["tiny_mce", "ssl_requirement", "active_rbac",  "engines", "has_many_polymorphs", "acts_as_ferret", "backgroundrb", "ez-where", "paginating_find", "resource_feeder", "simply_helpful", "sub_list", "globalize", "simple_captcha", "white_list", "sanitize_params", "upload_column", "hyperactive"]
-
 

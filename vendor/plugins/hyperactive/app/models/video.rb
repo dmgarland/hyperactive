@@ -68,7 +68,7 @@ class Video < Media
                           :job_key => "video"+self.object_id.to_s, 
                           :args => {
                             :absolute_path => video_file_to_convert, 
-                            :torrent_tracker => TORRENT_TRACKER,
+                            :torrent_tracker => Hyperactive.torrent_tracker,
                             :video_id => self.id.to_s }) unless RAILS_ENV == 'test'
   end
   

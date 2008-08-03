@@ -21,7 +21,7 @@ module ApplicationHelper
   end  
   
   def css_from_plugin?
-    if USE_LOCAL_CSS
+    if Hyperactive.use_local_css
       return nil
     else
       return 'hyperactive'

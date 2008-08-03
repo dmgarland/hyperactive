@@ -21,5 +21,3 @@ config.action_view.debug_rjs                         = true
 config.action_mailer.raise_delivery_errors = true
 
 config.plugins = ["white_list", "sanitize_params", "engines", "*"]
-
-TORRENT_TRACKER = 'http://localhost:6969'

@@ -39,8 +39,8 @@ class ContentHideMailer < ActionMailer::Base
   private 
   
   def setup_email
-    @recipients = MODERATION_EMAIL_RECIPIENTS
-    @from       = MODERATION_EMAIL_FROM
+    @recipients = Hyperactive.moderation_email_recipients
+    @from       = Hyperactive.moderation_email_from
     @sent_on    = Time.now
     @headers    = {}    
   end

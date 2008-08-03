@@ -75,29 +75,18 @@ end
 
 # Some general configuration stuff
 #
-TORRENT_TRACKER = 'http://denis.stalker.h3q.com:6969/announce' unless defined? TORRENT_TRACKER
-SITE_NAME = 'Indymedia London'
-BANNER_IMAGE = "banner.png"
-SHOW_SITE_NAME_IN_BANNER = false
-
-# Should the site use ssl for publishing, logins, etc?
-#
-USE_SSL = false
+Hyperactive.banner_image = "banner.png"
+Hyperactive.show_site_name_in_banner = false
 
 # Email configuration
 # 
 # What address should hide/unhide/inappropriate content notifications be sent to?
 #
-MODERATION_EMAIL_RECIPIENTS = 'imc-london-moderation@lists.indymedia.org'
+Hyperactive.moderation_email_recipients = 'imc-london-moderation@lists.indymedia.org'
 
 # Who should moderation emails originate from?
 #
-MODERATION_EMAIL_FROM = "indy site <site@london.indymedia.org.uk>"
-
-# Whether the site should use its own stylesheet at public/stylesheets 
-# instead of the stylesheet from the hyperactive plugin.
-#
-USE_LOCAL_CSS = false
+Hyperactive.moderation_email_from = "indy site <site@london.indymedia.org.uk>"
 
 # Who gets emails when the site explodes?
 #
@@ -119,15 +108,9 @@ require 'tag_extensions'
 require 'ruby-debug'
 require 'vpim/icalendar'
 
-# What are the possible content moderation statuses?
-#
-CONTENT_MODERATION_STATUSES = %w(published promoted hidden featured)
-
-
 Debugger.start
 
 ActiveRbac.controller_layout = "admin" 
-#ActiveRbac.controller_registration_signup_fields << "login"
 ActiveRecord::Base.verification_timeout = 14400
 
 # This is necessary to ensure that keys in JSON strings get quoted:

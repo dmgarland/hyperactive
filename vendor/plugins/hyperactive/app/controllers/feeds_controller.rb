@@ -7,17 +7,17 @@ class FeedsController < ApplicationController
 
   def action_alerts
     alerts = ActionAlert.find(:all, :order => 'created_on DESC', :limit => 20)
-    construct_action_alerts_feed(alerts, "#{SITE_NAME}: Action Alerts")
+    construct_action_alerts_feed(alerts, "#{Hyperactive.site_name}: Action Alerts")
   end
 
   def latest_articles
     articles = Article.find(:all, :order => 'created_on DESC', :limit => 20)
-    construct_article_feed(articles, "#{SITE_NAME}: Latest articles")
+    construct_article_feed(articles, "#{Hyperactive.site_name}: Latest articles")
   end
 
   def latest_videos
     videos = Video.find(:all, :order => 'created_on DESC', :limit => 20)
-    construct_video_feed(videos, "#{SITE_NAME}: Latest videos")
+    construct_video_feed(videos, "#{Hyperactive.site_name}: Latest videos")
   end
   
   def upcoming_events
@@ -25,7 +25,7 @@ class FeedsController < ApplicationController
        :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
        :order => 'date ASC', 
        :limit => events_per_feed)
-    feedtitle = "#{SITE_NAME}: Upcoming Events"
+    feedtitle = "#{Hyperactive.site_name}: Upcoming Events"
     construct_event_feed(events, feedtitle)
   end
   
@@ -37,7 +37,7 @@ class FeedsController < ApplicationController
         :all, 
         :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
         :limit => events_per_feed)
-      feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}'"
+      feedtitle = "#{Hyperactive.site_name}: Upcoming Events Tagged With '#{tag.name}'"
       construct_event_feed(events, feedtitle)
     else 
       construct_event_feed([], feedtitle)
@@ -52,7 +52,7 @@ class FeedsController < ApplicationController
         :all, 
         :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
         :limit => events_per_feed)
-      feedtitle = "#{SITE_NAME}: Upcoming Events Tagged With '#{tag.name}"
+      feedtitle = "#{Hyperactive.site_name}: Upcoming Events Tagged With '#{tag.name}"
       construct_event_feed(events, feedtitle)
     else
       construct_event_feed([], feedtitle)

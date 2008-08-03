@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
   #
   alias :original_ssl_required? :ssl_required?
   def ssl_required?
-    USE_SSL && original_ssl_required?
+    Hyperactive.use_ssl && original_ssl_required?
   end
 
   

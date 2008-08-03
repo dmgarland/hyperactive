@@ -62,14 +62,16 @@ class Video < Media
   # VideoConversionWorker for conversion.
   # 
   def convert
-    video_file_to_convert = File.expand_path(RAILS_ROOT) + "/public/" + self.file.url
-    MiddleMan.new_worker(:class => 
-                          :video_conversion_worker, 
-                          :job_key => "video"+self.object_id.to_s, 
-                          :args => {
-                            :absolute_path => video_file_to_convert, 
-                            :torrent_tracker => Hyperactive.torrent_tracker,
-                            :video_id => self.id.to_s }) unless RAILS_ENV == 'test'
+    unless RAILS_ENV == 'test'
+      video_file_to_convert = File.expand_path(RAILS_ROOT) + "/public/" + self.file.url
+      MiddleMan.new_worker(:class => 
+                            :video_conversion_worker, 
+                            :job_key => "video"+self.object_id.to_s, 
+                            :args => {
+                              :absolute_path => video_file_to_convert, 
+                              :torrent_tracker => Hyperactive.torrent_tracker,
+                              :video_id => self.id.to_s }) unless RAILS_ENV == 'test'
+    end
   end
   
   def video_type

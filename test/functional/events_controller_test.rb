@@ -200,7 +200,6 @@ class EventControllerTest < Test::Unit::TestCase
 
   def test_edit
     get :edit, {:id => 1}, as_admin
-    assert_response :success
     assert_template 'edit'
     assert_equal "The Birthday", assigns(:content).title
     assert assigns(:content).valid?
@@ -291,10 +290,10 @@ class EventControllerTest < Test::Unit::TestCase
   end  
 
   def test_ical_download
-    get :ical_download, {:id => 1}
+    get :ical_download, {:id => 1}    
     assert_response :success
     assert assigns(:content)
-    assert_match(/#{assigns(:content).title}/, @response.body)   
+    assert_match(/#{assigns(:content).title}/, @response.body, "Expected to find a match between the content title and the ical text.")   
   end
   
   def event_stub(id)

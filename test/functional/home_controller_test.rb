@@ -17,7 +17,6 @@ class HomeControllerTest < Test::Unit::TestCase
   # is in the future.
   def test_index_retrieves_content
     get :index
-    assert_response :success
     assert_template 'index'
     assert_not_nil assigns(:recent_events)
     assert_equal 2, assigns(:recent_events).size

@@ -24,7 +24,7 @@ class VideosControllerTest < Test::Unit::TestCase
     
     post :create, :content => {
                               :title => "Test content",
-                              :file => upload("test/fixtures/fight_test.wmv"),
+                              #:file => upload("test/fixtures/fight_test.wmv"),
                               :summary => "This is a test",
                               :published_by => "Yoss", 
                               :place => "London" 
@@ -51,7 +51,7 @@ class VideosControllerTest < Test::Unit::TestCase
     
     post :create, :content => {
                               :title => "Test content",
-                              :file => upload("test/fixtures/fight_test.wmv"),
+                              #:file => upload("test/fixtures/fight_test.wmv"),
                               :summary => "This is a test",
                               :moderation_status => "promoted",
                               :published_by => "Yoss", 

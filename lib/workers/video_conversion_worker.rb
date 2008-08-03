@@ -22,12 +22,11 @@ class VideoConversionWorker < BackgrounDRb::Rails
     end  
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 180x136 #{@video_file}.small.jpg`
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 320x240 #{@video_file}.jpg`
-    `nice -n +19 ffmpeg -i #{@video_file} -acodec mp3 -ab 64 -ar 22050 -b 350000 -r 4 -deinterlace -s 320x240 #{@video_file}.flv`
+    `nice -n +19 ffmpeg -i #{@video_file} -ab 64 -ar 22050 -b 500000 -r 25 -s 320x240 #{@video_file}.flv`
     `nice -n +19 ffmpeg2theora #{@video_file}`
     puts "files created"
     # note: the creation of torrent metafiles depends on the transmissioncli package, install it into your OS through your package manager
     ogg_file = @video_file.chomp(File.extname(@video_file)) + ".ogg"
-    #`transmissioncli -c #{ogg_file} -a  #{@torrent_tracker}/announce --port 51414 #{ogg_file + ".torrent"}`
     `btmakemetafile.bittornado #{@torrent_tracker} #{ogg_file}`
     
     torrent = @video_file.chomp(File.extname(@video_file)) + ".ogg.torrent"

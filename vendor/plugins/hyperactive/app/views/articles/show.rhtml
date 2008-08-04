@@ -22,7 +22,7 @@
     <p><h3><%= 'Photos'.t %></h3></p>
     <% @content.photos.each do |photo| %>
         <p><%= link_to (image_tag photo.file.medium.url), photo.file.url %><br/>
-        <%=h photo.title %>
+        <strong><%=h photo.title %></strong>
         </p>
     <% end %>
 <% end %>

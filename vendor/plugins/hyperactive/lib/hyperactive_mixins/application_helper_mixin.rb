@@ -39,7 +39,7 @@ module HyperactiveMixins
         end
         
         def long_date(date)
-          "#{date.strftime('%A %B %d, %G')}"
+          "#{date.strftime('%A %B %d, %G %H:%M')}"
         end  
         
         def editable_by?(user, event)

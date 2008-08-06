@@ -24,7 +24,11 @@
 	<div id="special_content" class="sidebar_content_wide">
 		<ul>
 			<li>
-				<h2><%= @snippet.title %></h2>
+				<% if @snippet.url.blank? %>
+					<h2><%= @snippet.title %></h2>
+				<% else %>
+					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>			
+				<% end %>
 					<%= @snippet.body %>
 			</li>
 		</ul>

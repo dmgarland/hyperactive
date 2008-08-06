@@ -401,16 +401,18 @@ img.right {
 /* Footer */
 
 #footer {
-	padding: 30px 10px 50px 10px;
+	padding: 25px 0 50px 0;
 	background: #940f04 url(../images/img05.gif) repeat-x;
 }
 
 #footer p {
 	margin: 0;
+	padding: 5px;
 	text-align: center;
 	font-size: smaller;
 	color: #000000;
 }
+
 
 #footer a {
 	color: #FFFFFF;

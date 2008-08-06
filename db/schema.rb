@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 19) do
+ActiveRecord::Schema.define(:version => 20) do
 
   create_table "action_alerts", :force => true do |t|
     t.column "summary",       :string,                      :null => false
@@ -247,6 +247,7 @@ ActiveRecord::Schema.define(:version => 19) do
     t.column "created_on", :datetime
     t.column "updated_on", :datetime
     t.column "key",        :string
+    t.column "url",        :string
   end
 
   create_table "static_permissions", :force => true do |t|

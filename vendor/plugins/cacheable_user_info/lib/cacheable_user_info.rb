@@ -4,17 +4,7 @@ module CacheableUserInfo
   end
 
   def write_user_info_to_cookie
-    cookie_flash = cookies['flash'] ? JSON.parse(cookies['flash']) : {}
-
-    flash.each do |key, value|
-      if cookie_flash[key.to_s].blank?
-        cookie_flash[key.to_s] = value
-      else
-        cookie_flash[key.to_s] << "<br/>#{value}"
-      end
-    end
-
-    cookies['flash'] = cookie_flash.to_json
-    flash.clear
+    #cookie_user_info = cookies['user_info'] ? JSON.parse(cookies['user_info']) : {}
+    cookies['user_info'] = current_user.login
   end
 end

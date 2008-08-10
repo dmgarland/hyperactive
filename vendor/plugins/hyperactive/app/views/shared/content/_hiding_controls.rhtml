@@ -3,14 +3,14 @@
         <%= link_to_remote "Inappropriate #{@content.class.to_s.humanize.downcase}?".t,
                             :url => {:controller => 'hidden', :action => 'hiding_controls', :id => @content.id },
                             :update => 'hiding-controls',  
-							:before => "$('hiding-controls').hide()",
+							:before => "$('hiding-controls').innerHtml = 'Loading...'",
 							:complete => "new Effect.BlindDown('hiding-controls');"                 
         %>
     <% else %>
         <%= link_to_remote "Unhide this #{@content.class.to_s.humanize.downcase}".t,
                             :url => {:controller => 'hidden', :action => 'unhiding_controls', :id => @content.id },
                             :update => 'hiding-controls',
-							:before => "$('hiding-controls').hide()",
+							:before => "$('hiding-controls').innerHtml = 'Loading...'",
 							:complete => "new Effect.BlindDown('hiding-controls');"                 
         %>
     <% end %>

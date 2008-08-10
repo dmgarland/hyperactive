@@ -1,9 +1,9 @@
 <% if @content.allows_comments %>
 	<div id="comment_form">
-		<%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %>
+		<p><%= image_tag "comments_add.png", :plugin => "hyperactive" %> <%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %></p>
 	</div>
 <% else %>
 	<div id="comment_form">
-		<%= "Comments are not allowed on this #{@content.class.to_s.downcase}".t %>.
+		<p><%= "Comments are not allowed on this #{@content.class.to_s.downcase}".t %>.</p>
 	</div>
 <% end %>

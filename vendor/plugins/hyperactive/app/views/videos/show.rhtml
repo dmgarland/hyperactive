@@ -10,9 +10,7 @@
     <p>
         <%= render :partial => 'shared/content/hiding_controls' %>
     </p>
-    <p>
-        <%= link_to 'Back'.t, videos_url %>
-    </p>
+
 <% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
     <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
 	<%= render :partial => 'shared/content/comments/comment_controls' %>

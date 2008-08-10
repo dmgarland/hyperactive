@@ -1,4 +1,7 @@
+<div class="post">
 <h1><%=h video.title.titleize %></h1>
+<p class="byline"><%= image_tag "icon_video.gif", :plugin => "hyperactive" %> </image_tag><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small></p>
+<p><%= 'posted by'.t %> <strong><%=h @content.published_by.titleize %></strong></p>
 <% if video.processing_status == 2 %>
     <div id="videoplayer<%= video.id %>">
         <p><%= "This item requires Macromedia Flash Player 7.".t %></p>
@@ -25,7 +28,7 @@
 	<%# link_to image_tag("icon_video.gif"), oggify(video.file.url) %> 
 	<%# link_to "download ogg", oggify(video.file.url) %>
 	
-	<%= link_to image_tag("icon_video.gif", :plugin => 'hyperactive'), torrentify(video.file.url) %> 
+	<%= link_to image_tag("transmit_add.png", :plugin => 'hyperactive'), torrentify(video.file.url) %> 
 	<%= link_to "download torrent", torrentify(video.file.url) %>
 	<%= render(:partial => 'videos/help_instructions')%>
 <% else %>
@@ -35,3 +38,4 @@
     <%= link_to "download original", video.file.url %>
     <p><%= "This video is still being converted, or else there has been some kind of error.".t %></p>
 <% end %>
+</div>

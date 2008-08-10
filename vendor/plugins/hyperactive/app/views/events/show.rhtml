@@ -2,8 +2,7 @@
 <%= error_messages_for :comment %>
 <div class="post">
 <h1 class="title"><%=h @content.title %></h1>
-<p class="byline"><small><%= 'Event date:'.t %> <%=h long_date(@content.date) %></small></p>
-<p><%= "posted by".t %> <strong><%=h @content.published_by.titleize %></strong></p>
+<p class="byline"><%= image_tag "date.png", :plugin => "hyperactive" %> <small><%= 'Event date:'.t %> <%=h long_date(@content.date) %></small> <%= "by".t %> <strong><%=h @content.published_by.titleize %></strong></p>
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 
@@ -13,9 +12,13 @@
     	all the events,'.t %> <%= link_to("click here".t, :action => 'list_by_event_group', :id => @content.event_group) %>.
 	</p>
 <% end %>
-<p><%= 'Places:'.t %><%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
-<p><%=h @content.place %>
+
+<p><em><%= 'Tagged as:'.t %></em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
+
 <div class='entry'><%= auto_link(@content.summary) %></div>
+
+<p><em><%= 'Places:'.t %></em><%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
+
 <% if @content.videos.length > 0 %>
     <h3><%= 'Videos'.t %></h3>
     <%= render :partial => "videos/video_summary", :collection => @content.videos %>
@@ -52,7 +55,6 @@
         <%=h link.description %></p>
     <% end %>
 <% end %>
-<p><em><%= 'Tagged as:'.t %></em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
 
 <% if @content.contact_email != nil %>
     <p><em><%= 'Contact email:'.t %></em> <%= mail_to h(@content.contact_email) %></p>
@@ -60,12 +62,8 @@
 <% if @content.contact_phone != nil %>
     <p><em><%= 'Contact phone:'.t %></em> <%=h @content.contact_phone %></p>
 <% end %>            
-<p><em><%= 'Created on:'.t %></em> <%=h @content.created_on %></p>
-<p><em><%= 'Updated on:'.t %></em> <%=h @content.updated_on %></p>
 
 <%= render :partial => 'shared/content/hiding_controls' %>
-
-<p><%= link_to 'Back'.t, events_url %></p>
 
 <% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
 <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>

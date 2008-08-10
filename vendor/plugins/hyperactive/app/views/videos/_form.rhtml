@@ -6,9 +6,12 @@
 <% if controller.action_name == 'edit' %>
     <%= image_tag "/#{@content.thumbnail}" %><br/><br/>
 <% end %>
-<label for="content_title"><%= 'Title'.t %>*<br/></label>
-  <%= f.text_field :title, :size => 30 %>
-<br/><br/>
+<p><label for="content_title"><%= 'Title'.t %>*<br/></label>
+<%= f.text_field :title, :size => 30 %></p>
+
+
+<p><label for="content_published_by"><%= 'Your name:'.t %><em>*</em></label><br/>
+<%= f.text_field 'published_by' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 

@@ -6,6 +6,7 @@ class Content < ActiveRecord::Base
   has_many :comments
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"
   validates_length_of :title, :maximum => 50
+  validates_presence_of :title, :summary, :published_by
   
     
   # A convenience method to tell us whether this content is attached to 

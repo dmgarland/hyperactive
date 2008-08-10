@@ -19,7 +19,6 @@ class Video < Media
                                       end
                                    }
  
-  validates_presence_of :title, :summary
   validates_length_of :title, :maximum=>255
   validates_presence_of :file unless RAILS_ENV == 'test'
   belongs_to :post, :foreign_key => "content_id"

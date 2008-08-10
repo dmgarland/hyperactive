@@ -1,6 +1,6 @@
 class Article < Post
 
-  validates_presence_of :title, :body, :summary, :published_by
+  validates_presence_of :body
 
   def save_purified_html
     super

@@ -51,7 +51,7 @@ class VideosController < ContentController
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "edit" }
         format.xml  { render :xml => @content.errors.to_xml }
       end
     end    

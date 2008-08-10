@@ -8,7 +8,6 @@
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 
-<p><em><%= 'Tagged as'.t %>:</em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
 
 <div class='entry'><%= auto_link(@content.summary) %></div>
 

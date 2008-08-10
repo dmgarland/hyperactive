@@ -209,7 +209,7 @@ img.right {
 
 .post {	
 	margin-bottom: 5px; /* was 20 */
-	padding-bottom: 10px; /* was 15 */
+	padding: 0 0 10px 5px; /* was 0 0 15 0 */
 	clear: both;
 	border-top: 1px solid #F2F2F2;
 	line-height: 150%;

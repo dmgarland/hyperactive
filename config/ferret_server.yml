@@ -2,8 +2,3 @@ production:
   host: localhost
   port: 9009
   pid_file: log/ferret.pid
-
-#development:
-#  host: localhost
-#  port: 1994
-#  pid_file: log/ferret.pid  

@@ -164,8 +164,10 @@ first_video:
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
+  published_by: foo
   processing_status: 2
   moderation_status: published  
+  created_on: 2006-2-23  
   type: Video
   
 another_video:
@@ -174,8 +176,10 @@ another_video:
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
+  published_by: foo 
   processing_status: 2
   moderation_status: published  
+  created_on: 2006-2-23  
   type: Video
 
 unconverted_video:
@@ -183,9 +187,11 @@ unconverted_video:
   title: a video that hasn't completed processing yet
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
+  published_by: foo
   file: foo.mov
   processing_status: 1  
   moderation_status: published  
+  created_on: 2006-2-23  
   type: Video  
   
 video4:
@@ -193,9 +199,11 @@ video4:
   title: a video
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
+  published_by: foo
   file: foo.mov
   processing_status: 2
   moderation_status: published  
+  created_on: 2006-2-23  
   type: Video
   
 video5:
@@ -203,9 +211,11 @@ video5:
   title: another video
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
+  published_by: foo
   file: foo.mov
   processing_status: 2
   moderation_status: promoted  
+  created_on: 2006-2-23  
   type: Video
 
 video6:
@@ -213,9 +223,11 @@ video6:
   title: a video that hasn't completed processing yet
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
+  published_by: foo
   file: foo.mov
   moderation_status: promoted   
   processing_status: 2
+  created_on: 2006-2-23  
   type: Video    
   
 hidden_video:
@@ -223,7 +235,9 @@ hidden_video:
   title: hidden video
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
+  published_by: foo
   file: foo.mov
   processing_status: 2
   moderation_status: hidden
+  created_on: 2006-2-23  
   type: Video  

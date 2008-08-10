@@ -57,7 +57,7 @@
 <% end %>
 
 <% if @content.contact_email != nil %>
-    <p><em><%= 'Contact email:'.t %></em> <%= mail_to h(@content.contact_email) %></p>
+    <p><%= image_tag("email.png", :plugin => "hyperactive") %> <em><%= 'Contact email:'.t %></em> <%= mail_to h(@content.contact_email) %></p>
 <% end %>
 <% if @content.contact_phone != nil %>
     <p><em><%= 'Contact phone:'.t %></em> <%=h @content.contact_phone %></p>

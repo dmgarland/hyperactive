@@ -1,6 +1,7 @@
 <div id="hiding-controls">
+	<%= image_tag "asterisk_yellow.png", :plugin => "hyperactive" %>
     <% if @content.is_not_hidden? %>
-        <%= link_to_remote "Inappropriate #{@content.class.to_s.humanize.downcase}?".t,
+        <%= link_to_remote "Report or administer this #{@content.class.to_s.humanize.downcase}".t,
                             :url => {:controller => 'hidden', :action => 'hiding_controls', :id => @content.id },
                             :update => 'hiding-controls',  
 							:before => "$('hiding-controls').innerHtml = 'Loading...'",

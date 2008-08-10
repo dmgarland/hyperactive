@@ -21,6 +21,10 @@
     <%= video.summary %><br/>
 	<p><em><%= "Places:".t %></em> <%= render_place_tag_list %></p>
 
+	<% if @content.contact_email != nil %>
+	    <p><%= image_tag("email.png", :plugin => "hyperactive") %> <em><%= 'Contact email:'.t %></em> <%= mail_to h(@content.contact_email) %></p>
+	<% end %>
+
 	<%# Removing direct links to files so that only torrent links are visible. %>
 	<%# Uncomment the links by removing the '#' if you want to show them.  %>
 	

@@ -1,3 +1,4 @@
+<hr />
 <% if @content.allows_comments %>
 	<div id="comment_form">
 		<p><%= image_tag "comments_add.png", :plugin => "hyperactive" %> <%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %></p>

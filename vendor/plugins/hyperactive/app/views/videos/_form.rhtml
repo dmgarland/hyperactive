@@ -9,9 +9,11 @@
 <p><label for="content_title"><%= 'Title'.t %>*<br/></label>
 <%= f.text_field :title, :size => 30 %></p>
 
-
 <p><label for="content_published_by"><%= 'Your name:'.t %><em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
+
+<p><label for="content_contact_email"><%= 'Contact email address for event:'.t %></label><br/>
+<%= f.text_field 'contact_email' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 

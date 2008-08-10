@@ -49,7 +49,7 @@
 <% end %>
 
 <% if !@content.contact_email.blank? %>
-    <p><em><%= 'Contact email'.t %>:</em> <%= mail_to h(@content.contact_email) %></p>
+    <p><%= image_tag("email.png", :plugin => "hyperactive") %> <em><%= 'Contact email'.t %>:</em> <%= mail_to h(@content.contact_email) %></p>
 <% end %>       
 
 <%= render :partial => 'shared/content/hiding_controls' %>

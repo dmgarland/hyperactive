@@ -2,4 +2,8 @@
 	<div id="comment_form">
 		<%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %>
 	</div>
+<% else %>
+	<div id="comment_form">
+		<%= "Comments are not allowed on this #{@content.class.to_s.downcase}".t %>.
+	</div>
 <% end %>

@@ -18,7 +18,7 @@ class TimelineController < ApplicationController
       if event.photos.length > 0
         photo = event.photos.first
         puts event.id
-        timeline_event.image = url_for(base_url, :only_path => false) + "photo/file/" + photo.file_relative_path("thumb")
+        timeline_event.image = photo.file.thumb.url
       end
       if event.end_date
         timeline_event.end = event.end_date.strftime("%b %d %Y")

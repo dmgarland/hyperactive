@@ -39,7 +39,6 @@ module HyperactiveMixins
         # successfully created" message stuck into the cached page, which this should fix.
         # 
         include CacheableFlash unless RAILS_ENV == 'test'
-        include CacheableUserInfo unless RAILS_ENV == 'test'
         
         # For convenience, instantiate properties containing the current 
         # controller and action names on each request

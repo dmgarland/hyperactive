@@ -61,7 +61,7 @@ module HyperactiveMixins
             on = (params[:slug] == conditions[:slug])
           end
         
-          content_tag :li, link_to(text, link), :class => ("current_page_item" if on)
+          content_tag :li, link_to(text, link), :class => ("current_page_item" if on), :id => "#{text.downcase.gsub(/ /, "")}-tab"
         end    
       
         def content_url_for(entity)

@@ -4,6 +4,9 @@ class ActiveRbac::LoginController < ActiveRbac::ComponentController
  
   layout 'two_column'
  
+  include CacheableUserInfo
+
+ 
   # Displays an index page which allows the user to take account-related actions
   # based on whether or not they are logged in, and their roles and permissions.
   #
@@ -24,5 +27,23 @@ class ActiveRbac::LoginController < ActiveRbac::ComponentController
       redirect_to :action => 'login'
     end
   end
+  
+    # Set a new session for the user and set the user_info cookie used by the 
+    # CacheableUserInfo module.
+    #
+    def create_new_session(user)
+      @active_rbac_user = nil
+      reset_session
+      session[:rbac_user_id] = user.id
+      write_user_info_to_cookie
+    end
+  
+    # Clear the user_info cookie and wipe the user's session.
+    #
+    def remove_user_from_session!
+      @active_rbac_user = nil
+      reset_session
+      destroy_user_info_cookie
+    end
 
 end

@@ -202,14 +202,16 @@ img.right {
 
 #action-alert {
 	margin-bottom: 20px;
-	padding: 0 0 0 5px;
+	padding: 0 5px;
 	line-height: 150%;
 	background: #e2e2e2;
+	font-size: 12px;
+	border: solid 1px #940f04;
 }
 
 .post {	
 	margin-bottom: 5px; /* was 20 */
-	padding-bottom: 10px; /* was 15 */
+	padding: 0 0 10px 5px; /* was 0 0 15 0 */
 	clear: both;
 	border-top: 1px solid #F2F2F2;
 	line-height: 150%;
@@ -401,7 +403,7 @@ img.right {
 /* Footer */
 
 #footer {
-	padding: 25px 0 50px 0;
+	padding: 25px 5px 50px 10px;
 	background: #940f04 url(../images/img05.gif) repeat-x;
 }
 
@@ -426,9 +428,9 @@ img.right {
 	color: #000000;
 }
 
-/* #footer b a {
-	color: #000000;
-} */
+ #footer b a {
+	color: #222222;
+} 
 
 
 #feed {

@@ -19,18 +19,9 @@
 
 <p><em><%= 'Places:'.t %></em><%= render_place_tag_list %></p>
 
-<% if @content.videos.length > 0 %>
-    <h3><%= 'Videos'.t %></h3>
-    <%= render :partial => "videos/video_summary", :collection => @content.videos %>
-<% end %>
-<% if @content.photos.length > 0 %>
-    <p><h3><%= 'Photos'.t %></h3></p>
-    <% @content.photos.each do |photo| %>
-        <p><%= link_to (image_tag photo.file.medium.url), photo.file.url %><br/>
-        <strong><%=h photo.title %></strong>
-        </p>
-    <% end %>
-<% end %>
+<%= render :partial => "shared/content/list_videos" %>
+<%= render :partial => "shared/content/list_photos" %>
+
 <% if @content.event_group_photos.length > 0 %>
     <p><h3><%= 'Event Group Photos'.t %></h3></p>
     <% @content.event_group_photos.each do |photo| %>
@@ -40,25 +31,12 @@
     <% end %>
 <% end %>            
 
-<% if @content.file_uploads.length > 0 %>
-    <p><h3><%= 'Attached Files'.t %></h3><br/>
-    <% @content.file_uploads.each do |file_upload| %>
-        <p><%= link_to image_tag("gedit-icon.png", :plugin => 'hyperactive'), file_upload.file.url %> 
-        <%=h file_upload.title %></p>
-    <% end %></p>
-<% end %>
 <p><%= auto_link(@content.body) %></p>
-<% if @content.links.length > 0 %>
-    <h3>Links:</h3>
-    <% @content.links.each do |link| %>
-        <p><%= link_to h(link.title), link.url %><br/>
-        <%=h link.description %></p>
-    <% end %>
-<% end %>
 
-<% if @content.contact_email != nil %>
-    <p><%= image_tag("email.png", :plugin => "hyperactive") %> <em><%= 'Contact email:'.t %></em> <%= mail_to h(@content.contact_email) %></p>
-<% end %>
+<%= render :partial => "shared/content/list_file_uploads" %>
+<%= render :partial => "shared/content/list_links" %>
+<%= render :partial => "shared/content/email_display" %>
+
 <% if @content.contact_phone != nil %>
     <p><em><%= 'Contact phone:'.t %></em> <%=h @content.contact_phone %></p>
 <% end %>            

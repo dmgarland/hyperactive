@@ -65,37 +65,7 @@ you want to upload. You can upload as many files as you want by clicking the "ad
 links multiple times.	'.t %>
 </p>
 
- <fieldset>
-    <legend>
-        <%= 'Photos'.t %>
-    </legend>
-    <%= sub_list_content 'Photo', 'content' %>
-    <%= sub_list_add_link 'Photo', 'Add Photo' %> <%= '(click again for multiple photo uploads)'.t %>
- </fieldset>
- 
-  <fieldset>
-    <legend>
-        <%= 'Videos'.t %>
-    </legend>
-    <%= sub_list_content 'Video', 'content' %>
-    <%= sub_list_add_link 'Video', 'Add Video' %> <%= '(click again for multiple video uploads)'.t %>
- </fieldset>
- 
- <fieldset>
-    <legend>
-        <%= 'File Uploads'.t %>
-    </legend>
-    <%= sub_list_content 'FileUpload', 'content' %>
-    <%= sub_list_add_link 'FileUpload', 'Add File Upload' %> <%= '(click again for multiple file uploads)'.t %>
- </fieldset>
- 
-<fieldset>
-    <legend>
-        <%= 'Links'.t %>
-    </legend>
-    <%= sub_list_content 'Link', 'content' %>
-    <%= sub_list_add_link 'Link', 'Add Link' %> <%= '(click again for multiple links)'.t %>
- </fieldset>
+<%= render :partial => "shared/content/sub_list_upload_links" %>
 
 
 <!--[eoform:event]-->

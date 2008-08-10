@@ -1,0 +1,3 @@
+<% if @content.contact_email != nil %>
+    <p><%= image_tag("email.png", :plugin => "hyperactive") %> <em><%= 'Contact email:'.t %></em> <%= mail_to h(@content.contact_email) %></p>
+<% end %>

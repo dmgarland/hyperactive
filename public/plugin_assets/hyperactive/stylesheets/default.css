@@ -71,6 +71,7 @@ img.right {
 	height: 73px;
 	margin: 0 auto;
 	padding: 0;
+	background: url(../images/new_banner.jpg) left no-repeat;
 }
 
 #logo h1, #logo p {

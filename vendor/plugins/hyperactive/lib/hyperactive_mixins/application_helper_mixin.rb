@@ -104,6 +104,15 @@ module HyperactiveMixins
           end
         end  
         
+        def render_tag_list
+          render(:partial => "shared/tag_list", :object=> @content.tag_list, :locals => {:tag_type => "tag"})
+        end
+        
+        def render_place_tag_list
+          render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"})
+        end
+        
+        
         # Same as thumbnail for but in a somewhat larger size.  Note that videos only
         # have one thumbnail size, so this will return the same thing as thumbnail_for 
         # for a video.

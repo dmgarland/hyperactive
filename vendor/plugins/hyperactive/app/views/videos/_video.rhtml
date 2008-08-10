@@ -17,9 +17,10 @@
 		so.addVariable('usefullscreen', 'true');
 		so.write("videoplayer<%= video.id %>");
 	</script>	
-	<p><em><%= "Places:".t %></em> <%= render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"}) %></p>
+	<p><em><%= "Tagged as:".t %></em> <%= render_tag_list %></p>
     <%= video.summary %><br/>
-	<p><em><%= "Tagged as:".t %></em> <%= render(:partial => "shared/tag_list", :object=> @content.tag_list) %></p>
+	<p><em><%= "Places:".t %></em> <%= render_place_tag_list %></p>
+
 	<%# Removing direct links to files so that only torrent links are visible. %>
 	<%# Uncomment the links by removing the '#' if you want to show them.  %>
 	

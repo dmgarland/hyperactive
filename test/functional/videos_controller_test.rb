@@ -22,6 +22,10 @@ class VideosControllerTest < Test::Unit::TestCase
   def test_create
     num_content = model_class.count
     
+    # Ok, file uploads aren't working tests.  Try this:
+    # @file = UploadColumn::UploadedFile.upload(stub_file('kerb.jpg'), record, :avatar)
+    # which was ripped from the upload_column specs.
+    #    
     post :create, :content => {
                               :title => "Test content",
                               #:file => upload("test/fixtures/fight_test.wmv"),

@@ -53,7 +53,11 @@ module UIEnhancements
                   success = obj.update_attributes( values )
                 end
               end
-              model_list.select { |item| item.id.nil? }.each { |null_item| null_item.id = rand(100000)}
+              count = 0
+              model_list.select { |item| item.id.nil? }.each { |null_item| 
+                                                               count = count + 1
+                                                               null_item.id = count
+                                                             }
               
               success
             end

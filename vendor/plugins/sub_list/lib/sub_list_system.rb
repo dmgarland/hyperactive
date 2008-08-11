@@ -35,7 +35,7 @@ module UIEnhancements
               success = true
               parent_obj = eval "@#{parent}"
               model_list = parent_obj.send( models )
-              
+
               return success if params[model].nil?
               
               params[model].sort.each do |id, values|
@@ -53,7 +53,7 @@ module UIEnhancements
                   success = obj.update_attributes( values )
                 end
               end
-              #model_list.select { |item| item.id.nil? }.each { |null_item| null_item.id = Time.now.to_i }
+              model_list.select { |item| item.id.nil? }.each { |null_item| null_item.id = rand(100000)}
               
               success
             end

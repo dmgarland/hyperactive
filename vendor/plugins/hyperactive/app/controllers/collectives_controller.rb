@@ -1,4 +1,7 @@
 class CollectivesController < ApplicationController
+
+  layout "two_column"
+  
   # GET /collectives
   # GET /collectives.xml
   def index

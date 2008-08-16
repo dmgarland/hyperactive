@@ -11,4 +11,11 @@ You are currently logged in as user '<%=h current_user.login %>'.
 	</p>
 <% end %>
 
+<% unless current_user.collectives.empty? %>
+	You belong to the following group(s): 
+	<% current_user.collectives.each do |c| %>
+		<%= link_to c.name, c %>
+	<% end %>
+<% end %>
+
 <p>You may log out at the <%= link_to "logout", logout_url %> page.</p>

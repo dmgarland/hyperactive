@@ -1,7 +1,9 @@
 <h3>Your account</h3>
-
 <p>
-You are currently logged in as user '<%=h current_user.login %>'.
+	This is your private account information page. No other users can see this page.
+</p>
+<p>
+You are currently logged in as user <strong><%=h current_user.login %></strong>.
 </p>
 
 <% if current_user.has_permission?("see_admin_nav") %>
@@ -12,10 +14,12 @@ You are currently logged in as user '<%=h current_user.login %>'.
 <% end %>
 
 <% unless current_user.collectives.empty? %>
-	You belong to the following group(s): 
+	<p>You belong to the following group(s):</p>
+	<ul> 
 	<% current_user.collectives.each do |c| %>
-		<%= link_to c.name, c %>
+		<li><%= render :partial => "shared/collectives/collective_link", :object => c %></li>
 	<% end %>
+	</ul>
 <% end %>
 
 <p>You may log out at the <%= link_to "logout", logout_url %> page.</p>

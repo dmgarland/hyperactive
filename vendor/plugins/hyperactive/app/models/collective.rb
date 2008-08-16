@@ -3,7 +3,11 @@ class Collective < ActiveRecord::Base
   validates_length_of :name, :maximum=>255
   validates_presence_of :name, :summary
 
-  
+  has_many :collective_memberships
+  has_many :users, :through => :collective_memberships
+
+  has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations
+
   image_column  :image, 
                 :versions => { :thumb => "c100x100"},
                 :extensions => ["gif", "png", "jpg"],

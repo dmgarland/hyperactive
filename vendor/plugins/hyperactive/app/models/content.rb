@@ -8,7 +8,9 @@ class Content < ActiveRecord::Base
   validates_length_of :title, :maximum => 50
   validates_presence_of :title, :summary, :published_by
   
-    
+  #has_many_polymorphs :collectives, :from => [:dogs, :cats, :birds]
+  
+  
   # A convenience method to tell us whether this content is attached to 
   # an article or event.  Currently this should only ever return true for
   # Video, which is the only Content subtype that can be contained by

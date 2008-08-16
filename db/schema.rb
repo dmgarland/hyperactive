@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 22) do
+ActiveRecord::Schema.define(:version => 24) do
 
   create_table "action_alerts", :force => true do |t|
     t.column "summary",       :string,                      :null => false
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(:version => 22) do
 
   add_index "categories_events", ["category_id"], :name => "category_id"
   add_index "categories_events", ["event_id"], :name => "event_id"
+
+  create_table "collective_associations", :force => true do |t|
+    t.column "collective_associatable_id",   :integer
+    t.column "collective_associatable_type", :string
+    t.column "collective_id",                :integer
+    t.column "created_on",                   :datetime
+    t.column "updated_on",                   :datetime
+  end
+
+  create_table "collective_memberships", :force => true do |t|
+    t.column "collective_id", :integer
+    t.column "user_id",       :integer
+    t.column "created_on",    :datetime
+    t.column "updated_on",    :datetime
+  end
 
   create_table "collectives", :force => true do |t|
     t.column "name",       :string

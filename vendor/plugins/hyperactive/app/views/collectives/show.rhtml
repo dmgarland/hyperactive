@@ -8,7 +8,13 @@
   <%=h @collective.summary %>
 </p>
 
-<p><%= image_tag @collective.image.thumb %>
+<p>
+	<% if @collective.image.nil? %>
+		<%= image_tag "default_collective.jpg", :plugin => "hyperactive" %>
+	<% else %>
+		<%= image_tag @collective.image.thumb %>
+	<% end %>
+</p>
 
 <p>
 <%= link_to 'Edit', edit_collective_path(@collective) %>

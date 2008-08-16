@@ -26,7 +26,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   
   def test_should_create_collective
     old_count = Collective.count
-    post :create, :collective => { }
+    post :create, :collective => {:name => "ezln", :summary => "foo" }
     assert_equal old_count+1, Collective.count
     
     assert_redirected_to collective_path(assigns(:collective))

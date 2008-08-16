@@ -9,7 +9,7 @@ class Collective < ActiveRecord::Base
   has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations
 
   image_column  :image, 
-                :versions => { :thumb => "c100x100"},
+                :versions => { :thumb => "c96x96"},
                 :extensions => ["gif", "png", "jpg"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),
                 :web_root => "/system", 
@@ -28,7 +28,9 @@ class Collective < ActiveRecord::Base
   # was stored in.
   #
   def delete_image
-    FileUtils.remove_dir(image.store_dir) if File.exists?(image.store_dir)
+    if !self.image.nil? 
+      FileUtils.remove_dir(image.store_dir) if File.exists?(image.store_dir)
+    end
   end 
   
   

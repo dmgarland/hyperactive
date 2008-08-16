@@ -1,0 +1,17 @@
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Summary</b><br />
+    <%= f.text_area :summary, :cols=>80, :rows=>10  %>
+  </p>
+  
+  <p>
+  	<% if controller.action_name == 'edit' && !@collective.image.blank? %>
+        <%= image_tag @collective.image.thumb.url %><br/><br/>
+    <% end %>
+  	<b>Logo image</b><br/>
+	<%= upload_column_field("collective", "image") %>
+  </p>

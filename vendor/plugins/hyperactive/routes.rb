@@ -44,6 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events, :collection => { :list_promoted => :get }
   map.resources :articles
   map.resources :action_alerts
+  map.resources :collectives
   
   map.resource :admin do |admin|
     admin.resources :snippets, :name_prefix => 'admin_', :controller => 'admin/snippets'

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @collective.name %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%=h @collective.summary %>
+</p>
+
+
+<%= link_to 'Edit', edit_collective_path(@collective) %> |
+<%= link_to 'Back', collectives_path %>

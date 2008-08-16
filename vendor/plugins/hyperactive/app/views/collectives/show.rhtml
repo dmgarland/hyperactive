@@ -1,7 +1,4 @@
-<p>
-  <b>Name:</b>
-  <%=h @collective.name %>
-</p>
+<h1><%=h @collective.name %></h1>
 
 <p>
   <b>Summary:</b>
@@ -16,6 +13,20 @@
 	<% end %>
 </p>
 
+<% if @collective.has_articles? %>
+	<h2>Articles</h2>
+	<%= render :partial => '/shared/content/list_title', :collection => @collective.articles %>			
+<% end %>
+
+<% if @collective.has_events? %>
+	<h2>Upcoming Events</h2>
+	<%= render :partial => '/shared/content/list_title', :collection => @collective.events %>			
+<% end %>
+
+<% if @collective.has_videos? %>
+	<h2>Videos</h2>
+	<%= render :partial => '/shared/content/list_title', :collection => @collective.videos %>			
+<% end %>
 <p>
-<%= link_to 'Edit', edit_collective_path(@collective) %>
+<%= link_to 'Edit collective info', edit_collective_path(@collective) %>
 </p>

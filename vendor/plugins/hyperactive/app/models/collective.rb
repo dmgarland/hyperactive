@@ -42,6 +42,18 @@ class Collective < ActiveRecord::Base
       FileUtils.remove_dir(image.store_dir) if File.exists?(image.store_dir)
     end
   end
+  
+  def has_articles?
+    !articles.empty?
+  end
+  
+  def has_events?
+    !events.empty?
+  end
+  
+  def has_videos?
+    !videos.empty?
+  end
     
   
 end

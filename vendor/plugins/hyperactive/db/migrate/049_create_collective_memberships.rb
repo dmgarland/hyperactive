@@ -3,8 +3,8 @@ class CreateCollectiveMemberships < ActiveRecord::Migration
     create_table :collective_memberships do |t|
       t.column :collective_id, :integer
       t.column :user_id, :integer
-      t.column :created_on, :datetime
-      t.column :updated_on, :datetime
+      t.column :created_on, :timestamp
+      t.column :updated_on, :timestamp
     end
   end
 

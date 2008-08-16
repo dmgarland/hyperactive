@@ -8,6 +8,8 @@
   <%=h @collective.summary %>
 </p>
 
+<p><%= image_tag @collective.image.thumb %>
+
 
 <%= link_to 'Edit', edit_collective_path(@collective) %> |
 <%= link_to 'Back', collectives_path %>

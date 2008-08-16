@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(:version => 22) do
   add_index "categories_events", ["event_id"], :name => "event_id"
 
   create_table "collectives", :force => true do |t|
-    t.column "name",    :string
-    t.column "summary", :text
-    t.column "image",   :string
+    t.column "name",       :string
+    t.column "summary",    :text
+    t.column "image",      :string
+    t.column "created_on", :datetime
+    t.column "updated_on", :datetime
   end
 
   create_table "comments", :force => true do |t|

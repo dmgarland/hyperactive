@@ -7,7 +7,7 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
   adapter: mysql
-  database: imcalendar_development
+  database: hyperactive_development
   username: root
   password: 
   socket: /var/run/mysqld/mysqld.sock

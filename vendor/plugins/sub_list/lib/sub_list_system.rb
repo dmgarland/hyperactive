@@ -25,7 +25,7 @@ module UIEnhancements
 	  end
 	  
 	  module ClassMethods
-	   def sub_list( model = 'Note', parent = 'incomplete' )
+	   def sub_list( model = 'Note', parent = 'incomplete', parent_subclass = nil )
 	     instance_eval do
             model = model.to_s.tableize.singularize
             model_class = model.to_s.camelize.constantize
@@ -42,7 +42,11 @@ module UIEnhancements
                 obj = send( "find_#{model}", id )
                 if obj.nil?
                   obj = model_class.new( values )
-                  obj.send( "#{parent}=", parent_obj )
+                  if parent_subclass.nil?
+                    obj.send( "#{parent}=", parent_obj )
+                  else
+                    obj.send( "#{parent_subclass}=", parent_obj )
+                  end
                   model_list << obj
                 else
                   obj = model_list.select { |item| item == obj }.first

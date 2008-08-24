@@ -1,7 +1,5 @@
 <h1>Most recent goups added</h1>
 
-<% @new_collectives.each do |collective| %>
-  <%= render :partial => "shared/collectives/collective_summary", :collection => @new_collectives %>
-<% end %>
+<%= render :partial => "shared/collectives/collective_summary", :collection => @new_collectives %>
 
 <%= link_to 'New collective', new_collective_path %>

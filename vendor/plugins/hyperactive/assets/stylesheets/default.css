@@ -454,3 +454,8 @@ img.right {
 #feed span {
 	font-weight: normal;
 }
+
+
+.even { background: #efefef; }
+.odd { background: #ffffff; } 
+

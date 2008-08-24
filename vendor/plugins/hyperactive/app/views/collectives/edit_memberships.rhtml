@@ -1,4 +1,4 @@
-<h1>Current group members:</h1>
+<h1><%= @collective.name %> is:</h1>
 
 <table>
   <tr>
@@ -7,7 +7,7 @@
   </tr>
   
 <% for membership in @collective.collective_memberships %>
-  <tr>
+  <tr class="<%= cycle("even", "odd") %>">
     <td><%=h membership.user.login %></td>
     <td><%=h long_date(membership.created_on) %></td>
     <td><%= link_to 'Remove', destroy_collective_membership_url(membership.id), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -15,7 +15,7 @@
 <% end %>
 </table>
 
-<strong>Add a new member:</strong>
+<p><strong>Add a new member:</strong></p>
 <% form_for(:collective, :url => add_collective_membership_url) do |f| %>
 
 <%= text_field_tag(:login) %>

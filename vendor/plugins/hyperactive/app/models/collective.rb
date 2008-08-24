@@ -54,6 +54,9 @@ class Collective < ActiveRecord::Base
   def has_videos?
     !videos.empty?
   end
-    
   
+  def includes_content?(content)
+    self.collective_associatables.to_a.include?(content)
+  end
+
 end

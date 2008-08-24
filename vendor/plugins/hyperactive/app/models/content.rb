@@ -8,6 +8,7 @@ class Content < ActiveRecord::Base
   validates_length_of :title, :maximum => 50
   validates_presence_of :title, :summary, :published_by
   
+  after_save :save_assigned_collectives
   #has_many_polymorphs :collectives, :from => [:dogs, :cats, :birds]
   
   
@@ -49,6 +50,25 @@ class Content < ActiveRecord::Base
   
   def is_not_hidden?
     self.moderation_status != "hidden"
+  end
+
+  # Sets up an instance variable so we can save the association in an after_save filter.
+  #
+  def collective_ids=(ids)
+    @new_collective_ids = ids
+  end
+  
+  # Creates or destroys the associations between this content and whatever collectives it's 
+  # grouped within.  Called from an after_save filter.
+  # 
+  def save_assigned_collectives
+    collective_associations.each do |collective_association|
+      collective_association.destroy unless @new_collective_ids.to_a.include? collective_association.collective_id
+    end
+   
+    @new_collective_ids.to_a.each do |id|
+      self.collective_associations.create(:collective_id => id) unless collective_associations.any? { |d| d.collective_id == id }
+    end
   end
 
 #  This doesn't do anything yet but might when we move towards getting the 

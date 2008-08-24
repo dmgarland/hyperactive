@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   has_many :collective_memberships
   has_many :collectives, :through => :collective_memberships
 
+  def is_collectivized?
+    !self.collectives.empty?
+  end
+
 #  validates_format_of :email, 
 #                      :with => %r{^([\w\-\.\#\$%&!?*\'=(){}|~_]+)@([0-9a-zA-Z\-\.\#\$%&!?*\'=(){}|~]+)+$},
 #                      :message => 'must be a valid email address.',

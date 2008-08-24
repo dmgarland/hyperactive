@@ -9,7 +9,7 @@ class Collective < ActiveRecord::Base
   has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations
 
   image_column  :image, 
-                :versions => { :thumb => "c96x96"},
+                :versions => { :thumb => "c96x96", :small => "c32x32"},
                 :extensions => ["gif", "png", "jpg"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),
                 :web_root => "/system", 

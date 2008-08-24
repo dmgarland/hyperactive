@@ -13,5 +13,6 @@
         <%= image_tag @collective.image.thumb.url %><br/><br/>
     <% end %>
   	<b>Logo image</b><br/>
-	<%= upload_column_field("collective", "image") %>
+	<%= upload_column_field("collective", "image") %><br/>
+	The logo image will be cropped so that it's square.
   </p>

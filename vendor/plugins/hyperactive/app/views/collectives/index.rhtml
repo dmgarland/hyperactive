@@ -7,5 +7,6 @@
 
 <%= render :partial => "shared/collectives/collective_summary", :collection => @new_collectives %>
 
-
-<%= link_to 'New collective', new_collective_path %>
+<% content_for :sidebar do %>
+	<%= render :partial => "collectives/sidebar/new_collective_box" %>
+<% end %>

@@ -63,6 +63,9 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'active_rbac/login', :action => 'logout'
   map.register 'register', :controller => 'active_rbac/registration'
   map.publish 'publish', :controller => 'publish'
+  map.edit_collective_memberships 'collectives/:id/edit_memberships', :controller => 'collectives', :action => 'edit_memberships'
+  map.add_collective_membership 'collectives/:id/add_membership', :controller => 'collectives', :action => 'add_membership'
+  map.destroy_collective_membership 'collectives/destroy_membership/:id', :controller => 'collectives', :action => 'destroy_membership'
 
   # map the login and registration controller somewhere prettier than "active_rbac/foo"
   connect '/login', :controller => 'active_rbac/login',

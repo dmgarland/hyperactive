@@ -94,4 +94,43 @@ class CollectivesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def edit_memberships
+    @collective = Collective.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.rhtml
+      format.xml  { render :xml => @collective.to_xml }
+    end
+  end
+  
+  def destroy_membership
+    @collective_membership = CollectiveMembership.find(params[:id])
+    @collective = @collective_membership.collective
+    @collective_membership.destroy
+     respond_to do |format|
+      format.html { redirect_to edit_collective_memberships_url(@collective) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  def add_membership
+    @collective = Collective.find(params[:id])
+    @user = User.find_by_login(params[:login])
+    if @user
+      @collective.users << @user 
+      respond_to do |format|
+        flash[:notice] = "User '#{@user.login}' was added to '#{@collective.name}'"
+        format.html { redirect_to edit_collective_memberships_url }
+        format.xml  { head :ok }
+      end
+    else
+      respond_to do |format|
+        flash[:notice] = "User '#{params[:login]}' not found."
+        format.html { redirect_to edit_collective_memberships_url }
+        format.xml  { head :ok }
+      end
+    end
+  end
+  
 end

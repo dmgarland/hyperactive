@@ -2,7 +2,7 @@
 
 <%= error_messages_for :collective %>
 
-<% form_for(:collective, :url => collectives_path) do |f| %>
+<% form_for(:collective, :url => collectives_path, :html => {:multipart => true}) do |f| %>
   
   <%= render :partial => "collectives/form", :locals => {:f => f}  %>
 

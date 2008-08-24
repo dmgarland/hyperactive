@@ -1,17 +1,16 @@
 <h1><%=h @collective.name %></h1>
 
 <p>
-  <b>Summary:</b>
-  <%=h @collective.summary %>
+	<% if @collective.image.nil? %>
+		<%= image_tag "default_collective.jpg", :plugin => "hyperactive", :class => "left" %>
+	<% else %>
+		<%= image_tag @collective.image.thumb, :class => "left" %>
+	<% end %>
+	
+    <%= @collective.summary %>
 </p>
 
-<p>
-	<% if @collective.image.nil? %>
-		<%= image_tag "default_collective.jpg", :plugin => "hyperactive" %>
-	<% else %>
-		<%= image_tag @collective.image.thumb %>
-	<% end %>
-</p>
+
 
 <% if @collective.has_articles? %>
 	<h2>Articles</h2>
@@ -29,4 +28,5 @@
 <% end %>
 <p>
 <%= link_to 'Edit collective info', edit_collective_path(@collective) %>
+<%= link_to 'Edit collective membership', edit_collective_memberships_url(@collective) %>
 </p>

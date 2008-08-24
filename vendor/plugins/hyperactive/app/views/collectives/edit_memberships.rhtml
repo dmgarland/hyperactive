@@ -1,0 +1,27 @@
+<h1>Current group members:</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Joined on</th>
+  </tr>
+  
+<% for membership in @collective.collective_memberships %>
+  <tr>
+    <td><%=h membership.user.login %></td>
+    <td><%=h long_date(membership.created_on) %></td>
+    <td><%= link_to 'Remove', destroy_collective_membership_url(membership.id), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<strong>Add a new member:</strong>
+<% form_for(:collective, :url => add_collective_membership_url) do |f| %>
+
+<%= text_field_tag(:login) %>
+ <p>
+    <%= submit_tag "Add" %>
+  </p>
+<% end %>
+
+<p>Back to <%= collective_link_to(@collective) %></p>

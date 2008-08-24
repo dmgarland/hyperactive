@@ -1,7 +1,7 @@
 <% if !@content.nil? %>
     <% if !@content.empty? %>
     <h1>In &lsquo;<%= h @tagname %>&rsquo;</h1>
-        <%= link_to (image_tag('feed-icon-28x28.png', :plugin => 'hyperactive')), {:controller => 'event_feed', :action => 'upcoming_place', :scope => params[:scope]} %>
+        <%= link_to (image_tag('feed-icon-28x28.png', :plugin => 'hyperactive')), upcoming_events_by_place_feed_url(:scope => params[:scope]) %>
         <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
         <%= paginating_links(@content) %>
     <% else %>

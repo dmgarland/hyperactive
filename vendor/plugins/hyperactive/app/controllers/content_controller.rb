@@ -1,5 +1,10 @@
 class ContentController < ApplicationController
 
+  # security
+  #
+  before_filter :can_edit?, :only => [:edit, :update]
+  before_filter :can_destroy?, :only => [:destroy]
+  
   uses_tiny_mce(:options => {:theme => 'advanced',
                            :browsers => %w{msie gecko safari opera},
                            :theme_advanced_toolbar_location => "top",
@@ -180,9 +185,6 @@ class ContentController < ApplicationController
   end
 
   protected
-
-  before_filter :can_edit?, :only => [:edit, :update]
-  before_filter :can_destroy?, :only => [:destroy]
 
   def redisplay_publish_form
     prepare_photos

@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   def is_collectivized?
     !self.collectives.empty?
   end
+  
+  def is_member_of?(collective)
+    self.collectives.include?(collective)
+  end
 
 #  validates_format_of :email, 
 #                      :with => %r{^([\w\-\.\#\$%&!?*\'=(){}|~_]+)@([0-9a-zA-Z\-\.\#\$%&!?*\'=(){}|~]+)+$},

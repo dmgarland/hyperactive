@@ -2,6 +2,12 @@ class CollectivesController < ApplicationController
 
   layout "two_column"
   
+  # security
+  #
+  before_filter :can_edit?, :only => [:edit, :update, :edit_memberships, :add_membership]
+  before_filter :can_destroy_membership?, :only => [:destroy_membership]
+  before_filter :can_destroy?, :only => [:destroy]  
+  
   uses_tiny_mce(:options => {:theme => 'advanced',
                            :browsers => %w{msie gecko safari opera},
                            :theme_advanced_toolbar_location => "top",
@@ -132,5 +138,31 @@ class CollectivesController < ApplicationController
       end
     end
   end
+  
+  protected
+  
+  # Checks membership to see if a given user can edit this collective.
+  #
+  def can_edit?
+    return true if current_user.is_member_of?(Collective.find(params[:id]))
+    #return true if current_user.has_permission?("edit_own_content")  && Content.find(params[:id]).user == current_user
+    security_error
+  end  
+  
+  # Checks membership to see if a given user can destroy memberships in this collective.
+  # It works a little differently from the 'can_edit?' filter because in this case 
+  # params[:id] is the id of the CollectiveMembership, not that id of the collective.
+  #
+  def can_destroy_membership?
+    return true if CollectiveMembership.find(params[:id]).collective.users.include?(current_user)
+    security_error
+  end
+  
+  # Checks permissions to see if the current user can destroy a collective.
+  #
+  def can_destroy?
+    return true if current_user.has_permission?("destroy")  
+    security_error
+  end  
   
 end

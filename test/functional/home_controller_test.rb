@@ -19,11 +19,10 @@ class HomeControllerTest < Test::Unit::TestCase
     get :index
     assert_template 'index'
     assert_not_nil assigns(:recent_events)
-    assert_equal 2, assigns(:recent_events).size
+    assert_equal 1, assigns(:recent_events).size
     assert_not_nil assigns(:featured_events)
     assert_equal 1, assigns(:featured_events).size
     assert assigns(:featured_videos)
-    assert assigns(:recent_videos)
     assert_match(/London Meeting 2/, @response.body)
     assert_no_match(/A Hidden Event/, @response.body)
   end

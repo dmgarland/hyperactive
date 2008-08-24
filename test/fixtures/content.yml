@@ -61,12 +61,12 @@ london_meeting2:
 london_meeting3:
   id: 7
   title: London Meeting 2
-  date: <%= Date.today %>
+  date: <%= Date.today + 5 %>
   body: A meeting in London.
   summary: Foo foo foo  
   published_by: yoss
   place: Camberwell Squatted Centre
-  moderation_status: published
+  moderation_status: featured
   event_group_id: 1  
   type: Event
   

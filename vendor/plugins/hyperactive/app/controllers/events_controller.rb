@@ -1,6 +1,3 @@
-require 'vendor/plugins/hyperactive/app/models/tags/tag.rb'
-require 'vendor/plugins/hyperactive/app/models/tags/place_tag.rb'
-
 class EventsController < ContentController
 
   def upcoming

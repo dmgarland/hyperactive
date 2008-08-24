@@ -49,6 +49,10 @@ class Content < ActiveRecord::Base
   def is_not_hidden?
     self.moderation_status != "hidden"
   end
+  
+  def is_collectivized?
+    !self.collectives.empty?
+  end
 
   # Sets up an instance variable so we can save the association in an after_save filter.
   #

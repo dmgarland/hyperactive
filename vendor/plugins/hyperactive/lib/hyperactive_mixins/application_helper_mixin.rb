@@ -134,6 +134,11 @@ module HyperactiveMixins
           end
         end  
         
+        def collective_link_to(collective)
+          render :partial => "shared/collectives/collective_link", :object => collective  
+        end
+        
+        
       end
     end
   end

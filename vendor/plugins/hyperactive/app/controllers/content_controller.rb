@@ -37,6 +37,7 @@ class ContentController < ApplicationController
   # Must require the STI superclass explicitly in controllers.
   require_dependency 'content'    
   require_dependency 'post'
+  require_dependency 'collective'
   
   include UIEnhancements::SubList
   helper :SubList

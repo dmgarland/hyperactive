@@ -6,6 +6,8 @@
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 
+<%= render :partial => 'shared/content/groups_display' %>
+
 <% if @content.belongs_to_event_group? %>
     <p>
     	<%= 'This event is part of a series of repeating events.  To see

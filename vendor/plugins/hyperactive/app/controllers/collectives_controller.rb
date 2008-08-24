@@ -62,7 +62,7 @@ class CollectivesController < ApplicationController
 
     respond_to do |format|
       if @collective.save
-        flash[:notice] = 'Collective was successfully created.'
+        flash[:notice] = 'Group was successfully created.'
         format.html { redirect_to collective_url(@collective) }
         format.xml  { head :created, :location => collective_url(@collective) }
       else
@@ -79,8 +79,8 @@ class CollectivesController < ApplicationController
 
     respond_to do |format|
       if @collective.update_attributes(params[:collective])
-        flash[:notice] = 'Collective was successfully updated.'
-        format.html { redirect_to collective_url(@collective) }
+        flash[:notice] = 'Group was successfully updated.'
+        format.html { redirect_to account_url }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

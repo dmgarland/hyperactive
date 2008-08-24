@@ -1,9 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+upcoming_indy_london_meeting_association:
   id: 1
+  collective_associatable_id: 5
+  collective_associatable_type: Content
+  collective_id: 1  
   created_on: 2008-08-16 19:29:18
   updated_on: 2008-08-16 19:29:18
-two:
+zapatista_uprising_associated_with_indy_london:
   id: 2
+  collective_associatable_id: 2
+  collective_associatable_type: Content
+  collective_id: 1
   created_on: 2008-08-16 19:29:18
   updated_on: 2008-08-16 19:29:18
+

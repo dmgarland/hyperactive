@@ -16,9 +16,9 @@
 	<%= render :partial => '/shared/content/list_title', :collection => @collective.articles %>			
 <% end %>
 
-<% if @collective.has_events? %>
+<% if @collective.has_upcoming_events? %>
 	<h2>Upcoming Events</h2>
-	<%= render :partial => '/shared/content/list_title', :collection => @collective.events %>			
+	<%= render :partial => '/shared/content/list_title', :collection => @collective.upcoming_events %>			
 <% end %>
 
 <% if @collective.has_videos? %>

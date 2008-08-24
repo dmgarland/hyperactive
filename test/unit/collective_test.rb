@@ -3,8 +3,15 @@ require File.dirname(__FILE__) + '/../test_helper'
 class CollectiveTest < Test::Unit::TestCase
   fixtures :collectives
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  def test_validation
+    assert_invalid_value(Collective, :name, [nil, ""])
+    assert_invalid_value(Collective, :summary, [nil, ""])
   end
+  
+  def test_upcoming_events
+    @indy_london = collectives(:indy_london)
+    assert_equal @indy_london.events.length, 2
+    assert_equal 1, @indy_london.upcoming_events.length, "There should only be 1 upcoming event"
+  end
+  
 end

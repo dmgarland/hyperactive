@@ -51,8 +51,16 @@ class Collective < ActiveRecord::Base
     !events.empty?
   end
   
+  def has_upcoming_events?
+    !upcoming_events.empty?
+  end
+  
   def has_videos?
     !videos.empty?
+  end
+  
+  def upcoming_events
+    self.events.find(:all, :order => 'date DESC', :conditions => ['date > ?', DateTime.now])
   end
   
   def includes_content?(content)

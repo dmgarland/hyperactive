@@ -26,8 +26,8 @@ class CollectivesController < ApplicationController
   # GET /collectives
   # GET /collectives.xml
   def index
-    @collectives = Collective.find(:all)
-
+    @new_collectives = Collective.find(:all)
+    #@recently_active_collectives
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @collectives.to_xml }

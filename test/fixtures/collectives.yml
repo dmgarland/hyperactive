@@ -1,5 +1,5 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+indy_london:
   id: 1
   name: MyString
   summary: MyText

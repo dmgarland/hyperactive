@@ -1,16 +1,23 @@
-<h1>New group</h1>
+<% if current_user.is_anonymous? %>
+	<h1>Please create an account</h1>
+	<p>You need to <%= link_to "create an account", account_url %> before you can create a group.</p>
+<% else %>
 
-<%= error_messages_for :collective %>
+	<h1>New group</h1>
+	
+	<%= error_messages_for :collective %>
+	
+	<p>Some explanation of groups needs to be written here.</p>
+	
+	<% form_for(:collective, :url => collectives_path, :html => {:multipart => true}) do |f| %>
+	  
+	  <%= render :partial => "collectives/form", :locals => {:f => f}  %>
+	
+	  <p>
+	    <%= submit_tag "Create" %>
+	  </p>
+	<% end %>
 
-<p>Some explanation of groups needs to be written here.</p>
-
-<% form_for(:collective, :url => collectives_path, :html => {:multipart => true}) do |f| %>
-  
-  <%= render :partial => "collectives/form", :locals => {:f => f}  %>
-
-  <p>
-    <%= submit_tag "Create" %>
-  </p>
 <% end %>
 
 <%= link_to 'Back', collectives_path %>

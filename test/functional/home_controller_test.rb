@@ -29,7 +29,7 @@ class HomeControllerTest < Test::Unit::TestCase
   end
   
   def test_index_with_stick_at_top_is_stuck_at_top
-
+    # TODO: write this test.
   end
   
   def test_index_retrieves_tag_clouds

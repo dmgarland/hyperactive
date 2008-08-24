@@ -44,6 +44,11 @@ class Test::Unit::TestCase
     end
   end 
   
+  def assert_security_error
+    assert_redirected_to base_url
+    assert_equal "You are not allowed to access this page.", flash[:notice]
+  end
+  
   def as_admin
     {:rbac_user_id => users(:marcos).id } 
   end

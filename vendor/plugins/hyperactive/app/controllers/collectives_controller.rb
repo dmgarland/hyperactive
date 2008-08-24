@@ -27,7 +27,7 @@ class CollectivesController < ApplicationController
   # GET /collectives.xml
   def index
     @new_collectives = Collective.find(:all, :limit => objects_per_page)
-    @recently_actively_collectives = Collective.find(:all, :limit => objects_per_page, :include => "collective_associations", :order => "collective_associations.created_on DESC")
+    @recently_active_collectives = Collective.find(:all, :limit => objects_per_page, :include => "collective_associations", :order => "collective_associations.created_on DESC")
 
     respond_to do |format|
       format.html # index.rhtml
@@ -59,17 +59,22 @@ class CollectivesController < ApplicationController
   # POST /collectives
   # POST /collectives.xml
   def create
-    @collective = Collective.new(params[:collective])
-
-    respond_to do |format|
-      if @collective.save
-        flash[:notice] = 'Group was successfully created.'
-        format.html { redirect_to collective_url(@collective) }
-        format.xml  { head :created, :location => collective_url(@collective) }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @collective.errors.to_xml }
+    if !current_user.is_anonymous?
+      @collective = Collective.new(params[:collective])
+      
+      respond_to do |format|
+        if @collective.save
+          @collective.users << current_user
+          flash[:notice] = 'Group was successfully created.'
+          format.html { redirect_to collective_url(@collective) }
+          format.xml  { head :created, :location => collective_url(@collective) }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @collective.errors.to_xml }
+        end
       end
+    else
+      security_error
     end
   end
 
@@ -138,6 +143,9 @@ class CollectivesController < ApplicationController
         format.xml  { head :ok }
       end
     end
+  end
+  
+  def must_be_registered_to_create
   end
   
   protected

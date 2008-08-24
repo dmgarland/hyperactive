@@ -200,7 +200,18 @@ class AnonymousUser
     true
   end
   
+  # The AnonymousUser can't be part of any collectives, so this always
+  # returns false.
+  #
   def is_collectivized?
     false
+  end
+  
+  # The AnonymousUser can't be part of any collectives, so this always
+  # returns false.
+  #
+  def is_member_of?(collective)
+    false
   end  
+  
 end

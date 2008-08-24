@@ -9,8 +9,6 @@ class Content < ActiveRecord::Base
   validates_presence_of :title, :summary, :published_by
   
   after_save :save_assigned_collectives
-  #has_many_polymorphs :collectives, :from => [:dogs, :cats, :birds]
-  
   
   # A convenience method to tell us whether this content is attached to 
   # an article or event.  Currently this should only ever return true for

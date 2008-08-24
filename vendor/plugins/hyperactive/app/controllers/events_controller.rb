@@ -107,13 +107,16 @@ class EventsController < ContentController
   
   def ical_download
     @content  = Event.find(params[:id])
+    @content.summary.gsub!(/<\/?[^>]*>/, "")
+    @content.body.gsub!(/<\/?[^>]*>/, "")
     cal = Vpim::Icalendar.create2
     cal.add_event do |e|
       e.dtstart       @content.date
       e.dtend         @content.date
       e.summary       @content.title
-      e.description   strip_tags(@content.summary) + "\n\n" + strip_tags(@content.body)
+      e.description   @content.summary + "\n\n" + @content.body
     end
+
     icsfile = cal.encode
     send_data(icsfile, :type => "text/calendar", :filename => "#{@content.title.downcase.gsub(/ /, "_")}.ics")
   end

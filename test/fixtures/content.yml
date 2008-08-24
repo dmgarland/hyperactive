@@ -5,7 +5,7 @@ a_birthday:
   title: The Birthday
   date: 2006-2-23
   body: This is a birthday. 
-  summary: Foo foo foo  
+  summary: Foo foo <p>foo</p>  
   published_by: yoss
   place: Japan
   moderation_status: promoted

@@ -294,6 +294,7 @@ class EventControllerTest < Test::Unit::TestCase
     assert_response :success
     assert assigns(:content)
     assert_match(/#{assigns(:content).title}/, @response.body, "Expected to find a match between the content title and the ical text.")   
+    assert_no_match(/<p>/, @response.body, "The HTML tags should have been stripped.")
   end
   
   def event_stub(id)

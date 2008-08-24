@@ -1,5 +1,11 @@
+<h1>Recently active groups</h1>
+
+<%= render :partial => "shared/collectives/collective_summary", :collection => @recently_actively_collectives %>
+
+
 <h1>Most recent goups added</h1>
 
 <%= render :partial => "shared/collectives/collective_summary", :collection => @new_collectives %>
+
 
 <%= link_to 'New collective', new_collective_path %>

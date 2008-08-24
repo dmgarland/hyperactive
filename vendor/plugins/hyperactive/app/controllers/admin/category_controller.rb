@@ -57,7 +57,7 @@ class Admin::CategoryController < ApplicationController
   end
     
   def protect_controller
-    if !current_user.nil? and current_user.has_role?("Admin")
+    if current_user.has_role?("Admin")
       return true
     else
       redirect_to "/publish/list"

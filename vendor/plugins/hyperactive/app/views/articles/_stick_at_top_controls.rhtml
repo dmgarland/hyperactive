@@ -1,4 +1,4 @@
-<% if !current_user.nil? and (current_user.has_role?("Admin"))  %>
+<% if current_user.has_role?("Admin")  %>
 	<p><strong><%= "Front page controls".t %></strong></p>
 	<p><%= "You have the option of sticking this article at the top of the front page. The article needs to be promoted before this will work.".t %></p>
 	<p><%= f.check_box :stick_at_top %><label for="content_stick_at_top"><%= "Stick at top?".t %></label></p>

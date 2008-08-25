@@ -1,2 +1,2 @@
-module SnippetsHelper
+module Admin::SnippetsHelper
 end

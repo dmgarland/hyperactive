@@ -198,10 +198,17 @@ class ContentController < ApplicationController
   end 
   
   # Checks permissions and ownership to see if a given user can edit content.
+  # The first two success cases are pretty self-explanatory: the user can edit 
+  # the content if he/she has got the correct permissions.
+  #
+  # The third success case is more interesting:  the user can edit the content if 
+  # the user and the content share at least one collective in common.
   #
   def can_edit?
+    current_content = Content.find(params[:id])
     return true if current_user.has_permission?("edit_all_content")  
-    return true if current_user.has_permission?("edit_own_content")  && Content.find(params[:id]).user == current_user
+    return true if current_user.has_permission?("edit_own_content")  && current_content.user == current_user
+    return true if (current_user.collectives.map(&:id) & current_content.collectives.map(&:id)).length > 0
     security_error
   end
   

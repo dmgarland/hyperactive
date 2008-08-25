@@ -214,4 +214,10 @@ class AnonymousUser
     false
   end  
   
+  # The AnonymousUser has no collectives, so we return an empty array here.
+  #
+  def collectives
+    []
+  end
+  
 end

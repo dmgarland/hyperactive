@@ -135,27 +135,33 @@ module ContentControllerTest
   end
   
   def test_edit_works_for_admin
-    
+    get :edit, {:id => @first_id}, as_user(:marcos)
+    assert_response :success
   end
 
   def test_update_does_not_work_for_anonymous
-    
+    put :update, {:id => @first_id, :title => "Updated title"}
+    assert_security_error
   end
   
   def test_update_works_for_content_owner
-    
+    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:registered_user)
+    assert_redirected_to :action => "show"   
   end
 
   def test_update_works_for_content_collective_member
-    
+    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:registered_user_2)
+    assert_redirected_to :action => "show"   
   end
   
   def test_update_does_not_work_for_non_collective_member
-    
+    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:hider_user)
+    assert_security_error 
   end
   
   def test_update_works_for_admin
-    
+    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:marcos)
+    assert_redirected_to :action => "show"      
   end  
   
   

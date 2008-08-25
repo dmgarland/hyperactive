@@ -44,9 +44,12 @@ class VideosController < ContentController
     @content.update_attributes(params[:content])
     respond_to do |format|
       if @content.save
+        puts "saved"
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
+        puts "tags"
         do_video_conversion
+        puts "videos converted"
         flash[:notice] = "Video was successfully updated."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }

@@ -74,6 +74,25 @@ class VideosControllerTest < Test::Unit::TestCase
     assert_equal "promoted", content.moderation_status    
   end  
   
+  def test_update_works_for_content_owner
+    post :update, {:id => @first_id, :content => {:title => "Updated title", :file => ""}, :tags => "", :place_tags => ""}, as_user(:registered_user)
+    assert_redirected_to :action => "show"   
+  end
+
+  def test_update_works_for_content_collective_member
+    post :update, {:id => @first_id, :content => {:title => "Updated title", :file => ""}, :tags => "", :place_tags => ""}, as_user(:registered_user_2)
+    assert_redirected_to :action => "show"   
+  end  
+  
+  def test_update_works_for_admin
+    post :update, {:id => @first_id, :content => {:title => "Updated title", :file => ""}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    assert_redirected_to :action => "show"  
+  end    
+  
+  def test_update_does_not_work_for_non_collective_member
+    post :update, {:id => @first_id, :content => {:title => "Updated title", :file => ""}, :tags => "", :place_tags => ""}, as_user(:hider_user)
+    assert_security_error
+  end  
   
   def model_class
     Video

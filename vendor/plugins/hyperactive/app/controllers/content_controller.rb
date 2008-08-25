@@ -132,6 +132,7 @@ class ContentController < ApplicationController
   end
 
   def update
+    puts "start"
     @content = model_class.find(params[:id])
     @content.update_attributes(params[:content])
     if(model_class == Event)

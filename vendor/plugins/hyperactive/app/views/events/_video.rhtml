@@ -5,7 +5,8 @@
     <%= 'Video'.t %> 
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
-        <%= image_tag video.file.thumb.url %><br/><br/>
+	    <%# TODO: re-enable this %>
+        <%# image_tag video.file.thumb.url %><br/><br/>
     <% end %>
     <label for="video[]_title">
       <%= 'Title'.t %>*<br/>

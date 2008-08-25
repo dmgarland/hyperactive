@@ -60,7 +60,10 @@ module HyperactiveMixins
         # Set up the click-to-globalize plugin so that we can easily do translations
         #
         # Available languages which can be clicked-to-globalize
-        self.languages = { :danish => 'da-DK' } unless RAILS_ENV == 'test'
+        #
+        # TODO 2.1 : the old click to globalize plugin screws up in Rails 2.1, 
+        # it needs an upgrade.  Replace it with the newer one and re-enable this code.
+        #self.languages = { :danish => 'da-DK' } unless RAILS_ENV == 'test'
         
         # Defines who can click on text to globalize it
         def globalize?

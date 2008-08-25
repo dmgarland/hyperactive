@@ -5,10 +5,11 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '1.2.5' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
@@ -21,6 +22,11 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  
+  # TODO 2.1 : this shouldn't be necessary, the code in vendor/plugins/hyperactive/init.rb should do this job.
+  # But it doesn't.
+  config.load_paths << "#{RAILS_ROOT}/vendor/plugins/hyperactive/app/sweepers"
+
 
   # Force all environments to use the same logger level 
   # (by default production uses :info, the others :debug)
@@ -54,6 +60,10 @@ Rails::Initializer.run do |config|
   config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir| 
     File.directory?(lib = "#{dir}/lib") ? lib : dir
   end
+  
+  # Reload plugin code between requests so that we don't go insane when working on the
+  # Hyperactive plugin.
+  #config.reload_plugins = true
 
 end
 
@@ -114,7 +124,7 @@ ActiveRbac.controller_layout = "admin"
 ActiveRecord::Base.verification_timeout = 14400
 
 # This is necessary to ensure that keys in JSON strings get quoted:
-ActiveSupport::JSON.unquote_hash_key_identifiers = false
+#ActiveSupport::JSON.unquote_hash_key_identifiers = false
 
 # Globalize configuration for internationalization purposes
 include Globalize

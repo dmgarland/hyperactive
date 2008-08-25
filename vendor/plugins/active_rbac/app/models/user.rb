@@ -1,16 +1,20 @@
-# Users wrap the users records in the database and represent users in the
-# ActiveRbac model.
-#
-# Passwords are hashed when the object is written to the database the first 
-# time. After this, only the hashed password is available. You can check
-# whether the record already is in the dabase using 
-# ActiveRecord::Base.new_record?
-#
-# The User ActiveRecord class mixes in the "ActiveRbacMixins::UserMixins::*" modules.
-# This module contains the actual implementation. It is kept there so
-# you can easily provide your own model files without having to all lines
-# from the engine's directory
 class User < ActiveRecord::Base
   include ActiveRbacMixins::UserMixins::Core
   include ActiveRbacMixins::UserMixins::Validation
+  
+  has_many :collective_memberships
+  has_many :collectives, :through => :collective_memberships
+
+  def is_collectivized?
+    !self.collectives.empty?
+  end
+  
+  def is_member_of?(collective)
+    self.collectives.include?(collective)
+  end
+
+#  validates_format_of :email, 
+#                      :with => %r{^([\w\-\.\#\$%&!?*\'=(){}|~_]+)@([0-9a-zA-Z\-\.\#\$%&!?*\'=(){}|~]+)+$},
+#                      :message => 'must be a valid email address.',
+#                      :allow_blank => true
 end

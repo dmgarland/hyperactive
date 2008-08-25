@@ -195,8 +195,34 @@ class AnonymousUser
     return !obj.nil?
   end
 
+####################################################
+# Everything below here is a hack.
+# TODO 2.1 fix this
+###################################################
+
   # Returns true. Yes, this is the AnonymousUser class - what did you expect?
   def is_anonymous?
     true
   end
+  
+  # The AnonymousUser can't be part of any collectives, so this always
+  # returns false.
+  #
+  def is_collectivized?
+    false
+  end
+  
+  # The AnonymousUser can't be part of any collectives, so this always
+  # returns false.
+  #
+  def is_member_of?(collective)
+    false
+  end  
+  
+  # The AnonymousUser has no collectives, so we return an empty array here.
+  #
+  def collectives
+    []
+  end
+  
 end

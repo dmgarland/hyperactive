@@ -13,4 +13,24 @@ zapatista_uprising_associated_with_indy_london:
   collective_id: 1
   created_on: 2008-08-16 19:29:18
   updated_on: 2008-08-16 19:29:18
-
+first_article_associated_with_indy_london:
+  id: 3
+  collective_associatable_id: 10
+  collective_associatable_type: Content
+  collective_id: 1
+  created_on: 2008-08-16 19:29:18
+  updated_on: 2008-08-16 19:29:18
+a_birthday_associated_with_indy_london:
+  id: 4
+  collective_associatable_id: 1
+  collective_associatable_type: Content
+  collective_id: 1
+  created_on: 2008-08-16 19:29:18
+  updated_on: 2008-08-16 19:29:18  
+first_video_associated_with_indy_london:
+  id: 5
+  collective_associatable_id: 17
+  collective_associatable_type: Content
+  collective_id: 1
+  created_on: 2008-08-16 19:29:18
+  updated_on: 2008-08-16 19:29:18    

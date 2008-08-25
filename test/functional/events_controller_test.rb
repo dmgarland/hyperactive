@@ -206,7 +206,7 @@ class EventControllerTest < Test::Unit::TestCase
   end
   
   def test_edit_as_registered_fails_if_not_content_owner
-    get :edit, {:id => 1}, as_user(:registered_user)
+    get :edit, {:id => 1}, as_user(:hider_user)
     assert_redirected_to :action => "index"
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end  
@@ -233,7 +233,7 @@ class EventControllerTest < Test::Unit::TestCase
   end
   
   def test_update_as_registered_fails_if_not_content_owner
-    post :update, event_stub(1), as_user(:registered_user)
+    post :update, event_stub(1), as_user(:hider_user)
     assert_redirected_to :action => "index"
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end

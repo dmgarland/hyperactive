@@ -1,5 +1,5 @@
 module ContentControllerTest
-  
+    
   def test_index
     get :index
     assert_response :success
@@ -113,6 +113,51 @@ module ContentControllerTest
     assert_equal num_content + 1, model_class.count
     assert_equal "promoted", content.moderation_status    
   end
+  
+  def test_edit_does_not_work_for_anonymous
+    get :edit, :id => @first_id
+    assert_security_error
+  end
+  
+  def test_edit_works_for_content_owner
+    get :edit, {:id => @first_id}, as_user(:registered_user)
+    assert_response :success
+  end
+
+  def test_edit_works_for_content_collective_member
+    get :edit, {:id => @first_id}, as_user(:registered_user_2)
+    assert_response :success    
+  end
+  
+  def test_edit_does_not_work_for_non_collective_member
+    get :edit, {:id => @first_id}, as_user(:hider_user)
+    assert_security_error
+  end
+  
+  def test_edit_works_for_admin
+    
+  end
+
+  def test_update_does_not_work_for_anonymous
+    
+  end
+  
+  def test_update_works_for_content_owner
+    
+  end
+
+  def test_update_works_for_content_collective_member
+    
+  end
+  
+  def test_update_does_not_work_for_non_collective_member
+    
+  end
+  
+  def test_update_works_for_admin
+    
+  end  
+  
   
   private
   

@@ -10,7 +10,7 @@ class CollectiveTest < Test::Unit::TestCase
   
   def test_upcoming_events
     @indy_london = collectives(:indy_london)
-    assert_equal @indy_london.events.length, 2
+    assert_equal 3, @indy_london.events.length
     assert_equal 1, @indy_london.upcoming_events.length, "There should only be 1 upcoming event"
   end
   

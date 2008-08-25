@@ -8,6 +8,7 @@ a_birthday:
   summary: Foo foo <p>foo</p>  
   published_by: yoss
   place: Japan
+  user_id: 2
   moderation_status: promoted
   type: Event
   
@@ -163,6 +164,7 @@ first_video:
   title: a video
   summary: hey, i'm a video! length 2 min 55 sec
   content_id: 1
+  user_id: 2
   file: foo.mov
   published_by: foo
   processing_status: 2

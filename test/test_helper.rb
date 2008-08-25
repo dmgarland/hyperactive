@@ -53,6 +53,6 @@ class Test::Unit::TestCase
     {:rbac_user_id => users(fixture_name).id}
   end  
   
-  fixtures :users, :roles, :roles_users, :static_permissions, :roles_static_permissions
+  fixtures :users, :roles, :roles_users, :static_permissions, :roles_static_permissions, :collectives, :collective_associations, :collective_memberships
  
 end

@@ -1,5 +1,6 @@
 class Content < ActiveRecord::Base
-    
+  
+  belongs_to :user  
   set_table_name "content"
   acts_as_ferret({:fields => [:title, :body, :summary, :place, :published_by, :date], :remote => true } )      
   before_create :set_moderation_status_to_published

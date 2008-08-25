@@ -10,6 +10,7 @@
 	<p><%= image_tag("ruby.png", :plugin => "hyperactive") %> <%= link_to "Hyperactive CMS", "http://escapegoat.org/projects/hyperactive" %></p>
 	<p><%= "To contribute to this project".t %> <%= link_to "take a look at the project site".t, "http://escapegoat.org/projects/hyperactive" %></p>
 </div>
-<%= click_to_globalize unless RAILS_ENV == 'test' -%>
+<%# TODO 2.1 uncomment this when a new click to globalize plugin is installed. %>
+<%# click_to_globalize unless RAILS_ENV == 'test' -%>
 </body>
 </html>

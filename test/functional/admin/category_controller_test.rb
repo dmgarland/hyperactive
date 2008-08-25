@@ -16,13 +16,13 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_index
-    get :index, {}, as_admin
+    get :index, {}, as_user(:marcos)
     assert_response :success
     assert_template 'list'
   end
 
   def test_list
-    get :list, {}, as_admin
+    get :list, {}, as_user(:marcos)
 
     assert_response :success
     assert_template 'list'
@@ -31,7 +31,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_show
-    get :show, {:id => 1}, as_admin
+    get :show, {:id => 1}, as_user(:marcos)
 
     assert_response :success
     assert_template 'show'
@@ -41,7 +41,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_new
-    get :new, {}, as_admin
+    get :new, {}, as_user(:marcos)
 
     assert_response :success
     assert_template 'new'
@@ -51,7 +51,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
 
   def test_create
     num_categories = Category.count
-    post :create, {:category => {:name => "Test category", :description => "Events having to do with anti-GM food.", :active => "1"}}, as_admin
+    post :create, {:category => {:name => "Test category", :description => "Events having to do with anti-GM food.", :active => "1"}}, as_user(:marcos)
 
     assert_response :redirect
     assert_redirected_to :action => 'list'
@@ -60,7 +60,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_edit
-    get :edit, {:id => 1}, as_admin
+    get :edit, {:id => 1}, as_user(:marcos)
 
     assert_response :success
     assert_template 'edit'
@@ -70,7 +70,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, {:id => 1}, as_admin
+    post :update, {:id => 1}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => 1
   end
@@ -78,7 +78,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   def test_destroy
     assert_not_nil Category.find(1)
 
-    post :destroy, {:id => 1}, as_admin
+    post :destroy, {:id => 1}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to :action => 'list'
 

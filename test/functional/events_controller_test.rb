@@ -199,20 +199,20 @@ class EventControllerTest < Test::Unit::TestCase
   end
 
   def test_edit
-    get :edit, {:id => 1}, as_admin
+    get :edit, {:id => 1}, as_user(:marcos)
     assert_template 'edit'
     assert_equal "The Birthday", assigns(:content).title
     assert assigns(:content).valid?
   end
   
   def test_edit_as_registered_fails_if_not_content_owner
-    get :edit, {:id => 1}, as_registered
+    get :edit, {:id => 1}, as_user(:registered_user)
     assert_redirected_to :action => "index"
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end  
   
   def test_edit_as_registered_when_content_owner
-    get :edit, {:id => 2}, as_registered
+    get :edit, {:id => 2}, as_user(:registered_user)
     assert_response :success
     assert_template 'edit'
     assert_equal "The Zapatista Uprising", assigns(:content).title
@@ -220,7 +220,7 @@ class EventControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, event_stub(1), as_admin
+    post :update, event_stub(1), as_user(:marcos)
     event = Event.find_by_title("A Changed Event")
     assert_match("bah", event.tag_list)
     assert_match(/blah/, event.tag_list)
@@ -233,13 +233,13 @@ class EventControllerTest < Test::Unit::TestCase
   end
   
   def test_update_as_registered_fails_if_not_content_owner
-    post :update, event_stub(1), as_registered
+    post :update, event_stub(1), as_user(:registered_user)
     assert_redirected_to :action => "index"
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end
   
   def test_update_as_registered_when_content_owner
-    post :update, event_stub(2), as_registered
+    post :update, event_stub(2), as_user(:registered_user)
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => 2
     assert_equal "A Changed Event", assigns(:content).title
@@ -254,7 +254,7 @@ class EventControllerTest < Test::Unit::TestCase
   def test_destroy
     assert_not_nil Event.find(1)
 
-    post :destroy, {:id => 1}, as_admin
+    post :destroy, {:id => 1}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to :action => 'index'
 
@@ -267,7 +267,7 @@ class EventControllerTest < Test::Unit::TestCase
     e = Event.find(1)
     assert_not_nil(e) 
     
-    post :destroy, {:id => 1}, as_registered
+    post :destroy, {:id => 1}, as_user(:registered_user)
     assert_response :redirect
     assert_redirected_to :action => 'index'
     assert_equal "You are not allowed to access this page.", flash[:notice]    

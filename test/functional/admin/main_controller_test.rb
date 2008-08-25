@@ -14,13 +14,13 @@ class Admin::MainControllerTest < Test::Unit::TestCase
   end
 
   def test_index
-    get :index, {}, as_admin
+    get :index, {}, as_user(:marcos)
     assert_response :success
     assert_template 'index'
   end
   
   def test_latest_comments
-    get :latest_comments, {}, as_admin
+    get :latest_comments, {}, as_user(:marcos)
     assert_response :success
     assert_template 'latest_comments'
     assert assigns(:comments)

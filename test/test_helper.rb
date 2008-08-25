@@ -48,14 +48,10 @@ class Test::Unit::TestCase
     assert_redirected_to base_url
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end
-  
-  def as_admin
-    {:rbac_user_id => users(:marcos).id } 
-  end
-  
-  def as_registered
-    {:rbac_user_id => users(:registered_user).id }
-  end
+   
+  def as_user(fixture_name)
+    {:rbac_user_id => users(fixture_name).id}
+  end  
   
   fixtures :users, :roles, :roles_users, :static_permissions, :roles_static_permissions
  

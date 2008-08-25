@@ -21,7 +21,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   end
 
   def test_should_get_new
-    get :new,{}, as_registered
+    get :new,{}, as_user(:registered_user)
     assert_match /New group/, @response.body
     assert_response :success
   end
@@ -34,7 +34,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   
   def test_should_create_collective
     old_count = Collective.count
-    post :create, {:collective => {:name => "ezln", :summary => "foo" }}, as_registered
+    post :create, {:collective => {:name => "ezln", :summary => "foo" }}, as_user(:registered_user)
     assert_equal old_count+1, Collective.count
     assert_redirected_to collective_path(assigns(:collective))
     assert assigns(:collective).users.include?(users(:registered_user))
@@ -53,7 +53,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   end
 
   def test_should_get_edit
-    get :edit, {:id => 1}, as_registered
+    get :edit, {:id => 1}, as_user(:registered_user)
     assert_response :success
   end
   
@@ -63,7 +63,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   end  
   
   def test_should_update_collective
-    put :update, {:id => 1, :collective => { }}, as_registered
+    put :update, {:id => 1, :collective => { }}, as_user(:registered_user)
     assert_redirected_to account_url
   end
   
@@ -76,7 +76,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   
   def test_should_destroy_collective
     old_count = Collective.count
-    delete :destroy, {:id => 1}, as_admin
+    delete :destroy, {:id => 1}, as_user(:marcos)
     assert_equal old_count-1, Collective.count
     
     assert_redirected_to collectives_path

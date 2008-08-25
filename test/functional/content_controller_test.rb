@@ -27,7 +27,7 @@ module ContentControllerTest
   end
   
   def test_a_show_as_admin
-    get :show, {:id => @first_id}, as_admin
+    get :show, {:id => @first_id}, as_user(:marcos)
     assert_response :success
     assert_template 'show'
     assert_not_nil assigns(:content)
@@ -42,7 +42,7 @@ module ContentControllerTest
   end
   
   def test_a_show_hidden_as_admin
-    get :show, {:id => @hidden_id}, as_admin
+    get :show, {:id => @hidden_id}, as_user(:marcos)
     #assert_match(/This #{class_name} has been hidden/, @response.body)
     assert_match(/Unhide this #{class_name}/, @response.body)
   end  

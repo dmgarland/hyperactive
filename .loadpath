@@ -8,4 +8,6 @@
 	<pathentry path="GEM_LIB/actionpack-1.13.6/lib" type="var"/>
 	<pathentry path="GEM_LIB/actionwebservice-1.2.6/lib" type="var"/>
 	<pathentry path="GEM_LIB/activesupport-1.4.4/lib" type="var"/>
+	<pathentry path="GEM_LIB/actionpack-2.1.0/lib" type="var"/>
+	<pathentry path="GEM_LIB/activerecord-2.1.0/lib" type="var"/>
 </loadpath>

@@ -31,7 +31,7 @@ class TimelineController < ApplicationController
     data = {  :datetime_format => 'iso8601', 
               :events => timeline_events
            }
-    render_text data.to_json
+    render :text => data.to_json
   end
 
 end

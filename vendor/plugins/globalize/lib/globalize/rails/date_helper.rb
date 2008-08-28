@@ -55,7 +55,7 @@ module ActionView
       #
       # If you would prefer to show month names as abbreviations, set the
       # <tt>:use_short_month</tt> key in +options+ to true.
-      def select_month(date, options = {})
+      def select_month(date, options = {}, html_options = {})
         val = date ? (date.kind_of?(Fixnum) ? date : date.month) : ''
         if options[:use_hidden]
           hidden_html(options[:field_name] || 'month', val, options)

@@ -45,10 +45,6 @@ class HomeController < ApplicationController
   
   protected
   
-  # TODO: it's gross that the @top_article is an array, make a new view partial for this
-  # so we can get rid of this.  The front page probably should use something other than 
-  # shared/content/list_summary or whatever it's using anyway.
-  #
   def setup_featured_articles
     @top_article = Article.find(:first, :order => "created_on DESC", :conditions => ['stick_at_top = ? and moderation_status = ?', true, "featured"])
     if @top_article.nil?

@@ -76,29 +76,28 @@ class SearchControllerTest < Test::Unit::TestCase
     assert_match(/Nothing has been tagged with/, @response.body)      
   end
 
-  # We should be able to find an event containing "london"
   def test_find_content
     get :find_content, :search => {:search_terms => "london"}
     assert_response :success
     assert_template 'find_content'
-    assert_not_nil assigns(:content)
-    assert_equal 3, assigns(:content).size, "There should be 3 events returned when searching for London."
+    assert_not_nil assigns(:events)
+    assert_equal 3, assigns(:events).size, "There should be 3 events returned when searching for London."
   end
   
   def test_find_content_with_nonexistent_search_term
     get :find_content, :search => {:search_terms => "jkjkjkjkj"}
     assert_response :success
     assert_template 'find_content'
-    assert_not_nil assigns(:content)
-    assert_equal 0, assigns(:content).size, "There should be no events returned when searching for a nonexistent search term." 
+    assert_not_nil assigns(:articles)
+    assert_equal 0, assigns(:articles).size, "There should be no events returned when searching for a nonexistent search term." 
   end
   
   def test_search_shouldnt_return_hidden_content
     get :find_content, :search => {:search_terms => "hidden"}
     assert_response :success
     assert_template 'find_content'
-    assert_not_nil assigns(:content)
-    assert_equal 0, assigns(:content).size, "There should be no events returned when searching for events that are hidden."     
+    assert_not_nil assigns(:events)
+    assert_equal 0, assigns(:events).size, "There should be no events returned when searching for events that are hidden."     
   end
   
    # This is temporarily disabled as there is no such thing as unpublished content.

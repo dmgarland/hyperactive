@@ -2,7 +2,7 @@ class Content < ActiveRecord::Base
   
   belongs_to :user  
   set_table_name "content"
-  acts_as_ferret({:fields => [:title, :body, :summary, :place, :published_by, :date], :remote => true } )      
+  acts_as_ferret({:fields => [:title, :body, :summary, :published_by, :date]})      
   before_create :set_moderation_status_to_published
   has_many :comments
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"

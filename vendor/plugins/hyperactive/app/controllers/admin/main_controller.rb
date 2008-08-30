@@ -11,7 +11,7 @@ class Admin::MainController < ApplicationController
   end
 
   def latest_comments
-    @comments = Comment.find(:all, :limit => 20, :order => 'created_on DESC', :page => {:size => objects_per_page, :current => page_param})
+    @comments = Comment.paginate(:order => 'created_on DESC', :page => page_param)
   end
   
   def edit_comment

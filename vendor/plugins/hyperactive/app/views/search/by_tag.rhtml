@@ -3,7 +3,7 @@
     <h1>Tagged with &lsquo;<%= h @tagname %>&rsquo;</h1>
         <%= link_to (image_tag('feed-icon-28x28.png', :plugin => 'hyperactive')), {:controller => 'event_feed', :action => 'upcoming_tagged', :scope => params[:scope]} %>
         <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
-        <%= paginating_links(@content) %>
+        <%= page_links(@content) %>
     <% else %>
         <%= "There are events for this tag, but they're in the past.".t %>
     <% end %>

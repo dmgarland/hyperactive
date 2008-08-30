@@ -3,6 +3,8 @@ class Collective < ActiveRecord::Base
   validates_length_of :name, :maximum=>255
   validates_presence_of :name, :summary
   validates_uniqueness_of :name
+  
+  acts_as_ferret(:fields => [:name, :summary])
 
   has_many :collective_memberships
   has_many :users, :through => :collective_memberships

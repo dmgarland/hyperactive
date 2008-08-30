@@ -3,7 +3,7 @@
    <%= link_to("Next week: #{(@date+7).strftime('%D')}", :date=>@date+7) %>
 </p> 
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
-<%= paginating_links(@content, :params => params) %>
+<%= page_links(@content) %>
 <% content_for :sidebar do %>
 	<%= render :partial => "events/sidebar/feedbox" %>
 <% end %>

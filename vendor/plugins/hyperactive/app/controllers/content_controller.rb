@@ -63,11 +63,10 @@ class ContentController < ApplicationController
   
   def index
     @cloud = Tag.cloud(:limit => 20)
-    @content = model_class.find(
-      :all,  
+    @content = model_class.paginate(
       :conditions => ['moderation_status != ?', "hidden"], 
       :order => 'created_on desc', 
-      :page => {:size => objects_per_page, :current => page_param})
+      :page => page_param)
   end
 
   def list_promoted
@@ -76,11 +75,10 @@ class ContentController < ApplicationController
     else 
       order_string = 'created_on DESC'
     end
-    @content = model_class.find(
-      :all, 
+    @content = model_class.paginate(
       :conditions => ['moderation_status = ?', "promoted"],     
       :order => order_string,
-      :page => {:size => objects_per_page, :current => page_param})
+      :page => page_param)
   end  
 
   def show

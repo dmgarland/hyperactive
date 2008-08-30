@@ -137,6 +137,13 @@ WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strik
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 
+gem 'mislav-will_paginate', '~> 2.2'
+require 'will_paginate'
+
+gem 'acts_as_ferret'
+require 'acts_as_ferret'
+
+
 # In production mode, loads every view translation into memory once from the database
 # when the application starts, avoiding database calls from globalize.
 #Dispatcher.to_prepare :globalize_view_translations do

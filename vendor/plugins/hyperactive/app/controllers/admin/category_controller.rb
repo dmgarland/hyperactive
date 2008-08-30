@@ -13,10 +13,9 @@ class Admin::CategoryController < ApplicationController
   end
 
   def list
-    @categories = Category.find(
-      :all, 
+    @categories = Category.paginate(
       :order => 'updated_on ASC',
-      :page => {:size => objects_per_page, :current => page_param})
+      :page =>  page_param)
   end
 
   def show

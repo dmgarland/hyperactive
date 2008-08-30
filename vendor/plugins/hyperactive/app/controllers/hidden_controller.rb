@@ -11,11 +11,10 @@ class HiddenController < ApplicationController
   end
   
   def list
-    @content = Content.find(
-      :all, 
+    @content = Content.paginate(
       :conditions => ['moderation_status = ?', "published"], 
       :order => 'date ASC',
-      :page => {:size => 50, :current => page_param})
+      :page => page_param)
   end
   
   def event_group_hiding_controls

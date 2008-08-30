@@ -33,10 +33,9 @@ class Admin::PageController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @pages = Page.find(
-      :all, 
+    @pages = Page.paginate(
       :order => 'updated_on ASC',
-      :page => {:size => objects_per_page, :current => page_param})
+      :page => page_param)
   end
 
   def show

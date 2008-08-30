@@ -112,6 +112,10 @@ module HyperactiveMixins
           render(:partial => "shared/tag_list", :object=> @content.place_tag_list, :locals => {:tag_type => "place"})
         end
         
+        def page_links(list)
+          render(:partial => "shared/pagination", :object => list)
+        end
+        
         
         # Same as thumbnail for but in a somewhat larger size.  Note that videos only
         # have one thumbnail size, so this will return the same thing as thumbnail_for 

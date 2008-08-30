@@ -2,6 +2,20 @@
 <% if @search_terms.blank? %>
 	<%= "Please enter some search terms".t %>.
 <% else %>
-	<%= render(:partial => "shared/content/list_summary", :collection => @content) %>
-	<%= render(:partial => "shared/pagination", :object => @content) %>
+	<% unless @articles.nil? %>
+		<h2>Articles:</h2>
+		<%= render(:partial => "shared/content/list_summary", :collection => @articles) %>
+	<% end %>
+	<% unless @events.nil? %>
+		<h2>Events:</h2>
+		<%= render(:partial => "shared/content/list_summary", :collection => @events) %>
+	<% end %>
+	<% unless @videos.nil? %>
+		<h2>Videos:</h2>
+		<%= render(:partial => "shared/content/list_summary", :collection => @videos) %>
+	<% end %>
+	<% unless @collectives.nil? %>
+		<h2>Groups:</h2>
+		<%= render(:partial => "shared/collectives/collective_summary", :collection => @collectives) %>
+	<% end %>			
 <% end %>

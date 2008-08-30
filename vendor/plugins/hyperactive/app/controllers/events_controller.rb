@@ -2,19 +2,17 @@ class EventsController < ContentController
 
   def upcoming
     @cloud = Tag.cloud(:limit => 20)
-    @content = model_class.find(
-      :all,  
+    @content = model_class.paginate(
       :conditions => ['moderation_status != ? and date >=?', "hidden", Date.today.to_s], 
       :order => 'date ASC', 
-      :page => {:size => objects_per_page, :current => page_param})
+      :page => page_param)
   end
 
   def list_by_event_date
-    @content = Event.find(
-      :all, 
+    @content = Event.paginate(
       :conditions => ['moderation_status != ?', "hidden"],
       :order => 'date DESC',
-      :page => {:size => objects_per_page, :current => page_param})
+      :page => page_param)
   end
   
   def list_by_event_group
@@ -39,11 +37,10 @@ class EventsController < ContentController
     else
       datestring2 = (Date.new(@date.year+1, 1)).to_s
     end
-    @content = Event.find(
-      :all, 
+    @content = Event.paginate(
       :conditions => ['moderation_status != ? and date > ? and date < ?', "hidden", datestring, datestring2], 
       :order => 'date ASC',
-      :page => {:size => objects_per_page, :current => page_param})
+      :page => page_param)
   end
   
   def calendar_month
@@ -60,10 +57,9 @@ class EventsController < ContentController
     end  
     datestring = @date.to_s
     page = (params[:page] ||= 1).to_i
-    @content = Event.find(
-      :all, 
+    @content = Event.paginate(
       :conditions => ['moderation_status != ? and date = ?', "hidden", datestring], 
-      :page => {:size => objects_per_page, :current => page})  
+      :page => page)  
   end
   
   def list_by_week
@@ -95,11 +91,9 @@ class EventsController < ContentController
     @date = date
     datestring = @date.to_s
     datestring2 = (@date + 7).to_s
-    page = (params[:page] ||= 1).to_i
-    @content = Event.find(
-      :all, 
+    @content = Event.paginate(
       :conditions => ['moderation_status != ? and date > ? and date < ?', "hidden", datestring, datestring2], 
-      :page => {:size => objects_per_page, :current => page})   
+      :page => page_param)   
   end
   
   def ical_download

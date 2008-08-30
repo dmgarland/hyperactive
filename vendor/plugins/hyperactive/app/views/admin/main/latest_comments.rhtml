@@ -1,3 +1,3 @@
 <h1>Latest comments</h1>
 <%= render :partial => 'admin/main/comment_display', :collection => @comments %>
-<%= render(:partial => "shared/pagination", :object => @comments) %>
+<%= page_links(@comments) %>

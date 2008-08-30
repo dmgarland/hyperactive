@@ -1,6 +1,6 @@
 <h1><%= 'Upcoming events'.t %></h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
-<%= render(:partial => "shared/pagination", :object => @content) %>
+<%= page_links(@content) %>
 <% content_for :sidebar do %>
 	<%= render :partial => "events/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/sidebar/tag_cloud" %>	

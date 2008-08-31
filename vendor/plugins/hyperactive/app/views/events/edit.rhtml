@@ -5,6 +5,3 @@
   <p><%= submit_tag 'Save changes' %></p>
 <% end %>   
 <p><%= button_to 'Delete this event', event_path(@content), :method => :delete, :confirm => 'Are you sure?'.t %></p>
-
-<p><%= link_to 'Show', :action => 'show', :id => @content %> |
-<%= link_to 'Back', :action => 'index' %></p>

@@ -1,0 +1,9 @@
+<h1>Show <%= singular_name %></h1>
+<% for attribute in attributes -%>
+<p>
+<strong><%= attribute.column.human_name %>:</strong>
+<%%=h @<%= singular_name %>.<%= attribute.name %> %>
+</p>
+<% end -%>
+
+<p><%%= link_to 'Back to <%= plural_name %>', <%= plural_name %>_path %></p>

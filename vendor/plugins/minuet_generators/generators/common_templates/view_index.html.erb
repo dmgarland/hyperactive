@@ -1,0 +1,19 @@
+<h1>Listing <%= plural_name %></h1>
+
+<table>
+<tr>
+<% for attribute in attributes -%>
+<th><%= attribute.column.human_name %></th>
+<% end -%>
+<th>&nbsp;</th>
+</tr>
+
+<%% for <%= singular_name %> in @<%= plural_name %> %>
+<tr>
+<% for attribute in attributes -%>
+<td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
+<% end -%>
+<td><%%= link_to 'Show <%= singular_name %>', <%= singular_name %> %></td>
+</tr>
+<%% end %>
+</table>

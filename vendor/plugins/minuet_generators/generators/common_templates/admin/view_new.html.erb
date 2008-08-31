@@ -1,0 +1,14 @@
+<h2>New <%= singular_name %></h2>
+
+<%% form_for(@<%= singular_name %>, :url => admin_<%= plural_name %>_url) do |f| %>
+<%%= f.error_messages %>
+
+<%%= render :partial => 'form', :locals => {:f => f} %>
+<p>
+<%%= f.submit "Create <%= singular_name %>" %>
+</p>
+<%% end %>
+
+<p>
+<%%= link_to 'Back to <%= plural_name %>', admin_<%= plural_name %>_url %>
+</p>

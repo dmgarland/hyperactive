@@ -1,0 +1,16 @@
+<h2>Edit <%= singular_name %></h2>
+
+<%% form_for(@<%= singular_name %>, :url => admin_<%= singular_name %>_url(@<%= singular_name %>), :html => { :method => :put }) do |f| %>
+<%%= f.error_messages %>
+
+<%%= render :partial => 'form', :locals => {:f => f} %>
+  
+<p>
+<%%= f.submit "Update <%= singular_name %>" %>
+</p>
+<%% end %>
+
+<p>
+<%%= link_to 'Show <%= singular_name %>', admin_<%= singular_name %>_url(@<%= singular_name %>) %> |
+<%%= link_to 'Back to <%= plural_name %>', admin_<%= plural_name %>_url %>
+</p>

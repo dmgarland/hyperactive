@@ -1,0 +1,61 @@
+MinuetGenerators
+================
+
+These are a fairly simple set of generators which are designed to fulfill a few objectives:
+
+* make it easy to build an admin system which has CRUD actions in the "admin" namespace but 
+  only an index and show action in the normal namespace   
+* make it easy to generate blank engines
+* make it easy to generate an admin system inside the generated engines
+
+
+Admin System Example
+====================
+
+These generators work pretty much like the regular Rails generators.  To make a new admin scaffold
+for an Article resource, do this:
+
+<tt>script/generate admin_scaffold Article title:string body:text</tt>
+
+You should end up with index and show actions in the base namespace and a full admin system 
+in the *admin* namespace, along with a working set of tests, routing taken care of for you, etc.
+
+
+Engine Example
+==============
+
+<tt>script/generate engine Foo</tt>
+
+This will generate a skeleton for a new Engine plugin, including the app folder and most of the
+other stuff necessary to actually build a fresh engine. *Note*: the _engine_admin_scaffold_ generator
+uses the <strong># engine routes go here</strong> declaration in the new plugin's routes.rb file, 
+so don't get too tidy and erase that sucker if you want the convenience of automatic route mapping
+when you generate your engine scaffolds.
+
+
+Engine Admin System Example
+===========================
+
+Let's generate CRUD actions for an Article resource inside our Foo engine.
+
+<tt>script/generate engine_admin_scaffold foo Article title:string body:text</tt>
+
+This will generate the same stuff as the admin_scaffold generator above, except all the 
+code generation will happen inside the Foo engine.
+
+So, the basic pattern for this one is
+<tt>script/generate engine_admin_scaffold engine_name ResourceName field:string</tt>
+
+
+Installation
+============
+
+These generators are designed to work with Rails 2.1. You can get them here:
+
+<tt>script/plugin install svn://labs.headlondon.com/minuet/trunk/minuet/vendor/plugins/minuet_generators</tt>
+
+Keep in mind that you'll need to have the Rails 2.1 version of the Engines plugin installed
+if you want any of the Engines functionality to work.  
+
+
+Copyright (c) 2008 David Hrycyszyn, Stuart Chinery, released under the MIT license

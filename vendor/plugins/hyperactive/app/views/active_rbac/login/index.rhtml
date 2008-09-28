@@ -9,7 +9,7 @@ You are currently logged in as user <strong><%=h current_user.login %></strong>.
 <% if current_user.has_permission?("see_admin_nav") %>
 	<p>
 		You are an administrative user. From here you can 
-		<%= link_to "view the site admin pages", admin_main_url %>.	
+		<%= link_to "view the site admin pages", admin_main_path %>.	
 	</p>
 <% end %>
 
@@ -19,10 +19,10 @@ You are currently logged in as user <strong><%=h current_user.login %></strong>.
 	<% current_user.collectives.each do |c| %>
 		<li><%= render :partial => "shared/collectives/collective_link", :object => c %> 
 		| <%= link_to 'Edit info', edit_collective_path(c) %>
-		| <%= link_to 'Edit membership', edit_collective_memberships_url(c) %>
+		| <%= link_to 'Edit membership', edit_collective_memberships_path(c) %>
 </li>
 	<% end %>
 	</ul>
 <% end %>
 
-<p>You may log out at the <%= link_to "logout", logout_url %> page.</p>
+<p>You may log out at the <%= link_to "logout", logout_path %> page.</p>

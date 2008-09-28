@@ -138,7 +138,7 @@ ActionController::Routing::Routes.draw do |map|
                 :action => 'upcoming_events_by_place' 
   
   # base url of application
-  map.base '/', :controller => 'home'
+  map.home '/', :controller => 'home'
                 
 
   # ActiveRbac's RegistrationController confirmation action needs a special route

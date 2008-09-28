@@ -1,6 +1,6 @@
 <% if current_user.is_anonymous? %>
 	<h1>Please create an account</h1>
-	<p>You need to <%= link_to "create an account", register_url %> before you can create a group.</p>
+	<p>You need to <%= link_to "create an account", register_path %> before you can create a group.</p>
 <% else %>
 
 	<h1>New group</h1>

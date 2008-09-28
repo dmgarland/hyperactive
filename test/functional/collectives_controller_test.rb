@@ -64,7 +64,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   
   def test_should_update_collective
     put :update, {:id => 1, :collective => { }}, as_user(:registered_user)
-    assert_redirected_to account_url
+    assert_redirected_to account_path
   end
   
   def test_update_security

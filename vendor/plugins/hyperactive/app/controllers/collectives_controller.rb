@@ -66,8 +66,8 @@ class CollectivesController < ApplicationController
         if @collective.save
           @collective.users << current_user
           flash[:notice] = 'Group was successfully created.'
-          format.html { redirect_to collective_url(@collective) }
-          format.xml  { head :created, :location => collective_url(@collective) }
+          format.html { redirect_to collective_path(@collective) }
+          format.xml  { head :created, :location => collective_path(@collective) }
         else
           format.html { render :action => "new" }
           format.xml  { render :xml => @collective.errors.to_xml }
@@ -86,7 +86,7 @@ class CollectivesController < ApplicationController
     respond_to do |format|
       if @collective.update_attributes(params[:collective])
         flash[:notice] = 'Group was successfully updated.'
-        format.html { redirect_to account_url }
+        format.html { redirect_to account_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -102,7 +102,7 @@ class CollectivesController < ApplicationController
     @collective.destroy
 
     respond_to do |format|
-      format.html { redirect_to collectives_url }
+      format.html { redirect_to collectives_path }
       format.xml  { head :ok }
     end
   end
@@ -121,7 +121,7 @@ class CollectivesController < ApplicationController
     @collective = @collective_membership.collective
     @collective_membership.destroy
      respond_to do |format|
-      format.html { redirect_to edit_collective_memberships_url(@collective) }
+      format.html { redirect_to edit_collective_memberships_path(@collective) }
       format.xml  { head :ok }
     end
   end
@@ -133,13 +133,13 @@ class CollectivesController < ApplicationController
       @collective.users << @user 
       respond_to do |format|
         flash[:notice] = "User '#{@user.login}' was added to '#{@collective.name}'"
-        format.html { redirect_to edit_collective_memberships_url }
+        format.html { redirect_to edit_collective_memberships_path }
         format.xml  { head :ok }
       end
     else
       respond_to do |format|
         flash[:notice] = "User '#{params[:login]}' not found."
-        format.html { redirect_to edit_collective_memberships_url }
+        format.html { redirect_to edit_collective_memberships_path }
         format.xml  { head :ok }
       end
     end

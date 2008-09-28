@@ -104,7 +104,7 @@ module HyperactiveMixins
         
         # What do we do if someone tries to access something they're not supposed to see?
         def security_error
-          redirect_to base_url
+          redirect_to home_path
           flash[:notice] = "You are not allowed to access this page."
         end
         

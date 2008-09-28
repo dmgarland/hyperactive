@@ -1,10 +1,10 @@
 <h1>Available Feeds</h1>
 
-<div id="feed"><span class="icon"><%= link_to 'Action alerts', action_alert_feed_url %> - a list of very short, infrequent updates of important happenings in the city.</span></div>
+<div id="feed"><span class="icon"><%= link_to 'Action alerts', action_alert_feed_path %> - a list of very short, infrequent updates of important happenings in the city.</span></div>
 
-<div id="feed"><span class="icon"><%= link_to 'Latest articles', latest_articles_feed_url %> - lists latest articles which have been published on the site.</span></div>
+<div id="feed"><span class="icon"><%= link_to 'Latest articles', latest_articles_feed_path %> - lists latest articles which have been published on the site.</span></div>
 
-<div id="feed"><span class="icon"><%= link_to 'Upcoming events', upcoming_events_feed_url %> - lists the next events upcoming from the calendar.</span></div>
+<div id="feed"><span class="icon"><%= link_to 'Upcoming events', upcoming_events_feed_path %> - lists the next events upcoming from the calendar.</span></div>
 
 <div id="feed"><span class="icon">Upcoming events by tag</span>
 Allows you to get a feed of events for a specific tag, listed by when they were published.
@@ -29,11 +29,11 @@ you'd type 'Brixton' into this search box and subscribe to the resulting feed:
 </div>
 
 <div id="feed"><span class="icon">Latest videos</span>
-	<a href="http://subscribe.getMiro.com/?url1=<%= url_for(video_feed_url) %>" title="Miro: Internet TV"><img src="http://subscribe.getmiro.com/img/buttons/wes1.png" alt="Miro Video Player" border="0" /></a>
+	<a href="http://subscribe.getMiro.com/?url1=<%= url_for(video_feed_path) %>" title="Miro: Internet TV"><img src="http://subscribe.getmiro.com/img/buttons/wes1.png" alt="Miro Video Player" border="0" /></a>
 	<p>
 	<%= "This will allow you to download Miro, which takes care of
 	feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features".t %> 
 	<%= link_to "at the Miro site".t, "http://www.getmiro.com/features/" %>. <%= "Once you've installed Miro, you can subscribe 
-	to our".t %> <%= link_to "video feed".t, video_feed_url %><%= " to automatically receive all of our latest videos, or click the 'download torrent'
+	to our".t %> <%= link_to "video feed".t, video_feed_path %><%= " to automatically receive all of our latest videos, or click the 'download torrent'
 	link underneath the video above to download only the video file you want.".t %></p>
 </div>

@@ -30,11 +30,11 @@ module HyperactiveMixins
         end  
         
         # Create a link to a tag's view page.
-        def tag_item_url
+        def tag_item_path
           "/search/by_tag/"
         end
         
-        def place_tag_item_url
+        def place_tag_item_path
           "/search/by_place_tag/"
         end
         
@@ -64,13 +64,13 @@ module HyperactiveMixins
           content_tag :li, link_to(text, link), :class => ("current_page_item" if on), :id => "#{text.downcase.gsub(/ /, "")}-tab"
         end    
       
-        def content_url_for(entity)
+        def content_path_for(entity)
           if entity.class == Article
-            article_url(entity)
+            article_path(entity)
           elsif entity.class == Event
-            event_url(entity)
+            event_path(entity)
           elsif entity.class == Video
-            video_url(entity)
+            video_path(entity)
           end
         end
         

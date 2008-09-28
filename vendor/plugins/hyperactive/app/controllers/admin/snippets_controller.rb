@@ -66,8 +66,8 @@ class Admin::SnippetsController < ApplicationController
     respond_to do |format|
       if @snippet.save
         flash[:notice] = 'Snippet was successfully created.'
-        format.html { redirect_to admin_snippet_url(@snippet) }
-        format.xml  { head :created, :location => admin_snippet_url(@snippet) }
+        format.html { redirect_to admin_snippet_path(@snippet) }
+        format.xml  { head :created, :location => admin_snippet_path(@snippet) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @snippet.errors.to_xml }
@@ -83,7 +83,7 @@ class Admin::SnippetsController < ApplicationController
     respond_to do |format|
       if @snippet.update_attributes(params[:snippet])
         flash[:notice] = 'Snippet was successfully updated.'
-        format.html { redirect_to admin_snippet_url(@snippet) }
+        format.html { redirect_to admin_snippet_path(@snippet) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -99,7 +99,7 @@ class Admin::SnippetsController < ApplicationController
     @snippet.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_snippets_url }
+      format.html { redirect_to admin_snippets_path }
       format.xml  { head :ok }
     end
   end

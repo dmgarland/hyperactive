@@ -52,7 +52,7 @@ Released   : 20071004
 <% end %>
 <!-- start header -->
 <div id="logo">
-	<p><%= link_to image_tag(Hyperactive.banner_image, :plugin => 'hyperactive'), base_url %></p>
+	<p><%= link_to image_tag(Hyperactive.banner_image, :plugin => 'hyperactive'), base_path %></p>
 	<% if Hyperactive.show_site_name_in_banner %>
 		<h1><%= link_to "#{Hyperactive.site_name}", {:controller => '/home', :action => 'index' } %></h1>
 	<% end %>
@@ -60,12 +60,12 @@ Released   : 20071004
 </div>
 <div id="menu">
 	<ul id="main">
-		<%= tab_for("Home".t, base_url, :controller_name => "home") %>
-		<%= tab_for("Publish".t, publish_url, :controller_name => "publish") %>
-		<%= tab_for("Newswire".t, articles_url, :controller_name => "articles") %>
-		<%= tab_for("Events".t, upcoming_events_url, :controller_name => "events") %>
-		<%= tab_for("Videos".t, videos_url, :controller_name => "videos") %>
-		<%= tab_for("Groups".t, collectives_url, :controller_name => "collectives") %>
+		<%= tab_for("Home".t, home_path, :controller_name => "home") %>
+		<%= tab_for("Publish".t, publish_path, :controller_name => "publish") %>
+		<%= tab_for("Newswire".t, articles_path, :controller_name => "articles") %>
+		<%= tab_for("Events".t, upcoming_events_path, :controller_name => "events") %>
+		<%= tab_for("Videos".t, videos_path, :controller_name => "videos") %>
+		<%= tab_for("Groups".t, collectives_path, :controller_name => "collectives") %>
 	</ul>
 </div>
 <!-- end header -->

@@ -1,5 +1,5 @@
 <div class="post">
-	<h1 class="title"><%= link_to h(list_summary.title), content_url_for(list_summary) %></h1>
+	<h1 class="title"><%= link_to h(list_summary.title), content_path_for(list_summary) %></h1>
 	<p class="byline"><small><%= icon_image_for(list_summary) %> 
 	<% if list_summary.class == Event %>	
 		Event date: <%=h long_date(list_summary.date) %>

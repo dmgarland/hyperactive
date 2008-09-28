@@ -135,7 +135,7 @@ class HiddenController < ApplicationController
     ContentHideMailer.deliver_unhide_comment(comment, params[:unhide_reason], current_user)
     flash[:notice] = "The comment has been unhidden."
     render :update do |page|
-      page.redirect_to latest_comments_url
+      page.redirect_to latest_comments_path
     end
   end
   
@@ -150,7 +150,7 @@ class HiddenController < ApplicationController
     ContentHideMailer.deliver_hide(event, params[:hide_reason], current_user)
     flash[:notice] = "The events have been hidden and an email sent."
     render :update do |page|
-      page.redirect_to event_url(event)
+      page.redirect_to event_path(event)
     end  
   end  
   

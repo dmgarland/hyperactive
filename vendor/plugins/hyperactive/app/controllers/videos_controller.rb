@@ -27,8 +27,8 @@ class VideosController < ContentController
         @content.place_tag_with params[:place_tags]
         do_video_conversion 
         flash[:notice] = "Video was successfully created."
-        format.html { redirect_to video_url(@content) }
-        format.xml  { head :created, :location => video_url(@content) }
+        format.html { redirect_to video_path(@content) }
+        format.xml  { head :created, :location => video_path(@content) }
       else
         format.html { 
           @content.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
@@ -55,8 +55,8 @@ class VideosController < ContentController
         @content.place_tag_with params[:place_tags]
         do_video_conversion
         flash[:notice] = "Video was successfully updated."
-        format.html { redirect_to video_url(@content) }
-        format.xml  { head :created, :location => video_url(@content) }
+        format.html { redirect_to video_path(@content) }
+        format.xml  { head :created, :location => video_path(@content) }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @content.errors.to_xml }

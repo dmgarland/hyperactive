@@ -1,5 +1,5 @@
 <li class="<%= list_title.class.to_s.downcase %>-list">
-	<%= link_to h(list_title.title), content_url_for(list_title) %>
+	<%= link_to h(list_title.title), content_path_for(list_title) %>
 	<% if list_title.is_a?(Event) %>
 		<br/><%= long_date(list_title.date) %>
 	<% end %>

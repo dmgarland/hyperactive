@@ -66,6 +66,7 @@ Rails::Initializer.run do |config|
   #config.reload_plugins = true
 
   config.gem 'mislav-will_paginate', :version => '2.3.4', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  config.gem 'acts_as_ferret'
 
 end
 
@@ -115,7 +116,6 @@ end
 # Most of the stuff below this point shouldn't need to be edited by
 # most sites.
 #
-require 'acts_as_ferret'
 require 'tag_extensions'
 require 'ruby-debug'
 require 'vpim/icalendar'
@@ -138,12 +138,6 @@ Locale.set('en-GB')
 WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strike)
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
-
-#gem 'mislav-will_paginate'#, '~> 2.3.4'
-#require 'will_paginate'
-
-gem 'acts_as_ferret'
-require 'acts_as_ferret'
 
 # There's a weird "not working the first time" class loading bug I'm getting with 
 # has_many_polymorphs.  Requiring the parent model explicitly here fixes it.

@@ -7,7 +7,7 @@ class VideosController < ContentController
   require_dependency 'content'    
   require_dependency 'media'
   
-  caches_page :featured_in_player
+  caches_page :featured_in_player, :only_path => true
   cache_sweeper :videos_sweeper, :only => [:create, :update, :destroy]  
   
   def show

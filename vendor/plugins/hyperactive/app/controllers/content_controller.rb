@@ -29,7 +29,7 @@ class ContentController < ApplicationController
   require 'calendar_dates/month_display.rb'
   require 'calendar_dates/week.rb'
   
-  caches_page :show
+  caches_page :show, :only_path => true
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
   cache_sweeper :comment_sweeper, :only => [:create_comment]
   

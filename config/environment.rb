@@ -64,12 +64,6 @@ Rails::Initializer.run do |config|
   # Reload plugin code between requests so that we don't go insane when working on the
   # Hyperactive plugin.
   #config.reload_plugins = true
-  
-  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '2.3.4'
-  #require 'will_paginate'
-  
-  config.gem 'acts_as_ferret'
-  #require 'acts_as_ferret'  
 
 end
 
@@ -148,7 +142,7 @@ WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strik
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 
-gem 'mislav-will_paginate', '~> 2.2'
+gem 'mislav-will_paginate', '~> 2.3.4'
 require 'will_paginate'
 
 gem 'acts_as_ferret'

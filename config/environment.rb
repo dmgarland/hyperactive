@@ -65,11 +65,11 @@ Rails::Initializer.run do |config|
   # Hyperactive plugin.
   #config.reload_plugins = true
   
-  config.gem 'mislav-will_paginate', '~> 2.3.4'
-  require 'will_paginate'
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '2.3.4'
+  #require 'will_paginate'
   
   config.gem 'acts_as_ferret'
-  require 'acts_as_ferret'  
+  #require 'acts_as_ferret'  
 
 end
 

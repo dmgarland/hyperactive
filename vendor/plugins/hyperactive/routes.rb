@@ -1,7 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  
-  ROUTES_PROTOCOL = "http://"#(ENV["RAILS_ENV"] =~ /development/ ? "http://" : "https://")
-  
+    
   # Add your own custom routes here.
   # The priority is based upon order of creation: first created -> highest priority.
   
@@ -103,8 +101,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.search '/search/find_content/',
                 :controller => 'search',
-                :action => 'find_content',
-                :protocol => ROUTES_PROTOCOL
+                :action => 'find_content'
   
   map.featured_in_player '/featured_videos_json',
                 :controller => 'videos',

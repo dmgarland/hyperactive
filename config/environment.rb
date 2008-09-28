@@ -118,11 +118,6 @@ require 'tag_extensions'
 require 'ruby-debug'
 require 'vpim/icalendar'
 
-# There's a weird "not working the first time" class loading bug I'm getting with 
-# has_many_polymorphs.  Requiring the parent model explicitly here fixes it.
-require 'collective'
-require 'collective_association'
-
 Debugger.start
 
 ActiveRbac.controller_layout = "admin" 
@@ -148,6 +143,10 @@ require 'will_paginate'
 gem 'acts_as_ferret'
 require 'acts_as_ferret'
 
+# There's a weird "not working the first time" class loading bug I'm getting with 
+# has_many_polymorphs.  Requiring the parent model explicitly here fixes it.
+require 'collective'
+require 'collective_association'
 
 # In production mode, loads every view translation into memory once from the database
 # when the application starts, avoiding database calls from globalize.

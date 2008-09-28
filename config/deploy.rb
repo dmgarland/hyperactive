@@ -137,12 +137,13 @@ namespace :deploy do
     
     desc "Start the ferret drb server for search indexing"
     task :start do
-      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=#{stage} start"
+      run "cd #{deploy_to}current; sudo /etc/init.d/ferret_indy_london_production_ctl start
+"
     end
     
     desc "Stop the ferret drb server for search indexing"
     task :stop do
-      run "cd #{deploy_to}current; sudo -u www-data script/ferret_server --root=#{deploy_to}current --environment=#{stage} stop"
+      run "cd #{deploy_to}current; sudo  /etc/init.d/ferret_indy_london_production_ctl stop"
     end
     
     desc "Restart the ferret drb server for search indexing"

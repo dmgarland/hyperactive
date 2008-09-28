@@ -2,6 +2,7 @@
 <h1><%=h video.title.titleize %></h1>
 <p class="byline"><%= image_tag "icon_video.gif", :plugin => "hyperactive" %> </image_tag><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small></p>
 <p><%= 'posted by'.t %> <strong><%=h @content.published_by.titleize %></strong></p>
+<%= render :partial => 'shared/content/groups_display' %>
 <% if video.processing_status == 2 %>
     <div id="videoplayer<%= video.id %>">
         <p><%= "This item requires Macromedia Flash Player 7.".t %></p>

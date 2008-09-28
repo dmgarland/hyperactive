@@ -9,10 +9,7 @@
     </div>
     <p>
         <%= render :partial => 'shared/content/hiding_controls' %>
-    </p>
-	
-<%= render :partial => 'shared/content/groups_display' %>
-	
+    </p>	
 
 <% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
     <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>

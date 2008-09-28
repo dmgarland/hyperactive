@@ -18,7 +18,7 @@ config.action_controller.perform_caching             = true
 # config.action_mailer.raise_delivery_errors = false
 # config.action_mailer.delivery_method = :sendmail
 
-config.plugins = ["white_list", "sanitize_params", "engines", "*"]
+#config.plugins = ["white_list", "sanitize_params", "engines", "*"]
 
 config.action_mailer.raise_delivery_errors = true
 

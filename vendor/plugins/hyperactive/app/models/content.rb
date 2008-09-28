@@ -8,8 +8,10 @@ class Content < ActiveRecord::Base
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"
   validates_length_of :title, :maximum => 50
   validates_presence_of :title, :summary, :published_by
-  
+    
   after_save :save_assigned_collectives
+  attr_writer :update_collectives_now
+  
   
   # A convenience method to tell us whether this content is attached to 
   # an article or event.  Currently this should only ever return true for
@@ -56,21 +58,25 @@ class Content < ActiveRecord::Base
   end
 
   # Sets up an instance variable so we can save the association in an after_save filter.
-  #
-  def collective_ids=(ids)
-    @new_collective_ids = ids
+  #  
+  def new_collective_ids=(ids)
+    @new_collective_ids = ids if ids.is_a?(Array)
   end
   
   # Creates or destroys the associations between this content and whatever collectives it's 
-  # grouped within.  Called from an after_save filter.
+  # grouped within.  Called from an after_save filter. The instance variable @update_collectives_now
+  # must be set to true for this to work - this is so that we don't accidentally wipe out the 
+  # collective associations for a piece of content by saving it when there's no @new_collectives_ids.
   # 
   def save_assigned_collectives
-    collective_associations.each do |collective_association|
-      collective_association.destroy unless @new_collective_ids.to_a.include? collective_association.collective_id
-    end
-   
-    @new_collective_ids.to_a.each do |id|
-      self.collective_associations.create(:collective_id => id) unless collective_associations.any? { |d| d.collective_id == id }
+    if @update_collectives_now
+      collective_associations.each do |collective_association|
+        collective_association.destroy unless @new_collective_ids.to_a.include? collective_association.collective_id
+      end
+     
+      @new_collective_ids.to_a.each do |id|
+        self.collective_associations.create(:collective_id => id) unless collective_associations.any? { |d| d.collective_id == id }
+      end
     end
   end
 

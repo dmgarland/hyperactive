@@ -39,17 +39,21 @@ class VideosController < ContentController
     end    
   end
   
+  # Updates the content.  Note that we set the collective ids to an empty array, if the form sent
+  # any collective ids then they'll be updated in the update_attributes line;  if not, we assume that
+  # the user wants the content in no collectives.  This is a somewhat dangerous action and shouldn't
+  # be called from anywhere that doesn't have the grouping controls enabled - it'll reset the 
+  # collectives that the content is in unless it gets params[:content][:collective_ids]
+  #
   def update
     @content = model_class.find(params[:id])
+    @content.collective_ids = [] 
     @content.update_attributes(params[:content])
     respond_to do |format|
       if @content.save
-        puts "saved"
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
-        puts "tags"
         do_video_conversion
-        puts "videos converted"
         flash[:notice] = "Video was successfully updated."
         format.html { redirect_to video_url(@content) }
         format.xml  { head :created, :location => video_url(@content) }

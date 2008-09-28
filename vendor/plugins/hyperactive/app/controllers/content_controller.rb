@@ -129,8 +129,15 @@ class ContentController < ApplicationController
     @content = model_class.find(params[:id])
   end
 
+  # Updates the content.  Note that we set the collective ids to an empty array, if the form sent
+  # any collective ids then they'll be updated in the update_attributes line;  if not, we assume that
+  # the user wants the content in no collectives.  This is a somewhat dangerous action and shouldn't
+  # be called from anywhere that doesn't have the grouping controls enabled - it'll reset the 
+  # collectives that the content is in unless it gets params[:content][:collective_ids]
+  #
   def update
     @content = model_class.find(params[:id])
+    @content.collective_ids = [] 
     @content.update_attributes(params[:content])
     if(model_class == Event)
       check_end_date

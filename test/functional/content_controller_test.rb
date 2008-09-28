@@ -62,7 +62,8 @@ module ContentControllerTest
                               :body => "This is a test",
                               :summary => "A summary",
                               :published_by => "Yoss", 
-                              :place => "London" 
+                              :place => "London", 
+                              :collective_ids => [collectives(:indy_london).id]
                             }, 
                   #:photo => {:foo_photo => {:title => "test", :file => upload("test/fixtures/fight_test.wmv.jpg")}},         
                   #:video => {:foo_video => {:title => "test", :file => upload("test/fixtures/fight_test.wmv")}},                                   
@@ -84,6 +85,7 @@ module ContentControllerTest
     assert_redirected_to :action => 'show'
     assert_equal num_content + 1, model_class.count
     assert_equal "published", content.moderation_status
+    assert assigns(:content).collectives.include?(collectives(:indy_london))
   end  
   
   def test_moderation_status_retained_when_specifically_set_at_creation
@@ -163,6 +165,18 @@ module ContentControllerTest
     post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:marcos)
     assert_redirected_to :action => "show"      
   end  
+  
+  def test_update_associates_content_with_collective
+    post :update, {:id => @first_id, :content => {:title => "Updated title", :collective_ids=>[collectives(:indy_london).id]}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    assert_redirected_to :action => "show"   
+    assert assigns(:content).title = "Updated title"
+    assert assigns(:content).collectives.include?(collectives(:indy_london)), "This content should be associated with the Indy London collective."
+    
+    post :update, {:id => @first_id, :content => {:title => "Updated title2", :collective_ids=>[]}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    assert_redirected_to :action => "show"   
+    assert assigns(:content).title = "Updated title2"
+    assert !assigns(:content).collectives.include?(collectives(:indy_london)), "This content shouldn't be in any collective."    
+  end
   
   
   private

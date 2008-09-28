@@ -65,6 +65,8 @@ Rails::Initializer.run do |config|
   # Hyperactive plugin.
   #config.reload_plugins = true
 
+  config.gem 'mislav-will_paginate', :version => '~> 2.3.4', :lib => 'will_paginate', :source => 'http://gems.github.com'
+
 end
 
 # Add new inflection rules using the following format 
@@ -137,8 +139,8 @@ WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strik
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 
-gem 'mislav-will_paginate'#, '~> 2.3.4'
-require 'will_paginate'
+#gem 'mislav-will_paginate'#, '~> 2.3.4'
+#require 'will_paginate'
 
 gem 'acts_as_ferret'
 require 'acts_as_ferret'

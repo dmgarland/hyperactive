@@ -2,13 +2,13 @@
 
 <div>
 	<p><%= 'Some text explaining when to publish an article can go here.'.t %></p>
-	<p><%= link_to "Publish an article".t, new_article_path %></p>
+	<p><%= link_to "Publish an article".t, new_article_url(:protocol => ROUTES_PROTOCOL) %></p>
 </div>
 <div>
 	<p><%= 'Some text explaining when to publish a video can go here.'.t %></p>	
-	<p><%= link_to "Publish a video", new_video_path %></p>
+	<p><%= link_to "Publish a video", new_video_url(:protocol => ROUTES_PROTOCOL) %></p>
 </div>
 <div>
 	<p><%= 'Some text explaining when to publish an event can go here.'.t %></p>	
-	<p><%= link_to "Publish an event", new_event_path %></p>
+	<p><%= link_to "Publish an event", new_event_url(:protocol => ROUTES_PROTOCOL) %></p>
 </div>

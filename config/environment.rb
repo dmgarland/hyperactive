@@ -144,6 +144,8 @@ WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 require 'collective'
 require 'collective_association'
 
+ROUTES_PROTOCOL = "http://"#(ENV["RAILS_ENV"] =~ /development/ ? "http://" : "https://")
+
 # In production mode, loads every view translation into memory once from the database
 # when the application starts, avoiding database calls from globalize.
 #Dispatcher.to_prepare :globalize_view_translations do

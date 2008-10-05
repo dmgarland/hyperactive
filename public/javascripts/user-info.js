@@ -15,5 +15,5 @@ UserInfo.writeDataTo = function(name, element) {
     content = UserInfo.data;
   }
   if(content)
-    element.innerHTML = "<img src='/plugin_assets/hyperactive/images/user_green.png' />You are currently logged in as: <strong>" + unescape(content) + "</strong>. You can <a href='/account'>view your account page</a> or <a href='/logout'>log out</a>.";
+    element.innerHTML = "<img src='/images/user_green.png' />You are currently logged in as: <strong>" + unescape(content) + "</strong>. You can <a href='/account'>view your account page</a> or <a href='/logout'>log out</a>.";
 };

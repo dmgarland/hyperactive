@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 25) do
+ActiveRecord::Schema.define(:version => 20080929235653) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -261,8 +261,9 @@ ActiveRecord::Schema.define(:version => 25) do
   add_index "roles_users", ["role_id"], :name => "role_id"
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id"
+    t.string   "session_id", :null => false
     t.text     "data"
+    t.datetime "created_at"
     t.datetime "updated_at"
   end
 

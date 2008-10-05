@@ -36,7 +36,7 @@ class ActiveRbac::RegistrationController < ActiveRbac::ComponentController
       @user.roles << Role.find_by_title('Registered')
       
       if simple_captcha_valid?  && @user.save then
-        render 'active_rbac/registration/confirm_success'
+        render :template => 'active_rbac/registration/confirm_success'
         return
       else
         @user.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)

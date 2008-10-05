@@ -52,7 +52,7 @@ Released   : 20071004
 <% end %>
 <!-- start header -->
 <div id="logo">
-	<p><%= link_to image_tag(Hyperactive.banner_image, :plugin => 'hyperactive'), base_path %></p>
+	<p><%= link_to image_tag(Hyperactive.banner_image, :plugin => 'hyperactive'), home_path %></p>
 	<% if Hyperactive.show_site_name_in_banner %>
 		<h1><%= link_to "#{Hyperactive.site_name}", {:controller => '/home', :action => 'index' } %></h1>
 	<% end %>

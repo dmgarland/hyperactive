@@ -1,0 +1,23 @@
+<h2>Login</h2>
+
+<% form_for :user, :url => { :action => :login } do |form| %>    
+	<p>
+		<label for="login_login">Username</label><br />
+		<%= text_field_tag :login, params[:login], :size => 30 %>
+	</p>
+    
+	<p>
+		<label for="login_password">Password</label><br />
+		<%= password_field_tag :password, params[:password], :size => 30 %>
+	</p>
+   
+	<p><%= submit_tag 'Log In' %></p>
+<% end %>
+
+<% if @errors and not @errors.empty? %>
+<div class="errors">
+  <% for error in @errors %>
+  <p><%=h error %></p>
+  <% end %>
+</div>
+<% end %>

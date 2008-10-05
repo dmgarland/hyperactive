@@ -1,0 +1,10 @@
+<h2>Logout</h2>
+
+<p>Do you really want to log out?</p>
+
+<% form_for :user, :url => { :action => :logout } do |form| %>
+  <p>
+  	<%= submit_tag 'Yes', :name => 'yes' %>
+  	<%= submit_tag 'No', :name => 'no' %>
+  </p>
+<% end %>

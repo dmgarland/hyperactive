@@ -1,0 +1,46 @@
+<h2>Manage users</h2>
+
+<table class="grid">
+<thead>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>State</th>
+    <th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+<% for user in @users %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= link_to user.login, {:action => 'show', :id => user }, :title => 'Show user' %></td>
+    <td><%= case user.state
+            when 1 then 'unconfirmed'
+            when 2 then 'confirmed'
+            when 3 then 'locked'
+            when 4 then 'deleted'
+            end
+            %></td>
+    <td class="show">
+      <%= link_to 'Show', { :action => 'show', :id => user }, :title => 'Show user' %>
+	</td>
+    <td class="edit">
+      <%= link_to 'Edit', { :action => 'update', :id => user }, :title => 'Edit user' %>
+	</td>
+	<td class="delete">
+      <%= link_to 'Delete', { :action => 'delete', :id => user}, :title => 'Delete user' %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<p><%= render(:partial => '/active_rbac/shared/pagination', :locals => { :pages => @users }) %></p>
+
+
+<p>
+<%= link_to 'New user', :action => 'create' %>
+</p>
+

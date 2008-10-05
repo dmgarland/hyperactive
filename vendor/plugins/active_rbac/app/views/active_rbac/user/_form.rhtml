@@ -1,0 +1,44 @@
+<%= error_messages_for 'user' %>
+
+<!--[form:user]-->
+  <p>
+  	<label for="user_login">Login</label><br />
+  	<%= text_field 'user', 'login'  %>
+  </p>
+
+  <p>
+  	<label for="user_email">Email</label><br />
+  	<%= text_field 'user', 'email'  %>
+  </p>
+
+  <%= render(:partial => 'password') %>
+
+  <p>
+  	<label for="user_password_hash_type">Password hash type</label><br />
+  	<%= select 'user', 'password_hash_type', User.password_hash_types %>
+  </p>
+
+  <p>
+  	<label for="user_state">State</label><br />
+  	<%= select 'user', 'state', User.states.reject { |key, value| !@user.state_transition_allowed?(@user.state, value) } %>
+  </p>
+
+  <p><label>Roles</label><br />
+    <%= node_tree(Role.find(:all)) do |role|
+          result = "<input id=\"user_roles_#{role.id}\" type=\"checkbox\" name=\"user[roles][]\" value=\"#{role.id}\" checked=\"checked\" /> " if @user.roles.include? role
+          result = "<input id=\"user_roles_#{role.id}\" type=\"checkbox\" name=\"user[roles][]\" value=\"#{role.id}\" /> " unless @user.roles.include? role
+          result += "<label for=\"user_roles_#{role.id}\">#{role.title}</label> "
+          result
+        end %>
+  </p>
+
+  <p><label>Groups</label><br />
+  
+    <%= node_tree(Group.find(:all)) do |group|
+          result = "<input id=\"user_groups_#{group.id}\" type=\"checkbox\" name=\"user[groups][]\" value=\"#{group.id}\" checked=\"checked\" /> " if @user.groups.include? group
+          result = "<input id=\"user_groups_#{group.id}\" type=\"checkbox\" name=\"user[groups][]\" value=\"#{group.id}\" /> " unless @user.groups.include? group
+          result += "<label for=\"user_groups_#{group.id}\">#{group.title}</label> "
+          result
+        end %>
+  </p>
+<!--[eoform:user]-->

@@ -1,0 +1,33 @@
+<h2>Manage roles</h2>
+
+<table class="grid">
+<thead>
+  <tr>
+    <th>Title</th>
+    <th>Users/Total Users</th>
+    <th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+<% for role in @roles %>
+  <tr>
+    <td><%= link_to(role.title, { :action => 'show', :id => role }) %></td>
+    <td><%=h role.users.length.to_s + "/" + role.all_users.length.to_s %></td>
+    <td class="show">
+      <%= link_to 'Show', { :action => 'show', :id => role }, :title => 'Show role' %>
+	</td>
+    <td class="edit">
+      <%= link_to 'Edit', { :action => 'update', :id => role }, :title => 'Edit role' %>
+	</td>
+	<td class="delete">
+      <%= link_to 'Delete', { :action => 'delete', :id => role}, :title => 'Delete role' %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<p>
+<%= link_to 'New role', :action => 'create' %>
+</p>

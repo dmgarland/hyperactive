@@ -1,0 +1,71 @@
+= ActiveRBAC for Rails 2.1
+
+This plugin should server as a drop-in upgrade for earlier ActiveRbac versions. It offers a 
+full role-based access control system for Rails apps, including a registration system and an
+admin system for taking care of users, roles, and permissions.
+
+
+== Installation
+
+Installing ActiveRbac is pretty simple, although a few things have changed since earlier versions.  First, because pagination and acts_as_tree were stripped out of the core installation of Rails 2, you'll need to install those as extras before you can get ActiveRbac to work. You'll also need to have the engines plugin installed for it to work. The following installation procedure should work when run from a console:
+
+* Install will_paginate: http://github.com/mislav/will_paginate/wikis/installation, either as a plugin or as a gem.
+*  script/plugin install acts_as_tree
+* You'll need to have the Engines plugin installed from: http://rails-engines.org 
+   script/plugin install git://github.com/lazyatom/engines.git
+* Your config/environment.rb file will have a couple of lines that say
+
+   # Bootstrap the Rails environment, frameworks, and default configuration: 
+   require File.join(File.dirname(__FILE__), 'boot')</tt>  
+  
+  Add the following code so that you get the Engines functionality when your application starts: 
+
+   # Bootstrap the Rails environment, frameworks, and default configuration
+   require File.join(File.dirname(__FILE__), 'boot')
+   require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
+  
+*  script/plugin install svn://collaboration.headlondon.com/active_rbac/trunk/active_rbac
+ 
+==A Little History
+
+ActiveRbac was originally written by Manuel Holtgrewe for Rails 1.x  It was ported to run as a
+Rails 1.2 engine, however I can't remember the name of the person who did this.  This port to a 
+Rails 2.1 engine was done by David Hrycyszyn and Stuart Chinery in September 2008.  
+
+There is also a somewhat newer version of ActiveRbac (0.5-pre), also written by Manuel Holtgrewe,
+which is incompatible with this engine.  We are not too sure of the differences between this version
+and the 0.5-pre, just mentioning it in case people are finding documentation for ActiveRbac out on 
+the web and getting confused by the different versions available.  For the version of the plugin that
+you're looking at here, the included RDoc in doc/active_rbac is the proper reference source 
+(and it's really very well done, again by Manuel Holtgrewe).  So, basically, we didn't do too much, 
+just fixed up the tests to run under Rails 2.1.
+
+==Usage
+
+=== Routes
+
+Once the plugin is installed, the various controllers become available at routes like:
+
+* http://localhost:3000/active_rbac/login
+* http://localhost:3000/active_rbac/user/list
+
+Note that we haven't updated the routes to be RESTful routes, mostly because we think that most 
+people who use it will want a drop-in replacement for earlier versions.
+
+If you want to pretty up your routes a bit, you put this in your routes.rb file:
+
+   # Active RBAC routes
+  map.login '/login', :controller => 'active_rbac/login', :action => 'login'
+  map.logout '/logout', :controller => 'active_rbac/login', :action => 'logout'
+  map.users 'admin/users', :controller => 'active_rbac/user', :action => 'index'
+  map.roles 'admin/roles', :controller => 'active_rbac/role', :action => 'index'
+  map.permissions 'admin/permissions', :controller => 'active_rbac/static_permission', :action => 'index'
+
+=== Engine Configuration
+
+There are default values for many configuration options in lib/active_rbac.rb.
+
+You can overwrite the default values in environment.rb. 
+For example: ActiveRbac.controller_layout = "MyLayout" 
+
+This version is not designed for the use with Rails 1.1.x or Rails 1.2.x

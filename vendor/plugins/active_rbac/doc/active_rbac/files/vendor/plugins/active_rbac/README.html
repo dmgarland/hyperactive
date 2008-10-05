@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>vendor/plugins/active_rbac/README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Sep 04 18:27:41 +0100 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>ActiveRBAC for Rails 2.1</h1>
+<p>
+This plugin should server as a drop-in upgrade for earlier ActiveRbac
+versions. It offers a full role-based access control system for Rails apps,
+including a registration system and an admin system for taking care of
+users, roles, and permissions.
+</p>
+<h2>Installation</h2>
+<p>
+Installing ActiveRbac is pretty simple, although a few things have changed
+since earlier versions. First, because pagination and acts_as_tree were
+stripped out of the core installation of Rails 2, you&#8216;ll need to
+install those as extras before you can get ActiveRbac to work. You&#8216;ll
+also need to have the engines plugin installed for it to work. The
+following installation procedure should work when run from a console:
+</p>
+<ul>
+<li>Install will_paginate: <a
+href="http://github.com/mislav/will_paginate/wikis/installation">github.com/mislav/will_paginate/wikis/installation</a>,
+either as a plugin or as a gem.
+
+</li>
+<li>script/plugin install acts_as_tree
+
+</li>
+<li>You&#8216;ll need to have the Engines plugin installed from: <a
+href="http://rails-engines.org">rails-engines.org</a>
+
+<pre>
+ script/plugin install git://github.com/lazyatom/engines.git
+</pre>
+</li>
+<li>Your config/environment.rb file will have a couple of lines that say
+
+<pre>
+ # Bootstrap the Rails environment, frameworks, and default configuration:
+ require File.join(File.dirname(__FILE__), 'boot')&lt;/tt&gt;
+</pre>
+<p>
+Add the following code so that you get the Engines functionality when your
+application starts:
+</p>
+<pre>
+ # Bootstrap the Rails environment, frameworks, and default configuration
+ require File.join(File.dirname(__FILE__), 'boot')
+ require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
+</pre>
+</li>
+<li>script/plugin install svn://labs.headlondon.com/active_rbac/trunk/active_rbac
+
+</li>
+</ul>
+<h2>A Little History</h2>
+<p>
+ActiveRbac was originally written by Manuel Holtgrewe for Rails 1.x It was
+ported to run as a Rails 1.2 engine, however I can&#8216;t remember the
+name of the person who did this. This port to a Rails 2.1 engine was done
+by David Hrycyszyn and Stuart Chinery in September 2008.
+</p>
+<p>
+There is also a somewhat newer version of ActiveRbac (0.5-pre), also
+written by Manuel Holtgrewe, which is incompatible with this engine. We are
+not too sure of the differences between this version and the 0.5-pre, just
+mentioning it in case people are finding documentation for ActiveRbac out
+on the web and getting confused by the different versions available. For
+the version of the plugin that you&#8216;re looking at here, the included
+RDoc in doc/active_rbac is the proper reference source (and it&#8216;s
+really very well done, again by Manuel Holtgrewe). So, basically, we
+didn&#8216;t do too much, just fixed up the tests to run under Rails 2.1.
+</p>
+<h2>Usage</h2>
+<h3>Routes</h3>
+<p>
+Once the plugin is installed, the various controllers become available at
+routes like:
+</p>
+<ul>
+<li><a
+href="http://localhost:3000/active_rbac/login">localhost:3000/active_rbac/login</a>
+
+</li>
+<li><a
+href="http://localhost:3000/active_rbac/user/list">localhost:3000/active_rbac/user/list</a>
+
+</li>
+</ul>
+<p>
+Note that we haven&#8216;t updated the routes to be RESTful routes, mostly
+because we think that most people who use it will want a drop-in
+replacement for earlier versions.
+</p>
+<p>
+If you want to pretty up your routes a bit, you put this in your routes.rb
+file:
+</p>
+<pre>
+   # Active RBAC routes
+   map.login '/login', :controller =&gt; 'active_rbac/login', :action =&gt; 'login'
+   map.logout '/logout', :controller =&gt; 'active_rbac/login', :action =&gt; 'logout'
+   map.users 'admin/users', :controller =&gt; 'active_rbac/user', :action =&gt; 'index'
+   map.roles 'admin/roles', :controller =&gt; 'active_rbac/role', :action =&gt; 'index'
+   map.permissions 'admin/permissions', :controller =&gt; 'active_rbac/static_permission', :action =&gt; 'index'
+</pre>
+<h3>Engine Configuration</h3>
+<p>
+There are default values for many configuration options in
+lib/active_rbac.rb.
+</p>
+<p>
+You can overwrite the default values in environment.rb. For example:
+ActiveRbac.controller_layout = &quot;MyLayout&quot;
+</p>
+<p>
+This version is not designed for the use with Rails 1.1.x or Rails 1.2.x
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

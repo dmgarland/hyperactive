@@ -6,7 +6,6 @@ class Admin::PageController < ApplicationController
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
 
   uses_tiny_mce(:options => {:theme => 'advanced',
-  
                            :browsers => %w{msie gecko safari opera},
                            :theme_advanced_toolbar_location => "top",
                            :theme_advanced_toolbar_align => "left",
@@ -18,7 +17,7 @@ class Admin::PageController < ApplicationController
                            :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink separator cleanup code},
                            :theme_advanced_buttons2 => [],
                            :theme_advanced_buttons3 => [],
-                           :plugins => %w{paste cleanup}},
+                           :plugins => %w{paste}},
               :only => [:new, :edit, :create, :update])  
 
   layout "admin"

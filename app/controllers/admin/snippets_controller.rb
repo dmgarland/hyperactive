@@ -20,7 +20,7 @@ class Admin::SnippetsController < ApplicationController
                            :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink image separator cleanup code},
                            :theme_advanced_buttons2 => [],
                            :theme_advanced_buttons3 => [],
-                           :plugins => %w{paste cleanup}},
+                           :plugins => %w{paste}},
               :only => [:new, :edit, :create, :update, :preview])   
   
   include SslRequirement

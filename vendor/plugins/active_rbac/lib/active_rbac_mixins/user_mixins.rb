@@ -299,13 +299,10 @@ module UserMixins
 
             # If the user could be found and the passwords equal then return the user
             if !user.nil? && user.password_equals?(password)
-              puts "user was found"
               if user.login_failure_count > 0
                 user.login_failure_count = 0
                 self.execute_without_timestamps {  
-                  puts "about to save user, current updated_at: #{user.updated_at}"
                   user.save! 
-                  puts "saved user, current updated_at: #{user.updated_at}"                  
                 }
                 
               end

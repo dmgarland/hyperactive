@@ -109,7 +109,6 @@ class ApplicationController < ActionController::Base
   # What do we do if someone tries to access something they're not supposed to see?
   def security_error
     redirect_to home_path
-    puts "security error"
     flash[:notice] = "You are not allowed to access this page."
   end
   

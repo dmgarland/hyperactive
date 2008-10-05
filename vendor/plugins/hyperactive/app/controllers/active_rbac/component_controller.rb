@@ -1,6 +1,6 @@
 # Mix in the a before filter into ActiveRbac::ComponentController to secure
 # all ActiveRbac controllers.
-class ActiveRbac::ComponentController
+class ActiveRbac::ComponentController < ApplicationController
   before_filter :protect_with_active_rbac
 
   include SslRequirement

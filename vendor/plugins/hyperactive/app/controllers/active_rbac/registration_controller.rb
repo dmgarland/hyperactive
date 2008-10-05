@@ -1,7 +1,8 @@
 # This controller provides actions for users to register with the system
 # and retrieve lost passwords
 class ActiveRbac::RegistrationController < ActiveRbac::ComponentController
-  # Use the configured layout.
+
+  require_dependency 'vendor/plugins/active_rbac/app/controllers/active_rbac/registration_controller'
   layout "two_column"
 
   # Redirect to signup page

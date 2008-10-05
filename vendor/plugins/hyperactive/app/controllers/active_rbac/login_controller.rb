@@ -2,11 +2,10 @@
 #
 class ActiveRbac::LoginController < ActiveRbac::ComponentController
  
+  require_dependency 'vendor/plugins/active_rbac/app/controllers/active_rbac/login_controller'
   layout 'two_column'
- 
   include CacheableUserInfo
 
- 
   # Displays an index page which allows the user to take account-related actions
   # based on whether or not they are logged in, and their roles and permissions.
   #

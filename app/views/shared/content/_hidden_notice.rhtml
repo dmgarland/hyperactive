@@ -1,0 +1,3 @@
+<% if @content.is_hidden? %>
+    <p><strong><%= "This #{@content.class.to_s.humanize.downcase} has been hidden under the site's editorial guidelines".t %>.</strong></p>
+<% end %>

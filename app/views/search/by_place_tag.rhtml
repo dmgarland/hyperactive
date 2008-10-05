@@ -1,0 +1,12 @@
+<% if !@content.nil? %>
+    <% if !@content.empty? %>
+    <h1>In &lsquo;<%= h @tagname %>&rsquo;</h1>
+        <%= link_to (image_tag('feed-icon-28x28.png', :plugin => 'hyperactive')), upcoming_events_by_place_feed_path(:scope => params[:scope]) %>
+        <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
+        <%= page_links(@content) %>
+    <% else %>
+        <%= "There are events for this tag, but they're in the past.".t %>
+    <% end %>
+<% else %>
+    <%= 'Nothing has been tagged with '.t %><strong>&lsquo;<%=h @tagname %>&rsquo;</strong>
+<% end %>

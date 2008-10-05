@@ -1,0 +1,20 @@
+<div class="post">
+	<h1 class="title"><%= link_to h(top_featured.title), content_path_for(top_featured) %></h1>
+	<p class="byline">
+	<small> 
+	<% if top_featured.class == Event %>	
+		<%=h long_date(top_featured.date) %>
+	<% else %>
+		<%=h long_date(top_featured.created_on) unless top_featured.created_on.nil? %>	
+	<% end %>
+	<%= "by" %> <%=h top_featured.published_by %>
+	| <%= link_to("read more &rarr;", content_path_for(top_featured)) %>
+	</small></p>
+	<div class="entry">
+		<p><% if top_featured.has_thumbnail? %>
+			<%= thumbnail_for(top_featured) %>
+		<% end %>
+		<%= top_featured.summary %>
+		</p>
+	</div>
+</div>

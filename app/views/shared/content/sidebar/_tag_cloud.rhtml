@@ -1,0 +1,10 @@
+<% if !@cloud.nil? %>
+<ul>
+    <li>
+        <h2><%= "Tags".t %></h2>
+        <p>
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>	
+        </p>
+    </li>
+</ul>
+<% end %>

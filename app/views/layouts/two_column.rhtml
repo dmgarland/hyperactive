@@ -1,0 +1,31 @@
+<%= render(:partial => "layouts/common/header") %>
+
+<!-- start page -->
+<div id="page-two-column">
+	<!-- start content -->
+	<div id="content_wide">
+		<%= render(:partial => "layouts/common/flash_notice") %>
+		<% if @current_controller == "events" %>
+			<%= render(:partial => "/events/event_nav") %>
+		<% end %>
+		<%= @content_for_layout %>
+	</div>
+	<!-- end content -->
+	<!-- start sidebars -->
+
+	<div id="sidebar2" class="sidebar">
+		<ul>
+			<li>
+				<%= render :partial => 'shared/searchbox' %>
+			</li>
+		</ul>
+		<%= render :partial => 'shared/account_box' %>
+		<% default_content_for :sidebar do %>
+
+		<% end %>
+	</div>
+	<!-- end sidebars -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<%= render :partial => 'layouts/common/footer' %>

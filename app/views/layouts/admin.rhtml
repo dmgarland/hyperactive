@@ -1,0 +1,27 @@
+<%= render(:partial => "layouts/common/admin_header") %>
+
+<!-- start page -->
+<div id="page-two-column">
+	<!-- start content -->
+	<div id="content_wide">
+		<%= render(:partial => "layouts/common/flash_notice") %>
+		<%= @content_for_layout %>
+	</div>
+	<!-- end content -->
+	<!-- start sidebars -->
+
+	<div id="sidebar2" class="sidebar">
+		<ul>
+			<li>
+				<%= render :partial => 'shared/searchbox' %>
+			</li>
+		</ul>
+		<% default_content_for :sidebar do %>
+
+		<% end %>
+	</div>
+	<!-- end sidebars -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<%= render :partial => 'layouts/common/footer' %>

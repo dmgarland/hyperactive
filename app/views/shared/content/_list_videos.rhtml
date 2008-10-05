@@ -1,0 +1,4 @@
+<% if @content.videos.length > 0 %>
+    <h3><%= 'Videos'.t %></h3>
+    <%= render :partial => "videos/video_summary", :collection => @content.videos %>
+<% end %>

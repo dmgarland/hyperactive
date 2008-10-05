@@ -1,10 +1,12 @@
-// Copyright (c) 2005-2008 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+// script.aculo.us dragdrop.js v1.7.1_beta3, Fri May 25 17:19:41 +0200 2007
+
+// Copyright (c) 2005-2007 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
 //           (c) 2005-2007 Sammi Williams (http://www.oriontransfer.co.nz, sammi@oriontransfer.co.nz)
 // 
 // script.aculo.us is freely distributable under the terms of an MIT-style license.
 // For details, see the script.aculo.us web site: http://script.aculo.us/
 
-if(Object.isUndefined(Effect))
+if(typeof Effect == 'undefined')
   throw("dragdrop.js requires including script.aculo.us' effects.js library");
 
 var Droppables = {
@@ -20,13 +22,14 @@ var Droppables = {
       greedy:     true,
       hoverclass: null,
       tree:       false
-    }, arguments[1] || { });
+    }, arguments[1] || {});
 
     // cache containers
     if(options.containment) {
       options._containers = [];
       var containment = options.containment;
-      if(Object.isArray(containment)) {
+      if((typeof containment == 'object') && 
+        (containment.constructor == Array)) {
         containment.each( function(c) { options._containers.push($(c)) });
       } else {
         options._containers.push($(containment));
@@ -86,23 +89,21 @@ var Droppables = {
 
   show: function(point, element) {
     if(!this.drops.length) return;
-    var drop, affected = [];
+    var affected = [];
     
+    if(this.last_active) this.deactivate(this.last_active);
     this.drops.each( function(drop) {
       if(Droppables.isAffected(point, element, drop))
         affected.push(drop);
     });
         
-    if(affected.length>0)
+    if(affected.length>0) {
       drop = Droppables.findDeepestChild(affected);
-
-    if(this.last_active && this.last_active != drop) this.deactivate(this.last_active);
-    if (drop) {
       Position.within(drop.element, point[0], point[1]);
       if(drop.onHover)
         drop.onHover(element, drop.element, Position.overlap(drop.overlap, drop.element));
       
-      if (drop != this.last_active) Droppables.activate(drop);
+      Droppables.activate(drop);
     }
   },
 
@@ -222,7 +223,10 @@ var Draggables = {
 
 /*--------------------------------------------------------------------------*/
 
-var Draggable = Class.create({
+var Draggable = Class.create();
+Draggable._dragging    = {};
+
+Draggable.prototype = {
   initialize: function(element) {
     var defaults = {
       handle: false,
@@ -233,7 +237,7 @@ var Draggable = Class.create({
         });
       },
       endeffect: function(element) {
-        var toOpacity = Object.isNumber(element._opacity) ? element._opacity : 1.0;
+        var toOpacity = typeof element._opacity == 'number' ? element._opacity : 1.0;
         new Effect.Opacity(element, {duration:0.2, from:0.7, to:toOpacity, 
           queue: {scope:'_draggable', position:'end'},
           afterFinish: function(){ 
@@ -251,7 +255,7 @@ var Draggable = Class.create({
       delay: 0
     };
     
-    if(!arguments[1] || Object.isUndefined(arguments[1].endeffect))
+    if(!arguments[1] || typeof arguments[1].endeffect == 'undefined')
       Object.extend(defaults, {
         starteffect: function(element) {
           element._opacity = Element.getOpacity(element);
@@ -260,11 +264,11 @@ var Draggable = Class.create({
         }
       });
     
-    var options = Object.extend(defaults, arguments[1] || { });
+    var options = Object.extend(defaults, arguments[1] || {});
 
     this.element = $(element);
     
-    if(options.handle && Object.isString(options.handle))
+    if(options.handle && (typeof options.handle == 'string'))
       this.handle = this.element.down('.'+options.handle, 0);
     
     if(!this.handle) this.handle = $(options.handle);
@@ -277,6 +281,7 @@ var Draggable = Class.create({
 
     Element.makePositioned(this.element); // fix IE    
 
+    this.delta    = this.currentDelta();
     this.options  = options;
     this.dragging = false;   
 
@@ -298,7 +303,7 @@ var Draggable = Class.create({
   },
   
   initDrag: function(event) {
-    if(!Object.isUndefined(Draggable._dragging[this.element]) &&
+    if(typeof Draggable._dragging[this.element] != 'undefined' &&
       Draggable._dragging[this.element]) return;
     if(Event.isLeftClick(event)) {    
       // abort on form elements, fixes a Firefox issue
@@ -321,8 +326,6 @@ var Draggable = Class.create({
   
   startDrag: function(event) {
     this.dragging = true;
-    if(!this.delta)
-      this.delta = this.currentDelta();
     
     if(this.options.zindex) {
       this.originalZ = parseInt(Element.getStyle(this.element,'z-index') || 0);
@@ -331,9 +334,7 @@ var Draggable = Class.create({
     
     if(this.options.ghosting) {
       this._clone = this.element.cloneNode(true);
-      this.element._originallyAbsolute = (this.element.getStyle('position') == 'absolute');
-      if (!this.element._originallyAbsolute)
-        Position.absolutize(this.element);
+      Position.absolutize(this.element);
       this.element.parentNode.insertBefore(this._clone, this.element);
     }
     
@@ -403,9 +404,7 @@ var Draggable = Class.create({
     }
 
     if(this.options.ghosting) {
-      if (!this.element._originallyAbsolute)
-        Position.relativize(this.element);
-      delete this.element._originallyAbsolute;
+      Position.relativize(this.element);
       Element.remove(this._clone);
       this._clone = null;
     }
@@ -419,7 +418,7 @@ var Draggable = Class.create({
     Draggables.notify('onEnd', this, event);
 
     var revert = this.options.revert;
-    if(revert && Object.isFunction(revert)) revert = revert(this.element);
+    if(revert && typeof revert == 'function') revert = revert(this.element);
     
     var d = this.currentDelta();
     if(revert && this.options.reverteffect) {
@@ -473,15 +472,15 @@ var Draggable = Class.create({
     }.bind(this));
     
     if(this.options.snap) {
-      if(Object.isFunction(this.options.snap)) {
+      if(typeof this.options.snap == 'function') {
         p = this.options.snap(p[0],p[1],this);
       } else {
-      if(Object.isArray(this.options.snap)) {
+      if(this.options.snap instanceof Array) {
         p = p.map( function(v, i) {
-          return (v/this.options.snap[i]).round()*this.options.snap[i] }.bind(this))
+          return Math.round(v/this.options.snap[i])*this.options.snap[i] }.bind(this))
       } else {
         p = p.map( function(v) {
-          return (v/this.options.snap).round()*this.options.snap }.bind(this))
+          return Math.round(v/this.options.snap)*this.options.snap }.bind(this))
       }
     }}
     
@@ -565,13 +564,12 @@ var Draggable = Class.create({
     }
     return { top: T, left: L, width: W, height: H };
   }
-});
-
-Draggable._dragging = { };
+}
 
 /*--------------------------------------------------------------------------*/
 
-var SortableObserver = Class.create({
+var SortableObserver = Class.create();
+SortableObserver.prototype = {
   initialize: function(element, observer) {
     this.element   = $(element);
     this.observer  = observer;
@@ -587,12 +585,12 @@ var SortableObserver = Class.create({
     if(this.lastValue != Sortable.serialize(this.element))
       this.observer(this.element)
   }
-});
+}
 
 var Sortable = {
   SERIALIZE_RULE: /^[^_\-](?:[A-Za-z0-9\-\_]*)[_](.*)$/,
   
-  sortables: { },
+  sortables: {},
   
   _findRootElement: function(element) {
     while (element.tagName.toUpperCase() != "BODY") {  
@@ -648,7 +646,7 @@ var Sortable = {
       
       onChange:    Prototype.emptyFunction,
       onUpdate:    Prototype.emptyFunction
-    }, arguments[1] || { });
+    }, arguments[1] || {});
 
     // clear any old sortable with same element
     this.destroy(element);
@@ -712,7 +710,7 @@ var Sortable = {
 
     (options.elements || this.findElements(element, options) || []).each( function(e,i) {
       var handle = options.handles ? $(options.handles[i]) :
-        (options.handle ? $(e).select('.' + options.handle)[0] : e); 
+        (options.handle ? $(e).getElementsByClassName(options.handle)[0] : e); 
       options.draggables.push(
         new Draggable(e, Object.extend(options_for_draggable, { handle: handle })));
       Droppables.add(e, options_for_droppable);
@@ -872,7 +870,7 @@ var Sortable = {
       only: sortableOptions.only,
       name: element.id,
       format: sortableOptions.format
-    }, arguments[1] || { });
+    }, arguments[1] || {});
     
     var root = {
       id: null,
@@ -896,7 +894,7 @@ var Sortable = {
 
   sequence: function(element) {
     element = $(element);
-    var options = Object.extend(this.options(element), arguments[1] || { });
+    var options = Object.extend(this.options(element), arguments[1] || {});
     
     return $(this.findElements(element, options) || []).map( function(item) {
       return item.id.match(options.format) ? item.id.match(options.format)[1] : '';
@@ -905,9 +903,9 @@ var Sortable = {
 
   setSequence: function(element, new_sequence) {
     element = $(element);
-    var options = Object.extend(this.options(element), arguments[2] || { });
+    var options = Object.extend(this.options(element), arguments[2] || {});
     
-    var nodeMap = { };
+    var nodeMap = {};
     this.findElements(element, options).each( function(n) {
         if (n.id.match(options.format))
             nodeMap[n.id.match(options.format)[1]] = [n, n.parentNode];
@@ -925,7 +923,7 @@ var Sortable = {
   
   serialize: function(element) {
     element = $(element);
-    var options = Object.extend(Sortable.options(element), arguments[1] || { });
+    var options = Object.extend(Sortable.options(element), arguments[1] || {});
     var name = encodeURIComponent(
       (arguments[1] && arguments[1].name) ? arguments[1].name : element.id);
     

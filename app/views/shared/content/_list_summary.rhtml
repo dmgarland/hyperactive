@@ -1,0 +1,17 @@
+<div class="post">
+	<h1 class="title"><%= link_to h(list_summary.title), content_path_for(list_summary) %></h1>
+	<p class="byline"><small><%= icon_image_for(list_summary) %> 
+	<% if list_summary.class == Event %>	
+		Event date: <%=h long_date(list_summary.date) %>
+	<% else %>
+		Published: <%=h long_date(list_summary.created_on) unless list_summary.created_on.nil? %>	
+	<% end %>
+	<%= "by" %> <%=h list_summary.published_by %>
+	</small></p>
+	<div class="entry">
+		<p><% if list_summary.has_thumbnail? %>
+			<%= thumbnail_for(list_summary) %>
+		<% end %>
+		<%= list_summary.summary %></p>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<% @page_title = @content.title %>
+
+<div id="content-wrap">
+    <div id="subpage">
+        <%= render :partial => 'shared/content/hidden_notice' %>
+        <div class="singlepost">
+            <%= render :partial => 'videos/video', :locals => {:video => @content} %>
+        </div>
+    </div>
+    <p>
+        <%= render :partial => 'shared/content/hiding_controls' %>
+    </p>	
+
+<% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
+    <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
+	<%= render :partial => 'shared/content/comments/comment_controls' %>
+</div>
+<% content_for :sidebar do %>
+	<%= render :partial => 'videos/sidebar/containing_content' %>
+	<%= render :partial => "shared/content/related_content" %>
+	<%= render :partial => 'videos/sidebar/featured_flash' %>
+	<%= render :partial => 'videos/sidebar/previous' %>
+	<%= render :partial => 'videos/sidebar/feedbox' %>
+<% end %>

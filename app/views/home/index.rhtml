@@ -1,0 +1,149 @@
+<!-- start content -->
+<div id="content">
+<% if !@action_alert.nil? %>
+	<div id="action-alert">
+		<p><strong><%= @action_alert.summary %></strong></p>
+	</div>
+<% end %>
+
+<%= render(:partial => "layouts/common/flash_notice") %>
+<%= render(:partial => "home/top_featured", :object => @top_article) unless @top_article.nil? %>
+
+<!-- start sidebars inside content -->
+<!--  sidebar_content_left -->
+	<div id="subfeature_content_1" class="sidebar_content">
+		<%= render_subfeature(0) %>
+		<%= render_subfeature(1) %>
+	</div>
+	<!--  sidebar_content_right -->
+	<div id="subfeature_content_2" class="sidebar_content">
+		<%= render_subfeature(2) %>
+		<%= render_subfeature(3) %>
+	</div>
+	<% unless @snippet.nil? %>
+	<div id="special_content" class="sidebar_content_wide">
+		<ul>
+			<li>
+				<% if @snippet.url.blank? %>
+					<h2><%= @snippet.title %></h2>
+				<% else %>
+					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>			
+				<% end %>
+					<%= @snippet.body %>
+			</li>
+		</ul>
+	</div>
+	<% end %>
+	<div id="recent_articles" class="sidebar_content">
+		<ul>
+			<li>				
+				<h2><%= 'Promoted Newswire'.t %></h2>
+				<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>			
+				</ul>
+
+			</li>
+		</ul>
+	</div>	
+	<div id="unused" class="sidebar_content">
+		<ul>
+			<li>
+				<h2><%= 'Around the UK'.t %></h2>
+				<ul>
+					<%= @uk_feed unless @uk_feed.nil? %>
+				</ul>
+			</li>
+		</ul>
+	</div>		
+</div>
+<!-- end content -->
+<!-- start sidebars -->
+<div id="sidebar1" class="sidebar">
+	<ul>
+		<li>
+			<h2><%= 'Featured Events'.t %></h2>
+			<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
+			</ul>
+		</li>	
+		<li>
+			<h2><%= 'Upcoming Events'.t %></h2>
+			<ul>
+			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
+			</ul>
+		</li>				
+		<li>
+			<h2>Posters!</h2>
+			<div id="event_poster">
+				<div>
+				<p>
+					<%= big_thumbnail_for(most_recent_promoted_event_with_image) unless most_recent_promoted_event_with_image.nil? %><br/>
+					<%= most_recent_promoted_event_with_image.title unless most_recent_promoted_event_with_image.nil?  %>
+				</p>
+				</div>
+			</div>
+		</li>	
+	</ul>
+</div>
+<div id="sidebar2" class="sidebar">
+	<%= render :partial => 'shared/searchbox' %>
+    <%= render :partial => 'shared/account_box' %>
+	<ul>
+		<li>
+			<%= render :partial => 'videos/featured_flash_player' %>
+		</li>	
+		<li>
+			<h2><%= "Neighbourhoods".t %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+		</li>
+		<li>
+			<h2><%= "Tags".t %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
+		</li>
+		<li>
+			<h2><%= 'Info'.t %></h2>
+			<ul>
+				<%= render :partial => '/page/list_title', :collection => @pages %>
+			</ul>
+		</li>		
+		<li>
+			<h2><%= 'Indymedia UK Network'.t %></h2>
+			<ul>
+				<li class="list">
+					<%= link_to "Indymedia UK", "http://www.indymedia.org.uk" %>
+				</li>
+				<li class="list">
+					<%= link_to "Birmingham", "http://www.indymedia.org.uk/en/regions/birmingham/" %>
+				</li>	
+				<li class="list">
+					<%= link_to "Cambridge", "http://www.indymedia.org.uk/en/regions/cambridge/" %>
+				</li>								
+				<li class="list">
+					<%= link_to "Leeds Bradford", "http://www.indymedia.org.uk/en/regions/leedsbradford/" %>
+				</li>	    
+				<li class="list">
+					<%= link_to "Liverpool", "http://www.indymedia.org.uk/en/regions/liverpool/" %>
+				</li>    
+				<li class="list">
+					<%= link_to "Manchester", "http://www.indymedia.org.uk/en/regions/manchester/" %>
+				</li>        
+				<li class="list">
+					<%= link_to "Nottinghamshire", "http://www.indymedia.org.uk/en/regions/nottinghamshire/" %>
+				</li>      
+				<li class="list">
+					<%= link_to "Oxford", "http://www.indymedia.org.uk/en/regions/oxford/" %>
+				</li>  				
+				<li class="list">
+					<%= link_to "Sheffield", "http://www.indymedia.org.uk/en/regions/sheffield/" %>
+				</li>      
+				<li class="list">
+					<%= link_to "South Coast", "http://www.indymedia.org.uk/en/regions/southcoast/" %>
+				</li>      
+				<li class="list">
+					<%= link_to "World", "http://www.indymedia.org.uk/en/regions/world/" %>
+				</li>     
+			</ul>
+		</li>			
+	</ul>
+</div>
+<!-- end sidebars -->

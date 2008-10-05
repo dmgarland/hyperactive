@@ -20,7 +20,7 @@ Rails::Initializer.run do |config|
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
-  config.plugins = [:engines, :active_rbac, :white_list, :sanitize_params, :hyperactive,  :all] 
+  config.plugins = [:engines, :active_rbac, :white_list, :sanitize_params, :hyperactive, :all] 
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
@@ -141,6 +141,8 @@ Locale.set('en-GB')
 WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strike)
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
+
+TINY_MCE_VALID_ELEMENTS = "a[href|alt|title],strong/b,em,i,p,code,tt,br,ul,ol,li,blockquote,strike"
 
 # There's a weird "not working the first time" class loading bug I'm getting with 
 # has_many_polymorphs.  Requiring the parent model explicitly here fixes it.

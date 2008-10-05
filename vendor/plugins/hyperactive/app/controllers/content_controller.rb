@@ -20,7 +20,8 @@ class ContentController < ApplicationController
                            :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink separator cleanup code},
                            :theme_advanced_buttons2 => [],
                            :theme_advanced_buttons3 => [],
-                           :plugins => %w{paste cleanup}},
+                           :plugins => %w{paste cleanup},
+                           :valid_elements => TINY_MCE_VALID_ELEMENTS},
               :only => [:new, :edit, :create, :update])  
 
 

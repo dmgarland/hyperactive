@@ -22,17 +22,14 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
   def do_work(args)
     @action_view = ActionView::Base.new(Rails::Configuration.new.view_path, {}, DummyController.new)    
     url = "http://www.indymedia.org.uk/en/promotednewswire.rss" #args[:url]
-    puts "retrieving: #{url}"
     rss = SimpleRSS.parse(open(url))
     @feed_items = rss.items[0..9]
-    puts "rss retrieved: #{@feed_items} \n\n\n"
     output = ""
     @feed_items.each do |feed_item|
-      puts "feed item: #{feed_item.title} \n\n\n"
       output +=  @action_view.render :partial => "feeds/external/list_title", :locals => {:list_title => feed_item}
     end
-    puts "output: #{output}"
     rio(RAILS_ROOT + "/public/system/cache/uk_feed.rhtml") < output
+    rio(RAILS_ROOT + "/public/system/cache/index.html").delete
   end
 
 end

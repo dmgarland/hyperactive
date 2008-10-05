@@ -1,6 +1,0 @@
-<h1><%= "Listing videos".t %></h1>
-<%= render :partial => "videos/video_summary", :collection => @content unless @content.blank? %>
-
-<% content_for :sidebar do %>
-	<%= render :partial => 'videos/sidebar/feedbox' %>
-<% end %>

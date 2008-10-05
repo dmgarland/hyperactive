@@ -1,7 +1,0 @@
-<% if @content.links.length > 0 %>
-    <h3>Links:</h3>
-    <% @content.links.each do |link| %>
-        <p><%= image_tag("link_go.png", :plugin => "hyperactive") %> <%= link_to h(link.title), link.url %><br/>
-        <%= link.description %></p>
-    <% end %>
-<% end %>

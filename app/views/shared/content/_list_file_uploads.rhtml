@@ -1,6 +1,6 @@
 <% if @content.file_uploads.length > 0 %>
     <h3><%= 'Attached Files'.t %></h3>
     <% @content.file_uploads.each do |file_upload| %>
-        <p><%= image_tag("report.png", :plugin => "hyperactive") %> <%= link_to file_upload.title, file_upload.file.url %></p>
+        <p><%= image_tag("report.png") %> <%= link_to file_upload.title, file_upload.file.url %></p>
     <% end %>
 <% end %>

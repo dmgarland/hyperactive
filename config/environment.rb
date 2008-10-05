@@ -27,7 +27,7 @@ Rails::Initializer.run do |config|
   
   # TODO 2.1 : this shouldn't be necessary, the code in vendor/plugins/hyperactive/init.rb should do this job.
   # But it doesn't.
-  config.load_paths << "#{RAILS_ROOT}/vendor/plugins/hyperactive/app/sweepers"
+  config.load_paths << "#{RAILS_ROOT}/app/sweepers"
 
 
   # Force all environments to use the same logger level 

@@ -6,7 +6,7 @@
 <%# The flash scripts screw up the click_to_globalize plugin, don't use SWFObject if click_to_globalize is running. %>
 <% unless globalize? %>
 	<script type="text/javascript">
-	    var so = new SWFObject("/plugin_assets/hyperactive/flash/featuredvideos.swf", "vidplayer", "190", "190", "7", "");
+	    var so = new SWFObject("flash/featuredvideos.swf", "vidplayer", "190", "190", "7", "");
 	    so.addParam("menu", "false");
 	    so.write("featuredvideos");
 	</script>

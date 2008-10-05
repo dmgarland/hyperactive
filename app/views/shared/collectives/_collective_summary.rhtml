@@ -2,7 +2,7 @@
 <h2><%= link_to(collective_summary.name, collective_summary) %></h2>
 <p>
 <% if collective_summary.image.nil? %>
-  <%= image_tag "default_collective_small.jpg", :plugin => "hyperactive", :class => "left" %>
+  <%= image_tag "default_collective_small.jpg", :class => "left" %>
 <% else %>
   <%= image_tag collective_summary.image.small, :class => "left" %>
 <% end %>

@@ -3,7 +3,7 @@
 
 <p>
 <% if @collective.image.nil? %>
-  <%= image_tag "default_collective.jpg", :plugin => "hyperactive", :class => "left" %>
+  <%= image_tag "default_collective.jpg", :class => "left" %>
 <% else %>
   <%= image_tag @collective.image.thumb, :class => "left" %>
 <% end %>

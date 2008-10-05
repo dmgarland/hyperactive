@@ -1,5 +1,5 @@
-require 'vendor/plugins/hyperactive/app/models/tag.rb'
-require 'vendor/plugins/hyperactive/app/models/place_tag.rb'
+#require 'vendor/plugins/hyperactive/app/models/tag.rb'
+#require 'vendor/plugins/hyperactive/app/models/place_tag.rb'
 
 class ContentController < ApplicationController
 

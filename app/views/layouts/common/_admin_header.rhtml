@@ -14,15 +14,15 @@ Released   : 20071004
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><%= Hyperactive.site_name %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
-    <%= stylesheet_link_tag 'default', :plugin => 'hyperactive' %>
+    <%= stylesheet_link_tag 'default' %>
   	<% if using_tiny_mce? %>
 		<%= javascript_include_tag 'tiny_mce/tiny_mce', :plugin => 'tiny_mce' %>
 	  	<%= tiny_mce %>   
 	<% end %>
-    <%= javascript_include_tag :prototype, :plugin => 'hyperactive' %>
-	<%= javascript_include_tag :application, :plugin => 'hyperactive' %>	
-	<%= javascript_include_tag :effects, :plugin => 'hyperactive' %>
-	<%= javascript_include_tag :controls, :plugin => 'hyperactive' %>	
+    <%= javascript_include_tag 'prototype' %>
+	<%= javascript_include_tag 'application' %>	
+	<%= javascript_include_tag 'effects' %>
+	<%= javascript_include_tag 'controls' %>	
 	<%= javascript_include_tag 'flash' %>
 	<%= javascript_include_tag 'json' %>
 	<%= javascript_include_tag 'cookie' %>	
@@ -33,7 +33,7 @@ Released   : 20071004
 
 <!-- start header -->
 <div id="logo">
-	<p><%= link_to image_tag("logo_greyscale.png", :plugin => 'hyperactive'), '/home' %></p>
+	<p><%= link_to image_tag("logo_greyscale.png"), '/home' %></p>
 	<h1><%= link_to "#{Hyperactive.site_name}", {:controller => '/home'} %></h1>
 	<p>By Free CSS Templates</p>
 </div>

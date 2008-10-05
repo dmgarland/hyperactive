@@ -75,11 +75,11 @@ module ApplicationHelper
   
   def icon_image_for(entity)
     if entity.class == Article
-      image_tag "icon_article.gif", :plugin => 'hyperactive'
+      image_tag "icon_article.gif"
     elsif entity.class == Event
-      image_tag "date.png", :plugin => 'hyperactive'
+      image_tag "date.png"
     elsif entity.class == Video
-      image_tag "icon_video.gif", :plugin => 'hyperactive'
+      image_tag "icon_video.gif"
     end    
   end  
 

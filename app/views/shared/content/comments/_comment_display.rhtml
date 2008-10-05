@@ -1,6 +1,6 @@
 <a name="comment-<%= comment_display.id %>"></a>
 <h3 class="title"><%=h comment_display.title %></h3>
-<p class="byline"><%= image_tag "comment.png", :plugin => "hyperactive" %> 
+<p class="byline"><%= image_tag "comment.png" %> 
     <small>
         <%= 'Published'.t %>: <%=h long_date(comment_display.created_on) %>
 		<%= "by".t %>

@@ -2,7 +2,7 @@
 <%= error_messages_for :comment %>
 <div class="post">
 <h1 class="title"><%=h @content.title %></h1>
-<p class="byline"><%= image_tag "date.png", :plugin => "hyperactive" %> <small><%= 'Event date:'.t %> <%=h long_date(@content.date) %></small> <%= "by".t %> <strong><%=h @content.published_by.titleize %></strong></p>
+<p class="byline"><%= image_tag "date.png" %> <small><%= 'Event date:'.t %> <%=h long_date(@content.date) %></small> <%= "by".t %> <strong><%=h @content.published_by.titleize %></strong></p>
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 

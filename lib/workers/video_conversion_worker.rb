@@ -5,7 +5,7 @@
 class VideoConversionWorker < BackgrounDRb::Rails
   
   require 'digest/sha1'
-  require "#{RAILS_ROOT}/vendor/plugins/hyperactive/lib/rubytorrent/rubytorrent.rb"
+  #require "#{RAILS_ROOT}/vendor/plugins/hyperactive/lib/rubytorrent/rubytorrent.rb"
   
   attr_accessor :video_file, :video_id
   

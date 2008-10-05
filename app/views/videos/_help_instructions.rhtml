@@ -1,5 +1,5 @@
 <span id="help-links">
-	<%= link_to_function image_tag("help.png", :plugin => 'hyperactive'), "new Effect.BlindDown('help-instructions');" %>
+	<%= link_to_function image_tag("help.png"), "new Effect.BlindDown('help-instructions');" %>
 	<%= link_to_function "How to download", "new Effect.BlindDown('help-instructions');$('help-links').hide();" %>
 </span>
 <div id="help-instructions" style="display:none;">
@@ -39,7 +39,7 @@
 	link underneath the video above to download only the video file you want.".t %></p>
 
 	<h2><%= "Security note".t %></h2>
-	<p><%= image_tag "exclamation.png", :plugin => 'hyperactive' %><%= "If you are incredibly paranoid about other 
+	<p><%= image_tag "exclamation.png" %><%= "If you are incredibly paranoid about other 
 	people knowing that you are downloading a video, please note that your computer's IP address will be visible
 	to the people who you are sharing the video with.  In this case, don't use Bittorrent or Miro.".t %></p>	
 </div>

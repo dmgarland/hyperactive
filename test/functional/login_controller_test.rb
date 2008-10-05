@@ -141,34 +141,6 @@ class ActiveRbac::LoginControllerTest < Test::Unit::TestCase
     assert_nil session[:rbac_user_id]
   end
   
-  def test_should_not_allow_post_to_login_with_invalid_states
-    invalid_states_for_login = [ User.states['unconfirmed'], 
-                                 User.states['locked'],
-                                 User.states['deleted'] ]
-    
-    for state in invalid_states_for_login
-      user = User.new
-      user.login = "My Test User #{state}"
-      user.email = 'user@localhost'
-      user.password = 'password'
-      user.password_confirmation = 'password'
-      user.password_hash_type = User.password_hash_types[0]
-      
-      user.state = state
-      assert user.save
-      
-      user.reload
-      assert_equal state, user.state
-      
-      post 'login', :login => 'My Test User', :password => 'password'
-
-      assert_response :success
-      assert_template 'login'
-
-      assert_nil session[:rbac_user_id]
-    end
-  end
-
   def test_should_display_confirmation_form_on_logout
     # first do a valid login
     test_should_render_success_template_on_valid_login_without_in_redirect

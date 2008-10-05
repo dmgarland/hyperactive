@@ -2,6 +2,11 @@ module HyperactiveMixins
   module ApplicationControllerMixin
     def self.included(base)
       base.class_eval do
+       
+      # TODO: enable this.
+#  
+#        helper :all
+#        protect_from_forgery :secret => '83c8a9e668d98a650e444d7f72d44dff'
         
         # Because we're deployed on mod_rails and also have mod_removeip installed on the server, Rails thinks that 
         # all requests are local (since mod_rails is getting its request from 127.0.0.1 and there is no remote_ip.
@@ -54,7 +59,8 @@ module HyperactiveMixins
         #
         alias :original_ssl_required? :ssl_required?
         def ssl_required?
-          Hyperactive.use_ssl && original_ssl_required?
+          false
+          #Hyperactive.use_ssl && original_ssl_required?
         end       
         
         # Set up the click-to-globalize plugin so that we can easily do translations
@@ -105,6 +111,7 @@ module HyperactiveMixins
         # What do we do if someone tries to access something they're not supposed to see?
         def security_error
           redirect_to home_path
+          puts "security error"
           flash[:notice] = "You are not allowed to access this page."
         end
         

@@ -59,8 +59,7 @@ module HyperactiveMixins
         #
         alias :original_ssl_required? :ssl_required?
         def ssl_required?
-          false
-          #Hyperactive.use_ssl && original_ssl_required?
+          Hyperactive.use_ssl && original_ssl_required? && (RAILS_ENV == "production" || RAILS_ENV == "staging")
         end       
         
         # Set up the click-to-globalize plugin so that we can easily do translations

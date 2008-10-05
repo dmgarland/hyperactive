@@ -92,6 +92,7 @@ end
 #
 Hyperactive.banner_image = "banner.png"
 Hyperactive.show_site_name_in_banner = false
+Hyperactive.use_ssl = true
 
 # Email configuration
 # 

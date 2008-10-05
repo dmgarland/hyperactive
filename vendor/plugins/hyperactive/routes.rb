@@ -139,12 +139,6 @@ ActionController::Routing::Routes.draw do |map|
   
   # base url of application
   map.home '/', :controller => 'home'
-                
-
-  # ActiveRbac's RegistrationController confirmation action needs a special route
-  #map.connect '/active_rbac/registration/confirm/:user/:token',
-  #            :controller => 'active_rbac/registration',
-  #            :action => 'confirm'
 
   connect '', :controller => "home"
   connect '/admin/', :controller => "admin/category"

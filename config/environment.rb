@@ -17,8 +17,10 @@ Rails::Initializer.run do |config|
   # Skip frameworks you're not going to use (only works if using vendor/rails)
   # config.frameworks -= [ :action_web_service ]#, :action_mailer ]
 
-  # Only load the plugins named here, by default all plugins in vendor/plugins are loaded
-  #config.plugins = [:engines, :white_list, :sanitize_params, :hyperactive, :all] 
+  # Only load the plugins named here, in the order given. By default, all plugins 
+  # in vendor/plugins are loaded in alphabetical order.
+  # :all can be used as a placeholder for all plugins not explicitly named
+  #config.plugins = [:engines, :active_rbac, :white_list, :sanitize_params, :hyperactive, :all] 
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )

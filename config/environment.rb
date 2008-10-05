@@ -72,6 +72,8 @@ Rails::Initializer.run do |config|
 
 end
 
+require 'hyperactive'
+
 # Add new inflection rules using the following format 
 # (all these examples are active by default):
 Inflector.inflections do |inflect|

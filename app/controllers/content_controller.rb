@@ -21,7 +21,7 @@ class ContentController < ApplicationController
                            :theme_advanced_buttons2 => [],
                            :theme_advanced_buttons3 => [],
                            :plugins => %w{paste cleanup},
-                           :valid_elements => TINY_MCE_VALID_ELEMENTS},
+                           :valid_elements => Hyperactive.valid_elements_for_tiny_mce},
               :only => [:new, :edit, :create, :update])  
 
 

@@ -144,8 +144,6 @@ WhiteListHelper.tags = %w(strong em b i p code tt br ul ol li a blockquote strik
 WhiteListHelper.attributes = %w(href src alt title)
 WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 
-TINY_MCE_VALID_ELEMENTS = "a[href|alt|title],strong/b,em,i,p,code,tt,br,ul,ol,li,blockquote,strike"
-
 # There's a weird "not working the first time" class loading bug I'm getting with 
 # has_many_polymorphs.  Requiring the parent model explicitly here fixes it.
 require 'collective'

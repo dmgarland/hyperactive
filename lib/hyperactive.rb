@@ -56,5 +56,10 @@ module Hyperactive
   @@content_moderation_statuses = %w(published promoted hidden featured)
   mattr_accessor :content_moderation_statuses
   
+  # What elements should be allowed when pasting into a TinyMCE editor box in the site?
+  #
+  @@valid_elements_for_tiny_mce = "a[href|alt|title],strong/b,em,i,p,code,tt,br,ul,ol,li,blockquote,strike"
+  mattr_accessor :valid_elements_for_tiny_mce
+  
 end
 

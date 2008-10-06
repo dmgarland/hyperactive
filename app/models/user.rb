@@ -19,4 +19,10 @@ class User < ActiveRecord::Base
                           :in => 3..100, :allow_nil => true,
                           :too_long => 'must have less than 100 characters.', 
                           :too_short => 'must have more than two characters.'
+  validates_length_of :password,
+                      :within => 6..64,
+                      :too_long => 'must have between 6 and 64 characters.',
+                      :too_short => 'must have between 6 and 64 characters.',
+                      :if => Proc.new { |user| user.new_password? and not user.password.nil? }
+                          
 end

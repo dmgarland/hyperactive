@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   include ActiveRbacMixins::UserMixins::Core
-  include ActiveRbacMixins::UserMixins::Validation
   
   has_many :collective_memberships
   has_many :collectives, :through => :collective_memberships
@@ -13,8 +12,11 @@ class User < ActiveRecord::Base
     self.collectives.include?(collective)
   end
 
-#  validates_format_of :email, 
-#                      :with => %r{^([\w\-\.\#\$%&!?*\'=(){}|~_]+)@([0-9a-zA-Z\-\.\#\$%&!?*\'=(){}|~]+)+$},
-#                      :message => 'must be a valid email address.',
-#                      :allow_blank => true
+  validates_format_of     :login, 
+                          :with => /^[a-zA-Z][a-zA-Z0-9_]+$/, 
+                          :message => 'should consist only of letters, numbers, and underscores.'
+  validates_length_of     :login, 
+                          :in => 3..100, :allow_nil => true,
+                          :too_long => 'must have less than 100 characters.', 
+                          :too_short => 'must have more than two characters.'
 end

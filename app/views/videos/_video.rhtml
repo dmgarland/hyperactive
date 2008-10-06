@@ -9,7 +9,7 @@
         <p><%= "To get the latest version please".t %> <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"><%= "click here".t %></a>.</p>
     </div>
 	<script type="text/javascript">
-		var so = new SWFObject('/plugin_assets/hyperactive/flash/mediaplayer.swf','mpl','320','260','7');
+		var so = new SWFObject('/flash/mediaplayer.swf','mpl','320','260','7');
 		so.addParam('allowfullscreen','true');
 		so.addVariable('file','<%= video.file.url %>.flv');
 		so.addVariable('image','<%= video.file.url %>.jpg');	  

@@ -130,10 +130,7 @@ end
 # most sites.
 #
 require 'tag_extensions'
-require 'ruby-debug'
 require 'vpim/icalendar'
-
-Debugger.start
 
 ActiveRbac.controller_layout = "admin" 
 ActiveRecord::Base.verification_timeout = 14400

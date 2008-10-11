@@ -25,3 +25,5 @@ config.action_mailer.delivery_method = :test
 # click_to_globalize at some point.
 #config.plugins = ["tiny_mce", "ssl_requirement", "active_rbac",  "engines", "has_many_polymorphs", "acts_as_ferret", "backgroundrb", "ez-where", "paginating_find", "resource_feeder", "simply_helpful", "sub_list", "globalize", "simple_captcha", "white_list", "sanitize_params", "upload_column", "hyperactive"]
 
+require 'ruby-debug'
+Debugger.start

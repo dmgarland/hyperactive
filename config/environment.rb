@@ -69,6 +69,13 @@ Rails::Initializer.run do |config|
 
   config.gem 'mislav-will_paginate', :version => '2.3.4', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'acts_as_ferret'
+  config.gem 'ferret'
+  config.gem 'daemons'
+  config.gem 'slave'
+  config.gem 'vpim'
+  config.gem 'json'
+  config.gem 'rio'
+  config.gem 'rmagick', :version => '1.15.0'
 
 end
 

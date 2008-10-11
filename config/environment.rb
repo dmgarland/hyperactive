@@ -76,6 +76,7 @@ Rails::Initializer.run do |config|
   config.gem 'json'
   config.gem 'rio'
   config.gem 'rmagick', :version => '1.15.0'
+  config.gem 'ruby-debug'
 
 end
 

@@ -6,36 +6,23 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
 
-    # map the admin stuff into '/admin/'
-  map.connect '/admin/group/:action/:id',
-      :controller => 'active_rbac/group'
-  map.connect '/admin/role/:action/:id',
-      :controller => 'active_rbac/role'
-  map.connect '/admin/static_permission/:action/:id',
-      :controller => 'active_rbac/static_permission'
-  map.connect '/admin/user/:action/:id',
-      :controller => 'active_rbac/user'
-
-
-  map.upcoming_events 'events/upcoming',
-                :controller => 'events',
-                :action => 'upcoming'  
+  # map the role based access control stuff into '/admin/'
+  map.connect '/admin/group/:action/:id',:controller => 'active_rbac/group'
+  map.connect '/admin/role/:action/:id', :controller => 'active_rbac/role'
+  map.connect '/admin/static_permission/:action/:id', :controller => 'active_rbac/static_permission'
+  map.connect '/admin/user/:action/:id', :controller => 'active_rbac/user'
   
-  map.list_by_month '/events/list_by_month',
-                :controller => 'events',
-                :action => 'list_by_month'
+  # event mappings for listings
+  map.list_by_month '/events/list_by_month', :controller => 'events', :action => 'list_by_month'
+  map.list_by_week '/events/list_by_week', :controller => 'events', :action => 'list_by_week'
+  map.list_by_day '/events/list_by_day', :controller => 'events', :action => 'list_by_day'  
+  map.calendar_month '/events/calendar_month', :controller => 'events', :action => 'calendar_month'
 
-  map.list_by_week '/events/list_by_week',
-                :controller => 'events',
-                :action => 'list_by_week'
+  # content archive mappings
+  map.archive_articles '/articles/archives', :controller => 'articles', :action => 'archives'
+  map.archive_events '/events/archives', :controller => 'events', :action => 'archives'
+  map.archive_videos '/videos/archives', :controller => 'videos', :action => 'archives'
 
-  map.list_by_day '/events/list_by_day',
-                :controller => 'events',
-                :action => 'list_by_day'  
-  
-  map.calendar_month '/events/calendar_month',
-                :controller => 'events',
-                :action => 'calendar_month'
 
   map.resources :videos
   map.resources :events, :collection => { :list_promoted => :get }
@@ -65,76 +52,32 @@ ActionController::Routing::Routes.draw do |map|
   map.destroy_collective_membership 'collectives/destroy_membership/:id', :controller => 'collectives', :action => 'destroy_membership'
 
   # map the login and registration controller somewhere prettier than "active_rbac/foo"
-  map.connect '/login', :controller => 'active_rbac/login',
-      :action => 'login'
-  map.connect '/logout', :controller => 'active_rbac/login',
-      :action => 'logout'
-  map.connect '/register/confirm/:user/:token',
-      :controller => 'active_rbac/registration',
-      :action => 'confirm'
-  map.connect '/register/:action/:id',
-      :controller => 'active_rbac/registration'
+  map.connect '/login', :controller => 'active_rbac/login', :action => 'login'
+  map.connect '/logout', :controller => 'active_rbac/login', :action => 'logout'
+  map.connect '/register/confirm/:user/:token', :controller => 'active_rbac/registration', :action => 'confirm'
+  map.connect '/register/:action/:id', :controller => 'active_rbac/registration'
+  
   # hide '/active_rbac/*'
-  map.connect '/active_rbac/*foo',
-      :controller => 'error'
+  map.connect '/active_rbac/*', :controller => 'home'
       
-  map.connect 'page/:title', 
-                :controller => 'page', 
-                :action => 'show', 
-                :title => 'default'
-
-  map.timeline '/timeline/timeline/', 
-                :controller => 'timeline',
-                :action => 'timeline'
+  map.connect '/page/:title', :controller => 'page', :action => 'show', :title => 'default'
+  map.timeline '/timeline/timeline/', :controller => 'timeline', :action => 'timeline'
    
   # search mappings
-  map.tag_item '/search/by_tag/:scope',
-                :controller => 'search',
-                :action => 'by_tag',
-                :scope => 'internal_nyc'
-
-  map.place_tag_item '/search/by_place_tag/:scope',
-                :controller => 'search',
-                :action => 'by_place_tag',
-                :scope => 'internal_nyc'
-  
-  map.search '/search/find_content/',
-                :controller => 'search',
-                :action => 'find_content'
-  
-  map.featured_in_player '/featured_videos_json',
-                :controller => 'videos',
-                :action => 'featured_in_player'
-  
+  map.tag_item '/search/by_tag/:scope', :controller => 'search', :action => 'by_tag', :scope => 'internal_nyc'
+  map.place_tag_item '/search/by_place_tag/:scope', :controller => 'search', :action => 'by_place_tag', :scope => 'internal_nyc'
+  map.search '/search/find_content/', :controller => 'search', :action => 'find_content'
+  map.featured_in_player '/featured_videos_json', :controller => 'videos', :action => 'featured_in_player'
   
   # feeds
   #
-  map.feed_center 'feeds',
-                :controller => 'feeds'
-                
-  map.action_alert_feed '/feeds/action_alerts',
-                :controller => 'feeds',
-                :action => 'action_alerts'
-  
-  map.video_feed '/feeds/latest_videos', 
-                :controller => 'feeds', 
-                :action => 'latest_videos'
-  
-  map.latest_articles_feed 'feeds/latest_articles',
-                :controller => 'feeds',
-                :action => 'latest_articles'
-                
-  map.upcoming_events_feed 'feeds/upcoming_events',
-                :controller => 'feeds',
-                :action => 'upcoming_events'
-  
-  map.upcoming_events_by_tag_feed 'feeds/upcoming_events_by_tag',
-                :controller => 'feeds',
-                :action => 'upcoming_events_by_tag'  
-
-  map.upcoming_events_by_place_feed 'feeds/upcoming_events_by_place',
-                :controller => 'feeds',
-                :action => 'upcoming_events_by_place' 
+  map.feed_center 'feeds', :controller => 'feeds'           
+  map.action_alert_feed '/feeds/action_alerts', :controller => 'feeds', :action => 'action_alerts'
+  map.video_feed '/feeds/latest_videos', :controller => 'feeds', :action => 'latest_videos'
+  map.latest_articles_feed 'feeds/latest_articles', :controller => 'feeds', :action => 'latest_articles'
+  map.upcoming_events_feed 'feeds/upcoming_events', :controller => 'feeds', :action => 'upcoming_events'
+  map.upcoming_events_by_tag_feed 'feeds/upcoming_events_by_tag', :controller => 'feeds', :action => 'upcoming_events_by_tag'  
+  map.upcoming_events_by_place_feed 'feeds/upcoming_events_by_place', :controller => 'feeds', :action => 'upcoming_events_by_place' 
   
   # base url of application
   map.home '/', :controller => 'home'

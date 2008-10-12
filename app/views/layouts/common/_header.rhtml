@@ -16,7 +16,7 @@ Released   : 20071004
 <title><%= Hyperactive.site_name %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
     <%= stylesheet_link_tag 'default' %>
   	<% if using_tiny_mce? %>
-		<%= javascript_include_tag 'tiny_mce/tiny_mce', :plugin => 'tiny_mce' %>
+		<%= javascript_include_tag 'tiny_mce/tiny_mce' %>
 	  	<%= tiny_mce %>   
 	<% end %>
 	<%= javascript_include_tag 'prototype' %>

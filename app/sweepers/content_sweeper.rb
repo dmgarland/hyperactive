@@ -4,17 +4,20 @@ class ContentSweeper < ActionController::Caching::Sweeper
   
   def after_create(content)
     expire_home_page
+    expire_index_page_for(content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content)
   end
 
   def after_update(content)
     expire_home_page
+    expire_index_page_for(content)
     expire_cache_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content) 
   end
   
   def after_destroy(content)
     expire_home_page
+    expire_index_page_for(content)
     expire_cache_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content)      
   end
@@ -26,6 +29,13 @@ class ContentSweeper < ActionController::Caching::Sweeper
   #
   def expire_home_page
     expire_page(:controller => '/home', :action => 'index')
+  end
+  
+  # When any content is created, updated, or deleted, we should refresh the 
+  # cache of the index page in case the content shows up there.
+  #
+  def expire_index_page_for(content)
+    expire_page(:controller => content.class.to_s.downcase.pluralize, :action => 'index')
   end
   
   # Expire the cache for the content show page.  

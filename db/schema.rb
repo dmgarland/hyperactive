@@ -233,6 +233,11 @@ ActiveRecord::Schema.define(:version => 20080929235653) do
 
   add_index "place_tags", ["name"], :name => "index_place_tags_on_name", :unique => true
 
+  create_table "plugin_schema_info", :id => false, :force => true do |t|
+    t.string  "plugin_name"
+    t.integer "version",     :limit => 11
+  end
+
   create_table "roles", :force => true do |t|
     t.timestamp "created_at",                                :null => false
     t.timestamp "updated_at",                                :null => false

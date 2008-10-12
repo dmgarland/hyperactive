@@ -1,7 +1,7 @@
 <h1><%= 'Listing articles'.t %></h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <hr/>
-<%= link_to("More articles", archive_articles_path(:page => 2)) %>
+<%= page_links(@content) %>
 <% content_for :sidebar do %>
 	<%= render :partial => "articles/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/sidebar/tag_cloud" %>

@@ -1,7 +1,7 @@
 <h1><%= "Listing videos".t %></h1>
 <%= render :partial => "videos/video_summary", :collection => @content unless @content.blank? %>
 <hr/>
-<%= link_to("More videos", archive_videos_path(:page => 2)) %>
+<%= page_links(@content) %>
 <% content_for :sidebar do %>
 	<%= render :partial => 'videos/sidebar/feedbox' %>
 <% end %>

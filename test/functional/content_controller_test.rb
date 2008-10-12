@@ -8,6 +8,14 @@ module ContentControllerTest
     assert_equal 6, assigns(:content).size
   end  
   
+  def test_archives
+    get :archives
+    assert_response :success
+    assert_template 'archives'
+    assert_not_nil assigns(:content)
+    assert_equal 6, assigns(:content).size
+  end    
+  
   # There is one fixture with a promoted event.
   def test_list_promoted
     get :list_promoted

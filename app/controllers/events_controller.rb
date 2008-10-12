@@ -1,6 +1,6 @@
 class EventsController < ContentController
 
-  def upcoming
+  def index
     @cloud = Tag.cloud(:limit => 20)
     @content = model_class.paginate(
       :conditions => ['moderation_status != ? and date >=?', "hidden", Date.today.to_s], 

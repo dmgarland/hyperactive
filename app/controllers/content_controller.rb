@@ -31,6 +31,7 @@ class ContentController < ApplicationController
   require 'calendar_dates/week.rb'
   
   caches_page :show, :only_path => true
+  caches_page :index
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
   cache_sweeper :comment_sweeper, :only => [:create_comment]
   
@@ -63,6 +64,14 @@ class ContentController < ApplicationController
   end
   
   def index
+    @cloud = Tag.cloud(:limit => 20)
+    @content = model_class.paginate(
+      :conditions => ['moderation_status != ?', "hidden"], 
+      :order => 'created_on desc', 
+      :page => page_param)
+  end
+  
+  def archives
     @cloud = Tag.cloud(:limit => 20)
     @content = model_class.paginate(
       :conditions => ['moderation_status != ?', "hidden"], 

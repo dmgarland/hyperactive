@@ -8,7 +8,11 @@ class Content < ActiveRecord::Base
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"
   validates_length_of :title, :maximum => 50
   validates_presence_of :title, :summary, :published_by
-     
+  
+  cattr_reader :per_page
+  @@per_page = 10
+
+  
   # A convenience method to tell us whether this content is attached to 
   # an article or event.  Currently this should only ever return true for
   # Video, which is the only Content subtype that can be contained by

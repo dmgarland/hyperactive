@@ -19,9 +19,9 @@ ActionController::Routing::Routes.draw do |map|
   map.calendar_month '/events/calendar_month', :controller => 'events', :action => 'calendar_month'
 
   # content archive mappings
-  map.archive_articles '/articles/archives', :controller => 'articles', :action => 'archives'
-  map.archive_events '/events/archives', :controller => 'events', :action => 'archives'
-  map.archive_videos '/videos/archives', :controller => 'videos', :action => 'archives'
+  map.archive_articles '/articles/archives/:page', :controller => 'articles', :action => 'archives'
+  map.archive_events '/events/archives/:page', :controller => 'events', :action => 'archives'
+  map.archive_videos '/videos/archives/:page', :controller => 'videos', :action => 'archives'
 
 
   map.resources :videos

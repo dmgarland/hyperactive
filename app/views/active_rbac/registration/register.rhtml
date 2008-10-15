@@ -1,5 +1,25 @@
 <h1><%= 'Register'.t %></h1>
 
+<p>You will have to give a user name and password to register an account,
+giving an email address is optional.</p>
+
+<p>When you publish anything while logged in, you will be able to edit your
+contribution later on. This means the content you publish will be tied
+to your user ID. For the time being the user name will not show up as
+the author, but this might change.</p>
+
+<p>If you report an article through the "report or administer this article"
+form at the bottom of each article, an email will be sent to the
+publicly archived imc-london-moderation mailing list, citing your user name.</p>
+
+<p>If you do decide to give an email address, and we see that you are
+frequently reporting abuse or suggesting good stuff for promotion, we
+might get in touch with you to offer you hiding and promoting privileges
+on the site. Giving an email address will also enable you to retrieve
+your password in case you forget it.</p>
+
+<p>Any user accounts who violate the Editorial Guidelines will be removed.</p>
+
 <%= error_messages_for 'user' %>
 
 <% form_for :user, :url => { :action => :register } do |form| %>

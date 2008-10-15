@@ -10,10 +10,7 @@ class ActionAlertsController < ApplicationController
   end
 
   def list
-    @action_alerts = ActionAlert.find(
-      :all, 
-      :order => 'updated_on ASC',
-      :page => {:size => objects_per_page, :current => page_param})
+    @action_alerts = ActionAlert.paginate(:all, :order => 'updated_on ASC', :page =>  page_param)
   end
 
   def show

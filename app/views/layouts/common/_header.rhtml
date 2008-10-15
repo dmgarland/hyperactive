@@ -61,7 +61,7 @@ Released   : 20071004
 <div id="menu">
 	<ul id="main">
 		<%= tab_for("Home".t, home_path, :controller_name => "home") %>
-		<%= tab_for("Publish".t, publish_path, :controller_name => "publish") %>
+		<%= tab_for("Publish".t, publish_path, :controller_name => "page", :action => "show", :title => 'Publish Page') %>
 		<%= tab_for("Newswire".t, articles_path, :controller_name => "articles") %>
 		<%= tab_for("Events".t, events_path, :controller_name => "events") %>
 		<%= tab_for("Videos".t, videos_path, :controller_name => "videos") %>

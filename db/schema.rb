@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080929235653) do
+ActiveRecord::Schema.define(:version => 20081015193420) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -282,6 +282,7 @@ ActiveRecord::Schema.define(:version => 20080929235653) do
     t.datetime "updated_on"
     t.string   "key"
     t.string   "url"
+    t.string   "image"
   end
 
   create_table "static_permissions", :force => true do |t|

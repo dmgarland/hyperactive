@@ -29,6 +29,9 @@
 				<% else %>
 					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>			
 				<% end %>
+					<% if @snippet.has_image? %>
+						<%= image_tag @snippet.image.thumb.url, :class => 'left' %>
+					<% end %>
 					<%= @snippet.body %>
 			</li>
 		</ul>

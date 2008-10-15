@@ -2,7 +2,7 @@
 
 <%= error_messages_for :snippet %>
 
-<% form_for(:snippet, :url => admin_snippets_path) do |f| %>
+<% form_for(:snippet, :url => admin_snippets_path, :html => {:multipart => true}) do |f| %>
 
   <%= render :partial => 'form', :locals => {:f => f} %>
 

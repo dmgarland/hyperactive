@@ -17,3 +17,11 @@
   	<b>Title URL</b> (leave this blank if you don't want the title to link anywhere)<br/>
 	<%= f.text_field :url %>
   </p>
+  
+  <p>
+  	<% if @snippet.has_image? %>
+		<%= image_tag @snippet.image.thumb.url %><br/>
+	<% end %>
+  	<strong>Image upload</strong><br/>
+  	<%= upload_column_field("snippet", "image") %>
+  </p>

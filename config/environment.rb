@@ -77,7 +77,7 @@ Rails::Initializer.run do |config|
   config.gem 'rio'
   config.gem 'rmagick', :version => '1.15.0'
   config.gem 'ruby-debug'
-
+  config.gem 'simple-rss'
 end
 
 require 'hyperactive'

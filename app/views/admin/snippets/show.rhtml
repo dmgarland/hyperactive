@@ -8,10 +8,12 @@
   <%= @snippet.body %>
 </p>
 
-<p>
-	<strong>Image:</strong><br/>
-	<%= image_tag @snippet.image.thumb.url %>
-</p>
+<% if @snippet.has_image? %>
+	<p>
+		<strong>Image:</strong><br/>
+		<%= image_tag @snippet.image.thumb.url %>
+	</p>
+<% end %>
 
 <p>
   <b>Created on:</b>

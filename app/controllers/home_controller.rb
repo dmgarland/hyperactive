@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   # Must require the STI superclass explicitly in controllers.
   require_dependency 'content'    
   require_dependency 'post'
-  caches_page :index, :only_path => true
+  caches_page :index
   
   featured_events = []
   

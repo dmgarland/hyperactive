@@ -1,5 +1,5 @@
-set :deploy_to, "/var/www/londonstaging.escapegoat.org/"
+set :deploy_to, "/home/yossarian/www/london.indymedia.org.uk/"
 
-role :web, "londonstaging.escapegoat.org"
-role :app, "londonstaging.escapegoat.org"
-role :db,  "londonstaging.escapegoat.org", :primary => true
+role :web, "london.indymedia.org.uk"
+role :app, "london.indymedia.org.uk"
+role :db,  "london.indymedia.org.uk", :primary => true

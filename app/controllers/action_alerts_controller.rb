@@ -1,7 +1,5 @@
 class ActionAlertsController < ApplicationController
 
-
- 
   layout "two_column"
 
   def index

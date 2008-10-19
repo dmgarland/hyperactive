@@ -1,4 +1,5 @@
-<div class="post">
+<% css_class = @content.is_hidden? ? "post" : "hidden_post" %>
+<div class="<%= css_class %>">
 <h1><%=h video.title.titleize %></h1>
 <p class="byline"><%= image_tag "icon_video.gif" %> </image_tag><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small></p>
 <p><%= 'posted by'.t %> <strong><%=h @content.published_by.titleize %></strong></p>

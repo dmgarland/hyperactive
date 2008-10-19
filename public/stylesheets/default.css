@@ -175,15 +175,19 @@ img.right {
 /* Notice and Error Messages */
 
 .errorExplanation, .flash_error {
-	color: #000000;
-	background: #BC7268;
-	font-size: large;
+	color: #940F04;
+	background: #F59999;
+	font-size: 13px;
+	/*padding: 5px;
+	border: 1px solid #000;*/
 }
 
 .flash_notice {
-	color: #000000;
-	background: #89DBEE;
-	font-size: large;
+	color: #008000;
+	background: #89aa4f;
+	font-size: 13px;
+	/*padding: 5px;
+	border: 1px solid #000;*/
 }
 
 

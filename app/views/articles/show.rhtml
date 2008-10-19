@@ -1,7 +1,7 @@
 
 <% @page_title = @content.title %>
 <%= error_messages_for :comment %>
-<% css_class = @content.is_hidden? ? "post" : "hidden_post" %>
+<% css_class = @content.is_hidden? ? "hidden_post" : "post" %>
 <div class="<%= css_class %>">
 <h1 class="title"><%=h @content.title %></h1>
 <p class="byline"><%= image_tag "icon_article.gif" %> </image_tag><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small> <%= 'by'.t %> <strong><%=h @content.published_by.titleize %></strong></p>

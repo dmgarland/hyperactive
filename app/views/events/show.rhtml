@@ -1,6 +1,6 @@
 <% @page_title = @content.title %>
 <%= error_messages_for :comment %>
-<% css_class = @content.is_hidden? ? "post" : "hidden_post" %>
+<% css_class = @content.is_hidden? ? "hidden_post" : "post" %>
 <div class="<%= css_class %>">
 <h1 class="title"><%=h @content.title %></h1>
 <p class="byline"><%= image_tag "date.png" %> <small><%= 'Event date:'.t %> <%=h long_date(@content.date) %></small> <%= "by".t %> <strong><%=h @content.published_by.titleize %></strong></p>

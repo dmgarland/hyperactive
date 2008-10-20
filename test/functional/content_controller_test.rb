@@ -66,7 +66,7 @@ module ContentControllerTest
     num_content = model_class.count
     post :create, :content => {
                               :title => "Test content",
-                              :date => DateTime.new(2007,1,1),
+                              :date => 3.hours.from_now,
                               :body => "This is a test",
                               :summary => "A summary",
                               :published_by => "Yoss", 
@@ -100,7 +100,7 @@ module ContentControllerTest
     num_content = model_class.count
     post :create, :content => {
                               :title => "Test content2",
-                              :date => DateTime.new(2007,1,1),
+                              :date => 3.hours.from_now,
                               :body => "This is a test",
                               :summary => "A summary",
                               :moderation_status => "promoted",

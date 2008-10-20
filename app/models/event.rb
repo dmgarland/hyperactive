@@ -2,7 +2,7 @@ class Event < Post
   
   belongs_to :event_group  
   validates_presence_of :body, :date
-  
+    
   # Copy an event and return it as a new object.  Note that currently
   # this doesn't copy an event's tags or place tags, that needs to be done externally
   def Event.copy(event)
@@ -82,15 +82,30 @@ class Event < Post
   
   private 
   
+  def validate_on_create
+    validate_more_than_two_hours_from_now
+  end
+  
+  def validate
+    validate_start_date_before_end_date
+  end
+  
   # Validate the event to be sure that if there is an end date, it is set to
   # be after the start date.
-  def validate
+  #
+  def validate_start_date_before_end_date
     if end_date != nil
       unless end_date >  date
         errors.add(:end_date, "must be after start date")
       end
     end
   end
+  
+  def validate_more_than_two_hours_from_now
+    if date < 2.hours.from_now
+      errors.add(:date, "must be at least two hours in the future")
+    end
+  end  
   
 
   

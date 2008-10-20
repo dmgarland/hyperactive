@@ -131,7 +131,7 @@ class EventControllerTest < Test::Unit::TestCase
     num_events = Event.count
     post :create, :content => {
                               :title => "A test multiple event", 
-                              :date => DateTime.new(2007, 5, 1),
+                              :date => DateTime.new(2009, 5, 1),
                               :body => "This should repeat",
                               :summary => "A summary",
                               :published_by => "Yoss",
@@ -141,7 +141,7 @@ class EventControllerTest < Test::Unit::TestCase
                             :event_repeat_type => "repeat_simple",
                             :event_repeats_every => "1",
                             :event_repeats_dwm => "week",
-                            :date => {:year => 2007, :month => 6, :day => 15},
+                            :date => {:year => 2009, :month => 6, :day => 15},
                             :tags => "foo bar",
                             :place_tags => "london brixton"
                             
@@ -171,7 +171,7 @@ class EventControllerTest < Test::Unit::TestCase
     num_events = Event.count
     post :create, :content => {
                               :title => "A test multiple event", 
-                              :date => DateTime.new(2007, 5, 1),
+                              :date => DateTime.new(2009, 5, 1),
                               :body => "This should repeat",
                               :summary => "A summary",                              
                               :published_by => "Yoss",
@@ -183,7 +183,7 @@ class EventControllerTest < Test::Unit::TestCase
                             :event_repeats_which_week => "second",
                             :event_repeats_week_day => "Wednesday",
                             :event_repeat_period => 1,
-                            :date => {:year => 2007, :month => 8, :day => 15},
+                            :date => {:year => 2009, :month => 8, :day => 15},
                             :tags => "",
                             :place_tags => ""
                             

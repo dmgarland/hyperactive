@@ -38,7 +38,7 @@ module ApplicationHelper
   end
   
   def long_date(date)
-    "#{date.strftime('%A %B %d, %G %H:%M')}"
+    "#{date.strftime('%A %d %B %G %H:%M')}"
   end  
   
   def editable_by?(user, event)

@@ -23,20 +23,20 @@ class ContentSweeper < ActionController::Caching::Sweeper
   end
   
   private
-
-  # When any content is created, updated, or deleted, we should refresh the
-  # cache of the home page in case the content is on the home page.
-  #
-  def expire_home_page
-    expire_page(:controller => '/home', :action => 'index')
-  end
-  
+ 
   # When any content is created, updated, or deleted, we should refresh the 
   # cache of the index page in case the content shows up there.
   #
   def expire_index_page_for(content)
     expire_page(:controller => content.class.to_s.downcase.pluralize, :action => 'index')
   end
+
+  # When any content is created, updated, or deleted, we should refresh the
+  # cache of the home page in case the content is on the home page.
+  #
+  def expire_home_page
+    expire_page(root_path)
+  end  
   
   # Expire the cache for the content show page.  
   #

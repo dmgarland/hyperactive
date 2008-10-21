@@ -52,15 +52,15 @@ Released   : 20071004
 <% end %>
 <!-- start header -->
 <div id="logo">
-	<p><%= link_to image_tag(Hyperactive.banner_image), home_path %></p>
+	<p><%= link_to image_tag(Hyperactive.banner_image), root_path %></p>
 	<% if Hyperactive.show_site_name_in_banner %>
-		<h1><%= link_to "#{Hyperactive.site_name}", {:controller => '/home', :action => 'index' } %></h1>
+		<h1><%= link_to "#{Hyperactive.site_name}", root_path %></h1>
 	<% end %>
 	<!-- <p>By Free CSS Templates</p> -->
 </div>
 <div id="menu">
 	<ul id="main">
-		<%= tab_for("Home".t, home_path, :controller_name => "home") %>
+		<%= tab_for("Home".t, root_path, :controller_name => "home") %>
 		<%= tab_for("Publish".t, publish_path, :controller_name => "page", :action => "show", :title => 'Publish Page') %>
 		<%= tab_for("Newswire".t, articles_path, :controller_name => "articles") %>
 		<%= tab_for("Events".t, events_path, :controller_name => "events") %>

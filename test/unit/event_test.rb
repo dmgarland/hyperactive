@@ -8,7 +8,7 @@ class EventTest < Test::Unit::TestCase
     assert_valid_value(Event, :title, ["a", "valid title"])
     assert_invalid_value(Event, :body, [nil, ""])
     assert_valid_value(Event, :body, ["a", "valid description"])
-    assert_valid_value(Event, :date, DateTime.new)
+    assert_valid_value(Event, :date, 3.hours.from_now)
     assert_invalid_value(Event, :published_by, [nil, ""])
     assert_valid_value(Event, :published_by, ["marcos", "ramona"])
   end

@@ -45,7 +45,7 @@ class Test::Unit::TestCase
   end 
   
   def assert_security_error
-    assert_redirected_to home_path
+    assert_redirected_to root_path
     assert_equal "You are not allowed to access this page.", flash[:notice]
   end
    

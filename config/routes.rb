@@ -58,7 +58,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/register/:action/:id', :controller => 'active_rbac/registration'
   
   # hide '/active_rbac/*'
-  map.connect '/active_rbac/*', :controller => 'home'
+  map.connect '/active_rbac/*', :controller => 'home', :action => 'index'
       
   map.connect '/page/:title', :controller => 'page', :action => 'show', :title => 'default'
   map.timeline '/timeline/timeline/', :controller => 'timeline', :action => 'timeline'
@@ -80,9 +80,8 @@ ActionController::Routing::Routes.draw do |map|
   map.upcoming_events_by_place_feed 'feeds/upcoming_events_by_place', :controller => 'feeds', :action => 'upcoming_events_by_place' 
   
   # base url of application
-  map.home '/', :controller => 'home'
+  map.root :controller => 'home', :action => 'index'
 
-  map.connect '', :controller => "home"
   map.connect '/admin/', :controller => "admin/category"
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'

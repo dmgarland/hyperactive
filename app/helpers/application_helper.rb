@@ -41,8 +41,8 @@ module ApplicationHelper
     "#{date.strftime('%A %d %B %G %H:%M')}"
   end  
   
-  def editable_by?(user, event)
-    current_user.has_permission?("edit_all_content") || (current_user.has_permission?("edit_own_content") && event.user == current_user)
+  def editable_by?(user, content)
+    current_user.has_permission?("edit_all_content") || (current_user.has_permission?("edit_own_content") && content.user == current_user)
   end
   
   # Builds navigation tabs 

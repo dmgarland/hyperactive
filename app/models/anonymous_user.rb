@@ -229,4 +229,16 @@ class AnonymousUser
   end       
   
   
+  # Can the user destroy content?
+  def can_destroy?(content)
+    return false
+  end
+
+  # Checks to see if a user can edit content based on permissions, ownership, 
+  # and collective membership.
+  #
+  def can_edit?(content)
+    return false
+  end  
+  
 end

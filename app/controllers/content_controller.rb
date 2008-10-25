@@ -230,17 +230,14 @@ class ContentController < ApplicationController
   # the user and the content share at least one collective in common.
   #
   def can_edit?
-    current_content = Content.find(params[:id])
-    return true if current_user.has_permission?("edit_all_content")  
-    return true if current_user.has_permission?("edit_own_content")  && current_content.user == current_user
-    return true if (current_user.collectives.map(&:id) & current_content.collectives.map(&:id)).length > 0
+    return true if current_user.can_edit?(Content.find(params[:id]))
     security_error
   end
   
   # Checks permissions to see if the current user can destroy content.
   #
   def can_destroy?
-    return true if current_user.has_permission?("destroy")  
+    return true if current_user.can_destroy?(Content.find(params[:id]))
     security_error
   end
   

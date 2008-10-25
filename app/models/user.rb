@@ -28,8 +28,29 @@ class User < ActiveRecord::Base
   def is_member_of?(collective)
     self.collectives.include?(collective)
   end
+  
+  #############################
+  #     Security code         #
+  #############################
 
- # Checks permissions and ownership to see if a given user can hide a comment.
+
+  # Can the user destroy content?
+  def can_destroy?(content)
+    return true if self.has_permission?("destroy") 
+    return false
+  end
+
+  # Checks to see if a user can edit content based on permissions, ownership, 
+  # and collective membership.
+  #
+  def can_edit?(content)
+    return true if self.has_permission?("edit_all_content")  
+    return true if self.has_permission?("edit_own_content")  && content.user == self
+    return true if (self.collectives.map(&:id) & content.collectives.map(&:id)).length > 0
+    return false
+  end
+
+  # Checks permissions and ownership to see if a given user can hide a comment.
   #
   def can_hide_comment?(comment)
     return true if self.has_permission?("hide")  

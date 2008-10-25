@@ -1,2 +1,6 @@
-<%= render :partial => 'hidden/hiding_controls' %>
+<% if current_user.can_hide_content?(@content) %>
+	<%= render :partial => 'hidden/hiding_controls' %>
+<% else %>
+	<%= render :partial => 'hidden/report_this_controls' %>
+<% end %>
 <%= render :partial => 'shared/content/conditional_edit_link' %>

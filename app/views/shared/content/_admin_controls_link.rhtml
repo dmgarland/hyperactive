@@ -10,9 +10,9 @@
     <% else %>
         <%= link_to_remote "Unhide this #{@content.class.to_s.humanize.downcase}".t,
                             :url => {:controller => 'hidden', :action => 'unhiding_controls', :id => @content.id },
-                            :update => 'hiding-controls',
-							:before => "$('hiding-controls').innerHtml = 'Loading...'",
-							:complete => "new Effect.BlindDown('hiding-controls');"                 
+                            :update => 'admin-controls',
+							:before => "$('admin-controls').innerHtml = 'Loading...'",
+							:complete => "new Effect.BlindDown('admin-controls');"                 
         %>
     <% end %></p>
 </div>

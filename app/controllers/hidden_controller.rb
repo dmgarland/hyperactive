@@ -14,7 +14,7 @@ class HiddenController < ApplicationController
   def list
     @content = Content.paginate(
       :conditions => ['moderation_status = ?', "hidden"], 
-      :order => 'date ASC',
+      :order => 'created_on DESC',
       :page => page_param)
   end
   

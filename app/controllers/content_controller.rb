@@ -209,7 +209,7 @@ class ContentController < ApplicationController
       @content = Content.find(@id)
       render :partial => 'shared/content/admin_controls', :layout => false
     else
-      render :template => 'hidden/report_this_controls', :layout => false
+      render :partial => 'hidden/report_this_controls', :layout => false
     end
   end
 

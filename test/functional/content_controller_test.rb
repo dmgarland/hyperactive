@@ -195,7 +195,7 @@ module ContentControllerTest
   def test_admin_controls_by_anonymous_should_return_report_controls
     get :admin_controls, {:id => 1}
     assert_response :success
-    assert_template 'report_this_controls'
+    assert_template '_report_this_controls'
   end    
   
   private

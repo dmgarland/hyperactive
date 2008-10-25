@@ -101,6 +101,8 @@ class Event < Post
     end
   end
   
+  # Validate that the event is more than 2 hours in the future
+  #
   def validate_more_than_two_hours_from_now
     if date < 2.hours.from_now
       errors.add(:date, "must be at least two hours in the future")

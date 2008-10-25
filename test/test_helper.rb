@@ -29,6 +29,8 @@ class Test::Unit::TestCase
       value.each { |v| assert_invalid_value model_class, attribute, v }
     else
       record = model_class.new(attribute => value)
+      # HACK: this allows the Events to bypass their validate_more_than_two_hours_from_now method
+      record.date = 1.day.from_now if model_class == Event
       assert !record.valid?, "#{model_class} expected to be invalid when #{attribute} is #{value}"
       assert record.errors.invalid?(attribute), "#{attribute} expected to be invalid when set to #{value}"
     end
@@ -39,6 +41,8 @@ class Test::Unit::TestCase
       value.each { |v| assert_valid_value model_class, attribute, v }
     else
       record = model_class.new(attribute => value)
+      # HACK: this allows the Events to bypass their validate_more_than_two_hours_from_now method
+      record.date = 1.day.from_now if model_class == Event     
       record.valid? #assert record.valid?, "#{model_class} expected to be valid when #{attribute} is #{value}"
       assert_equal record.errors.invalid?(attribute), false, "#{attribute} expected to be valid when set to #{value}"
     end

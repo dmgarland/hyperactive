@@ -82,6 +82,38 @@ class HiddenControllerTest < Test::Unit::TestCase
       assert_equal place_tagging.hide_tag, event.is_hidden?
     end
   end
+
+  def test_hide_own_content_by_registered_user_should_work
+    post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user).id }
+    event = Event.find(10)
+    assert_response :success
+    assert_equal "hidden", event.moderation_status, "Hidden event should be hidden."
+    assert_equal "The event has been hidden and an email sent.", flash[:notice]
+    event.taggings.each do |tagging|
+      assert_equal tagging.hide_tag, true
+      assert_equal tagging.hide_tag, event.is_hidden?
+    end
+    event.place_taggings.each do |place_tagging|
+      assert_equal place_tagging.hide_tag, true
+      assert_equal place_tagging.hide_tag, event.is_hidden?
+    end
+  end
+
+  def test_hide_own_content_by_wrong_registered_user_should_not_work
+    post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user_2).id }
+    event = Event.find(10)
+    assert_response :success
+    assert_equal "hidden", event.moderation_status, "Hidden event should be hidden."
+    assert_equal "The event has been hidden and an email sent.", flash[:notice]
+    event.taggings.each do |tagging|
+      assert_equal tagging.hide_tag, false
+      assert_equal tagging.hide_tag, !event.is_hidden?
+    end
+    event.place_taggings.each do |place_tagging|
+      assert_equal place_tagging.hide_tag, false
+      assert_equal place_tagging.hide_tag, !event.is_hidden?
+    end
+  end
   
   def test_unhiding_controls_without_being_logged_in
     get :unhiding_controls, {:id => 1}

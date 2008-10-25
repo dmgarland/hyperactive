@@ -28,7 +28,7 @@
 <%= render :partial => "shared/content/list_links" %>
 <%= render :partial => "shared/content/email_display" %>     
 
-<%= render :partial => 'shared/content/hiding_controls' %>
+<%= render :partial => 'shared/content/admin_controls_link' %>
 
 <% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
 <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.published_comments %>

@@ -203,6 +203,16 @@ class ContentController < ApplicationController
     render :template => "shared/content/comments/form"# ,:layout => false
   end
 
+  def admin_controls
+    @id = params[:id]
+    if current_user.has_permission?("hide") || current_user.has_permission?("edit_own_content") || current_user.has_permission?("edit_all_content")
+      @content = Content.find(@id)
+      render :partial => 'shared/content/admin_controls', :layout => false
+    else
+      render :template => 'hidden/report_this_controls', :layout => false
+    end
+  end
+
   protected
 
   def redisplay_publish_form

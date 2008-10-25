@@ -1,11 +1,11 @@
-<div id="hiding-controls">
+<div id="admin-controls">
 	<p><%= image_tag "asterisk_yellow.png" %>
     <% if @content.is_not_hidden? %>
        <%= link_to_remote "Report or administer this #{@content.class.to_s.humanize.downcase}".t,
-                            :url => {:controller => 'hidden', :action => 'hiding_controls', :id => @content.id },
-                            :update => 'hiding-controls',  
-							:before => "$('hiding-controls').innerHtml = 'Loading...'",
-							:complete => "new Effect.BlindDown('hiding-controls');"                 
+                            :url => {:action => 'admin_controls', :id => @content.id },
+                            :update => 'admin-controls',
+							:before => "$('admin-controls').innerHtml = 'Loading...'",
+							:complete => "new Effect.BlindDown('admin-controls');"
         %>
     <% else %>
         <%= link_to_remote "Unhide this #{@content.class.to_s.humanize.downcase}".t,

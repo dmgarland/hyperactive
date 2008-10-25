@@ -42,7 +42,11 @@ module ApplicationHelper
   end  
   
   def editable_by?(user, content)
-    current_user.has_permission?("edit_all_content") || (current_user.has_permission?("edit_own_content") && content.user == current_user)
+    user.has_permission?("edit_all_content") || (user.has_permission?("edit_own_content") && content.user == user)
+  end
+
+  def hideable_by?(user, content)
+    user.has_permission?("hide") || (user.has_permission?("hide_own_content") && content.user == user)
   end
   
   # Builds navigation tabs 

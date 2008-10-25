@@ -3,12 +3,7 @@ class HiddenController < ApplicationController
   layout 'home'
   before_filter :can_use_hide_content?, :only => [:hide, :event_group_hiding_controls, :unhide]
   before_filter :can_use_hide_comment?, :only => [:hide_comment, :unhide_comment]
-  
-  
-  
-#  [:list, :index, :hiding_controls, :report, :unhiding_controls, 
-#  :comment_hiding_controls, :comment_unhiding_controls, :report_comment, :hide_comment]
-    
+      
   cache_sweeper :content_sweeper, :only => [:hide, :unhide]
   cache_sweeper :comment_sweeper, :only => [:hide_comment, :unhide_comment]
      
@@ -81,7 +76,7 @@ class HiddenController < ApplicationController
     
   def comment_hiding_controls
     @id = params[:id]
-    if can_hide_comment?   
+    if current_user.can_hide_comment?(Comment.find(params[:id])) 
       render :layout => false
     else
       render :template => 'hidden/report_comment_controls', :layout => false
@@ -90,7 +85,7 @@ class HiddenController < ApplicationController
 
   def comment_unhiding_controls
     @id = params[:id]
-    if can_hide_comment?
+    if current_user.can_hide_comment?(Comment.find(params[:id]))
       render :layout => false
     else
       render :text => "You are not allowed to unhide things."
@@ -151,25 +146,8 @@ class HiddenController < ApplicationController
 
 #  end  
 
-  # Checks permissions and ownership to see if a given user can hide a comment
-  # or piece of content.
-  #
-  def can_hide_comment?
-    @comment = Comment.find(params[:id])
-    return true if current_user.has_permission?("hide")  
-    return true if current_user.has_permission?("hide_own_content")  && @comment.content.user == current_user
-    return false
-  end
-  
-  def can_hide_content?
-    @content = Content.find(params[:id])
-    return true if current_user.has_permission?("hide")  
-    return true if current_user.has_permission?("hide_own_content")  && @content.user == current_user
-    return false
-  end
-  
   def can_use_hide_comment?
-    if can_hide_comment?
+    if current_user.can_hide_comment?(Comment.find(params[:id]))
       true
     else
       security_error
@@ -177,7 +155,7 @@ class HiddenController < ApplicationController
   end
   
   def can_use_hide_content?
-    if can_hide_content?
+    if current_user.can_hide_content?(Content.find(params[:id]))
       true
     else
       security_error

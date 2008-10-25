@@ -220,4 +220,13 @@ class AnonymousUser
     []
   end
   
+  def can_hide_comment?(comment)
+    false
+  end
+  
+  def can_hide_content?(content)
+    false
+  end       
+  
+  
 end

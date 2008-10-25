@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
 #  
 #  helper :all
 #  protect_from_forgery :secret => '83c8a9e668d98a650e444d7f72d44dff'
-        
+
+
   # Because we're deployed on mod_rails and also have mod_removeip installed on the server, Rails thinks that 
   # all requests are local (since mod_rails is getting its request from 127.0.0.1 and there is no remote_ip.
   # This means our normal configuration setup for a production Rails app doesn't quite work and we're *always*
@@ -117,4 +118,5 @@ class ApplicationController < ActionController::Base
     @current_action = action_name
     @current_controller = controller_name
   end  
+    
 end

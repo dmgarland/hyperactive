@@ -75,12 +75,13 @@ Rails::Initializer.run do |config|
   config.gem 'vpim'
   config.gem 'json'
   config.gem 'rio'
-  config.gem 'rmagick', :version => '1.15.0'
   config.gem 'ruby-debug'
   config.gem 'simple-rss'
 end
 
 require 'hyperactive'
+gem 'rmagick'
+require 'RMagick'
 
 # Add new inflection rules using the following format 
 # (all these examples are active by default):

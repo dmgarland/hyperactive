@@ -66,4 +66,9 @@ class User < ActiveRecord::Base
     return false
   end
   
+  def can_unhide_content?(content)
+    return true if self.has_permission?("hide")  
+    return false    
+  end
+  
 end

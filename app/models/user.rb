@@ -29,8 +29,7 @@ class User < ActiveRecord::Base
     self.collectives.include?(collective)
   end
 
- # Checks permissions and ownership to see if a given user can hide a comment
-  # or piece of content.
+ # Checks permissions and ownership to see if a given user can hide a comment.
   #
   def can_hide_comment?(comment)
     return true if self.has_permission?("hide")  
@@ -38,6 +37,8 @@ class User < ActiveRecord::Base
     return false
   end
   
+  # Checks permissions and ownership to see if a given user can hide a piece of content.
+  #
   def can_hide_content?(content)
     return true if self.has_permission?("hide")  
     return true if self.has_permission?("hide_own_content")  && content.user == self

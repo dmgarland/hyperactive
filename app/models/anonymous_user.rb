@@ -226,7 +226,15 @@ class AnonymousUser
   
   def can_hide_content?(content)
     false
-  end       
+  end     
+  
+  # Checks to see if a user can unhide a piece of content.  Note that this is somewhat different from
+  # the can_hide_content? check, we don't want every user to be able to unhide their own crap if somebody
+  # hides it (there'd be a lot of battles between site admins and registered users if this were the case).
+  # 
+  def can_unhide_content?(content)
+    return false    
+  end  
   
   
   # Can the user destroy content?

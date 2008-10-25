@@ -22,7 +22,6 @@ class SearchControllerTest < Test::Unit::TestCase
     assert_template 'by_tag'
     assert_match(/Tagged with &lsquo;bar_tag&rsquo;/, @response.body)
     assert_match(/The Birthday/, @response.body)
-    assert_match(/Thursday February 23, 2006/, @response.body)
   end
   
   # Tags are searched based on a date parameter or starting from the present day

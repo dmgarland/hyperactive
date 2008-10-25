@@ -32,23 +32,12 @@ class HiddenControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:content)
   end
   
-  def test_hiding_controls_without_being_logged_in
-    get :hiding_controls, :id => 1
-    assert_template "hidden/report_this_controls", "Users who can't hide should be shown the 'report this' controls"
-  end
   
   def test_comment_hiding_controls_without_being_logged_in
     get :comment_hiding_controls, :id => 1
     assert_template "hidden/report_comment_controls", "Users who can't hide should be shown the 'report this' controls"
   end  
-  
-  
-  def test_hiding_controls
-    get :hiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
-    assert_response :success
-    assert_template 'hiding_controls'
-  end
-  
+    
   def test_comment_hiding_controls
     get :comment_hiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
     assert_response :success
@@ -85,34 +74,19 @@ class HiddenControllerTest < Test::Unit::TestCase
 
   def test_hide_own_content_by_registered_user_should_work
     post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user).id }
-    event = Event.find(10)
+    article = Article.find(10)
     assert_response :success
-    assert_equal "hidden", event.moderation_status, "Hidden event should be hidden."
-    assert_equal "The event has been hidden and an email sent.", flash[:notice]
-    event.taggings.each do |tagging|
+    assert_equal "hidden", article.moderation_status, "Hidden article should be hidden."
+    assert_equal "The article has been hidden and an email sent.", flash[:notice]
+    article.taggings.each do |tagging|
       assert_equal tagging.hide_tag, true
-      assert_equal tagging.hide_tag, event.is_hidden?
-    end
-    event.place_taggings.each do |place_tagging|
-      assert_equal place_tagging.hide_tag, true
-      assert_equal place_tagging.hide_tag, event.is_hidden?
+      assert_equal tagging.hide_tag, article.is_hidden?
     end
   end
 
   def test_hide_own_content_by_wrong_registered_user_should_not_work
     post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user_2).id }
-    event = Event.find(10)
-    assert_response :success
-    assert_equal "hidden", event.moderation_status, "Hidden event should be hidden."
-    assert_equal "The event has been hidden and an email sent.", flash[:notice]
-    event.taggings.each do |tagging|
-      assert_equal tagging.hide_tag, false
-      assert_equal tagging.hide_tag, !event.is_hidden?
-    end
-    event.place_taggings.each do |place_tagging|
-      assert_equal place_tagging.hide_tag, false
-      assert_equal place_tagging.hide_tag, !event.is_hidden?
-    end
+    assert_security_error
   end
   
   def test_unhiding_controls_without_being_logged_in
@@ -133,15 +107,13 @@ class HiddenControllerTest < Test::Unit::TestCase
   end  
 
   def test_unhide_event_without_being_logged_in
-    post :unhide_event, {:id => 1}
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    post :unhide, {:id => 1}
+    assert_security_error
   end
   
   def test_unhide_comment_without_being_logged_in
     post :unhide_comment, {:id => 1}
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    assert_security_error
   end  
   
   def test_unhide_event
@@ -169,9 +141,8 @@ class HiddenControllerTest < Test::Unit::TestCase
   end  
   
   def test_hide_event_group_controls_without_being_logged_in
-    get :event_group_hiding_controls, {:id => 1}
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]    
+    get :event_group_hiding_controls, {:id => 5}
+    assert_security_error   
   end
 
   def test_hide_event_group_controls
@@ -181,9 +152,8 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
 
   def test_hide_event_group_without_being_logged_in
-    post :hide_event_group, {:id => 1}
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]  
+    post :hide, {:id => 5, :hide_all_events_in_event_group => true}
+    assert_security_error 
   end
   
   def test_hide_event_group

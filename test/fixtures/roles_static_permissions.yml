@@ -21,3 +21,7 @@ hider_hide:
 admin_destroy:
   role_id: 1
   static_permission_id: 5
+  
+registered_hide_own_content:
+  role_id: 3
+  static_permission_id: 6

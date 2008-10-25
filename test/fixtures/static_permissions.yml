@@ -17,3 +17,7 @@ see_admin_nav:
 destroy:
   id: 5
   title: destroy
+  
+hide_own_content:
+  id: 6
+  title: hide_own_content

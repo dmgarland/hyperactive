@@ -186,6 +186,17 @@ module ContentControllerTest
     assert !assigns(:content).collectives.include?(collectives(:indy_london)), "This content shouldn't be in any collective."    
   end
   
+  def test_admin_controls
+    get :admin_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
+    assert_response :success
+    assert_template '_admin_controls'
+  end  
+    
+  def test_admin_controls_by_anonymous_should_return_report_controls
+    get :admin_controls, {:id => 1}
+    assert_response :success
+    assert_template 'report_this_controls'
+  end    
   
   private
   

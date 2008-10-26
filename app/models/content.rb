@@ -66,6 +66,7 @@ class Content < ActiveRecord::Base
   # status (if one has been submitted). 
   #
   def set_moderation_status(status, user)
+    puts "#{user.login} attempting to set status: #{status}, current status  is #{self.moderation_status}"
     unless status.nil?
       self.moderation_status = status if user.can_set_moderation_status_to?(status, self)
     end

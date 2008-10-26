@@ -100,9 +100,33 @@ module ContentControllerTest
   end    
   
   def test_moderation_status_can_be_set_to_featured_with_feature_permission
-    post :create, params_for_valid_content, as_user(:marcos)
+    post :create, params_for_valid_content.merge(:content => {:moderation_status => "featured"}), as_user(:marcos)
     assert_equal assigns(:content).moderation_status, "featured"
   end
+  
+  def test_moderation_status_can_be_updated_with_feature_permission
+    put :update, {:id => @first_id, :content => {:moderation_status => "featured"},:tags => "", :place_tags => ""}, as_user(:marcos)
+    assert_equal assigns(:content).moderation_status, "featured"
+  end
+  
+  def test_moderation_status_cannot_be_updated_without_feature_permission
+    original_status = Content.find(@first_id).moderation_status
+    put :update, {:id => @first_id, :content => {:moderation_status => "featured"},:tags => "", :place_tags => ""}, as_user(:registered_user)
+    assert_equal original_status, assigns(:content).moderation_status
+  end
+  
+  def test_moderation_status_can_be_updated_with_promote_permission
+    put :update, {:id => @first_id, :content => {:moderation_status => "promoted"},:tags => "", :place_tags => ""}, as_user(:marcos)
+    assert_equal assigns(:content).moderation_status, "promoted"
+  end
+  
+  def test_moderation_status_cannot_be_updated_without_promote_permission
+    content = Content.find(@first_id)
+    content.moderation_status = "published"
+    content.save!
+    put :update, {:id => @first_id, :content => {:moderation_status => "promoted"},:tags => "", :place_tags => ""}, as_user(:registered_user)
+    assert_equal "published", assigns(:content).moderation_status
+  end  
   
   def test_edit_does_not_work_for_anonymous
     get :edit, :id => @first_id
@@ -190,7 +214,7 @@ module ContentControllerTest
                           :date => 3.hours.from_now,
                           :body => "This is a test",
                           :summary => "A summary",
-                          :moderation_status => "featured",
+                          :moderation_status => "published",
                           :published_by => "Yoss", 
                           :place => "London", 
                           :collective_ids => [collectives(:indy_london).id]

@@ -13,36 +13,41 @@ Released   : 20071004
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title><%= Hyperactive.site_name %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
-    <%= stylesheet_link_tag 'default' %>
-  	<% if using_tiny_mce? %>
-		<%= javascript_include_tag 'tiny_mce/tiny_mce' %>
-	  	<%= tiny_mce %>   
-	<% end %>
-	<%= javascript_include_tag 'prototype' %>
-	<%= javascript_include_tag 'application' %>	
-	<%= javascript_include_tag 'effects' %>
-	<%= javascript_include_tag 'controls' %>
-	<%= javascript_include_tag 'flash' %>
-	<%= javascript_include_tag 'user-info' %>
-	<%= javascript_include_tag 'json' %>
-	<%= javascript_include_tag 'cookie' %>
-     <% if controller.action_name == "timeline" %>
-        <%= javascript_include_tag 'uk-timeline' %>
-		<%= javascript_include_tag 'timeline/timeline-api' %>
-     <% end %>
-     <% if (@current_action == "show" && @current_controller == "videos") || (@current_controller == "home" && @current_action == "index")  %>
-        <%= javascript_include_tag 'swfobject' %>
-     <% end %>     
-    <% if controller.action_name == "by_place_tag" %>
-        <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_by_place', :scope => params[:scope]) %>
-    <% elsif controller.action_name == "by_tag" %>
-        <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_tagged', :scope => params[:scope]) %>
-    <% else %>
-        <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'latest_articles') %>
-    <% end %>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<% if (@current_controller == "articles" || @current_controller == "events" || @current_controller == "videos") && @current_action == "show" && @content.is_hidden? %>
+<meta name="robots" content="noindex,nofollow" />
+<% end %>
+<title>
+<%= Hyperactive.site_name %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %>
+</title>
+<%= stylesheet_link_tag 'default' %>
+	<% if using_tiny_mce? %>
+	<%= javascript_include_tag 'tiny_mce/tiny_mce' %>
+  	<%= tiny_mce %>   
+<% end %>
+<%= javascript_include_tag 'prototype' %>
+<%= javascript_include_tag 'application' %>	
+<%= javascript_include_tag 'effects' %>
+<%= javascript_include_tag 'controls' %>
+<%= javascript_include_tag 'flash' %>
+<%= javascript_include_tag 'user-info' %>
+<%= javascript_include_tag 'json' %>
+<%= javascript_include_tag 'cookie' %>
+ <% if controller.action_name == "timeline" %>
+    <%= javascript_include_tag 'uk-timeline' %>
+	<%= javascript_include_tag 'timeline/timeline-api' %>
+ <% end %>
+ <% if (@current_action == "show" && @current_controller == "videos") || (@current_controller == "home" && @current_action == "index")  %>
+    <%= javascript_include_tag 'swfobject' %>
+ <% end %>     
+<% if controller.action_name == "by_place_tag" %>
+    <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_by_place', :scope => params[:scope]) %>
+<% elsif controller.action_name == "by_tag" %>
+    <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_tagged', :scope => params[:scope]) %>
+<% else %>
+    <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'latest_articles') %>
+<% end %>
 </head>
 
 <% if controller.action_name == "timeline" %>

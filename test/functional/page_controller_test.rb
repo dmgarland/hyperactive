@@ -24,4 +24,11 @@ class PageControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:page)
     assert assigns(:page).valid?
   end
+  
+  def test_show_without_id_returns_record_not_found
+    assert_raises ActiveRecord::RecordNotFound do
+      get :show
+    end  
+  end
+  
 end

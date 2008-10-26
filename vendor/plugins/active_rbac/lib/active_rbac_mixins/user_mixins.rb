@@ -314,9 +314,7 @@ module UserMixins
             if !user.nil?
               user.login_failure_count = user.login_failure_count + 1
               self.execute_without_timestamps { 
-                puts "about to save user, current updated_at: #{user.updated_at}"                 
                 user.save!
-                puts "saved user, current updated_at: #{user.updated_at}" 
               }
                                                  
             end

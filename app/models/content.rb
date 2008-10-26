@@ -25,7 +25,7 @@ class Content < ActiveRecord::Base
   end
   
   def allows_comments?
-    self.allows_comments
+    self.allows_comments && self.is_not_hidden?
   end
   
   # A convenience method telling us whether this content has a thumbnail

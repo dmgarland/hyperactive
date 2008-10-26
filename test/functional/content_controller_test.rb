@@ -202,6 +202,22 @@ module ContentControllerTest
     assert_template '_report_this_controls'
   end    
   
+  def test_create_comment_works
+    original_length = Content.find(@first_id).comments.length
+    post :create_comment, :id => @first_id, :comment => {:title => "foo comment", :body => "blah blah blah talking some shit", :published_by => "noam chomsky"}
+    assert_redirected_to :action => :show, :id => @first_id
+    assert_equal "Your comment has been added.", flash[:notice]
+    assert_equal original_length + 1, assigns(:content).comments.length
+  end
+
+  def test_create_comment_does_not_work_on_hidden_content
+    original_length = Content.find(@hidden_id).comments.length
+    post :create_comment, :id => @hidden_id, :comment => {:title => "foo comment", :body => "blah blah blah talking some shit", :published_by => "noam chomsky"}
+    assert_redirected_to :action => :show, :id => @hidden_id
+    assert_equal "Comments are not allowed for this #{assigns(:content).class.to_s.downcase.humanize}", flash[:notice]
+    assert_equal original_length, assigns(:content).comments.length
+  end
+  
   private
   
   def class_name

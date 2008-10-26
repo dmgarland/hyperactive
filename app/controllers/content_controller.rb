@@ -186,7 +186,10 @@ class ContentController < ApplicationController
     @content = Content.find(params[:id])
     if @content.allows_comments?
       @comment = Comment.new(params[:comment])
+              puts "checking validity"
+
       if @comment.valid? && (!current_user.is_anonymous? || simple_captcha_valid?)
+        puts "about to save comment"
         @content.comments << @comment
         flash[:notice] = "Your comment has been added."
         redirect_to :action => 'show', :id => @content

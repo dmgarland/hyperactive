@@ -312,7 +312,6 @@ module UserMixins
 
             # Otherwise increase the login count - if the user could be found - and return nil
             if !user.nil?
-              puts "user was nil"             
               user.login_failure_count = user.login_failure_count + 1
               self.execute_without_timestamps { 
                 puts "about to save user, current updated_at: #{user.updated_at}"                 

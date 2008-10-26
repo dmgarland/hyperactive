@@ -25,3 +25,11 @@ admin_destroy:
 registered_hide_own_content:
   role_id: 3
   static_permission_id: 6
+  
+admin_feature_content:
+  role_id: 1
+  static_permission_id: 7
+  
+admin_promote_content:
+  role_id: 1
+  static_permission_id: 8

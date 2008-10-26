@@ -64,22 +64,10 @@ module ContentControllerTest
   
   def test_create
     num_content = model_class.count
-    post :create, :content => {
-                              :title => "Test content",
-                              :date => 3.hours.from_now,
-                              :body => "This is a test",
-                              :summary => "A summary",
-                              :published_by => "Yoss", 
-                              :place => "London", 
-                              :collective_ids => [collectives(:indy_london).id]
-                            }, 
-                  #:photo => {:foo_photo => {:title => "test", :file => upload("test/fixtures/fight_test.wmv.jpg")}},         
-                  #:video => {:foo_video => {:title => "test", :file => upload("test/fixtures/fight_test.wmv")}},                                   
-                  :tags => "blah, foo bar",
-                  :place_tags => "london, brixton"
+    post :create, params_for_valid_content
                   
-    content = model_class.find_by_title("Test content")
-    assert_equal "Test content", content.title
+    content = model_class.find_by_title("Test content2")
+    assert_equal "Test content2", content.title
     assert_match("foo", content.tag_list)
     assert_match("bar", content.tag_list)
     assert_match("london", content.place_tag_list)
@@ -95,63 +83,25 @@ module ContentControllerTest
     assert_equal "published", content.moderation_status
     assert assigns(:content).collectives.include?(collectives(:indy_london))
   end  
-  
-  def test_moderation_status_retained_when_specifically_set_at_creation
-    num_content = model_class.count
-    post :create, :content => {
-                              :title => "Test content2",
-                              :date => 3.hours.from_now,
-                              :body => "This is a test",
-                              :summary => "A summary",
-                              :moderation_status => "promoted",
-                              :published_by => "Yoss", 
-                              :place => "London" 
-                            }, 
-                  :tags => "blah, foo bar",
-                  :place_tags => ""
-                  
-    content = model_class.find_by_title("Test content2")
-    assert_match("foo", content.tag_list)
-    assert_match("bar", content.tag_list)
-    assert_match("blah", content.tag_list)
-    assert_no_match(/,/, content.tag_list)
-    if model_class == Event
-      assert content.taggings.map(&:event_date).include?(content.date)
-    end
-    assert_response :redirect
-    assert_redirected_to :action => 'show'
-    assert_equal num_content + 1, model_class.count
-    assert_equal "promoted", content.moderation_status    
-  end
-  
-  def test_moderation_status_cant_be_set_without_feature_permission
-    post :create, :content => {
-                          :title => "Test content2",
-                          :date => 3.hours.from_now,
-                          :body => "This is a test",
-                          :summary => "A summary",
-                          :moderation_status => "promoted",
-                          :published_by => "Yoss", 
-                          :place => "London" 
-                        }, 
-                  :tags => "blah, foo bar",
-                  :place_tags => ""
+    
+  def test_moderation_status_cant_be_set_to_featured_without_feature_permission
+    post :create, params_for_valid_content
     assert_equal assigns(:content).moderation_status, "published"
   end
   
-  def test_moderation_status_can_be_set_with_feature_permission
-    post :create, :content => {
-                          :title => "Test content2",
-                          :date => 3.hours.from_now,
-                          :body => "This is a test",
-                          :summary => "A summary",
-                          :moderation_status => "featured",
-                          :published_by => "Yoss", 
-                          :place => "London" 
-                        }, 
-                  :tags => "blah, foo bar",
-                  :place_tags => ""
-    assert_equal assigns(:content).moderation_status, "featured"    
+  def test_moderation_status_cant_be_set_to_promoted_without_promoted_permission
+    post :create, params_for_valid_content
+    assert_equal assigns(:content).moderation_status, "published"
+  end  
+  
+  def test_moderation_status_cant_be_set_to_hidden_without_hidden_permission
+    post :create, params_for_valid_content
+    assert_equal assigns(:content).moderation_status, "published"
+  end    
+  
+  def test_moderation_status_can_be_set_to_featured_with_feature_permission
+    post :create, params_for_valid_content, as_user(:marcos)
+    assert_equal assigns(:content).moderation_status, "featured"
   end
   
   def test_edit_does_not_work_for_anonymous
@@ -185,22 +135,22 @@ module ContentControllerTest
   end
   
   def test_update_works_for_content_owner
-    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:registered_user)
+    post :update, {:id => @first_id, :content => {:title => "Updated title"}, :tags => "", :place_tags => ""}, as_user(:registered_user)
     assert_redirected_to :action => "show"   
   end
 
   def test_update_works_for_content_collective_member
-    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:registered_user_2)
+    post :update, {:id => @first_id, :content => {:title => "Updated title"}, :tags => "", :place_tags => ""}, as_user(:registered_user_2)
     assert_redirected_to :action => "show"   
   end
   
   def test_update_does_not_work_for_non_collective_member
-    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:hider_user)
+    post :update, {:id => @first_id, :content => {:title => "Updated title"}, :tags => "", :place_tags => ""}, as_user(:hider_user)
     assert_security_error 
   end
   
   def test_update_works_for_admin
-    post :update, {:id => @first_id, :title => "Updated title", :tags => "", :place_tags => ""}, as_user(:marcos)
+    post :update, {:id => @first_id, :content => {:title => "Updated title"}, :tags => "", :place_tags => ""}, as_user(:marcos)
     assert_redirected_to :action => "show"      
   end  
   
@@ -232,6 +182,21 @@ module ContentControllerTest
   
   def class_name
     model_class.to_s.humanize.downcase
+  end
+  
+  def params_for_valid_content
+    {:content => {
+                          :title => "Test content2",
+                          :date => 3.hours.from_now,
+                          :body => "This is a test",
+                          :summary => "A summary",
+                          :moderation_status => "featured",
+                          :published_by => "Yoss", 
+                          :place => "London", 
+                          :collective_ids => [collectives(:indy_london).id]
+                        }, 
+                  :tags => "blah, foo bar",
+                  :place_tags => "london brixton"}
   end
   
 end

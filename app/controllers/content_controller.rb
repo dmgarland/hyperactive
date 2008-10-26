@@ -108,6 +108,7 @@ class ContentController < ApplicationController
 
   def create
     @content = model_class.new(params[:content])
+    @content.set_moderation_status(params[:content][:moderation_status], current_user) 
     @content.user = current_user if !current_user.is_anonymous?
     if(model_class == Event)
       check_end_date
@@ -148,7 +149,8 @@ class ContentController < ApplicationController
   def update
     @content = model_class.find(params[:id])
     @content.collective_ids = [] 
-    @content.update_attributes(params[:content])
+    @content.update_attributes(params[:content])  
+    @content.set_moderation_status(params[:content][:moderation_status], current_user)
     if(model_class == Event)
       check_end_date
     end

@@ -9,7 +9,7 @@ class Content < ActiveRecord::Base
   validates_length_of :title, :maximum => 50
   validates_presence_of :title, :summary, :published_by
   
-  #attr_protected :moderation_status
+  attr_protected :moderation_status
   
   # A convenience method to tell us whether this content is attached to 
   # an article or event.  Currently this should only ever return true for
@@ -62,12 +62,24 @@ class Content < ActiveRecord::Base
 #    self.created_on.strftime("%Y/%m/%d")
 #  end
   
+  # Checks to see that the user submitting the content has the proper permission to change the moderation
+  # status (if one has been submitted). 
+  #
+  def set_moderation_status(status, user)
+    unless status.nil?
+      self.moderation_status = status if user.can_set_moderation_status_to?(status, self)
+    end
+  end
+  
+  
   protected
   
   # Sets the moderation_status to published unless it's already been set, 
   # which could happen if an admin user set it during content creation.
   def set_moderation_status_to_published
-    self.moderation_status = "published" if self.moderation_status.blank?
+    if self.moderation_status.blank?
+      self.moderation_status = "published" 
+    end
   end
-  
+    
 end

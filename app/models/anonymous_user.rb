@@ -249,4 +249,8 @@ class AnonymousUser
     return false
   end  
   
+  def can_set_moderation_status_to?(status, content)
+    return false   
+  end  
+  
 end

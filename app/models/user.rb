@@ -75,4 +75,21 @@ class User < ActiveRecord::Base
     return false    
   end
   
+  def can_feature_content?
+    return true if self.has_permission?("feature_content")
+    return false    
+  end
+  
+  def can_promote_content?
+    return true if self.has_permission?("promote_content")
+    return false
+  end
+  
+  def can_set_moderation_status_to?(status, content)
+    return true if self.can_hide_content?(content) && status == "hidden"
+    return true if self.can_promote_content? && status == "promoted"
+    return true if self.can_feature_content? && status == "featured"
+    return false   
+  end
+  
 end

@@ -21,3 +21,11 @@ destroy:
 hide_own_content:
   id: 6
   title: hide_own_content
+
+feature_content:
+  id: 7
+  title: feature_content
+
+promote_content:
+  id: 8
+  title: promote_content

@@ -124,6 +124,36 @@ module ContentControllerTest
     assert_equal "promoted", content.moderation_status    
   end
   
+  def test_moderation_status_cant_be_set_without_feature_permission
+    post :create, :content => {
+                          :title => "Test content2",
+                          :date => 3.hours.from_now,
+                          :body => "This is a test",
+                          :summary => "A summary",
+                          :moderation_status => "promoted",
+                          :published_by => "Yoss", 
+                          :place => "London" 
+                        }, 
+                  :tags => "blah, foo bar",
+                  :place_tags => ""
+    assert_equal assigns(:content).moderation_status, "published"
+  end
+  
+  def test_moderation_status_can_be_set_with_feature_permission
+    post :create, :content => {
+                          :title => "Test content2",
+                          :date => 3.hours.from_now,
+                          :body => "This is a test",
+                          :summary => "A summary",
+                          :moderation_status => "featured",
+                          :published_by => "Yoss", 
+                          :place => "London" 
+                        }, 
+                  :tags => "blah, foo bar",
+                  :place_tags => ""
+    assert_equal assigns(:content).moderation_status, "featured"    
+  end
+  
   def test_edit_does_not_work_for_anonymous
     get :edit, :id => @first_id
     assert_security_error

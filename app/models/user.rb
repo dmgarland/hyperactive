@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
   
   has_many :collective_memberships
   has_many :collectives, :through => :collective_memberships
-
+  has_many :articles
+  has_many :events
+  has_many :videos
+  
   validates_format_of     :login, 
                           :with => /^[a-zA-Z][a-zA-Z0-9_]+$/, 
                           :message => 'should consist only of letters, numbers, and underscores.'

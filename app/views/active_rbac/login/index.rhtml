@@ -20,9 +20,28 @@ You are currently logged in as user <strong><%=h current_user.login %></strong>.
 		<li><%= render :partial => "shared/collectives/collective_link", :object => c %> 
 		| <%= link_to 'Edit info', edit_collective_path(c) %>
 		| <%= link_to 'Edit membership', edit_collective_memberships_path(c) %>
-</li>
+		</li>
 	<% end %>
 	</ul>
 <% end %>
+
+<% unless current_user.articles.empty? %>
+	<h2>Your articles</h2>
+	<p>You have published the following articles:</p>
+	<%= render :partial => "shared/content/list_title", :collection => current_user.articles %>
+<% end %>
+
+<% unless current_user.events.empty? %>
+	<h2>Your events</h2>
+	<p>You have published the following events:</p>
+	<%= render :partial => "shared/content/list_title", :collection => current_user.events %>
+<% end %>
+
+<% unless current_user.videos.empty? %>
+	<h2>Your videos</h2>
+	<p>You have published the following videos:</p>
+	<%= render :partial => "shared/content/list_title", :collection => current_user.videos %>
+<% end %>
+
 
 <p>You may log out at the <%= link_to "logout", logout_path %> page.</p>

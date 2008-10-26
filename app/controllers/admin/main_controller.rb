@@ -1,10 +1,12 @@
 class Admin::MainController < ApplicationController
 
+  layout "admin"
+
   include SslRequirement
   ssl_required :all
 
-  layout "admin"
-  
+  before_filter :protect_controller
+ 
   cache_sweeper :comment_sweeper, :only => [:update_comment]
 
   def index
@@ -27,16 +29,5 @@ class Admin::MainController < ApplicationController
       render :action => 'edit_comment'
     end
   end
-  
-  before_filter :protect_controller
-  
-  def protect_controller
-    if current_user.has_role?("Admin")
-      return true
-    else
-      redirect_to "/publish/list"
-      flash[:notice] = "You are not allowed to access this page."
-    end
-  end  
-  
+    
 end

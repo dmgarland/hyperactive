@@ -1,7 +1,9 @@
 module CacheableUserInfo
 
   def write_user_info_to_cookie
-    cookies['user_info'] = current_user.login
+    unless current_user.is_anonymous?
+      cookies['user_info'] = {:value => current_user.login, :expires => Time.now + 2.hours }
+    end
   end
   
   def destroy_user_info_cookie

@@ -13,13 +13,13 @@
 <tr>
 <td><%=h content_filter.title %></td>
 <td><%=h content_filter.summary %></td>
-<td class="show"><%= link_to 'Show content_filter', admin_content_filter_url(content_filter), :title => "Show content_filter" %></td>
-<td class="edit"><%= link_to 'Edit content_filter', edit_admin_content_filter_url(content_filter), :title => "Edit content_filter" %></td>
-<td class="delete"><%= link_to 'Destroy content_filter', admin_content_filter_url(content_filter), :title => "Delete content_filter", :confirm => 'Are you sure you want to delete this content_filter?', :method => :delete %></td>
+<td class="show"><%= link_to 'Show', admin_content_filter_url(content_filter), :title => "Show content_filter" %></td>
+<td class="edit"><%= link_to 'Edit', edit_admin_content_filter_url(content_filter), :title => "Edit content_filter" %></td>
+<td class="delete"><%= link_to 'Destroy', admin_content_filter_url(content_filter), :title => "Delete content_filter", :confirm => 'Are you sure you want to delete this content_filter?', :method => :delete %></td>
 </tr>
 <% end %>
 </table>
 
 <p>
-<%= link_to 'New content_filter', new_admin_content_filter_url %>
+<%= link_to 'New content filter', new_admin_content_filter_url %>
 </p>

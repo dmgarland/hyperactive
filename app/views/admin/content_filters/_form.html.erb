@@ -1,8 +1,8 @@
 <p>
-<%= f.label :title %><br />
+<strong><%= f.label :title %></strong><br />
 <%= f.text_field :title %>
 </p>
 <p>
-<%= f.label :summary %><br />
-<%= f.text_area :summary %>
+<strong><%= f.label :summary %></strong> - What is the filter for?<br />
+<%= f.text_area :summary, :size => "50x3" %>
 </p>

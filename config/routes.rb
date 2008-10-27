@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.namespace(:admin) do |admin|
+    admin.resources :content_filters
+  end
+
   # Add your own custom routes here.
   # The priority is based upon order of creation: first created -> highest priority.
   

@@ -1,0 +1,14 @@
+<h2>New content_filter</h2>
+
+<% form_for(:content_filter, @content_filter, :url => admin_content_filters_path) do |f| %>
+<%= f.error_messages %>
+
+<%= render :partial => 'form', :locals => {:f => f} %>
+<p>
+<%= f.submit "Create content_filter" %>
+</p>
+<% end %>
+
+<p>
+<%= link_to 'Back to content_filters', admin_content_filters_path %>
+</p>

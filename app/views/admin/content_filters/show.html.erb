@@ -1,0 +1,15 @@
+<h2>Show content_filter</h2>
+
+<p>
+<strong>Title:</strong>
+<%=h @content_filter.title %>
+</p>
+<p>
+<strong>Summary:</strong>
+<%=h @content_filter.summary %>
+</p>
+
+<p>
+<%= link_to 'Edit content_filter', edit_admin_content_filter_url(@content_filter) %> |
+<%= link_to 'Back to content_filters', admin_content_filters_url %>
+</p>

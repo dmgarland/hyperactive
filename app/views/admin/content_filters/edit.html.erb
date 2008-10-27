@@ -1,0 +1,16 @@
+<h2>Edit content_filter</h2>
+
+<% form_for(:content_filter, @content_filter, :url => admin_content_filter_path(@content_filter), :html => { :method => :put }) do |f| %>
+<%= f.error_messages %>
+
+<%= render :partial => 'form', :locals => {:f => f} %>
+  
+<p>
+<%= f.submit "Update content_filter" %>
+</p>
+<% end %>
+
+<p>
+<%= link_to 'Show content_filter', admin_content_filter_url(@content_filter) %> |
+<%= link_to 'Back to content_filters', admin_content_filters_url %>
+</p>

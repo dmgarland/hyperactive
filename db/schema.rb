@@ -9,13 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081026102415) do
+ActiveRecord::Schema.define(:version => 20081026180012) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
     t.boolean  "on_front_page", :default => false, :null => false
     t.datetime "created_on"
     t.datetime "updated_on"
+  end
+
+  create_table "admin_filters", :force => true do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", :force => true do |t|
@@ -95,6 +102,13 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
   end
 
   add_index "content", ["event_group_id"], :name => "fk_event_event_group"
+
+  create_table "content_filters", :force => true do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "event_groups", :force => true do |t|
     t.datetime "created_on"

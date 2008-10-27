@@ -5,7 +5,7 @@ class TimelineController < ApplicationController
   
   def show_calendar
     # find all the events that are active
-    events = Event.find(:all, :events,  :conditions => ['moderation_status = ?', "published"], :limit => 100)
+    events = Event.find(:all, :conditions => ['moderation_status != ? and date > ?', "hidden", DateTime.now], :limit => 100)
     timeline_events = []
     
     # convert them into the format expected by the timeline

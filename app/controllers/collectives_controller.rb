@@ -39,10 +39,13 @@ class CollectivesController < ApplicationController
   # GET /collectives/1
   # GET /collectives/1.xml
   def show
+    @cloud = Tag.cloud(:limit => tags_in_cloud)
+    @place_cloud = PlaceTag.cloud(:limit => tags_in_cloud)
     @collective = Collective.find(params[:id])
-
+    @top_article = @collective.articles.first
+    @top_featured_articles = @collective.articles
     respond_to do |format|
-      format.html # show.rhtml
+      format.html { render :layout => 'home' }# show.rhtml
       format.xml  { render :xml => @collective.to_xml }
     end
   end

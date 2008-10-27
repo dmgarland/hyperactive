@@ -1,27 +1,75 @@
-<div class="post">
-<h1><%=h @collective.name %></h1>
+<!-- start content -->
+<div id="content">
 
-<p>
-<% if @collective.image.nil? %>
-  <%= image_tag "default_collective.jpg", :class => "left" %>
-<% else %>
-  <%= image_tag @collective.image.thumb, :class => "left" %>
-<% end %>
-<%= @collective.summary %>
-</p>
+<%= render(:partial => "layouts/common/flash_notice") %>
+
+<!-- start sidebars inside content -->
+<!--  sidebar_content_left -->
+	<div id="special_content" class="sidebar_content_wide">
+		<ul>
+			<li>
+					<h2><%=h @collective.name %></h2>
+					<% if @collective.image.nil? %>
+					  <%= image_tag "default_collective.jpg", :class => "left" %>
+					<% else %>
+					  <%= image_tag @collective.image.thumb, :class => "left" %>
+					<% end %>
+					<%= @collective.summary %>
+			</li>
+		</ul>
+	</div>
+	<%= render(:partial => "home/top_featured", :object => @top_article) unless @top_article.nil? %>
 </div>
+<!-- end content -->
+<!-- start sidebars -->
+<div id="sidebar1" class="sidebar">
+	<ul>
+		<li>
+			<h2><%= 'Upcoming Events'.t %></h2>
+			<ul>
+				<% if @collective.has_upcoming_events? %>
+					<%= render :partial => '/shared/content/list_title', :collection => @collective.upcoming_events %>			
+				<% else %>
+					<li class="list">No events yet.</li>
+				<% end %>
+			</ul>
+		</li>
+		<li>
+			<h2><%= 'Articles' %></h2>
+			<ul>
+				<% if @collective.has_articles? %>
+					<%= render :partial => '/shared/content/list_title', :collection => @collective.articles %>	
+				<% else %>		
+					<li class="list">No events yet.</li>
+				<% end %>				
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<h2>Videos</h2>
+				<% if @collective.has_videos? %>	
+					<%= render :partial => '/shared/content/list_title', :collection => @collective.videos %>			
+				<% else %>		
+					<li class="list">No videos yet.</li>
+				<% end %>				
+			</ul>	
+		</li>							
+	</ul>
+</div>
+<div id="sidebar2" class="sidebar">
+	<%= render :partial => 'shared/searchbox' %>
+    <%= render :partial => 'shared/account_box' %>
+	<ul>
+		<li>
+			<h2><%= "Neighbourhoods".t %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+		</li>
+		<li>
+			<h2><%= "Tags".t %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
+		</li>
+	</ul>
+</div>
+<!-- end sidebars -->
 
-<% if @collective.has_articles? %>
-	<h2>Articles</h2>
-	<%= render :partial => '/shared/content/list_title', :collection => @collective.articles %>			
-<% end %>
 
-<% if @collective.has_upcoming_events? %>
-	<h2>Upcoming Events</h2>
-	<%= render :partial => '/shared/content/list_title', :collection => @collective.upcoming_events %>			
-<% end %>
-
-<% if @collective.has_videos? %>
-	<h2>Videos</h2>
-	<%= render :partial => '/shared/content/list_title', :collection => @collective.videos %>			
-<% end %>

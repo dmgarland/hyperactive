@@ -1,0 +1,88 @@
+Slugger
+=======
+
+With Slugger you can use a field(s) of the model as a slug (URL friendly version of the record). So instead of controller/id you can use controller/slug (http://example.com/posts/1 => http://example.com/posts/my-post-title)
+
+Formatting examle: "- This is The title_of_my_pOst   with weird f@rm-matting aND áccénts   /--- " will be transformed in "this-is-the-title-of-my-post-with-weird-f-rm-matting-and-accents"
+
+You need an extra field in that model to store the slug ('slug' by default).
+You can use the provided migration 00#_add_field_to_model.rb.
+
+You can use Slugger.escape to get slugs within your app. Example: Slugger.escape('My text') #=> 'my-text'
+
+By default if the slug is taken, a -# is added at the end of the new slug: post-title, post-title-2, post-title-3, etc.
+
+You can use one field as scope in which the slug must be different. For example one post title in one blog can be the same as one post title in other blog.
+
+By default if the field is updated, the slug remains the same.
+That is because the URLs shoud be permanently the same despite the updates, or make a 301 redirection.
+You can change this behaviour to change the slug anyway, or to make an automatic 301 redirection from the old slug to the new.
+If you want to use the redirection option you need an extra model to store the redirection.
+Use the migration 00#_create_slug_redirections.rb and add the model slug_redirection.rb
+
+You don't need change anything in your controllers. You can use Model.find(params[:id]) like always, but now params[:id] is the slug.
+You can still access to the records of this model by ID, but only from the controller (not from the URL).
+
+If the record or the redirection wasn't found raises an ActiveRecord::RecordNotFound, that you can rescue normally from your controller.
+
+Installation
+============
+
+script/plugin install http://svn.jesuscarrera.info/slugger
+
+Examples
+========
+
+class Foo < ActiveRecord::Base
+	# Stores permalink form of :title to the :slug attribute (default)
+	has_slug :title
+
+	# Stores a slug form of "#{category}-#{title}" to the :slug attribute (default)
+	has_slug [:category, :title]
+
+	# Stores slug form of "#{category}-#{title}" to the :permalink attribute
+	has_slug [:category, :title], :to => :permalink
+
+	# Add a scope
+	has_slug :title, :scope => :blog_id
+
+	# Change the slug on updates
+	has_slug :title, :on_update => :overwrite
+
+	# Change the slug on updates and redirect the old slug to the new one
+	has_slug :title, :on_update => :redirect
+end
+
+Use case
+========
+
+We need use slugs for the title of our blog posts (field 'title'). We have a field 'permalink' to store the slug in.
+We have different blogs, so we can have the same slug for each blog.
+On updates if the title change, we want to change the slug as well, but doing a 301 redirection from the old slug to the new.
+
+class Post < ActiveRecord::Base
+	belongs_to :post
+	has_slug :title, :to => :permalink, :scope => :blog_id, :on_update => :redirect
+end
+
+
+Notes
+=====
+
+This plugin was inspired mainly in permalink_fu (http://svn.techno-weenie.net/projects/plugins/permalink_fu/) and sluggable_finder (http://code.estadobeta.com/plugins/sluggable_finder/)
+Thanks!!
+
+Some part of the code, mainly for the redirection stuff, is a bit hacky, so maybe you can suggest another solution. See code comments.
+
+To-do
+=====
+- Tests
+- Install/rakes
+- Clean hacky code???
+
+
+License
+=======
+
+Copyright (c) 2008 Jesus Carrera (mail@jesuscarrera.info), released under the MIT license
+

@@ -90,6 +90,18 @@ class ContentController < ApplicationController
       :order => order_string,
       :page => page_param)
   end  
+  
+  def list_featured
+    if model_class == Event
+      order_string = 'date DESC'
+    else 
+      order_string = 'created_on DESC'
+    end
+    @content = model_class.paginate(
+      :conditions => ['moderation_status = ?', "featured"],     
+      :order => order_string,
+      :page => page_param)
+  end    
 
   def show
     @content = model_class.find(params[:id])

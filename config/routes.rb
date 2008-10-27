@@ -27,6 +27,13 @@ ActionController::Routing::Routes.draw do |map|
   map.archive_events '/events/archives/:page', :controller => 'events', :action => 'archives'
   map.archive_videos '/videos/archives/:page', :controller => 'videos', :action => 'archives'
 
+  # content listings by moderation status
+  map.promoted_articles '/articles/list_promoted/:page', :controller => 'articles', :action => 'list_promoted'
+  map.featured_articles '/articles/list_featured/:page', :controller => 'articles', :action => 'list_featured'
+  map.promoted_events '/events/list_promoted/:page', :controller => 'events', :action => 'list_promoted'
+  map.featured_events '/events/list_featured/:page', :controller => 'events', :action => 'list_featured'
+  map.promoted_videos '/videos/list_promoted/:page', :controller => 'videos', :action => 'list_promoted'
+  map.featured_videos '/videos/list_featured/:page', :controller => 'videos', :action => 'list_featured'
 
   map.resources :videos
   map.resources :events, :collection => { :list_promoted => :get }

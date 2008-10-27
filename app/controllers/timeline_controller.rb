@@ -11,10 +11,10 @@ class TimelineController < ApplicationController
     # convert them into the format expected by the timeline
     events.each do |event|
       timeline_event = TimelineEvent.new
-      timeline_event.title = event.title.gsub(/</, "").gsub(/>/, "")
+      timeline_event.title = event.title
       # what we want is e.g.: "May 28 2006 09:00:00 GMT"
       timeline_event.start = event.date.strftime("%b %d %Y")
-      timeline_event.description = event.summary.gsub(/</, "").gsub(/>/, "")  + "<p><a href='" + url_for(:controller => 'events', :action => 'show', :id => event) + "'>view full event</a></p>"
+      timeline_event.description = event.summary  + "<p><a href='" + url_for(:controller => 'events', :action => 'show', :id => event) + "'>view full event</a></p>"
       if event.photos.length > 0
         photo = event.photos.first
         puts event.id

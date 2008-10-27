@@ -1,3 +1,8 @@
 <%= render :partial => "top_nav" %>
 <h1><%= 'Listing featured articles'.t %></h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
+<%= page_links(@content) %>
+<% content_for :sidebar do %>
+	<%= render :partial => "articles/sidebar/feedbox" %>
+	<%= render :partial => "shared/content/sidebar/tag_cloud" %>
+<% end %>

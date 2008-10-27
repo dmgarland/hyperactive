@@ -171,6 +171,14 @@ img.right {
 	border: 1px solid #E7E7E7;
 }
 
+/*content list navigation*/
+
+.content-nav-links {
+	/*background: url(../images/img07.gif) repeat-x*/;
+	padding: 5px 0;
+	border-bottom: 1px solid #940F04;
+}
+
 /* Notice and Error Messages */
 
 .errorExplanation, .flash_error {

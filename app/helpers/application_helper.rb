@@ -79,6 +79,14 @@ module ApplicationHelper
       image_tag "icon_video.gif"
     end    
   end  
+  
+  def moderation_status_icon_for(entity)
+    if entity.moderation_status == "featured"
+      image_tag "icons/star.png"
+    elsif entity.moderation_status == "promoted"
+      image_tag "icons/rosette.png"
+    end    
+  end    
 
   # A convenience method giving access to the thumbnail for this 
   # content object.

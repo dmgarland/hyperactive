@@ -1,3 +1,4 @@
+<div class="content-nav-links">
 <%= link_to (image_tag('date_magnify.png')), timeline_path %> <%= link_to("timeline view".t, timeline_path) %>		
 <% if (@date == nil) %>
     <%= link_to (image_tag('date.png')), calendar_month_path %> <%= link_to "calendar view".t, calendar_month_path %>
@@ -10,3 +11,4 @@
     <%= link_to (image_tag('calendar_view_week.png')), list_by_week_path, :date => @date %> <%= link_to "week list".t, list_by_week_path, :date => @date %>
     <%= link_to (image_tag('calendar_view_day.png')), list_by_day_path, :date => @date %> <%= link_to "day list".t, list_by_day_path, :date => @date %>
 <% end %>
+</div>

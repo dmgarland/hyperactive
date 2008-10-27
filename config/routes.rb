@@ -16,6 +16,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/admin/static_permission/:action/:id', :controller => 'active_rbac/static_permission'
   map.connect '/admin/user/:action/:id', :controller => 'active_rbac/user'
   
+  # groups mapping for a convenient url
+  map.group '/groups/:id', :controller => 'collectives', :action => 'show'
+  
   # event mappings for listings
   map.list_by_month '/events/list_by_month', :controller => 'events', :action => 'list_by_month'
   map.list_by_week '/events/list_by_week', :controller => 'events', :action => 'list_by_week'

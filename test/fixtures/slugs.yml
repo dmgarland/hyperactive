@@ -1,0 +1,11 @@
+indy_slug:
+  id: 1
+  name: indymedia-london
+  sluggable_type: Collective
+  sluggable_id: 1
+  
+other_slug:
+  id: 2
+  name: mystring
+  sluggable_type: Collective
+  sluggable_id: 2

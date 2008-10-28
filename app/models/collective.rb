@@ -14,7 +14,7 @@ class Collective < ActiveRecord::Base
 
   # macros
   acts_as_ferret(:fields => [:name, :summary])  
-  has_slug(:name)
+  has_friendly_id :name, :use_slug => true
   image_column  :image, 
                 :versions => { :thumb => "c96x96", :small => "c32x32"},
                 :extensions => ["gif", "png", "jpg"],

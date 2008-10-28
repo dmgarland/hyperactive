@@ -152,8 +152,8 @@ WhiteListHelper.protocols  = %w(ftp http https irc mailto feed)
 
 # There's a weird "not working the first time" class loading bug I'm getting with 
 # has_many_polymorphs.  Requiring the parent model explicitly here fixes it.
-require 'collective'
-require 'collective_association'
+#require 'collective'
+#require 'collective_association'
 
 ROUTES_PROTOCOL = (ENV["RAILS_ENV"] =~ /development/ ? "http://" : "https://")
 

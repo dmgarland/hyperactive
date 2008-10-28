@@ -3,7 +3,9 @@ indy_london:
   id: 1
   name: Indymedia London
   summary: MyText
+
 two:
   id: 2
   name: MyString
   summary: MyText
+

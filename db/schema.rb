@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081027215310) do
+ActiveRecord::Schema.define(:version => 20081028215840) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -284,6 +284,17 @@ ActiveRecord::Schema.define(:version => 20081027215310) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.string   "sluggable_type"
+    t.integer  "sluggable_id",   :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type"], :name => "index_slugs_on_name_and_sluggable_type", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "snippets", :force => true do |t|
     t.string   "title"

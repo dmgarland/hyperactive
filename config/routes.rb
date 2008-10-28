@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/admin/user/:action/:id', :controller => 'active_rbac/user'
   
   # groups mapping for a convenient url
-  map.group '/groups/:id', :controller => 'collectives', :action => 'show'
+  #map.group '/groups/:id', :controller => 'collectives', :action => 'show'
   
   # event mappings for listings
   map.list_by_month '/events/list_by_month', :controller => 'events', :action => 'list_by_month'
@@ -42,6 +42,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events, :collection => { :list_promoted => :get }
   map.resources :articles
   map.resources :action_alerts
+  #map.resources :groups, :controller => :collectives
   map.resources :collectives
   
   map.resource :admin do |admin|

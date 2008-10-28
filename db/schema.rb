@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081028215840) do
+ActiveRecord::Schema.define(:version => 20081028233006) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20081028215840) do
     t.string   "image"
     t.datetime "created_on"
     t.datetime "updated_on"
-    t.string   "slug"
   end
 
   create_table "comments", :force => true do |t|

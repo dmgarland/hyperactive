@@ -30,7 +30,7 @@
 	other hierarchically structured organizations.	
 	</p>
 	
-	<% form_for(:collective, :url => collectives_path, :html => {:multipart => true}) do |f| %>
+	<% form_for(:collective, :url => groups_path, :html => {:multipart => true}) do |f| %>
 	  
 	  <%= render :partial => "collectives/form", :locals => {:f => f}  %>
 	
@@ -41,4 +41,4 @@
 
 <% end %>
 
-<%= link_to 'Back', collectives_path %>
+<%= link_to 'Back', groups_path %>

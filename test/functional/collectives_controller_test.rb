@@ -36,7 +36,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
     old_count = Collective.count
     post :create, {:collective => {:name => "ezln", :summary => "foo" }}, as_user(:registered_user)
     assert_equal old_count+1, Collective.count
-    assert_redirected_to collective_path(assigns(:collective))
+    assert_redirected_to group_path(assigns(:collective))
     assert assigns(:collective).users.include?(users(:registered_user))
   end
   
@@ -79,7 +79,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
     delete :destroy, {:id => 1}, as_user(:marcos)
     assert_equal old_count-1, Collective.count
     
-    assert_redirected_to collectives_path
+    assert_redirected_to groups_path
   end
   
   def test_destroy_security

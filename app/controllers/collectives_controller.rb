@@ -70,8 +70,8 @@ class CollectivesController < ApplicationController
         if @collective.save
           @collective.users << current_user
           flash[:notice] = 'Group was successfully created.'
-          format.html { redirect_to collective_path(@collective) }
-          format.xml  { head :created, :location => collective_path(@collective) }
+          format.html { redirect_to group_path(@collective) }
+          format.xml  { head :created, :location => group_path(@collective) }
         else
           format.html { render :action => "new" }
           format.xml  { render :xml => @collective.errors.to_xml }
@@ -106,7 +106,7 @@ class CollectivesController < ApplicationController
     @collective.destroy
 
     respond_to do |format|
-      format.html { redirect_to collectives_path }
+      format.html { redirect_to groups_path }
       format.xml  { head :ok }
     end
   end

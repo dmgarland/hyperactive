@@ -9,7 +9,7 @@ class Collective < ActiveRecord::Base
   # associations 
   has_many :collective_memberships
   has_many :users, :through => :collective_memberships
-  has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations
+  has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'created_on DESC'
 
 
   # macros

@@ -11,7 +11,7 @@ class Tag < ActiveRecord::Base
     query << " where tags.id = tag_id"
     query << " and taggings.hide_tag = false"
     query << " group by tag_id, tags.id, tags.name"
-    query << " order by #{options[:order]}" if options[:order] != nil
+    query << " order by popularity DESC"
     query << " limit #{options[:limit]}" if options[:limit] != nil
     tags = Tag.find_by_sql(query)
   end  

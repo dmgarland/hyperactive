@@ -11,7 +11,7 @@ class PlaceTag < ActiveRecord::Base
     query << " where place_tags.id = place_tag_id"
     query << " and place_taggings.hide_tag = false"    
     query << " group by place_tag_id, place_tags.id, place_tags.name"
-    query << " order by #{options[:order]}" if options[:order] != nil
+    query << " order by popularity DESC"
     query << " limit #{options[:limit]}" if options[:limit] != nil
     PlaceTag.find_by_sql(query)  
   end

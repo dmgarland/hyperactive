@@ -288,14 +288,14 @@ img.right {
 
 .sidebar_content {
 	float: left;
-	width: 200px;
+	width: 210px;
 	padding: 0 0 0 5px;
 }
 
 .sidebar_content ul {
 	margin: 0;
 	padding: 0;
-	min-height: 150px;
+	min-height: 130px;
 	list-style: none;
 }
 

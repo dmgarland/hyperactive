@@ -6,13 +6,13 @@
 <table cellpadding="5" cellspacing="0" border="1" width="100%" height="100%">
     <tr valign="top">
     <% for day in days_of_week %>
-        <td><%= day %></td>
+        <td class="day-of-week"><%= day %></td>
     <% end %>
     </tr>
     <tr>
     <% for day in @month_display.days %>
         <% if day.wday == 0 %></tr><tr><% end %>
-        <td><%= day.day %><br />
+        <td class="calendar-day"><%= day.day %><br />
 	        <% for event in @content %>
 	           <% if event.date.to_date === day %>
 	               <%= link_to(h(event.title), :action => 'show', :id => event) %><br />

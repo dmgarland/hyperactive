@@ -10,7 +10,7 @@ class SearchController < ApplicationController
     if !@tag.nil?
       @content = @tag.taggables.paginate(:all, 
         :conditions => ['moderation_status != ?', "hidden"],  
-        :order => "date ASC, title",
+        :order => "created_on DESC, title",
         :page => page_param)
     end
   end
@@ -21,7 +21,7 @@ class SearchController < ApplicationController
     if !@tag.nil?
       @content = @tag.place_taggables.paginate(:all, 
       :conditions => ['moderation_status != ?', "hidden"],  
-      :order => "date ASC, title",
+      :order => "created_on DESC, title",
       :page => page_param)
     end
   end

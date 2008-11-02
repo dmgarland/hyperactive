@@ -15,11 +15,27 @@ class ExternalFeed < ActiveRecord::Base
   end
   
   private
+  
+  def validate
+    validate_collective_feed_length
+  end
+  
+  # The collective that this feed is associated with should never have more
+  # than 2 feeds.
+  def validate_collective_feed_length
+    if self.collective.external_feeds.length > 1
+      self.errors.add("Group", "can't have more than two feeds.")
+    end
+  end
  
   # Deletes the cache file for this external feed.
   #  
   def delete_cache_file
-    FileUtils.remove_dir(RAILS_ROOT + self.cache_location + "#{self.id}.rhtml")
+    begin
+      FileUtils.remove_dir(RAILS_ROOT + self.cache_location + "#{self.id}.rhtml")
+    rescue
+      nil
+    end
   end
   
 end

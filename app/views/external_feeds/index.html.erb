@@ -20,4 +20,11 @@
 
 <br />
 
-<%= link_to 'New external feed', new_group_external_feed_path(@group) %>
+<% if @external_feeds.length > 1 %>
+	<p>You can have a maximum of 2 feeds for your group. You need to delete one before you can 
+	add any more.</p>
+<% else %>
+	<%= link_to 'New external feed', new_group_external_feed_path(@group) %>  |
+<% end %>
+
+<%= link_to 'Back to your account page', account_path %>

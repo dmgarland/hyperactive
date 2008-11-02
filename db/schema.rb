@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081028233006) do
+ActiveRecord::Schema.define(:version => 20081101162411) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -113,6 +113,15 @@ ActiveRecord::Schema.define(:version => 20081028233006) do
   create_table "event_groups", :force => true do |t|
     t.datetime "created_on"
     t.datetime "updated_on"
+  end
+
+  create_table "external_feeds", :force => true do |t|
+    t.string   "url"
+    t.string   "title"
+    t.string   "summary"
+    t.integer  "collective_id", :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "file_uploads", :force => true do |t|

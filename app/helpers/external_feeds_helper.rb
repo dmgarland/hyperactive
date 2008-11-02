@@ -1,0 +1,2 @@
+module ExternalFeedsHelper
+end

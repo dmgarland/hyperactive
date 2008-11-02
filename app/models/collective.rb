@@ -10,7 +10,7 @@ class Collective < ActiveRecord::Base
   has_many :collective_memberships
   has_many :users, :through => :collective_memberships
   has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'collective_associations.created_on DESC'
-
+  has_many :external_feeds
 
   # macros
   acts_as_ferret(:fields => [:name, :summary])  
@@ -75,6 +75,12 @@ class Collective < ActiveRecord::Base
   #
   def has_videos?
     !videos.empty?
+  end
+  
+  # Does this collective have any external feeds?
+  #
+  def has_feeds?
+    !external_feeds.empty?
   end
   
   # Upcoming events for this collective.

@@ -1,0 +1,21 @@
+<li>
+	<ul>
+		<h2><%= external_feed.title %></h2>
+<% 
+
+    cached_feed_path = "#{RAILS_ROOT}/public/system/cache/feeds/collectives/#{external_feed.collective.id}/#{external_feed.id}.rhtml"
+    if File.exists?(cached_feed_path)
+      cached_feed = File.new(cached_feed_path).read
+	else
+	  cached_feed = "This feed has not yet been retrieved.  It should show up in about ten minutes."
+    end
+
+%>
+<%= cached_feed %>
+
+			
+	</ul>	
+</li>	
+
+
+	

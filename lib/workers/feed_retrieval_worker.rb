@@ -30,32 +30,39 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
   # Pulls an RSS or Atom feed from a given url and caches it as a series of list items on disk
   # at the given cache_path.
   #
-  def pull_feed(url, cache_path)
+  def pull_feed(url, cache_path, cache_file)
     @action_view = ActionView::Base.new(Rails::Configuration.new.view_path, {}, DummyController.new)    
-    rss = SimpleRSS.parse(open(url))
-    @feed_items = rss.items[0..9]
-    output = ""
-    @feed_items.each do |feed_item|
-      output +=  @action_view.render :partial => "feeds/external/list_title", :locals => {:list_title => feed_item}
+    begin
+      rss = SimpleRSS.parse(open(url))
+      @feed_items = rss.items[0..9]
+      output = ""
+      @feed_items.each do |feed_item|
+        output +=  @action_view.render :partial => "feeds/external/list_title", :locals => {:list_title => feed_item}
+      end  
+      full_path = RAILS_ROOT + cache_path
+      rio(full_path).mkpath
+      rio(full_path + cache_file) < output
+    rescue Exception => boom
+      full_path = RAILS_ROOT + cache_path
+      rio(full_path).mkpath
+      output = "This feed failed to process: #{boom}"
+      rio(full_path + cache_file) < output
     end
-    rio(RAILS_ROOT + "/public/system/cache/" + cache_path) < output    
   end
   
   # Pulls the feed of promoted articles from Indymedia UK.
   #
   def pull_uk_promoted_feed
-    pull_feed("http://www.indymedia.org.uk/en/promotednewswire.rss", "uk_feed.rhtml")
+    pull_feed("http://www.indymedia.org.uk/en/promotednewswire.rss", "/public/system/cache/feeds/", "uk_feed.rhtml")
     rio(RAILS_ROOT + "/public/system/cache/index.html").delete
   end
   
   # Pulls all defined group feeds
   #
   def pull_group_feeds
-    feeds = %w(http://www.indymedia.org.uk/en/newswire.rss http://www.indymedia.org.uk/en/bio-technology/newswire.rss)
-    count = 0
+    feeds = ExternalFeed.find(:all)
     feeds.each do |feed|
-      pull_feed(feed, "feed#{count}.rhtml")
-      count = count + 1
+      pull_feed(feed.url, "#{feed.cache_location}", "#{feed.id}.rhtml")
     end
   end
 

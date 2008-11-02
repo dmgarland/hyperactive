@@ -53,7 +53,18 @@
 					<li class="list">No videos yet.</li>
 				<% end %>				
 			</ul>	
-		</li>							
+		</li>
+		<% if @collective.has_feeds? %>
+			<%= render :partial => 'external_feed', :collection => @collective.external_feeds %>
+		<% else %>
+		<li>
+			<ul>
+				<h2>Feeds</h2>
+				<li class="list">No feeds yet.</li>					
+			</ul>
+		</li>
+		<% end %>
+				
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">

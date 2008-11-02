@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.namespace(:admin) do |admin|
     admin.resources :content_filters
   end
@@ -39,7 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events, :collection => { :list_promoted => :get }
   map.resources :articles
   map.resources :action_alerts
-  map.resources :groups, :controller => :collectives
+  map.resources :groups, :controller => :collectives, :has_many => :external_feeds
   #map.resources :collectives
   
   map.resource :admin do |admin|

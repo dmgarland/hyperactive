@@ -36,7 +36,7 @@ class HomeController < ApplicationController
     setup_featured_articles
     setup_action_alert
     @snippet = Snippet.find_by_key("homepage")
-    feed_file = "#{RAILS_ROOT}/public/system/cache/uk_feed.rhtml"
+    feed_file = "#{RAILS_ROOT}/public/system/cache/feeds/uk_feed.rhtml"
     if File.exists?(feed_file)
       file = File.new(feed_file)
       @uk_feed = file.read

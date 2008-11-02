@@ -21,6 +21,7 @@ You are currently logged in as user <strong><%=h current_user.login %></strong>.
 		<li><%= render :partial => "shared/collectives/collective_link", :object => c %> 
 		| <%= link_to 'Edit info', edit_group_path(c) %>
 		| <%= link_to 'Edit membership', edit_collective_memberships_path(c) %>
+		| <%= link_to 'Edit RSS feeds', group_external_feeds_path(c) %>
 		</li>
 	<% end %>
 	</ul>

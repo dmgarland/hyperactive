@@ -4,10 +4,10 @@ one:
   url: MyString
   title: MyString
   summary: MyString
-  group_id: 1
+  collective_id: 1
 
 two:
   url: MyString
   title: MyString
   summary: MyString
-  group_id: 1
+  collective_id: 2

@@ -220,6 +220,7 @@ img.right {
 	border: solid 1px #940f04;
 }
 
+
 .post {	
 	margin-bottom: 5px; /* was 20 */
 	padding: 0 0 10px 5px; /* was 0 0 15 0 */
@@ -250,7 +251,7 @@ img.right {
 }
 
 .byline {
-	margin: 0 0 20px 0;
+	margin: 0 0 15px 0;
 }
 
 .entry {
@@ -283,6 +284,32 @@ img.right {
 	text-align: center;
 }
 
+/* Calendar View*/
+
+table#calendar_month {
+    background-color:#f1f1f1;
+    border: solid #d2d2d2 1px;
+}
+
+
+table#calendar_month td {
+    padding: 4px;
+    border: solid #d2d2d2 1px;
+	color: #999999;
+	background: #ffffff;
+}
+
+
+.day-of-week {
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.calendar-day {
+	vertical-align: top;
+
+}
 
 /* Sidebars content */
 
@@ -295,7 +322,7 @@ img.right {
 .sidebar_content ul {
 	margin: 0;
 	padding: 0;
-	min-height: 130px;
+	min-height: 125px;
 	list-style: none;
 }
 
@@ -313,7 +340,7 @@ img.right {
 
 .sidebar_content li h2 {
 	margin: 0 0 5px 0;
-	padding: 10px 5px;
+	padding: 10px 5px 3px 5px;
 	background: url(../images/img02.gif) repeat-x;
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
@@ -426,7 +453,7 @@ img.right {
 .cloud6 { font-size: 150%; color: #BA0000 !important; } 
 .cloud7 { font-size: 160%; color: #CA0000 !important; } 
 .cloud8 { font-size: 170%; color: #DA0000 !important; } 
-.cloud9 { font-size: 180%; color: #EA0000 !important; } 
+.cloud9 { font-size: 180%; color: #CA0000 !important; } 
 
 
 

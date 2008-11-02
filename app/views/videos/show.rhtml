@@ -12,7 +12,7 @@
     </p>	
 
 <% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
-    <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.comments %>
+    <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.published_comments %>
 	<%= render :partial => 'shared/content/comments/comment_controls' %>
 </div>
 <% content_for :sidebar do %>

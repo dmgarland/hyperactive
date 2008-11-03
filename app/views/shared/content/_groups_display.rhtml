@@ -1,9 +1,7 @@
 <% if @content.is_collectivized? %>
 	<p>Published by group(s): 
 		<ul>
-			<% @content.collectives.each do |collective| %>
-				<li><%= collective_link_to(collective) %></li>
-			<% end %>
+			<li><%= collective_link_to(@content.collective) %></li>
 		</ul>
 	</p>
 <% end %>

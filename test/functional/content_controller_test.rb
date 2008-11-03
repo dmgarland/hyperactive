@@ -81,7 +81,7 @@ module ContentControllerTest
     assert_redirected_to :action => 'show'
     assert_equal num_content + 1, model_class.count
     assert_equal "published", content.moderation_status
-    assert assigns(:content).collectives.include?(collectives(:indy_london))
+    assert assigns(:content).collective == collectives(:indy_london)
   end  
     
   def test_moderation_status_cant_be_set_to_featured_without_feature_permission
@@ -179,15 +179,15 @@ module ContentControllerTest
   end  
   
   def test_update_associates_content_with_collective
-    post :update, {:id => @first_id, :content => {:title => "Updated title", :collective_ids=>[collectives(:indy_london).id]}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    post :update, {:id => @first_id, :content => {:title => "Updated title", :collective_id => collectives(:indy_london).id}, :tags => "", :place_tags => ""}, as_user(:marcos)
     assert_redirected_to :action => "show"   
     assert assigns(:content).title = "Updated title"
-    assert assigns(:content).collectives.include?(collectives(:indy_london)), "This content should be associated with the Indy London collective."
+    assert assigns(:content).collective == collectives(:indy_london), "This content should be associated with the Indy London collective."
     
-    post :update, {:id => @first_id, :content => {:title => "Updated title2", :collective_ids=>[]}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    post :update, {:id => @first_id, :content => {:title => "Updated title2", :collective_id => "" }, :tags => "", :place_tags => ""}, as_user(:marcos)
     assert_redirected_to :action => "show"   
     assert assigns(:content).title = "Updated title2"
-    assert !assigns(:content).collectives.include?(collectives(:indy_london)), "This content shouldn't be in any collective."    
+    assert assigns(:content).collective.nil?, "This content shouldn't be in any collective."    
   end
   
   def test_admin_controls
@@ -233,7 +233,7 @@ module ContentControllerTest
                           :moderation_status => "published",
                           :published_by => "Yoss", 
                           :place => "London", 
-                          :collective_ids => [collectives(:indy_london).id]
+                          :collective_id => [collectives(:indy_london).id]
                         }, 
                   :tags => "blah, foo bar",
                   :place_tags => "london brixton"}

@@ -9,8 +9,13 @@ class Collective < ActiveRecord::Base
   # associations 
   has_many :collective_memberships
   has_many :users, :through => :collective_memberships
-  has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'collective_associations.created_on DESC'
+  # has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'collective_associations.created_on DESC'
   has_many :external_feeds
+  has_many :content
+  has_many :articles
+  has_many :events
+  has_many :upcoming_events
+  has_many :videos
 
   # macros
   acts_as_ferret(:fields => [:name, :summary])  
@@ -92,7 +97,7 @@ class Collective < ActiveRecord::Base
   # Checks to see whether a collective is associated with a given piece of content.
   #
   def includes_content?(content)
-    self.collective_associatables.to_a.include?(content)
+    self.content.include?(content)
   end
   
 end

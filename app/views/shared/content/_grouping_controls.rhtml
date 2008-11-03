@@ -1,9 +1,9 @@
 <% if current_user.is_collectivized? %>
 	<h2>Groups</h2>
-	<p>You can choose to publish this content as part of one or more of your groups. Note: <strong>this will make the content editable by all group members.</strong></p>
-	<ul class="checkbox-list">
+	<p>You can choose to publish this content as part of one of your groups. Note: <strong>this will make the content editable by all group members.</strong></p>
+	<%= radio_button_tag "content[collective_id]", "", !@content.is_collectivized?  %> No group<br/>
 	<% current_user.collectives.each do |c| %>
-		<li><%= check_box_tag "content[collective_ids][]", c.id, c.includes_content?(@content) -%> <%= c.name -%></li>
+		<%= radio_button_tag "content[collective_id]", c.id, c.includes_content?(@content) -%> <%= c.name -%><br/>
 	<% end %>
-	</ul>	
+
 <% end %>

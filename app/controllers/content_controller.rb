@@ -160,10 +160,9 @@ class ContentController < ApplicationController
   #
   def update
     @content = model_class.find(params[:id])
-    @content.collective_ids = [] 
+    #@content.collective_ids = [] 
     @content.update_attributes(params[:content])  
     @content.set_moderation_status(params[:content][:moderation_status], current_user)
-    puts "moderation status now: #{@content.moderation_status}"
     if(model_class == Event)
       check_end_date
     end
@@ -198,10 +197,7 @@ class ContentController < ApplicationController
     @content = Content.find(params[:id])
     if @content.allows_comments?
       @comment = Comment.new(params[:comment])
-              puts "checking validity"
-
       if @comment.valid? && (!current_user.is_anonymous? || simple_captcha_valid?)
-        puts "about to save comment"
         @content.comments << @comment
         flash[:notice] = "Your comment has been added."
         redirect_to :action => 'show', :id => @content

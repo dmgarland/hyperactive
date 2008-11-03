@@ -20,4 +20,5 @@
 	<pathentry path="GEM_LIB/rmagick-2.7.0/lib" type="var"/>
 	<pathentry path="GEM_LIB/rmagick-2.7.0/lib" type="var"/>
 	<pathentry path="GEM_LIB/rmagick-2.7.0/lib" type="var"/>
+	<pathentry path="GEM_LIB/rmagick-2.7.0/lib" type="var"/>
 </loadpath>

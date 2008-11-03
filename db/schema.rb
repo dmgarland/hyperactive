@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081101162411) do
+ActiveRecord::Schema.define(:version => 20081103213026) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20081101162411) do
     t.string   "moderation_status"
     t.boolean  "allows_comments",                 :default => true
     t.boolean  "stick_at_top"
+    t.integer  "collective_id",     :limit => 11
   end
 
   add_index "content", ["event_group_id"], :name => "fk_event_event_group"

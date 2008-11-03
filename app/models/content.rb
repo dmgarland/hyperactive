@@ -1,11 +1,24 @@
 class Content < ActiveRecord::Base
   
-  belongs_to :user  
   set_table_name "content"
-  acts_as_ferret({:fields => [:title, :body, :summary, :published_by, :date]})      
+
+  # Filters
+  #
   before_create :set_moderation_status_to_published
+
+  # Macros
+  #
+  acts_as_ferret({:fields => [:title, :body, :summary, :published_by, :date]})      
+  
+  # Associations
+  #
+  belongs_to :user  
+  belongs_to :collective
   has_many :comments
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"
+  
+  # Validations
+  #
   validates_length_of :title, :maximum => 50
   validates_presence_of :title, :summary, :published_by
   
@@ -19,11 +32,15 @@ class Content < ActiveRecord::Base
   def has_related_content?
     self.respond_to?(:content) && !self.content.nil?
   end
+  
       
+  # Returns true if this content has at least one comment.
   def has_comments?
     self.comments.length > 0
   end
   
+  # Returns true if this content allows comments.
+  #
   def allows_comments?
     self.allows_comments && self.is_not_hidden?
   end
@@ -35,24 +52,34 @@ class Content < ActiveRecord::Base
     self.photos.length > 0 || self.videos.length > 0
   end
   
+  # Returns true if this content is hidden.
+  #
   def is_hidden?
     self.moderation_status == "hidden"  
   end
 
+  # Returns true if this content is published.
+  #
   def is_published?
     self.moderation_status == "published"
   end
   
+  # Returns true if this content is promoted.
+  #
   def is_promoted?
     self.moderation_status == "promoted"
   end
   
+  # Returns true if this content is not hidden.
+  #
   def is_not_hidden?
     self.moderation_status != "hidden"
   end
   
+  # Does this content belong to a collective?
+  #
   def is_collectivized?
-    !self.collectives.empty?
+    !self.collective.nil?
   end
 
 #  This doesn't do anything yet but might when we move towards getting the 

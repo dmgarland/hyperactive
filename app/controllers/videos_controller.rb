@@ -48,7 +48,7 @@ class VideosController < ContentController
   #
   def update
     @content = model_class.find(params[:id])
-    @content.collective_ids = [] 
+    # @content.collective_ids = [] 
     @content.update_attributes(params[:content])
     @content.set_moderation_status(params[:content][:moderation_status], current_user)       
     respond_to do |format|

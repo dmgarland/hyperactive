@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   def can_edit?(content)
     return true if self.has_permission?("edit_all_content")  
     return true if self.has_permission?("edit_own_content")  && content.user == self
-    return true if (self.collectives.map(&:id) & content.collectives.map(&:id)).length > 0
+    return true if self.collectives.include?(content.collective)
     return false
   end
 
@@ -89,7 +89,6 @@ class User < ActiveRecord::Base
   end
   
   def can_set_moderation_status_to?(status, content)
-    puts "checking moderation status settings, status: #{status}, content: #{content.title}, current status: #{content.moderation_status}"
     return true if self.can_hide_content?(content) && status == "hidden"
     return true if self.can_promote_content? && status == "promoted"
     return true if self.can_feature_content? && status == "featured"

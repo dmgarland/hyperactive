@@ -32,7 +32,7 @@ class VideosControllerTest < Test::Unit::TestCase
                               :summary => "This is a test",
                               :published_by => "Yoss", 
                               :place => "London",
-                              :collective_ids => [collectives(:indy_london).id]
+                              :collective_id => collectives(:indy_london).id
                             }, 
                   :tags => "foo bar, blah",
                   :place_tags => "london, brixton"
@@ -49,7 +49,7 @@ class VideosControllerTest < Test::Unit::TestCase
     assert_redirected_to :action => 'show'
     assert_equal num_content + 1, model_class.count
     assert_equal "published", content.moderation_status    
-    assert assigns(:content).collectives.include?(collectives(:indy_london))
+    assert assigns(:content).collective == collectives(:indy_london)
   end    
   
   def test_update_works_for_content_owner
@@ -73,15 +73,15 @@ class VideosControllerTest < Test::Unit::TestCase
   end  
   
   def test_update_associates_content_with_collective  
-    post :update, {:id => @first_id, :content => {:title => "Updated title", :file => "", :collective_ids => [collectives(:indy_london).id]}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    post :update, {:id => @first_id, :content => {:title => "Updated title", :file => "", :collective_id => collectives(:indy_london).id}, :tags => "", :place_tags => ""}, as_user(:marcos)
     assert_redirected_to :action => "show"   
     assert assigns(:content).title = "Updated title"
-    assert assigns(:content).collectives.include?(collectives(:indy_london))    
+    assert assigns(:content).collective == collectives(:indy_london)    
     
-    post :update, {:id => @first_id, :content => {:title => "Updated title2", :file => "", :collective_ids => []}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    post :update, {:id => @first_id, :content => {:title => "Updated title2", :file => "", :collective_id => ""}, :tags => "", :place_tags => ""}, as_user(:marcos)
     assert_redirected_to :action => "show"   
     assert assigns(:content).title = "Updated title2"
-    assert !assigns(:content).collectives.include?(collectives(:indy_london))     
+    assert assigns(:content).collective.nil?
   end  
   
   def model_class

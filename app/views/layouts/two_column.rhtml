@@ -5,7 +5,7 @@
 	<!-- start content -->
 	<div id="content_wide">
 		<%= render(:partial => "layouts/common/flash_notice") %>
-		<% if @current_controller == "events" %>
+		<% if @current_controller == "events" || @current_controller == "timeline" %>
 			<%= render(:partial => "/events/event_nav") %>
 		<% end %>
 		<%= @content_for_layout %>

@@ -31,6 +31,8 @@ class Test::Unit::TestCase
       record = model_class.new(attribute => value)
       # HACK: this allows the Events to bypass their validate_more_than_two_hours_from_now method
       record.date = 1.day.from_now if model_class == Event
+      # HACK: this allows ExternalFeeds to bypass the Collective validations so we can test attributes in isolation
+      record.collective_id = 1 if model_class == ExternalFeed
       assert !record.valid?, "#{model_class} expected to be invalid when #{attribute} is #{value}"
       assert record.errors.invalid?(attribute), "#{attribute} expected to be invalid when set to #{value}"
     end
@@ -43,6 +45,8 @@ class Test::Unit::TestCase
       record = model_class.new(attribute => value)
       # HACK: this allows the Events to bypass their validate_more_than_two_hours_from_now method
       record.date = 1.day.from_now if model_class == Event     
+      # HACK: this allows ExternalFeeds to bypass the Collective validations so we can test attributes in isolation
+      record.collective_id = 1 if model_class == ExternalFeed
       record.valid? #assert record.valid?, "#{model_class} expected to be valid when #{attribute} is #{value}"
       assert_equal record.errors.invalid?(attribute), false, "#{attribute} expected to be valid when set to #{value}"
     end

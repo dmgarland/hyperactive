@@ -4,7 +4,7 @@ class ExternalFeed < ActiveRecord::Base
   
   validates_presence_of :title, :url
   validates_length_of :title, :maximum => 50
-  validates_length_of :summary, :maximum => 50
+  validates_length_of :summary, :maximum => 255
   validates_uri_existence_of :url
   
   before_destroy :delete_cache_file

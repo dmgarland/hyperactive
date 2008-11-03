@@ -289,26 +289,39 @@ img.right {
 table#calendar_month {
     background-color:#f1f1f1;
     border: solid #d2d2d2 1px;
+	margin-left: 10px;
 }
 
 
 table#calendar_month td {
     padding: 4px;
     border: solid #d2d2d2 1px;
-	color: #999999;
-	background: #ffffff;
+	vertical-align: top;
 }
+
+/* icon on events list could help, use: 
+	background: url(../images/date.png) no-repeat 0px 5px; */
 
 
 .day-of-week {
 	text-align: center;
 	font-size: 12px;
-	font-weight: bold;
+	color: #555555;
 }
 
 .calendar-day {
-	vertical-align: top;
+	color: #999999;
+	background: #ffffff;
+}
 
+
+.other-calendar-day {
+	background: #ffffff;
+	color: #d2d2d2;
+}
+
+.current-calendar-day {
+	color: #555555;
 }
 
 /* Sidebars content */

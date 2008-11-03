@@ -4,6 +4,9 @@ class ExternalFeedsController < ApplicationController
 
   before_filter :find_group
   
+  # Security
+  before_filter :can_edit?, :only => [:edit, :update, :create, :new, :index]
+  
   def index
     @external_feeds = @group.external_feeds
   end
@@ -77,4 +80,13 @@ class ExternalFeedsController < ApplicationController
     return(redirect_to(groups_url)) unless @group_id
     @group = Collective.find(@group_id)
   end
+  
+  # Checks membership to see if a given user can edit this collective.
+  #
+  def can_edit?
+    return true if current_user.is_member_of?(Collective.find(params[:group_id]))
+    security_error
+  end  
+    
+  
 end

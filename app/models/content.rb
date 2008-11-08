@@ -9,6 +9,8 @@ class Content < ActiveRecord::Base
   # Macros
   #
   acts_as_ferret({:fields => [:title, :body, :summary, :published_by, :date]})      
+  named_scope :visible, :conditions => ['moderation_status != ?', "hidden"]
+  
   
   # Associations
   #

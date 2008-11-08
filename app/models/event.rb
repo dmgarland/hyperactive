@@ -2,6 +2,9 @@ class Event < Post
   
   belongs_to :event_group  
   validates_presence_of :body, :date
+  
+  named_scope :upcoming, :conditions => ['date >= ?', Date.today]
+
     
   # Copy an event and return it as a new object.  Note that currently
   # this doesn't copy an event's tags or place tags, that needs to be done externally

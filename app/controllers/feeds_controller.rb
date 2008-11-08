@@ -11,18 +11,17 @@ class FeedsController < ApplicationController
   end
 
   def latest_articles
-    articles = Article.find(:all, :order => 'created_on DESC', :limit => 20)
+    articles = Article.visible.find(:all, :order => 'created_on DESC', :limit => 20)
     construct_article_feed(articles, "#{Hyperactive.site_name}: Latest articles")
   end
 
   def latest_videos
-    videos = Video.find(:all, :order => 'created_on DESC', :limit => 20)
+    videos = Video.visible.find(:all, :order => 'created_on DESC', :limit => 20)
     construct_video_feed(videos, "#{Hyperactive.site_name}: Latest videos")
   end
   
   def upcoming_events
-    events = Event.find(:all, 
-       :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
+    events = Event.visible.upcoming.find(:all, 
        :order => 'date ASC', 
        :limit => events_per_feed)
     feedtitle = "#{Hyperactive.site_name}: Upcoming Events"
@@ -35,7 +34,7 @@ class FeedsController < ApplicationController
     if !tag.nil?
       events = tag.taggables.find(
         :all, 
-        :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
+        :conditions => ['moderation_status != ? and date >= ?', "hidden", Date.today],
         :limit => events_per_feed)
       feedtitle = "#{Hyperactive.site_name}: Upcoming Events Tagged With '#{tag.name}'"
       construct_event_feed(events, feedtitle)
@@ -50,7 +49,7 @@ class FeedsController < ApplicationController
     if !tag.nil?
       events = tag.place_taggables.find(
         :all, 
-        :conditions => ['moderation_status = ? and date >= ?', "published", Date.today],
+        :conditions => ['moderation_status != ? and date >= ?', "hidden", Date.today],
         :limit => events_per_feed)
       feedtitle = "#{Hyperactive.site_name}: Upcoming Events Tagged With '#{tag.name}"
       construct_event_feed(events, feedtitle)

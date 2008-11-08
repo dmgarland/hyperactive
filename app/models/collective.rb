@@ -12,10 +12,10 @@ class Collective < ActiveRecord::Base
   # has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'collective_associations.created_on DESC'
   has_many :external_feeds
   has_many :content
-  has_many :articles
-  has_many :events
-  has_many :upcoming_events
-  has_many :videos
+  has_many :articles, :order => "created_on DESC"
+  has_many :events, :order => "content.date ASC"
+  has_many :upcoming_events, :order => "date DESC"
+  has_many :videos, :order => "created_on DESC"
 
   # macros
   acts_as_ferret(:fields => [:name, :summary])  

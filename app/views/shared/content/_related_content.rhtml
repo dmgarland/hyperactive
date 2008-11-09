@@ -1,5 +1,5 @@
 <% related = @related_content.reject {|content| content.moderation_status == "hidden" } %>
-<% if related.empty? %>
+<% if !related.empty? %>
 <ul>
     <li>
         <h2><%= "More like this".t %></h2>

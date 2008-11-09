@@ -1,9 +1,10 @@
-<% if !@related_content.empty? %>
+<% related = @related_content.reject {|content| content.moderation_status == "hidden" } %>
+<% if related.empty? %>
 <ul>
     <li>
         <h2><%= "More like this".t %></h2>
         <ul>
-            <%= render :partial => 'shared/content/list_title', :collection => @related_content %>
+            <%= render :partial => 'shared/content/list_title', :collection => related %>
         </ul>
     </li>
 </ul>

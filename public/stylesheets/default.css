@@ -255,7 +255,9 @@ img.right {
 }
 
 .entry {
-	padding: 0;
+	padding: 0 5px;
+	border: 1px solid #e2e2e2;
+	background: #F2F2F2;
 }
 
 .links {

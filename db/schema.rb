@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081103213026) do
+ActiveRecord::Schema.define(:version => 20081026102415) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -188,27 +188,27 @@ ActiveRecord::Schema.define(:version => 20081103213026) do
   add_index "globalize_translations", ["table_name", "item_id", "language_id"], :name => "globalize_translations_table_name_and_item_and_language"
 
   create_table "groups", :force => true do |t|
-    t.timestamp "created_at",                                :null => false
-    t.timestamp "updated_at",                                :null => false
-    t.string    "title",      :limit => 200, :default => "", :null => false
-    t.integer   "parent_id",  :limit => 10
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "title",      :limit => 200, :default => "", :null => false
+    t.integer  "parent_id",  :limit => 10
   end
 
   add_index "groups", ["parent_id"], :name => "groups_parent_id_index"
 
   create_table "groups_roles", :id => false, :force => true do |t|
-    t.integer   "group_id",   :limit => 10, :default => 0, :null => false
-    t.integer   "role_id",    :limit => 10, :default => 0, :null => false
-    t.timestamp "created_at",                              :null => false
+    t.integer  "group_id",   :limit => 10, :default => 0, :null => false
+    t.integer  "role_id",    :limit => 10, :default => 0, :null => false
+    t.datetime "created_at",                              :null => false
   end
 
   add_index "groups_roles", ["group_id", "role_id"], :name => "groups_roles_all_index", :unique => true
   add_index "groups_roles", ["role_id"], :name => "role_id"
 
   create_table "groups_users", :id => false, :force => true do |t|
-    t.integer   "group_id",   :limit => 10, :default => 0, :null => false
-    t.integer   "user_id",    :limit => 10, :default => 0, :null => false
-    t.timestamp "created_at",                              :null => false
+    t.integer  "group_id",   :limit => 10, :default => 0, :null => false
+    t.integer  "user_id",    :limit => 10, :default => 0, :null => false
+    t.datetime "created_at",                              :null => false
   end
 
   add_index "groups_users", ["group_id", "user_id"], :name => "groups_users_all_index", :unique => true
@@ -258,27 +258,27 @@ ActiveRecord::Schema.define(:version => 20081103213026) do
   add_index "place_tags", ["name"], :name => "index_place_tags_on_name", :unique => true
 
   create_table "roles", :force => true do |t|
-    t.timestamp "created_at",                                :null => false
-    t.timestamp "updated_at",                                :null => false
-    t.string    "title",      :limit => 100, :default => "", :null => false
-    t.integer   "parent_id",  :limit => 10
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "title",      :limit => 100, :default => "", :null => false
+    t.integer  "parent_id",  :limit => 10
   end
 
   add_index "roles", ["parent_id"], :name => "roles_parent_id_index"
 
   create_table "roles_static_permissions", :id => false, :force => true do |t|
-    t.integer   "role_id",              :limit => 10, :default => 0, :null => false
-    t.integer   "static_permission_id", :limit => 10, :default => 0, :null => false
-    t.timestamp "created_at",                                        :null => false
+    t.integer  "role_id",              :limit => 10, :default => 0, :null => false
+    t.integer  "static_permission_id", :limit => 10, :default => 0, :null => false
+    t.datetime "created_at",                                        :null => false
   end
 
   add_index "roles_static_permissions", ["static_permission_id", "role_id"], :name => "roles_static_permissions_all_index", :unique => true
   add_index "roles_static_permissions", ["role_id"], :name => "role_id"
 
   create_table "roles_users", :id => false, :force => true do |t|
-    t.integer   "user_id",    :limit => 10, :default => 0, :null => false
-    t.integer   "role_id",    :limit => 10, :default => 0, :null => false
-    t.timestamp "created_at",                              :null => false
+    t.integer  "user_id",    :limit => 10, :default => 0, :null => false
+    t.integer  "role_id",    :limit => 10, :default => 0, :null => false
+    t.datetime "created_at",                              :null => false
   end
 
   add_index "roles_users", ["user_id", "role_id"], :name => "roles_users_all_index", :unique => true
@@ -316,9 +316,9 @@ ActiveRecord::Schema.define(:version => 20081103213026) do
   end
 
   create_table "static_permissions", :force => true do |t|
-    t.string    "title",      :limit => 200, :default => "", :null => false
-    t.timestamp "created_at",                                :null => false
-    t.timestamp "updated_at",                                :null => false
+    t.string   "title",      :limit => 200, :default => "", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   add_index "static_permissions", ["title"], :name => "static_permissions_title_index", :unique => true
@@ -340,26 +340,26 @@ ActiveRecord::Schema.define(:version => 20081103213026) do
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "user_registrations", :force => true do |t|
-    t.integer   "user_id",    :limit => 10, :default => 0, :null => false
-    t.text      "token",                                   :null => false
-    t.timestamp "created_at",                              :null => false
-    t.timestamp "expires_at",                              :null => false
+    t.integer  "user_id",    :limit => 10, :default => 0, :null => false
+    t.text     "token",                                   :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "expires_at",                              :null => false
   end
 
   add_index "user_registrations", ["user_id"], :name => "user_registrations_user_id_index", :unique => true
   add_index "user_registrations", ["expires_at"], :name => "user_registrations_expires_at_index"
 
   create_table "users", :force => true do |t|
-    t.timestamp "created_at",                                                   :null => false
-    t.timestamp "updated_at",                                                   :null => false
-    t.timestamp "last_logged_in_at",                                            :null => false
-    t.integer   "login_failure_count", :limit => 10,  :default => 0,            :null => false
-    t.string    "login",               :limit => 100, :default => "",           :null => false
-    t.string    "email",               :limit => 200, :default => "",           :null => false
-    t.string    "password",            :limit => 100, :default => "",           :null => false
-    t.string    "password_hash_type",  :limit => 20,  :default => "",           :null => false
-    t.string    "password_salt",       :limit => 10,  :default => "1234512345", :null => false
-    t.integer   "state",               :limit => 10,  :default => 1,            :null => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
+    t.datetime "last_logged_in_at",                                            :null => false
+    t.integer  "login_failure_count", :limit => 10,  :default => 0,            :null => false
+    t.string   "login",               :limit => 100, :default => "",           :null => false
+    t.string   "email",               :limit => 200, :default => "",           :null => false
+    t.string   "password",            :limit => 100, :default => "",           :null => false
+    t.string   "password_hash_type",  :limit => 20,  :default => "",           :null => false
+    t.string   "password_salt",       :limit => 10,  :default => "1234512345", :null => false
+    t.integer  "state",               :limit => 10,  :default => 1,            :null => false
   end
 
   add_index "users", ["login"], :name => "users_login_index", :unique => true

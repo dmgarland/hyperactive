@@ -1,12 +1,12 @@
 # Hyperactive configuration options
 #
-# Allows site admins to set configuration values for Hyperactive in their 
-# environment.rb files.  If we wanted for example to configure the  
-# site name, we could set Hyperactive.site_name = "foo" 
+# Allows site admins to set configuration values for Hyperactive.  
+# If we wanted for example to configure the site name, we could set 
+# Hyperactive.site_name = "foo" 
 #
 #
-# Configuration options attempt to provide a sane default which can be overridden in 
-# environment.rb.
+# This configuration options attempt to provide a sane default which can be overridden in 
+# config/initializers/hyperactive.rb.
 #
 module Hyperactive
 

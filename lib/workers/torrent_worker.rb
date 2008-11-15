@@ -15,7 +15,6 @@ class TorrentWorker < BackgrounDRb::Rails
   # Create a new Transmission session
   #
   def do_work
-    puts "@transmission object initialized"
     @transmission = Transmission.new
     find_and_add_all_torrent_files
   end
@@ -26,9 +25,7 @@ class TorrentWorker < BackgrounDRb::Rails
     begin
       torrent_download = @transmission.open(file)
       torrent_download.folder = File.dirname(file) +"/"
-      puts "Torrent theoretically added, downloading to: #{torrent_download.folder}"
       torrent_download.start
-      puts "Torrent: #{torrent_download.name} started."
     rescue Exception => e
       puts e
     end
@@ -39,7 +36,6 @@ class TorrentWorker < BackgrounDRb::Rails
   def stop_torrent(hash_string)
     torrent = get_torrent(hash_string)
     torrent.stop
-    puts "Torrent stopped.\n:#{torrent} "
   end
   
   # Start a torrent
@@ -47,7 +43,6 @@ class TorrentWorker < BackgrounDRb::Rails
   def start_torrent(hash_string)
     torrent = get_torrent(hash_string)
     torrent.start
-    puts "Torrent started. \n #{torrent}"
   end
   
   # Return an array of all torrents which transmission currently 
@@ -56,7 +51,6 @@ class TorrentWorker < BackgrounDRb::Rails
   def list_all_torrents
     torrents = []
     @transmission.each do |torrent|
-      puts "Torrent found: #{torrent}"
       torrents << torrent
     end
     return torrents
@@ -83,7 +77,6 @@ class TorrentWorker < BackgrounDRb::Rails
   private
   
   def find_and_add_all_torrent_files
-    puts "Adding all torrents."
     Dir['**/*.torrent'].each do |path|
       add_torrent(path)
     end

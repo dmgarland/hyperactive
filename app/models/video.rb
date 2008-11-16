@@ -1,3 +1,10 @@
+# A video uploaded into the site and converted on the server.  The actual conversion happens
+# in the VideoConversionWorker found in lib/workers/video_conversion_worker.rb
+#
+# Currently videos are automatically converted into FLV and OGG formats, and the original 
+# video is also saved on the server.  A torrent file is also automatically created so that
+# the video can be shared by site users.
+#
 class Video < Media
   
   require_dependency 'tag'
@@ -77,18 +84,26 @@ class Video < Media
     'application/ogg'
   end
   
+  # The relative path to the video file.
+  #
   def relative_video_file
      self.file.url
   end
-
+  
+  # The relative path to the converted ogg file for this video.
+  #
   def relative_ogg_file
     self.file.url.chomp(File.extname(self.file.url)) + ".ogg"
   end
   
+  # The thumbnail for this video.
+  #
   def thumbnail
     self.file.url + ".jpg"
   end
   
+  # The relative path to the torrent file for this video.
+  #
   def relative_torrent_file
     relative_ogg_file + ".torrent"
   end

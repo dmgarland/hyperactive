@@ -1,3 +1,5 @@
+# A mini-article-like class to quickly notify site users in emergency situations.
+#
 class ActionAlert < ActiveRecord::Base
   
   validates_presence_of :summary

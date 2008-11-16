@@ -1,7 +1,11 @@
-# Put your code that runs your task inside the do_work method it will be
-# run automatically in a thread. You have access to all of your rails
-# models.  You also get logger and results method inside of this class
-# by default.
+# A worker class to convert uploaded videos.  Currently it converts any uploaded video into
+# an FLV, an OGG, and leaves the original in place.  It also generates a .torrent file 
+# which points to the OGG, and adds the torrent to the list of active torrents held by the 
+# TorrentWorker.
+#
+# It is necessary to have ffmpeg and ffmpeg2theora installed to get conversion to work.  
+# Torrent creation requires that the bittornado package is installed.
+#
 class VideoConversionWorker < BackgrounDRb::Rails
   
   require 'digest/sha1'

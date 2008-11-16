@@ -1,3 +1,5 @@
+# A photo in the site.
+#
 class Photo < ActiveRecord::Base
 
   validates_presence_of :file

@@ -1,3 +1,6 @@
+# Wipes out the static html files which are cached on disk whenever Content 
+# is added, edited or destroyed.
+#
 class ContentSweeper < ActionController::Caching::Sweeper
   
   observe ActionAlert, Content, Page, Snippet

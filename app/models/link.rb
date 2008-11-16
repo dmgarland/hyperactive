@@ -1,3 +1,6 @@
+# A link in the site, can be attached to an Article, Video, or Event so that users
+# can find out more info.
+#
 class Link < ActiveRecord::Base
   belongs_to :content
   

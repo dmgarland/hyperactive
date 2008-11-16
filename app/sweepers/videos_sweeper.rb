@@ -1,3 +1,6 @@
+# Wipes out the static html files which are cached on disk whenever a Video 
+# is added or hidden.
+#
 class VideosSweeper < ContentSweeper
   
   observe Video

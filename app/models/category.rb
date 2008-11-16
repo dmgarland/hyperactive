@@ -1,3 +1,7 @@
+# A pseudo-category within the site.  Although there are actually no categories for content, 
+# this class allows site admins to pre-define tags which show up in the content publish
+# pages of the site.  
+#
 class Category < ActiveRecord::Base
   validates_presence_of :name, :description
   validates_length_of :name, :minimum=>3

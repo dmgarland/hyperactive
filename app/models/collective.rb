@@ -1,3 +1,8 @@
+# A political group registered on the site.
+#
+# This class basically serves to provide contact information and also to 
+# group all kinds of content so we can see what a group's up to.
+#
 class Collective < ActiveRecord::Base
 
   # validations

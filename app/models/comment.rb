@@ -1,3 +1,5 @@
+# A comment on a piece of Content.
+#
 class Comment < ActiveRecord::Base
   
   belongs_to :content

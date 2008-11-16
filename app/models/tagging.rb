@@ -1,3 +1,5 @@
+# A relationship class joining given Tag to a Content subclass.
+#
 class Tagging < ActiveRecord::Base
   belongs_to :tag
   belongs_to :taggable, :polymorphic => true

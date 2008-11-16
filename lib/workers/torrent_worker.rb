@@ -1,7 +1,5 @@
-# Put your code that runs your task inside the do_work method it will be
-# run automatically in a thread. You have access to all of your rails
-# models.  You also get logger and results method inside of this class
-# by default.
+# Serves torrents using the functionality of the transmission gem found in /lib.
+#
 class TorrentWorker < BackgrounDRb::Rails
 
   require "rubygems"

@@ -1,3 +1,5 @@
+# A series of repeating events.
+#
 class EventGroup < ActiveRecord::Base
 
   has_many :events

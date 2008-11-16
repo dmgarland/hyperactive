@@ -1,3 +1,6 @@
+# Wipes out the static html files which are cached on disk whenever a comment 
+# is added or hidden.
+#
 class CommentSweeper < ActionController::Caching::Sweeper
   
   observe Comment

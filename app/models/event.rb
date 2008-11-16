@@ -1,3 +1,5 @@
+# An event in the calendar.
+#
 class Event < Post
   
   belongs_to :event_group  

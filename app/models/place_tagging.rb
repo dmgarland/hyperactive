@@ -1,3 +1,5 @@
+# A relationship class joining given PlaceTag to a Content subclass.
+#
 class PlaceTagging < ActiveRecord::Base
 
   belongs_to :place_tag

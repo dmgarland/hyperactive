@@ -1,3 +1,6 @@
+# A location tag in the site, can be used to tag Content subclasses so we can see
+# where they happened (for Articles and Videos) or where they will happen (Events).
+#
 class PlaceTag < ActiveRecord::Base
 
   has_many_polymorphs :place_taggables, 

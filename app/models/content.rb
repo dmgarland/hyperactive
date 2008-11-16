@@ -1,3 +1,6 @@
+# The main superclass for most of the information on the site.  Descendants include things
+# like Articles, Events, Videos, etc.
+#
 class Content < ActiveRecord::Base
   
   set_table_name "content"

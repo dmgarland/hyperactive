@@ -1,3 +1,8 @@
+# An Article or Event within the site.  Photos, file uploads, and videos can be added to it.
+# This basically exists so that Content doesn't have these associations (which would be wrong
+# in terms of the domain model), and we don't need to repeat these associations on all the 
+# subclasses (currently Article and Event).
+#
 class Post < Content
   
   has_many :links

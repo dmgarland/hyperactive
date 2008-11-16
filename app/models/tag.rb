@@ -1,3 +1,5 @@
+# A tag in the site, used for categorization of Content.
+#
 class Tag < ActiveRecord::Base
  
   has_many_polymorphs :taggables, 

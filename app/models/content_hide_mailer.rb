@@ -1,3 +1,6 @@
+# Allows the site to automatically send emails to a given address for notification 
+# purposes when content is moderated.
+#
 class ContentHideMailer < ActionMailer::Base
 
   def hide(content,reasons, user)

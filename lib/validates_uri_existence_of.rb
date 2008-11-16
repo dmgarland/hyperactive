@@ -7,6 +7,10 @@ require 'open-uri'
 # HTTP Codes: http://www.ruby-doc.org/stdlib/libdoc/net/http/rdoc/classes/Net/HTTPResponse.html
 
 class ActiveRecord::Base
+  
+  # A validation which allows us to check that a URI actually exists (so it's not
+  # possible for users to enter links to things that don't exist).
+  #
   def self.validates_uri_existence_of(*attr_names)
     configuration = { :message => "is not a valid web address" }
     configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)

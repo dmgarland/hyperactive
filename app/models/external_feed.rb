@@ -1,3 +1,5 @@
+# An external RSS or Atom feed. 
+#
 class ExternalFeed < ActiveRecord::Base
   
   belongs_to :collective

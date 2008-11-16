@@ -1,3 +1,5 @@
+# A file uploaded into the site.
+#
 class FileUpload < ActiveRecord::Base
   
   validates_presence_of :title

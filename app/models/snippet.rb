@@ -1,3 +1,6 @@
+# A little chunk of text that can be incorporated into the site, like for example on the
+# home page.
+#
 class Snippet < ActiveRecord::Base
   
   image_column  :image, 

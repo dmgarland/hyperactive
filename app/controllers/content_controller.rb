@@ -1,9 +1,14 @@
-#require 'vendor/plugins/hyperactive/app/models/tag.rb'
-#require 'vendor/plugins/hyperactive/app/models/place_tag.rb'
-
+# A controller superclass for most of the content-related stuff on the site.
+# Other controllers, such as ArticlesController, EventsController, and VideosController,
+# get most of their functionality from here, overriding it as necessary.
+#
+# Note that instead of concrete models for CRUD operations, this controller uses
+# "model_class".  This is defined in each of the subclasses.  This controller should
+# never be hit directly, and there are no routes to hit it.
+#
 class ContentController < ApplicationController
 
-  # security
+  # Security filters
   #
   before_filter :can_edit?, :only => [:edit, :update]
   before_filter :can_destroy?, :only => [:destroy]
@@ -117,7 +122,11 @@ class ContentController < ApplicationController
   def new
     @content = model_class.new
   end
-
+  
+  # Creates a content object.  Note that all of the "initialize_xxx" stuff halfway
+  # through this method refers to the sub_list plugin, which provides multiple-upload
+  # capabilities for us. See that plugin's documentation to learn more.
+  #
   def create
     @content = model_class.new(params[:content])
     @content.set_moderation_status(params[:content][:moderation_status], current_user) 
@@ -157,6 +166,10 @@ class ContentController < ApplicationController
   # the user wants the content in no collectives.  This is a somewhat dangerous action and shouldn't
   # be called from anywhere that doesn't have the grouping controls enabled - it'll reset the 
   # collectives that the content is in unless it gets params[:content][:collective_ids]
+  #
+  # Note that all of the "initialize_xxx" stuff halfway
+  # through this method refers to the sub_list plugin, which provides multiple-upload
+  # capabilities for us. See that plugin's documentation to learn more.
   #
   def update
     @content = model_class.find(params[:id])
@@ -217,6 +230,9 @@ class ContentController < ApplicationController
     render :template => "shared/content/comments/form"# ,:layout => false
   end
 
+  # Retrieves the administration controls allowing a user to either hide or report a 
+  # piece of content if it sucks.
+  #
   def admin_controls
     @id = params[:id]
     if current_user.has_permission?("hide") || current_user.has_permission?("edit_own_content") || current_user.has_permission?("edit_all_content")

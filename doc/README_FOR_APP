@@ -18,4 +18,11 @@ http://projects.escapegoat.org/projects/show/hyperactive
 
 Please file tickets there for any features you'd like or problems you find with the site.
 
+There is a reasonable amount of rdoc documentation built into the site's source code,
+if you want to see it you can execute
+
+rake doc:app
+
+from the command line.
+
 Enjoy!

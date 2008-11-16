@@ -1,6 +1,7 @@
 # Mix in the a before filter into ActiveRbac::ComponentController to secure
 # all ActiveRbac controllers.
 class ActiveRbac::ComponentController < ApplicationController
+  unloadable
   
   require_dependency 'vendor/plugins/active_rbac/app/controllers/active_rbac/component_controller'
   before_filter :protect_with_active_rbac

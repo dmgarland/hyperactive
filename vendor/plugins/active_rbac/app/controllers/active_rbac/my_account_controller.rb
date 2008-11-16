@@ -2,7 +2,8 @@
 # Currently, only "change password" has been implemented.
 
 class ActiveRbac::MyAccountController < ActiveRbac::ComponentController
-
+  unloadable
+  
   # Allows the user to change his password. If the user is in the 
   # "retrieved_password" state then the view will display a notice
   # about the fact that the user *has* to change his password to

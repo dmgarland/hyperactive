@@ -1,6 +1,8 @@
 # This controller provides actions for users to register with the system
 # and retrieve lost passwords
 class ActiveRbac::RegistrationController < ActiveRbac::ComponentController
+  unloadable
+  
   # Use the configured layout.
   layout ActiveRbac.controller_layout
 

@@ -1,5 +1,7 @@
 # This is the controller that provides CRUD functionality for the User model.
 class ActiveRbac::UserController < ActiveRbac::ComponentController
+  unloadable
+  
   # The RbacHelper allows us to render +acts_as_tree+ AR elegantly
   helper RbacHelper
 

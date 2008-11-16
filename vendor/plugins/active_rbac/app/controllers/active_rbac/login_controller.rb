@@ -1,6 +1,8 @@
 # This controller provides actions to log a user in and out.
 
 class ActiveRbac::LoginController < ActiveRbac::ComponentController
+  unloadable
+  
   # Use the configured layout.
   layout ActiveRbac.controller_layout
 

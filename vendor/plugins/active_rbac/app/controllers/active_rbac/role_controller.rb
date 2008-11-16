@@ -1,4 +1,6 @@
 class ActiveRbac::RoleController < ActiveRbac::ComponentController
+  unloadable
+  
   # The RbacHelper allows us to render +acts_as_tree+ AR elegantly
   helper RbacHelper
 

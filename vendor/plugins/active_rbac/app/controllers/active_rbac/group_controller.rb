@@ -1,5 +1,7 @@
 # This is the controller that provides CRUD functionality for the Group model.
 class ActiveRbac::GroupController < ActiveRbac::ComponentController
+  unloadable
+  
   # The RbacHelper allows us to render +acts_as_tree+ AR elegantly
   helper RbacHelper
   

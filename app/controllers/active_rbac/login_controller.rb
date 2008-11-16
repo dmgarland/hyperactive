@@ -1,7 +1,8 @@
 # Provides actions to log a user in and out.
 #
 class ActiveRbac::LoginController < ActiveRbac::ComponentController
- 
+  unloadable
+  
   require_dependency 'vendor/plugins/active_rbac/app/controllers/active_rbac/login_controller'
   layout 'two_column'
   include CacheableUserInfo

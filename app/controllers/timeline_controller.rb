@@ -17,7 +17,6 @@ class TimelineController < ApplicationController
       timeline_event.description = event.summary  + "<p><a href='" + url_for(:controller => 'events', :action => 'show', :id => event) + "'>view full event</a></p>"
       if event.photos.length > 0
         photo = event.photos.first
-        puts event.id
         timeline_event.image = photo.file.thumb.url
       end
       if event.end_date

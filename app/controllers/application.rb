@@ -1,5 +1,6 @@
-# Filters added to this controller will be run for all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
+# This is the superclass for all controllers in this application.  All controllers have
+# access to any public or protected method in here.
+#
 class ApplicationController < ActionController::Base
   
 # TODO: enable this.
@@ -10,6 +11,12 @@ class ApplicationController < ActionController::Base
   include CacheableUserInfo
   before_filter :write_user_info
   
+  # Writes the user info (from the session) into a cookie so that it can be picked up
+  # by the javascript and written into the page - i.e. "You are currently logged in as *foo*.
+  # This allows us to use full-page caching but still customize the page a bit for 
+  # the user, so we can serve static HTML pages directly from Apache without
+  # hitting Rails at all.
+  #
   def write_user_info
     write_user_info_to_cookie
   end
@@ -54,6 +61,7 @@ class ApplicationController < ActionController::Base
   
   # For convenience, instantiate properties containing the current 
   # controller and action names on each request
+  #
   before_filter :instantiate_controller_and_action_names
   
   # Include the SSL requirement plugin and allow any action to be accessed as SSL.
@@ -78,34 +86,41 @@ class ApplicationController < ActionController::Base
   #self.languages = { :danish => 'da-DK' } unless RAILS_ENV == 'test'
   
   # Defines who can click on text to globalize it
+  #
   def globalize?
     current_user.has_permission?("translate_ui") && RAILS_ENV != 'test'
   end
   
   # make the globalize? method available to helpers so it can be used in views
+  #
   helper_method :globalize?
   
   # The default number of content objects that get retrieved for display on list pages
+  #
   def objects_per_page
     10
   end
   
   # The default number of content objects that get retrieved for display in feeds
+  #
   def events_per_feed
     10
   end
   
   # The default number of tags to display in a cloud
+  #
   def tags_in_cloud
     20
   end
   
   # A convenience method which either grabs the page param or returns 1
+  #
   def page_param
     (params[:page] ||= 1).to_i
   end
   
   # Applies security to protected methods - only Admin users can access these.
+  #
   def protect_controller
     if current_user.has_role?("Admin")
       return true
@@ -115,12 +130,14 @@ class ApplicationController < ActionController::Base
   end  
   
   # What do we do if someone tries to access something they're not supposed to see?
+  #
   def security_error
     redirect_to root_path
     flash[:notice] = "You are not allowed to access this page."
   end
   
   # Grabs the controller and action names so we always have those available during the lifespan of a request.
+  #
   def instantiate_controller_and_action_names
     @current_action = action_name
     @current_controller = controller_name

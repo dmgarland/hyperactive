@@ -2,9 +2,16 @@
 #
 class Event < Post
   
+  # Assocations
+  #
   belongs_to :event_group  
+  
+  # Validations
+  #
   validates_presence_of :body, :date
   
+  # Macros
+  #
   named_scope :upcoming, :conditions => ['date >= ?', Date.today]
 
     
@@ -33,6 +40,7 @@ class Event < Post
     
   # Returns true if the event has an end date, otherwise false.  Note that there
   # is currently no type checking, so the date is not guaranteed to be a date.  
+  #
   def has_end_date?
     if end_date != nil
       return true
@@ -42,6 +50,7 @@ class Event < Post
   end
   
   # Returns true if the event is part of an EventGroup.
+  #
   def belongs_to_event_group?
     if event_group != nil
       true
@@ -50,6 +59,8 @@ class Event < Post
     end
   end 
   
+  # Returns an array of photos belonging to the first event in the event group.
+  #
   def event_group_photos
     if belongs_to_event_group?
       event_group.events.first.photos
@@ -58,6 +69,8 @@ class Event < Post
     end
   end
   
+  # Updates all the taggings with the date of the event they're attached to.
+  #
   def update_all_taggings_with_date  
     taggings.each do |tagging|
       tagging.event_date = date
@@ -69,6 +82,10 @@ class Event < Post
     end    
   end
 
+
+  # Hides any tags attached to this event if the event has been hidden (so we don't 
+  # get any "fuckyou" tags showing up in the tag clouds on the front page).
+  #
   def after_save
     if !tag_list.blank?
       taggings.each do |tagging|
@@ -113,7 +130,5 @@ class Event < Post
       errors.add(:date, "must be at least two hours in the future")
     end
   end  
-  
-
   
 end

@@ -3,11 +3,16 @@
 #
 class PlaceTag < ActiveRecord::Base
 
+  # Associations
+  #
   has_many_polymorphs :place_taggables, 
       :from => [:events, :articles, :videos], 
       :through => :place_taggings,
       :dependent => :destroy
 
+
+  # Retrieves a tag cloud from the database
+  #
   def self.cloud(options={})
     query = "select place_tags.id, name, count(*) as popularity"
     query << " from place_taggings, place_tags"

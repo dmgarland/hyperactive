@@ -2,10 +2,18 @@
 #
 class FileUpload < ActiveRecord::Base
   
+  # Associations
+  #
+  belongs_to :post, :foreign_key => 'content_id'
+  
+  # Validations
+  #
   validates_presence_of :title
   validates_presence_of :file
   validates_length_of :title, :maximum=>255
   
+  # Macros
+  #
   upload_column :file, 
               :extensions => ["mp3", "ogg", "pdf", "doc", "svg", "swf", "xls", "odf", "ppt"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),
@@ -18,8 +26,9 @@ class FileUpload < ActiveRecord::Base
                                       end
                                    }
               
-  belongs_to :post, :foreign_key => 'content_id'
 
+  # Filters
+  #
   before_destroy :delete_files 
   before_update :delete_files_if_new_uploaded
   

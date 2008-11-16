@@ -2,6 +2,8 @@
 #
 class EventGroup < ActiveRecord::Base
 
+  # Associations
+  #
   has_many :events
   
   # TODO: there should probably be a validation to make sure that the same event cannot be

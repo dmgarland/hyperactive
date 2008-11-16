@@ -5,13 +5,15 @@
 #
 class Collective < ActiveRecord::Base
 
-  # validations
+  # Validations
+  #
   validates_length_of :name, :maximum => 255
   validates_length_of :summary, :maximum => 1000
   validates_presence_of :name, :summary
   validates_uniqueness_of :name
   
-  # associations 
+  # Associations
+  # 
   has_many :collective_memberships
   has_many :users, :through => :collective_memberships
   # has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'collective_associations.created_on DESC'
@@ -22,7 +24,8 @@ class Collective < ActiveRecord::Base
   has_many :upcoming_events, :order => "date DESC"
   has_many :videos, :order => "created_on DESC"
 
-  # macros
+  # Macros
+  #
   acts_as_ferret(:fields => [:name, :summary])  
   has_friendly_id :name, :use_slug => true
   image_column  :image, 
@@ -38,7 +41,8 @@ class Collective < ActiveRecord::Base
                                       end
                                    }
    
-  # filters                 
+  # Filters
+  #                 
   before_destroy :delete_image
   before_update :delete_image_if_new_uploaded
 

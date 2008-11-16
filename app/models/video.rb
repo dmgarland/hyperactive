@@ -14,6 +14,8 @@ class Video < Media
 
   WEB_ROOT = 'system/'
 
+  # Macros
+  #
   upload_column :file, 
                 :extensions => ["3gp",  "avi",  "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),
@@ -25,19 +27,28 @@ class Video < Media
                                         return Date.today.strftime("video/%Y/%m/%d/") +  record.id.to_s
                                       end
                                    }
- 
+  
+  # Validations
+  #
   validates_length_of :title, :maximum=>255
   validates_presence_of :file unless RAILS_ENV == 'test'
+  
+  # Assocations
+  #
   belongs_to :post, :foreign_key => "content_id"
   
+  # Filters
+  #
+  before_destroy :delete_files 
+  before_update :delete_files_if_new_uploaded  
+  
+  # Accessors
+  #
   attr_accessor :video_type, :relative_video_file, :relative_ogg_file, :relative_torrent_file
 
   PROCESSING = 1
   SUCCESS = 2
   #ERROR = 3 # not used currently as I'm not sure how to trap errors.
-
-  before_destroy :delete_files 
-  before_update :delete_files_if_new_uploaded
   
   # Recursively deletes all files and then the directory which the files
   # were stored in.
@@ -80,6 +91,9 @@ class Video < Media
     end
   end
   
+  # Currently this always return "ogg" since we only use it for inclusion in the
+  # ogg-only video feed.
+  #
   def video_type
     'application/ogg'
   end

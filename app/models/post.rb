@@ -5,6 +5,8 @@
 #
 class Post < Content
   
+  # Associations
+  #
   has_many :links
   has_many :videos, :foreign_key => "content_id"
   has_many :photos, :foreign_key => "content_id"

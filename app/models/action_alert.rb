@@ -2,6 +2,8 @@
 #
 class ActionAlert < ActiveRecord::Base
   
+  # Validations
+  #
   validates_presence_of :summary
   validates_length_of :summary, :maximum => 255
   

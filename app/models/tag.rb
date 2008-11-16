@@ -2,11 +2,15 @@
 #
 class Tag < ActiveRecord::Base
  
+  # Associations
+  #
   has_many_polymorphs :taggables, 
     :from => [:videos, :events, :articles], 
     :through => :taggings,
     :dependent => :destroy
-      
+  
+  # Retrieves a tag cloud from the database
+  #
   def self.cloud(options = {})
     query = "select tags.id, name, count(*) as popularity"
     query << " from taggings, tags"

@@ -10,6 +10,8 @@
 #
 class CollectiveAssociation < ActiveRecord::Base
   
+  # Associations
+  #
   belongs_to :collective
   belongs_to :collective_associatable, :polymorphic => true
   

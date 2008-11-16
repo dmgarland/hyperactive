@@ -2,10 +2,17 @@
 #
 class Photo < ActiveRecord::Base
 
+  # Validations
+  #
   validates_presence_of :file
   validates_length_of :title, :maximum=>255
+  
+  # Associations
+  #
   belongs_to :post, :foreign_key => 'content_id'
   
+  # Macros
+  #
   image_column  :file, 
                 :versions => { :thumb => "c120x120", :big_thumb => "180x400", :medium => "480x480" },
                 :extensions => ["gif", "png", "jpg"],
@@ -18,7 +25,9 @@ class Photo < ActiveRecord::Base
                                         return Date.today.strftime("photo/%Y/%m/%d/") +  record.id.to_s
                                       end
                                    }
-                
+  
+  # Filters
+  #
   before_destroy :delete_files 
   before_update :delete_files_if_new_uploaded
   

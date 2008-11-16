@@ -1,4 +1,18 @@
-See the project site at:
+Welcome to the Hyperactive news-reporting and community system.  This project allows you
+to run your own news site, and has an extensive feature set, including:
+
+ * Articles
+ * Events
+ * Video upload and conversion, including Bittorrent creation
+ * Pulling in RSS feeds from other places on the internet
+ * A fairly sophisticated role-based access control system so you can create your own
+   roles and permissions for different kinds of users.
+ * A system of Groups so people can have their own mini-website for their group.
+
+The ideas for the project came mainly from Indymedia London (see: http://london.indymedia.org.uk) 
+but the site code could potentially be used for many different purposes.
+
+For more information, or to get involved with development, see the project site at:
 
 http://projects.escapegoat.org/projects/show/hyperactive
 

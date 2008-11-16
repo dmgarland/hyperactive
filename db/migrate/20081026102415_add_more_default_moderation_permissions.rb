@@ -1,6 +1,6 @@
 class AddMoreDefaultModerationPermissions < ActiveRecord::Migration
   def self.up
-    admin = Role.find_by_title("admin")
+    admin = Role.find_by_title("Admin")
     
     p = StaticPermission.new
     p.title = "promote_content"

@@ -15,7 +15,7 @@ class Tag < ActiveRecord::Base
     query = "select tags.id, name, count(*) as popularity"
     query << " from taggings, tags"
     query << " where tags.id = tag_id"
-    query << " and taggings.hide_tag = false"
+    query << " and taggings.hide_tag = 0"
     query << " group by tag_id, tags.id, tags.name"
     query << " order by popularity DESC"
     query << " limit #{options[:limit]}" if options[:limit] != nil

@@ -17,7 +17,7 @@ class PlaceTag < ActiveRecord::Base
     query = "select place_tags.id, name, count(*) as popularity"
     query << " from place_taggings, place_tags"
     query << " where place_tags.id = place_tag_id"
-    query << " and place_taggings.hide_tag = false"    
+    query << " and place_taggings.hide_tag = 0"    
     query << " group by place_tag_id, place_tags.id, place_tags.name"
     query << " order by popularity DESC"
     query << " limit #{options[:limit]}" if options[:limit] != nil

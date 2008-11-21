@@ -16,14 +16,35 @@ class FeedsControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-# Unfortunately there seems to be something weird going on with respect to
-# testing anything to do with resource_feeder.  It uses some method_missing
-# magic to get the pub_date into the feed, and for the moment the pub_date
-# of everything is nil in tests (but it works in development mode).
-# 
-#  def test_upcoming_articles
-#    get :latest_articles
-#    assert_response :success
-#  end
+
+  def test_action_alerts
+    get :action_alerts
+    assert_response :success
+  end
+  
+  def test_latest_articles
+    get :latest_articles
+    assert_response :success
+  end
+  
+  def test_latest_videos
+    get :latest_videos
+    assert_response :success
+  end
+  
+  def test_upcoming_events
+    get :upcoming_events
+    assert_response :success    
+  end
+  
+  def test_upcoming_events_by_tag
+    get :upcoming_events_by_tag, :scope => "foo"
+    assert_response :success      
+  end
+
+  def test_upcoming_events_by_place
+    get :upcoming_events_by_place, :scope => "brixton"
+    assert_response :success   
+  end
 
 end

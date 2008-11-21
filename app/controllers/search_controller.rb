@@ -30,7 +30,7 @@ class SearchController < ApplicationController
     if (params[:search][:search_terms])
       @search_terms = params[:search][:search_terms]
       @articles = Article.find_with_ferret(@search_terms, {}, {:conditions => ['moderation_status != ?', "hidden"]})
-      @events = Event.find_with_ferret(@search_terms, {}, {:conditions => ['moderation_status != ? && date >= ?', "hidden", Date.today.to_s]})
+      @events = Event.find_with_ferret(@search_terms, {}, {:conditions => ['moderation_status != ? AND date >= ?', "hidden", Date.today.to_s]})
       @videos = Video.find_with_ferret(@search_terms, {}, {:conditions => ['moderation_status != ?', "hidden"]})
       @collectives = Collective.find_with_ferret(@search_terms)
     end

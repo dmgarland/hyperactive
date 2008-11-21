@@ -10,7 +10,7 @@
 Allows you to get a feed of events for a specific tag, listed by when they were published.
 So if you want to see everything tagged with "foo" on the site as it gets published, you'd type "foo" into this search box
 and subscribe to the resulting feed:
-<p><% form_tag({:action => 'upcoming_events_by_tag'}) do %>
+<p><% form_tag({:action => 'upcoming_events_by_tag'}, :method=>"GET") do %>
 	<%= text_field_tag 'scope' %>
 	<%= submit_tag 'View feed' %>
 <% end %>
@@ -21,7 +21,7 @@ and subscribe to the resulting feed:
 Allows you to get a feed of events for a specific place, listed by when they were published.
 So if you want to see all events tagged with the place 'Brixton' on the site as it gets published, 
 you'd type 'Brixton' into this search box and subscribe to the resulting feed:
-<p><% form_tag({:action => 'upcoming_events_by_place'}) do %>
+<p><% form_tag({:action => 'upcoming_events_by_place'}, :method=>"GET") do %>
 	<%= text_field_tag 'scope' %>
 	<%= submit_tag 'View feed' %>
 <% end %>

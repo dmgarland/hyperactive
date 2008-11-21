@@ -1,0 +1,23 @@
+xml.instruct!
+
+xml.rss "version" => "2.0" do
+ xml.channel do
+
+   xml.title       Hyperactive.site_name + ": Upcoming Events Tagged With " + @tag.name
+   xml.link        url_for(:only_path => false, :controller => 'events')
+   xml.description "Upcoming Events  Tagged With " + @tag.name + " on London Indymedia..."
+   xml.language    "en-us"
+   xml.ttl         40
+
+   @events.each do |e|
+     xml.item do
+       xml.title       e.title
+       xml.description e.summary
+       xml.pubDate     e.created_on
+       xml.guid        url_for :only_path => false, :controller => 'events', :action => 'show', :id => e.id
+       xml.link        url_for :only_path => false, :controller => 'events', :action => 'show', :id => e.id
+     end
+   end
+
+ end
+end

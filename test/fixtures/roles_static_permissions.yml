@@ -1,35 +1,44 @@
 admin_hide:
   role_id: 1
   static_permission_id: 1
+  created_at: Time.now
   
 admin_edit_all_content:
   role_id: 1
   static_permission_id: 3
+  created_at: Time.now
   
 admin_see_admin_nav:
   role_id: 1
   static_permission_id: 4
+  created_at: Time.now
  
 registered_edit_own_article:
   role_id: 3
   static_permission_id: 2
+  created_at: Time.now
   
 hider_hide:
   role_id: 4
   static_permission_id: 1
+  created_at: Time.now
   
 admin_destroy:
   role_id: 1
   static_permission_id: 5
+  created_at: Time.now
   
 registered_hide_own_content:
   role_id: 3
   static_permission_id: 6
+  created_at: Time.now
   
 admin_feature_content:
   role_id: 1
   static_permission_id: 7
+  created_at: Time.now
   
 admin_promote_content:
   role_id: 1
   static_permission_id: 8
+  created_at: Time.now

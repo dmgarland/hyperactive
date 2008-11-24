@@ -40,7 +40,7 @@
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
 			<li>				
-				<h2><%= 'Promoted Newswire'.t %></h2>
+				<h2>Promoted Newswire</h2>
 				<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>			
 				</ul>
@@ -51,7 +51,7 @@
 	<div id="unused" class="sidebar_content">
 		<ul>
 			<li>
-				<h2><%= 'Around the UK'.t %></h2>
+				<h2>Around the UK</h2>
 				<ul>
 					<%= @uk_feed unless @uk_feed.nil? %>
 				</ul>
@@ -64,13 +64,13 @@
 <div id="sidebar1" class="sidebar">
 	<ul>
 		<li>
-			<h2><%= 'Featured Events'.t %></h2>
+			<h2>Featured Events</h2>
 			<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
 			</ul>
 		</li>	
 		<li>
-			<h2><%= 'Upcoming Events'.t %></h2>
+			<h2>Upcoming Events</h2>
 			<ul>
 			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
 			</ul>
@@ -96,21 +96,21 @@
 			<%= render :partial => 'videos/featured_flash_player' %>
 		</li>	
 		<li>
-			<h2><%= "Neighbourhoods".t %></h2>
+			<h2>Neighbourhoods</h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
 		</li>
 		<li>
-			<h2><%= "Tags".t %></h2>
+			<h2>Tags</h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
 		</li>
 		<li>
-			<h2><%= 'Info'.t %></h2>
+			<h2>Info</h2>
 			<ul>
 				<%= render :partial => '/page/list_title', :collection => @pages %>
 			</ul>
 		</li>		
 		<li>
-			<h2><%= 'Indymedia UK Network'.t %></h2>
+			<h2>Indymedia UK Network</h2>
 			<ul>		
 				<li class="list">
 					<%= link_to "Indymedia UK", "http://www.indymedia.org.uk" %>

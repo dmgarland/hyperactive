@@ -18,6 +18,5 @@ require 'tag_extensions'
 require 'vpim/icalendar'
 
 ActiveRbac.controller_layout = "admin" 
-ActiveRecord::Base.verification_timeout = 14400
 
 ROUTES_PROTOCOL = (ENV["RAILS_ENV"] =~ /development/ ? "http://" : "https://")

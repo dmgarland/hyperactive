@@ -4,24 +4,24 @@
 
 <!--[form:event]-->
 <p><em>*</em> = required field</p>
-<p><label for="content_title"><%= 'Title'.t %><em>*</em></label><br/>
+<p><label for="content_title">Title<em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
 
-<p><label for="content_date"><%= 'Date of Event'.t %><em>*</em></label><br/>
+<p><label for="content_date">Date of Event<em>*</em></label><br/>
 <%= f.datetime_select 'date', {:start_year=>Date.today.year, :minute_step => 15}  %></p>
 
-<p><label for="content_published_by"><%= 'Your name:'.t %><em>*</em></label><br/>
+<p><label for="content_published_by">Your name:<em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 
-<p><label for="content_contact_email"><%= 'Contact email address for event:'.t %></label><br/>
+<p><label for="content_contact_email">Contact email address for event:</label><br/>
 <%= f.text_field 'contact_email' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
-<p><label for="content_summary"><%= 'Place'.t %><em>*</em> - <%= 'include street address, room number, etc.'.t %></label><br/>
+<p><label for="content_summary">Place<em>*</em> - include street address, room number, etc.</label><br/>
 <%= f.text_area 'summary', :cols=>80, :rows=>10  %></p>
 
-<p><label for="content_body"><%= 'Description'.t %><em>*</em></label><br/>
+<p><label for="content_body">Description<em>*</em></label><br/>
 <%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
 
 <%= render :partial => 'shared/content/comments/allows_comments_controls', :locals => {:f => f} %>
@@ -29,40 +29,40 @@
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 
  <% if controller.action_name == "new" %>
- <p><%= 'Repeating event (optional)'.t %></p>
+ <p>Repeating event (optional)</p>
  <p><%= radio_button_tag :event_repeat_type, "none", :selected => true %>
-    <label for="event_has_event_group"><%= 'Do not repeat this event'.t %></label>
+    <label for="event_has_event_group">Do not repeat this event</label>
     <br/>
     
     <%= radio_button_tag :event_repeat_type, "repeat_simple" %>
-    <label for="event_has_event_group"><%= 'Repeat'.t %></label>
+    <label for="event_has_event_group">Repeat</label>
     <%= select_tag(:event_repeats_every, options_for_select({"every" => 1, "every other" => 2, "every third" => 3, "every fourth" => 4}, :selected => 0))%>
     <%= select_tag(:event_repeats_dwm, options_for_select(["day", "week", "month"]))%>
     <br/>
     
     <%= radio_button_tag :event_repeat_type, "repeat_complex" %>
-    <label for="event_has_event_group"><%= 'Repeat on the'.t %></label>
+    <label for="event_has_event_group">Repeat on the</label>
     <%= select_tag(:event_repeats_which_week, options_for_select(%w[ first second third fourth last]))%>
     <%= select_tag(:event_repeats_week_day, options_for_select(%w[ Monday Tuesday Wednesday Thursday Friday Saturday Sunday ]))%>
     of the month every      <%= select_tag(:event_repeat_period, options_for_select([["month",1], ["other month",2]]), :selected => true)%>
     <br/>
 </p>
-<p><%= 'Until:'.t %> <%= select_date (date = Date.today)  %> <%= "Note: you can only repeat events for a maximum of 6 months from the date of the first event.".t %></p>
+<p>Until: <%= select_date (date = Date.today)  %> <%= "Note: you can only repeat events for a maximum of 6 months from the date of the first event.".t %></p>
 <% end %>
 
 <noscript>
-<p><a name="noJS"><%= 'Oops!'.t %></a> 
-<%= "You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
-Please enable JavaScript in your browser's preferences if you want to add a photo or a link.".t %>
+<p><a name="noJS">Oops!</a> 
+You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
+Please enable JavaScript in your browser's preferences if you want to add a photo or a link.
 </p>
 </noscript>
 
-<h2><%= 'Media uploads'.t %></h2>
+<h2>Media uploads</h2>
 
 <p>
-<%= 'Click on the "add photo", "add video", or "add file upload" link for each file 
+Click on the "add photo", "add video", or "add file upload" link for each file 
 you want to upload. You can upload as many files as you want by clicking the "add" 
-links multiple times.	'.t %>
+links multiple times.
 </p>
 
 <%= render :partial => "shared/content/sub_list_upload_links" %>

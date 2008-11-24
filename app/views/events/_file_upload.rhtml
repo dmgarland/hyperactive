@@ -2,17 +2,17 @@
 <div id="<%= "file_upload_#{file_upload.id}" %>">
   <fieldset>
     <label class="first" for="file_upload[]_item_id">
-    <%= 'File upload'.t %> 
+    File upload
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
         <%= link_to(file_upload.title, file_upload.file.url) %><br/><br/>
     <% end %>
     <label for="file_upload[]_title">
-      <%= 'Title'.t %>*<br/>
+      Title*<br/>
       <%= text_field 'file_upload[]', 'title', :size => 30 %>
     </label><br/><br/>
     <label for="file_upload[]_file">
-    <%= 'File'.t %>*<br/>
+    File*<br/>
     <%= upload_column_field("file_upload[]", "file") %>
     </label><br/><br/>
 

@@ -1,6 +1,6 @@
 <% if current_user.can_edit?(@content)  %>
-<p><%= "or".t %></p>
+<p>or</p>
 <div>
-	<strong><%= link_to "Edit this #{@content.class.to_s.downcase}".t,  :controller => @content.class.to_s.downcase.pluralize, :action => 'edit', :id => @content %></strong>
+	<strong><%= link_to "Edit this #{@content.class.to_s.downcase}",  :controller => @content.class.to_s.downcase.pluralize, :action => 'edit', :id => @content %></strong>
 </div>
 <% end %>

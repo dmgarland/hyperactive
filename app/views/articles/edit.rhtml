@@ -1,7 +1,7 @@
-<h1><%= 'Editing article'.t %></h1>
+<h1>Editing article</h1>
 
 <% form_for(:content, :url => article_path(@content), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
-  <p><%= submit_tag 'Save changes'.t %></p>
+  <p><%= submit_tag 'Save changes' %></p>
 <% end %>   
-<p><%= button_to 'Delete this article'.t, article_path(@content), :method => :delete, :confirm => 'Are you sure?' %></p>
+<p><%= button_to 'Delete this article', article_path(@content), :method => :delete, :confirm => 'Are you sure?' %></p>

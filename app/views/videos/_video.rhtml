@@ -1,13 +1,13 @@
 <% css_class = @content.is_hidden? ? "hidden_post" : "post" %>
 <div class="<%= css_class %>">
 <h1><%=h video.title.titleize %></h1>
-<p class="byline"><%= image_tag "icon_video.gif" %> </image_tag><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small></p>
-<p><%= 'posted by'.t %> <strong><%=h @content.published_by.titleize %></strong></p>
+<p class="byline"><%= image_tag "icon_video.gif" %> </image_tag><small>Published: <%=h long_date(@content.created_on) %></small></p>
+<p>posted by <strong><%=h @content.published_by.titleize %></strong></p>
 <%= render :partial => 'shared/content/groups_display' %>
 <% if video.processing_status == 2 %>
     <div id="videoplayer<%= video.id %>">
-        <p><%= "This item requires Macromedia Flash Player 7.".t %></p>
-        <p><%= "To get the latest version please".t %> <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"><%= "click here".t %></a>.</p>
+        <p>This item requires Macromedia Flash Player 7.</p>
+        <p>To get the latest version please <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">click here</a>.</p>
     </div>
 	<script type="text/javascript">
 		var so = new SWFObject('/flash/mediaplayer.swf','mpl','320','260','7');
@@ -19,12 +19,12 @@
 		so.addVariable('usefullscreen', 'true');
 		so.write("videoplayer<%= video.id %>");
 	</script>	
-	<p><em><%= "Tagged as:".t %></em> <%= render_tag_list %></p>
+	<p><em>Tagged as:</em> <%= render_tag_list %></p>
     <%= video.summary %><br/>
-	<p><em><%= "Places:".t %></em> <%= render_place_tag_list %></p>
+	<p><em>Places:</em> <%= render_place_tag_list %></p>
 
 	<% if @content.contact_email != nil %>
-	    <p><%= image_tag("email.png") %> <em><%= 'Contact email:'.t %></em> <%= mail_to h(@content.contact_email) %></p>
+	    <p><%= image_tag("email.png") %> <em>Contact email:</em> <%= mail_to h(@content.contact_email) %></p>
 	<% end %>
 
 	<%# Removing direct links to files so that only torrent links are visible. %>
@@ -43,6 +43,6 @@
     <%= auto_link(video.body) %><br/>
     <%= link_to image_tag("icon_video.gif"), video.file.url %> 
     <%= link_to "download original", video.file.url %>
-    <p><%= "This video is still being converted, or else there has been some kind of error.".t %></p>
+    <p>This video is still being converted, or else there has been some kind of error.</p>
 <% end %>
 </div>

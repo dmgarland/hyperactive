@@ -6,24 +6,24 @@
 <% if controller.action_name == 'edit' %>
     <%= image_tag "#{@content.thumbnail}" %><br/><br/>
 <% end %>
-<p><label for="content_title"><%= 'Title'.t %>*<br/></label>
+<p><label for="content_title">Title*<br/></label>
 <%= f.text_field :title, :size => 30 %></p>
 
-<p><label for="content_published_by"><%= 'Your name:'.t %><em>*</em></label><br/>
+<p><label for="content_published_by">Your name:<em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 
-<p><label for="content_contact_email"><%= 'Contact email address for event:'.t %></label><br/>
+<p><label for="content_contact_email">Contact email address for event:</label><br/>
 <%= f.text_field 'contact_email' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
 <label for="content_file">
-<%= 'File'.t %>* - <%= 'allowed file types are'.t %> <%= Video.allowed_file_types.join(", ") %><br/>
+File* - allowed file types are <%= Video.allowed_file_types.join(", ") %><br/>
 <%= upload_column_field("content", "file") %>
 </label><br/><br/>
 
 <label for="video_description">
-  <%= 'Description'.t %> <br/>
+  Description <br/>
   <%= f.text_area :summary, :cols=>80, :rows => 15 %>  
 </label><br/><br/>
 

@@ -9,13 +9,12 @@ end %>
 <h3 class="<%= css_class %>"><%= hidden_notice %><%=h comment_display.title %></h3>
 <p class="byline">
     <small>
-        <%= 'Published'.t %>: <%=h long_date(comment_display.created_on) %>
-		<%= "by".t %>
-		<%= comment_display.published_by %>
+        Published: <%=h long_date(comment_display.created_on) %>
+		by <%= comment_display.published_by %>
     </small>
 </p>
 <%= auto_link(simple_format(h(comment_display.body))) %>
 
 <%= render :partial => 'shared/content/comments/hiding_controls', :locals => {:comment => comment_display } %>
-<p><%= link_to "View in context".t, content_path_for(comment_display.content) %> | <%= link_to 'Edit', :action => 'edit_comment', :id => comment_display %></p>
+<p><%= link_to "View in context", content_path_for(comment_display.content) %> | <%= link_to 'Edit', :action => 'edit_comment', :id => comment_display %></p>
 <hr/>

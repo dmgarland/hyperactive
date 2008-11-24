@@ -1,8 +1,8 @@
-<h1><%= 'New page'.t %></h1>
+<h1>New page</h1>
 
 <% form_tag :action => 'create' do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag "Create".t %>
+  <%= submit_tag "Create" %>
 <% end %>
 
-<%= link_to 'Back'.t, :action => 'list' %>
+<%= link_to 'Back', :action => 'list' %>

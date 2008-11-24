@@ -1,8 +1,8 @@
 <p><strong><%=h @page.title %></strong></p>
 <p><%= auto_link(simple_format(@page.body)) %></p>
 
-<p><strong><%= 'Created on:'.t %></strong> <%=h @page.created_on %></p>
-<p><strong><%= 'Updated on:'.t %></strong> <%=h @page.updated_on %></p>
+<p><strong>Created on:</strong> <%=h @page.created_on %></p>
+<p><strong>Updated on:</strong> <%=h @page.updated_on %></p>
 
-<%= link_to 'Edit'.t, :action => 'edit', :id => @page %> |
-<%= link_to 'Back'.t, :action => 'list' %>
+<%= link_to 'Edit', :action => 'edit', :id => @page %> |
+<%= link_to 'Back', :action => 'list' %>

@@ -1,11 +1,11 @@
 <% if !@content.nil? %>
 <ul>
     <li>
-        <h2><%= image_tag "feed-icon-14x14.png" %> <%= "Latest articles feed".t %></h2>
+        <h2><%= image_tag "feed-icon-14x14.png" %>Latest articles feed</h2>
         <p>
-            <%= "Subscribe to our".t %> <%=  link_to "latest articles feed".t, latest_articles_feed_path %>
-			<%= "or visit our" %> <%= link_to "feed center".t, feed_center_path %> 
-			<%= "for more feeds" %>.
+            Subscribe to our <%=  link_to "latest articles feed", latest_articles_feed_path %>
+			or visit our <%= link_to "feed center", feed_center_path %> 
+			for more feeds.
         </p>
     </li>
 </ul>

@@ -3,17 +3,17 @@
 <% css_class = @content.is_hidden? ? "hidden_post" : "post" %>
 <div class="<%= css_class %>">
 <h1 class="title"><%=h @content.title %></h1>
-<p class="byline"><%= image_tag "icon_article.gif" %> </image_tag><small><%= 'Published'.t %>: <%=h long_date(@content.created_on) %></small> <%= 'by'.t %> <strong><%=h @content.published_by.titleize %></strong></p>
+<p class="byline"><%= image_tag "icon_article.gif" %> </image_tag><small>Published: <%=h long_date(@content.created_on) %></small> by <strong><%=h @content.published_by.titleize %></strong></p>
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 
 <%= render :partial => 'shared/content/groups_display' %>
 
-<p><em><%= 'Tagged as'.t %>:</em> <%= render_tag_list %></p>
+<p><em>Tagged as:</em> <%= render_tag_list %></p>
 
 <div class='entry'><%= auto_link(@content.summary) %></div>
 
-<p><em><%= 'Places'.t %></em>: <%= render_place_tag_list %></p>
+<p><em>Places</em>: <%= render_place_tag_list %></p>
 
 <p><%=h @content.place %></p>
 

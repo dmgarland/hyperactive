@@ -1,5 +1,5 @@
 <%= render :partial => "top_nav" %>
-<h1><%= 'Listing all articles'.t %></h1>
+<h1>Listing all articles</h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <hr/>
 <%= link_to("More articles", archive_articles_path(:page => 2)) %>

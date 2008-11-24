@@ -2,21 +2,21 @@
 <div id="<%= "video_#{video.id}" %>">
   <fieldset>
     <label class="first" for="video[]_item_id">
-    <%= 'Video'.t %> 
+    Video
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
         <%= image_tag video.file.thumb.url %><br/><br/>
     <% end %>
     <label for="video[]_title">
-      <%= 'Title'.t %>*<br/>
+      Title*<br/>
       <%= text_field 'video[]', 'title', :size => 30 %>
     </label><br/><br/>
     <label for="video[]_file">
-    <%= 'File'.t %>* - <%= 'allowed file types are'.t %> <%= Video.allowed_file_types.join(", ") %><br/>
+    File* - allowed file types are <%= Video.allowed_file_types.join(", ") %><br/>
     <%= upload_column_field("video[]", "file") %>
     </label><br/><br/>
     <label for="video[]_title">
-      <%= 'Description'.t %><br/>
+      Description<br/>
       <%= text_area 'video[]', 'summary', :rows => 5 %>
     </label><br/><br/>
     <%= sub_list_remove_link video, 'Video', 'Del' %>

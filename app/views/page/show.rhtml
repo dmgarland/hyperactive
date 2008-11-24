@@ -1,6 +1,6 @@
 <div class="post">
 <h1 class="title"><%=h @page.title %></h1>
-<p class="byline"><small><%= 'Updated on:'.t %>: <%=h long_date(@page.updated_on) %></small></p>
+<p class="byline"><small>Updated on:: <%=h long_date(@page.updated_on) %></small></p>
 
 <p><%= auto_link(simple_format(@page.body)) %></p>
 

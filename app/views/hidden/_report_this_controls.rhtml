@@ -1,4 +1,4 @@
-<p><%= "What's the trouble?".t %></p>
+<p><%= "What's the trouble?" %></p>
 <% form_remote_tag(:url => {:controller => :hidden, :action => :report, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:hide_reason, nil, :size => "50x3")%>

@@ -2,17 +2,17 @@
 <div id="<%= "photo_#{photo.id}" %>">
   <fieldset>
     <label class="first" for="photo[]_item_id">
-    <%= 'Photo'.t %> 
+    Photo
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
         <%= image_tag photo.file.thumb.url %><br/><br/>
     <% end %>
     <label for="photo[]_title">
-      <%= 'Title'.t %>*<br/>
+      Title*<br/>
       <%= text_field 'photo[]', 'title', :size => 30 %>
     </label><br/><br/>
     <label for="photo[]_file">
-    <%= 'File'.t %>*<br/>
+    File*<br/>
     <%= upload_column_field("photo[]", "file") %>
     </label><br/><br/>
 

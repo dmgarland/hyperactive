@@ -4,8 +4,8 @@
 
 <% form_tag :action => 'update', :id => @action_alert do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag 'Edit'.t %>
+  <%= submit_tag 'Edit' %>
 <% end %>
 
-<%= link_to 'Show'.t, :action => 'show', :id => @action_alert %> |
-<%= link_to 'Back'.t, :action => 'list' %>
+<%= link_to 'Show', :action => 'show', :id => @action_alert %> |
+<%= link_to 'Back', :action => 'list' %>

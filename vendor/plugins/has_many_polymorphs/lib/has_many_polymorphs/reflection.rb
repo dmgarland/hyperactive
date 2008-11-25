@@ -51,6 +51,22 @@ Inherits from ActiveRecord::Reflection::AssociationReflection.
         # normally is the classname of the association target
         @class_name ||= options[:join_class_name]
       end
+      
+      # HACK: THIS IS AN ACTIVERECORD 2.1 METHOD!
+      # Returns the AssociationReflection object specified in the <tt>:through</tt> option
+      # of a HasManyThrough or HasOneThrough association. Example:
+      #
+      #   class Post < ActiveRecord::Base
+      #     has_many :taggings
+      #     has_many :tags, :through => :taggings
+      #   end
+      #
+      #   tags_reflection = Post.reflect_on_association(:tags)
+      #   taggings_reflection = tags_reflection.through_reflection
+      #
+      def through_reflection
+        @through_reflection ||= options[:through] ? active_record.reflect_on_association(options[:through]) : false
+      end        
                      
     end
  

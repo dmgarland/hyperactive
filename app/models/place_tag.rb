@@ -6,9 +6,9 @@ class PlaceTag < ActiveRecord::Base
   # Associations
   #
   has_many_polymorphs :place_taggables, 
-      :from => [:events, :articles, :videos], 
+      {:from => [:events, :articles, :videos], 
       :through => :place_taggings,
-      :dependent => :destroy
+      :dependent => :destroy}
 
 
   # Retrieves a tag cloud from the database

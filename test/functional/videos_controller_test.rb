@@ -46,7 +46,7 @@ class VideosControllerTest < Test::Unit::TestCase
     assert_no_match(/,/, content.tag_list) 
     assert_no_match(/,/, content.place_tag_list)
     assert_response :redirect
-    assert_redirected_to :action => 'show'
+    assert_redirected_to video_path(assigns(:content))
     assert_equal num_content + 1, model_class.count
     assert_equal "published", content.moderation_status    
     assert assigns(:content).collective == collectives(:indy_london)

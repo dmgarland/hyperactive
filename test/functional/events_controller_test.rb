@@ -194,8 +194,7 @@ class EventControllerTest < Test::Unit::TestCase
 
   def test_edit_without_being_logged_in
     get :edit, :id => 1
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    assert_security_error
   end
 
   def test_edit
@@ -207,8 +206,7 @@ class EventControllerTest < Test::Unit::TestCase
   
   def test_edit_as_registered_fails_if_not_content_owner
     get :edit, {:id => 1}, as_user(:hider_user)
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    assert_security_error
   end  
   
   def test_edit_as_registered_when_content_owner
@@ -234,8 +232,7 @@ class EventControllerTest < Test::Unit::TestCase
   
   def test_update_as_registered_fails_if_not_content_owner
     post :update, event_stub(1), as_user(:hider_user)
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    assert_security_error
   end
   
   def test_update_as_registered_when_content_owner
@@ -247,8 +244,7 @@ class EventControllerTest < Test::Unit::TestCase
 
   def test_update_as_anonymous_fails
     post :update, event_stub(2)
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]  
+    assert_security_error
   end
 
   def test_destroy
@@ -268,9 +264,7 @@ class EventControllerTest < Test::Unit::TestCase
     assert_not_nil(e) 
     
     post :destroy, {:id => 1}, as_user(:registered_user)
-    assert_response :redirect
-    assert_redirected_to :action => 'index'
-    assert_equal "You are not allowed to access this page.", flash[:notice]    
+    assert_security_error 
     
     e2 = Event.find(1)
     assert_equal(e, e2)   
@@ -281,9 +275,7 @@ class EventControllerTest < Test::Unit::TestCase
     assert_not_nil(e) 
     
     post :destroy, {:id => 1}
-    assert_response :redirect
-    assert_redirected_to :action => 'index'
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    assert_security_error
     
     e2 = Event.find(1)
     assert_equal(e, e2) 

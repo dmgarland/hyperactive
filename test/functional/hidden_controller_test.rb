@@ -46,14 +46,12 @@ class HiddenControllerTest < Test::Unit::TestCase
   
   def test_hide_content_without_being_logged_in
     post :hide, :id => 1
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    assert_security_error
   end  
   
   def test_hide_comment_without_being_logged_in
     post :hide_comment, :id => 1
-    assert_redirected_to :action => "index"
-    assert_equal "You are not allowed to access this page.", flash[:notice]
+    assert_security_error
   end    
   
   def test_hide_content

@@ -47,7 +47,7 @@
     of the month every      <%= select_tag(:event_repeat_period, options_for_select([["month",1], ["other month",2]]), :selected => true)%>
     <br/>
 </p>
-<p>Until: <%= select_date (date = Date.today)  %> <%= "Note: you can only repeat events for a maximum of 6 months from the date of the first event.".t %></p>
+<p>Until: <%= select_date (date = Date.today)  %> Note: you can only repeat events for a maximum of 6 months from the date of the first event.</p>
 <% end %>
 
 <noscript>

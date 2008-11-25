@@ -6,7 +6,6 @@
 <p class="byline"><%= image_tag "date.png" %> <small>Event date: <%=h long_date(@content.date) %></small>by <strong><%=h @content.published_by.titleize %></strong></p>
 
 <%= render :partial => 'shared/content/hidden_notice' %>
-
 <%= render :partial => 'shared/content/groups_display' %>
 
 <% if @content.belongs_to_event_group? %>

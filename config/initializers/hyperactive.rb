@@ -1,7 +1,8 @@
-# Some general configuration stuff
-#
-Hyperactive.banner_image = "banner.png"
+require "hyperactive"
+
+Hyperactive.site_name = "Indymedia London"
 Hyperactive.show_site_name_in_banner = false
+Hyperactive.banner_image = "banner.png"
 Hyperactive.use_ssl = true
 
 # Email configuration

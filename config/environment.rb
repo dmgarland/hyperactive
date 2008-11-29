@@ -79,7 +79,9 @@ Rails::Initializer.run do |config|
   config.gem 'simple-rss'
 end
 
-require 'hyperactive'
 require 'validates_uri_existence_of'
 gem 'rmagick'
 require 'RMagick'
+
+
+

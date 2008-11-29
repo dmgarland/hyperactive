@@ -22,14 +22,14 @@ class EventsController < ContentController
   
   def list_by_month
     if params[:date] == nil
-      today = Date.today
-      year = today.year
-      month = today.month
+      start_date = Date.today
+      year = start_date.year
+      month = start_date.month
     else
       year = params[:date].split("-")[0].to_i
       month = params[:date].split("-")[1].to_i
-    end  
-    @date = Date.new(year,month)
+    end
+    @date = Date.new(year,month,1)
     datestring = @date.to_s
     # HACK: make sure the year rolls over if we're in December so this next bit doesn't explode.
     if @date.month < 12
@@ -37,10 +37,9 @@ class EventsController < ContentController
     else
       datestring2 = (Date.new(@date.year+1, 1)).to_s
     end
-    @content = Event.paginate(
+    @content = Event.find(:all,
       :conditions => ['moderation_status != ? and date > ? and date < ?', "hidden", datestring, datestring2], 
-      :order => 'date ASC',
-      :page => page_param)
+      :order => 'date ASC')
   end
   
   def calendar_month

@@ -100,8 +100,10 @@ module ContentControllerTest
   end    
   
   def test_moderation_status_can_be_set_to_featured_with_feature_permission
-    post :create, params_for_valid_content.merge(:content => {:moderation_status => "featured"}), as_user(:marcos)
-    assert_equal assigns(:content).moderation_status, "featured"
+    content_hash = params_for_valid_content
+    content_hash[:content][:moderation_status] = "featured"
+    post :create, content_hash, as_user(:marcos)
+    assert_equal "featured", assigns(:content).moderation_status, "featured content should be featured."
   end
   
   def test_moderation_status_can_be_updated_with_feature_permission

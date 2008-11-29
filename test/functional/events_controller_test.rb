@@ -4,9 +4,9 @@ require 'events_controller'
 require 'fileutils'
 
 # Re-raise errors caught by the controller.
-class EventController; def rescue_action(e) raise e end; end
+class EventsController; def rescue_action(e) raise e end; end
 
-class EventControllerTest < Test::Unit::TestCase
+class EventsControllerTest < Test::Unit::TestCase
 
   include ContentControllerTest
 
@@ -86,7 +86,7 @@ class EventControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:content).to_a.length > 0    
   end
 
-    # There should be one fixture in the month 2006-2.
+    # There should be two fixtures in the month 2006-2.
   def test_list_by_month_with_date
     get :list_by_month, :date => "2006-2-23"
     assert_response :success

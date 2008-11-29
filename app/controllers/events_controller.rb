@@ -97,8 +97,6 @@ class EventsController < ContentController
   
   def ical_download
     @content  = Event.find(params[:id])
-    @content.summary.gsub!(/<\/?[^>]*>/, "")
-    @content.body.gsub!(/<\/?[^>]*>/, "")
     cal = Vpim::Icalendar.create2
     cal.add_event do |e|
       e.dtstart       @content.date

@@ -8,6 +8,7 @@ class Content < ActiveRecord::Base
   # Filters
   #
   before_create :set_moderation_status_to_published
+  after_create :run_content_filters
 
   # Macros
   #
@@ -104,6 +105,22 @@ class Content < ActiveRecord::Base
   end
   
   
+  def run_content_filters
+    filters = ContentFilter.find(:all)
+    fields_to_check = [title, body]
+    fields_to_check.each do |field|
+      filters.each do |filter|
+        filter.content_filter_expressions.each do |filter_expression|
+          if field =~ /#{filter_expression.regexp}/
+            self.moderation_status = "hidden"
+            self.save!
+            break
+          end
+        end
+      end
+    end
+  end  
+  
   protected
   
   # Sets the moderation_status to published unless it's already been set, 
@@ -113,5 +130,7 @@ class Content < ActiveRecord::Base
       self.moderation_status = "published" 
     end
   end
+  
+
     
 end

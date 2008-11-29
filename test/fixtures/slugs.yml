@@ -9,3 +9,9 @@ other_slug:
   name: mystring
   sluggable_type: Collective
   sluggable_id: 2
+  
+about_the_site_slug:
+  id: 3
+  name: about-the-site
+  sluggable_type: Page
+  sluggable_id: 1

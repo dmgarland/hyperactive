@@ -1,22 +1,22 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'page_controller'
+require 'pages_controller'
 
 # Re-raise errors caught by the controller.
-class PageController; def rescue_action(e) raise e end; end
+class PagesController; def rescue_action(e) raise e end; end
 
-class PageControllerTest < Test::Unit::TestCase
+class PagesControllerTest < Test::Unit::TestCase
   
   fixtures :pages
   
   def setup
-    @controller = PageController.new
+    @controller = PagesController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
 
 
   def test_show
-    get :show, :title => 'About the site'
+    get :show, :id => "about-the-site"
 
     assert_response :success
     assert_template 'show'

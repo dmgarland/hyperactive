@@ -1,9 +1,9 @@
-class PageController < ApplicationController
+class PagesController < ApplicationController
 
   layout "two_column"
 
   def show
-    @page = Page.find_by_title(params[:title])
+    @page = Page.find(params[:id])
     raise ActiveRecord::RecordNotFound if @page == nil
   end
   

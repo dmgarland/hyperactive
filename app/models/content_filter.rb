@@ -2,4 +2,7 @@
 # automatically hidden.  This system is currently incomplete.
 #
 class ContentFilter < ActiveRecord::Base
+  
+  validates_presence_of :summary, :title
+  
 end

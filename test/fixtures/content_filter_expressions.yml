@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  regexp: MyString
+  summary: MyString
+
+two:
+  regexp: MyString
+  summary: MyString

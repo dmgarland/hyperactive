@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081026102415) do
+ActiveRecord::Schema.define(:version => 20081129195437) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -34,24 +34,24 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
   end
 
   create_table "categories_events", :id => false, :force => true do |t|
-    t.integer "category_id", :limit => 11, :default => 0, :null => false
-    t.integer "event_id",    :limit => 11, :default => 0, :null => false
+    t.integer "category_id", :limit => 8, :default => 0, :null => false
+    t.integer "event_id",    :limit => 8, :default => 0, :null => false
   end
 
   add_index "categories_events", ["category_id"], :name => "category_id"
   add_index "categories_events", ["event_id"], :name => "event_id"
 
   create_table "collective_associations", :force => true do |t|
-    t.integer  "collective_associatable_id",   :limit => 11
+    t.integer  "collective_associatable_id",   :limit => 8
     t.string   "collective_associatable_type"
-    t.integer  "collective_id",                :limit => 11
+    t.integer  "collective_id",                :limit => 8
     t.datetime "created_on"
     t.datetime "updated_on"
   end
 
   create_table "collective_memberships", :force => true do |t|
-    t.integer  "collective_id", :limit => 11
-    t.integer  "user_id",       :limit => 11
+    t.integer  "collective_id", :limit => 8
+    t.integer  "user_id",       :limit => 8
     t.datetime "created_on"
     t.datetime "updated_on"
   end
@@ -71,38 +71,45 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
     t.datetime "updated_on"
     t.string   "published_by",                    :default => "", :null => false
     t.string   "moderation_status", :limit => 50
-    t.integer  "content_id",        :limit => 11,                 :null => false
+    t.integer  "content_id",        :limit => 8,                  :null => false
   end
 
   add_index "comments", ["content_id"], :name => "fk_comments_content"
 
   create_table "content", :force => true do |t|
-    t.string   "title",                           :default => "",   :null => false
+    t.string   "title",                          :default => "",   :null => false
     t.datetime "date"
     t.text     "body"
-    t.string   "place",                           :default => "",   :null => false
+    t.string   "place",                          :default => "",   :null => false
     t.datetime "created_on"
     t.datetime "updated_on"
-    t.text     "summary",                                           :null => false
+    t.text     "summary",                                          :null => false
     t.text     "source"
-    t.string   "published_by",                    :default => "",   :null => false
+    t.string   "published_by",                   :default => "",   :null => false
     t.datetime "end_date"
-    t.integer  "event_group_id",    :limit => 11
+    t.integer  "event_group_id",    :limit => 8
     t.string   "contact_email"
     t.string   "contact_phone"
-    t.integer  "user_id",           :limit => 11
-    t.string   "type",                                              :null => false
+    t.integer  "user_id",           :limit => 8
+    t.string   "type",                                             :null => false
     t.string   "file"
-    t.integer  "content_id",        :limit => 11
-    t.integer  "processing_status", :limit => 11
-    t.integer  "media_size",        :limit => 11
+    t.integer  "content_id",        :limit => 8
+    t.integer  "processing_status", :limit => 8
+    t.integer  "media_size",        :limit => 8
     t.string   "moderation_status"
-    t.boolean  "allows_comments",                 :default => true
+    t.boolean  "allows_comments",                :default => true
     t.boolean  "stick_at_top"
-    t.integer  "collective_id",     :limit => 11
+    t.integer  "collective_id",     :limit => 8
   end
 
   add_index "content", ["event_group_id"], :name => "fk_event_event_group"
+
+  create_table "content_filter_expressions", :force => true do |t|
+    t.string   "regexp"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "content_filters", :force => true do |t|
     t.string   "title"
@@ -120,15 +127,15 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
     t.string   "url"
     t.string   "title"
     t.string   "summary"
-    t.integer  "collective_id", :limit => 11
+    t.integer  "collective_id", :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "file_uploads", :force => true do |t|
-    t.string   "title",                    :default => "", :null => false
-    t.string   "file",                     :default => "", :null => false
-    t.integer  "content_id", :limit => 11
+    t.string   "title",                   :default => "", :null => false
+    t.string   "file",                    :default => "", :null => false
+    t.integer  "content_id", :limit => 8
     t.datetime "created_on"
     t.datetime "updated_on"
   end
@@ -175,52 +182,52 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
     t.string  "type"
     t.string  "tr_key"
     t.string  "table_name"
-    t.integer "item_id",             :limit => 11
+    t.integer "item_id"
     t.string  "facet"
-    t.boolean "built_in",                          :default => true
-    t.integer "language_id",         :limit => 11
-    t.integer "pluralization_index", :limit => 11
+    t.boolean "built_in",            :default => true
+    t.integer "language_id"
+    t.integer "pluralization_index"
     t.text    "text"
     t.string  "namespace"
   end
 
-  add_index "globalize_translations", ["tr_key", "language_id"], :name => "index_globalize_translations_on_tr_key_and_language_id"
   add_index "globalize_translations", ["table_name", "item_id", "language_id"], :name => "globalize_translations_table_name_and_item_and_language"
+  add_index "globalize_translations", ["tr_key", "language_id"], :name => "index_globalize_translations_on_tr_key_and_language_id"
 
   create_table "groups", :force => true do |t|
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "title",      :limit => 200, :default => "", :null => false
-    t.integer  "parent_id",  :limit => 10
+    t.integer  "parent_id",  :limit => 8
   end
 
   add_index "groups", ["parent_id"], :name => "groups_parent_id_index"
 
   create_table "groups_roles", :id => false, :force => true do |t|
-    t.integer  "group_id",   :limit => 10, :default => 0, :null => false
-    t.integer  "role_id",    :limit => 10, :default => 0, :null => false
-    t.datetime "created_at",                              :null => false
+    t.integer  "group_id",   :limit => 8, :default => 0, :null => false
+    t.integer  "role_id",    :limit => 8, :default => 0, :null => false
+    t.datetime "created_at",                             :null => false
   end
 
   add_index "groups_roles", ["group_id", "role_id"], :name => "groups_roles_all_index", :unique => true
   add_index "groups_roles", ["role_id"], :name => "role_id"
 
   create_table "groups_users", :id => false, :force => true do |t|
-    t.integer  "group_id",   :limit => 10, :default => 0, :null => false
-    t.integer  "user_id",    :limit => 10, :default => 0, :null => false
-    t.datetime "created_at",                              :null => false
+    t.integer  "group_id",   :limit => 8, :default => 0, :null => false
+    t.integer  "user_id",    :limit => 8, :default => 0, :null => false
+    t.datetime "created_at",                             :null => false
   end
 
   add_index "groups_users", ["group_id", "user_id"], :name => "groups_users_all_index", :unique => true
   add_index "groups_users", ["user_id"], :name => "user_id"
 
   create_table "links", :force => true do |t|
-    t.string   "title",                     :default => "", :null => false
-    t.string   "url",                       :default => "", :null => false
+    t.string   "title",                    :default => "", :null => false
+    t.string   "url",                      :default => "", :null => false
     t.text     "description"
     t.datetime "created_on"
     t.datetime "updated_on"
-    t.integer  "post_id",     :limit => 11
+    t.integer  "post_id",     :limit => 8
   end
 
   add_index "links", ["post_id"], :name => "fk2_link_event"
@@ -233,19 +240,19 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
   end
 
   create_table "photos", :force => true do |t|
-    t.string   "file",                     :default => "", :null => false
-    t.string   "title",                    :default => "", :null => false
-    t.integer  "content_id", :limit => 11
+    t.string   "file",                    :default => "", :null => false
+    t.string   "title",                   :default => "", :null => false
+    t.integer  "content_id", :limit => 8
     t.datetime "created_on"
   end
 
   add_index "photos", ["content_id"], :name => "fk2_photo_event"
 
   create_table "place_taggings", :force => true do |t|
-    t.integer  "place_tag_id",        :limit => 11,                    :null => false
-    t.integer  "place_taggable_id",   :limit => 11,                    :null => false
-    t.string   "place_taggable_type",                                  :null => false
-    t.boolean  "hide_tag",                          :default => false, :null => false
+    t.integer  "place_tag_id",        :limit => 8,                    :null => false
+    t.integer  "place_taggable_id",   :limit => 8,                    :null => false
+    t.string   "place_taggable_type",                                 :null => false
+    t.boolean  "hide_tag",                         :default => false, :null => false
     t.datetime "event_date"
   end
 
@@ -257,32 +264,37 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
 
   add_index "place_tags", ["name"], :name => "index_place_tags_on_name", :unique => true
 
+  create_table "plugin_schema_info", :id => false, :force => true do |t|
+    t.string  "plugin_name"
+    t.integer "version"
+  end
+
   create_table "roles", :force => true do |t|
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "title",      :limit => 100, :default => "", :null => false
-    t.integer  "parent_id",  :limit => 10
+    t.integer  "parent_id",  :limit => 8
   end
 
   add_index "roles", ["parent_id"], :name => "roles_parent_id_index"
 
   create_table "roles_static_permissions", :id => false, :force => true do |t|
-    t.integer  "role_id",              :limit => 10, :default => 0, :null => false
-    t.integer  "static_permission_id", :limit => 10, :default => 0, :null => false
-    t.datetime "created_at",                                        :null => false
+    t.integer  "role_id",              :limit => 8, :default => 0, :null => false
+    t.integer  "static_permission_id", :limit => 8, :default => 0, :null => false
+    t.datetime "created_at",                                       :null => false
   end
 
-  add_index "roles_static_permissions", ["static_permission_id", "role_id"], :name => "roles_static_permissions_all_index", :unique => true
   add_index "roles_static_permissions", ["role_id"], :name => "role_id"
+  add_index "roles_static_permissions", ["static_permission_id", "role_id"], :name => "roles_static_permissions_all_index", :unique => true
 
   create_table "roles_users", :id => false, :force => true do |t|
-    t.integer  "user_id",    :limit => 10, :default => 0, :null => false
-    t.integer  "role_id",    :limit => 10, :default => 0, :null => false
-    t.datetime "created_at",                              :null => false
+    t.integer  "user_id",    :limit => 8, :default => 0, :null => false
+    t.integer  "role_id",    :limit => 8, :default => 0, :null => false
+    t.datetime "created_at",                             :null => false
   end
 
-  add_index "roles_users", ["user_id", "role_id"], :name => "roles_users_all_index", :unique => true
   add_index "roles_users", ["role_id"], :name => "role_id"
+  add_index "roles_users", ["user_id", "role_id"], :name => "roles_users_all_index", :unique => true
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -297,7 +309,7 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
   create_table "slugs", :force => true do |t|
     t.string   "name"
     t.string   "sluggable_type"
-    t.integer  "sluggable_id",   :limit => 11
+    t.integer  "sluggable_id",   :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -324,10 +336,10 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
   add_index "static_permissions", ["title"], :name => "static_permissions_title_index", :unique => true
 
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id",        :limit => 11,                    :null => false
-    t.integer  "taggable_id",   :limit => 11,                    :null => false
-    t.string   "taggable_type",                                  :null => false
-    t.boolean  "hide_tag",                    :default => false, :null => false
+    t.integer  "tag_id",        :limit => 8,                    :null => false
+    t.integer  "taggable_id",   :limit => 8,                    :null => false
+    t.string   "taggable_type",                                 :null => false
+    t.boolean  "hide_tag",                   :default => false, :null => false
     t.datetime "event_date"
   end
 
@@ -340,35 +352,35 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "user_registrations", :force => true do |t|
-    t.integer  "user_id",    :limit => 10, :default => 0, :null => false
-    t.text     "token",                                   :null => false
-    t.datetime "created_at",                              :null => false
-    t.datetime "expires_at",                              :null => false
+    t.integer  "user_id",    :limit => 8, :default => 0, :null => false
+    t.text     "token",                                  :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "expires_at",                             :null => false
   end
 
-  add_index "user_registrations", ["user_id"], :name => "user_registrations_user_id_index", :unique => true
   add_index "user_registrations", ["expires_at"], :name => "user_registrations_expires_at_index"
+  add_index "user_registrations", ["user_id"], :name => "user_registrations_user_id_index", :unique => true
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",                                                   :null => false
     t.datetime "updated_at",                                                   :null => false
     t.datetime "last_logged_in_at",                                            :null => false
-    t.integer  "login_failure_count", :limit => 10,  :default => 0,            :null => false
+    t.integer  "login_failure_count", :limit => 8,   :default => 0,            :null => false
     t.string   "login",               :limit => 100, :default => "",           :null => false
     t.string   "email",               :limit => 200, :default => "",           :null => false
     t.string   "password",            :limit => 100, :default => "",           :null => false
     t.string   "password_hash_type",  :limit => 20,  :default => "",           :null => false
     t.string   "password_salt",       :limit => 10,  :default => "1234512345", :null => false
-    t.integer  "state",               :limit => 10,  :default => 1,            :null => false
+    t.integer  "state",               :limit => 8,   :default => 1,            :null => false
   end
 
   add_index "users", ["login"], :name => "users_login_index", :unique => true
   add_index "users", ["password"], :name => "users_password_index"
 
   create_table "versions", :force => true do |t|
-    t.integer  "versionable_id",   :limit => 11
+    t.integer  "versionable_id",   :limit => 8
     t.string   "versionable_type"
-    t.integer  "number",           :limit => 11
+    t.integer  "number",           :limit => 8
     t.text     "yaml"
     t.datetime "created_at"
   end
@@ -376,13 +388,13 @@ ActiveRecord::Schema.define(:version => 20081026102415) do
   add_index "versions", ["versionable_id", "versionable_type"], :name => "index_versions_on_versionable_id_and_versionable_type"
 
   create_table "videos", :force => true do |t|
-    t.string   "title",                           :default => "", :null => false
-    t.string   "file",                            :default => "", :null => false
-    t.integer  "content_id",        :limit => 11
+    t.string   "title",                          :default => "", :null => false
+    t.string   "file",                           :default => "", :null => false
+    t.integer  "content_id",        :limit => 8
     t.datetime "created_on"
     t.datetime "updated_on"
     t.string   "body"
-    t.integer  "processing_status", :limit => 11
+    t.integer  "processing_status", :limit => 8
   end
 
   add_index "videos", ["content_id"], :name => "fk_event_video"

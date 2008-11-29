@@ -17,7 +17,7 @@ class Admin::ContentFiltersControllerTest < ActionController::TestCase
 
   def test_should_create_content_filter
     assert_difference('ContentFilter.count') do
-      post :create, {:content_filter => {:title => "foo" }}, as_user(:marcos)  
+      post :create, {:content_filter => {:title => "foo", :summary => "bar" }}, as_user(:marcos)  
     end
 
     assert_redirected_to admin_content_filter_path(assigns(:content_filter))

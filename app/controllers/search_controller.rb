@@ -27,7 +27,7 @@ class SearchController < ApplicationController
   end
 
   def find_content
-    if (params[:search][:search_terms])
+    unless (params[:search].blank? || params[:search][:search_terms].blank?)
       @search_terms = params[:search][:search_terms]
       @articles = Article.find_with_ferret(@search_terms, {}, {:conditions => ['moderation_status != ?', "hidden"]})
       @events = Event.find_with_ferret(@search_terms, {}, {:conditions => ['moderation_status != ? AND date >= ?', "hidden", Date.today.to_s]})

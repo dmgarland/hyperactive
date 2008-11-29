@@ -91,6 +91,13 @@ class SearchControllerTest < Test::Unit::TestCase
     assert_equal 0, assigns(:articles).size, "There should be no events returned when searching for a nonexistent search term." 
   end
   
+  def test_find_content_with_blank_search_term
+    get :find_content
+    assert_response :success
+    assert_template 'find_content'
+    assert_nil assigns(:articles), "There should be no events returned when searching for a blank search term." 
+  end  
+  
   def test_search_shouldnt_return_hidden_content
     get :find_content, :search => {:search_terms => "hidden"}
     assert_response :success

@@ -5,6 +5,6 @@ class ContentFilter < ActiveRecord::Base
   
   validates_presence_of :summary, :title
   
-  has_many :content_filter_expressions
+  has_many :content_filter_expressions, :dependent => :destroy
   
 end

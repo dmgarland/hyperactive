@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081129195437) do
+ActiveRecord::Schema.define(:version => 20081129202116) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20081129195437) do
     t.string   "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "content_filter_id"
   end
 
   create_table "content_filters", :force => true do |t|

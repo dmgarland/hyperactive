@@ -1,14 +1,14 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'admin/page_controller'
+require 'admin/pages_controller'
 
 # Re-raise errors caught by the controller.
-class Admin::PageController; def rescue_action(e) raise e end; end
+class Admin::PagesController; def rescue_action(e) raise e end; end
 
-class Admin::PageControllerTest < Test::Unit::TestCase
+class Admin::PagesControllerTest < Test::Unit::TestCase
   fixtures :pages
 
   def setup
-    @controller = Admin::PageController.new
+    @controller = Admin::PagesController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
@@ -16,17 +16,11 @@ class Admin::PageControllerTest < Test::Unit::TestCase
   def test_index
     get :index, {}, as_user(:marcos)
     assert_response :success
-    assert_template 'list'
-  end
-
-  def test_list
-    get :list, {}, as_user(:marcos)
-
-    assert_response :success
-    assert_template 'list'
-
+    assert_template 'index'
     assert_not_nil assigns(:pages)
   end
+
+
 
   def test_show
     get :show, {:id => 1}, as_user(:marcos)

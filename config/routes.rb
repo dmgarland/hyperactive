@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.namespace(:admin) do |admin|
-    admin.resources :content_filters
+    admin.resources :content_filters, :pages  
+    admin.resources :snippets, :name_prefix => 'admin_', :controller => 'admin/snippets'
   end
+
+  map.resources :pages
 
   # Add your own custom routes here.
   # The priority is based upon order of creation: first created -> highest priority.
@@ -36,22 +39,14 @@ ActionController::Routing::Routes.draw do |map|
   map.promoted_videos '/videos/list_promoted/:page', :controller => 'videos', :action => 'list_promoted'
   map.featured_videos '/videos/list_featured/:page', :controller => 'videos', :action => 'list_featured'
 
-  map.resources :videos
+  map.resources :action_alerts, :articles, :pages, :videos
   map.resources :events, :collection => { :list_promoted => :get }
-  map.resources :articles
-  map.resources :action_alerts
   map.resources :groups, :controller => :collectives, :has_many => :external_feeds
-  #map.resources :collectives
-  
-  map.resource :admin do |admin|
-    admin.resources :snippets, :name_prefix => 'admin_', :controller => 'admin/snippets'
-  end
   
   map.admin_main 'admin/main', :controller => 'admin/main'
   map.latest_comments 'admin/main/latest_comments', :controller => 'admin/main', :action => 'latest_comments'
   map.admin_action_alerts 'admin/action_alerts', :controller => 'admin/action_alerts'
   map.categories 'admin/categories/', :controller => 'admin/category'
-  map.pages 'admin/pages', :controller => 'admin/page'
   map.users 'admin/users', :controller => 'active_rbac/user'
   map.roles 'admin/roles', :controller => 'active_rbac/role'
   map.static_permissions 'admin/static_permissions', :controller => 'active_rbac/static_permission'

@@ -12,9 +12,9 @@
   <% for column in Page.content_columns %>
     <td><%= page.send(column.name).to_s.slice(0, 50) %></td>
   <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => page %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => page %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => page }, :confirm => 'Are you sure?', :method => "post" %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => page.to_param %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => page.to_param %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => page.to_param }, :confirm => 'Are you sure?', :method => "post" %></td>
   </tr>
 <% end %>
 </table>

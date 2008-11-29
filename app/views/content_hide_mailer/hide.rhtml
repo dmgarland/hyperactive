@@ -1,4 +1,4 @@
-"<%= @content.title %>" (<%= @content.id %>) has been hidden by the user "<%= @user.login %>."
+"<%= @content.title %>" (<%= "{@content.class.downcase.pluralize}/#{@content.id}" %>) has been hidden by the user "<%= @user.login %>."
 
 The following reasons were given:
 

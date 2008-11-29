@@ -1,0 +1,18 @@
+<% @content_filter_expression = content_filter_expression %>
+<div id="<%= "content_filter_expression_#{content_filter_expression.id}" %>">
+  <fieldset>
+    <label class="first" for="content_filter_expression[]_item_id">
+    Expression
+    </label><br/><br/>
+    <label for="content_filter_expression[]_summary">
+      Summary<br/>
+      <%= text_field 'content_filter_expression[]', 'summary' %>
+    </label><br/><br/>
+    <label for="content_filter_expression[]_regexp">
+    Regular Expression*<br/>
+    <%= text_field("content_filter_expression[]", "regexp") %>
+    </label><br/><br/>
+
+    <%= sub_list_remove_link content_filter_expression, 'ContentFilterExpression', 'Del' %>
+  </fieldset>
+</div>

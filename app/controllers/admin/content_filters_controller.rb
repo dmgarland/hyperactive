@@ -4,6 +4,11 @@ class Admin::ContentFiltersController < ApplicationController
   
   include SslRequirement
   ssl_required :all
+  
+  include UIEnhancements::SubList
+  helper :SubList
+  sub_list 'ContentFilterExpression', 'content_filter' do |content_filter_expression|
+  end  
 
   before_filter :protect_controller
   
@@ -49,13 +54,15 @@ class Admin::ContentFiltersController < ApplicationController
   # POST /content_filters.xml
   def create
     @content_filter = ContentFilter.new(params[:content_filter])
-
+    success = true
+    success &&= initialize_content_filter_expressions
     respond_to do |format|
-      if @content_filter.save
+      if success && @content_filter.save
         flash[:notice] = 'ContentFilter was successfully created.'
         format.html { redirect_to(admin_content_filter_url(@content_filter)) }
         format.xml  { render :xml => @content_filter, :status => :created, :location => @content_filter }
       else
+        prepare_content_filter_expressions
         format.html { render :action => "new" }
         format.xml  { render :xml => @content_filter.errors, :status => :unprocessable_entity }
       end
@@ -66,13 +73,15 @@ class Admin::ContentFiltersController < ApplicationController
   # PUT /content_filters/1.xml
   def update
     @content_filter = ContentFilter.find(params[:id])
-
+    success = true
+    success &&= initialize_content_filter_expressions
     respond_to do |format|
-      if @content_filter.update_attributes(params[:content_filter])
+      if success && @content_filter.update_attributes(params[:content_filter])
         flash[:notice] = 'ContentFilter was successfully updated.'
         format.html { redirect_to(admin_content_filter_url(@content_filter)) }
         format.xml  { head :ok }
       else
+        prepare_content_filter_expressions
         format.html { render :action => "edit" }
         format.xml  { render :xml => @content_filter.errors, :status => :unprocessable_entity }
       end

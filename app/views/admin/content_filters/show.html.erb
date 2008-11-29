@@ -10,6 +10,14 @@
 </p>
 
 <p>
+<strong>Expressions:</strong>
+<ul>
+<%= render :partial => 'filter_expression', :collection => @content_filter.content_filter_expressions %>
+</ul>
+</p>
+
+
+<p>
 <%= link_to 'Edit content_filter', edit_admin_content_filter_url(@content_filter) %> |
 <%= link_to 'Back to content_filters', admin_content_filters_url %>
 </p>

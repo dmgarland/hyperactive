@@ -6,3 +6,12 @@
 <strong><%= f.label :summary %></strong> - What is the filter for?<br />
 <%= f.text_area :summary, :size => "50x3" %>
 </p>
+<p>
+ <fieldset>
+    <legend>
+        Content Filter Expressions
+    </legend>
+    <%= sub_list_content 'ContentFilterExpression', 'content_filter' %>
+    <p><%= image_tag("picture_add.png") %> <%= sub_list_add_link 'ContentFilterExpression', 'Add Content Filter Expression' %> (click again for multiple expressions)</p>
+ </fieldset>
+</p>

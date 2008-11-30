@@ -41,11 +41,13 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
       full_path = RAILS_ROOT + cache_path
       rio(full_path).mkpath
       rio(full_path + cache_file) < output
+      rio.close
     rescue Exception => boom
       full_path = RAILS_ROOT + cache_path
       rio(full_path).mkpath
       output = "This feed failed to process: #{boom}"
       rio(full_path + cache_file) < output
+      rio.close
     end
   end
   

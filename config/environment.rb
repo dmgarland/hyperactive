@@ -68,8 +68,8 @@ Rails::Initializer.run do |config|
   #config.reload_plugins = true
 
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
-  config.gem 'acts_as_ferret'
   config.gem 'ferret'
+  config.gem 'acts_as_ferret'
   config.gem 'daemons'
   config.gem 'slave'
   config.gem 'vpim'

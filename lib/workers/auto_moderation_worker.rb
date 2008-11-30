@@ -15,6 +15,7 @@ class AutoModerationWorker < BackgrounDRb::Rails
           filter.content_filter_expressions.each do |filter_expression|
             if content.send(field) =~ /#{filter_expression.regexp}/i
               content.moderation_status = "hidden"
+              ContentHideMailer.deliver_hide(content, filter.summary, "marcos")
             end
           end
         end

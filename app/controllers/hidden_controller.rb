@@ -33,7 +33,6 @@ class HiddenController < ApplicationController
       content.moderation_status = "hidden"
       content.save!
       class_name = content.class.to_s.humanize.downcase
-      #set_tagging_visibility(event, false)
       ContentHideMailer.deliver_hide(content, params[:hide_reason], current_user)
       flash[:notice] = "The #{class_name} has been hidden and an email sent."
       render :update do |page|

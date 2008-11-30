@@ -9,7 +9,7 @@ class ContentHideMailer < ActionMailer::Base
   def hide(content,reasons, user)
     setup_email
     @subject    = 'Content Hidden'
-    @body      = {:content => content, :reasons => reasons, :user => user}
+    @body      = {:content => content, :reasons => reasons, :user => get_user_login}
   end
 
   # Sends an email to the moderation email list, notifying the list that a piece
@@ -18,7 +18,7 @@ class ContentHideMailer < ActionMailer::Base
   def unhide(content,reasons, user)
     setup_email    
     @subject    = 'Content Unhidden'
-    @body       = {:content => content, :reasons => reasons, :user => user}
+    @body       = {:content => content, :reasons => reasons, :user => get_user_login}
   end  
   
   # Sends an email to the moderation email list, notifying the list that a piece
@@ -27,7 +27,7 @@ class ContentHideMailer < ActionMailer::Base
   def report(content,reasons, user)
     setup_email    
     @subject    = 'Problem reported with content'
-    @body      = {:content => content, :reasons => reasons, :user => user}
+    @body      = {:content => content, :reasons => reasons, :user => get_user_login}
   end  
 
   # Sends an email to the moderation email list, notifying the list that a comment
@@ -36,7 +36,7 @@ class ContentHideMailer < ActionMailer::Base
   def report_comment(comment, reasons, user)
     setup_email
     @subject    = 'Problem reported with comment'
-    @body       = {:comment => comment, :reasons => reasons, :user => user}
+    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login}
   end
   
   # Sends an email to the moderation email list, notifying the list that a comment
@@ -45,7 +45,7 @@ class ContentHideMailer < ActionMailer::Base
   def hide_comment(comment, reasons, user)
     setup_email
     @subject    = 'Comment hidden'
-    @body       = {:comment => comment, :reasons => reasons, :user => user}
+    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login}
   end
 
   # Sends an email to the moderation email list, notifying the list that a comment
@@ -54,7 +54,7 @@ class ContentHideMailer < ActionMailer::Base
   def unhide_comment(comment, reasons, user)
     setup_email
     @subject    = 'Comment unhidden'
-    @body       = {:comment => comment, :reasons => reasons, :user => user}
+    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login}
   end  
   
   private 
@@ -67,4 +67,13 @@ class ContentHideMailer < ActionMailer::Base
     @sent_on    = Time.now
     @headers    = {}    
   end
+  
+  def get_user_login
+    if user.is_a? String
+      user
+    elsif user.is_a? User
+      user.login
+    end  
+  end
+  
 end

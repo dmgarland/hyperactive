@@ -18,3 +18,6 @@ autostart:
   2: 
     job_key: feeds
     class: feed_retrieval_worker
+  3:
+    job_key: auto_moderation
+    class: auto_moderation_worker

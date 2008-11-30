@@ -2,19 +2,18 @@
 # like Articles, Events, Videos, etc.
 #
 class Content < ActiveRecord::Base
-  
-  set_table_name "content"
+
+  include DRbUndumped # allows objects of this class to be serialized and sent over the wire to the BackgrounDRb server
+  set_table_name "content"  
 
   # Filters
   #
   before_create :set_moderation_status_to_published
-  after_create :run_content_filters
 
   # Macros
   #
   acts_as_ferret({:fields => [:title, :body, :summary, :published_by, :date]})      
   named_scope :visible, :conditions => ['moderation_status != ?', "hidden"]
-  
   
   # Associations
   #
@@ -104,33 +103,15 @@ class Content < ActiveRecord::Base
     end
   end
   
-  
-  def run_content_filters
-    filters = ContentFilter.find(:all)
-    fields_to_check = [title, body]
-    fields_to_check.each do |field|
-      filters.each do |filter|
-        filter.content_filter_expressions.each do |filter_expression|
-          if field =~ /#{filter_expression.regexp}/
-            self.moderation_status = "hidden"
-            self.save!
-            break
-          end
-        end
-      end
-    end
-  end  
-  
   protected
   
   # Sets the moderation_status to published unless it's already been set, 
   # which could happen if an admin user set it during content creation.
+  #
   def set_moderation_status_to_published
     if self.moderation_status.blank?
       self.moderation_status = "published" 
     end
   end
-  
-
     
 end

@@ -3,8 +3,14 @@
 #
 class ContentFilter < ActiveRecord::Base
   
+  include DRbUndumped # allows objects of this class to be serialized and sent over the wire to the BackgrounDRb server
+  
+  # Validations
+  #
   validates_presence_of :summary, :title
   
-  has_many :content_filter_expressions, :dependent => :destroy
+  # Associations
+  #
+  has_many :content_filter_expressions, :dependent => :destroy  
   
 end

@@ -15,7 +15,6 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
   require 'action_view'    
 
   repeat_every 10.minutes
-  first_run Time.now
 
   # This method is called in it's own new thread when you
   # call new worker. args is set to :args  

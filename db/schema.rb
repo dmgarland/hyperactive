@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081129202116) do
+ActiveRecord::Schema.define(:version => 20081129224432) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -77,29 +77,30 @@ ActiveRecord::Schema.define(:version => 20081129202116) do
   add_index "comments", ["content_id"], :name => "fk_comments_content"
 
   create_table "content", :force => true do |t|
-    t.string   "title",                          :default => "",   :null => false
+    t.string   "title",                                :default => "",    :null => false
     t.datetime "date"
     t.text     "body"
-    t.string   "place",                          :default => "",   :null => false
+    t.string   "place",                                :default => "",    :null => false
     t.datetime "created_on"
     t.datetime "updated_on"
-    t.text     "summary",                                          :null => false
+    t.text     "summary",                                                 :null => false
     t.text     "source"
-    t.string   "published_by",                   :default => "",   :null => false
+    t.string   "published_by",                         :default => "",    :null => false
     t.datetime "end_date"
-    t.integer  "event_group_id",    :limit => 8
+    t.integer  "event_group_id",          :limit => 8
     t.string   "contact_email"
     t.string   "contact_phone"
-    t.integer  "user_id",           :limit => 8
-    t.string   "type",                                             :null => false
+    t.integer  "user_id",                 :limit => 8
+    t.string   "type",                                                    :null => false
     t.string   "file"
-    t.integer  "content_id",        :limit => 8
-    t.integer  "processing_status", :limit => 8
-    t.integer  "media_size",        :limit => 8
+    t.integer  "content_id",              :limit => 8
+    t.integer  "processing_status",       :limit => 8
+    t.integer  "media_size",              :limit => 8
     t.string   "moderation_status"
-    t.boolean  "allows_comments",                :default => true
+    t.boolean  "allows_comments",                      :default => true
     t.boolean  "stick_at_top"
-    t.integer  "collective_id",     :limit => 8
+    t.integer  "collective_id",           :limit => 8
+    t.boolean  "auto_moderation_checked",              :default => false
   end
 
   add_index "content", ["event_group_id"], :name => "fk_event_event_group"

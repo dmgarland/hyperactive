@@ -1,11 +1,11 @@
-<h3><%= "Add a comment:".t %></h3>
+<h3>Add a comment:</h3>
 
 <%= error_messages_for :comment %>
 
 <% form_for :comment, :url => {:controller => @content.class.to_s.downcase.pluralize, :action => 'create_comment', :id => @content} do |f| %>
-	<p><strong><%= "Title:".t %></strong><br/><%= f.text_field :title %></p>
-	<p><strong><%= "Your name:".t %></strong><br/><%= f.text_field :published_by %></p>
-	<p><strong><%= "Comment:".t %></strong><br/><%= f.text_area :body, :cols=>60, :rows=> 10 %></p>
+	<p><strong>Title:</strong><br/><%= f.text_field :title %></p>
+	<p><strong>Your name:</strong><br/><%= f.text_field :published_by %></p>
+	<p><strong>Comment:</strong><br/><%= f.text_area :body, :cols=>60, :rows=> 10 %></p>
 	<%= render(:partial => 'shared/captcha') %> 
-	<%= submit_tag "Create".t %>
+	<%= submit_tag "Create" %>
 <% end %>

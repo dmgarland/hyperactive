@@ -3,7 +3,7 @@
 #
 class AutoModerationWorker < BackgrounDRb::Rails
   
-  repeat_every 10.minutes
+  repeat_every 5.minutes
   
   def do_work(args)
     filters = ContentFilter.find(:all)

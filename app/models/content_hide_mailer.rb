@@ -9,7 +9,7 @@ class ContentHideMailer < ActionMailer::Base
   def hide(content,reasons, user)
     setup_email
     @subject    = 'Content Hidden'
-    @body      = {:content => content, :reasons => reasons, :user => get_user_login}
+    @body      = {:content => content, :reasons => reasons, :user => get_user_login(user)}
   end
 
   # Sends an email to the moderation email list, notifying the list that a piece
@@ -68,11 +68,13 @@ class ContentHideMailer < ActionMailer::Base
     @headers    = {}    
   end
   
-  def get_user_login
+  def get_user_login(user)
     if user.is_a? String
       user
     elsif user.is_a? User
       user.login
+    else
+      "Error getting user login."
     end  
   end
   

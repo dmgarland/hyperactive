@@ -14,7 +14,7 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
   require 'action_controller'
   require 'action_view'    
 
-  repeat_every 10.minutes
+  repeat_every 30.minutes
 
   # This method is called in it's own new thread when you
   # call new worker. args is set to :args  
@@ -41,13 +41,11 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
       full_path = RAILS_ROOT + cache_path
       rio(full_path).mkpath
       rio(full_path + cache_file) < output
-      rio.close
     rescue Exception => boom
       full_path = RAILS_ROOT + cache_path
       rio(full_path).mkpath
       output = "This feed failed to process: #{boom}"
       rio(full_path + cache_file) < output
-      rio.close
     end
   end
   

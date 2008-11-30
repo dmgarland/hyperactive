@@ -18,7 +18,7 @@ class ContentHideMailer < ActionMailer::Base
   def unhide(content,reasons, user)
     setup_email    
     @subject    = 'Content Unhidden'
-    @body       = {:content => content, :reasons => reasons, :user => get_user_login}
+    @body       = {:content => content, :reasons => reasons, :user => get_user_login(user)}
   end  
   
   # Sends an email to the moderation email list, notifying the list that a piece
@@ -27,7 +27,7 @@ class ContentHideMailer < ActionMailer::Base
   def report(content,reasons, user)
     setup_email    
     @subject    = 'Problem reported with content'
-    @body      = {:content => content, :reasons => reasons, :user => get_user_login}
+    @body      = {:content => content, :reasons => reasons, :user => get_user_login(user)}
   end  
 
   # Sends an email to the moderation email list, notifying the list that a comment
@@ -36,7 +36,7 @@ class ContentHideMailer < ActionMailer::Base
   def report_comment(comment, reasons, user)
     setup_email
     @subject    = 'Problem reported with comment'
-    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login}
+    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login(user)}
   end
   
   # Sends an email to the moderation email list, notifying the list that a comment
@@ -45,7 +45,7 @@ class ContentHideMailer < ActionMailer::Base
   def hide_comment(comment, reasons, user)
     setup_email
     @subject    = 'Comment hidden'
-    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login}
+    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login(user)}
   end
 
   # Sends an email to the moderation email list, notifying the list that a comment
@@ -54,7 +54,7 @@ class ContentHideMailer < ActionMailer::Base
   def unhide_comment(comment, reasons, user)
     setup_email
     @subject    = 'Comment unhidden'
-    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login}
+    @body       = {:comment => comment, :reasons => reasons, :user => get_user_login(user)}
   end  
   
   private 

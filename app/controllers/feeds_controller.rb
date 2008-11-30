@@ -12,19 +12,19 @@ class FeedsController < ApplicationController
   end
 
   def latest_articles
-    @articles = Article.visible.find(:all, :order => 'created_on DESC', :limit => 20)
+    @articles = Article.promoted_and_featured.find(:all, :order => 'created_on DESC', :limit => 20)
     response.headers['Content-Type'] = 'application/rss+xml'
     render :action => 'latest_articles', :layout => false 
   end
 
   def latest_videos
-    @videos = Video.visible.find(:all, :order => 'created_on DESC', :limit => 20)
+    @videos = Video.promoted_and_featured.find(:all, :order => 'created_on DESC', :limit => 20)
     response.headers['Content-Type'] = 'application/rss+xml'
     render :action => 'latest_videos', :layout => false 
   end
   
   def upcoming_events           
-    @events = Event.visible.upcoming.find(:all, :order => 'date ASC', 
+    @events = Event.promoted_and_featured.upcoming.find(:all, :order => 'date ASC', 
     :limit => events_per_feed)
     
     response.headers['Content-Type'] = 'application/rss+xml'

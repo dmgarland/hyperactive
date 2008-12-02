@@ -21,7 +21,6 @@ class Collective < ActiveRecord::Base
   has_many :content
   has_many :articles, :order => "created_on DESC"
   has_many :events, :order => "content.date ASC"
-  has_many :upcoming_events, :order => "date DESC"
   has_many :videos, :order => "created_on DESC"
 
   # Macros
@@ -100,7 +99,7 @@ class Collective < ActiveRecord::Base
   # Upcoming events for this collective.
   #
   def upcoming_events
-    self.events.find(:all, :order => 'date DESC', :conditions => ['date > ?', DateTime.now])
+    self.events.find(:all, :conditions => ['date > ?', DateTime.now])
   end
   
   # Checks to see whether a collective is associated with a given piece of content.

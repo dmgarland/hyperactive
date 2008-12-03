@@ -199,10 +199,17 @@ module ContentControllerTest
   end  
     
   def test_admin_controls_by_anonymous_should_return_report_controls
-    get :admin_controls, {:id => 1}
+    get :admin_controls, {:id => @first_id}
     assert_response :success
     assert_template '_report_this_controls'
   end    
+  
+  def test_comment_form_works
+    get :show_comment_form, {:id => @first_id}
+    assert_response :success
+    assert assigns(:content)
+    assert assigns(:comment)
+  end
   
   def test_create_comment_works
     original_length = Content.find(@first_id).comments.length

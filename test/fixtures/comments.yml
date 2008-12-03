@@ -12,4 +12,11 @@ two:
   body: test test
   created_on: 2006-2-23
   published_by: foo
-  content_id: 1
+  content_id: 10
+video_comment:
+  id: 3
+  title: test comment
+  body: test test
+  created_on: 2006-2-23
+  published_by: foo
+  content_id: 17  

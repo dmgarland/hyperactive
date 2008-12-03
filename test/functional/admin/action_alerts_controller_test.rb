@@ -50,6 +50,16 @@ class Admin::ActionAlertsControllerTest < Test::Unit::TestCase
 
     assert_not_nil assigns(:action_alert)
   end
+  
+  def test_preview
+    num_alerts = ActionAlert.count
+    post :preview, {:action_alert => {:summary => "Test action alert", :on_front_page => "1"}}, as_user(:marcos)
+
+    assert_response :success
+    assert_template 'preview'
+
+    assert_equal num_alerts, ActionAlert.count   
+  end
 
   def test_create
     num_alerts = ActionAlert.count

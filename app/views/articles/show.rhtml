@@ -29,7 +29,7 @@
 
 <%= render :partial => 'shared/content/admin_controls_link' %>
 
-<% if @content.has_comments? %><h2><%= "Comments".t %></h2> <% end %>
+<% if @content.has_comments? %><h2>Comments</h2> <% end %>
 <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.published_comments %>
 <%= render :partial => 'shared/content/comments/comment_controls' %>
 

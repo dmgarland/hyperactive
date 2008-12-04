@@ -6,6 +6,7 @@ one:
   created_on: 2006-2-23
   published_by: foo
   content_id: 1
+  moderation_status: published
 two:
   id: 2
   title: test comment
@@ -13,6 +14,7 @@ two:
   created_on: 2006-2-23
   published_by: foo
   content_id: 10
+  moderation_status: published
 video_comment:
   id: 3
   title: test comment
@@ -20,3 +22,5 @@ video_comment:
   created_on: 2006-2-23
   published_by: foo
   content_id: 17  
+  moderation_status: published
+  

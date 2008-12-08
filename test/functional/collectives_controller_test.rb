@@ -51,6 +51,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
   def test_should_show_collective
     get :show, :id => 1
     assert_response :success
+    assert_template 'show'
   end
 
   def test_should_get_edit

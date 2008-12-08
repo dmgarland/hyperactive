@@ -24,6 +24,8 @@ class HomeController < ApplicationController
     @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
       video.processing_status == 2
       video.moderation_status == "featured"
+      
+     @featured_groups = Collective.featured 
     end    
     @recent_articles = Article.find(
       :all,

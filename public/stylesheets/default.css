@@ -48,13 +48,27 @@ a:hover {
 	color: #6f0b03
 }
 
+a.nodots:hover
+{
+ border-bottom:none;
+}
+
 a img {
 	border: none;
 }
 
 img.left {
 	float: left;
-	margin: 5px 10px 2px 0;
+}
+
+#left
+{
+  float:left;
+}
+
+.collective_image
+{
+  	margin: 5px 10px 2px 0;
 	border: 1px solid #000000;
 }
 
@@ -319,7 +333,7 @@ table#calendar_month td {
 
 
 .other-calendar-day {
-	background: #ffffff;
+	background: #333999;
 	color: #d2d2d2;
 }
 
@@ -361,6 +375,14 @@ table#calendar_month td {
 	border: 1px solid #F2F2F2;
 	font-size: 12px;
 }
+
+
+.sidebar li h3 {
+font-size : 8pt;
+margin-bottom : 0px;
+margin-top : 0px;
+}
+
 
 
 
@@ -527,4 +549,15 @@ table#calendar_month td {
 
 #feed span {
 	font-weight: normal;
+}
+
+#upcomingevents
+{
+  clear:left;
+} 
+
+#featuredgroups
+{
+
+text-align : center; 
 }

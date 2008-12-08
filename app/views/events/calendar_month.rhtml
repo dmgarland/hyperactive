@@ -3,7 +3,7 @@
    <%= link_to('<<', :date=>@date.<<(1)) %>
    <%= link_to('>>', :date=>@date.>>(1)) %> 
 </p>        
-<table id="calendar_month" cellpadding="5" cellspacing="0" border="1" width="100%" height="100%">
+<table id="calendar_month" cellpadding="5" cellspacing="1" border="1" width="100%" height="100%">
     <tr valign="top">
     <% for day in days_of_week %>
         <td class="day-of-week"><%= day %></td>
@@ -12,7 +12,13 @@
     <tr>
     <% for day in @month_display.days %>
         <% if day.wday == 0 %></tr><tr><% end %>
-        <td class="calendar-day"><%= day.day %><br />
+	
+	<% if day.month != @date.month %>
+	 <td class="other-calendar-day">
+	<% else %>
+	  <td class="calendar-day">
+	<% end %>
+	<%= day.day %><br />
 	        <% for event in @content %>
 	           <% if event.date.to_date === day %>
 	               <%= link_to(h(event.title), :action => 'show', :id => event) %><br />

@@ -21,3 +21,6 @@ autostart:
   3:
     job_key: auto_moderation
     class: auto_moderation_worker
+  4:
+    job_key: clear_recently_changed_collective
+    class: clear_recently_changed_collective_worker

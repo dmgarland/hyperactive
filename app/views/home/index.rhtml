@@ -69,13 +69,14 @@
 				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
 			</ul>
 		</li>	
-		<li>
+		<li id="upcomingevents">
 			<h2>Upcoming Events</h2>
 			<ul>
 			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
 			</ul>
-		</li>				
+		</li>					
 		<li>
+
 			<h2>Posters!</h2>
 			<div id="event_poster">
 				<div>
@@ -86,6 +87,13 @@
 				</div>
 			</div>
 		</li>	
+
+	
+		<li id="featuredgroups">
+		  <h2>Featured And Recently Changed Groups</h2>
+		  <%=render :partial => 'collectives/collective_preview', :locals => { :collectives => @featured_groups } %>
+		</li>
+		
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">

@@ -13,7 +13,8 @@ class Collective < ActiveRecord::Base
   validates_uniqueness_of :name
   
   # Associations
-  # 
+  #
+  named_scope :featured, :conditions => ['moderation_status = "featured" or moderation_status = "recently_changed"'], :order => 'moderation_status, updated_on desc', :limit => 5
   has_many :collective_memberships
   has_many :users, :through => :collective_memberships
   # has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'collective_associations.created_on DESC'
@@ -43,8 +44,14 @@ class Collective < ActiveRecord::Base
   # Filters
   #                 
   before_destroy :delete_image
-  before_update :delete_image_if_new_uploaded
-
+  before_update :delete_image_if_new_uploaded 
+  before_save :set_moderation_status
+  
+  def set_moderation_status
+    unless self.moderation_status == 'featured'
+      self.moderation_status = 'recently_changed'
+    end
+  end
   
   # Recursively deletes the image and then the directory which the image
   # was stored in.

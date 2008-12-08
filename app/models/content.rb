@@ -9,6 +9,7 @@ class Content < ActiveRecord::Base
   # Filters
   #
   before_create :set_moderation_status_to_published
+  before_save :set_collective_moderation_status
 
   # Macros
   #
@@ -30,6 +31,13 @@ class Content < ActiveRecord::Base
   validates_presence_of :title, :summary, :published_by
   
   attr_protected :moderation_status
+  
+  def set_collective_moderation_status
+    unless self.collective.nil?
+      self.collective.moderation_status = 'recently_updated'
+      self.collective.save!
+    end
+  end
   
   # A convenience method to tell us whether this content is attached to 
   # an article or event.  Currently this should only ever return true for

@@ -38,6 +38,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
     assert_equal old_count+1, Collective.count
     assert_redirected_to group_path(assigns(:collective))
     assert assigns(:collective).users.include?(users(:registered_user))
+    assert_template 'show'
   end
   
   def test_should_not_create_collective_for_anonymous_user

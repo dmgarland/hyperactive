@@ -178,6 +178,8 @@ img.right {
 	background: url(../images/img03.jpg) no-repeat;
 }
 
+
+
 /* Latest Post */
 
 #latest-post {
@@ -223,6 +225,11 @@ img.right {
 #content_wide {
 	float: left;
 	width: 659px;
+}
+
+#comments {
+	background: url(../images/img07.gif) repeat-x;
+	padding: 25px 0 0 0;
 }
 
 #action-alert {
@@ -300,6 +307,8 @@ img.right {
 	border: solid 1px #940f04;
 	text-align: center;
 }
+
+
 
 /* Calendar View*/
 

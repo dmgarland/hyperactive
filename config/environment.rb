@@ -55,7 +55,7 @@ Rails::Initializer.run do |config|
   # Let's put cached pages in a more convenient place than the root of the 
   # public directory.  Note that this requires that the Apache setup points at
   # public/cache so that Apache serves cached pages properly.
-  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/system/cache/"  
+  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/system/cache"  
       
   # Load any gems found in vendor/gems.  See http://errtheblog.com/posts/50-vendor-everything
   # for more on this.

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081217124551) do
+ActiveRecord::Schema.define(:version => 20081217173129) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -190,6 +190,15 @@ ActiveRecord::Schema.define(:version => 20081217124551) do
   end
 
   add_index "links", ["post_id"], :name => "fk2_link_event"
+
+  create_table "open_street_map_infos", :force => true do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "zoom"
+    t.integer  "content_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "title",      :default => "", :null => false

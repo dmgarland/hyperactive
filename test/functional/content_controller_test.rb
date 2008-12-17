@@ -61,7 +61,7 @@ module ContentControllerTest
     assert_template 'new'
     assert_not_nil assigns(:content)
   end
-  
+
   def test_create
     num_content = model_class.count
     post :create, params_for_valid_content
@@ -82,6 +82,33 @@ module ContentControllerTest
     assert_equal num_content + 1, model_class.count
     assert_equal "published", content.moderation_status
     assert assigns(:content).collective == collectives(:indy_london)
+  end    
+  
+  def test_create_with_open_street_map_info
+    num_content = model_class.count
+    lat = 51.4615
+    lng = -0.1149
+    zoom = 17
+    post :create, params_for_valid_content.merge(:open_street_map_info => {:lat => lat, :lng => lng, :zoom => zoom})
+                  
+    content = model_class.find_by_title("Test content2")
+    assert_equal "Test content2", content.title
+    assert_match("foo", content.tag_list)
+    assert_match("bar", content.tag_list)
+    assert_match("london", content.place_tag_list)
+    assert_match("brixton", content.place_tag_list)
+    assert_no_match(/,/, content.tag_list) 
+    assert_no_match(/,/, content.place_tag_list)
+    if model_class == Event
+      assert content.taggings.map(&:event_date).include?(content.date)
+    end
+    assert_response :redirect
+    assert_equal num_content + 1, model_class.count
+    assert_equal "published", content.moderation_status
+    assert content.collective == collectives(:indy_london)
+    assert_equal content.open_street_map_info.lat, lat
+    assert_equal content.open_street_map_info.lng, lng
+    assert_equal content.open_street_map_info.zoom, zoom
   end  
     
   def test_moderation_status_cant_be_set_to_featured_without_feature_permission
@@ -129,6 +156,17 @@ module ContentControllerTest
     put :update, {:id => @first_id, :content => {:moderation_status => "promoted"},:tags => "", :place_tags => ""}, as_user(:registered_user)
     assert_equal "published", assigns(:content).moderation_status
   end  
+  
+  def test_updating_open_street_map_info
+    lat = 51.4615
+    lng = -0.1149
+    zoom = 17
+    put :update, {:id => @first_id, :open_street_map_info => {:lat => lat, :lng => lng, :zoom => zoom}, :content => {:moderation_status => "published"}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    assert assigns(:content)
+    assert_equal assigns(:content).open_street_map_info.lat, lat
+    assert_equal assigns(:content).open_street_map_info.lng, lng
+    assert_equal assigns(:content).open_street_map_info.zoom, zoom    
+  end    
   
   def test_edit_does_not_work_for_anonymous
     get :edit, :id => @first_id

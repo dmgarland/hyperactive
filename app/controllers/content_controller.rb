@@ -134,6 +134,10 @@ class ContentController < ApplicationController
     if(model_class == Event)
       check_end_date
     end
+    unless params[:open_street_map_info].blank?
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @content.open_street_map_info = @open_street_map_info
+    end
     success = true
     success &&= initialize_photos
     success &&= initialize_videos
@@ -159,6 +163,7 @@ class ContentController < ApplicationController
   
   def edit
     @content = model_class.find(params[:id])
+    @open_street_map_info = @content.open_street_map_info
   end
 
   # Updates the content.  Note that we set the collective ids to an empty array, if the form sent
@@ -179,6 +184,10 @@ class ContentController < ApplicationController
     if(model_class == Event)
       check_end_date
     end
+    unless params[:open_street_map_info].blank?
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @content.open_street_map_info = @open_street_map_info
+    end    
     success = true
     success &&= initialize_photos
     success &&= initialize_videos

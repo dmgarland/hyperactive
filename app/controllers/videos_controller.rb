@@ -22,6 +22,10 @@ class VideosController < ContentController
   def create
     @content = Video.new(params[:content]) 
     @content.set_moderation_status(params[:content][:moderation_status], current_user)    
+    unless params[:open_street_map_info].blank?
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @content.open_street_map_info = @open_street_map_info
+    end        
     respond_to do |format|
       if (!current_user.is_anonymous? || simple_captcha_valid?) && @content.save
         @content.tag_with params[:tags]
@@ -51,6 +55,10 @@ class VideosController < ContentController
     # @content.collective_ids = [] 
     @content.update_attributes(params[:content])
     @content.set_moderation_status(params[:content][:moderation_status], current_user)       
+    unless params[:open_street_map_info].blank?
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @content.open_street_map_info = @open_street_map_info
+    end    
     respond_to do |format|
       if @content.save
         @content.tag_with params[:tags]

@@ -24,6 +24,7 @@ class Content < ActiveRecord::Base
   belongs_to :collective
   has_many :comments
   has_many :published_comments, :class_name => "Comment", :conditions => "moderation_status = 'published'"
+  has_one :open_street_map_info
   
   # Validations
   #

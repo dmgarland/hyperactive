@@ -1,0 +1,15 @@
+<h2>Map It!</h2>
+Let us know where your <%= @content.class.to_s.downcase %> is:
+<% fields_for :open_street_map_info do |o| %>
+     <%= o.hidden_field :lng, :id => "xlon" %>
+     <%= o.hidden_field :lat, :id => "xlat" %>
+     <%= o.hidden_field :zoom, :id => "xres" %>
+<% end %>	
+<div id="locinfo">
+
+<%= javascript_include_tag "http://www.openlayers.org/api/OpenLayers.js" %>
+<%= javascript_include_tag "http://www.openstreetmap.org/openlayers/OpenStreetMap.js" %>
+<%= javascript_include_tag("map_input.js") %>
+<div style="width:500px; height:500px" id="map"></div>
+<%= javascript_tag("mapinit();") %>
+</div>	

@@ -1,12 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  lat: 1.5
-  lng: 1.5
-  zoom: 1
-  content_id: 1
-
-two:
+a_birthday_info:
   lat: 1.5
   lng: 1.5
   zoom: 1

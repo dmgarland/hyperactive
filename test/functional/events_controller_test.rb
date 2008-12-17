@@ -10,7 +10,7 @@ class EventsControllerTest < Test::Unit::TestCase
 
   include ContentControllerTest
 
-  fixtures :content
+  fixtures :content, :open_street_map_infos
 
   def setup
     @controller = EventsController.new
@@ -287,6 +287,13 @@ class EventsControllerTest < Test::Unit::TestCase
     assert assigns(:content)
     assert_match(/#{assigns(:content).title}/, @response.body, "Expected to find a match between the content title and the ical text.")   
     #assert_no_match(/<p>/, @response.body, "The HTML tags should have been stripped.")
+  end
+  
+  def test_showing_open_street_map_info_should_work
+    get :show, {:id => @first_id}
+    assert_response :success
+    assert assigns(:content)
+    assert_match /#{assigns(:content).open_street_map_info.lat}/, @response.body, "Expected to have this event's latitude in the page body."
   end
   
   def event_stub(id)

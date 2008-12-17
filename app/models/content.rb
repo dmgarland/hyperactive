@@ -104,6 +104,12 @@ class Content < ActiveRecord::Base
   def is_collectivized?
     !self.collective.nil?
   end
+  
+  # Does this content have map info associated with it?
+  #
+  def has_map_info?
+    !self.open_street_map_info.nil?
+  end
 
 #  This doesn't do anything yet but might when we move towards getting the 
 #  content archives cacheable.

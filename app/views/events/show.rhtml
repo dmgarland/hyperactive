@@ -43,6 +43,10 @@
     <p><em>Contact phone:</em> <%=h @content.contact_phone %></p>
 <% end %>            
 
+<% if @content.has_map_info? %>
+	<%= render :partial => 'shared/content/maps/open_street_map_info_show_controls' %>
+<% end %>
+
 <%= render :partial => 'shared/content/admin_controls_link' %>
 
 <% if @content.has_comments? %><h2>Comments</h2> <% end %>

@@ -57,7 +57,7 @@
             if ($("xlon").getValue()){
                     var size = new OpenLayers.Size(20,34);
                     var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-                    var icon = new OpenLayers.Icon('AQUA.png',size,offset);
+                    var icon = new OpenLayers.Icon('/images/open_street_map_marker.png',size,offset);
                     targetmarker = new OpenLayers.Marker(new OpenLayers.LonLat(lonLat.lon,lonLat.lat),icon);
                     markers.addMarker(targetmarker);
             }

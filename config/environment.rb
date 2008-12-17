@@ -82,7 +82,3 @@ end
 require 'validates_uri_existence_of'
 gem 'rmagick'
 require 'RMagick'
-
-
-
-# Here's a comment as pietro

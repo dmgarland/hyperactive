@@ -6,7 +6,6 @@
 <p class="byline"><%= image_tag "icon_article.gif" %> </image_tag><small>Published: <%=h long_date(@content.created_on) %></small> by <strong><%=h @content.published_by.titleize %></strong></p>
 
 <%= render :partial => 'shared/content/hidden_notice' %>
-
 <%= render :partial => 'shared/content/groups_display' %>
 
 <p><em>Tagged as:</em> <%= render_tag_list %></p>
@@ -18,7 +17,6 @@
 <p><%=h @content.place %></p>
 
 <%= render :partial => "shared/content/list_videos" %>
-
 <%= render :partial => "shared/content/list_photos" %>
 
 <%= auto_link(@content.body) %>

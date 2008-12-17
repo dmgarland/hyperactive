@@ -131,29 +131,7 @@ namespace :deploy do
     end
     
   end # end of backgroundrb namespace
-  
-  # A crude attempt at getting ferret to restart during deployment
-  namespace :ferret do
     
-    desc "Start the ferret drb server for search indexing"
-    task :start do
-      run "cd #{deploy_to}current; sudo /etc/init.d/ferret_indy_london_production_ctl start
-"
-    end
-    
-    desc "Stop the ferret drb server for search indexing"
-    task :stop do
-      run "cd #{deploy_to}current; sudo  /etc/init.d/ferret_indy_london_production_ctl stop"
-    end
-    
-    desc "Restart the ferret drb server for search indexing"
-    task :restart do
-      deploy.ferret.stop
-      deploy.ferret.start
-    end
-    
-  end # end of ferret namespace  
-  
   
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
@@ -190,7 +168,6 @@ namespace :deploy do
       migrate
     end
     restart
-    ferret.restart
     backgroundrb.start
     deploy.web:enable
     cleanup

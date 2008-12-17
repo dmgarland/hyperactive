@@ -1,9 +1,0 @@
---- 
-cwd: /var/rails/imcalendar/current
-port: "8000"
-environment: production
-address: 127.0.0.1
-user: www-data
-group: www-data
-pid_file: log/mongrel.pid
-servers: 5

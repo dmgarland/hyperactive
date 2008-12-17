@@ -13,7 +13,7 @@ class Content < ActiveRecord::Base
 
   # Macros
   #
-  acts_as_xapian :texts => [:title, :body, :summary, :published_by, :date]
+  acts_as_xapian :texts => [:title, :body, :summary, :published_by, :date, :moderation_status]
   named_scope :visible, :conditions => ['moderation_status != ?', "hidden"]
   named_scope :promoted, :conditions => ['moderation_status = ?', "promoted"]
   named_scope :promoted_and_featured, :conditions => ['moderation_status = ? OR moderation_status = ?', "promoted", "featured"]
@@ -29,6 +29,13 @@ class Content < ActiveRecord::Base
   #
   validates_length_of :title, :maximum => 50
   validates_presence_of :title, :summary, :published_by
+  
+  # Association Proxies
+  def self.find_with_xapian(search_term, options={:limit => 20})
+    result = ActsAsXapian::Search.new([self], search_term, options).results.collect{|x| x[:model]}
+    result = nil if result.is_a?(Array) && result.first == nil
+  end
+  
   
   attr_protected :moderation_status
   

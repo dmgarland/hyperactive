@@ -29,10 +29,10 @@ class SearchController < ApplicationController
   def find_content
     unless (params[:search].blank? || params[:search][:search_terms].blank?)
       @search_terms = params[:search][:search_terms]
-      @articles = ActsAsXapian::Search.new([Article], @search_terms, :limit => 20).results.collect {|r| r[:model]}
-      @events = ActsAsXapian::Search.new([Event], @search_terms, :limit => 20).results.collect {|r| r[:model]}
-      @videos = ActsAsXapian::Search.new([Video], @search_terms, :limit => 20).results.collect {|r| r[:model]}
-      @collectives = ActsAsXapian::Search.new([Collective], @search_terms, :limit => 20).results.collect {|r| r[:model]}
+      @articles = Article.visible.find_with_xapian(@search_terms)
+      @events = Event.visible.find_with_xapian(@search_terms)
+      @videos = Video.visible.find_with_xapian(@search_terms)
+      @collectives = Collective.find_with_xapian(@search_terms)
     end
   end
 

@@ -47,6 +47,12 @@ class Collective < ActiveRecord::Base
   before_update :delete_image_if_new_uploaded 
   before_save :set_moderation_status
   
+  # Association Proxies
+  def self.find_with_xapian(search_term, options={:limit => 20})
+    result = ActsAsXapian::Search.new([self], search_term, options).results.collect{|x| x[:model]}
+    result = nil if result.is_a?(Array) && result.first == nil
+  end  
+  
   def set_moderation_status
     unless self.moderation_status == 'featured'
       self.moderation_status = 'recently_changed'

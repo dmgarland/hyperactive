@@ -13,7 +13,7 @@ class Content < ActiveRecord::Base
 
   # Macros
   #
-  acts_as_ferret({:fields => [:title, :body, :summary, :published_by, :date]})      
+  acts_as_xapian :texts => [:title, :body, :summary, :published_by, :date]
   named_scope :visible, :conditions => ['moderation_status != ?', "hidden"]
   named_scope :promoted, :conditions => ['moderation_status = ?', "promoted"]
   named_scope :promoted_and_featured, :conditions => ['moderation_status = ? OR moderation_status = ?', "promoted", "featured"]

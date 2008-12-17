@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081204215330) do
+ActiveRecord::Schema.define(:version => 20081217124551) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -17,6 +17,14 @@ ActiveRecord::Schema.define(:version => 20081204215330) do
     t.datetime "created_on"
     t.datetime "updated_on"
   end
+
+  create_table "acts_as_xapian_jobs", :force => true do |t|
+    t.string  "model",    :null => false
+    t.integer "model_id", :null => false
+    t.string  "action",   :null => false
+  end
+
+  add_index "acts_as_xapian_jobs", ["model", "model_id"], :name => "index_acts_as_xapian_jobs_on_model_and_model_id", :unique => true
 
   create_table "admin_filters", :force => true do |t|
     t.string   "title"

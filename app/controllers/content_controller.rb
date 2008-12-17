@@ -110,7 +110,7 @@ class ContentController < ApplicationController
 
   def show
     @content = model_class.find(params[:id])
-    @related_content = @content.more_like_this({:field_names => [ :title, :summary, :body ]}, {:conditions => ['moderation_status = ?', "published"], :order_by => 'title asc', :limit => 5})
+    @related_content = ActsAsXapian::Similar.new([model_class], [@content], :limit => 5).results.collect {|r| r[:model]}
     if model_class == Event
       @date = @content.date.strftime("%Y-%m-%d")
     end

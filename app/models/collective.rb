@@ -26,7 +26,7 @@ class Collective < ActiveRecord::Base
 
   # Macros
   #
-  acts_as_ferret(:fields => [:name, :summary])  
+  acts_as_xapian(:texts => [:name, :summary])  
   has_friendly_id :name, :use_slug => true
   image_column  :image, 
                 :versions => { :thumb => "c96x96", :small => "c32x32"},

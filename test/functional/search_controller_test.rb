@@ -12,7 +12,6 @@ class SearchControllerTest < Test::Unit::TestCase
     @controller = SearchController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-    Event.rebuild_index
   end
   
   # Searching by a tag should work.

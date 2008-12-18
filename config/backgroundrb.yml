@@ -22,5 +22,5 @@ autostart:
     job_key: auto_moderation
     class: auto_moderation_worker
   4:
-    job_key: clear_recently_changed_collective
-    class: clear_recently_changed_collective_worker
+    job_key: xapian_indexer
+    class: xapian_index_worker

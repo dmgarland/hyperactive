@@ -38,6 +38,9 @@ Released   : 20071004
     <%= javascript_include_tag 'uk-timeline' %>
 	<%= javascript_include_tag 'timeline/timeline-api' %>
  <% end %>
+<% default_content_for :javascript do %>
+
+<% end %>
  <% if (@current_action == "show" && @current_controller == "videos") || (@current_controller == "home" && @current_action == "index")  %>
     <%= javascript_include_tag 'swfobject' %>
  <% end %>     

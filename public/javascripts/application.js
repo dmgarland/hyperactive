@@ -51,3 +51,16 @@ UserInfo.writeDataTo = function(name, element) {
   element.innerHTML = unescape(content);
 };
 
+
+function prepareMapView(){
+	$('map-show-link').hide();
+	$('map').show();
+    var loader = new loadScript(
+ 	       ["http://www.openlayers.org/api/OpenLayers.js",
+ 	        "http://www.openstreetmap.org/openlayers/OpenStreetMap.js",
+ 	        "/javascripts/map_show.js"], 
+ 	       function(){
+ 	          var map1 = new goatmap("map", true);
+ 	       });
+ 	    loader.loadall();
+}

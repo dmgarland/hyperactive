@@ -1,0 +1,16 @@
+<%= hidden_field_tag :content, @content.open_street_map_info.lng, :id => "xlon" %>
+<%= hidden_field_tag :content, @content.open_street_map_info.lat, :id => "xlat" %>
+<%= hidden_field_tag :content, @content.open_street_map_info.zoom, :id => "xres" %>
+
+<%= link_to_function "See a map?", "prepareMapView()", :id => "map-show-link" %>
+
+<div id="locinfo">
+
+<div style="width:500px; height:500px; display:none;" id="map"></div>
+
+</div>
+
+	
+<% content_for :javascript do %>
+	<%= javascript_include_tag 'goatcodeloader' %>
+<% end %>

@@ -1,18 +1,9 @@
-<%= hidden_field_tag :content, @content.open_street_map_info.lng, :id => "xlon" %>
-<%= hidden_field_tag :content, @content.open_street_map_info.lat, :id => "xlat" %>
-<%= hidden_field_tag :content, @content.open_street_map_info.zoom, :id => "xres" %>
 
 <!-- define a DIV into which the map will appear. Make it take up the whole window -->
 <!-- Load this dynamically to ensure no traffic data is leaked. -->
 
 <div id="locinfo">
 
-<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-<script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
-<%= javascript_include_tag("map_show.js")%>
 <div style="width:500px; height:500px" id="map"></div>
-<script>
-mapinit();
-</script>
 
 </div>

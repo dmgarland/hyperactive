@@ -251,6 +251,14 @@ class ContentController < ApplicationController
       render :partial => 'hidden/report_this_controls', :layout => false
     end
   end
+  
+  # Retrieves the open street map controls.  We do it this way so that users can be informed
+  # that they're about to use an external service
+  #
+  def show_map_controls
+    @content = Content.find(params[:id])
+    render :partial => 'shared/content/maps/open_street_map_info_show_controls'
+  end
 
   protected
 

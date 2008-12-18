@@ -33,7 +33,7 @@ class Content < ActiveRecord::Base
   
   # Association Proxies
   def self.find_with_xapian(search_term, options={:limit => 20})
-    result = ActsAsXapian::Search.new([self], search_term, options).results.collect{|x| x[:model]}
+    result = ActsAsXapian::Search.new([self], search_term + " NOT moderation_status:hidden", options).results.collect{|x| x[:model]}
     result = nil if result.is_a?(Array) && result.first == nil
   end
   

@@ -101,9 +101,9 @@ class SearchControllerTest < Test::Unit::TestCase
     get :find_content, :search => {:search_terms => "hidden"}
     assert_response :success
     assert_template 'find_content'
-    assert_equal nil, assigns(:articles)
-    assert_equal nil, assigns(:videos)
-    assert_equal nil, assigns(:events), "There should be no events returned when searching for events that are hidden."       
+    assert_equal [], assigns(:articles)
+    assert_equal [], assigns(:videos)
+    assert_equal [], assigns(:events), "There should be no events returned when searching for events that are hidden."       
   end
   
    # This is temporarily disabled as there is no such thing as unpublished content.

@@ -67,6 +67,10 @@ function prepareMapView(){
 
 function prepareMapEdit(){
 	$('map-show-link').hide();
+	$('map-explanation').update(
+			"Drag the map around and place the marker where you want it. " +
+			"Please make sure you zoom in and get the location exactly correct."
+			);
 	$('map-delete-link').show();
 	$('map').show();
 	$('xlat').enable();
@@ -83,8 +87,11 @@ function prepareMapEdit(){
 }
 
 function deleteMapEdit(){
+	$('map-show-link').update("Add a map again?");
 	$('map-show-link').show();
 	$('map-delete-link').hide();
+	$('map-explanation').update("The map data will be deleted when you save changes.");
+	$('map-explanation').show();
 	$('map').hide();
 	$('xlat').disable();
 	$('xlon').disable();

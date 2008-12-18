@@ -1,12 +1,18 @@
 <h2>Map It!</h2>
-Let us know where your <%= @content.class.to_s.downcase %> is:
-<% fields_for :open_street_map_info do |o| %>
-     <%= o.hidden_field :lng, :id => "xlon", :disabled => true %>
-     <%= o.hidden_field :lat, :id => "xlat", :disabled => true %>
-     <%= o.hidden_field :zoom, :id => "xres", :disabled => true %>
-<% end %>	
 
-<%= link_to_function "See a map?", "prepareMapEdit()", :id => "map-show-link" %>
+<% if @content.has_map_info? %>
+  <div id="map-explanation">
+  	There is a map linked to this <%= @content.class.to_s.downcase %>.
+  	If you want to, you can edit or delete it.  If you do nothing, it will stay
+  	the same as it is right now.
+  </div>
+  <%= link_to_function "Edit or delete map?", "prepareMapEdit()", :id => "map-show-link" %>
+<% else %>
+  <div id="map-explanation">
+  	You can attach a map to this <%= @content.class.to_s.downcase %>.
+  </div>
+  <%= link_to_function "Add a map?", "prepareMapEdit()", :id => "map-show-link" %>
+<% end %>
 
 <div id="locinfo">
 	<div style="width:658px; height:500px; display:none;" id="map"></div>
@@ -16,4 +22,10 @@ Let us know where your <%= @content.class.to_s.downcase %> is:
 	
 <% content_for :javascript do %>
 	<%= javascript_include_tag 'goatcodeloader' %>
+<% end %>
+
+<% fields_for :open_street_map_info do |o| %>
+     <%= o.hidden_field :lng, :id => "xlon", :disabled => !@content.has_map_info? %>
+     <%= o.hidden_field :lat, :id => "xlat", :disabled => !@content.has_map_info? %>
+     <%= o.hidden_field :zoom, :id => "xres", :disabled => !@content.has_map_info? %>
 <% end %>

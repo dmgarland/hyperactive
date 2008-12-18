@@ -3,5 +3,5 @@
 <% form_for(:content, :url => events_path, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
   <%= render(:partial => 'shared/captcha') %>
-  <%= submit_tag "Create" %>
+  <p><%= submit_tag "Create" %></p>
 <% end %>

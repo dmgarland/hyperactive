@@ -1,12 +1,10 @@
 <% for collective in collectives %>
-
-<div class="collective">
-  <h3><%=link_to collective.name, :controller => 'collectives', :action => 'show', :id => collective.id %></h3>
-  <% if collective.image.nil? %>
-    <%= image_tag "default_collective.jpg", :class => "collective_image" %>
-  <% else %>
-    <%= link_to image_tag(collective.image.thumb, :class => "collective_image", :border => 0), {:controller => 'collectives', :action => 'show', :id => collective.id }, :class => 'nodots'%>
-  <% end %>
-</div>
-
+	<div class="collective">
+	  <h3><%=link_to collective.name, :controller => 'collectives', :action => 'show', :id => collective.id %></h3>
+	  <% if collective.image.nil? %>
+	    <%= image_tag "default_collective_small.jpg", :class => "collective_image" %>
+	  <% else %>
+	    <%= link_to image_tag(collective.image.small, :class => "collective_image", :border => 0), {:controller => 'collectives', :action => 'show', :id => collective.id }, :class => 'nodots'%>
+	  <% end %>
+	</div>
 <% end %>

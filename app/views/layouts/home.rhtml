@@ -6,4 +6,14 @@
 	<div style="clear: both;">&nbsp;</div>
 </div>
 <!-- end page -->
+<% if !@featured_groups.nil? %>
+	<div id="homepage-footer">
+	<p>
+	<li id="featuredgroups">
+	  <h2>Featured And Recently Changed Groups</h2>
+	  <%=render :partial => 'collectives/collective_preview', :locals => { :collectives => @featured_groups } %>
+	</li>
+	</p>	
+	</div>
+<% end %>
 <%= render :partial => 'layouts/common/footer' %>

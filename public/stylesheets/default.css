@@ -536,6 +536,15 @@ margin-top : 0px;
 	color: #222222;
 } 
 
+#homepage-footer {
+	padding: 10px 5px 25px 10px;
+	background: #E6E6E6 url(../images/img05.gif) repeat-x;
+}
+
+#homepage-footer p {
+	margin: 0;
+	color: #000000;
+}
 
 #feed {
 	width: 658px;
@@ -570,3 +579,5 @@ margin-top : 0px;
 
 text-align : center; 
 }
+
+

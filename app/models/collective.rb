@@ -26,7 +26,10 @@ class Collective < ActiveRecord::Base
   # Macros
   #
   acts_as_xapian(:texts => [:name, :summary])  
-  named_scope :featured, :conditions => ['moderation_status = "featured" or moderation_status = "recently_changed"'], :order => 'moderation_status, updated_on desc', :limit => 5
+  named_scope :frontpage, :conditions => ['collectives.moderation_status = "featured" or collectives.moderation_status = "promoted"'], :include => "content", :order => 'collectives.moderation_status, content.updated_on DESC', :limit => 5
+  named_scope :featured, :conditions => ['moderation_status = "featured"'], :limit => 5
+  named_scope :recently_active, :conditions => ['collectives.moderation_status = "featured" or collectives.moderation_status = "promoted"'], :include => "content", :order => 'collectives.moderation_status, content.updated_on DESC', :limit => 5
+  
   has_friendly_id :name, :use_slug => true
   image_column  :image, 
                 :versions => { :thumb => "c96x96", :small => "c32x32"},

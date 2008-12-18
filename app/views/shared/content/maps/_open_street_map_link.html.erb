@@ -5,11 +5,8 @@
 <%= link_to_function "See a map?", "prepareMapView()", :id => "map-show-link" %>
 
 <div id="locinfo">
-
-<div style="width:500px; height:500px; display:none;" id="map"></div>
-
+	<div style="width:500px; height:500px; display:none;" id="map"></div>
 </div>
-
 	
 <% content_for :javascript do %>
 	<%= javascript_include_tag 'goatcodeloader' %>

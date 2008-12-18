@@ -1,4 +1,11 @@
+if (!allmaps){
+    var allmaps = {}; }
+
 function goatmap(divname, isshow){
+    // Check if we already have such a map
+    if (allmaps[divname]){
+       return allmaps[divname];
+    }
 
     // Store the name of the DIV
     this.divname = divname;
@@ -42,7 +49,7 @@ function goatmap(divname, isshow){
                     lonLatOutside.transform(map.getProjectionObject(), new OpenLayers.Projection("EPSG:4326"));
 
                     $("xlon").value = lonLatOutside.lon;
-			              $("xlat").value = lonLatOutside.lat;
+			  $("xlat").value = lonLatOutside.lat;
                     $("xres").value = map.getZoom();
 
                     // Update the marker in projection coordinates
@@ -137,4 +144,7 @@ function goatmap(divname, isshow){
 
       // Do initialise by default
 	this.mapinit();
+
+      allmaps[divname] = this;
+      return allmaps[divname];
 }

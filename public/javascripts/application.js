@@ -60,7 +60,33 @@ function prepareMapView(){
  	        "http://www.openstreetmap.org/openlayers/OpenStreetMap.js",
  	        "/javascripts/map_show.js"], 
  	       function(){
- 	          var map1 = new goatmap("map", true);
+ 	          var map1 = new goatmap("map", false);
  	       });
  	    loader.loadall();
+}
+
+function prepareMapEdit(){
+	$('map-show-link').hide();
+	$('map-delete-link').show();
+	$('map').show();
+	$('xlat').enable();
+	$('xlon').enable();
+	$('xres').enable();
+    var loader = new loadScript(
+ 	       ["http://www.openlayers.org/api/OpenLayers.js",
+ 	        "http://www.openstreetmap.org/openlayers/OpenStreetMap.js",
+ 	        "/javascripts/map_show.js"], 
+ 	       function(){
+ 	    		   var map1 = new goatmap("map", true);
+ 	       });
+ 	    loader.loadall();
+}
+
+function deleteMapEdit(){
+	$('map-show-link').show();
+	$('map-delete-link').hide();
+	$('map').hide();
+	$('xlat').disable();
+	$('xlon').disable();
+	$('xres').disable();
 }

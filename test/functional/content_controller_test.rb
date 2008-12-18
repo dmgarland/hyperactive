@@ -110,6 +110,12 @@ module ContentControllerTest
     assert_equal content.open_street_map_info.lng, lng
     assert_equal content.open_street_map_info.zoom, zoom
   end  
+  
+  def test_create_without_open_street_map_info
+    post :create, params_for_valid_content, as_user(:marcos)
+    assert assigns(:content)
+    assert_nil assigns(:content).open_street_map_info 
+  end        
     
   def test_moderation_status_cant_be_set_to_featured_without_feature_permission
     post :create, params_for_valid_content
@@ -167,6 +173,12 @@ module ContentControllerTest
     assert_equal assigns(:content).open_street_map_info.lng, lng
     assert_equal assigns(:content).open_street_map_info.zoom, zoom    
   end    
+  
+  def test_deleting_open_street_map_info
+    put :update, {:id => @first_id, :content => {:moderation_status => "published"}, :tags => "", :place_tags => ""}, as_user(:marcos)
+    assert assigns(:content)
+    assert_nil assigns(:content).open_street_map_info 
+  end      
   
   def test_edit_does_not_work_for_anonymous
     get :edit, :id => @first_id

@@ -184,7 +184,9 @@ class ContentController < ApplicationController
     if(model_class == Event)
       check_end_date
     end
-    unless params[:open_street_map_info].blank?
+    if params[:open_street_map_info].blank?
+      @content.open_street_map_info = nil
+    else
       @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
       @content.open_street_map_info = @open_street_map_info
     end    

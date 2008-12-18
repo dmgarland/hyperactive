@@ -1,15 +1,19 @@
 <h2>Map It!</h2>
 Let us know where your <%= @content.class.to_s.downcase %> is:
 <% fields_for :open_street_map_info do |o| %>
-     <%= o.hidden_field :lng, :id => "xlon" %>
-     <%= o.hidden_field :lat, :id => "xlat" %>
-     <%= o.hidden_field :zoom, :id => "xres" %>
+     <%= o.hidden_field :lng, :id => "xlon", :disabled => true %>
+     <%= o.hidden_field :lat, :id => "xlat", :disabled => true %>
+     <%= o.hidden_field :zoom, :id => "xres", :disabled => true %>
 <% end %>	
-<div id="locinfo">
 
-<%= javascript_include_tag "http://www.openlayers.org/api/OpenLayers.js" %>
-<%= javascript_include_tag "http://www.openstreetmap.org/openlayers/OpenStreetMap.js" %>
-<%= javascript_include_tag("map_input.js") %>
-<div style="width:500px; height:500px" id="map"></div>
-<%= javascript_tag("mapinit();") %>
-</div>	
+<%= link_to_function "See a map?", "prepareMapEdit()", :id => "map-show-link" %>
+
+<div id="locinfo">
+	<div style="width:500px; height:500px; display:none;" id="map"></div>
+</div>
+
+<%= link_to_function "Delete this map", "deleteMapEdit()", :id => "map-delete-link", :style => "display:none;" %>
+	
+<% content_for :javascript do %>
+	<%= javascript_include_tag 'goatcodeloader' %>
+<% end %>

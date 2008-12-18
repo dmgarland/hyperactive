@@ -87,10 +87,10 @@ function prepareMapEdit(){
 }
 
 function deleteMapEdit(){
-	$('map-show-link').update("Add a map again?");
 	$('map-show-link').show();
+	$('addmap').update("Add a map again?");
 	$('map-delete-link').hide();
-	$('map-explanation').update("The map data will be deleted when you save changes.");
+	$('map-explanation').update("<p>The map data will be deleted when you save changes.</p>");
 	$('map-explanation').show();
 	$('map').hide();
 	$('xlat').disable();

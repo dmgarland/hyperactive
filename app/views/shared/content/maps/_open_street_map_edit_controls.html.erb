@@ -2,24 +2,32 @@
 
 <% if @content.has_map_info? %>
   <div id="map-explanation">
-  	There is a map linked to this <%= @content.class.to_s.downcase %>.
+  	<p>There is a map linked to this <%= @content.class.to_s.downcase %>.
   	If you want to, you can edit or delete it.  If you do nothing, it will stay
-  	the same as it is right now.
+  	the same as it is right now.</p>
   </div>
-  <%= link_to_function "Edit or delete map?", "prepareMapEdit()", :id => "map-show-link" %>
+  <div id="map-show-link">
+  	<%= image_tag "icons/map_edit.png" %> <%= link_to_function "Edit or delete map?", "prepareMapEdit()", :id => "addmap" %>
+    <small><strong>Note:</strong> clicking the map link will load data from <%= link_to "Openstreetmap's", "http://openstreetmap.org" %> external server.</small>
+  </div>
 <% else %>
   <div id="map-explanation">
-  	You can attach a map to this <%= @content.class.to_s.downcase %>.
+  	<p>You can attach a map to this <%= @content.class.to_s.downcase %>.</p>
   </div>
-  <%= link_to_function "Add a map?", "prepareMapEdit()", :id => "map-show-link" %>
+  <div id="map-show-link">
+  	<%= image_tag "icons/map_add.png" %> <%= link_to_function "Add a map?", "prepareMapEdit()", :id => "addmap" %>
+    <small><strong>Note:</strong> clicking the map link will load data from <%= link_to "Openstreetmap's", "http://openstreetmap.org" %> external server.</small>
+  </div>
 <% end %>
 
 <div id="locinfo">
 	<div style="width:658px; height:500px; display:none;" id="map"></div>
 </div>
 
-<%= link_to_function "Delete this map", "deleteMapEdit()", :id => "map-delete-link", :style => "display:none;" %>
-	
+<div id="map-delete-link" style="display:none;">
+	<p><%= image_tag "icons/map_delete.png" %> <%= link_to_function "Delete this map", "deleteMapEdit()" %></p>
+</div>
+
 <% content_for :javascript do %>
 	<%= javascript_include_tag 'goatcodeloader' %>
 <% end %>

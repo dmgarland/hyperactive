@@ -2,7 +2,10 @@
 <%= hidden_field_tag :content, @content.open_street_map_info.lat, :id => "xlat" %>
 <%= hidden_field_tag :content, @content.open_street_map_info.zoom, :id => "xres" %>
 
-<%= link_to_function "See a map?", "prepareMapView()", :id => "map-show-link" %>
+<div id="map-show-link">
+	<%= image_tag "icons/map.png" %> <%= link_to_function "See a map?", "prepareMapView()" %>
+	<small><strong>Note:</strong> clicking the map link will load data from <%= link_to "Openstreetmap's", "http://openstreetmap.org" %> external server.</small>
+</div>
 
 <div id="locinfo">
 	<div style="width:658px; height:500px; display:none;" id="map"></div>

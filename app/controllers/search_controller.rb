@@ -26,6 +26,12 @@ class SearchController < ApplicationController
     end
   end
 
+  # Finds content and collectives matching the given search terms.  Currently the 
+  # acts_as_xapian plugin is a bit of a mystery to me, and I don't understand how
+  # to restrict searches so that anything with a moderation_status of "hidden"
+  # doesn't come back in the search results.  Hidden stuff is currently being 
+  # rejected using Ruby (bad form but temporary).
+  # 
   def find_content
     unless (params[:search].blank? || params[:search][:search_terms].blank?)
       @search_terms = params[:search][:search_terms]

@@ -14,7 +14,6 @@ class Collective < ActiveRecord::Base
   
   # Associations
   #
-  named_scope :featured, :conditions => ['moderation_status = "featured" or moderation_status = "recently_changed"'], :order => 'moderation_status, updated_on desc', :limit => 5
   has_many :collective_memberships
   has_many :users, :through => :collective_memberships
   # has_many_polymorphs :collective_associatables, :from => [:videos, :events, :articles], :through => :collective_associations, :order => 'collective_associations.created_on DESC'
@@ -27,6 +26,7 @@ class Collective < ActiveRecord::Base
   # Macros
   #
   acts_as_xapian(:texts => [:name, :summary])  
+  named_scope :featured, :conditions => ['moderation_status = "featured" or moderation_status = "recently_changed"'], :order => 'moderation_status, updated_on desc', :limit => 5
   has_friendly_id :name, :use_slug => true
   image_column  :image, 
                 :versions => { :thumb => "c96x96", :small => "c32x32"},
@@ -45,19 +45,12 @@ class Collective < ActiveRecord::Base
   #                 
   before_destroy :delete_image
   before_update :delete_image_if_new_uploaded 
-  before_save :set_moderation_status
   
   # Association Proxies
   def self.find_with_xapian(search_term, options={:limit => 20})
     result = ActsAsXapian::Search.new([self], search_term, options).results.collect{|x| x[:model]}
     result = nil if result.is_a?(Array) && result.first == nil
   end  
-  
-  def set_moderation_status
-    unless self.moderation_status == 'featured'
-      self.moderation_status = 'recently_changed'
-    end
-  end
   
   # Recursively deletes the image and then the directory which the image
   # was stored in.

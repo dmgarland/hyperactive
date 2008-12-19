@@ -9,7 +9,7 @@
 <% if current_user.has_permission?("see_admin_nav") %>
 	<p>
 		<%= I18n.t 'active_rbac.account.admin_explanation' %>
-		<%= link_to(I18n.t 'active_rbac.account.view_site_admin', admin_main_path) %>.	
+		<%= link_to(I18n.t('active_rbac.account.view_site_admin'), admin_main_path) %>.	
 	</p>
 <% end %>
 

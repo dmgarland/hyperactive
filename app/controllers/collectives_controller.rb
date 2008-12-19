@@ -158,7 +158,7 @@ class CollectivesController < ApplicationController
   #
   def can_edit?
     return true if current_user.is_member_of?(Collective.find(params[:id]))
-    #return true if current_user.has_permission?("edit_own_content")  && Content.find(params[:id]).user == current_user
+    return true if current_user.has_permission?("edit_all_groups")
     security_error
   end  
   

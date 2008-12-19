@@ -10,7 +10,7 @@
 	<div id="homepage-footer">
 	<p>
 	  <h2>Featured And Recently Changed Groups</h2>
-	  <%=render :partial => 'collectives/collective_preview', :locals => { :collectives => @featured_groups } %>
+	  <%=render :partial => 'collectives/collective_preview', :collection => @featured_groups %>
 	</p>	
 	</div>
 <% end %>

@@ -8,10 +8,11 @@
 <!-- end page -->
 <% if !@featured_groups.nil? %>
 	<div id="homepage-footer">
-	<p>
 	  <h2>Featured And Recently Changed Groups</h2>
+      <div id="a-tribute-to-occam">
 	  <%=render :partial => 'collectives/collective_preview', :collection => @featured_groups %>
-	</p>	
+      <div style="clear: both;"></div>
+	  </div>
 	</div>
 <% end %>
 <%= render :partial => 'layouts/common/footer' %>

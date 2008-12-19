@@ -1,10 +1,12 @@
+<ul>
 <% for collective in collectives %>
-	<div class="collective">
-	  <h3><%=link_to collective.name, :controller => 'collectives', :action => 'show', :id => collective.id %></h3>
+	<li>
+	  <p><%=link_to collective.name, group_url(collective) %></p>
 	  <% if collective.image.nil? %>
-	    <%= image_tag "default_collective_small.jpg", :class => "collective_image" %>
+	    <%= link_to image_tag("default_collective.jpg"), group_url(collective) %>
 	  <% else %>
-	    <%= link_to image_tag(collective.image.small, :class => "collective_image", :border => 0), {:controller => 'collectives', :action => 'show', :id => collective.id }, :class => 'nodots'%>
+	    <%= link_to image_tag(collective.image.thumb), group_url(collective) %>
 	  <% end %>
-	</div>
+	</li>
 <% end %>
+</ul>

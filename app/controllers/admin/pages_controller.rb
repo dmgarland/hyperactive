@@ -17,8 +17,9 @@ class Admin::PagesController < ApplicationController
                            :theme_advanced_buttons1 => %w{undo redo separator bold italic underline strikethrough separator bullist numlist separator link unlink separator cleanup code},
                            :theme_advanced_buttons2 => [],
                            :theme_advanced_buttons3 => [],
-                           :plugins => %w{paste}},
-              :only => [:new, :edit, :create, :update])  
+                           :plugins => %w{paste},
+                           :valid_elements => Hyperactive.valid_elements_for_tiny_mce},
+              :only => [:new, :edit, :create, :update])   
 
   layout "admin"
 
@@ -75,8 +76,7 @@ class Admin::PagesController < ApplicationController
     if !current_user.nil? and current_user.has_role?("Admin")
       return true
     else
-      redirect_to "/publish/list"
-      flash[:notice] = "You are not allowed to access this page."
+      security_error
     end
   end  
   

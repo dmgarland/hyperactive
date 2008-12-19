@@ -536,15 +536,6 @@ margin-top : 0px;
 	color: #222222;
 } 
 
-#homepage-footer {
-	padding: 10px 5px 25px 10px;
-	background: #E6E6E6 url(../images/img05.gif) repeat-x;
-}
-
-#homepage-footer p {
-	margin: 0;
-	color: #000000;
-}
 
 #feed {
 	width: 658px;
@@ -574,10 +565,26 @@ margin-top : 0px;
   clear:left;
 } 
 
-#featuredgroups
-{
 
-text-align : center; 
-}
+#homepage-footer {
+	padding: 10px 5px 25px 10px;
+	background: #E6E6E6 url(../images/img05.gif) repeat-x;
+	text-align : center; 
+	}
+
+#homepage-footer p {
+	margin: 0;
+	color: #000000;	
+	display: inline;
+	}
+
+#homepage-footer ul, #homepage-footer li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	color: #339;
+	font-weight: bold;
+	}
+
 
 

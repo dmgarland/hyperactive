@@ -87,10 +87,11 @@ ActionController::Routing::Routes.draw do |map|
   map.upcoming_events_by_tag_feed 'feeds/upcoming_events_by_tag', :controller => 'feeds', :action => 'upcoming_events_by_tag'  
   map.upcoming_events_by_place_feed 'feeds/upcoming_events_by_place', :controller => 'feeds', :action => 'upcoming_events_by_place' 
   
-  # maps
-  #
-  map.show_map_controls 'show_map_controls/:id', :controller => 'content', :action => 'show_map_controls'
+
+  # The job scheduler admin
+  map.admin_job_scheduler '/admin/background_rb_status', :controller => 'admin/background_rb_status'
   
+
   # base url of application
   map.root :controller => 'home', :action => 'index'
 

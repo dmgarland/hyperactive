@@ -20,7 +20,7 @@ class Auto
       puts " #{entry['class']}"
       BackgrounDRb::MiddleMan.instance.new_worker(:class => entry['class'],
                          :args => entry['args'],
-                         :job_key => key)
+                         :job_key => entry['job_key'].to_sym)
     end
     puts "done"
   end

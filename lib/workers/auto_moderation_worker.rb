@@ -24,5 +24,9 @@ class AutoModerationWorker < BackgrounDRb::Rails
       content.save!
     end
   end
+  
+  def status
+    return "running"
+  end
 
 end

@@ -1,0 +1,27 @@
+<h1>Scheduler status</h1>
+
+<p>This site depends on a job scheduler for quite a few tasks, including:</p>
+<ul>
+	<li>Video encoding</li>
+	<li>Torrent seeding</li>
+	<li>Content filtering (automatic hiding of posts based on content filters)</li>
+	<li>RSS feed retrieval</li>
+</ul>
+<p>If the job scheduler dies, all of these processes will fail.  This page allows you to
+check whether the scheduler is running, and stop/start/restart it when necessary.</p>
+
+<p>In general you shouldn't mess with this unless it's absolutely necessary.</p>
+
+<p>The job scheduler status is:</p>
+
+<div id="checking-status" style="display:none;"><%= image_tag "spinners/spinball.gif" %><small>checking status, one moment...</small></div>
+<h2><div id="backgroundrb_status">retrieving status, please wait</div></h2>
+<%= periodically_call_remote(
+		:url => {:action => 'get_status'},	
+		:frequency => 5,
+		:before => "Element.show('checking-status')",
+		:complete => "Element.hide('checking-status')") %>
+
+<%= button_to_remote 'Restart', :url => {:action => 'restart'} %>
+<%= button_to_remote 'Stop', :url => {:action => 'stop'} %>
+<%= button_to_remote 'Start', :url => {:action => 'start'} %>

@@ -570,9 +570,13 @@ margin-top : 0px;
 	padding: 10px 5px 25px 10px;
 	background: #E6E6E6 url(../images/img05.gif) repeat-x;
 	text-align : center; 
-	height: 200px;
 	}
 
+#a-tribute-to-occam {
+	margin: 0 auto;
+	text-align: center;
+	width: 640px;
+	}
 
 div.collective-preview
 {
@@ -596,3 +600,4 @@ div.collective-preview-desc
   width: 120px;
   margin: 2px;
 }
+

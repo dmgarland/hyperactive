@@ -25,6 +25,12 @@ class ActiveRbac::LoginControllerTest < Test::Unit::TestCase
       :password => 'password' + 'invalid'
     }
   end
+  
+  def test_should_get_index
+    get :index, {}, as_user(:registered_user)
+    assert_response :success
+    assert_template 'index'
+  end
 
   def test_should_reset_session_on_login
     @request.session[:some_key] = 'some value'

@@ -65,7 +65,8 @@ class CollectivesController < ApplicationController
   def create
     if !current_user.is_anonymous?
       @collective = Collective.new(params[:collective])
-      
+      @collective.set_moderation_status(params[:collective][:moderation_status], current_user) 
+
       respond_to do |format|
         if @collective.save
           @collective.users << current_user
@@ -86,6 +87,7 @@ class CollectivesController < ApplicationController
   # PUT /collectives/1.xml
   def update
     @collective = Collective.find(params[:id])
+    @collective.set_moderation_status(params[:collective][:moderation_status], current_user) 
 
     respond_to do |format|
       if @collective.update_attributes(params[:collective])

@@ -1,3 +1,9 @@
+<% if current_user.has_permission?("edit_all_groups")  %>
+    <p><label for="collective_moderation_status">Moderation status</label><br/>
+    	<%= f.select 'moderation_status', Hyperactive.content_moderation_statuses %>
+	</p>
+<% end %>
+
   <p>
     <b>Name</b><br />
     <%= f.text_field :name %>

@@ -58,7 +58,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
     assert_response :success
   end
   
-  def test_edit_security
+  def test_anonymous_user_cannot_edit
     get :edit, :id => 1
     assert_security_error
   end  
@@ -90,4 +90,30 @@ class CollectivesControllerTest < Test::Unit::TestCase
     
     assert_security_error
   end  
+  
+  def test_admin_user_can_edit
+    get :edit, {:id => 1}, as_user(:marcos)
+    assert_response :success
+    assert_template 'edit'
+  end
+  
+  def test_admin_user_can_update
+    put :update, {:id => 1, :collective => {:moderation_status => "featured" }}, as_user(:marcos)
+    assert_equal assigns(:collective).moderation_status, "featured"
+    assert_redirected_to account_path
+  end
+
+  def test_non_admin_collective_member_cannot_set_moderation_status_on_create
+    post :create, {:collective => {:name => "makhnovischina", :summary => "foo", :moderation_status => "featured" }}, as_user(:registered_user)
+    assert_equal assigns(:collective).moderation_status, "published"
+    assert_redirected_to group_path(assigns(:collective))
+  end
+  
+  def test_non_admin_collective_member_cannot_set_moderation_status_on_update
+    original_status = collectives(:indy_london).moderation_status
+    put :update, {:id => 1, :collective => {:moderation_status => "featured" }}, as_user(:registered_user)
+    assert_equal assigns(:collective).moderation_status, original_status
+    assert_redirected_to account_path
+  end  
+  
 end

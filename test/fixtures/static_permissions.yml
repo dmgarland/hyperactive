@@ -29,3 +29,7 @@ feature_content:
 promote_content:
   id: 8
   title: promote_content
+
+edit_all_groups:
+  id: 9
+  title: edit_all_groups

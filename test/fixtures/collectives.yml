@@ -3,9 +3,10 @@ indy_london:
   id: 1
   name: Indymedia London
   summary: MyText
+  moderation_status: featured
 
 two:
   id: 2
   name: MyString
   summary: MyText
-
+  moderation_status: published

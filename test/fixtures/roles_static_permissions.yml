@@ -42,3 +42,8 @@ admin_promote_content:
   role_id: 1
   static_permission_id: 8
   created_at: Time.now
+
+admin_edit_all_groups:
+  role_id: 1
+  static_permission_id: 9
+  created_at: Time.now

@@ -102,4 +102,10 @@ class User < ActiveRecord::Base
     return false   
   end
   
+  def can_set_collective_moderation_status_to?(status, collective)
+    return true if self.is_member_of?(collective) && status == "hidden"
+    return true if self.has_permission?("edit_all_groups")
+    return false   
+  end  
+  
 end

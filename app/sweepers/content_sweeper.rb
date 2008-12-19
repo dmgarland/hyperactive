@@ -3,24 +3,24 @@
 #
 class ContentSweeper < ActionController::Caching::Sweeper
   
-  observe ActionAlert, Content, Page, Snippet
+  observe ActionAlert, Content, Page, Snippet, Collective
   
   def after_create(content)
     expire_home_page
-    expire_index_page_for(content)
+    expire_index_page_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content)
   end
 
   def after_update(content)
     expire_home_page
-    expire_index_page_for(content)
+    expire_index_page_for(content) if content.is_a?(Content)
     expire_cache_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content) 
   end
   
   def after_destroy(content)
     expire_home_page
-    expire_index_page_for(content)
+    expire_index_page_for(content) if content.is_a?(Content)
     expire_cache_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content)      
   end

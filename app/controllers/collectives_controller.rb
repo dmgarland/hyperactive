@@ -24,6 +24,9 @@ class CollectivesController < ApplicationController
                            :valid_elements => Hyperactive.valid_elements_for_tiny_mce},
               :only => [:new, :edit, :create, :update])   
   
+  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
+  
+  
   # GET /collectives
   # GET /collectives.xml
   def index

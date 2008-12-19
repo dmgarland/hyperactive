@@ -1,49 +1,49 @@
-<h3>Your account</h3>
+<h3><%= I18n.t 'active_rbac.account.your_account' %></h3>
 <p>
-	This is your private account information page. No other users can see this page.
+	<%= I18n.t 'active_rbac.account.account_explanation' %>
 </p>
 <p>
-You are currently logged in as user <strong><%=h current_user.login %></strong>.
+<%= I18n.t 'active_rbac.account.you_are_currently_logged_in_as' %> <strong><%=h current_user.login %></strong>.
 </p>
 
 <% if current_user.has_permission?("see_admin_nav") %>
 	<p>
-		You are an administrative user. From here you can 
-		<%= link_to "view the site admin pages", admin_main_path %>.	
+		<%= I18n.t 'active_rbac.account.admin_explanation' %>
+		<%= link_to(I18n.t 'active_rbac.account.view_site_admin', admin_main_path) %>.	
 	</p>
 <% end %>
 
 <% unless current_user.collectives.empty? %>
-	<h2>Your groups</h2>
-	<p>You belong to the following group(s):</p>
+	<h2><%= I18n.t 'active_rbac.account.your_groups' %></h2>
+	<p><%= I18n.t 'active_rbac.account.you_belong_to_groups' %>:</p>
 	<ul> 
 	<% current_user.collectives.each do |c| %>
 		<li><%= render :partial => "shared/collectives/collective_link", :object => c %> 
-		| <%= link_to 'Edit info', edit_group_path(c) %>
-		| <%= link_to 'Edit membership', edit_collective_memberships_path(c) %>
-		| <%= link_to 'Edit RSS feeds', group_external_feeds_path(c) %>
+		| <%= link_to(I18n.t 'general.edit', edit_group_path(c)) %>
+		| <%= link_to(I18n.t 'active_rbac.account.edit_group_membership', edit_collective_memberships_path(c)) %>
+		| <%= link_to(I18n.t 'active_rbac.account.edit_rss_feeds', group_external_feeds_path(c)) %>
 		</li>
 	<% end %>
 	</ul>
 <% end %>
 
 <% unless current_user.articles.empty? %>
-	<h2>Your articles</h2>
-	<p>You have published the following articles:</p>
+	<h2><%= I18n.t 'active_rbac.account.your_articles' %></h2>
+	<p><%= I18n.t 'active_rbac.account.you_have_published_articles' %>:</p>
 	<%= render :partial => "shared/content/list_title", :collection => current_user.articles %>
 <% end %>
 
 <% unless current_user.events.empty? %>
-	<h2>Your events</h2>
-	<p>You have published the following events:</p>
+	<h2><%= I18n.t 'active_rbac.account.your_events' %></h2>
+	<p><%= I18n.t 'active_rbac.account.you_have_published_events' %>:</p>
 	<%= render :partial => "shared/content/list_title", :collection => current_user.events %>
 <% end %>
 
 <% unless current_user.videos.empty? %>
-	<h2>Your videos</h2>
-	<p>You have published the following videos:</p>
+	<h2><%= I18n.t 'active_rbac.account.your_videos' %></h2>
+	<p><%= I18n.t 'active_rbac.account.you_have_published_videos' %>:</p>
 	<%= render :partial => "shared/content/list_title", :collection => current_user.videos %>
 <% end %>
 
 
-<p>You may log out at the <%= link_to "logout", logout_path %> page.</p>
+<p><%= I18n.t 'active_rbac.account.you_may_log_out_at' %> <%= link_to(I18n.t 'general.logout', logout_path) %> <%= I18n.t 'general.page' %>.</p>

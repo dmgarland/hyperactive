@@ -8,7 +8,7 @@
 <%= f.text_field 'title'  %></p>
 
 <p><label for="content_date">Date of Event<em>*</em></label><br/>
-<%= f.datetime_select 'date', {:start_year=>Date.today.year, :minute_step => 15}  %></p>
+<%= f.datetime_select 'date', {:order=>[:year,:month,:day], :start_year=>Date.today.year, :minute_step => 15} %></p>
 
 <p><label for="content_published_by">Your name:<em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
@@ -47,7 +47,7 @@
     of the month every      <%= select_tag(:event_repeat_period, options_for_select([["month",1], ["other month",2]]), :selected => true)%>
     <br/>
 </p>
-<p>Until: <%= select_date (date = Date.today)  %> Note: you can only repeat events for a maximum of 6 months from the date of the first event.</p>
+<p>Until: <%= select_date(date = Date.today, :order=>[:year,:month,:day])  %> Note: you can only repeat events for a maximum of 6 months from the date of the first event.</p>
 <% end %>
 
 <noscript>

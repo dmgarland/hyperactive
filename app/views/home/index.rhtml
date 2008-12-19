@@ -40,7 +40,7 @@
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
 			<li>				
-				<h2>Promoted Newswire</h2>
+				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>			
 				</ul>
@@ -51,7 +51,7 @@
 	<div id="unused" class="sidebar_content">
 		<ul>
 			<li>
-				<h2>UK and World</h2>
+				<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
 				<ul>
 					<%= @uk_feed unless @uk_feed.nil? %>
 				</ul>
@@ -64,20 +64,20 @@
 <div id="sidebar1" class="sidebar">
 	<ul>
 		<li>
-			<h2>Featured Events</h2>
+			<h2><%= I18n.t 'home.index.featured_events' %></h2>
 			<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
 			</ul>
 		</li>	
 		<li id="upcomingevents">
-			<h2>Upcoming Events</h2>
+			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>
 			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
 			</ul>
 		</li>					
 		<li>
 
-			<h2>Posters!</h2>
+			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
 			<div id="event_poster">
 				<div>
 				<p>
@@ -97,21 +97,21 @@
 			<%= render :partial => 'videos/featured_flash_player' %>
 		</li>	
 		<li>
-			<h2>Neighbourhoods</h2>
+			<h2><%= I18n.t 'home.index.place_tags' %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
 		</li>
 		<li>
-			<h2>Tags</h2>
+			<h2><%= I18n.t 'home.index.tags' %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
 		</li>
 		<li>
-			<h2>Info</h2>
+			<h2><%= I18n.t 'home.index.info' %></h2>
 			<ul>
 				<%= render :partial => '/pages/list_title', :collection => @pages %>
 			</ul>
 		</li>		
 		<li>
-			<h2>Indymedia UK Network</h2>
+			<h2><%= I18n.t 'home.index.network' %></h2>
 			<ul>		
 				<li class="list">
 					<%= link_to "Indymedia UK", "http://www.indymedia.org.uk" %>

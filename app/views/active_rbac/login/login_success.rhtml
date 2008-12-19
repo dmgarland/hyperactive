@@ -1,5 +1,5 @@
-<h3>Success!</h3>
+<h3><%= I18n.t 'general.welcome' %>!</h3>
 
 <p>
-Welcome <%=h current_user.login %>, you have successfully been logged in.
+<%= I18n.t 'general.welcome' %> <%=h current_user.login %>, <%= I18n.t 'active_rbac.account.login_success' %>.
 </p>

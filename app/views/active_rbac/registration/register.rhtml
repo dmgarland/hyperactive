@@ -1,29 +1,16 @@
-<h1>Register</h1>
+<h1><%= I18n.t 'active_rbac.register.register_title' %></h1>
+<%= I18n.t 'active_rbac.register.explanation1' %>
+<%= I18n.t 'active_rbac.register.explanation2' %>
+<%= I18n.t 'active_rbac.register.explanation3' %>
+<%= I18n.t 'active_rbac.register.explanation4' %>
+<%= I18n.t 'active_rbac.register.explanation5' %>
 
-<p>You will have to give a user name and password to register an account,
-giving an email address is optional.</p>
-
-<p>When you publish anything while logged in, you will be able to edit your
-contribution later on. This means the content you publish will be tied
-to your user ID. For the time being the user name will not show up as
-the author, but this might change.</p>
-
-<p>If you report an article through the "report or administer this article"
-form at the bottom of each article, an email will be sent to the
-publicly archived imc-london-moderation mailing list, citing your user name.</p>
-
-<p>If you do decide to give an email address, and we see that you are
-frequently reporting abuse or suggesting good stuff for promotion, we
-might get in touch with you to offer you hiding and promoting privileges
-on the site. Giving an email address will also enable you to retrieve
-your password in case you forget it.</p>
-
-<p>Any user accounts who violate the <a href="/page/Editorial Guidelines">Editorial Guidelines</a> will be removed.</p>
+<p><%= I18n.t 'active_rbac.register.violates' %> <a href="/page/editorial-guidelines"><%= I18n.t 'general.editorial_guidelines' %></a> <%= I18n.t 'active_rbac.register.will_be_removed' %></p>
 
 <%= error_messages_for 'user' %>
 
 <% form_for :user, :url => { :action => :register } do |form| %>
-<label for="user_login">Desired User Name</label>
+<label for="user_login"><%= I18n.t 'active_rbac.register.desired_user_name' %></label>
 <%= text_field 'user', 'login' %>
 <%= render(:partial => 'password') %>
 
@@ -33,5 +20,5 @@ your password in case you forget it.</p>
   <% end %>
 
 <%= render(:partial => 'shared/captcha') %>
-<%= submit_tag 'Sign Up' %>
+<%= submit_tag(I18n.t 'active_rbac.register.sign_up') %>
 <% end %>

@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<h2><%= I18n.t 'general.login_cap' %></h2>
 
 <% if @errors and not @errors.empty? %>
 <ul class="errors">
@@ -10,17 +10,18 @@
 
 <% form_for :user, :url => { :action => :login } do |form| %>    
     <dl class="loginForm">
-      <dt><label for="login_login">User Name</label></dt>
+      <dt><label for="login_login"><%= I18n.t 'general.user_name' %></label></dt>
       <dd><%= text_field_tag :login, params[:login], :size => 30 %></dd>
     
-      <dt><label for="login_password">Password</label></dt>
+      <dt><label for="login_password"><%= I18n.t 'general.password' %></label></dt>
       <dd><%= password_field_tag :password, params[:password], :size => 30 %></dd>
     </dl>
     
-    <%= submit_tag 'Log In' %>
+    <%= submit_tag(I18n.t 'general.login_cap') %>
 <% end %>
 
 <p>
-Don't have an account? <%= link_to "Register an account", register_path %> now. Registering an account 
-allows you to edit your own content.
+<%= I18n.t 'active_rbac.login.dont_have_an_account' %>	
+<%= link_to(I18n.t('active_rbac.login.register'), register_path) %>. 
+<%= I18n.t 'active_rbac.login.account_explanation' %>	
 </p>

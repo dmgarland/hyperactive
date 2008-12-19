@@ -1,7 +1,7 @@
-<h2>Already Logged In</h2>
+<h2><%= I18n.t 'active_rbac.login.already_logged_in' %></h2>
 
 <p>
-You have already logged in. You have to log out before being able to
-log in again. <%= link_to Click here, :action => 'logout' %> to log
-out.
+<%= I18n.t 'active_rbac.login.already_logged_in_explanation' %>
+<%= link_to(I18n.t 'general.click_here', :action => 'logout' %>
+<%= I18n.t 'active_rbac.login.to_log_out' %>
 </p>

@@ -1,0 +1,73 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  general:
+    click_here: Click here  
+    created_on: Created on
+    edit: Edit
+    editorial_guidelines: Editorial Guidelines
+    logout: logout
+    login_cap: Login
+    no: No
+    page: page
+    password: Password
+    summary: Summary
+    updated_on: Updated on
+    user_name: User Name
+    welcome: Welcome
+    yes: Yes
+    
+    
+  action_alerts:
+    listing_action_alerts: Listing action alerts 
+  active_rbac:
+    account:
+      account_explanation: This is your private account information page. No other users can see this page.  
+      admin_explanation: You are an administrative user. From here you can
+      edit_group_membership: Edit membership
+      edit_rss_feeds: Edit RSS feeds
+      view_site_admin: view the site admin pages
+      you_are_currently_logged_in_as: You are currently logged in as user
+      you_belong_to_groups: You belong to the following group(s)
+      you_have_published_articles: You have published the following articles
+      you_have_published_events: You have published the following events      
+      you_have_published_videos: You have published the following videos      
+      you_may_log_out_at: You may log out at the
+      your_account: Your account
+      your_articles: Your articles
+      your_events: Your events
+      your_groups: Your groups
+      your_videos: Your videos
+    login: 
+      account_explanation: Registering an account allows you to edit your own content.
+      already_logged_in: Already logged in
+      already_logged_in_explanation: You are already logged in. You need to log out before you can log in again.
+      dont_have_an_account: Don't have an account?
+      register: Register an account
+      to_log_out: to log out.
+    login_success: you have successfully been logged in
+    logout_success_title: Logout Success
+    logout_success_message: You have successfully been logged out.
+    logout_success_confirmation: Do you really want to log out?
+    register: 
+      desired_user_name: Desired User Name
+      explanation1: <p>You will have to give a user name and password to register an account, giving an email address is optional.</p>
+      explanation2: <p>When you publish anything while logged in, you will be able to edit your contribution later on. This means the content you publish will be tied to your user ID. For the time being the user name will not show up as the author, but this might change.</p>
+      explanation3: <p>If you report an article through the "report or administer this article" form at the bottom of each article, an email will be sent to the publicly archived imc-london-moderation mailing list, citing your user name.</p>
+      explanation4: <p>If you do decide to give an email address, and we see that you are frequently reporting abuse or suggesting good stuff for promotion, we might get in touch with you to offer you hiding and promoting privileges on the site. Giving an email address will also enable you to retrieve your password in case you forget it.</p>
+      register_title: Register
+      sign_up: Sign Up
+      violates: Any user accounts who violate the  
+      will_be_removed: will be removed.   
+  home:
+    index:
+      promoted_newswire: Promoted Newswire
+      feed_newswire: UK and World
+      featured_events: Featured Events
+      promoted_events: Upcoming Events
+      latest_poster: Posters!
+      place_tags: Neighbourhoods
+      tags: Tags
+      info: Info
+      network: Indymedia UK Network

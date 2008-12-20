@@ -9,5 +9,7 @@ class Page < ActiveRecord::Base
   
   # Macros
   has_friendly_id :title, :use_slug => true
+  named_scope :show_on_front, :conditions => ['show_on_front = ?', true], :order => "title DESC"
+  
   
 end

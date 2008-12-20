@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081219232920) do
+ActiveRecord::Schema.define(:version => 20081220004942) do
 
   create_table "action_alerts", :force => true do |t|
     t.string   "summary",                          :null => false
@@ -201,10 +201,11 @@ ActiveRecord::Schema.define(:version => 20081219232920) do
   end
 
   create_table "pages", :force => true do |t|
-    t.string   "title",      :default => "", :null => false
-    t.text     "body",                       :null => false
+    t.string   "title",         :default => "",   :null => false
+    t.text     "body",                            :null => false
     t.datetime "created_on"
     t.datetime "updated_on"
+    t.boolean  "show_on_front", :default => true, :null => false
   end
 
   create_table "photos", :force => true do |t|

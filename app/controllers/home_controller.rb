@@ -31,7 +31,7 @@ class HomeController < ApplicationController
       :limit => objects_per_page,
       :order => "created_on DESC",
       :conditions => ['moderation_status = ?', "published"])
-    @pages = Page.find(:all, :order => "title DESC")
+    @pages = Page.show_on_front
     @promoted_articles = Article.find(:all, :limit => objects_per_page, :order => "created_on DESC",
       :conditions => ["moderation_status = ?", "promoted"])   
     setup_featured_articles

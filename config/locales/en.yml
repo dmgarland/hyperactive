@@ -16,9 +16,7 @@ en:
     updated_on: Updated on
     user_name: User Name
     welcome: Welcome
-    yes: Yes
-    
-    
+    yes: Yes   
   action_alerts:
     listing_action_alerts: Listing action alerts 
   active_rbac:

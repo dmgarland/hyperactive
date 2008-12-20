@@ -2,16 +2,14 @@
 
 <table>
   <tr>
-  <% for column in Page.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
+    <th>Title</th>
+	<th>Updated on</th>
   </tr>
   
 <% for page in @pages %>
   <tr>
-  <% for column in Page.content_columns %>
-    <td><%= page.send(column.name).to_s.slice(0, 50) %></td>
-  <% end %>
+    <td><%= page.title %></td>
+    <td><%= page.updated_on.to_s(:db) %></td>
     <td><%= link_to 'Show', :action => 'show', :id => page.to_param %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => page.to_param %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => page.to_param }, :confirm => 'Are you sure?', :method => "post" %></td>

@@ -1,11 +1,7 @@
 <%= error_messages_for 'page' %>
 
-<!--[form:page]-->
 <p><label for="page_title">Title</label><br/>
-<%= text_field 'page', 'title'  %></p>
+<%= f.text_field :title  %></p>
 
 <p><label for="page_body">Body</label><br/>
-<%= text_area 'page', 'body', :cols=>80, :rows=>20  %></p>
-
-<!--[eoform:page]-->
-
+<%= f.text_area :body, :cols=>80, :rows=>20  %></p>

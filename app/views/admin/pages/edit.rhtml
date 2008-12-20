@@ -1,9 +1,11 @@
 <h1>Editing page</h1>
 
-<% form_tag :action => 'update', :id => @page do %>
-  <%= render :partial => 'form' %>
+<% form_for(:page, :url => admin_page_path(@page), :html => { :method => :put }) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
   <%= submit_tag 'Edit' %>
 <% end %>
 
-<%= link_to 'Show', :action => 'show', :id => @page %> |
-<%= link_to 'Back', :action => 'list' %>
+<p>
+<%= link_to 'Show', admin_page_path(@page) %> |
+<%= link_to 'Back', admin_pages_path %>
+</p>

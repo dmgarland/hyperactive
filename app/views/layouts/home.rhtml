@@ -6,13 +6,5 @@
 	<div style="clear: both;">&nbsp;</div>
 </div>
 <!-- end page -->
-<% if !@featured_groups.nil? %>
-	<div id="homepage-footer">
-	  <h2>Featured And Recently Changed Groups</h2>
-      <div id="a-tribute-to-occam">
-	  <%=render :partial => 'collectives/collective_preview', :collection => @featured_groups %>
-      <div style="clear: both;"></div>
-	  </div>
-	</div>
-<% end %>
+<%= render :partial => 'featured_groups' %>
 <%= render :partial => 'layouts/common/footer' %>

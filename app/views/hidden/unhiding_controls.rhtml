@@ -1,7 +1,7 @@
-<p>Please state your reason for unhiding:</p>
+<p><%= I18n.t('hidden.comment_unhiding_controls.title') %>:</p>
 <% form_remote_tag(:url => {:controller => :hidden, :action => :unhide, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:unhide_reason, nil, :size => "50x3")%>
      </div>
-     <%= submit_tag "Unhide" %>
+     <%= submit_tag I18n.t('hidden.common.unhide') %>
  <% end %>

@@ -1,8 +1,9 @@
-<p>Please state a reason for hiding:</p>
+<p><%= I18n.t('hidden.comment_hiding_controls.title') %>:</p>
 <% form_remote_tag(:url => {:controller => :hidden, :action => :hide_comment, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:hide_reason, nil, :size => "50x3")%>
      </div>
-     <%= submit_tag "Hide" %>
+     <%= submit_tag I18n.t('hidden.common.hide') %>
  <% end %>
+
 

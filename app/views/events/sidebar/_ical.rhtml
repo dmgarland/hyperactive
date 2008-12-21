@@ -1,9 +1,10 @@
 <ul>
     <li>
-        <h2><%= image_tag "date.png" %> Download as iCal</h2>
+        <h2><%= image_tag "date.png" %> <%= I18n.t("events.sidebar.ical.title") %></h2>
         <p>
-			You may <%= link_to("import this event into your calendar", :action => 'ical_download', :id => @content) %> using iCal. 
+        <%= I18n.t("events.sidebar.ical.description", :import_path => 
+                   link_to(I18n.t("events.sidebar.ical.import") , :action => 'ical_download', :id => @content)
+                  ) %>
         </p>
     </li>
-</ul>
-
+</ul>        

@@ -1,18 +1,20 @@
 <% if current_user.can_hide_content?(@content) %>
-  <p>Please state a reason for hiding:</p>
+  <p><%= I18n.t('hidden.hiding_controls.title') %>:</p>
   <% form_remote_tag(:url => {:controller => :hidden, :action => :hide, :id => @id }) do -%>
     <div class="editorial-note">
     <%= text_area_tag(:hide_reason, nil, :size => "50x3")%>
     <% if @content.is_a?(Event) && @content.belongs_to_event_group? %>
       <p>
-          <%= "This event is part of a series of repeated events.  You can hide all of the events at once by ticking the box below.".t %>
+          <%= I18n.t('hidden.hiding_controls.text') %>
       </p>
       <p>
           <%= check_box_tag(:hide_all_events_in_event_group) %>
-          <label for="hide_all_events_in_event_group"><%= "Hide all events in this event group?".t %></label>
+          <label for="hide_all_events_in_event_group"><%= I18n.t('hidden.hiding_controls.hide_all') %></label>
       </p>
     <% end %>
     </div>
-    <%= submit_tag "Hide" %>
+    <%= submit_tag I18n.t('hidden.common.hide') %>
   <% end %>
 <% end %>
+
+      

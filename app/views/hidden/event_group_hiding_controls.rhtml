@@ -1,7 +1,7 @@
-<p>Please state a reason for hiding these events:</p>
+<p><%= I18n.t('hidden.event_group_hiding.title')%>:</p>
 <% form_remote_tag(:url => {:controller => :hidden, :action => :hide_event_group, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:hide_reason, nil, :size => "50x3")%>
      </div>
-     <%= submit_tag "Hide" %>
+     <%= submit_tag I18n.t('hidden.common.hide') %>
  <% end %>

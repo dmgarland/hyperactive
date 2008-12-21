@@ -1,7 +1,7 @@
-<p>What's the trouble?</p>
+<p><%= I18n.t('hidden.report.title') %></p>
 <% form_remote_tag(:url => {:controller => :hidden, :action => :report_comment, :id => @id }) do -%>
      <div class="editorial-note">
      <%= text_area_tag(:hide_reason, nil, :size => "50x3")%>
      </div>
-     <%= submit_tag "Report" %>
+     <%= submit_tag I18n.t('hidden.report.report') %>
  <% end %>

@@ -2,26 +2,26 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Joined on</th>
+    <th><%= I18n.t 'general.name' %></th>
+    <th><%= I18n.t 'collectives.edit_memberships.joined_on' %></th>
   </tr>
   
 <% for membership in @collective.collective_memberships %>
   <tr class="<%= cycle("even", "odd") %>">
     <td><%=h membership.user.login %></td>
     <td><%=h long_date(membership.created_on) %></td>
-    <td><%= link_to 'Remove', destroy_collective_membership_path(membership.id), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to I18n.t('general.remove'), destroy_collective_membership_path(membership.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<p><strong>Add a new member:</strong></p>
+<p><strong><%= I18n.t 'collectives.edit_memberships.add_new_member' %>:</strong></p>
 <% form_for(:collective, :url => add_collective_membership_path) do |f| %>
 
 <%= text_field_tag(:login) %>
  <p>
-    <%= submit_tag "Add" %>
+    <%= submit_tag I18n.t('general.add') %>
   </p>
 <% end %>
 
-<p>Back to <%= link_to "your account page", account_path %></p>
+<p><%= I18n.t 'collectives.edit_memberships.back_to_account_page', :your_account_page => link_to I18n.t('collectives.edit_memberships.your_account_page'), account_path %></p>

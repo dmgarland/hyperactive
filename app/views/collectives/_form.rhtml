@@ -1,16 +1,16 @@
 <% if current_user.has_permission?("edit_all_groups")  %>
-    <p><label for="collective_moderation_status">Moderation status</label><br/>
+    <p><label for="collective_moderation_status"><%= I18n.t 'content.form.moderation_status' %></label><br/>
     	<%= f.select 'moderation_status', Hyperactive.content_moderation_statuses %>
 	</p>
 <% end %>
 
   <p>
-    <b>Name</b><br />
+    <b><%= I18n.t 'general.name' %></b><br />
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <b>Summary</b><br />
+    <b><%= I18n.t 'general.summary' %></b><br />
     <%= f.text_area :summary, :cols=>80, :rows=>10  %>
   </p>
   
@@ -18,7 +18,7 @@
   	<% if controller.action_name == 'edit' && !@collective.image.blank? %>
         <%= image_tag @collective.image.thumb.url %><br/><br/>
     <% end %>
-  	<b>Logo image</b><br/>
+  	<b><%= I18n.t 'collectives.form.logo_image' %></b><br/>
 	<%= upload_column_field("collective", "image") %><br/>
-	The logo image will be cropped so that it's square.
+	<%= I18n.t 'collective.form.logo_image_explanation' %>
   </p>

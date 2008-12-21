@@ -7,7 +7,7 @@
     if File.exists?(cached_feed_path)
       cached_feed = File.new(cached_feed_path).read
 	else
-	  cached_feed = "This feed has not yet been retrieved.  It should show up in about ten minutes."
+	  cached_feed = I18n.t('collectives.external_feed')
     end
 
 %>

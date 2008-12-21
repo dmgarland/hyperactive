@@ -1,4 +1,4 @@
-<h1>Editing <%= @collective.name %></h1>
+<h1><%= I18n.t 'collectives.edit.editing' %> <%= @collective.name %></h1>
 
 <%= error_messages_for :collective %>
 
@@ -7,8 +7,8 @@
   <%= render :partial => "collectives/form", :locals => {:f => f} %>
 
   <p>
-    <%= submit_tag "Update" %>
+    <%= submit_tag I18n.t('general.update') %>
   </p>
 <% end %>
 
-<p>Back to <%= link_to "your account page", account_path %></p>
+<p><%= I18n.t 'collectives.edit_memberships.back_to_account_page', :your_account_page => link_to I18n.t('collectives.edit_memberships.your_account_page'), account_path %></p>

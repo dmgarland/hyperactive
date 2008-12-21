@@ -1,9 +1,9 @@
-<h1>Recently active groups</h1>
+<h1><%= I18n.t 'collectives.index.title' %></h1>
 
 <%= render :partial => "shared/collectives/collective_summary", :collection => @recently_active_collectives %>
 
 
-<h1>Newest groups</h1>
+<h1><%= I18n.t 'collectives.index.newest_groups' %></h1>
 
 <%= render :partial => "shared/collectives/collective_summary", :collection => @new_collectives %>
 

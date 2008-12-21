@@ -1,44 +1,30 @@
 <% if current_user.is_anonymous? %>
-	<h1>Please create an account</h1>
-	<p>You need to <%= link_to "create an account", register_path %> before you can create a group.</p>
+	<h1><%= I18n.t 'collectives.new.please_create_account' %></h1>
+	<p>
+		<%= I18n.t 'collectives.new.register_explanation', 
+			:create_account => link_to "create an account", register_path %>
+	</p>
 <% else %>
 
-	<h1>New group</h1>
+	<h1><%= I18n.t 'collectives.new.title' %></h1>
 	
 	<%= error_messages_for :collective %>
 	
 	<p>
-		You have to be a registered user to register a group. Groups should
-		write a short description of who they are and what they do, and will get
-		an own page listing all their articles, events and media. This can be
-		useful for both groups and campaigns. Any member of the group can
-		publish content as part of that group and add or delete other members.
+		<%= I18n.t 'collectives.new.explanation' %>
 	</p>
 
-	<h2>Groups Guidelines</h2>
-	
-	<p>Only groups working in a  grassroots, non-corporate, non-commercial,
-	autonomous manner on social justice, environmental, cultural and
-	political issues, active in London can create accounts.</p>
-	
-	<p>Groups using language, imagery, or other forms of communication
-	promoting racism, fascism, xenophobia, sexism, homophobia or any other
-	form of discrimination againt people based on who they are rather than
-	what they do (including antisemitism, anti-roma) will be removed.</p>
-	
-	<p>The groups function is not a notice-board for political parties or any
-	other hierarchically structured organizations.	
-	</p>
+	<%= I18n.t 'collectives.new.guidelines' %>
 	
 	<% form_for(:collective, :url => groups_path, :html => {:multipart => true}) do |f| %>
 	  
 	  <%= render :partial => "collectives/form", :locals => {:f => f}  %>
 	
 	  <p>
-	    <%= submit_tag "Create" %>
+	    <%= submit_tag I18n.t('general.create') %>
 	  </p>
 	<% end %>
 
 <% end %>
 
-<%= link_to 'Back', groups_path %>
+<%= link_to I18n.t('general.back'), groups_path %>

@@ -27,32 +27,32 @@
 <div id="sidebar1" class="sidebar">
 	<ul>
 		<li>
-			<h2>Upcoming Events</h2>
+			<h2><%= I18n.t 'collectives.show.upcoming_events' %></h2>
 			<ul>
 				<% if @collective.has_upcoming_events? %>
 					<%= render :partial => '/shared/content/list_title', :collection => @collective.upcoming_events %>			
 				<% else %>
-					<li class="list">No events yet.</li>
+					<li class="list"><%= I18n.t 'collectives.show.no_events_yet' %></li>
 				<% end %>
 			</ul>
 		</li>
 		<li>
-			<h2><%= 'Articles' %></h2>
+			<h2><%= I18n.t 'content.class_names.articles' %></h2>
 			<ul>
 				<% if @collective.has_articles? %>
 					<%= render :partial => '/shared/content/list_title', :collection => @collective.articles %>	
 				<% else %>		
-					<li class="list">No events yet.</li>
+					<li class="list"><%= I18n.t 'collectives.show.no_articles_yet' %></li>
 				<% end %>				
 			</ul>
 		</li>
 		<li>
 			<ul>
-				<h2>Videos</h2>
+				<h2><%= I18n.t 'content.class_names.videos' %></h2>
 				<% if @collective.has_videos? %>	
 					<%= render :partial => '/shared/content/list_title', :collection => @collective.videos %>			
 				<% else %>		
-					<li class="list">No videos yet.</li>
+					<li class="list"><%= I18n.t 'collectives.show.no_videos_yet' %></li>
 				<% end %>				
 			</ul>	
 		</li>
@@ -61,8 +61,8 @@
 		<% else %>
 		<li>
 			<ul>
-				<h2>Feeds</h2>
-				<li class="list">No feeds yet.</li>					
+				<h2><%= I18n.t 'content.class_names.feeds' %></h2>
+				<li class="list"><%= I18n.t 'collectives.show.no_feeds_yet' %></li>					
 			</ul>
 		</li>
 		<% end %>
@@ -74,11 +74,11 @@
     <%= render :partial => 'shared/account_box' %>
 	<ul>
 		<li>
-			<h2>Neighbourhoods</h2>
+			<h2><%= I18n.t 'general.places' %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
 		</li>
 		<li>
-			<h2>Tags</h2>
+			<h2><%= I18n.t 'content.class_names.tags' %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
 		</li>
 	</ul>

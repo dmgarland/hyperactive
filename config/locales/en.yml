@@ -3,7 +3,9 @@
 
 en:
   general:
+    add: Add
     are_you_sure: Are you sure?
+    back: Back
     by: by
     click_here: Click here  
     create: Create
@@ -17,13 +19,17 @@ en:
     logout: logout
     login_cap: Login
     media_uploads: Media uploads
+    name: Name
     no: No
     oops: Oops!
     page: page
     password: Password
+    places: Neighbourhoods
     published_cap: Published
+    remove: Remove
     summary: Summary
     title: Title
+    update: Update
     updated_on: Updated on
     url: URL
     user_name: User Name
@@ -99,24 +105,76 @@ en:
       featured_articles: featured articles
       promoted_artices: promoted articles
   collectives:
+    edit: 
+      editing: Editing
+    edit_memberships:
+      add_new_member: Add a new member
+      back_to_account_page: Back to {{your_account_page}}
+      joined_on: Joined on
+      your_account_page: your account page
+    form:
+      logo_image: Logo image
+      logo_image_explanation: The logo image will be cropped so that it's square.
+    index:
+      newest_groups: Newest groups
+      title: Recently active groups
+    new: 
+      explanation: "You have to be a registered user to register a group. Groups should
+		write a short description of who they are and what they do, and will get
+		their own page listing all their articles, events and media. This can be
+		useful for both groups and campaigns. Any member of the group can
+		publish content as part of that group and add or delete other members."
+      guidelines: "<h2>Groups Guidelines</h2>
+	
+	<p>Only groups working in a  grassroots, non-corporate, non-commercial,
+	autonomous manner on social justice, environmental, cultural and
+	political issues, active in London can create accounts.</p>
+	
+	<p>Groups using language, imagery, or other forms of communication
+	promoting racism, fascism, xenophobia, sexism, homophobia or any other
+	form of discrimination againt people based on who they are rather than
+	what they do (including antisemitism, anti-roma) will be removed.</p>
+	
+	<p>The groups function is not a notice-board for political parties or any
+	other hierarchically structured organizations.	
+	</p>"
+      please_create_account: Please create an account
+      register_explanation: You need to {{create_account}} before you can create a group.
+      title: New group
     new_collective_box:
       create_a_group: create a group
       create_a_group_title: Create a group!
       explanation: Any registered user can {{create_a_group}}.  If you're not yet a registered user, you can {{register_a_group}}.
       sign_up_here: sign up here
+    external_feed: This feed has not yet been retrieved.  It should show up in about ten minutes.
+    show: 
+      no_articles_yet: No articles yet.
+      no_events_yet: No events yet.
+      no_feeds_yet: No feeds yet.
+      no_videos_yet: No videos yet.
+      upcoming_events: Upcoming Events
   content:
     class_names:
+      articles: Articles
+      feeds: Feeds
       link: Link
       photo: Photo
+      tags: Tags
       video: Video
+      videos: Videos
     form:
       allowed_file_types: File* - allowed file types are {{file_types}}
       contact_email_address: Contact email address
       delete: Delete
+      moderation_status: Moderation status
       required_field: required field
       upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
       your_name: Your name
-
+  content_hide_mailer:
+      has_been_hidden_by_user: has been hidden by the user
+      has_been_unhidden_by_user: has been unhidden by the user
+      has_been_reported_by_user: has been reported by the user
+      reasons: The following reasons were given
   events:
     sidebar:
       feedbox:

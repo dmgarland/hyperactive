@@ -1,5 +1,5 @@
-"<%= @comment.title %>" (<%= @comment.id %>) has been reported by the user "<%= @user %>".  
+"<%= @comment.title %>" (<%= @comment.id %>) <%= I18n.t 'has_been_reported_by_user' %> "<%= @user %>".  
 
-The following reasons were given:
+<%= I18n.t 'reasons' %>:
 
 <%= @reasons %>

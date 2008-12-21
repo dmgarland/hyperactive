@@ -7,13 +7,6 @@ class EventsController < ContentController
       :order => 'date ASC', 
       :page => page_param)
   end
-
-  def list_by_event_date
-    @content = Event.paginate(
-      :conditions => ['moderation_status != ?', "hidden"],
-      :order => 'date DESC',
-      :page => page_param)
-  end
   
   def list_by_event_group
     event_group_id = params[:id]

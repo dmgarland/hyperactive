@@ -97,7 +97,12 @@ en:
       all_articles: all articles
       featured_articles: featured articles
       promoted_artices: promoted articles
-      
+  collectives:
+    new_collective_box:
+      create_a_group: create a group
+      create_a_group_title: Create a group!
+      explanation: Any registered user can {{create_a_group}}.  If you're not yet a registered user, you can {{register_a_group}}.
+      sign_up_here: sign up here
   content:
     class_names:
       link: Link

@@ -215,6 +215,53 @@ en:
       repeat_note: "Note: you can only repeat events for a maximum of 6 months from the date of the first event."
       repeat_until: Until
       repeat_on: Repeat on the
+    index:
+      listing_events: Listing events
+      more_events: More events
+    link:
+      link: Link
+      title: Title
+      url: URL
+      description: Description
+    list_by_day:
+      previous_day: Previous day
+      next_day: Next day
+    list_by_event_date:
+      title: Listing Events by Event Date
+    list_by_event_group: 
+      title: Listing repeated events
+    list_by_week:
+      previous_week: Previous week
+      next_week: Next week
+    list_promoted:
+      title: Listing featured events
+    list_seven_days:
+      title: In the coming week
+    new:
+      title: New event
+    photo:
+      main_title: Photo
+      title: title
+      file: File
+    search:
+      not_found: not found
+      found: found in
+    show:
+      event_date: Event date
+      series_text: This event is part of a series of repeating events.  To see all the events, {{ series_path }}.
+      series_link: click here
+      tagged: Tagged as
+      places: Places
+      event_group_photos: Event Group Photos
+      contact_phone: Contact phone
+      comments: Comments
+    upcoming_events:
+      title: Upcoming events
+    video:
+      main_title: Video
+      title: Title
+      file: File* - allowed file types are "mov", "mpg", "mpeg", "mp4", "avi", "wmv"
+      description: Description
 
   external_feeds:
     edit:

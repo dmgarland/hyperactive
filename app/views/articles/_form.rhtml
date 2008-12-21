@@ -8,10 +8,10 @@
 <p><label for="content_title"><%= I18n.t 'general.title' %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
 
-<p><label for="content_published_by"><%= I18n.t 'articles.form.your_name' %>:<em>*</em></label><br/>
+<p><label for="content_published_by"><%= I18n.t 'content.form.your_name' %>:<em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 
-<p><label for="content_contact_email"><%= I18n.t 'articles.form.contact_email_address' %>:</label><br/>
+<p><label for="content_contact_email"><%= I18n.t 'content.form.contact_email_address' %>:</label><br/>
 <%= f.text_field 'contact_email' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>

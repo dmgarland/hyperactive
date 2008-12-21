@@ -1,10 +1,10 @@
 <hr />
 <% if @content.allows_comments %>
 	<div id="comment_form">
-		<p><%= image_tag "comments_add.png" %> <%= link_to "Leave a comment", :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %></p>
+		<p><%= image_tag "comments_add.png" %> <%= link_to I18n.t('shared.content.comments.leave_comment'), :controller => "#{@content.class.to_s.pluralize.downcase}", :action => 'show_comment_form', :id => @content %></p>
 	</div>
 <% else %>
 	<div id="comment_form">
-		<p><%= "Comments are not allowed on this #{@content.class.to_s.downcase}" %>.</p>
+		<p><%= I18n.t 'shared.content.comments.comments_not_allowed' %> <%= " #{@content.class.to_s.downcase}" %>.</p>
 	</div>
 <% end %>

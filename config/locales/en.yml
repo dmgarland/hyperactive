@@ -25,6 +25,7 @@ en:
     page: page
     password: Password
     places: Neighbourhoods
+    published_by: Published
     published_cap: Published
     remove: Remove
     summary: Summary
@@ -35,6 +36,7 @@ en:
     user_name: User Name
     welcome: Welcome
     yes: Yes   
+    your_name: Your name
   action_alerts:
     listing_action_alerts: Listing action alerts 
   active_rbac:
@@ -157,6 +159,7 @@ en:
     class_names:
       action_alerts: Action alerts
       articles: Articles
+      comment: Comment
       event: Event
       events: Events
       feeds: Feeds
@@ -355,7 +358,18 @@ en:
       results_for: Search results for
     past_events_explanation: There are events for this tag, but they're in the past.  
     no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
-
+  shared:
+    content:
+      comments:
+        add_a_comment: Add a comment
+        allow_comments: Allow comments
+        allows_comments_controls:
+          explanation: You have the option of allowing comments. Untick this box to disable comments.
+        comments_not_allowed: Comments are not allowed on this
+        inappropriate_comment: Inappropriate comment?
+        leave_comment: Leave a comment
+        tech_error: Something has gone wrong.  This comment should have a moderation_status of either "hidden" or "published".
+        unhide_this_comment: Unhide this comment?
   videos:
     sidebar: 
       previous: 

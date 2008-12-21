@@ -1,11 +1,14 @@
-<h3>Add a comment:</h3>
+<h3><%= I18n.t 'shared.content.comments.add_a_comment' %>:</h3>
 
 <%= error_messages_for :comment %>
 
 <% form_for :comment, :url => {:controller => @content.class.to_s.downcase.pluralize, :action => 'create_comment', :id => @content} do |f| %>
-	<p><strong>Title:</strong><br/><%= f.text_field :title %></p>
-	<p><strong>Your name:</strong><br/><%= f.text_field :published_by %></p>
-	<p><strong>Comment:</strong><br/><%= f.text_area :body, :cols=>60, :rows=> 10 %></p>
+	<p><strong><%= I18n.t 'general.title' %>:</strong><br/>
+	<%= f.text_field :title %></p>
+	<p><strong><%= I18n.t 'general.your_name' %>:</strong><br/>
+	<%= f.text_field :published_by %></p>
+	<p><strong><%= I18n.t 'content.class_names.comment' %>:</strong><br/>
+	<%= f.text_area :body, :cols=>60, :rows=> 10 %></p>
 	<%= render(:partial => 'shared/captcha') %> 
-	<%= submit_tag "Create" %>
+	<%= submit_tag I18n.t('general.create') %>
 <% end %>

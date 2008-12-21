@@ -3,8 +3,8 @@
 <h3 class="title"><%=h comment_display.title %></h3>
 <p class="byline"><%= image_tag "comment.png" %> 
     <small>
-        Published: <%=h long_date(comment_display.created_on) %>
-		by
+        <%= I18n.t 'general.published_by' %>: <%=h long_date(comment_display.created_on) %>
+		<%= I18n.t 'general.by' %>
 		<%= comment_display.published_by %>
     </small>
 </p>

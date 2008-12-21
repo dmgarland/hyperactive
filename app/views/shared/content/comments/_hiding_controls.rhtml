@@ -2,20 +2,20 @@
 
 <div id="<%= comment_hide_div %>">
     <% if comment.moderation_status == "published" %>
-        <%= link_to_remote "Inappropriate comment?",
+        <%= link_to_remote I18n.t('shared.content.comments.inappropriate_comment'),
                             :url => {:controller => '/hidden', :action => 'comment_hiding_controls', :id => comment.id },
                             :update => comment_hide_div,  
                             :before => "$('#{comment_hide_div}').hide()",
                             :complete => "new Effect.BlindDown('#{comment_hide_div}');"                 
         %>
     <% elsif comment.moderation_status == "hidden" %>
-        <%= link_to_remote "Unhide this comment?",
+        <%= link_to_remote I18n.t('shared.content.comments.unhide_this_comment'),
                             :url => {:controller => '/hidden', :action => 'comment_unhiding_controls', :id => comment.id },
                             :update => comment_hide_div,
                             :before => "$('#{comment_hide_div}').hide()",
                             :complete => "new Effect.BlindDown('#{comment_hide_div}');"                 
         %>
     <% else %>
-        Something has gone wrong.  This comment should have a moderation_status of either "hidden" or "published".
+		<%= I18n.t 'shared.content.comments.tech_error' %>
     <% end %>
 </div>

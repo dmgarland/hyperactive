@@ -275,6 +275,32 @@ en:
       new_external_feed: New external feed
     new:
       title: New feed
+
+  hidden:
+    common:
+      hide: Hide
+      unhide: Unhide
+      complete: This has been hidden.  Thanks for helping keep the site clean!
+      unhide_complete: An email has been sent indicating that this is now unhidden.  Thanks!
+      no_permission: "<p>You don't have permission to unhide things once they're hidden.</p><p>If you would like to get more involved with the administration of the site, please contact us.</p>"
+    comment_hiding_controls:
+      title: Please state a reason for hiding
+    comment_unhiding_controls:
+      title: Please state a reason for unhiding
+    event_group_hiding:
+      title: Please state a reason for hiding these events
+    hiding_controls:
+      title: Please state a reason for hiding
+      text: This event is part of a series of repeated events.  You can hide all of the events at once by ticking the box below.
+      hide_all: Hide all events in this event group?
+    list:
+      title: Hidden
+      text: The following content has been hidden under the {{ guidelines_path }}.
+      guidelines: editorial guidelines
+    report: 
+      title: What's the trouble?
+      report: Report
+
   feeds:
     index:
       action_alerts_explanation: a list of very short, infrequent updates of important happenings in the city.
@@ -291,6 +317,7 @@ en:
       upcoming_events_by_tag_explanation: Allows you to get a feed of events for a specific tag, listed by when they were published. So if you want to see everything tagged with "foo" on the site as it gets published, you'd type "foo" into this search box and subscribe to the resulting feed
       latest_videos_explanation: This will allow you to download Miro, which takes care of feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features {{miro_site}}. Once you've installed Miro, you can subscribe to our {{video_feed}} to automatically receive all of our latest videos.
       video_feed: video feed
+
   home:
     index:
       promoted_newswire: Promoted Newswire

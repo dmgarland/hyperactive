@@ -38,12 +38,12 @@ Released   : 20071004
 </div>
 <div id="menu">
 	<ul id="main">
-	<%= tab_for("Main", admin_main_path, :controller_name => "main") %>
-	<%= tab_for("Categories", categories_path, :controller_name => "category") %>
-	<%= tab_for("Pages", admin_pages_path, :controller_name => "page") %>
-	<%= tab_for("Users", users_path, :controller_name => "user") %>
-	<%= tab_for("Roles", roles_path, :controller_name => "role") %>
-	<%= tab_for("Permissions", static_permissions_path, :controller_name => "static_permission") %>
+	<%= tab_for(I18n.t('layouts.main'), admin_main_path, :controller_name => "main") %>
+	<%= tab_for(I18n.t('layouts.categories'), categories_path, :controller_name => "category") %>
+	<%= tab_for(I18n.t('layouts.pages'), admin_pages_path, :controller_name => "page") %>
+	<%= tab_for(I18n.t('layouts.users'), users_path, :controller_name => "user") %>
+	<%= tab_for(I18n.t('layouts.roles'), roles_path, :controller_name => "role") %>
+	<%= tab_for(I18n.t('layouts.permissions'), static_permissions_path, :controller_name => "static_permission") %>
 	</ul>
 </div>
 <!-- end header -->

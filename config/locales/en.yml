@@ -302,6 +302,15 @@ en:
       network: Indymedia UK Network
   javascript:
     no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
+  layouts: 
+    categories: Categories
+    main: Main
+    pages: Pages
+    permissions: Permissions
+    roles: Roles
+    users: Users
+    
+    
   videos:
     sidebar: 
       previous: 

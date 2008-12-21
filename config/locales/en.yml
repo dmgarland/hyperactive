@@ -7,6 +7,7 @@ en:
     created_on: Created on
     edit: Edit
     editorial_guidelines: Editorial Guidelines
+    feed_center: feed center
     logout: logout
     login_cap: Login
     no: No
@@ -57,7 +58,14 @@ en:
       register_title: Register
       sign_up: Sign Up
       violates: Any user accounts who violate the  
-      will_be_removed: will be removed.   
+      will_be_removed: will be removed.
+  events:
+    sidebar:
+      feedbox:
+        title: Upcoming events feed   
+        subscribe_message: Subscribe to our {{upcoming_events_feed_path}} or visit our {{feed_center_path}} for more feeds.
+        upcoming_events_feed: upcoming events feed
+
   home:
     index:
       promoted_newswire: Promoted Newswire
@@ -69,3 +77,7 @@ en:
       tags: Tags
       info: Info
       network: Indymedia UK Network
+  videos:
+    sidebar: 
+      previous: 
+        title: Previous videos

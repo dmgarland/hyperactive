@@ -1,15 +1,10 @@
-<h1>Available Feeds</h1>
+<h1><%= I18n.t 'feeds.index.title' %></h1>
 
-<div id="feed"><span class="icon"><%= link_to 'Action alerts', action_alert_feed_path %> - a list of very short, infrequent updates of important happenings in the city.</span></div>
-
-<div id="feed"><span class="icon"><%= link_to 'Latest articles', latest_articles_feed_path %> - lists latest articles which have been published on the site.</span></div>
-
-<div id="feed"><span class="icon"><%= link_to 'Upcoming events', upcoming_events_feed_path %> - lists the next events upcoming from the calendar.</span></div>
-
-<div id="feed"><span class="icon">Upcoming events by tag</span>
-Allows you to get a feed of events for a specific tag, listed by when they were published.
-So if you want to see everything tagged with "foo" on the site as it gets published, you'd type "foo" into this search box
-and subscribe to the resulting feed:
+<div id="feed"><span class="icon"><%= link_to I18n.t('content.class_names.action_alerts'), action_alert_feed_path %> - <%= I18n.t 'feeds.index.action_alerts_explanation' %></span></div>
+<div id="feed"><span class="icon"><%= link_to I18n.t('feeds.index.latest_articles'), latest_articles_feed_path %> - <%= I18n.t 'feeds.index.articles_explanation' %></span></div>
+<div id="feed"><span class="icon"><%= link_to I18n.t('feeds.index.upcoming_events'), upcoming_events_feed_path %> - <%= I18n.t 'feeds.index.upcoming_events_explanation' %></span></div>
+<div id="feed"><span class="icon"><%= I18n.t 'feeds.index.upcoming_events_by_tag' %></span>
+<%= I18n.t 'feeds.index.upcoming_events_by_tag_explanation' %>:
 <p><% form_tag({:action => 'upcoming_events_by_tag'}, :method=>"GET") do %>
 	<%= text_field_tag 'scope' %>
 	<%= submit_tag 'View feed' %>
@@ -17,10 +12,8 @@ and subscribe to the resulting feed:
 </p>
 </div>
 
-<div id="feed"><span class="icon">Upcoming events by place</span>
-Allows you to get a feed of events for a specific place, listed by when they were published.
-So if you want to see all events tagged with the place 'Brixton' on the site as it gets published, 
-you'd type 'Brixton' into this search box and subscribe to the resulting feed:
+<div id="feed"><span class="icon"><%= I18n.t 'feeds.index.upcoming_events_by_place' %></span>
+<%= I18n.t 'feeds.index.upcoming_events_by_place_explanation' %>:
 <p><% form_tag({:action => 'upcoming_events_by_place'}, :method=>"GET") do %>
 	<%= text_field_tag 'scope' %>
 	<%= submit_tag 'View feed' %>
@@ -28,12 +21,11 @@ you'd type 'Brixton' into this search box and subscribe to the resulting feed:
 </p>
 </div>
 
-<div id="feed"><span class="icon">Latest videos</span>
+<div id="feed"><span class="icon"><%= I18n.t 'feeds.index.latest_videos' %></span>
 	<a href="http://subscribe.getMiro.com/?url1=<%= url_for(video_feed_path) %>" title="Miro: Internet TV"><img src="http://subscribe.getmiro.com/img/buttons/wes1.png" alt="Miro Video Player" border="0" /></a>
 	<p>
-	This will allow you to download Miro, which takes care of
-	feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features 
-	<%= link_to "at the Miro site", "http://www.getmiro.com/features/" %>. Once you've installed Miro, you can subscribe 
-	to our <%= link_to "video feed", video_feed_path %> to automatically receive all of our latest videos, or click the 'download torrent'
-	link underneath the video above to download only the video file you want.</p>
+		<%= I18n.t 'feeds.index.latest_videos_explanation', 
+			:miro_site => link_to I18n.t('feeds.index.at_the_miro_site'), "http://www.getmiro.com/features/", 
+			:video_feed => link_to I18n.t('feeds.index.video_feed'), video_feed_path %>
+	</p>
 </div>

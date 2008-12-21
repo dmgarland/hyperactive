@@ -155,6 +155,7 @@ en:
       upcoming_events: Upcoming Events
   content:
     class_names:
+      action_alerts: Action alerts
       articles: Articles
       feeds: Feeds
       link: Link
@@ -272,6 +273,22 @@ en:
       new_external_feed: New external feed
     new:
       title: New feed
+  feeds:
+    index:
+      action_alerts_explanation: a list of very short, infrequent updates of important happenings in the city.
+      at_the_miro_site: at the Miro site
+      latest_articles: Latest articles
+      latest_articles_explanation: lists latest articles which have been published on the site.
+      latest_videos: Latest videos
+      title: Available Feeds
+      upcoming_events: Upcoming events
+      upcoming_events_by_place: Upcoming events by place
+      upcoming_events_by_tag: Upcoming events by tag
+      upcoming_events_explanation: lists the next events upcoming from the calendar.
+      upcoming_events_by_place_explanation: Allows you to get a feed of events for a specific place, listed by when they were published. So if you want to see all events tagged with the place 'Brixton' on the site as it gets published, you'd type 'Brixton' into this search box and subscribe to the resulting feed
+      upcoming_events_by_tag_explanation: Allows you to get a feed of events for a specific tag, listed by when they were published. So if you want to see everything tagged with "foo" on the site as it gets published, you'd type "foo" into this search box and subscribe to the resulting feed
+      latest_videos_explanation: This will allow you to download Miro, which takes care of feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features {{miro_site}}. Once you've installed Miro, you can subscribe to our {{video_feed}} to automatically receive all of our latest videos.
+      video_feed: video feed
   home:
     index:
       promoted_newswire: Promoted Newswire

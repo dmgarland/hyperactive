@@ -8,9 +8,11 @@
 		</div>
 	<% end %>
 	<p><%= image_tag("ruby.png") %> <%= link_to "Hyperactive CMS", "http://projects.escapegoat.org/projects/show/hyperactive" %></p>
-	<p>To contribute to this project <%= link_to "take a look at the project site", "http://projects.escapegoat.org/projects/show/hyperactive" %></p>
+	<p><%= I18n.t 'layouts.footer.contributions', 
+			:project_site => link_to I18n.t('layouts.footer.project_site'), "http://projects.escapegoat.org/projects/show/hyperactive" %>
+	</p>
 	<% if @current_controller != 'home' %>
-		<p>Icons by <%= link_to "famfamfam", "http://www.famfamfam.com/lab/icons/silk/" %></p>
+		<p><%= I18n.t 'layouts.footer.icons_by' %> <%= link_to "famfamfam", "http://www.famfamfam.com/lab/icons/silk/" %></p>
 	<% end %>
 </div>
 </body>

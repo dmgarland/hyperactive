@@ -68,12 +68,12 @@ Released   : 20071004
 </div>
 <div id="menu">
 	<ul id="main">
-		<%= tab_for("Home", root_path, :controller_name => "home") %>
-		<%= tab_for("Publish", page_path("publish-page"), :controller_name => "pages", :action => "show", :id => 'publish-page') %>
-		<%= tab_for("Newswire", articles_path, :controller_name => "articles") %>
-		<%= tab_for("Events", events_path, :controller_name => "events") %>
-		<%= tab_for("Videos", videos_path, :controller_name => "videos") %>
-		<%= tab_for("Groups", groups_path, :controller_name => "collectives") %>
+		<%= tab_for(I18n.t('layouts.home'), root_path, :controller_name => "home") %>
+		<%= tab_for(I18n.t('layouts.publish'), page_path("publish-page"), :controller_name => "pages", :action => "show", :id => 'publish-page') %>
+		<%= tab_for(I18n.t('layouts.newswire'), articles_path, :controller_name => "articles") %>
+		<%= tab_for(I18n.t('layouts.events'), events_path, :controller_name => "events") %>
+		<%= tab_for(I18n.t('layouts.videos'), videos_path, :controller_name => "videos") %>
+		<%= tab_for(I18n.t('layouts.groups'), groups_path, :controller_name => "collectives") %>
 	</ul>
 </div>
 <!-- end header -->

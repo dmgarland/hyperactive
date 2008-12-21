@@ -304,11 +304,21 @@ en:
     no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
   layouts: 
     categories: Categories
+    events: Events
+    footer: 
+      contributions: To contribute to this project {{project_site}}
+      icons_by: Icons by
+      project_site: take a look at the project site
+    groups: Groups
+    home: Home
     main: Main
+    newswire: Newswire
     pages: Pages
     permissions: Permissions
+    publish:  Publish
     roles: Roles
     users: Users
+    videos: Videos
     
     
   videos:

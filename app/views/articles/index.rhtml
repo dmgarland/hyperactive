@@ -1,8 +1,8 @@
 <%= render :partial => "top_nav" %>
-<h1>Listing all articles</h1>
+<h1><%= I18n.t 'articles.index.title' %></h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <hr/>
-<%= link_to("More articles", archive_articles_path(:page => 2)) %>
+<%= link_to(I18n.t('articles.index.more_articles'), archive_articles_path(:page => 2)) %>
 <% content_for :sidebar do %>
 	<%= render :partial => "articles/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/sidebar/tag_cloud" %>

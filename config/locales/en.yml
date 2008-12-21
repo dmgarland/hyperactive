@@ -3,7 +3,10 @@
 
 en:
   general:
+    are_you_sure: Are you sure?
+    by: by
     click_here: Click here  
+    create: Create
     created_on: Created on
     description: Description
     edit: Edit
@@ -18,6 +21,7 @@ en:
     oops: Oops!
     page: page
     password: Password
+    published_cap: Published
     summary: Summary
     title: Title
     updated_on: Updated on
@@ -67,14 +71,40 @@ en:
       violates: Any user accounts who violate the  
       will_be_removed: will be removed.
   articles:
+    archives:
+      title: Listing articles
+    edit:
+      title: Editing article
+    index:
+      title: Listing all articles
+      more_articles: More articles
+    list_featured:
+      title: Listing featured articles
+    list_promoted:
+      title: Listing promoted articles
+    new: 
+      title: New article
     sidebar:
       latest_articles_feed: Latest articles feed
       subscribe_message: Subscribe to our {{articles_feed_path}} or visit our {{feed_center_path}} for more feeds.
+    stick_at_top_controls:
+      title: Front page controls
+      explanation: You have the option of sticking this article at the top of the front page. The article needs to be featured before this will work.
+      label: Stick at top?
+    show:
+      comments: Comments
+    top_nav:
+      all_articles: all articles
+      featured_articles: featured articles
+      promoted_artices: promoted articles
+      
   content:
     class_names:
       link: Link
       photo: Photo
+      video: Video
     form:
+      allowed_file_types: File* - allowed file types are {{file_types}}
       contact_email_address: Contact email address
       delete: Delete
       required_field: required field

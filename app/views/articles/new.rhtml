@@ -1,7 +1,7 @@
-<h1>New article</h1>
+<h1><%= I18n.t 'articles.new.title' %></h1>
 
 <% form_for(:content, :url => articles_path, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
   <%= render(:partial => 'shared/captcha') %>
-  <%= submit_tag "Create" %>
+  <%= submit_tag I18n.t('general.create') %>
 <% end %>

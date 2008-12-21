@@ -1,5 +1,5 @@
 <% if current_user.has_role?("Admin")  %>
-	<p><strong>"Front page controls</strong></p>
-	<p>You have the option of sticking this article at the top of the front page. The article needs to be featured before this will work.</p>
-	<p><%= f.check_box :stick_at_top %><label for="content_stick_at_top">Stick at top?</label></p>
+	<p><strong><%= I18n.t 'articles.stick_at_top_controls.title' %></strong></p>
+	<p><%= I18n.t 'articles.stick_at_top_controls.explanation' %></p>
+	<p><%= f.check_box :stick_at_top %><label for="content_stick_at_top"><%= I18n.t 'articles.stick_at_top_controls.label' %></label></p>
 <% end %>

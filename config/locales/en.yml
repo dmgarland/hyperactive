@@ -73,6 +73,7 @@ en:
   content:
     class_names:
       link: Link
+      photo: Photo
     form:
       contact_email_address: Contact email address
       delete: Delete

@@ -2,20 +2,20 @@
 <div id="<%= "photo_#{photo.id}" %>">
   <fieldset>
     <label class="first" for="photo[]_item_id">
-    Photo
+    <%= I18n.t 'content.class_names.photo' %>
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
         <%= image_tag photo.file.thumb.url %><br/><br/>
     <% end %>
     <label for="photo[]_title">
-      Title*<br/>
+      <%= I18n.t 'general.title' %>*<br/>
       <%= text_field 'photo[]', 'title', :size => 30 %>
     </label><br/><br/>
     <label for="photo[]_file">
-    File*<br/>
+    <%= I18n.t 'general.file' %>*<br/>
     <%= upload_column_field("photo[]", "file") %>
     </label><br/><br/>
 
-    <%= sub_list_remove_link photo, 'Photo', 'Del' %>
+    <%= sub_list_remove_link photo, 'Photo', I18n.t('content.form.delete') %>
   </fieldset>
 </div>

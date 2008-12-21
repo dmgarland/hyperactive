@@ -1,4 +1,4 @@
-<h1>Editing event</h1>
+<h1><%= I18n.t('events.edit.title')%> </h1>
 
 <% form_for(:content, :url => event_path(@content), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>

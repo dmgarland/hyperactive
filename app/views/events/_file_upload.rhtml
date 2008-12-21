@@ -2,20 +2,22 @@
 <div id="<%= "file_upload_#{file_upload.id}" %>">
   <fieldset>
     <label class="first" for="file_upload[]_item_id">
-    File upload
+    <%= I18n.t("events.file_upload.main_title") %>
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
         <%= link_to(file_upload.title, file_upload.file.url) %><br/><br/>
     <% end %>
     <label for="file_upload[]_title">
-      Title*<br/>
+    <%= I18n.t("events.file_upload.title") %>
+      <br/>
       <%= text_field 'file_upload[]', 'title', :size => 30 %>
     </label><br/><br/>
     <label for="file_upload[]_file">
-    File*<br/>
+    <%= I18n.t("events.file_upload.file") %>
+    <br/>
     <%= upload_column_field("file_upload[]", "file") %>
     </label><br/><br/>
 
-    <%= sub_list_remove_link file_upload, 'FileUpload', 'Del' %>
+    <%= sub_list_remove_link file_upload, 'FileUpload', I18n.t("content.form.delete") %>
   </fieldset>
 </div>

@@ -1,4 +1,4 @@
-<h1>In the coming week:</h1>
+<h1><%= I18n.t('events.list_seven_days.title') %>:</h1>
 <%= long_date(@date) %> to <%= long_date(@date + 7) %>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <% content_for :sidebar do %>

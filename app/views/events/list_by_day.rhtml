@@ -1,9 +1,11 @@
 <h1><%= long_date(@date) %></h1>
-<p><%= link_to("Previous day: #{(@date-(1)).strftime('%D')}", :date=>@date.-(1)) %>
-   <%= link_to("Next day: #{(@date+(1)).strftime('%D')}", :date=>@date.+(1)) %>
+<p><%= link_to(I18n.t('events.list_by_day.previous_day')+": #{(@date-(1)).strftime('%D')}", :date=>@date.-(1)) %>
+   <%= link_to(I18n.t('events.list_by_day.next_day')+": #{(@date+(1)).strftime('%D')}", :date=>@date.+(1)) %>
 </p> 
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <%= page_links(@content) %>
 <% content_for :sidebar do %>
 	<%= render :partial => "events/sidebar/feedbox" %>
 <% end %>
+
+

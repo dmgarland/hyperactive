@@ -1,7 +1,8 @@
 <% if @phrase == '' %>
 <% elsif @results.empty?  %>
-  '<%=h @phrase %>' not found!
+  '<%=h @phrase %>' <%= I18n.t('events.search.not_found') %>!
 <% else %>
-  '<%=h @phrase %>' found in 
+  '<%=h @phrase %>' <%= I18n.t('events.search.found') %> 
   <%= highlight(@results.join(', '), @phrase) %>
 <% end %>
+

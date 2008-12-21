@@ -59,6 +59,10 @@ en:
       sign_up: Sign Up
       violates: Any user accounts who violate the  
       will_be_removed: will be removed.
+  articles:
+    sidebar:
+      latest_articles_feed: Latest articles feed
+      subscribe_message: Subscribe to our {{articles_feed_path}} or visit our {{feed_center_path}} for more feeds.
   events:
     sidebar:
       feedbox:

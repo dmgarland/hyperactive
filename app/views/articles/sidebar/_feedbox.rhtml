@@ -3,7 +3,7 @@
     <li>
         <h2><%= image_tag "feed-icon-14x14.png" %><%= I18n.t 'articles.sidebar.latest_articles_feed' %></h2>
         <p>
-            <%= I18n.t 'articles.sidebar.subscribe_to_our', :articles_feed_path => link_to(I18n.t('articles.sidebar.latest_articles_feed').downcase, latest_articles_feed_path), :feed_center_path => link_to(I18n.t('general.feed_center'), feed_center_path) %>
+            <%= I18n.t 'articles.sidebar.subscribe_message', :articles_feed_path => link_to(I18n.t('articles.sidebar.latest_articles_feed').downcase, latest_articles_feed_path), :feed_center_path => link_to(I18n.t('general.feed_center'), feed_center_path) %>
         </p>
     </li>
 </ul>

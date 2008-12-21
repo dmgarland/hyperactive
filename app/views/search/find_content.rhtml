@@ -1,21 +1,21 @@
-<h1>Search results for &lsquo;<%= h @search_terms %>&rsquo;</h1>
+<h1><%= I18n.t 'search.find_content.results_for' %> &lsquo;<%= h @search_terms %>&rsquo;</h1>
 <% if @search_terms.blank? %>
-	Please enter some search terms.
+	<%= I18n.t 'search.find_content.please_enter_search_terms' %>
 <% else %>
 	<% unless @collectives.nil? %>
-		<h2>Groups:</h2>
+		<h2><%= I18n.t 'layouts.groups' %>:</h2>
 		<%= render(:partial => "shared/collectives/collective_summary", :collection => @collectives) %>
 	<% end %>	
 	<% unless @articles.nil? %>
-		<h2>Articles:</h2>
+		<h2><%= I18n.t 'content.class_names.articles' %>:</h2>
 		<%= render(:partial => "shared/content/list_summary", :collection => @articles) %>
 	<% end %>
 	<% unless @events.nil? %>
-		<h2>Events:</h2>
+		<h2><%= I18n.t 'content.class_names.events' %>:</h2>
 		<%= render(:partial => "shared/content/list_summary", :collection => @events) %>
 	<% end %>
 	<% unless @videos.nil? %>
-		<h2>Videos:</h2>
+		<h2><%= I18n.t 'content.class_names.videos' %>:</h2>
 		<%= render(:partial => "shared/content/list_summary", :collection => @videos) %>
 	<% end %>	
 <% end %>

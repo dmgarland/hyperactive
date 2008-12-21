@@ -157,6 +157,8 @@ en:
     class_names:
       action_alerts: Action alerts
       articles: Articles
+      event: Event
+      events: Events
       feeds: Feeds
       link: Link
       photo: Photo
@@ -320,7 +322,13 @@ en:
     users: Users
     videos: Videos
     
-    
+  search:
+    find_content: 
+      please_enter_search_terms: Please enter some search terms.
+      results_for: Search results for
+    past_events_explanation: There are events for this tag, but they're in the past.  
+    no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
+
   videos:
     sidebar: 
       previous: 

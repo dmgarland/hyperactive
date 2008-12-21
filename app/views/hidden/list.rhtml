@@ -1,9 +1,6 @@
 <h1><%= I18n.t('hidden.list.title') %></h1>
 <p>
-<%= I18n.t('hidden.list.text', :guidelines_path => link_to(I18n.t('hidden.list.guidelines'), "/pages/editorial-guidelines"))%>
-
-The following content has been hidden under the
-<%= link_to(I18n.t('hidden.list.guidelines'), "/pages/editorial-guidelines") %>.
+<%= I18n.t('hidden.list.text', :guidelines_path => link_to(I18n.t('hidden.list.guidelines'), "/pages/editorial-guidelines")) %>
 </p>
 
 <%= render(:partial => "/shared/content/list_summary", :collection => @content) %>

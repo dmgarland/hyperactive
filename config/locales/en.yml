@@ -295,7 +295,7 @@ en:
       hide_all: Hide all events in this event group?
     list:
       title: Hidden
-      text: The following content has been hidden under the {{ guidelines_path }}.
+      text: "The following content has been hidden under the {{guidelines_path}}."
       guidelines: editorial guidelines
     report: 
       title: What's the trouble?

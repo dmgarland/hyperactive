@@ -216,6 +216,15 @@ en:
       repeat_until: Until
       repeat_on: Repeat on the
 
+  external_feeds:
+    edit:
+      title: Editing feed
+    index:
+      listing_feeds_for: Listing feeds for
+      too_many_feeds: You can have a maximum of 2 feeds for your group. You need to delete one before you can add any more.
+      new_external_feed: New external feed
+    new:
+      title: New feed
   home:
     index:
       promoted_newswire: Promoted Newswire

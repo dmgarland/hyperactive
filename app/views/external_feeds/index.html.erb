@@ -1,10 +1,10 @@
-<h1>Listing feeds for <%= @group.name %></h1>
+<h1><%= I18n.t 'external_feeds.index.listing_feeds_for' %> <%= @group.name %></h1>
 
 <table>
   <tr>
-    <th>Title</th>
-	<th>Url</th>
-    <th>Summary</th>
+    <th><%= I18n.t 'general.title' %></th>
+	<th><%= I18n.t 'general.url' %></th>
+    <th><%= I18n.t 'general.summary' %></th>
   </tr>
   
 <% for feed in @external_feeds %>
@@ -12,8 +12,8 @@
     <td><%=h feed.title %></td>
     <td><%=h feed.url %></td>
     <td><%=h feed.summary %></td>
-    <td><%= link_to 'Edit', edit_group_external_feed_path(@group, feed) %></td>
-    <td><%= link_to 'Destroy', group_external_feed_path(@group, feed), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to I18n.t('general.edit'), edit_group_external_feed_path(@group, feed) %></td>
+    <td><%= link_to I18n.t('general.destroy'), group_external_feed_path(@group, feed), :confirm => I18n.t('general.are_you_sure'), :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -21,10 +21,9 @@
 <br />
 
 <% if @external_feeds.length > 1 %>
-	<p>You can have a maximum of 2 feeds for your group. You need to delete one before you can 
-	add any more.</p>
+	<p><%= I18n.t 'external_feeds.index.too_many_feeds' %></p>
 <% else %>
-	<%= link_to 'New external feed', new_group_external_feed_path(@group) %>  |
+	<%= link_to I18n.t('external_feeds.index.new_external_feed'), new_group_external_feed_path(@group) %>  |
 <% end %>
 
-<%= link_to 'Back to your account page', account_path %>
+<p><%= I18n.t 'collectives.edit_memberships.back_to_account_page', :your_account_page => link_to I18n.t('collectives.edit_memberships.your_account_page'), account_path %></p>

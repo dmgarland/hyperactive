@@ -1,12 +1,12 @@
-<h1>Editing feed</h1>
+<h1><%= I18n.t 'external_feeds.edit.title' %></h1>
 
 <% form_for(:external_feed, :url => group_external_feed_path(@group, @external_feed), :html => {:method => :put}) do |f| %>
   
   <%= render :partial => 'form', :locals => {:f => f}  %>
   
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit I18n.t('general.update') %>
   </p>
 <% end %>
 
-<%= link_to 'Back', group_external_feeds_path(@group) %>
+<%= link_to I18n.t('general.back'), group_external_feeds_path(@group) %>

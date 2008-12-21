@@ -70,6 +70,7 @@ en:
       sign_up: Sign Up
       violates: Any user accounts who violate the  
       will_be_removed: will be removed.
+
   articles:
     archives:
       title: Listing articles
@@ -115,12 +116,47 @@ en:
       required_field: required field
       upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
       your_name: Your name
+
   events:
     sidebar:
       feedbox:
         title: Upcoming events feed   
         subscribe_message: Subscribe to our {{upcoming_events_feed_path}} or visit our {{feed_center_path}} for more feeds.
         upcoming_events_feed: upcoming events feed
+      ical:
+        title: Download as iCal
+        description: You may {{import_path}} using iCal.
+        import: import this event into your calendar
+    archive:
+      listing_events: Listing events
+    edit:
+      title: Editing event
+    file_upload:
+      main_title: File upload
+      title: Title*
+      file: File*
+    form:
+      title: Title
+      date_of_event: Date of Event
+      contact_for_event: Contact email address for event
+      place_for_event: Place <em>*</em> - include street address, room number, etc.
+      description_for_event: Description
+      repeating: Repeating event (optional)
+      no_repeat: Do not repeat this event
+      do_repeat: Repeat
+      every: every
+      every_other: every other
+      every_third: every third
+      every_fourth: every fourth
+      day: day
+      week: week
+      month: month
+      other_month: other month
+      ordinal: [first, second, third, fourth, last]
+      week_days: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+      repeat_note: "Note: you can only repeat events for a maximum of 6 months from the date of the first event."
+      repeat_until: Until
+      repeat_on: Repeat on the
 
   home:
     index:

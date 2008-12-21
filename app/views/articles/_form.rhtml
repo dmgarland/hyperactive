@@ -1,26 +1,25 @@
 <%= error_messages_for :content %>
 
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
-
 <%= render :partial => 'articles/stick_at_top_controls', :locals => {:f => f} %>
 
 
-<p><em>*</em> = required field</p>
-<p><label for="content_title">Title<em>*</em></label><br/>
+<p><em>*</em> = <%= I18n.t 'content.form.required_field' %></p>
+<p><label for="content_title"><%= I18n.t 'general.title' %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
 
-<p><label for="content_published_by">Your name:<em>*</em></label><br/>
+<p><label for="content_published_by"><%= I18n.t 'articles.form.your_name' %>:<em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 
-<p><label for="content_contact_email">Contact email address:</label><br/>
+<p><label for="content_contact_email"><%= I18n.t 'articles.form.contact_email_address' %>:</label><br/>
 <%= f.text_field 'contact_email' %></p>
 
 <%= render :partial => 'shared/content/place_tag_entry_controls' %>
 
-<p><label for="content_summary">Summary<em>*</em></label><br/>
+<p><label for="content_summary"><%= I18n.t 'general.summary' %><em>*</em></label><br/>
 <%= f.text_area 'summary', :cols=>80, :rows=>10  %></p>
 
-<p><label for="content_body">Description<em>*</em></label><br/>
+<p><label for="content_body"><%= I18n.t 'general.description' %><em>*</em></label><br/>
 <%= f.text_area 'body', :cols=>80, :rows=>20  %></p>
 
 <%= render :partial => 'shared/content/comments/allows_comments_controls', :locals => {:f => f} %>
@@ -28,20 +27,16 @@
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 
 <noscript>
-<p><a name="noJS">Oops!</a> 
-You don't have JavaScript enabled, so you won't be able to add photos or links to this event!
-Please enable JavaScript in your browser's preferences if you want to add a photo or a link.
+<p><a name="noJS"><%= I18n.t 'general.oops' %></a> 
+<%= I18n.t 'javascript.no_js' %>
 </p>
 </noscript>
 
-<h2>Media uploads</h2>
+<h2><%= I18n.t 'general.media_uploads' %></h2>
 
 <p>
-Click on the "add photo", "add video", or "add file upload" link for each file 
-you want to upload. You can upload as many files as you want by clicking the "add" 
-links multiple times.
+<%= I18n.t 'content.form.upload_instructions' %>
 </p>
 
 <%= render :partial => "shared/content/sub_list_upload_links" %>
-
 <%= render :partial => "shared/content/grouping_controls" %>

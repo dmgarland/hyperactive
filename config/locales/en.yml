@@ -5,7 +5,7 @@ en:
   general:
     click_here: Click here  
     created_on: Created on
-    delete: Delete
+    description: Description
     edit: Edit
     editorial_guidelines: Editorial Guidelines
     feed_center: feed center
@@ -13,7 +13,9 @@ en:
     file_upload: File upload
     logout: logout
     login_cap: Login
+    media_uploads: Media uploads
     no: No
+    oops: Oops!
     page: page
     password: Password
     summary: Summary
@@ -67,6 +69,14 @@ en:
     sidebar:
       latest_articles_feed: Latest articles feed
       subscribe_message: Subscribe to our {{articles_feed_path}} or visit our {{feed_center_path}} for more feeds.
+    form:
+      your_name: Your name
+      contact_email_address: Contact email address
+  content:
+    form:
+      required_field: required field
+      upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
+      delete: Delete
   events:
     sidebar:
       feedbox:
@@ -85,6 +95,8 @@ en:
       tags: Tags
       info: Info
       network: Indymedia UK Network
+  javascript:
+    no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
   videos:
     sidebar: 
       previous: 

@@ -21,6 +21,7 @@ en:
     summary: Summary
     title: Title
     updated_on: Updated on
+    url: URL
     user_name: User Name
     welcome: Welcome
     yes: Yes   
@@ -70,6 +71,8 @@ en:
       latest_articles_feed: Latest articles feed
       subscribe_message: Subscribe to our {{articles_feed_path}} or visit our {{feed_center_path}} for more feeds.
   content:
+    class_names:
+      link: Link
     form:
       contact_email_address: Contact email address
       delete: Delete

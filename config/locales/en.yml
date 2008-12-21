@@ -5,15 +5,19 @@ en:
   general:
     click_here: Click here  
     created_on: Created on
+    delete: Delete
     edit: Edit
     editorial_guidelines: Editorial Guidelines
     feed_center: feed center
+    file: File
+    file_upload: File upload
     logout: logout
     login_cap: Login
     no: No
     page: page
     password: Password
     summary: Summary
+    title: Title
     updated_on: Updated on
     user_name: User Name
     welcome: Welcome

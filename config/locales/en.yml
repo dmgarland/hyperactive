@@ -370,9 +370,17 @@ en:
         leave_comment: Leave a comment
         tech_error: Something has gone wrong.  This comment should have a moderation_status of either "hidden" or "published".
         unhide_this_comment: Unhide this comment?
+      maps: 
+        add_a_map: Add a map?
+        delete_this_map: Delete this map
+        edit_or_delete_map: Edit or delete map?
+        explanation: There is a map linked to this {{content}}. If you want to, you can edit or delete it.  If you do nothing, it will stay the same as it is right now.
+        see_a_map: See a map?
+        title: Map It!
+        will_load_data: "<strong>Note:</strong> clicking the map link will load data from {{openstreetmap}} external server."
+        you_can_attach_a_map: You can attach a map to this
   timeline:
     explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
-
   videos:
     sidebar: 
       previous: 

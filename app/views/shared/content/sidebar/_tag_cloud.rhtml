@@ -1,7 +1,7 @@
 <% if !@cloud.nil? %>
 <ul>
     <li>
-        <h2>Tags</h2>
+        <h2><%= I18n.t 'content.class_names.tags' %></h2>
         <p>
 			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>	
         </p>

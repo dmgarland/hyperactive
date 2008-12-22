@@ -1,6 +1,57 @@
 # Português Brasil YAML translations for Ruby on Rails 
 # by Daniel Lopes (danielvlopes@gmail.com)
 pt-BR:
+
+
+###########################
+# Hyperactive localization
+###########################
+
+  general:
+    add: Add
+    are_you_sure: Are you sure?
+    attached_files: Attached Files
+    back: Back
+    by: by
+    click_here: Click here  
+    contact_email: Contact email
+    create: Create
+    created_on: Created on
+    description: Description
+    edit: Edit
+    editorial_guidelines: Editorial Guidelines
+    event_date: Event date
+    feed_center: feed center
+    file: File
+    file_upload: File upload
+    logout: logout
+    login_cap: Login
+    media_uploads: Media uploads
+    moderation_status: Moderation status
+    name: Name
+    no: No
+    oops: Oops!
+    page: page
+    password: Password
+    places: Neighbourhoods
+    published_by: Published
+    published_cap: Published
+    published_on: Published
+    remove: Remove
+    summary: Summary
+    tagged_as: Tagged as
+    title: Title
+    update: Update
+    updated_on: Updated on
+    url: URL
+    user_name: User Name
+    welcome: Welcome
+    yes: Yes   
+    your_name: Your name
+
+#############################
+#Standard Rails Localization
+#############################
     date: 
       formats: 
         default: "%d/%m/%Y"

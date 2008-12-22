@@ -46,8 +46,9 @@ en:
     user_name: User Name
     welcome: Welcome
     yes: Yes   
+    more: More
     your_name: Your name
-  
+
   # Action alerts
   action_alerts:
     listing_action_alerts: Listing action alerts 

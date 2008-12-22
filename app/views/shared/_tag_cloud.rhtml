@@ -8,6 +8,6 @@
             <%= link_to(h("#{tag}"), "#{url}#{tag}", { :class => "#{cloud_class} ", :style => "margin: .15em" } ) %>
         <% end %>
     <% else %>
-            <p>No tags found.</p>
+            <p><%= I18n.t 'general.no_tags_found' %></p>
     <% end %>
 </div>

@@ -25,6 +25,7 @@ en:
     moderation_status: Moderation status
     name: Name
     no: No
+    no_tags_found: No tags found.
     oops: Oops!
     page: page
     password: Password
@@ -33,6 +34,7 @@ en:
     published_cap: Published
     published_on: Published
     remove: Remove
+    search: Search
     summary: Summary
     tagged_as: Tagged as
     title: Title
@@ -371,6 +373,14 @@ en:
     past_events_explanation: There are events for this tag, but they're in the past.  
     no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
   shared:
+    account_box: 
+      title: Your account
+      explanation: You are currently not logged in.  You can {{login}} or {{register_an_account}}.	Registration allows you to edit your own content and help administer the site.
+      log_in: log in
+      register_an_account: register an account
+    captcha:
+      explanation: Until automated systems acheive a higher level of self-awareness and responsibility, we need you to prove your humanity by taking a little test that spambots are too stupid to pass.
+      no_robots: No robots!
     content:
       admin_controls: 
         report_or_administer: Report or administer this {{class_name}}

@@ -7,7 +7,7 @@
 	<% else %>
 		<%=h long_date(top_featured.created_on) unless top_featured.created_on.nil? %>	
 	<% end %>
-	<%= "by" %> <%=h top_featured.published_by %>
+	<%= I18n.t 'general.by' %> <%=h top_featured.published_by %>
 	| <%= link_to("read more &rarr;", content_path_for(top_featured)) %>
 	</small></p>
 	<div class="entry">

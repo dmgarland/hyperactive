@@ -4,7 +4,7 @@
 <div class="<%= css_class %>">
 <h1 class="title"><%=h @content.title %></h1>
 <p class="byline"><%= image_tag "icon_article.gif" %>
-<small><%= I18n.t 'general.published_cap' %>: <%=h long_date(@content.created_on) %></small> <%= I18.t 'general.by'%> <strong><%=h @content.published_by.titleize %></strong></p>
+<small><%= I18n.t 'general.published_cap' %>: <%=h long_date(@content.created_on) %></small> <%= I18n.t 'general.by'%> <strong><%=h @content.published_by.titleize %></strong></p>
 
 <%= render :partial => 'shared/content/hidden_notice' %>
 <%= render :partial => 'shared/content/groups_display' %>

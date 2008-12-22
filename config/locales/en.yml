@@ -385,7 +385,7 @@ en:
         unhide_this_comment: Unhide this comment?
       edit_this_thing: Edit this {{class_name}}
       grouping_controls:
-        explanation: You can choose to publish this content as part of one of your groups. Note: <strong>this will make the content editable by all group members.</strong>
+        explanation: "You can choose to publish this content as part of one of your groups. Note: <strong>this will make the content editable by all group members.</strong>"
         no_group: No group
       groups_display:
         published_by_group: Published by group

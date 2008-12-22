@@ -1,7 +1,7 @@
 <% if current_user.is_collectivized? %>
-	<h2>Groups</h2>
-	<p>You can choose to publish this content as part of one of your groups. Note: <strong>this will make the content editable by all group members.</strong></p>
-	<%= radio_button_tag "content[collective_id]", "", !@content.is_collectivized?  %> No group<br/>
+	<h2><%= I18n.t 'layouts.groups' %></h2>
+	<p><%= I18n.t 'shared.content.grouping_controls.explanation' %></p>
+	<%= radio_button_tag "content[collective_id]", "", !@content.is_collectivized?  %> <%= I18n.t 'shared.content.grouping_controls.no_group' %><br/>
 	<% current_user.collectives.each do |c| %>
 		<%= radio_button_tag "content[collective_id]", c.id, c.includes_content?(@content) -%> <%= c.name -%><br/>
 	<% end %>

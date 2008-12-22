@@ -5,20 +5,24 @@ en:
   general:
     add: Add
     are_you_sure: Are you sure?
+    attached_files: Attached Files
     back: Back
     by: by
     click_here: Click here  
+    contact_email: Contact email
     create: Create
     created_on: Created on
     description: Description
     edit: Edit
     editorial_guidelines: Editorial Guidelines
+    event_date: Event date
     feed_center: feed center
     file: File
     file_upload: File upload
     logout: logout
     login_cap: Login
     media_uploads: Media uploads
+    moderation_status: Moderation status
     name: Name
     no: No
     oops: Oops!
@@ -27,8 +31,10 @@ en:
     places: Neighbourhoods
     published_by: Published
     published_cap: Published
+    published_on: Published
     remove: Remove
     summary: Summary
+    tagged_as: Tagged as
     title: Title
     update: Update
     updated_on: Updated on
@@ -163,8 +169,12 @@ en:
       event: Event
       events: Events
       feeds: Feeds
+      file_upload: File Upload
+      file_uploads: File Uploads
       link: Link
+      links: Links
       photo: Photo
+      photos: Photos
       tags: Tags
       video: Video
       videos: Videos
@@ -360,6 +370,9 @@ en:
     no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
   shared:
     content:
+      admin_controls: 
+        report_or_administer: Report or administer this {{class_name}}
+        unhide_this: Unhide this {{class_name}}
       comments:
         add_a_comment: Add a comment
         allow_comments: Allow comments
@@ -370,6 +383,13 @@ en:
         leave_comment: Leave a comment
         tech_error: Something has gone wrong.  This comment should have a moderation_status of either "hidden" or "published".
         unhide_this_comment: Unhide this comment?
+      edit_this_thing: Edit this {{class_name}}
+      grouping_controls:
+        explanation: You can choose to publish this content as part of one of your groups. Note: <strong>this will make the content editable by all group members.</strong>
+        no_group: No group
+      groups_display:
+        published_by_group: Published by group
+      hidden_notice: This {{class_name}} has been hidden under the site's {{editorial_guidelines}}.
       maps: 
         add_a_map: Add a map?
         delete_this_map: Delete this map
@@ -379,6 +399,18 @@ en:
         title: Map It!
         will_load_data: "<strong>Note:</strong> clicking the map link will load data from {{openstreetmap}} external server."
         you_can_attach_a_map: You can attach a map to this
+      place_tag_entry_control: Neighbourhood tags - e.g. <em>brixton lambeth</em> or <em>elephant_and_castle
+      related_content: More like this (auto-generated)
+      sub_list:
+        add_file_upload: Add File Upload
+        add_link: Add Link
+        add_photo: Add Photo
+        add_video: Add Video
+        multiple_file_uploads: (click again for multiple file uploads)
+        multiple_links: (click again for multiple links)
+        multiple_photos: (click again for multiple photo uploads)
+        multiple_videos: (click again for multiple video uploads)
+      tag_instructions: Tags - separate with spaces
   timeline:
     explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
   videos:

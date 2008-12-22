@@ -163,4 +163,17 @@ module ApplicationHelper
     return nil
   end  
   
+  def downcased_class_name(content)
+    case content.class.to_s.humanize.downcase 
+      when 'article'
+        I18n.t 'content.class_names.article'.downcase
+      when 'event'
+        I18n.t 'content.class_names.event'.downcase
+      when 'video'
+        I18n.t 'content.class_names.video'.downcase
+      when 'comment'
+        I18n.t 'content.class_name.comment'.downcase
+    end 
+  end
+  
 end

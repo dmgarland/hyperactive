@@ -1,31 +1,31 @@
  <fieldset>
     <legend>
-        Photos
+        <%= I18n.t 'content.class_names.photos' %>
     </legend>
     <%= sub_list_content 'Photo', 'content' %>
-    <p><%= image_tag("picture_add.png") %> <%= sub_list_add_link 'Photo', 'Add Photo' %> (click again for multiple photo uploads)</p>
+    <p><%= image_tag("picture_add.png") %> <%= sub_list_add_link 'Photo', I18n.t('shared.content.sub_list.add_photo') %> <%= I18n.t 'shared.content.sub_list.multiple_photos' %></p>
  </fieldset>
  
   <fieldset>
     <legend>
-        Videos
+        <%= I18n.t 'content.class_names.videos' %>
     </legend>
     <%= sub_list_content 'Video', 'content' %>
-    <p><%= image_tag("film_add.png") %> <%= sub_list_add_link 'Video', 'Add Video' %> (click again for multiple video uploads)</p>
+    <p><%= image_tag("film_add.png") %> <%= sub_list_add_link 'Video', I18n.t('shared.content.sub_list.add_video') %> <%= I18n.t 'shared.content.sub_list.multiple_videos' %></p>
  </fieldset>
  
  <fieldset>
     <legend>
-        File Uploads
+        <%= I18n.t 'content.class_names.file_uploads' %>
     </legend>
     <%= sub_list_content 'FileUpload', 'content' %>
-    <p><%= image_tag("report_add.png") %> <%= sub_list_add_link 'FileUpload', 'Add File Upload' %> (click again for multiple file uploads)</p>
+    <p><%= image_tag("report_add.png") %> <%= sub_list_add_link 'FileUpload', I18n.t('shared.content.sub_list.add_file_upload') %> <%= I18n.t 'shared.content.sub_list.multiple_file_uploads' %></p>
  </fieldset>
  
 <fieldset>
     <legend>
-       Links
+        <%= I18n.t 'content.class_names.links' %>
     </legend>
     <%= sub_list_content 'Link', 'content' %>
-    <p><%= image_tag("link_add.png") %> <%= sub_list_add_link 'Link', 'Add Link' %> (click again for multiple links)</p>
+    <p><%= image_tag("link_add.png") %> <%= sub_list_add_link 'Link', I18n.t('shared.content.sub_list.add_link') %> <%= I18n.t 'shared.content.sub_list.multiple_links' %></p>
  </fieldset>

@@ -1,6 +1,6 @@
-<h3>Tags</h3>
+<h3><%= I18n.t 'content.class_names.tags' %></h3>
 
-<p><label for="content_tag_list">Tags - separate with spaces</label><br/>
+<p><label for="content_tag_list"><%= I18n.t 'shared.content.tag_instructions' %></label><br/>
 <%= text_field_tag 'tags', params[:tags] || @content.tag_list %></p>
 
 <p>

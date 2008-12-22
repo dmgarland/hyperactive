@@ -1,5 +1,5 @@
 <% if @content.links.length > 0 %>
-    <h3>Links:</h3>
+    <h3><%= I18n.t 'content.class_names.links' %>:</h3>
     <% @content.links.each do |link| %>
         <p><%= image_tag("link_go.png") %> <%= link_to h(link.title), link.url %><br/>
         <%= link.description %></p>

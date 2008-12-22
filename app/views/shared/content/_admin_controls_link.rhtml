@@ -1,14 +1,16 @@
+<% class_name = downcased_class_name(@content) %>
+
 <div id="admin-controls">
 	<p><%= image_tag "asterisk_yellow.png" %>
     <% if @content.is_not_hidden? %>
-       <%= link_to_remote "Report or administer this #{@content.class.to_s.humanize.downcase}",
+       <%= link_to_remote I18n.t('shared.content.admin_controls.report_or_administer', :class_name => class_name),
                             :url => {:action => 'admin_controls', :id => @content.id },
                             :update => 'admin-controls',
 							:before => "$('admin-controls').innerHtml = 'Loading...'",
 							:complete => "new Effect.BlindDown('admin-controls');"
         %>
     <% else %>
-        <%= link_to_remote "Unhide this #{@content.class.to_s.humanize.downcase}",
+        <%= link_to_remote I18n.t('shared.content.admin_controls.unhide_this', :class_name => class_name),
                             :url => {:controller => 'hidden', :action => 'unhiding_controls', :id => @content.id },
                             :update => 'admin-controls',
 							:before => "$('admin-controls').innerHtml = 'Loading...'",

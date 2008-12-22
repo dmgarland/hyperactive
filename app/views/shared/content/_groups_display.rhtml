@@ -1,5 +1,5 @@
 <% if @content.is_collectivized? %>
-	<p>Published by group(s): 
+	<p><%= I18n.t 'shared.content.groups_display.published_by_group' %>: 
 		<ul>
 			<li><%= collective_link_to(@content.collective) %></li>
 		</ul>

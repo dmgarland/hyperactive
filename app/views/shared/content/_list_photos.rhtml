@@ -1,5 +1,5 @@
 <% if @content.photos.length > 0 %>
-    <p><h3>Photos</h3></p>
+    <p><h3><% I18n.t 'content.class_names.photos' %></h3></p>
     <% @content.photos.each do |photo| %>
         <p><%= link_to (image_tag photo.file.medium.url), photo.file.url %><br/>
         <strong><%=h photo.title %></strong>

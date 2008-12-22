@@ -8,46 +8,46 @@ pt-BR:
 ###########################
 
   general:
-    add: Add
-    are_you_sure: Are you sure?
-    attached_files: Attached Files
-    back: Back
-    by: by
-    click_here: Click here  
-    contact_email: Contact email
-    create: Create
-    created_on: Created on
-    description: Description
-    edit: Edit
-    editorial_guidelines: Editorial Guidelines
-    event_date: Event date
+    add: Adicionar
+    are_you_sure: Você tem certeza?
+    attached_files: Arquivos anexados
+    back: Voltar
+    by: por
+    click_here: Clique aqui  
+    contact_email: Email para contato
+    create: Criar
+    created_on: Criado em
+    description: Descrição
+    edit: Editar
+    editorial_guidelines: Diretrizes Editoriais
+    event_date: Data do Evento
     feed_center: feed center
-    file: File
-    file_upload: File upload
-    logout: logout
-    login_cap: Login
-    media_uploads: Media uploads
-    moderation_status: Moderation status
-    name: Name
-    no: No
+    file: Arquivo
+    file_upload: Envio de arquivo
+    logout: sair
+    login_cap: Entrar
+    media_uploads: Envio de Mídias
+    moderation_status: Status da moderação
+    name: Nome
+    no: Não
     oops: Oops!
-    page: page
-    password: Password
-    places: Neighbourhoods
-    published_by: Published
-    published_cap: Published
-    published_on: Published
-    remove: Remove
-    summary: Summary
-    tagged_as: Tagged as
-    title: Title
-    update: Update
-    updated_on: Updated on
+    page: página
+    password: Senha
+    places: Bairros
+    published_by: Publicado
+    published_cap: Publicado
+    published_on: Publicado
+    remove: Remover
+    summary: Resumo
+    tagged_as: Marcado como
+    title: Título
+    update: Atualizar
+    updated_on: Atualizado em
     url: URL
-    user_name: User Name
-    welcome: Welcome
-    yes: Yes   
-    your_name: Your name
+    user_name: Nome de usuário/a
+    welcome: Bemvindo/a
+    yes: Sim
+    your_name: Seu nome
 
 #############################
 #Standard Rails Localization

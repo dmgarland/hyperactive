@@ -25,7 +25,7 @@
 	<a href="http://subscribe.getMiro.com/?url1=<%= url_for(video_feed_path) %>" title="Miro: Internet TV"><img src="http://subscribe.getmiro.com/img/buttons/wes1.png" alt="Miro Video Player" border="0" /></a>
 	<p>
 		<%= I18n.t 'feeds.index.latest_videos_explanation', 
-			:miro_site => link_to I18n.t('feeds.index.at_the_miro_site'), "http://www.getmiro.com/features/", 
-			:video_feed => link_to I18n.t('feeds.index.video_feed'), video_feed_path %>
+			:miro_site => link_to(I18n.t('feeds.index.at_the_miro_site'), "http://www.getmiro.com/features/"), 
+			:video_feed => link_to(I18n.t('feeds.index.video_feed'), video_feed_path) %>
 	</p>
 </div>

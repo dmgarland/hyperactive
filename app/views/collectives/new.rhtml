@@ -2,7 +2,7 @@
 	<h1><%= I18n.t 'collectives.new.please_create_account' %></h1>
 	<p>
 		<%= I18n.t 'collectives.new.register_explanation', 
-			:create_account => link_to "create an account", register_path %>
+			:create_account => link_to(I18n.t('collectives.new.create_an_account'), register_path) %>
 	</p>
 <% else %>
 

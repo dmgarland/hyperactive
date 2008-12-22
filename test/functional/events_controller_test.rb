@@ -51,14 +51,7 @@ class EventsControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:content)
     assert_equal 0, assigns(:content).size   
   end
-  
-  def test_list_by_event_date
-    get :list_by_event_date   
-    assert_response :success
-    assert_template 'list_by_event_date'    
-    assert_not_nil assigns(:content)
-  end
-  
+    
   def test_list_by_event_group
     get :list_by_event_group, :id => 1
     assert_response :success

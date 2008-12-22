@@ -1,3 +1,9 @@
 <% if @content.is_hidden? %>
-    <p class="hidden-notice"><strong><%= I18n.t 'shared.content.hidden_notice', :class_name => downcased_class_name(@content), :editorial_guidelines => link_to "editorial guidelines", "/pages/editorial-guidelines" %></strong></p>
+    <p class="hidden-notice">
+    	<strong>
+    		<%= I18n.t 'shared.content.hidden_notice', 
+				:class_name => downcased_class_name(@content), 
+				:editorial_guidelines => link_to("editorial guidelines", "/pages/editorial-guidelines") %>
+		</strong>
+	</p>
 <% end %>

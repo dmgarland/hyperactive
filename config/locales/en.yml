@@ -127,6 +127,7 @@ en:
       newest_groups: Newest groups
       title: Recently active groups
     new: 
+      create_an_account: create an account
       explanation: "You have to be a registered user to register a group. Groups should
 		write a short description of who they are and what they do, and will get
 		their own page listing all their articles, events and media. This can be
@@ -164,6 +165,7 @@ en:
   content:
     class_names:
       action_alerts: Action alerts
+      article: Article
       articles: Articles
       comment: Comment
       event: Event
@@ -264,7 +266,7 @@ en:
       found: found in
     show:
       event_date: Event date
-      series_text: This event is part of a series of repeating events.  To see all the events, {{ series_path }}.
+      series_text: This event is part of a series of repeating events.  To see all the events, {{series_path}}.
       series_link: click here
       tagged: Tagged as
       places: Places

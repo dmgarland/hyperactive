@@ -3,8 +3,8 @@
         <h2><%= image_tag "group_add.png" %> <%= link_to(I18n.t('collectives.new_collective_box.create_a_group_title'), new_group_path) %></h2>
         <p>
         	<%= I18n.t 'collectives.new_collective_box.explanation', 
-				:create_a_group => link_to I18n.t('create_a_group'), 
-				:register_a_group => new_group_path, link_to I18n.t('sign_up_here'), register_path %>
+				:create_a_group => link_to(I18n.t('create_a_group'), new_group_path), 
+				:register_a_group => link_to(I18n.t('sign_up_here'), register_path) %>
         </p>
     </li>
 </ul>

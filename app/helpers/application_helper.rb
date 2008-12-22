@@ -166,13 +166,13 @@ module ApplicationHelper
   def downcased_class_name(content)
     case content.class.to_s.humanize.downcase 
       when 'article'
-        I18n.t 'content.class_names.article'.downcase
+        (I18n.t 'content.class_names.article').downcase
       when 'event'
-        I18n.t 'content.class_names.event'.downcase
+        (I18n.t 'content.class_names.event').downcase
       when 'video'
-        I18n.t 'content.class_names.video'.downcase
+        (I18n.t 'content.class_names.video').downcase
       when 'comment'
-        I18n.t 'content.class_name.comment'.downcase
+        (I18n.t 'content.class_name.comment').downcase
     end 
   end
   

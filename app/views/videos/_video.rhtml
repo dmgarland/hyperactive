@@ -1,13 +1,12 @@
 <% css_class = @content.is_hidden? ? "hidden_post" : "post" %>
 <div class="<%= css_class %>">
 <h1><%=h video.title.titleize %></h1>
-<p class="byline"><%= image_tag "icon_video.gif" %> </image_tag><small>Published: <%=h long_date(@content.created_on) %></small></p>
+<p class="byline"><%= image_tag "icon_video.gif" %> </image_tag><small><%= I18n.t('videos.video.published') %>: <%=h long_date(@content.created_on) %></small></p>
 <p>posted by <strong><%=h @content.published_by.titleize %></strong></p>
 <%= render :partial => 'shared/content/groups_display' %>
 <% if video.processing_status == 2 %>
     <div id="videoplayer<%= video.id %>">
-        <p>This item requires Macromedia Flash Player 7.</p>
-        <p>To get the latest version please <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">click here</a>.</p>
+    <%= I18n.t('videos.video.no_flash') %>
     </div>
 	<script type="text/javascript">
 		var so = new SWFObject('/flash/mediaplayer.swf','mpl','320','260','7');
@@ -19,12 +18,12 @@
 		so.addVariable('usefullscreen', 'true');
 		so.write("videoplayer<%= video.id %>");
 	</script>	
-	<p><em>Tagged as:</em> <%= render_tag_list %></p>
+	<p><em><%= I18n.t('videos.video.tagged') %>:</em> <%= render_tag_list %></p>
     <%= video.summary %><br/>
-	<p><em>Places:</em> <%= render_place_tag_list %></p>
+	<p><em><%= I18n.t('videos.video.places') %>:</em> <%= render_place_tag_list %></p>
 
 	<% if @content.contact_email != nil %>
-	    <p><%= image_tag("email.png") %> <em>Contact email:</em> <%= mail_to h(@content.contact_email) %></p>
+	    <p><%= image_tag("email.png") %> <em><%= I18n.t('videos.video.contact_email') %>:</em> <%= mail_to h(@content.contact_email) %></p>
 	<% end %>
 
 	<%# Removing direct links to files so that only torrent links are visible. %>
@@ -36,13 +35,15 @@
 	<%# link_to "download ogg", oggify(video.file.url) %>
 	
 	<%= link_to image_tag("transmit_add.png"), torrentify(video.file.url) %> 
-	<%= link_to "download torrent", torrentify(video.file.url) %>
+	<%= link_to I18n.t('videos.video.download_torrent'), torrentify(video.file.url) %>
 	<%= render(:partial => 'videos/help_instructions')%>
 <% else %>
     <strong><%=h video.title.titleize %></strong><br />
     <%= auto_link(video.body) %><br/>
     <%= link_to image_tag("icon_video.gif"), video.file.url %> 
-    <%= link_to "download original", video.file.url %>
-    <p>This video is still being converted, or else there has been some kind of error.</p>
+    <%= link_to I18n.t('videos.video.download_original'), video.file.url %>
+    <p><%= I18n.t('videos.video.still_converted') %></p>
 <% end %>
 </div>
+
+

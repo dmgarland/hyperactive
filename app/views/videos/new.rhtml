@@ -1,7 +1,8 @@
-<h1>New Video</h1>
+<h1><%= I18n.t('videos.new.title') %></h1>
 <% form_for(:content, :url => videos_path, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
   <%= render(:partial => 'shared/captcha') %>
-  <%= submit_tag "Create" %>
-  Please only click once, and be patient, video uploading can take a while.
-<% end %>	
+  <%= submit_tag I18n.t('videos.new.create') %>
+  <%= I18n.t('videos.new.click_once') %>
+<% end %>
+

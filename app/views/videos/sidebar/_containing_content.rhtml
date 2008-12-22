@@ -1,11 +1,13 @@
 <% if !@content.post.nil? %>
 <ul>
     <li>
-        <h2><%= "Related #{@content.post.class.to_s.downcase}" %></h2>
+        <h2><%= I18n.t('videos.sidebar.containing_content.related_title', :post_title => @content.post.class.to_s.downcase) %></h2>
         <p>
-            <%= "This video was originally uploaded as part of the following #{@content.post.class.to_s.downcase}" %>.
+            <%= I18n.t('videos.sidebar.containing_content.explanation', :post_title => @content.post.class.to_s.downcase) %>.
         </p>
         <%= render :partial => 'shared/content/list_title', :object => @content.post %>
     </li>
 </ul>
 <% end %>
+
+

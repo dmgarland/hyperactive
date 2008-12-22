@@ -1,8 +1,9 @@
-<h1>Editing video</h1>
+<h1><%= I18n.t('videos.editing_video.title') %></h1>
 
 <% form_for(:content, :url => video_path(@content), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
-  <p><%= submit_tag 'Save changes' %></p>
+  <p><%= submit_tag I18n.t('videos.editing_video.save') %></p>
 <% end %>
 
-<p><%= button_to 'Delete this video', video_path(@content), :method => :delete, :confirm => 'Are you sure?' %></p>
+<p><%= button_to I18n.t('videos.editing_video.delete_video') , video_path(@content), :method => :delete, :confirm => I18n.t('videos.editing_video.sure_delete') %></p>
+

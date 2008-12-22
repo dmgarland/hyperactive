@@ -1,7 +1,8 @@
-<h1>Listing videos</h1>
+<h1><%= I18n.t('videos.archive.title') %></h1>
 <%= render :partial => "videos/video_summary", :collection => @content unless @content.blank? %>
 <hr/>
 <%= page_links(@content) %>
 <% content_for :sidebar do %>
 	<%= render :partial => 'videos/sidebar/feedbox' %>
 <% end %>
+

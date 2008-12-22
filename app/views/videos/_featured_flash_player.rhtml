@@ -1,4 +1,4 @@
-<h2>Featured Videos</h2>
+<h2><%= I18n.t('videos.feature_flash.title') %></h2>
 <div id="featuredvideos">
 	<%= render :partial => 'videos/video_summary', :locals => {:video_summary => @featured_videos.first} unless @featured_videos.blank? %>
 </div>
@@ -10,4 +10,5 @@
 	    so.addParam("menu", "false");
 	    so.write("featuredvideos");
 	</script>
-<% end %>		
+<% end %>
+

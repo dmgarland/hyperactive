@@ -11,7 +11,7 @@
 		<%= render :partial => 'shared/content/admin_controls_link' %>
     </p>	
 
-<% if @content.has_comments? %><h2>Comments</h2> <% end %>
+<% if @content.has_comments? %><h2><%= I18n.t('videos.show.comments') %></h2> <% end %>
     <%= render :partial => 'shared/content/comments/comment_display', :collection => @content.published_comments %>
 	<%= render :partial => 'shared/content/comments/comment_controls' %>
 </div>
@@ -22,3 +22,5 @@
 	<%= render :partial => 'videos/sidebar/previous' %>
 	<%= render :partial => 'videos/sidebar/feedbox' %>
 <% end %>
+
+

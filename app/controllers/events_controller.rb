@@ -2,10 +2,18 @@ class EventsController < ContentController
 
   def index
     @cloud = Tag.cloud(:limit => 20)
-    @content = model_class.paginate(
-      :conditions => ['moderation_status != ? and date >=?', "hidden", Date.today.to_s], 
-      :order => 'date ASC', 
-      :page => page_param)
+    
+    if params[:moderation_status].nil?
+      @content = model_class.paginate(
+        :conditions => ['moderation_status != ? and date >=?', 'hidden', Date.today.to_s], 
+        :order => 'date ASC', 
+        :page => page_param)
+    else
+      @content = model_class.paginate(
+        :conditions => ['moderation_status = ? and date >=?', params[:moderation_status], Date.today.to_s], 
+        :order => 'date ASC', 
+        :page => page_param)
+    end
   end
   
   def list_by_event_group

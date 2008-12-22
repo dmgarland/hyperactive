@@ -42,7 +42,8 @@
 			<li>				
 				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>			
+				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
+				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
 				</ul>
 
 			</li>
@@ -54,6 +55,7 @@
 				<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
 				<ul>
 					<%= @uk_feed unless @uk_feed.nil? %>
+					<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -67,12 +69,14 @@
 			<h2><%= I18n.t 'home.index.featured_events' %></h2>
 			<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
+				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events', :action => 'index', :moderation_status => 'featured', :page => 1 %></li>
 			</ul>
 		</li>	
 		<li id="upcomingevents">
 			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>
-			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>			
+			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>
+<li>			  <li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
 			</ul>
 		</li>					
 		<li>
@@ -95,6 +99,7 @@
 	<ul>
 		<li>
 			<%= render :partial => 'videos/featured_flash_player' %>
+			<p><%=link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'videos' %></p>
 		</li>	
 		<li>
 			<h2><%= I18n.t 'home.index.place_tags' %></h2>

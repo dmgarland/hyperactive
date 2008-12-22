@@ -1,6 +1,6 @@
 	<ul>
 		<li>
 			<h2><%= link_to(h(subfeature.title), article_path(subfeature)) %></h2>
-			<%= truncate(strip_tags(subfeature.summary), 100) %> | <small><%= link_to("more &rarr;", content_path_for(subfeature)) %></small>
+			<%= truncate(strip_tags(subfeature.summary), 100) %> | <small><%= link_to ((I18n.t('general.more')) + ' &rarr;'), content_path_for(subfeature) %></small>
 		</li>
 	</ul>

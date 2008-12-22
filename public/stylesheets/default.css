@@ -59,6 +59,7 @@ a img {
 
 img.left {
 	float: left;
+	margin-right : 10px;
 }
 
 #left

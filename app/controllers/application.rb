@@ -133,7 +133,7 @@ class ApplicationController < ActionController::Base
   #
   def security_error
     redirect_to root_path
-    flash[:error] = "You are not allowed to access this page."
+    flash[:error] = I18n.t('security.permissions_error')
   end
   
   # Grabs the controller and action names so we always have those available during the lifespan of a request.

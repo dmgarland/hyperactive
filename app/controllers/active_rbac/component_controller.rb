@@ -16,7 +16,7 @@ class ActiveRbac::ComponentController < ApplicationController
     return true if [ActiveRbac::LoginController, ActiveRbac::RegistrationController].include?(self.class)
     # protect!
     return true if current_user.has_role? 'Admin'
-    flash[:notice] = 'You have insufficient permissions!'
+    flash[:notice] = I18n.t('security.permissions_error')
     redirect_to '/login'
     return false
   end

@@ -40,7 +40,7 @@ class ActiveRbac::RegistrationController < ActiveRbac::ComponentController
         render :template => 'active_rbac/registration/confirm_success'
         return
       else
-        @user.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
+        @user.errors.add_to_base(I18n.t('security.please_type_anti_spam_message')) unless (simple_captcha_valid?)
       end
     end
 

@@ -2,6 +2,8 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+
+  # General stuff - yes, no, edit, create, etc.
   general:
     add: Add
     are_you_sure: Are you sure?
@@ -45,8 +47,12 @@ en:
     welcome: Welcome
     yes: Yes   
     your_name: Your name
+  
+  # Action alerts
   action_alerts:
     listing_action_alerts: Listing action alerts 
+  
+  # ActiveRbac - login and signup related stuff
   active_rbac:
     account:
       account_explanation: This is your private account information page. No other users can see this page.  
@@ -87,6 +93,7 @@ en:
       violates: Any user accounts who violate the  
       will_be_removed: will be removed.
 
+  # Articles
   articles:
     archives:
       title: Listing articles
@@ -114,6 +121,8 @@ en:
       all_articles: all articles
       featured_articles: featured articles
       promoted_artices: promoted articles
+  
+  # Groups stuff (groups are know as "collectives" in the code)
   collectives:
     edit: 
       editing: Editing
@@ -164,6 +173,9 @@ en:
       no_feeds_yet: No feeds yet.
       no_videos_yet: No videos yet.
       upcoming_events: Upcoming Events
+  
+  # Some general content stuff, mostly related to class names
+  # and the content creation forms for articles, events, and videos.
   content:
     class_names:
       action_alerts: Action alerts
@@ -190,11 +202,16 @@ en:
       required_field: required field
       upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
       your_name: Your name
+  
+  # The content hide mailer, which sends messages to an email address when things
+  # on the site are hidden, unhidden, or reported by users.
   content_hide_mailer:
       has_been_hidden_by_user: has been hidden by the user
       has_been_unhidden_by_user: has been unhidden by the user
       has_been_reported_by_user: has been reported by the user
       reasons: The following reasons were given
+  
+  # Events
   events:
     sidebar:
       feedbox:
@@ -283,6 +300,7 @@ en:
       file: File* - allowed file types are "mov", "mpg", "mpeg", "mp4", "avi", "wmv"
       description: Description
 
+  # External feeds, which can be imported into the site (for example on a group page)
   external_feeds:
     edit:
       title: Editing feed
@@ -293,6 +311,7 @@ en:
     new:
       title: New feed
 
+  # Hiding-related stuff, including controls for hiding, unhiding, and reporting content on the site.
   hidden:
     common:
       hide: Hide
@@ -318,6 +337,7 @@ en:
       title: What's the trouble?
       report: Report
 
+  # Feeds
   feeds:
     index:
       action_alerts_explanation: a list of very short, infrequent updates of important happenings in the city.
@@ -335,6 +355,7 @@ en:
       latest_videos_explanation: This will allow you to download Miro, which takes care of feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features {{miro_site}}. Once you've installed Miro, you can subscribe to our {{video_feed}} to automatically receive all of our latest videos.
       video_feed: video feed
 
+  # The home page for the site
   home:
     index:
       promoted_newswire: Promoted Newswire
@@ -347,8 +368,12 @@ en:
       tags: Tags
       info: Info
       network: Indymedia UK Network
+  
+  # Javascript-related messages
   javascript:
     no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
+  
+  # The site's layouts, including the navigation, header, and footer.
   layouts: 
     categories: Categories
     events: Events
@@ -367,12 +392,21 @@ en:
     users: Users
     videos: Videos
     
+  # The search box and search results
   search:
     find_content: 
       please_enter_search_terms: Please enter some search terms.
       results_for: Search results for
     past_events_explanation: There are events for this tag, but they're in the past.  
     no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
+  
+  # Security messages
+  security:
+    permissions_error: You are not allowed to access this page.
+    please_type_anti_spam_message: You need to type the text from the image into the box so we know you're not a spambot.
+  
+  # Views which are shared across many parts of the site and don't belong in 
+  # just one spot.
   shared:
     account_box: 
       title: Your account
@@ -424,8 +458,12 @@ en:
         multiple_photos: (click again for multiple photo uploads)
         multiple_videos: (click again for multiple video uploads)
       tag_instructions: Tags - separate with spaces
+  
+  # The events timeline.
   timeline:
     explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
+  
+  # Videos
   videos:
     sidebar: 
       previous: 

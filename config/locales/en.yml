@@ -370,7 +370,106 @@ en:
         leave_comment: Leave a comment
         tech_error: Something has gone wrong.  This comment should have a moderation_status of either "hidden" or "published".
         unhide_this_comment: Unhide this comment?
+  timeline:
+    explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
+
   videos:
     sidebar: 
       previous: 
         title: Previous videos
+      containing_content:
+        related_title: "Related {{post_title}}"
+        explanation: "This video was originally uploaded as part of the following {{post_title}}"
+      feedbox:
+        title: Video feed
+        feed_link: video feed
+        miro_link: at the Miro site
+        explanation: "  <a href='http://subscribe.getMiro.com/?url1={{video_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
+			<p>
+			This will allow you to download Miro, which takes care of
+			feed-reading, Bittorrent and video-playing software in one easy to use package.  
+                        You can find out more about its features 
+			{{miro_path}}. Once you have installed Miro, you can subscribe 
+			to our {{feed_path}} to automatically receive all of our latest videos, 
+                        or click the 'download torrent'
+			link underneath the video above to download only the video file you want.</p>"
+    archives:
+      title: Listing videos
+    editing_video:
+      title: Editing video
+      save: Save changes
+      delete_video: Delete this video
+      sure_delete: Are you sure?
+    feature_flash:
+      title: Featured Videos
+    form:
+      title: Title
+      your_name: Your name
+      contact_email: Contact email address for video
+      file: File* - allowed file types are {{file_types}}
+      description: Description
+    help:
+      video_feed: video feed
+      text: "<h2>Video download help</h2>
+	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can 
+	download it for screenings.  However, we do not currently have the capacity to serve these big files 
+	ourselves.  Instead, we offer a download via Bittorrent, a peer-to-peer filesharing sytem.</p> 
+	<p>In order to download the full-quality video, you will need to have some software installed on your computer.
+	Basically you have two choices:
+	<ul>
+		<li>Bittorrent + VLC</li>
+		<li>Miro</li>
+	</ul>
+	</p>
+	
+	<h2>Bittorrent + VLC</h2>
+        <a href='http://www.bittorrent.com/download'>Bittorrent software</a> shares 
+	the file you are downloading with other people as you download it.  If you want to help us distribute 
+	video files, please leave your Bittorrent client open after your download finishes and you'll be donating
+	your bandwidth and making everyone's downloads faster.</p>
+	
+	<p>All of the full-quality video has been converted into a free format called Ogg Theora.  The easiest way 
+	to watch them is to use the excellent <a href='http://www.videolan.org/vlc/'>VLC</a> video player which
+	you can <a href='http://www.videolan.org/vlc/'>download here</a>. Alternatively, you may download the
+        <a href='http://xiph.org/quicktime/'>Ogg plugin for Quicktime</a>, or
+        <a href='http://www.illiminable.com/ogg/'>Ogg plugin for Windows Media Player</a>. </p>
+	
+	<h2>Miro</h2>
+	<p>Another easy way to see the full-quality video on our site is to press this button:
+	<p>
+		<a href='http://subscribe.getMiro.com/?url1={{feed_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
+	</p>	
+	This will allow you to download Miro, which takes care of
+	feed-reading, Bittorrent and video-playing software in one easy to use package.  
+        You can find out more about its features
+        <a href='http://www.getmiro.com/features/'>at the Miro site</a>.
+        Once you've installed Miro, you can subscribe 
+	to our {{video_path}} to automatically 
+        receive all of our latest videos, or click the 'download torrent'
+	link underneath the video above to download only the video file you want.</p>
+
+	<h2>Security note</h2>
+	<p>{{exclamation_img}} If you are incredibly paranoid about other 
+	people knowing that you are downloading a video, please note that your computer's IP address will be visible
+	to the people who you are sharing the video with.  In this case, don't use Bittorrent or Miro.</p>"
+    index:
+      title: Listing videos
+      more_videos: More videos
+    list_promoted:
+      title: Listing featured videos
+    new:
+      title: New Video
+      create: Create
+      click_once: Please only click once, and be patient, video uploading can take a while.
+    show:
+      comments: Comments
+    video: 
+      published: Published
+      no_flash: "<p>This item requires Macromedia Flash Player 7.</p>
+        <p>To get the latest version please <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>click here</a>.</p>"
+      tagged: Tagged as
+      place: Places
+      contact_email: Contact email
+      download_original: download original
+      download_torrent: download torrent
+      still_converted: This video is still being converted, or else there has been some kind of error.

@@ -115,6 +115,10 @@ class ContentController < ApplicationController
       @date = @content.date.strftime("%Y-%m-%d")
     end
     @comment = Comment.new
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @content }
+    end
     # @related_tags = Event.find_related_tags(@event.tag_names.to_s, :separator => ',')
   end  
 

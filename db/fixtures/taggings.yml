@@ -1,0 +1,652 @@
+--- 
+taggings_074: 
+  tag_id: "13"
+  id: "105"
+  hide_tag: "0"
+  taggable_id: "45"
+  taggable_type: Content
+  event_date: 
+taggings_011: 
+  tag_id: "13"
+  id: "19"
+  hide_tag: "0"
+  taggable_id: "5"
+  taggable_type: Content
+  event_date: 
+taggings_032: 
+  tag_id: "13"
+  id: "63"
+  hide_tag: "0"
+  taggable_id: "24"
+  taggable_type: Content
+  event_date: 
+taggings_053: 
+  tag_id: "17"
+  id: "84"
+  hide_tag: "0"
+  taggable_id: "35"
+  taggable_type: Content
+  event_date: 
+taggings_075: 
+  tag_id: "17"
+  id: "106"
+  hide_tag: "0"
+  taggable_id: "46"
+  taggable_type: Content
+  event_date: 
+taggings_012: 
+  tag_id: "6"
+  id: "20"
+  hide_tag: "0"
+  taggable_id: "5"
+  taggable_type: Content
+  event_date: 
+taggings_033: 
+  tag_id: "17"
+  id: "64"
+  hide_tag: "0"
+  taggable_id: "25"
+  taggable_type: Content
+  event_date: 
+taggings_054: 
+  tag_id: "13"
+  id: "85"
+  hide_tag: "0"
+  taggable_id: "35"
+  taggable_type: Content
+  event_date: 
+taggings_076: 
+  tag_id: "13"
+  id: "107"
+  hide_tag: "0"
+  taggable_id: "46"
+  taggable_type: Content
+  event_date: 
+taggings_013: 
+  tag_id: "11"
+  id: "21"
+  hide_tag: "0"
+  taggable_id: "5"
+  taggable_type: Content
+  event_date: 
+taggings_034: 
+  tag_id: "13"
+  id: "65"
+  hide_tag: "0"
+  taggable_id: "25"
+  taggable_type: Content
+  event_date: 
+taggings_055: 
+  tag_id: "17"
+  id: "86"
+  hide_tag: "0"
+  taggable_id: "36"
+  taggable_type: Content
+  event_date: 
+taggings_077: 
+  tag_id: "17"
+  id: "108"
+  hide_tag: "0"
+  taggable_id: "47"
+  taggable_type: Content
+  event_date: 
+taggings_035: 
+  tag_id: "17"
+  id: "66"
+  hide_tag: "0"
+  taggable_id: "26"
+  taggable_type: Content
+  event_date: 
+taggings_056: 
+  tag_id: "13"
+  id: "87"
+  hide_tag: "0"
+  taggable_id: "36"
+  taggable_type: Content
+  event_date: 
+taggings_014: 
+  tag_id: "14"
+  id: "22"
+  hide_tag: "0"
+  taggable_id: "6"
+  taggable_type: Content
+  event_date: 
+taggings_078: 
+  tag_id: "13"
+  id: "109"
+  hide_tag: "0"
+  taggable_id: "47"
+  taggable_type: Content
+  event_date: 
+taggings_057: 
+  tag_id: "17"
+  id: "88"
+  hide_tag: "0"
+  taggable_id: "37"
+  taggable_type: Content
+  event_date: 
+taggings_015: 
+  tag_id: "15"
+  id: "23"
+  hide_tag: "0"
+  taggable_id: "6"
+  taggable_type: Content
+  event_date: 
+taggings_036: 
+  tag_id: "13"
+  id: "67"
+  hide_tag: "0"
+  taggable_id: "26"
+  taggable_type: Content
+  event_date: 
+taggings_080: 
+  tag_id: "13"
+  id: "111"
+  hide_tag: "0"
+  taggable_id: "17"
+  taggable_type: Content
+  event_date: 2009-04-23 20:00:00
+taggings_079: 
+  tag_id: "17"
+  id: "110"
+  hide_tag: "0"
+  taggable_id: "17"
+  taggable_type: Content
+  event_date: 2009-04-23 20:00:00
+taggings_016: 
+  tag_id: "16"
+  id: "24"
+  hide_tag: "0"
+  taggable_id: "6"
+  taggable_type: Content
+  event_date: 
+taggings_037: 
+  tag_id: "17"
+  id: "68"
+  hide_tag: "0"
+  taggable_id: "27"
+  taggable_type: Content
+  event_date: 
+taggings_058: 
+  tag_id: "13"
+  id: "89"
+  hide_tag: "0"
+  taggable_id: "37"
+  taggable_type: Content
+  event_date: 
+taggings_081: 
+  tag_id: "17"
+  id: "112"
+  hide_tag: "0"
+  taggable_id: "18"
+  taggable_type: Content
+  event_date: 2009-04-26 20:00:00
+taggings_017: 
+  tag_id: "19"
+  id: "34"
+  hide_tag: "0"
+  taggable_id: "13"
+  taggable_type: Content
+  event_date: 
+taggings_038: 
+  tag_id: "13"
+  id: "69"
+  hide_tag: "0"
+  taggable_id: "27"
+  taggable_type: Content
+  event_date: 
+taggings_060: 
+  tag_id: "13"
+  id: "91"
+  hide_tag: "0"
+  taggable_id: "38"
+  taggable_type: Content
+  event_date: 
+taggings_059: 
+  tag_id: "17"
+  id: "90"
+  hide_tag: "0"
+  taggable_id: "38"
+  taggable_type: Content
+  event_date: 
+taggings_082: 
+  tag_id: "13"
+  id: "113"
+  hide_tag: "0"
+  taggable_id: "18"
+  taggable_type: Content
+  event_date: 2009-04-26 20:00:00
+taggings_018: 
+  tag_id: "13"
+  id: "35"
+  hide_tag: "0"
+  taggable_id: "14"
+  taggable_type: Content
+  event_date: 
+taggings_040: 
+  tag_id: "13"
+  id: "71"
+  hide_tag: "0"
+  taggable_id: "28"
+  taggable_type: Content
+  event_date: 
+taggings_039: 
+  tag_id: "17"
+  id: "70"
+  hide_tag: "0"
+  taggable_id: "28"
+  taggable_type: Content
+  event_date: 
+taggings_061: 
+  tag_id: "17"
+  id: "92"
+  hide_tag: "0"
+  taggable_id: "39"
+  taggable_type: Content
+  event_date: 
+taggings_083: 
+  tag_id: "17"
+  id: "114"
+  hide_tag: "0"
+  taggable_id: "19"
+  taggable_type: Content
+  event_date: 2009-04-29 20:00:00
+taggings_020: 
+  tag_id: "20"
+  id: "37"
+  hide_tag: "0"
+  taggable_id: "15"
+  taggable_type: Content
+  event_date: 
+taggings_019: 
+  tag_id: "17"
+  id: "36"
+  hide_tag: "0"
+  taggable_id: "14"
+  taggable_type: Content
+  event_date: 
+taggings_041: 
+  tag_id: "17"
+  id: "72"
+  hide_tag: "0"
+  taggable_id: "29"
+  taggable_type: Content
+  event_date: 
+taggings_062: 
+  tag_id: "13"
+  id: "93"
+  hide_tag: "0"
+  taggable_id: "39"
+  taggable_type: Content
+  event_date: 
+taggings_084: 
+  tag_id: "13"
+  id: "115"
+  hide_tag: "0"
+  taggable_id: "19"
+  taggable_type: Content
+  event_date: 2009-04-29 20:00:00
+taggings_021: 
+  tag_id: "21"
+  id: "38"
+  hide_tag: "0"
+  taggable_id: "15"
+  taggable_type: Content
+  event_date: 
+taggings_042: 
+  tag_id: "13"
+  id: "73"
+  hide_tag: "0"
+  taggable_id: "29"
+  taggable_type: Content
+  event_date: 
+taggings_063: 
+  tag_id: "17"
+  id: "94"
+  hide_tag: "0"
+  taggable_id: "40"
+  taggable_type: Content
+  event_date: 
+taggings_085: 
+  tag_id: "17"
+  id: "116"
+  hide_tag: "0"
+  taggable_id: "20"
+  taggable_type: Content
+  event_date: 2009-05-02 20:00:00
+taggings_001: 
+  tag_id: "6"
+  id: "6"
+  hide_tag: "0"
+  taggable_id: "1"
+  taggable_type: Content
+  event_date: 
+taggings_022: 
+  tag_id: "13"
+  id: "43"
+  hide_tag: "0"
+  taggable_id: "12"
+  taggable_type: Content
+  event_date: 
+taggings_043: 
+  tag_id: "17"
+  id: "74"
+  hide_tag: "0"
+  taggable_id: "30"
+  taggable_type: Content
+  event_date: 
+taggings_064: 
+  tag_id: "13"
+  id: "95"
+  hide_tag: "0"
+  taggable_id: "40"
+  taggable_type: Content
+  event_date: 
+taggings_086: 
+  tag_id: "13"
+  id: "117"
+  hide_tag: "0"
+  taggable_id: "20"
+  taggable_type: Content
+  event_date: 2009-05-02 20:00:00
+taggings_002: 
+  tag_id: "7"
+  id: "7"
+  hide_tag: "0"
+  taggable_id: "1"
+  taggable_type: Content
+  event_date: 
+taggings_023: 
+  tag_id: "18"
+  id: "44"
+  hide_tag: "0"
+  taggable_id: "12"
+  taggable_type: Content
+  event_date: 
+taggings_044: 
+  tag_id: "13"
+  id: "75"
+  hide_tag: "0"
+  taggable_id: "30"
+  taggable_type: Content
+  event_date: 
+taggings_065: 
+  tag_id: "17"
+  id: "96"
+  hide_tag: "0"
+  taggable_id: "41"
+  taggable_type: Content
+  event_date: 
+taggings_087: 
+  tag_id: "17"
+  id: "118"
+  hide_tag: "0"
+  taggable_id: "21"
+  taggable_type: Content
+  event_date: 2009-05-05 20:00:00
+taggings_024: 
+  tag_id: "22"
+  id: "45"
+  hide_tag: "0"
+  taggable_id: "16"
+  taggable_type: Content
+  event_date: 
+taggings_045: 
+  tag_id: "17"
+  id: "76"
+  hide_tag: "0"
+  taggable_id: "31"
+  taggable_type: Content
+  event_date: 
+taggings_066: 
+  tag_id: "13"
+  id: "97"
+  hide_tag: "0"
+  taggable_id: "41"
+  taggable_type: Content
+  event_date: 
+taggings_003: 
+  tag_id: "8"
+  id: "8"
+  hide_tag: "0"
+  taggable_id: "1"
+  taggable_type: Content
+  event_date: 
+taggings_088: 
+  tag_id: "13"
+  id: "119"
+  hide_tag: "0"
+  taggable_id: "21"
+  taggable_type: Content
+  event_date: 2009-05-05 20:00:00
+taggings_067: 
+  tag_id: "17"
+  id: "98"
+  hide_tag: "0"
+  taggable_id: "42"
+  taggable_type: Content
+  event_date: 
+taggings_046: 
+  tag_id: "13"
+  id: "77"
+  hide_tag: "0"
+  taggable_id: "31"
+  taggable_type: Content
+  event_date: 
+taggings_004: 
+  tag_id: "9"
+  id: "9"
+  hide_tag: "0"
+  taggable_id: "1"
+  taggable_type: Content
+  event_date: 
+taggings_025: 
+  tag_id: "13"
+  id: "46"
+  hide_tag: "0"
+  taggable_id: "11"
+  taggable_type: Content
+  event_date: 
+taggings_090: 
+  tag_id: "13"
+  id: "121"
+  hide_tag: "0"
+  taggable_id: "8"
+  taggable_type: Content
+  event_date: 
+taggings_089: 
+  tag_id: "17"
+  id: "120"
+  hide_tag: "0"
+  taggable_id: "8"
+  taggable_type: Content
+  event_date: 
+taggings_068: 
+  tag_id: "13"
+  id: "99"
+  hide_tag: "0"
+  taggable_id: "42"
+  taggable_type: Content
+  event_date: 
+taggings_005: 
+  tag_id: "10"
+  id: "10"
+  hide_tag: "0"
+  taggable_id: "1"
+  taggable_type: Content
+  event_date: 
+taggings_026: 
+  tag_id: "18"
+  id: "47"
+  hide_tag: "0"
+  taggable_id: "11"
+  taggable_type: Content
+  event_date: 
+taggings_047: 
+  tag_id: "17"
+  id: "78"
+  hide_tag: "0"
+  taggable_id: "32"
+  taggable_type: Content
+  event_date: 
+taggings_091: 
+  tag_id: "11"
+  id: "122"
+  hide_tag: "0"
+  taggable_id: "8"
+  taggable_type: Content
+  event_date: 
+taggings_070: 
+  tag_id: "13"
+  id: "101"
+  hide_tag: "0"
+  taggable_id: "43"
+  taggable_type: Content
+  event_date: 
+taggings_069: 
+  tag_id: "17"
+  id: "100"
+  hide_tag: "0"
+  taggable_id: "43"
+  taggable_type: Content
+  event_date: 
+taggings_006: 
+  tag_id: "11"
+  id: "11"
+  hide_tag: "0"
+  taggable_id: "2"
+  taggable_type: Content
+  event_date: 
+taggings_027: 
+  tag_id: "17"
+  id: "58"
+  hide_tag: "0"
+  taggable_id: "22"
+  taggable_type: Content
+  event_date: 
+taggings_048: 
+  tag_id: "13"
+  id: "79"
+  hide_tag: "0"
+  taggable_id: "32"
+  taggable_type: Content
+  event_date: 
+taggings_092: 
+  tag_id: "17"
+  id: "123"
+  hide_tag: "0"
+  taggable_id: "7"
+  taggable_type: Content
+  event_date: 
+taggings_071: 
+  tag_id: "17"
+  id: "102"
+  hide_tag: "0"
+  taggable_id: "44"
+  taggable_type: Content
+  event_date: 
+taggings_007: 
+  tag_id: "6"
+  id: "12"
+  hide_tag: "0"
+  taggable_id: "2"
+  taggable_type: Content
+  event_date: 
+taggings_028: 
+  tag_id: "13"
+  id: "59"
+  hide_tag: "0"
+  taggable_id: "22"
+  taggable_type: Content
+  event_date: 
+taggings_050: 
+  tag_id: "13"
+  id: "81"
+  hide_tag: "0"
+  taggable_id: "33"
+  taggable_type: Content
+  event_date: 
+taggings_049: 
+  tag_id: "17"
+  id: "80"
+  hide_tag: "0"
+  taggable_id: "33"
+  taggable_type: Content
+  event_date: 
+taggings_093: 
+  tag_id: "13"
+  id: "124"
+  hide_tag: "0"
+  taggable_id: "7"
+  taggable_type: Content
+  event_date: 
+taggings_072: 
+  tag_id: "13"
+  id: "103"
+  hide_tag: "0"
+  taggable_id: "44"
+  taggable_type: Content
+  event_date: 
+taggings_008: 
+  tag_id: "7"
+  id: "13"
+  hide_tag: "0"
+  taggable_id: "2"
+  taggable_type: Content
+  event_date: 
+taggings_030: 
+  tag_id: "13"
+  id: "61"
+  hide_tag: "0"
+  taggable_id: "23"
+  taggable_type: Content
+  event_date: 
+taggings_029: 
+  tag_id: "17"
+  id: "60"
+  hide_tag: "0"
+  taggable_id: "23"
+  taggable_type: Content
+  event_date: 
+taggings_051: 
+  tag_id: "17"
+  id: "82"
+  hide_tag: "0"
+  taggable_id: "34"
+  taggable_type: Content
+  event_date: 
+taggings_073: 
+  tag_id: "17"
+  id: "104"
+  hide_tag: "0"
+  taggable_id: "45"
+  taggable_type: Content
+  event_date: 
+taggings_010: 
+  tag_id: "6"
+  id: "15"
+  hide_tag: "0"
+  taggable_id: "3"
+  taggable_type: Content
+  event_date: 
+taggings_009: 
+  tag_id: "11"
+  id: "14"
+  hide_tag: "0"
+  taggable_id: "3"
+  taggable_type: Content
+  event_date: 
+taggings_031: 
+  tag_id: "17"
+  id: "62"
+  hide_tag: "0"
+  taggable_id: "24"
+  taggable_type: Content
+  event_date: 
+taggings_052: 
+  tag_id: "13"
+  id: "83"
+  hide_tag: "0"
+  taggable_id: "34"
+  taggable_type: Content
+  event_date: 

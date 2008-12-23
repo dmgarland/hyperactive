@@ -1,0 +1,13 @@
+--- 
+users_001: 
+  created_at: 2008-12-23 19:29:05
+  password_hash_type: md5
+  updated_at: 2008-12-23 19:29:05
+  last_logged_in_at: 2008-12-23 19:29:05
+  id: "1"
+  password_salt: fTqYV5yJoM
+  password: e98a755e758ee8ef46cc885874e922d7
+  login: admin
+  state: "2"
+  email: foo@bar.org
+  login_failure_count: "0"

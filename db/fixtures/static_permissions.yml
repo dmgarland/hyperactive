@@ -1,0 +1,51 @@
+--- 
+static_permissions_005: 
+  created_at: 2008-12-23 19:29:05
+  title: see_admin_nav
+  updated_at: 2008-12-23 19:29:05
+  id: "5"
+static_permissions_006: 
+  created_at: 2008-12-23 19:29:05
+  title: destroy
+  updated_at: 2008-12-23 19:29:05
+  id: "6"
+static_permissions_007: 
+  created_at: 2008-12-23 19:29:05
+  title: hide_own_content
+  updated_at: 2008-12-23 19:29:05
+  id: "7"
+static_permissions_008: 
+  created_at: 2008-12-23 19:29:05
+  title: promote_content
+  updated_at: 2008-12-23 19:29:05
+  id: "8"
+static_permissions_009: 
+  created_at: 2008-12-23 19:29:05
+  title: feature_content
+  updated_at: 2008-12-23 19:29:05
+  id: "9"
+static_permissions_010: 
+  created_at: 2008-12-23 19:29:05
+  title: edit_all_groups
+  updated_at: 2008-12-23 19:29:05
+  id: "10"
+static_permissions_001: 
+  created_at: 2008-12-23 19:29:05
+  title: translate_ui
+  updated_at: 2008-12-23 19:29:05
+  id: "1"
+static_permissions_002: 
+  created_at: 2008-12-23 19:29:05
+  title: hide
+  updated_at: 2008-12-23 19:29:05
+  id: "2"
+static_permissions_003: 
+  created_at: 2008-12-23 19:29:05
+  title: edit_own_content
+  updated_at: 2008-12-23 19:29:05
+  id: "3"
+static_permissions_004: 
+  created_at: 2008-12-23 19:29:05
+  title: edit_all_content
+  updated_at: 2008-12-23 19:29:05
+  id: "4"

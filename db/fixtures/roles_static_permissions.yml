@@ -1,0 +1,53 @@
+--- 
+roles_static_permissions_003: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "2"
+  role_id: "4"
+roles_static_permissions_004: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "3"
+  role_id: "3"
+roles_static_permissions_005: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "4"
+  role_id: "1"
+roles_static_permissions_006: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "5"
+  role_id: "1"
+roles_static_permissions_007: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "6"
+  role_id: "1"
+roles_static_permissions_008: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "7"
+  role_id: "1"
+roles_static_permissions_009: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "7"
+  role_id: "3"
+roles_static_permissions_010: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "7"
+  role_id: "4"
+roles_static_permissions_011: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "8"
+  role_id: "1"
+roles_static_permissions_012: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "9"
+  role_id: "1"
+roles_static_permissions_001: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "1"
+  role_id: "2"
+roles_static_permissions_013: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "10"
+  role_id: "1"
+roles_static_permissions_002: 
+  created_at: 2008-12-23 19:29:05
+  static_permission_id: "2"
+  role_id: "1"

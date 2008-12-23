@@ -1,0 +1,13 @@
+--- 
+snippets_001: 
+  created_on: 2008-12-23 21:08:06
+  body: |-
+    <p>Hey, thanks for installing Hyperactive, the news and reporting system.&nbsp; Note that you can log into the admin system as <strong>user</strong>: <em>admin</em>, <strong>password</strong>: <em>password.&nbsp; </em>After logging in as an admin user, you can always get into the admin system from the link which shows up on your account page.</p>
+    <ul>
+    </ul>
+  title: Welcome to Hyperactive
+  url: ""
+  updated_on: 2008-12-23 21:10:05
+  id: "1"
+  image: 
+  key: homepage

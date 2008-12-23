@@ -1,0 +1,8 @@
+--- 
+pages_001: 
+  show_on_front: "1"
+  created_on: 2008-12-23 19:29:05
+  body: <p>This is a default publish page.</p><p>You can:</p><ul><li><a href='/articles/new'>Publish an article</a></li><li><a href='/events/new'>Publish an event</a></li><li><a href='/videos/new'>Publish a video</a></li><li><a href='/groups/new'>Start a group</a></li></ul>
+  title: Publish Page
+  updated_on: 2008-12-23 19:29:05
+  id: "1"

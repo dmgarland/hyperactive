@@ -1,0 +1,37 @@
+--- 
+schema_migrations_011: 
+  version: "20081217173129"
+schema_migrations_012: 
+  version: "20081218171856"
+schema_migrations_001: 
+  version: "1"
+schema_migrations_013: 
+  version: "20081218222734"
+schema_migrations_002: 
+  version: "10"
+schema_migrations_014: 
+  version: "20081219232920"
+schema_migrations_003: 
+  version: "2"
+schema_migrations_015: 
+  version: "20081220004942"
+schema_migrations_004: 
+  version: "20081015204841"
+schema_migrations_016: 
+  version: "3"
+schema_migrations_005: 
+  version: "20081026102415"
+schema_migrations_017: 
+  version: "4"
+schema_migrations_006: 
+  version: "20081129195437"
+schema_migrations_018: 
+  version: "5"
+schema_migrations_007: 
+  version: "20081129202116"
+schema_migrations_008: 
+  version: "20081129224432"
+schema_migrations_009: 
+  version: "20081204215330"
+schema_migrations_010: 
+  version: "20081217124551"

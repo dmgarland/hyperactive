@@ -1,0 +1,34 @@
+--- 
+place_tags_009: 
+  name: paris
+  id: "13"
+place_tags_010: 
+  name: piraeus
+  id: "11"
+place_tags_011: 
+  name: stockwell
+  id: "6"
+place_tags_001: 
+  name: athens
+  id: "10"
+place_tags_002: 
+  name: bloomsbury
+  id: "8"
+place_tags_003: 
+  name: brixton
+  id: "3"
+place_tags_004: 
+  name: buckingham_palace
+  id: "12"
+place_tags_005: 
+  name: camberwell
+  id: "5"
+place_tags_006: 
+  name: lambeth
+  id: "4"
+place_tags_007: 
+  name: london
+  id: "9"
+place_tags_008: 
+  name: new_york
+  id: "7"

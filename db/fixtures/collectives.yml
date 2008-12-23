@@ -1,0 +1,43 @@
+--- 
+collectives_001: 
+  name: Snuffleupagus fan club
+  created_on: 2008-12-23 20:39:12
+  moderation_status: featured
+  updated_on: 2008-12-23 20:39:12
+  id: "1"
+  summary: <p>Duis est pede, vulputate id, malesuada eu, aliquam eget, metus. Phasellus felis turpis, fringilla mollis, ultricies vel, sollicitudin eu, sapien? Aenean sodales luctus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin feugiat odio. Integer nulla. Nullam sed massa nec pede sagittis porta. Aenean porttitor ultrices dui. Vestibulum non ligula. Nulla fermentum. Nullam cursus dolor quis risus.</p>
+  image: 
+collectives_002: 
+  name: Indymedia London
+  created_on: 2008-12-23 20:41:00
+  moderation_status: promoted
+  updated_on: 2008-12-23 20:41:00
+  id: "2"
+  summary: <p>Sed orci. Proin ligula ipsum, pretium a, porttitor eu, venenatis et, sem! Nunc eu urna quis eros tempus luctus! Nunc pulvinar commodo urna. Sed vel dui mattis tortor viverra porttitor. Ut quam ipsum, rhoncus id, fringilla vel, porta vel, metus. Fusce enim est, laoreet vitae, venenatis sit amet, consectetur sed, dui. Cras interdum consectetur est. In dapibus, nisi feugiat pellentesque fermentum, urna arcu ornare ante, tristique imperdiet orci orci eu nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla consequat fringilla diam. Nulla viverra enim nec magna?</p>
+  image: 
+collectives_003: 
+  name: Floobah Group
+  created_on: 2008-12-23 20:41:54
+  moderation_status: promoted
+  updated_on: 2008-12-23 20:41:54
+  id: "3"
+  summary: <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque consequat fringilla massa. In hac habitasse platea dictumst. Duis lacinia ullamcorper ipsum! Vivamus pulvinar, nisi in tincidunt rhoncus, erat leo rutrum mauris, sit amet ultrices justo massa sit amet elit. Integer mattis turpis non erat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin viverra ligula sed neque.</p>
+  image: 
+collectives_004: 
+  name: Sed ut augue. Maecenas nullam.
+  created_on: 2008-12-23 20:43:17
+  moderation_status: promoted
+  updated_on: 2008-12-23 20:43:17
+  id: "4"
+  summary: <p>Proin pharetra quam vitae elit? Nullam imperdiet! Vivamus tellus. Aenean tristique; dui sed dapibus semper, tortor velit tristique urna, vel varius nibh urna in ante. Praesent gravida volutpat metus. Nulla facilisi. Mauris pede. Aenean faucibus justo in nibh. Etiam luctus scelerisque dui. Integer diam nulla, vehicula vel, mattis ut, pellentesque pharetra, dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur gravida turpis sed arcu. Pellentesque pretium, tellus eget mollis imperdiet, tellus enim lacinia neque, eget faucibus lacus dui nec neque! Phasellus consectetur porta ipsum. Donec sit amet eros et lectus tristique gravida. Vivamus vel nibh. Vestibulum facilisis ipsum et eros! Nam quam.</p>
+  image: 
+collectives_005: 
+  name: Nulla venenatis vehicula amet.
+  created_on: 2008-12-23 20:44:09
+  moderation_status: promoted
+  updated_on: 2008-12-23 20:44:09
+  id: "5"
+  summary: |-
+    <p>Proin commodo. In vulputate nunc et magna. Nulla ultrices, magna eu aliquet commodo, turpis ligula facilisis lectus, mollis ultricies metus justo nec dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus malesuada pulvinar dui. Suspendisse potenti. Donec fringilla scelerisque erat. Maecenas ullamcorper ultrices felis. Nullam lobortis, dui eu sodales laoreet; ligula orci ullamcorper arcu; in tempor orci sapien eu mauris. Maecenas mollis consectetur nunc. Nam dignissim. Aliquam ullamcorper vulputate dolor? Donec accumsan tellus dapibus nisl. Sed eget nisi vel elit suscipit laoreet. Etiam a libero eget nisl ullamcorper egestas. Mauris eget velit faucibus mi consectetur convallis? Integer malesuada faucibus nunc. Ut eu urna eget nibh malesuada placerat. Aenean nisl tellus, gravida at, interdum quis, eleifend eu; erat. Maecenas et urna.</p>
+    <p>&nbsp;</p>
+  image: 

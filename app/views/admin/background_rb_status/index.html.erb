@@ -9,9 +9,12 @@
 	<li>RSS feed retrieval</li>
 </ul>
 <p>If the job scheduler dies, all of these processes will fail.  This page allows you to
-check whether the scheduler is running, and stop/start/restart it when necessary.</p>
+check whether the scheduler is running, and stop/start it when necessary.</p>
 
 <p>In general you shouldn't mess with this unless it's absolutely necessary.</p>
+
+<%= button_to_remote 'Stop', :url => {:action => 'stop'} %>
+<%= button_to_remote 'Start', :url => {:action => 'start'} %>
 
 <p>The job scheduler status is:</p>
 
@@ -22,7 +25,3 @@ check whether the scheduler is running, and stop/start/restart it when necessary
 		:frequency => 5,
 		:before => "Element.show('checking-status')",
 		:complete => "Element.hide('checking-status')") %>
-
-<%= button_to_remote 'Restart', :url => {:action => 'restart'} %>
-<%= button_to_remote 'Stop', :url => {:action => 'stop'} %>
-<%= button_to_remote 'Start', :url => {:action => 'start'} %>

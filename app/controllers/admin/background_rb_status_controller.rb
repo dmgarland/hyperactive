@@ -6,10 +6,6 @@ class Admin::BackgroundRbStatusController < ApplicationController
   def index
   end
 
-  def restart
-   `cd #{RAILS_ROOT} && RAILS_ENV=#{RAILS_ENV} #{RAKE_PATH} backgroundrb:restart`    
-  end
-
   def stop
    `cd #{RAILS_ROOT} && RAILS_ENV=#{RAILS_ENV} #{RAKE_PATH} backgroundrb:stop` 
   end

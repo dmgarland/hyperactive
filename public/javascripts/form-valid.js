@@ -55,7 +55,8 @@ function handle_submit(evt){
 
    // Find the captcha field
    var cap_input = Form.getInputs(Event.element(evt), 'text','captcha');
-   if (cap_input){
+   if (cap_input.length > 0){
+      alert(cap_input);
       ce = ce.concat( cap_input[0] );
    }
 

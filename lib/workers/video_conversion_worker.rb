@@ -27,14 +27,12 @@ class VideoConversionWorker < BackgrounDRb::Rails
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 180x136 #{@video_file}.small.jpg`
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 320x240 #{@video_file}.jpg`
     `nice -n +19 ffmpeg -i #{@video_file} -ab 64 -ar 22050 -b 500000 -r 25 -s 320x240 #{@video_file}.flv`
-    `nice -n +19 ffmpeg2theora #{@video_file}`
-    ogg_file = @video_file.chomp(File.extname(@video_file)) + ".ogg"
+    `nice -n +19 ffmpeg2theora #{@video_file} -o #{@video_file}.ogg`
+    ogg_file = @video_file + ".ogg"
     `btmakemetafile.bittornado #{@torrent_tracker} #{ogg_file}`
-    
-    torrent = @video_file.chomp(File.extname(@video_file)) + ".ogg.torrent"
-    torrent_worker = MiddleMan.get_worker(1)
+    torrent = ogg_file + ".torrent"
+    torrent_worker = MiddleMan[:torrents]
     torrent_worker.add_torrent(torrent)
-    
     unless RAILS_ENV == 'test'
       video_record.processing_status = 2 #SUCCESS #ProcessingStatuses[:success]
       video_record.media_size = File.size?(@video_file)

@@ -1,3 +1,5 @@
+require 'ftools'
+
 namespace :hyperactive do
   desc "Load seed fixtures (from db/fixtures) into the current environment's database." 
   task :seed => :environment do
@@ -5,6 +7,24 @@ namespace :hyperactive do
     Dir.glob(RAILS_ROOT + '/db/fixtures/*.yml').each do |file|
       Fixtures.create_fixtures('db/fixtures', File.basename(file, '.*'))
     end
+    Rake::Task["backgroundrb:start"].execute
+    Rake::Task["hyperactive:copy_video_file_into_place"].execute
+    Rake::Task["hyperactive:convert_video"].execute
+  end
+  
+  desc 'Copy the video file from the fixtures into the proper directoy path 
+  for the video object in the database.'
+  task :copy_video_file_into_place => :environment do
+    video_path = RAILS_ROOT + "/public/system/video/2008/12/23/6"
+    File.makedirs(video_path)
+    src = RAILS_ROOT + "/test/fixtures/fight_test.wmv"
+    File.copy(src, video_path)
+  end
+  
+  desc 'Convert the first video in the seed data'
+  task :convert_video => :environment do
+    v = Video.first
+    v.convert
   end
 
   desc 'Dump a database to yaml fixtures.  Set environment variables DB

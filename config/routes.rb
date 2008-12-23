@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace(:admin) do |admin|
     admin.resources :content_filters, :pages  
-    admin.resources :snippets, :name_prefix => 'admin_', :controller => 'admin/snippets'
+    admin.resources :snippets
   end
 
   map.resources :pages

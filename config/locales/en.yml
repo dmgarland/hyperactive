@@ -121,7 +121,7 @@ en:
     top_nav:
       all_articles: all articles
       featured_articles: featured articles
-      promoted_artices: promoted articles
+      promoted_articles: promoted articles
   
   # Groups stuff (groups are know as "collectives" in the code)
   collectives:

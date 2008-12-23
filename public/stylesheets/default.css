@@ -579,6 +579,22 @@ margin-top : 0px;
 	width: 640px;
 	}
 
+.warning {
+   height: 16px;
+   width: 16px;
+/*   background-image: url(../images/icons/error.png);
+   background-repeat: no-repeat; */
+   display:   compact;
+   margin: 3px;
+   border: 1px solid #ffffff;
+}
+
+.warningtext {
+   
+   color: #00ff00;
+   display: none;
+}
+
 div.collective-preview
 {
   margin: 2px;

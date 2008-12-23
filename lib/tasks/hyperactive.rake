@@ -30,7 +30,10 @@ namespace :hyperactive do
   end
 
   desc 'Destroys all databases, rebuilds them, runs migrations, inserts fixtures data,
-  and converts the video to provide a more pleasant default site for development.'
+  and converts the video to provide a more pleasant default site for development. 
+  FIXME: for some reason the db:migrate, xapian:rebuild_index, and hyperactive:seed tasks
+  all think that they should take place in the "test" environment for reasons I just do not 
+  understand.  This should be fixed so that this task can be called for any environment.'
   task :burn_it_down => :environment do
     Rake::Task["db:drop:all"].invoke
     Rake::Task["db:create:all"].invoke

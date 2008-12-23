@@ -45,7 +45,7 @@ pt-BR:
     updated_on: Atualizado em
     url: URL
     user_name: Nome de usuário/a
-    welcome: Bemvindo/a
+    welcome: Bem-vindo/a
     yes: Sim
     your_name: Seu nome
 
@@ -56,309 +56,300 @@ pt-BR:
   # ActiveRbac - login and signup related stuff
   active_rbac:
     account:
-      account_explanation: This is your private account information page. No other users can see this page.  
-      admin_explanation: You are an administrative user. From here you can
-      edit_group_membership: Edit membership
-      edit_rss_feeds: Edit RSS feeds
-      view_site_admin: view the site admin pages
-      you_are_currently_logged_in_as: You are currently logged in as user
-      you_belong_to_groups: You belong to the following group(s)
-      you_have_published_articles: You have published the following articles
-      you_have_published_events: You have published the following events      
-      you_have_published_videos: You have published the following videos      
-      you_may_log_out_at: You may log out at the
-      your_account: Your account
-      your_articles: Your articles
-      your_events: Your events
-      your_groups: Your groups
-      your_videos: Your videos
+      account_explanation: Essa é a página das informações pessoais da sua conta. Nenhum/a outro/a usuário/o pode ver essa página.  
+      admin_explanation: Você é um/a usuário/a administrador/a. Daqui você pode
+      edit_group_membership: Editar membros
+      edit_rss_feeds: Editar feeds RSS
+      view_site_admin: ver as páginas de admin do site
+      you_are_currently_logged_in_as: Você está logado/a como usuário/a
+      you_belong_to_groups: Você faz parte dos seguintes grupos
+      you_have_published_articles: Você publicou os seguintes artigos
+      you_have_published_events: Você publicou os seguintes eventos      
+      you_have_published_videos: Você publicou os seguintes videos      
+      you_may_log_out_at: Você deve deslogar-se na 
+      your_account: Sua conta
+      your_articles: Seus artigos
+      your_events: Seus eventos
+      your_groups: Seus grupos
+      your_videos: Seus videos
     login: 
-      account_explanation: Registering an account allows you to edit your own content.
-      already_logged_in: Already logged in
-      already_logged_in_explanation: You are already logged in. You need to log out before you can log in again.
-      dont_have_an_account: Don't have an account?
-      register: Register an account
-      to_log_out: to log out.
-    login_success: you have successfully been logged in
-    logout_success_title: Logout Success
-    logout_success_message: You have successfully been logged out.
-    logout_success_confirmation: Do you really want to log out?
+      account_explanation: Registrar uma conta permite você editar o seu próprio conteúdo.
+      already_logged_in: Já está logado
+      already_logged_in_explanation: Você já está logado. Você precisa sair antes de logar-se novamente.
+      dont_have_an_account: Não tem uma conta?
+      register: Registre uma conta
+      to_log_out: para sair.
+    login_success: você logou-se com sucesso
+    logout_success_title: Saiu com Sucesso
+    logout_success_message: Você saiu com sucesso.
+    logout_success_confirmation: Você realmente quer sair?
     register: 
-      desired_user_name: Desired User Name
-      explanation1: <p>You will have to give a user name and password to register an account, giving an email address is optional.</p>
-      explanation2: <p>When you publish anything while logged in, you will be able to edit your contribution later on. This means the content you publish will be tied to your user ID. For the time being the user name will not show up as the author, but this might change.</p>
-      explanation3: <p>If you report an article through the "report or administer this article" form at the bottom of each article, an email will be sent to the publicly archived imc-london-moderation mailing list, citing your user name.</p>
-      explanation4: <p>If you do decide to give an email address, and we see that you are frequently reporting abuse or suggesting good stuff for promotion, we might get in touch with you to offer you hiding and promoting privileges on the site. Giving an email address will also enable you to retrieve your password in case you forget it.</p>
-      register_title: Register
-      sign_up: Sign Up
-      violates: Any user accounts who violate the  
-      will_be_removed: will be removed.
+      desired_user_name: Nome de usuário/a desejado
+      explanation1: <p>Você terá que dar um nome de usuário/a e senha para registrar uma conta, dar um endereço de email é opcional.</p>
+      explanation2: <p>Quando publicar qualquer coisa logado/a, você poderá editar a sua publicação depois. Isso significa que o seu conteúdo estará registrado com o ID do seu usuário. Por enquanto o nome de usuário não está aparecendo como autor, mas isso pode mudar.</p>
+      explanation3: <p>Se você reportar um artigo através do formulário "reporte ou administre esse artigo" no final de cada artigo, um email será enviado para a lista de discussão imc-london-moderation, citando o seu nome de usuário/a.</p>
+      explanation4: <p>Se você decidir dar um endereço de email, e nós vermos que você está frequentemente reportando abusos ou sugerindo bons materiais para serem promovidos, nós poderemos oferecer você privilégios para esconder e promover artigos no site. Dando seu endereço de email você também poderá ativar a recuperação de senha no caso de esquecê-la.</p>
+      register_title: Registrar
+      sign_up: Registre-se
+      violates: Qualquer usuário/a que violar a   
+      will_be_removed: vai ser removido/a.
 
   # Articles
   articles:
     archives:
-      title: Listing articles
+      title: Listar artigos
     edit:
-      title: Editing article
+      title: Editar artigos
     index:
-      title: Listing all articles
-      more_articles: More articles
+      title: Listar todos artigos
+      more_articles: Mais artigos
     list_featured:
-      title: Listing featured articles
+      title: Listando artigos destacados
     list_promoted:
-      title: Listing promoted articles
+      title: Listando artigos promovidos
     new: 
-      title: New article
+      title: Novo artigo
     sidebar:
-      latest_articles_feed: Latest articles feed
-      subscribe_message: Subscribe to our {{articles_feed_path}} or visit our {{feed_center_path}} for more feeds.
+      latest_articles_feed: Último feeds dos artigos
+      subscribe_message: Inscreva para o nosso {{articles_feed_path}} ou visite nosso {{feed_center_path}} para mais feeds.
     stick_at_top_controls:
-      title: Front page controls
-      explanation: You have the option of sticking this article at the top of the front page. The article needs to be featured before this will work.
-      label: Stick at top?
+      title: Controle da página inicial
+      explanation: Você tem a opção de mandar esse artigo para o topo da página inicial. O artigo precisa ser promovido antes que isso funcione.
+      label: Mandar para o topo?
     show:
-      comments: Comments
+      comments: Comentários
     top_nav:
-      all_articles: all articles
-      featured_articles: featured articles
-      promoted_articles: promoted articles
+      all_articles: todos artigos
+      featured_articles: artigos destacados
+      promoted_articles: artigos promovidos
+
   
   # Groups stuff (groups are know as "collectives" in the code)
   collectives:
     edit: 
-      editing: Editing
+      editing: Editando
     edit_memberships:
-      add_new_member: Add a new member
-      back_to_account_page: Back to {{your_account_page}}
-      joined_on: Joined on
-      your_account_page: your account page
+      add_new_member: Adicionar novo membro
+      back_to_account_page: Voltar para {{your_account_page}}
+      joined_on: Entrou em
+      your_account_page: página da sua conta
     form:
-      logo_image: Logo image
-      logo_image_explanation: The logo image will be cropped so that it's square.
+      logo_image: Imagem logo
+      logo_image_explanation: A imagem logo vai ser cortada para ficar quadrado.
     index:
-      newest_groups: Newest groups
-      title: Recently active groups
+      newest_groups: Novos grupos
+      title: Grupos recentemente ativos
     new: 
-      create_an_account: create an account
-      explanation: "You have to be a registered user to register a group. Groups should
-		write a short description of who they are and what they do, and will get
-		their own page listing all their articles, events and media. This can be
-		useful for both groups and campaigns. Any member of the group can
-		publish content as part of that group and add or delete other members."
-      guidelines: "<h2>Groups Guidelines</h2>
+      create_an_account: criar uma conta
+      explanation: "Você tem que ter um usuário/a registrado/a para registrar um grupo. Grupos devem escrever uma pequena descrição de quem são e o que fazem, e terão sua própria página listando todos seus artigos, eventos e mídias. Isso pode ser útil para os grupos e campanhas. Qualquer membro/a do grupo pode publicar conteúdo como parte do grupo e adicionar ou deletar outros membros/as."
+      guidelines: "<h2>Orientações para os grupos</h2>
 	
-	<p>Only groups working in a  grassroots, non-corporate, non-commercial,
-	autonomous manner on social justice, environmental, cultural and
-	political issues, active in London can create accounts.</p>
+	<p>Somente grupos que trabalhem em uma base não-corporativa, não comercial, de forma autônoma pela justiça social, ambiental, cultural e questões políticas ativas, ativos em Londres podem criar contas.</p>
 	
-	<p>Groups using language, imagery, or other forms of communication
-	promoting racism, fascism, xenophobia, sexism, homophobia or any other
-	form of discrimination againt people based on who they are rather than
-	what they do (including antisemitism, anti-roma) will be removed.</p>
+	<p>Grupos usando linguagem, imagens, ou outras formas de comunicação promovendo racismo, fascismo, xenofobia, sexismo, homofobia ou qualquer outra forma de descriminação contra pessoas baseadas em quem elas são ao invés de o que elas fazem (incluindo antisemitismo, anti-roma) serão removidos.</p>
 	
-	<p>The groups function is not a notice-board for political parties or any
-	other hierarchically structured organizations.	
+	<p>A funcionalidade grupos não é um quadro de notícias para partidos políticos ou qualquer outra organização estruturada hierarquicamente.	
 	</p>"
-      please_create_account: Please create an account
-      register_explanation: You need to {{create_account}} before you can create a group.
-      title: New group
+      please_create_account: Por favor crie uma conta
+      register_explanation: Você precisa {{create_account}} antes de poder criar um grupo.
+      title: Novo grupo
     new_collective_box:
-      create_a_group: create a group
-      create_a_group_title: Create a group!
-      explanation: Any registered user can {{create_a_group}}.  If you're not yet a registered user, you can {{register_a_group}}.
-      sign_up_here: sign up here
+      create_a_group: criar um grupo
+      create_a_group_title: Crie um grupo!
+      explanation: Qualquer usuário/a registrado/a pode {{create_a_group}}.  Se você ainda não está registrado/a, você pode {{register_a_user}}.
+      sign_up_here: registre-se aqui
     external_feed: This feed has not yet been retrieved.  It should show up in about ten minutes.
     show: 
-      no_articles_yet: No articles yet.
-      no_events_yet: No events yet.
-      no_feeds_yet: No feeds yet.
-      no_videos_yet: No videos yet.
-      upcoming_events: Upcoming Events
+      no_articles_yet: Nenhum artigo ainda.
+      no_events_yet: Nenhum evento ainda.
+      no_feeds_yet: Nenhum feeds ainda.
+      no_videos_yet: Nenhum video ainda.
+      upcoming_events: Próximos eventos
   
   # Some general content stuff, mostly related to class names
   # and the content creation forms for articles, events, and videos.
   content:
     class_names:
-      action_alerts: Action alerts
-      article: Article
-      articles: Articles
-      comment: Comment
-      event: Event
-      events: Events
+      action_alerts: Alerta de ações
+      article: Artigo
+      articles: Artigos
+      comment: Comentário
+      event: Evento
+      events: Eventos
       feeds: Feeds
-      file_upload: File Upload
-      file_uploads: File Uploads
+      file_upload: Envio de arquivo
+      file_uploads: Envio de arquivos
       link: Link
       links: Links
-      photo: Photo
-      photos: Photos
+      photo: Foto
+      photos: Fotos
       tags: Tags
       video: Video
       videos: Videos
     form:
-      allowed_file_types: File* - allowed file types are {{file_types}}
-      contact_email_address: Contact email address
-      delete: Delete
-      moderation_status: Moderation status
-      required_field: required field
-      upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
-      your_name: Your name
+      allowed_file_types: Arquivo* - tipos de arquivos permitidos são {{file_types}}
+      contact_email_address: endereço de email para contato
+      delete: Deletar
+      moderation_status: Status de moderação
+      required_field: campo obrigatório
+      upload_instructions: Clique no link "adicionar foto", "adicionar video", ou "adicionar arquivo para envio" para cada arquivo que você deseja enviar. Você pode enviar quantos arquivos você quiser clicando em "adicionar" várias vezes.    
+      your_name: Seu nome
   
   # Controller messages, stuff that doesn't show up in normal view templates 
   # but are messages from the system telling you that something happened, 
   # i.e. "Your article was created".
   controllers:
     collectives:
-      group_created: Group was successfully created.
-      group_updated: Group was successfully updated.
+      group_created: Grupo criado com sucesso.
+      group_updated: Grupo atualizado com sucesso.
   
   # The content hide mailer, which sends messages to an email address when things
   # on the site are hidden, unhidden, or reported by users.
   content_hide_mailer:
-      has_been_hidden_by_user: has been hidden by the user
-      has_been_unhidden_by_user: has been unhidden by the user
-      has_been_reported_by_user: has been reported by the user
-      reasons: The following reasons were given
+      has_been_hidden_by_user: foi escondido pelo usuário/a
+      has_been_unhidden_by_user: foi desescondido pelo usuário/a
+      has_been_reported_by_user: foi reportado pelo usuário/a
+      reasons: As seguintes razões foram dadas
   
   # Events
   events:
     sidebar:
       feedbox:
-        title: Upcoming events feed   
-        subscribe_message: Subscribe to our {{upcoming_events_feed_path}} or visit our {{feed_center_path}} for more feeds.
-        upcoming_events_feed: upcoming events feed
+        title: Feeds dos próximos eventos   
+        subscribe_message: Assine o nosso {{upcoming_events_feed_path}} ou visite a nossa {{feed_center_path}} para ver mais feeds.
+        upcoming_events_feed: feeds dos próximos eventos
       ical:
-        title: Download as iCal
-        description: You may {{import_path}} using iCal.
-        import: import this event into your calendar
+        title: Baixe como iCal
+        description: Você deve {{import_path}} usar iCal.
+        import: importe esse evento para o seu calendário
     archive:
-      listing_events: Listing events
+      listing_events: Listando eventos
     edit:
-      title: Editing event
+      title: Editando evento
     file_upload:
-      main_title: File upload
-      title: Title*
-      file: File*
+      main_title: Enviar arquivo
+      title: Título*
+      file: Arquivo*
     form:
-      title: Title
-      date_of_event: Date of Event
-      contact_for_event: Contact email address for event
-      place_for_event: Place <em>*</em> - include street address, room number, etc.
-      description_for_event: Description
-      repeating: Repeating event (optional)
-      no_repeat: Do not repeat this event
-      do_repeat: Repeat
-      every: every
-      every_other: every other
-      every_third: every third
-      every_fourth: every fourth
-      day: day
-      week: week
-      month: month
-      other_month: other month
+      title: Título
+      date_of_event: Data do Evento
+      contact_for_event: Endereço de email de contato para o evento
+      place_for_event: Lugar <em>*</em> - incluindo endereço da sua, número, etc.
+      description_for_event: Descrição
+      repeating: Repetindo evento (opcional)
+      no_repeat: Não repetir esse evento
+      do_repeat: Repetir
+      every: sempre
+      every_other: todos os outros
+      every_third: todo terceiro
+      every_fourth: todo quarto
+      day: dia
+      week: semana
+      month: mês
+      other_month: outros meses
       ordinal: [first, second, third, fourth, last]
       week_days: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
-      repeat_note: "Note: you can only repeat events for a maximum of 6 months from the date of the first event."
-      repeat_until: Until
-      repeat_on: Repeat on the
+      repeat_note: "Nota: você só pode repetir eventos no tempo máximo de 6 meses a partir da data do primeiro evento."
+      repeat_until: Até
+      repeat_on: Repetir em
     index:
-      listing_events: Listing events
-      more_events: More events
+      listing_events: Listando eventos
+      more_events: Mais eventos
     link:
       link: Link
-      title: Title
+      title: Título
       url: URL
-      description: Description
+      description: Descrição
     list_by_day:
-      previous_day: Previous day
-      next_day: Next day
+      previous_day: Dia anterior
+      next_day: Próximo dia
     list_by_event_date:
-      title: Listing Events by Event Date
+      title: Listando Eventos por Data do Evento
     list_by_event_group: 
-      title: Listing repeated events
+      title: Listando Eventos Repetidos
     list_by_week:
-      previous_week: Previous week
-      next_week: Next week
+      previous_week: Semana anterior
+      next_week: Próxima semana
     list_promoted:
-      title: Listing featured events
+      title: Listando eventos destacados
     list_seven_days:
-      title: In the coming week
+      title: Na próxima semana
     new:
-      title: New event
+      title: Novo Evento
     photo:
-      main_title: Photo
-      title: title
-      file: File
+      main_title: Foto
+      title: título
+      file: Arquivo
     search:
-      not_found: not found
-      found: found in
+      not_found: não encontrado
+      found: encontrado em
     show:
-      event_date: Event date
-      series_text: This event is part of a series of repeating events.  To see all the events, {{series_path}}.
-      series_link: click here
-      tagged: Tagged as
-      places: Places
-      event_group_photos: Event Group Photos
-      contact_phone: Contact phone
-      comments: Comments
+      event_date: Data do Evento
+      series_text: Esse evento faz parte de uma série de eventos repetidos. Para ver todos os eventos, {{series_path}}.
+      series_link: clique aqui
+      tagged: Marcado como
+      places: Lugares
+      event_group_photos: Fotos do Grupo do Evento
+      contact_phone: Telefone de contato
+      comments: Comentários
     upcoming_events:
-      title: Upcoming events
+      title: Próximos eventos
     video:
       main_title: Video
-      title: Title
-      file: File* - allowed file types are "mov", "mpg", "mpeg", "mp4", "avi", "wmv"
-      description: Description
+      title: Título
+      file: Arquivos* - Os tipos de arquivos permitidos são "mov", "mpg", "mpeg", "mp4", "avi", "wmv"
+      description: Descrição
 
   # External feeds, which can be imported into the site (for example on a group page)
   external_feeds:
     edit:
-      title: Editing feed
+      title: Editando feed
     index:
-      listing_feeds_for: Listing feeds for
-      too_many_feeds: You can have a maximum of 2 feeds for your group. You need to delete one before you can add any more.
-      new_external_feed: New external feed
+      listing_feeds_for: Listar feeds para
+      too_many_feeds: Você pode ter no máximo 2 feeds por grupo. Você precisa deletar um antes de adicionar outro.
+      new_external_feed: Novo feed externo
     new:
-      title: New feed
+      title: Novo feed
 
   # Hiding-related stuff, including controls for hiding, unhiding, and reporting content on the site.
   hidden:
     common:
-      hide: Hide
-      unhide: Unhide
-      complete: This has been hidden.  Thanks for helping keep the site clean!
-      unhide_complete: An email has been sent indicating that this is now unhidden.  Thanks!
-      no_permission: "<p>You don't have permission to unhide things once they're hidden.</p><p>If you would like to get more involved with the administration of the site, please contact us.</p>"
+      hide: Escondido
+      unhide: Desescondido
+      complete: Foi escondido. Agradecemos por ajudar a manter o site limpo!
+      unhide_complete: Um email foi enviado indicando que foi desescondido. Obrigado!
+      no_permission: "<p>Você não tem permissão para desesconder coisas uma vez que elas já foram escondidas.</p><p>Se você gostaria de se envolver mais com a administração do site, por favor entre em contato conosco.</p>"
     comment_hiding_controls:
-      title: Please state a reason for hiding
+      title: Por favor indique o motivo para esconder
     comment_unhiding_controls:
-      title: Please state a reason for unhiding
+      title: Por favor indique o motivo para desesconder
     event_group_hiding:
-      title: Please state a reason for hiding these events
+      title: Por favor indique o motivo para esconder esses eventos
     hiding_controls:
-      title: Please state a reason for hiding
-      text: This event is part of a series of repeated events.  You can hide all of the events at once by ticking the box below.
-      hide_all: Hide all events in this event group?
+      title: Por favor indique o motivo para esconder
+      text: Esse evento faz parte de uma série de eventos repetidos. Você pode esconder todos os eventos de uma só vez clicando na caixa abaixo.
+      hide_all: Esconder todos os evento nesse grupo de eventos?
     list:
-      title: Hidden
-      text: "The following content has been hidden under the {{guidelines_path}}."
-      guidelines: editorial guidelines
+      title: Escondido
+      text: "O seguinte conteúdo foi escondido sob os {{guidelines_path}}."
+      guidelines: critérios editoriais
     report: 
-      title: What's the trouble?
-      report: Report
+      title: Qual o problema?
+      report: Reportar
 
   # Feeds
   feeds:
     index:
-      action_alerts_explanation: a list of very short, infrequent updates of important happenings in the city.
-      at_the_miro_site: at the Miro site
-      latest_articles: Latest articles
-      latest_articles_explanation: lists latest articles which have been published on the site.
-      latest_videos: Latest videos
-      title: Available Feeds
-      upcoming_events: Upcoming events
-      upcoming_events_by_place: Upcoming events by place
-      upcoming_events_by_tag: Upcoming events by tag
-      upcoming_events_explanation: lists the next events upcoming from the calendar.
+      action_alerts_explanation: uma de lista de pequenas e não frequentes atualizações de importantes acontecimentos na cidade.
+      at_the_miro_site: Miro no site
+      latest_articles: Últimos artigos
+      latest_articles_explanation: lista dos últimos artigos que foram publicados no site.
+      latest_videos: Últimos videos
+      title: Feeds Disponíveis
+      upcoming_events: Próximos eventos
+      upcoming_events_by_place: Próximos eventos por lugar
+      upcoming_events_by_tag: Próximos eventos por tag
+      upcoming_events_explanation: listas dos próximos eventos do calendário.
       upcoming_events_by_place_explanation: Allows you to get a feed of events for a specific place, listed by when they were published. So if you want to see all events tagged with the place 'Brixton' on the site as it gets published, you'd type 'Brixton' into this search box and subscribe to the resulting feed
       upcoming_events_by_tag_explanation: Allows you to get a feed of events for a specific tag, listed by when they were published. So if you want to see everything tagged with "foo" on the site as it gets published, you'd type "foo" into this search box and subscribe to the resulting feed
       latest_videos_explanation: This will allow you to download Miro, which takes care of feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features {{miro_site}}. Once you've installed Miro, you can subscribe to our {{video_feed}} to automatically receive all of our latest videos.
@@ -367,123 +358,123 @@ pt-BR:
   # The home page for the site
   home:
     index:
-      promoted_newswire: Promoted Newswire
-      feed_newswire: UK and World
-      featured_events: Featured Events
-      featured_groups: Featured And Recently Changed Groups
-      promoted_events: Upcoming Events
-      latest_poster: Posters!
-      place_tags: Neighbourhoods
+      promoted_newswire: Notícias promovidas
+      feed_newswire: UK e Mundo
+      featured_events: Eventos Destacados
+      featured_groups: Grupos Recentemente Atualizados e Destacados
+      promoted_events: Próximos Eventos
+      latest_poster: Pôsters!
+      place_tags: Bairros
       tags: Tags
       info: Info
-      network: Indymedia UK Network
+      network: Rede CMI UK
   
   # Javascript-related messages
   javascript:
-    no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
+    no_js: "Você não tem o JavaScript ativado, então você não está habilitado para adicionar fotos ou links para esse evento! Por favor ative o JavaScript nas preferências do seu navegador se você quiser adicionar uma foto ou link."
   
   # The site's layouts, including the navigation, header, and footer.
   layouts: 
-    categories: Categories
-    events: Events
+    categories: Categorias
+    events: Eventos
     footer: 
-      contributions: To contribute to this project {{project_site}}
-      icons_by: Icons by
-      project_site: take a look at the project site
-    groups: Groups
-    home: Home
-    main: Main
-    newswire: Newswire
-    pages: Pages
-    permissions: Permissions
-    publish:  Publish
+      contributions: Para contribuir para esse projeto {{project_site}}
+      icons_by: Ícones por
+      project_site: dê uma olhada no site do projeto
+    groups: Grupos
+    home: Página incial
+    main: Principal
+    newswire: Notícias
+    pages: Páginas
+    permissions: Permissões
+    publish:  Publicar
     roles: Roles
-    users: Users
+    users: Usuários/as
     videos: Videos
     
   # The search box and search results
   search:
     find_content: 
-      please_enter_search_terms: Please enter some search terms.
-      results_for: Search results for
-    past_events_explanation: There are events for this tag, but they're in the past.  
-    no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
+      please_enter_search_terms: Por favor digite algum termo para a busca.
+      results_for: Resultados de busca para
+    past_events_explanation: Existem eventos para essa tag/marcação, mas eles estão no passado.  
+    no_tags_found: Nada foi marcado com <strong>&lsquo;{{tag}}&rsquo;</strong>
   
   # Security messages
   security:
-    permissions_error: You are not allowed to access this page.
-    please_type_anti_spam_message: You need to type the text from the image into the box so we know you're not a spambot.
+    permissions_error: Você não tem permissão para acessar essa página.
+    please_type_anti_spam_message: Você precisa digitar o texto da imagem então saberemos que você não é um robô de spam.
   
   # Views which are shared across many parts of the site and don't belong in 
   # just one spot.
   shared:
     account_box: 
-      title: Your account
-      explanation: You are currently not logged in.  You can {{login}} or {{register_an_account}}.	Registration allows you to edit your own content and help administer the site.
+      title: Sua conta
+      explanation: Você não está logado/a atualmente.  Você pode {{login}} ou {{register_an_account}}.	O registro permite você editar o seu próprio conteúdo e ajudar na administração do site.
       log_in: log in
-      register_an_account: register an account
+      register_an_account: registrar uma conta
     captcha:
-      explanation: Until automated systems acheive a higher level of self-awareness and responsibility, we need you to prove your humanity by taking a little test that spambots are too stupid to pass.
-      no_robots: No robots!
+      explanation: Até que os sistemas automatizados alcancem um nível maior de auto-consciência e responsabilidade, nós precisamos que você prove sua humanidade passando por um pequeno teste que os robôs spams são muito idiotas para passar.
+      no_robots: Sem robôs!
     content:
       admin_controls: 
-        report_or_administer: Report or administer this {{class_name}}
-        unhide_this: Unhide this {{class_name}}
+        report_or_administer: Reportar ou administrar esse {{class_name}}
+        unhide_this: Desesconder esse {{class_name}}
       comments:
-        add_a_comment: Add a comment
-        allow_comments: Allow comments
+        add_a_comment: Adicionar um comentário
+        allow_comments: Permitir comentários
         allows_comments_controls:
-          explanation: You have the option of allowing comments. Untick this box to disable comments.
-        comments_not_allowed: Comments are not allowed on this
-        inappropriate_comment: Inappropriate comment?
-        leave_comment: Leave a comment
-        tech_error: Something has gone wrong.  This comment should have a moderation_status of either "hidden" or "published".
-        unhide_this_comment: Unhide this comment?
-      edit_this_thing: Edit this {{class_name}}
+          explanation: Você tem a opção de permitir comentário. Desmarque essa caixa para desabilitar comentários.
+        comments_not_allowed: Comentários não são permitidos nesse
+        inappropriate_comment: Comentário inapropriado?
+        leave_comment: Deixe um comentário
+        tech_error: Alguma coisa errada aconteceu. Esse comentário deve estar em status de moderação quer para "escondido" ou "publicado".
+        unhide_this_comment: Desesconder esse comentário?
+      edit_this_thing: Editar esse {{class_name}}
       grouping_controls:
-        explanation: "You can choose to publish this content as part of one of your groups. Note: <strong>this will make the content editable by all group members.</strong>"
-        no_group: No group
+        explanation: "Você pode escolher publicar esse conteúdo como parte de um dos seus grupos. Nota: <strong>isso tornará o conteúdo editável para todos/as os/as membros/as do grupo.</strong>"
+        no_group: Sem grupo
       groups_display:
-        published_by_group: Published by group
-      hidden_notice: This {{class_name}} has been hidden under the site's {{editorial_guidelines}}.
+        published_by_group: Publicado pelo grupo
+      hidden_notice: Esse {{class_name}} foi escondido sob os {{editorial_guidelines}} do site.
       maps: 
-        add_a_map: Add a map?
-        delete_this_map: Delete this map
-        edit_or_delete_map: Edit or delete map?
-        explanation: There is a map linked to this {{content}}. If you want to, you can edit or delete it.  If you do nothing, it will stay the same as it is right now.
-        see_a_map: See a map?
-        title: Map It!
-        will_load_data: "<strong>Note:</strong> clicking the map link will load data from {{openstreetmap}} external server."
-        you_can_attach_a_map: You can attach a map to this
-      place_tag_entry_control: Neighbourhood tags - e.g. <em>brixton lambeth</em> or <em>elephant_and_castle
-      related_content: More like this (auto-generated)
+        add_a_map: Adicionar um mapa?
+        delete_this_map: Deletar esse mapa
+        edit_or_delete_map: Editar ou deletar mapa?
+        explanation: Existe um mapa ligado a esse {{content}}. Se você quiser, você pode editar ou deletá-lo. Se você não fizer nada, ele continuará o mesmo que está agora.
+        see_a_map: Ver o mapa?
+        title: Mapeie!
+        will_load_data: "<strong>Nota:</strong> clicando no link do mapa carregará os dados de {{openstreetmap}} um servidor externo."
+        you_can_attach_a_map: Você pode anexar um mapara para esse
+      place_tag_entry_control: Tags do Bairro - i.e. <em>brixton lambeth</em> ou <em>elephant_and_castle
+      related_content: Mais como esse (auto-gerado)
       sub_list:
-        add_file_upload: Add File Upload
-        add_link: Add Link
-        add_photo: Add Photo
-        add_video: Add Video
-        multiple_file_uploads: (click again for multiple file uploads)
-        multiple_links: (click again for multiple links)
-        multiple_photos: (click again for multiple photo uploads)
-        multiple_videos: (click again for multiple video uploads)
-      tag_instructions: Tags - separate with spaces
+        add_file_upload: Adicionar um arquivo de envio
+        add_link: Adicionar Link
+        add_photo: Adicionar Foto
+        add_video: Adicionar Video
+        multiple_file_uploads: (clique de novo para múltiplos envios de arquivos)
+        multiple_links: (clique de novo para múltiplos links)
+        multiple_photos: (clique de novo para múltiplos envios de fotografias)
+        multiple_videos: (clique de novo para envio de múltiplos videos)
+      tag_instructions: Tags - separadas com espaço
   
   # The events timeline.
   timeline:
-    explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
+    explanation: "Linha do tempo para os próximos 100 eventos. Clique e arraste para ver os materiais."
   
   # Videos
   videos:
     sidebar: 
       previous: 
-        title: Previous videos
+        title: Videos anteriores
       containing_content:
-        related_title: "Related {{post_title}}"
-        explanation: "This video was originally uploaded as part of the following {{post_title}}"
+        related_title: "{{post_title}} Relacionadas"
+        explanation: "Esse video foi enviado originalmente como parte do seguinte {{post_title}}"
       feedbox:
-        title: Video feed
-        feed_link: video feed
-        miro_link: at the Miro site
+        title: Feed do Video
+        feed_link: feed do video
+        miro_link: Miro no site
         explanation: "  <a href='http://subscribe.getMiro.com/?url1={{video_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
 			<p>
 			This will allow you to download Miro, which takes care of
@@ -494,23 +485,23 @@ pt-BR:
                         or click the 'download torrent'
 			link underneath the video above to download only the video file you want.</p>"
     archives:
-      title: Listing videos
+      title: Listando videos
     editing_video:
-      title: Editing video
-      save: Save changes
-      delete_video: Delete this video
-      sure_delete: Are you sure?
+      title: Editando video
+      save: Salvar alterações
+      delete_video: Deletar esse video
+      sure_delete: Tem certeza?
     feature_flash:
-      title: Featured Videos
+      title: Videos Destacados
     form:
-      title: Title
-      your_name: Your name
-      contact_email: Contact email address for video
-      file: File* - allowed file types are {{file_types}}
-      description: Description
+      title: Título
+      your_name: Seu nome
+      contact_email: Email de contato para esse video
+      file: Arquivo* - os tipo de arquivos permitidos são {{file_types}}
+      description: Descrição
     help:
-      video_feed: video feed
-      text: "<h2>Video download help</h2>
+      video_feed: feed do video
+      text: "<h2>Ajuda para baixar Video</h2>
 	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can 
 	download it for screenings.  However, we do not currently have the capacity to serve these big files 
 	ourselves.  Instead, we offer a download via Bittorrent, a peer-to-peer filesharing sytem.</p> 
@@ -553,26 +544,26 @@ pt-BR:
 	people knowing that you are downloading a video, please note that your computer's IP address will be visible
 	to the people who you are sharing the video with.  In this case, don't use Bittorrent or Miro.</p>"
     index:
-      title: Listing videos
-      more_videos: More videos
+      title: Listando videos
+      more_videos: Mais videos
     list_promoted:
-      title: Listing featured videos
+      title: Listando videos destacados
     new:
-      title: New Video
-      create: Create
-      click_once: Please only click once, and be patient, video uploading can take a while.
+      title: Novo Video
+      create: Criar
+      click_once: Por favor clique somente uma vez, e seja paciente, o envio do video pode levar algum tempo.
     show:
-      comments: Comments
+      comments: Comentários
     video: 
-      published: Published
-      no_flash: "<p>This item requires Macromedia Flash Player 7.</p>
-        <p>To get the latest version please <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>click here</a>.</p>"
-      tagged: Tagged as
-      place: Places
-      contact_email: Contact email
-      download_original: download original
-      download_torrent: download torrent
-      still_converted: This video is still being converted, or else there has been some kind of error.
+      published: Publicado
+      no_flash: "<p>Esse item exige Macromedia Flash Player 7.</p>
+        <p>Para pegar a última versão por favor <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>clique aqui</a>.</p>"
+      tagged: Marcado como
+      place: Lugares
+      contact_email: Email de contato
+      download_original: baixe o original
+      download_torrent: baixe por torrent
+      still_converted: Esse video ainda está sendo convertido, ou então pode ter acontecido algum erro.
 
 
 

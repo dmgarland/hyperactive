@@ -204,6 +204,14 @@ en:
       upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
       your_name: Your name
   
+  # Controller messages, stuff that doesn't show up in normal view templates 
+  # but are messages from the system telling you that something happened, 
+  # i.e. "Your article was created".
+  controllers:
+    collectives:
+      group_created: Group was successfully created.
+      group_updated: Group was successfully updated.
+  
   # The content hide mailer, which sends messages to an email address when things
   # on the site are hidden, unhidden, or reported by users.
   content_hide_mailer:

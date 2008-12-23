@@ -73,7 +73,7 @@ class CollectivesController < ApplicationController
       respond_to do |format|
         if @collective.save
           @collective.users << current_user
-          flash[:notice] = 'Group was successfully created.'
+          flash[:notice] = I18n.t('controllers.collectives.group_created')
           format.html { redirect_to group_path(@collective) }
           format.xml  { head :created, :location => group_path(@collective) }
         else
@@ -94,7 +94,7 @@ class CollectivesController < ApplicationController
 
     respond_to do |format|
       if @collective.update_attributes(params[:collective])
-        flash[:notice] = 'Group was successfully updated.'
+        flash[:notice] = I18n.t('controllers.collectives.group_updated')
         format.html { redirect_to account_path }
         format.xml  { head :ok }
       else

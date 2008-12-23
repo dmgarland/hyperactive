@@ -144,7 +144,7 @@ class EventsController < ContentController
     @event_group = create_event_group(@content)
     event_repeats_every = params[:event_repeats_every].to_i # an integer
     period = params[:event_repeats_dwm] # day, week, or month
-    @start_date = DateTime.new(@content.date.year, @content.date.month, @content.date.day)
+    @start_date = DateTime.new(@content.date.year, @content.date.month, @content.date.day, @content.date.hour, @content.date.min)
     @next_date = @start_date
     @until_date = DateTime.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
     while (@next_date < @until_date && @next_date < @start_date >> 6)     

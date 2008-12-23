@@ -134,7 +134,7 @@ class EventsControllerTest < Test::Unit::TestCase
                             :event_repeat_type => "repeat_simple",
                             :event_repeats_every => "1",
                             :event_repeats_dwm => "week",
-                            :date => {:year => 2009, :month => 6, :day => 15},
+                            :date => {:year => 2009, :month => 6, :day => 15 },
                             :tags => "foo bar",
                             :place_tags => "london brixton"
                             
@@ -157,6 +157,8 @@ class EventsControllerTest < Test::Unit::TestCase
       assert_match "brixton", duplicate_event.place_tag_list
       assert_match "london", duplicate_event.place_tag_list
       assert duplicate_event.belongs_to_event_group?, "Event should belong to EventGroup."
+      assert_equal duplicate_event.date.hour, original_event.date.hour
+      assert_equal duplicate_event.date.min, original_event.date.min
     end
   end
   

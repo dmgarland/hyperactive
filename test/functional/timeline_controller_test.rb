@@ -16,4 +16,10 @@ class TimelineControllerTest < Test::Unit::TestCase
     get :show_calendar
     assert_response :success
   end
+  
+  def test_timeline
+    get :timeline
+    assert_response :success
+  end
+  
 end

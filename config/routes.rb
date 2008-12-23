@@ -68,7 +68,6 @@ ActionController::Routing::Routes.draw do |map|
   # hide '/active_rbac/*'
   map.connect '/active_rbac/*', :controller => 'home', :action => 'index'
       
-  map.connect '/page/:title', :controller => 'page', :action => 'show', :title => 'default'
   map.timeline '/timeline/timeline/', :controller => 'timeline', :action => 'timeline'
    
   # search mappings

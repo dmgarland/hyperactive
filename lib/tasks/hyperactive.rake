@@ -29,6 +29,16 @@ namespace :hyperactive do
     v.convert
   end
 
+  desc 'Destroys all databases, rebuilds them, runs migrations, inserts fixtures data,
+  and converts the video to provide a more pleasant default site for development.'
+  task :burn_it_down => :environment do
+    Rake::Task["db:drop:all"].invoke
+    Rake::Task["db:create:all"].invoke
+    `rake db:migrate RAILS_ENV=development`
+    `rake xapian:rebuild_index models='Content Collective' RAILS_ENV=development`
+    `rake hyperactive:seed RAILS_ENV=development`
+  end
+  
   desc 'Dump a database to yaml fixtures.  Set environment variables DB
   and DEST to specify the target database and destination path for the
   fixtures.  DB defaults to development and DEST defaults to RAILS_ROOT/

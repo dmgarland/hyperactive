@@ -8,17 +8,17 @@
         <%= image_tag video.file.thumb.url %><br/><br/>
     <% end %>
     <label for="video[]_title">
-      <%= I18n.t 'general.title' %>*<br/>
+      <%= I18n.t 'general.title' %>*</label><br/>
       <%= text_field 'video[]', 'title', :size => 30 %>
-    </label><br/><br/>
+    <br/><br/>
     <label for="video[]_file">
-    <%= I18n.t 'content.form.allowed_file_types', :file_types => Video.allowed_file_types.join(", ") %><br/>
+    <%= I18n.t 'content.form.allowed_file_types', :file_types => Video.allowed_file_types.join(", ") %></label><br/>
     <%= upload_column_field("video[]", "file") %>
-    </label><br/><br/>
-    <label for="video[]_title">
-      <%= I18n.t 'general.description' %><br/>
+    <br/><br/>
+    <label for="video[]_summary">
+      <%= I18n.t 'general.description' %></label><br/>
       <%= text_area 'video[]', 'summary', :rows => 5 %>
-    </label><br/><br/>
+    <br/><br/>
     <%= sub_list_remove_link video, 'Video', I18n.t('content.form.delete') %>
   </fieldset>
 </div>

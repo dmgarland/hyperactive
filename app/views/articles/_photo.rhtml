@@ -9,12 +9,10 @@
     <% end %>
     <label for="photo[]_title">
       <%= I18n.t 'general.title' %>*<br/>
-      <%= text_field 'photo[]', 'title', :size => 30 %>
-    </label><br/><br/>
+    </label><%= text_field 'photo[]', 'title', :size => 30 %><br/><br/>
     <label for="photo[]_file">
     <%= I18n.t 'general.file' %>*<br/>
-    <%= upload_column_field("photo[]", "file") %>
-    </label><br/><br/>
+    </label><%= upload_column_field("photo[]", "file") %><br/><br/>
 
     <%= sub_list_remove_link photo, 'Photo', I18n.t('content.form.delete') %>
   </fieldset>

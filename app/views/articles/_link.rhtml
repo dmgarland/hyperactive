@@ -5,17 +5,17 @@
 	<%= I18n.t 'content.class_names.link' %>
     </label><br/><br/>
     <label for="link[]_title">
-      <%= I18n.t 'general.title' %>*<br/>
+      <%= I18n.t 'general.title' %>*</label><br/>
       <%= text_field 'link[]', 'title', :size => 30 %>
-    </label><br/><br/>
+    <br/><br/>
     <label for="link[]_url">
-    <%= I18n.t 'general.url' %>*<br/>
+    <%= I18n.t 'general.url' %>*</label><br/>
     <%= text_field 'link[]', 'url', :size => 30 %>
-    </label><br/><br/>
+    <br/><br/>
     <label for="link[]_description">
-    <%= I18n.t 'general.description' %><br/>
+    <%= I18n.t 'general.description' %></label><br/>
     <%= text_area 'link[]', 'description', {:cols => 30, :rows => 3} %>
-    </label><br/><br/>
+    <br/><br/>
     <%= sub_list_remove_link link, 'Link', I18n.t('content.form.delete') %>
   </fieldset>
 </div>

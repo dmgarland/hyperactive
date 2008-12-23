@@ -1,5 +1,5 @@
-"<%= @content.title %>" (<%= "#{@content.class.to_s.downcase.pluralize}/#{@content.id}" %>) <%= I18n.t 'has_been_hidden_by_user' %> "<%= @user %>."
+"<%= @content.title %>" (<%= "#{@content.class.to_s.downcase.pluralize}/#{@content.id}" %>) <%= I18n.t 'content_hide_mailer.has_been_hidden_by_user' %> "<%= @user %>."
 
-<%= I18n.t 'reasons' %>:
+<%= I18n.t 'content_hide_mailer.reasons' %>:
 
 <%= @reasons %>

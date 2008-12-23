@@ -165,7 +165,7 @@ en:
     new_collective_box:
       create_a_group: create a group
       create_a_group_title: Create a group!
-      explanation: Any registered user can {{create_a_group}}.  If you're not yet a registered user, you can {{register_a_group}}.
+      explanation: Any registered user can {{create_a_group}}.  If you're not yet a registered user, you can {{register_a_user}}.
       sign_up_here: sign up here
     external_feed: This feed has not yet been retrieved.  It should show up in about ten minutes.
     show: 
@@ -203,6 +203,7 @@ en:
       required_field: required field
       upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
       your_name: Your name
+      title: Title
   
   # Controller messages, stuff that doesn't show up in normal view templates 
   # but are messages from the system telling you that something happened, 

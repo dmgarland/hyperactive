@@ -1,7 +1,9 @@
 require 'ftools'
 
 namespace :hyperactive do
-  desc "Load seed fixtures (from db/fixtures) into the current environment's database." 
+  desc "Load seed fixtures (from db/fixtures) into the current environment's database,
+  then copy a video file into place, ensure that backgroundrb is running, and convert
+  the video." 
   task :seed => :environment do
     require 'active_record/fixtures'
     Dir.glob(RAILS_ROOT + '/db/fixtures/*.yml').each do |file|

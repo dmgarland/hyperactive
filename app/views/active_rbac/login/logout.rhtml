@@ -1,6 +1,6 @@
 <h3><%= I18n.t 'active_rbac.logout_success_confirmation' %></h3>
 
 <% form_for :user, :url => { :action => :logout } do |form| %>
-  <%= submit_tag(I18n.t 'general.yes', :name => 'yes') %>
-  <%= submit_tag(I18n.t 'general.no', :name => 'no') %>
+  <%= submit_tag(I18n.t('general.yep'), :name => 'yes') %>
+  <%= submit_tag(I18n.t('general.nope'), :name => 'yes') %>
 <% end %>

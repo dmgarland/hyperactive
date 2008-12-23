@@ -26,7 +26,7 @@ en:
     media_uploads: Media uploads
     moderation_status: Moderation status
     name: Name
-    no: No
+    nope: "No"
     no_tags_found: No tags found.
     oops: Oops!
     page: page
@@ -45,7 +45,7 @@ en:
     url: URL
     user_name: User Name
     welcome: Welcome
-    yes: Yes   
+    yep: "Yes"   
     more: More
     your_name: Your name
 

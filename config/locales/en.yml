@@ -60,6 +60,7 @@ en:
       admin_explanation: You are an administrative user. From here you can
       edit_group_membership: Edit membership
       edit_rss_feeds: Edit RSS feeds
+      login_success: you have successfully been logged in
       view_site_admin: view the site admin pages
       you_are_currently_logged_in_as: You are currently logged in as user
       you_belong_to_groups: You belong to the following group(s)
@@ -79,7 +80,6 @@ en:
       dont_have_an_account: Don't have an account?
       register: Register an account
       to_log_out: to log out.
-    login_success: you have successfully been logged in
     logout_success_title: Logout Success
     logout_success_message: You have successfully been logged out.
     logout_success_confirmation: Do you really want to log out?
@@ -455,7 +455,7 @@ en:
         title: Map It!
         will_load_data: "<strong>Note:</strong> clicking the map link will load data from {{openstreetmap}} external server."
         you_can_attach_a_map: You can attach a map to this
-      place_tag_entry_control: Neighbourhood tags - e.g. <em>brixton lambeth</em> or <em>elephant_and_castle
+      place_tag_entry_controls: Neighbourhood tags - e.g. <em>brixton lambeth</em> or <em>elephant_and_castle
       related_content: More like this (auto-generated)
       sub_list:
         add_file_upload: Add File Upload
@@ -568,7 +568,7 @@ en:
       no_flash: "<p>This item requires Macromedia Flash Player 7.</p>
         <p>To get the latest version please <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>click here</a>.</p>"
       tagged: Tagged as
-      place: Places
+      places: Places
       contact_email: Contact email
       download_original: download original
       download_torrent: download torrent

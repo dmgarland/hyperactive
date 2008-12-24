@@ -22,9 +22,7 @@ function hasConstraints(aform){
                constraint_elements = constraint_elements.concat( $(cands[n]) );
                break;
             }
-
          } 
-
        }
    }
    return constraint_elements;
@@ -56,21 +54,17 @@ function handle_submit(evt){
    // Find the captcha field
    var cap_input = Form.getInputs(Event.element(evt), 'text','captcha');
    if (cap_input.length > 0){
-      alert(cap_input);
       ce = ce.concat( cap_input[0] );
    }
-
    // Detect if we should prevent submission
    var should_stop = false;
    for (field = 0; field < ce.length; field++){
       if ($F(ce[field]) == ''){
           should_stop = true;
       }
-      // DO SOMETHING TO INDICATE A PROBLEM
+      // Do something to indicate the problem
       toggle_warning(ce[field]);
-
    }
-
    // Stop the submission of the form
    // And display an error
    if (should_stop){
@@ -78,9 +72,9 @@ function handle_submit(evt){
       
       // Get the submit button and attach to it a warning
       var submit_control = Form.getInputs(Event.element(evt), 'submit')[0];
-      if (submit_control.next() && submit_control.next().className.toLowerCase() == 'warning'){
-          
-      } else {
+      if (submit_control.next() && submit_control.next().className.toLowerCase() == 'warning'){       
+      } 
+      else {
           submit_control.insert({"after":"<span class='warning'><img src='../images/icons/error.png'/><span class='warningtext'> Some required fields are missing! </span></span>"});
       }
    }

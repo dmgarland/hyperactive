@@ -31,20 +31,18 @@ function hasConstraints(aform){
 // Toggle on and off the "warning" div after a field
 function toggle_warning(elem){
    var ne = elem.next(); 
-   if (ne && ne.className.toLowerCase() == 'warning')  {
-      if ($F(elem) == ''){
-         ne.show(); 
-      }
-      else {
-         ne.hide();
-      }
+   if (!(ne && ne.className.toLowerCase() == 'warning')){
+      // first insert a span for the warning.
+      elem.insert({"after":"<span class='warning'><img src='../images/icons/error.png'/><span class='warningtext'> Required!</span></span>"});
+      // assign it
+      ne = elem.next();
    }
-   else
-   {
-      if ($F(elem) == ''){
-         elem.insert({"after":"<span class='warning'><img src='../images/icons/error.png'/><span class='warningtext'> Required!</span></span>"});
-      }
+
+   if ($F(elem) == ''){
+      ne.show();
    }
+   else {
+      ne.hide(); }
 }
 
 function handle_submit(evt){

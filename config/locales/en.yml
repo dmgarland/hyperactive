@@ -25,6 +25,7 @@ en:
     login_cap: Login
     media_uploads: Media uploads
     moderation_status: Moderation status
+    more: More
     name: Name
     nope: "No"
     no_tags_found: No tags found.
@@ -46,7 +47,6 @@ en:
     user_name: User Name
     welcome: Welcome
     yep: "Yes"   
-    more: More
     your_name: Your name
 
   # Action alerts
@@ -201,9 +201,9 @@ en:
       delete: Delete
       moderation_status: Moderation status
       required_field: required field
+      title: Title
       upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
       your_name: Your name
-      title: Title
   
   # Controller messages, stuff that doesn't show up in normal view templates 
   # but are messages from the system telling you that something happened, 

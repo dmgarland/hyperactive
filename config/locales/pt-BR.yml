@@ -28,8 +28,12 @@ pt-BR:
     login_cap: Entrar
     media_uploads: Envio de Mídias
     moderation_status: Status da moderação
+    # new!
+    more: More   
     name: Nome
-    no: Não
+    nope: Não
+    # new!
+    no_tags_found: No tags found.   
     oops: Oops!
     page: página
     password: Senha
@@ -38,6 +42,8 @@ pt-BR:
     published_cap: Publicado
     published_on: Publicado
     remove: Remover
+    # new!
+    search: Search
     summary: Resumo
     tagged_as: Marcado como
     title: Título
@@ -46,7 +52,7 @@ pt-BR:
     url: URL
     user_name: Nome de usuário/a
     welcome: Bem-vindo/a
-    yes: Sim
+    yep: Sim
     your_name: Seu nome
 
   # Action alerts
@@ -60,6 +66,8 @@ pt-BR:
       admin_explanation: Você é um/a usuário/a administrador/a. Daqui você pode
       edit_group_membership: Editar membros
       edit_rss_feeds: Editar feeds RSS
+      # new!
+      login_success: you have successfully been logged in     
       view_site_admin: ver as páginas de admin do site
       you_are_currently_logged_in_as: Você está logado/a como usuário/a
       you_belong_to_groups: Você faz parte dos seguintes grupos
@@ -192,6 +200,8 @@ pt-BR:
       delete: Deletar
       moderation_status: Status de moderação
       required_field: campo obrigatório
+      # new!
+      title: Title     
       upload_instructions: Clique no link "adicionar foto", "adicionar video", ou "adicionar arquivo para envio" para cada arquivo que você deseja enviar. Você pode enviar quantos arquivos você quiser clicando em "adicionar" várias vezes.    
       your_name: Seu nome
   
@@ -446,7 +456,7 @@ pt-BR:
         title: Mapeie!
         will_load_data: "<strong>Nota:</strong> clicando no link do mapa carregará os dados de {{openstreetmap}} um servidor externo."
         you_can_attach_a_map: Você pode anexar um mapara para esse
-      place_tag_entry_control: Tags do Bairro - i.e. <em>brixton lambeth</em> ou <em>elephant_and_castle
+      place_tag_entry_controls: Tags do Bairro - i.e. <em>brixton lambeth</em> ou <em>elephant_and_castle
       related_content: Mais como esse (auto-gerado)
       sub_list:
         add_file_upload: Adicionar um arquivo de envio
@@ -559,7 +569,7 @@ pt-BR:
       no_flash: "<p>Esse item exige Macromedia Flash Player 7.</p>
         <p>Para pegar a última versão por favor <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>clique aqui</a>.</p>"
       tagged: Marcado como
-      place: Lugares
+      places: Lugares
       contact_email: Email de contato
       download_original: baixe o original
       download_torrent: baixe por torrent

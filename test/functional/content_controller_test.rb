@@ -40,7 +40,7 @@ module ContentControllerTest
     assert_template 'show'
     assert_not_nil assigns(:content)
     assert assigns(:content).valid?
-    assert_match(/Report or administer this #{class_name}/, @response.body, "Unhidden content should show hiding controls.")
+    assert_match(/#{I18n.t('shared.content.report_or_administer', :class_name => class_name)}/, @response.body, "Unhidden content should show hiding controls.")
   end  
   
   def test_a_show_hidden

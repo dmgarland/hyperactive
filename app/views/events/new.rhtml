@@ -4,6 +4,6 @@
 <% form_for(:content, :url => events_path, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
   <%= render(:partial => 'shared/captcha') %>
-  <p><%= submit_tag I18n.t('general.create') %></p>
+  <p><%= submit_tag I18n.t('general.create') %><span class='warning' style="display: none;"><img src='../images/icons/error.png'/><span> <%= I18n.t 'javascript.validation.required_fields_missing' %></span></span></p>
 <% end %>
 

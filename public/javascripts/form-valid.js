@@ -1,4 +1,4 @@
-// A simple javascipt to validate forms to avoid titles being empty
+// A simple javascript to validate forms to avoid titles being empty
 // This is a usability improvement: server side controls take care of
 // the database consistency.
 
@@ -72,10 +72,10 @@ function handle_submit(evt){
       
       // Get the submit button and attach to it a warning
       var submit_control = Form.getInputs(Event.element(evt), 'submit')[0];
-      if (submit_control.next() && submit_control.next().className.toLowerCase() == 'warning'){       
-      } 
-      else {
-          submit_control.insert({"after":"<span class='warning'><img src='../images/icons/error.png'/><span class='warningtext'> Some required fields are missing! </span></span>"});
+      if (submit_control.next() && submit_control.next().className.toLowerCase() == 'warning'){
+          submit_control.next().show();
+      } else {
+
       }
    }
 }

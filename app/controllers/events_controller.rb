@@ -3,7 +3,7 @@ class EventsController < ContentController
   def index
     @cloud = Tag.cloud(:limit => 20)
     
-    if params[:moderation_status].nil?
+    if params[:moderation_status].blank?
       @content = model_class.paginate(
         :conditions => ['moderation_status != ? and date >=?', 'hidden', Date.today.to_s], 
         :order => 'date ASC', 

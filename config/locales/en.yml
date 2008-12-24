@@ -382,7 +382,8 @@ en:
   # Javascript-related messages
   javascript:
     no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
-  
+    validation:
+      required_fields_missing: Some required fields are missing!
   # The site's layouts, including the navigation, header, and footer.
   layouts: 
     categories: Categories
@@ -472,7 +473,7 @@ en:
   # The events timeline.
   timeline:
     explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
-  
+   
   # Videos
   videos:
     sidebar: 

@@ -21,19 +21,17 @@ pt-BR:
     edit: Editar
     editorial_guidelines: Diretrizes Editoriais
     event_date: Data do Evento
-    feed_center: feed center
+    feed_center: central de feeds
     file: Arquivo
     file_upload: Envio de arquivo
     logout: sair
     login_cap: Entrar
     media_uploads: Envio de Mídias
     moderation_status: Status da moderação
-    # new!
-    more: More   
+    more: Mais   
     name: Nome
     nope: Não
-    # new!
-    no_tags_found: No tags found.   
+    no_tags_found: Nenhuma tag encontrada.   
     oops: Oops!
     page: página
     password: Senha
@@ -42,8 +40,7 @@ pt-BR:
     published_cap: Publicado
     published_on: Publicado
     remove: Remover
-    # new!
-    search: Search
+    search: Buscar
     summary: Resumo
     tagged_as: Marcado como
     title: Título
@@ -57,7 +54,7 @@ pt-BR:
 
   # Action alerts
   action_alerts:
-    listing_action_alerts: Listing action alerts 
+    listing_action_alerts: Listar alertas #Listing action alerts 
   
   # ActiveRbac - login and signup related stuff
   active_rbac:
@@ -66,15 +63,14 @@ pt-BR:
       admin_explanation: Você é um/a usuário/a administrador/a. Daqui você pode
       edit_group_membership: Editar membros
       edit_rss_feeds: Editar feeds RSS
-      # new!
-      login_success: you have successfully been logged in     
+      login_success: você logou-se com sucesso     
       view_site_admin: ver as páginas de admin do site
       you_are_currently_logged_in_as: Você está logado/a como usuário/a
       you_belong_to_groups: Você faz parte dos seguintes grupos
       you_have_published_articles: Você publicou os seguintes artigos
       you_have_published_events: Você publicou os seguintes eventos      
       you_have_published_videos: Você publicou os seguintes videos      
-      you_may_log_out_at: Você deve deslogar-se na 
+      you_may_log_out_at: Você pode desautenticar-se na 
       your_account: Sua conta
       your_articles: Seus artigos
       your_events: Seus eventos
@@ -118,8 +114,8 @@ pt-BR:
     new: 
       title: Novo artigo
     sidebar:
-      latest_articles_feed: Último feeds dos artigos
-      subscribe_message: Inscreva para o nosso {{articles_feed_path}} ou visite nosso {{feed_center_path}} para mais feeds.
+      latest_articles_feed:  Últimos feeds dos artigos
+      subscribe_message: Inscreva para o nosso {{articles_feed_path}} ou visite nossa {{feed_center_path}} para mais.
     stick_at_top_controls:
       title: Controle da página inicial
       explanation: Você tem a opção de mandar esse artigo para o topo da página inicial. O artigo precisa ser promovido antes que isso funcione.
@@ -166,7 +162,7 @@ pt-BR:
       create_a_group_title: Crie um grupo!
       explanation: Qualquer usuário/a registrado/a pode {{create_a_group}}.  Se você ainda não está registrado/a, você pode {{register_a_user}}.
       sign_up_here: registre-se aqui
-    external_feed: This feed has not yet been retrieved.  It should show up in about ten minutes.
+    external_feed: Esse feed ainda não foi recuperado. Ele deve aparecer em cerca de dez minutos.
     show: 
       no_articles_yet: Nenhum artigo ainda.
       no_events_yet: Nenhum evento ainda.
@@ -201,7 +197,7 @@ pt-BR:
       moderation_status: Status de moderação
       required_field: campo obrigatório
       # new!
-      title: Title     
+      title: Título     
       upload_instructions: Clique no link "adicionar foto", "adicionar video", ou "adicionar arquivo para envio" para cada arquivo que você deseja enviar. Você pode enviar quantos arquivos você quiser clicando em "adicionar" várias vezes.    
       your_name: Seu nome
   
@@ -257,8 +253,8 @@ pt-BR:
       week: semana
       month: mês
       other_month: outros meses
-      ordinal: [first, second, third, fourth, last]
-      week_days: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+      ordinal: [primeiro, segundo, terceiro, quarto, último] #[first, second, third, fourth, last]
+      week_days: [Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado, Domingo] #[Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
       repeat_note: "Nota: você só pode repetir eventos no tempo máximo de 6 meses a partir da data do primeiro evento."
       repeat_until: Até
       repeat_on: Repetir em
@@ -351,7 +347,7 @@ pt-BR:
   feeds:
     index:
       action_alerts_explanation: uma de lista de pequenas e não frequentes atualizações de importantes acontecimentos na cidade.
-      at_the_miro_site: Miro no site
+      at_the_miro_site: site do Miro
       latest_articles: Últimos artigos
       latest_articles_explanation: lista dos últimos artigos que foram publicados no site.
       latest_videos: Últimos videos
@@ -360,10 +356,10 @@ pt-BR:
       upcoming_events_by_place: Próximos eventos por lugar
       upcoming_events_by_tag: Próximos eventos por tag
       upcoming_events_explanation: listas dos próximos eventos do calendário.
-      upcoming_events_by_place_explanation: Allows you to get a feed of events for a specific place, listed by when they were published. So if you want to see all events tagged with the place 'Brixton' on the site as it gets published, you'd type 'Brixton' into this search box and subscribe to the resulting feed
-      upcoming_events_by_tag_explanation: Allows you to get a feed of events for a specific tag, listed by when they were published. So if you want to see everything tagged with "foo" on the site as it gets published, you'd type "foo" into this search box and subscribe to the resulting feed
-      latest_videos_explanation: This will allow you to download Miro, which takes care of feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features {{miro_site}}. Once you've installed Miro, you can subscribe to our {{video_feed}} to automatically receive all of our latest videos.
-      video_feed: video feed
+      upcoming_events_by_place_explanation: Permite-lhe obter um feed de eventos de um lugar específico, listado por quando são publicados. Então se você quiser ver todos os eventos marcados com as tags com o local 'Brixton' que foram publicados no site, você deve escrever 'Brixton' na caixa de busca e assinar o feed do resultado 
+      upcoming_events_by_tag_explanation: Permite-lhe obter um feed de eventos a partir de uma tag específica, listado por quando foram publicados. Então, se você quiser ver todas as publicações do site marcadas com a tag "foo", você deverá escrever "foo" na caixa de busca e assinar o feed do resultado.
+      latest_videos_explanation: Isso permitirá que você baixe um prático pacote do Miro, um programa leitor de feeds, Bittorrent, e video-playing. Você pode entrar mais caracteríscitas sobre ele no {{miro_site}}. Uma vez que você instalou o Miro, você pode assinar o nosso {{video_feed}} para receber automaticamente todos os nossos últimos videos.
+      video_feed: feed dos vídeos
 
   # The home page for the site
   home:
@@ -374,7 +370,7 @@ pt-BR:
       featured_groups: Grupos Recentemente Atualizados e Destacados
       promoted_events: Próximos Eventos
       latest_poster: Pôsters!
-      place_tags: Bairros
+      place_tags: Locais
       tags: Tags
       info: Info
       network: Rede CMI UK
@@ -388,9 +384,9 @@ pt-BR:
     categories: Categorias
     events: Eventos
     footer: 
-      contributions: Para contribuir para esse projeto {{project_site}}
+      contributions: Para contribuir com esse projeto {{project_site}}
       icons_by: Ícones por
-      project_site: dê uma olhada no site do projeto
+      project_site: dê uma olhada no site
     groups: Grupos
     home: Página incial
     main: Principal
@@ -421,7 +417,7 @@ pt-BR:
     account_box: 
       title: Sua conta
       explanation: Você não está logado/a atualmente.  Você pode {{login}} ou {{register_an_account}}.	O registro permite você editar o seu próprio conteúdo e ajudar na administração do site.
-      log_in: log in
+      log_in: entrar 
       register_an_account: registrar uma conta
     captcha:
       explanation: Até que os sistemas automatizados alcancem um nível maior de auto-consciência e responsabilidade, nós precisamos que você prove sua humanidade passando por um pequeno teste que os robôs spams são muito idiotas para passar.
@@ -482,18 +478,13 @@ pt-BR:
         related_title: "{{post_title}} Relacionadas"
         explanation: "Esse video foi enviado originalmente como parte do seguinte {{post_title}}"
       feedbox:
-        title: Feed do Video
-        feed_link: feed do video
-        miro_link: Miro no site
+        title: Feeds de Videos
+        feed_link: feeds dos videos
+        miro_link: site do Miro
         explanation: "  <a href='http://subscribe.getMiro.com/?url1={{video_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
 			<p>
-			This will allow you to download Miro, which takes care of
-			feed-reading, Bittorrent and video-playing software in one easy to use package.  
-                        You can find out more about its features 
-			{{miro_path}}. Once you have installed Miro, you can subscribe 
-			to our {{feed_path}} to automatically receive all of our latest videos, 
-                        or click the 'download torrent'
-			link underneath the video above to download only the video file you want.</p>"
+			Isso permitirá que você baixe um prático pacote do Miro, um programa leitor de feeds, Bittorrent, e video-playing. Você pode encontrar mais caracteríscitas suas no {{miro_path}}. Uma vez que você instalou o Miro, você pode assinar o nosso {{feed_path}} para receber automaticamente todos os nossos últimos videos ou baixar somente o video que você deseja clicando no link 'baixar torrent' que está abaixo dele.
+			</p>"
     archives:
       title: Listando videos
     editing_video:
@@ -512,11 +503,9 @@ pt-BR:
     help:
       video_feed: feed do video
       text: "<h2>Ajuda para baixar Video</h2>
-	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can 
-	download it for screenings.  However, we do not currently have the capacity to serve these big files 
-	ourselves.  Instead, we offer a download via Bittorrent, a peer-to-peer filesharing sytem.</p> 
-	<p>In order to download the full-quality video, you will need to have some software installed on your computer.
-	Basically you have two choices:
+	<p>Sempre que alguém envia um video, nosso servidor mantém um cópia com a qualidade integral dele para que você possa baixá-lo sem rastreios. Contudo, nós não temos atualmente a capacidade de servir todos esses grandes arquivos por nós mesmos. Ao invés disso, oferecemos o download via Bittorrent, um sistema de compartilhamento de arquivos peer-to-peer. </p>
+	<p>Para baixar o video com a qualidade integral, você precisará de algum programa instalado no seu computador. 
+	Basicamente, você tem duas escolhas:
 	<ul>
 		<li>Bittorrent + VLC</li>
 		<li>Miro</li>
@@ -524,35 +513,26 @@ pt-BR:
 	</p>
 	
 	<h2>Bittorrent + VLC</h2>
-        <a href='http://www.bittorrent.com/download'>Bittorrent software</a> shares 
-	the file you are downloading with other people as you download it.  If you want to help us distribute 
-	video files, please leave your Bittorrent client open after your download finishes and you'll be donating
-	your bandwidth and making everyone's downloads faster.</p>
+        <a href='http://www.bittorrent.com/download'>Bittorrent software</a> compartilha o arquivo que você está baixando com outras pessoas que estão fazendo o download como você. Se você quiser nos ajudar a distribuir os arquivos de videos, por favor, mantenha o seu programa de Bittorrent aberto mesmo depois que você terminar o seu download, assim você estará doando banda e tornando todos os downloads mais rápidos.</p>
 	
-	<p>All of the full-quality video has been converted into a free format called Ogg Theora.  The easiest way 
-	to watch them is to use the excellent <a href='http://www.videolan.org/vlc/'>VLC</a> video player which
-	you can <a href='http://www.videolan.org/vlc/'>download here</a>. Alternatively, you may download the
-        <a href='http://xiph.org/quicktime/'>Ogg plugin for Quicktime</a>, or
-        <a href='http://www.illiminable.com/ogg/'>Ogg plugin for Windows Media Player</a>. </p>
+	<p>Todos os videos com a qualidade integral foram convertidos para o formato livre Ogg Theora. O modo mais fácil de assistí-los é usando o excelente <a href='http://www.videolan.org/vlc/'>VLC</a> um tocador de videos que você <a href='http://www.videolan.org/vlc/'>baixar aqui</a>. Alternativamente, você pode baixar o
+        <a href='http://xiph.org/quicktime/'>plugin Ogg para o Quicktime</a>, ou
+        <a href='http://www.illiminable.com/ogg/'>o plugin Ogg para Windows Media Player</a>. </p>
 	
 	<h2>Miro</h2>
-	<p>Another easy way to see the full-quality video on our site is to press this button:
+	<p>Um outro meio fácil de ver o video com a qualidade integral no nosso site é apertando esse botão:
 	<p>
 		<a href='http://subscribe.getMiro.com/?url1={{feed_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
 	</p>	
-	This will allow you to download Miro, which takes care of
-	feed-reading, Bittorrent and video-playing software in one easy to use package.  
-        You can find out more about its features
-        <a href='http://www.getmiro.com/features/'>at the Miro site</a>.
-        Once you've installed Miro, you can subscribe 
-	to our {{video_path}} to automatically 
-        receive all of our latest videos, or click the 'download torrent'
-	link underneath the video above to download only the video file you want.</p>
+	Isso permitirá que você baixe um fácil pacote do Miro, que é um leitr de feeds, Bittorrent e video-playing.
+	Você pode encontrar mais sobre as características dele no
+        <a href='http://www.getmiro.com/features/'>site do Miro</a>.
+        Uma vez que você instalou o Miro, você pode instalar o nosso {{video_path}} 
+	para receber automaticamente os nossos últimos videos, ou clicar no link 'baixar torrent'
+	que está debaixo do video desejado.</p>
 
-	<h2>Security note</h2>
-	<p>{{exclamation_img}} If you are incredibly paranoid about other 
-	people knowing that you are downloading a video, please note that your computer's IP address will be visible
-	to the people who you are sharing the video with.  In this case, don't use Bittorrent or Miro.</p>"
+	<h2>Nota de segurança</h2>
+	<p>{{exclamation_img}} Se você é muito paranóico/a sobre as pessoas saberem que você está baixando um video, por favor note que o seu IP do seu computador estará visível para as pessoas com quem você está compartilhando o video. Nesse caso, não use o Bittorrent ou o Miro.</p>"
     index:
       title: Listando videos
       more_videos: Mais videos

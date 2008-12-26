@@ -60,6 +60,7 @@ a img {
 img.left {
 	float: left;
 	margin-right : 10px;
+	border: solid #000000 1px;
 }
 
 #left
@@ -67,10 +68,7 @@ img.left {
   float:left;
 }
 
-.collective_image
-{
-  	margin: 5px 10px 2px 0;
-	border: 1px solid #000000;
+
 }
 
 img.right {	
@@ -568,15 +566,15 @@ margin-top : 0px;
 
 
 #homepage-footer {
-	padding: 10px 5px 25px 10px;
-	background: #E6E6E6 url(../images/img05.gif) repeat-x;
+	padding: 30px 5px 25px 10px;
+	background: #E6E6E6 url(../images/img07.gif) repeat-x;
 	text-align : center; 
 	}
 
 #a-tribute-to-occam {
 	margin: 0 auto;
 	text-align: center;
-	width: 640px;
+	width: 700px;
 	}
 
 .warning {
@@ -597,19 +595,21 @@ margin-top : 0px;
 
 div.collective-preview
 {
-  margin: 2px;
-  height: auto;
+  margin: 5px;
+  height: 150px;
   width: auto;
   float: left;
   text-align: center;
+  background: #ffffff;
+  border: solid 1px #000000;
 }	
 div.collective-preview img
 {
   display: inline;
   margin: 3px;
-  border: 1px solid #ffffff;
+  border: 1px solid #fff;
 }
-div.collective-preview a:hover img {border: 1px solid #0000ff;}
+
 div.collective-preview-desc
 {
   text-align: center;

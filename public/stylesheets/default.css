@@ -194,7 +194,7 @@ img.right {
 	/*background: url(../images/img07.gif) repeat-x;*/
 	padding: 6px 0 7px;
 	text-align: center;
-	border-bottom: dashed 1px #940f04;
+	border-bottom: groove 1px #940f04;
 }
 
 /* Notice and Error Messages */

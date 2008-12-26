@@ -74,6 +74,10 @@ img.right {
 	border: 1px solid #000000;
 }
 
+.collective_image {
+	border: 1px solid #000000;
+	margin: 5px 10px 2px 0;
+}
 
 /* Header */
 
@@ -187,9 +191,10 @@ img.right {
 /*content list navigation*/
 
 .content-nav-links {
-	/*background: url(../images/img07.gif) repeat-x*/;
-	padding: 5px 0;
-	border-bottom: 1px solid #940F04;
+	/*background: url(../images/img07.gif) repeat-x;*/
+	padding: 6px 0 7px;
+	text-align: center;
+	border-bottom: dashed 1px #940f04;
 }
 
 /* Notice and Error Messages */
@@ -271,6 +276,8 @@ img.right {
 .byline {
 	margin: 0 0 15px 0;
 }
+
+
 
 .entry {
 	padding: 0 5px;
@@ -415,6 +422,12 @@ margin-top : 0px;
 	font-size: 12px;
 }
 
+.created_on {
+   font-weight: normal;   
+   margin: 0px 0px 0px 170px;
+   font-size: 0.9em;
+   color: #999999;
+}
 
 
 /* Sidebars */

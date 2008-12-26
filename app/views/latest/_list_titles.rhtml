@@ -1,0 +1,19 @@
+<li class="<%= list_titles.class.to_s.downcase %>-list">
+        <% if list_titles.moderation_status == "promoted" %>
+           <img alt="Rosette" src="/images/icons/rosette.png"/>
+        <% end %>
+
+        <% if list_titles.moderation_status == "featured" %>
+           <img alt="Star" src="/images/icons/star.png" />
+        <% end %>
+
+
+	<% if list_titles.is_a?(Content) %> 
+          <%= link_to h(list_titles.title), content_path_for(list_titles) %> 
+          <%= list_titles.updated_on.strftime(' %D %H:%M:%S') %>
+        <% else %>
+          <%= link_to h(list_titles.title), content_path_for(list_titles.content) %> 
+          <%= list_titles.updated_on.strftime(' %D %H:%M:%S') %>
+        <% end %> 
+	<br/>
+</li>

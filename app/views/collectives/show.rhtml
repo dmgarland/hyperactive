@@ -7,8 +7,14 @@
 <!--  sidebar_content_left -->
 	<div id="special_content" class="sidebar_content_wide">
 		<ul>
-			<li>
-					<h2><%=h @collective.name %></h2>
+                        <li><h2><%=h @collective.name %>
+                            <span class="created_on">
+                            <%= I18n.t 'collectives.show.group_created' %> 
+                            <%= @collective.created_on.strftime('%D') %></span>
+                         </h2></li>
+                       
+                        
+			<li>					
 					<div id="left">
 					  <% if @collective.image.nil? %>
 					    <%= image_tag "default_collective.jpg", :class => "collective_image" %>

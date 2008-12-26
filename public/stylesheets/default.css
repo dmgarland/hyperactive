@@ -585,10 +585,18 @@ margin-top : 0px;
    border: 1px solid #ffffff;
 }
 
-.warningtext {
-   
+.warningtext {   
    color: #00ff00;
    display: none;
+}
+
+.created_on {
+   display: inline;
+   font-weight: normal;   
+   margin: 0px 0px 0px 25px;
+   font-size: 0.9em;
+   color: #aaa;
+   text-align: right;
 }
 
 div.collective-preview
@@ -601,6 +609,7 @@ div.collective-preview
   background: #ffffff;
   border: solid 1px #000000;
 }	
+
 div.collective-preview img
 {
   display: inline;

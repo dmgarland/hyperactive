@@ -14,6 +14,7 @@ class Video < Media
 
   # Macros
   #
+  named_scope :processed, :conditions => ['processing_status = ?', 2]
   upload_column :file, 
                 :extensions => ["3gp",  "avi",  "m4v", "mov", "mpg", "mpeg", "mp4", "ogg", "wmv"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),

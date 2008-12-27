@@ -1,0 +1,78 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+site_name:
+  key: site_name
+  string_value: Indymedia X
+  integer_value: 
+  boolean_value: 
+  type: StringSetting
+
+show_site_name_in_banner:
+  key: show_site_name_in_banner
+  string_value: 
+  integer_value: 
+  boolean_value: false
+  type: BooleanSetting
+  
+banner_image:
+  key: banner_image
+  string_value: logo.jpg
+  integer_value: 
+  boolean_value: 
+  type: StringSetting  
+  
+torrent_tracker:
+  key: torrent_tracker
+  string_value: http://foo.blah
+  integer_value: 
+  boolean_value: 
+  type: StringSetting 
+  
+use_ssl:
+  key: use_ssl
+  string_value: 
+  integer_value: 
+  boolean_value: true 
+  type: BooleanSetting 
+  
+moderation_email_recipients:
+  key: moderation_email_recipients
+  string_value: foo@schmoka.org
+  integer_value: 
+  boolean_value:  
+  type: StringSetting
+  
+moderation_email_from:
+  key: moderation_email_from
+  string_value: indysite@indy.org
+  integer_value: 
+  boolean_value:  
+  type: StringSetting
+  
+use_local_css:
+  key: use_local_css
+  string_value: 
+  integer_value: 
+  boolean_value: true  
+  type: BooleanSetting
+  
+valid_elements_for_tiny_mce:
+  key: valid_elements_for_tiny_mce
+  string_value: a b c
+  integer_value: 
+  boolean_value:   
+  type: StringSetting 
+  
+home_page_feed:
+  key: home_page_feed
+  string_value: http://foo.feed.org
+  integer_value: 
+  boolean_value:   
+  type: StringSetting 
+  
+rake_path:
+  key: rake_path
+  string_value: /usr/bin/rake
+  integer_value: 
+  boolean_value:   
+  type: StringSetting 

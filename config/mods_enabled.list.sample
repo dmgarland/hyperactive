@@ -1,0 +1,12 @@
+# Hyperactive mods
+#
+# If you want to modify the behaviour of your site, the easiest way to do it is to 
+# build a "mod".  See the README file in /mods/ if you want to know how to do this.
+#
+# To enable your mod (or an existing one that's already included with the main Hyperactive
+# source code), copy this file (config/mods_enabled_list.sample) to config/mods_enabled.list
+#
+# Once you've done that, uncomment the mod name to enable it, and restart your server.
+#
+## An example mod that modifies the default look and behavior of Hyperactive.
+london

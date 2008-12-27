@@ -1,0 +1,61 @@
+<h2>Editing settings</h2>
+
+<% form_tag :action => 'update' do %>
+
+	<p>
+	<%= label_tag "Site name" %><br/>
+	<%= text_field_tag(:site_name, Hyperactive.site_name) %>
+	</p>
+
+	<p>
+	<%= label_tag "Show site name in banner?" %><br/>
+	<%= check_box_tag(:show_site_name_in_banner, "1", Hyperactive.show_site_name_in_banner) %>
+	</p>
+
+	<p>
+	<%= label_tag "Banner image" %><br/>
+	<%= text_field_tag(:banner_image, Hyperactive.banner_image) %>
+	</p>
+	
+	<p>
+	<%= label_tag "Torrent tracker" %><br/>
+	<%= text_field_tag(:torrent_tracker, Hyperactive.torrent_tracker) %>
+	</p>	
+	
+	<p>
+	<%= label_tag "Use ssl?" %><br/>
+	<%= check_box_tag(:use_ssl, Hyperactive.use_ssl) %>
+	</p>
+	
+	<p>
+	<%= label_tag "Moderation email recipient" %><br/>
+	<%= text_field_tag(:moderation_email_recipients, Hyperactive.moderation_email_recipients) %>
+	</p>	
+	
+	<p>
+	<%= label_tag "Moderation email from" %><br/>
+	<%= text_field_tag(:moderation_email_from, Hyperactive.moderation_email_from) %>
+	</p>	
+
+	<p>
+	<%= label_tag "Use local CSS?" %><br/>
+	<%= check_box_tag(:use_local_css, Hyperactive.use_local_css) %>
+	</p>
+	
+	<p>
+	<%= label_tag "Valid elements for tiny mce" %><br/>
+	<%= text_field_tag(:valid_elements_for_tiny_mce, Hyperactive.valid_elements_for_tiny_mce) %>
+	</p>	
+
+	<p>
+	<%= label_tag "Home page feed" %><br/>
+	<%= text_field_tag(:home_page_feed, Hyperactive.home_page_feed) %>
+	</p>	
+	
+	<p>
+	<%= label_tag "Rake path" %><br/>
+	<%= text_field_tag(:rake_path, Hyperactive.rake_path) %>
+	</p>		
+		
+	<p><%= submit_tag %></p>
+<% end %>

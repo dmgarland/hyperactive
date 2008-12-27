@@ -369,6 +369,8 @@ pt-BR:
       featured_events: Eventos Destacados
       featured_groups: Grupos Recentemente Atualizados e Destacados
       promoted_events: Próximos Eventos
+      # new!
+      published_newswire: Open Newswire     
       latest_poster: Pôsters!
       place_tags: Locais
       tags: Tags

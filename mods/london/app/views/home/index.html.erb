@@ -42,19 +42,20 @@
 			<li>				
 				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
-					<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
-					<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
+				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
+				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
 				</ul>
+
 			</li>
 		</ul>
 	</div>	
 	<div id="unused" class="sidebar_content">
 		<ul>
-			<li>				
-				<h2><%= I18n.t 'home.index.published_newswire' %></h2>
+			<li>
+				<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
 				<ul>
-					<%= render :partial => '/shared/content/list_title', :collection => @recent_articles %>
-					<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), articles_path %></li>
+					<%= @home_page_feed unless @home_page_feed.nil? %>
+					<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -113,14 +114,57 @@
 			<ul>
 				<%= render :partial => '/pages/list_title', :collection => @pages %>
 			</ul>
-		</li>
+		</li>		
 		<li>
-			<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
-			<ul>
-				<%= @home_page_feed unless @home_page_feed.nil? %>
-				<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
+			<h2><%= I18n.t 'home.index.network' %></h2>
+			<ul>		
+				<li class="list">
+					<%= link_to "Indymedia UK", "http://www.indymedia.org.uk" %>
+				</li>
+				<li class="list">
+					<%= link_to "Birmingham", "http://www.indymedia.org.uk/en/regions/birmingham/" %>
+				</li>	
+				<li class="list">
+					<%= link_to "Bristol", "http://bristol.indymedia.org/" %>
+				</li>
+				<li class="list">
+					<%= link_to "Cambridge", "http://www.indymedia.org.uk/en/regions/cambridge/" %>
+				</li>								
+				<li class="list">
+					<%= link_to "Leeds Bradford", "http://www.indymedia.org.uk/en/regions/leedsbradford/" %>
+				</li>	    
+				<li class="list">
+					<%= link_to "Liverpool", "http://www.indymedia.org.uk/en/regions/liverpool/" %>
+				</li>    
+				<li class="list">
+					<%= link_to "London 2003-2008", "http://www.indymedia.org.uk/en/regions/london/" %>
+				</li>    				
+				<li class="list">
+					<%= link_to "Manchester", "http://www.indymedia.org.uk/en/regions/manchester/" %>
+				</li>        
+				<li class="list">
+					<%= link_to "Nottinghamshire", "http://www.indymedia.org.uk/en/regions/nottinghamshire/" %>
+				</li>      
+				<li class="list">
+					<%= link_to "Oxford", "http://www.indymedia.org.uk/en/regions/oxford/" %>
+				</li>
+				<li class="list">
+					<%= link_to "Scotland", "http://scotland.indymedia.org" %>
+				</li>	
+				<li class="list">
+					<%= link_to "Sheffield", "http://www.indymedia.org.uk/en/regions/sheffield/" %>
+				</li>      
+				<li class="list">
+					<%= link_to "South Coast", "http://www.indymedia.org.uk/en/regions/southcoast/" %>
+				</li>
+				<li class="list">
+					<%= link_to "York", "http://york.indymedia.org.uk" %>
+				</li>      
+				<li class="list">
+					<%= link_to "World", "http://www.indymedia.org.uk/en/regions/world/" %>
+				</li>     
 			</ul>
-		</li>					
+		</li>			
 	</ul>
 </div>
 <!-- end sidebars -->

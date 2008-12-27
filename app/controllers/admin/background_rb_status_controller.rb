@@ -7,11 +7,11 @@ class Admin::BackgroundRbStatusController < ApplicationController
   end
 
   def stop
-   `cd #{RAILS_ROOT} && RAILS_ENV=#{RAILS_ENV} #{RAKE_PATH} backgroundrb:stop` 
+   `cd #{RAILS_ROOT} && RAILS_ENV=#{RAILS_ENV} #{Hyperactive.rake_path} backgroundrb:stop` 
   end
 
   def start
-   `cd #{RAILS_ROOT} && RAILS_ENV=#{RAILS_ENV} #{RAKE_PATH} backgroundrb:start`
+   `cd #{RAILS_ROOT} && RAILS_ENV=#{RAILS_ENV} #{Hyperactive.rake_path} backgroundrb:start`
   end
  
   def get_status

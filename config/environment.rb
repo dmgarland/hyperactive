@@ -10,6 +10,13 @@ RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
+require "#{RAILS_ROOT}/lib/extends_to_engines.rb"
+
+if File.exist?("#{RAILS_ROOT}/config/mods_enabled.list")
+  MODS_ENABLED = File.read("#{RAILS_ROOT}/config/mods_enabled.list").split("\n").freeze
+else
+  MODS_ENABLED = []
+end
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
@@ -55,6 +62,9 @@ Rails::Initializer.run do |config|
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
   
+  # allow plugins in mods/
+  config.plugin_paths << "#{RAILS_ROOT}/mods"
+
   # See Rails::Configuration for more options
   config.action_mailer.delivery_method = :sendmail
   
@@ -86,3 +96,8 @@ end
 require 'validates_uri_existence_of'
 gem 'rmagick'
 require 'RMagick'
+
+settings = Setting.all
+settings.each do |setting|
+  Hyperactive.send("#{setting.key}=", setting.value)
+end

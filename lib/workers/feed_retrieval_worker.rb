@@ -19,7 +19,7 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
   # This method is called in it's own new thread when you
   # call new worker. args is set to :args  
   def do_work(args)
-    pull_uk_promoted_feed
+    pull_home_page_feed
     pull_group_feeds
   end
   
@@ -49,12 +49,14 @@ class FeedRetrievalWorker < BackgrounDRb::Rails
     end
   end
   
-  # Pulls the feed of promoted articles from Indymedia UK.
-  #
-  def pull_uk_promoted_feed
-    pull_feed("http://www.indymedia.org.uk/en/promotednewswire.rss", "/public/system/cache/feeds/", "uk_feed.rhtml")
-    rio(RAILS_ROOT + "/public/system/cache/index.html").delete
-  end
+  # Pulls a feed onto the home page if there's one defined in Hyperactive.home_page_feed.
+  # 
+  def pull_home_page_feed
+    unless Hyperactive.home_page_feed.blank?
+      pull_feed(Hyperactive.home_page_feed, "/public/system/cache/feeds/", "home_page_feed.rhtml")
+      rio(RAILS_ROOT + "/public/system/cache/index.html").delete
+    end
+  end  
   
   # Pulls all defined group feeds
   #

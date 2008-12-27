@@ -83,8 +83,7 @@ class Admin::ActionAlertsController < ApplicationController
     if current_user.has_role?("Admin")
       return true
     else
-      redirect_to "/publish/list"
-      flash[:notice] = "You are not allowed to access this page."
+      security_error
     end
   end  
   

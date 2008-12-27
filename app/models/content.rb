@@ -16,6 +16,8 @@ class Content < ActiveRecord::Base
   named_scope :visible, :conditions => ['moderation_status != ?', "hidden"]
   named_scope :promoted, :conditions => ['moderation_status = ?', "promoted"]
   named_scope :promoted_and_featured, :conditions => ['moderation_status = ? OR moderation_status = ?', "promoted", "featured"]
+  named_scope :published, :conditions => ['moderation_status = ?', "published"]
+  named_scope :featured, :conditions => ['moderation_status = ?', "featured"]
   
   # Associations
   #

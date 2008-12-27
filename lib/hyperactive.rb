@@ -17,8 +17,8 @@ module Hyperactive
 
   # What should the site be called?
   #
-  @@site_name = 'Indymedia London'
-  mattr_accessor :site_name # SITE_NAME
+  @@site_name = 'Indymedia X'
+  mattr_accessor :site_name
 
   # Should the site name be displayed in the banner?
   #
@@ -60,6 +60,20 @@ module Hyperactive
   #
   @@valid_elements_for_tiny_mce = "a[href|alt|title],strong/b,em,i,p,code,tt,br,ul,ol,li,blockquote,strike"
   mattr_accessor :valid_elements_for_tiny_mce
+  
+  # If there's a feed that needs to be pulled onto the home page, what's 
+  # its location? Note: there's no default setting for this, if you want to
+  # pull a feed onto the home page, you can set Hyperactive.home_page_feed
+  # somewhere in an environment file or initializer.
+  # 
+  mattr_accessor :home_page_feed
+  
+  # Where is rake on this system?  Usually it's at /usr/bin/rake, but on some systems
+  # it may be at a different place.
+  #
+  @@rake_path = "/usr/bin/rake"
+  mattr_accessor :rake_path
+  
   
 end
 

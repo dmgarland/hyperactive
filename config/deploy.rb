@@ -14,6 +14,7 @@ require 'capistrano/ext/multistage'
 
 set :application, "hyperactive"
 set :repository, "svn://escapegoat.org/hyperactive/trunk"
+set(:rails_env) { "#{stage}" }
 
 # =============================================================================
 # ROLES
@@ -147,7 +148,9 @@ namespace :deploy do
   task :after_update_code, :roles => :app do
     db_config = "#{shared_path}/database.yml.production"
     run "cp #{db_config} #{release_path}/config/database.yml"
-    #backgroundrb_config = "#{shared_path}/backgroundrb.yml.production"
+    mods_config = "#{shared_path}/mods_enabled.list"
+    run "cp #{mods_config} #{release_path}/config/mods_enabled.list"
+   #backgroundrb_config = "#{shared_path}/backgroundrb.yml.production"
     #run "cp #{backgroundrb_config} #{release_path}/config/backgroundrb.yml"
   end
   

@@ -1,5 +1,8 @@
 module ContentControllerTest
-    
+  include ActionView
+  include ActionView::Helpers
+  include ActionView::Helpers::UrlHelper
+  
   def test_index
     get :index
     assert_response :success
@@ -31,7 +34,7 @@ module ContentControllerTest
     assert_template 'show'
     assert_not_nil assigns(:content)
     assert assigns(:content).valid?
-    assert_match(/Report or administer this #{class_name}/, @response.body, "Unhidden content should show hiding controls even if user not logged in.")
+    assert_match(/#{I18n.t('shared.content.admin_controls.report_or_administer', :class_name => class_name)}/, @response.body, "Unhidden content should show hiding controls even if user not logged in.")
   end
   
   def test_a_show_as_admin
@@ -46,13 +49,13 @@ module ContentControllerTest
   def test_a_show_hidden
     get :show, {:id => @hidden_id}
     #assert_match(/Unhide this #{class_name}/, @response.body)
-    assert_match(/This #{class_name} has been hidden/, @response.body)
+    assert_match(/#{I18n.t('shared.content.hidden_notice', :class_name => class_name, :editorial_guidelines => link_to("editorial guidelines", "/pages/editorial-guidelines"))}/, @response.body)
   end
   
   def test_a_show_hidden_as_admin
     get :show, {:id => @hidden_id}, as_user(:marcos)
     #assert_match(/This #{class_name} has been hidden/, @response.body)
-    assert_match(/Unhide this #{class_name}/, @response.body)
+    assert_match(/#{I18n.t('shared.content.admin_controls.unhide_this', :class_name => class_name)}/, @response.body)
   end  
 
   def test_new
@@ -280,7 +283,16 @@ module ContentControllerTest
   private
   
   def class_name
-    model_class.to_s.humanize.downcase
+    case model_class.to_s.humanize.downcase 
+      when 'article'
+        (I18n.t 'content.class_names.article').downcase
+      when 'event'
+        (I18n.t 'content.class_names.event').downcase
+      when 'video'
+        (I18n.t 'content.class_names.video').downcase
+      when 'comment'
+        (I18n.t 'content.class_name.comment').downcase
+    end     
   end
   
   def params_for_valid_content

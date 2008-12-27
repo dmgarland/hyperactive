@@ -22,14 +22,14 @@ class CollectivesControllerTest < Test::Unit::TestCase
 
   def test_should_get_new
     get :new,{}, as_user(:registered_user)
-    assert_match /New group/, @response.body
+    assert_match /#{I18n.t('collectives.new.title')}/, @response.body
     assert_response :success
   end
   
   def test_should_not_show_form_for_anonymous_user
     get :new
-    assert_match /Please create an account/, @response.body
-    assert_no_match /Create/, @response.body
+    assert_match /#{I18n.t('collectives.new.please_create_account')}/, @response.body
+    assert_no_match /#{I18n.t('collectives.new.title')}/, @response.body
   end  
   
   def test_should_create_collective

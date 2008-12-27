@@ -54,7 +54,7 @@ class Test::Unit::TestCase
   
   def assert_security_error
     assert_redirected_to root_path
-    assert_equal "You are not allowed to access this page.", flash[:error]
+    assert_equal I18n.t('security.permissions_error'), flash[:error]
   end
    
   def as_user(fixture_name)

@@ -41,7 +41,7 @@ class SearchControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'by_tag'
     assert_nil assigns(:content)
-    assert_match(/Nothing has been tagged with/, @response.body)       
+    assert_match(/#{I18n.t('search.no_tags_found', :tag => 'nonexistent_tag')}/, @response.body)         
   end
   
   # Searching for a PlaceTag should work.
@@ -71,7 +71,7 @@ class SearchControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'by_place_tag'
     assert_nil assigns(:content)
-    assert_match(/Nothing has been tagged with/, @response.body)      
+    assert_match(/#{I18n.t('search.no_tags_found', :tag => 'nonexistentplace')}/, @response.body)      
   end
 
   def test_find_content

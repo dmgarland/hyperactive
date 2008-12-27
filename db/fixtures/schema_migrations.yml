@@ -18,20 +18,26 @@ schema_migrations_015:
 schema_migrations_004: 
   version: "20081015204841"
 schema_migrations_016: 
-  version: "3"
+  version: "20081225160137"
 schema_migrations_005: 
   version: "20081026102415"
 schema_migrations_017: 
-  version: "4"
+  version: "20081225162851"
 schema_migrations_006: 
   version: "20081129195437"
 schema_migrations_018: 
-  version: "5"
+  version: "20081226182333"
 schema_migrations_007: 
   version: "20081129202116"
+schema_migrations_019: 
+  version: "3"
 schema_migrations_008: 
   version: "20081129224432"
+schema_migrations_020: 
+  version: "4"
 schema_migrations_009: 
   version: "20081204215330"
+schema_migrations_021: 
+  version: "5"
 schema_migrations_010: 
   version: "20081217124551"

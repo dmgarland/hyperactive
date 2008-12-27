@@ -1,0 +1,100 @@
+--- 
+settings_002: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 21:10:19
+  string_value: Indymedia London
+  id: "20"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: site_name
+settings_003: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 21:45:23
+  string_value: 
+  id: "21"
+  type: BooleanSetting
+  boolean_value: "0"
+  integer_value: 
+  key: show_site_name_in_banner
+settings_004: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 21:45:23
+  string_value: logo.png
+  id: "22"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: banner_image
+settings_005: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 19:58:14
+  string_value: 
+  id: "23"
+  type: BooleanSetting
+  boolean_value: "0"
+  integer_value: 
+  key: use_ssl
+settings_006: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 19:58:14
+  string_value: yourlist@yoursite.org
+  id: "24"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: moderation_email_recipients
+settings_007: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 20:31:04
+  string_value: site@yoursite.org
+  id: "25"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: moderation_email_from
+settings_008: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 19:58:14
+  string_value: 
+  id: "26"
+  type: BooleanSetting
+  boolean_value: "0"
+  integer_value: 
+  key: use_local_css
+settings_009: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 19:58:14
+  string_value: a[href|alt|title],strong/b,em,i,p,code,tt,br,ul,ol,li,blockquote,strike
+  id: "27"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: valid_elements_for_tiny_mce
+settings_010: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 21:52:05
+  string_value: http://www.indymedia.org.uk/en/promotednewswire.rss
+  id: "28"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: home_page_feed
+settings_011: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 19:58:14
+  string_value: /usr/bin/rake
+  id: "29"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: rake_path
+settings_001: 
+  created_at: 2008-12-26 19:58:14
+  updated_at: 2008-12-26 19:58:14
+  string_value: http://denis.stalker.h3q.com:6969/announce
+  id: "19"
+  type: StringSetting
+  boolean_value: 
+  integer_value: 
+  key: torrent_tracker

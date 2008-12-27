@@ -1,21 +1,2 @@
---- 
-acts_as_xapian_jobs_003: 
-  model: Collective
-  action: update
-  id: "341"
-  model_id: "4"
-acts_as_xapian_jobs_004: 
-  model: Collective
-  action: update
-  id: "342"
-  model_id: "5"
-acts_as_xapian_jobs_001: 
-  model: Collective
-  action: update
-  id: "339"
-  model_id: "2"
-acts_as_xapian_jobs_002: 
-  model: Collective
-  action: update
-  id: "340"
-  model_id: "3"
+--- {}
+

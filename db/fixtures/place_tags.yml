@@ -1,11 +1,14 @@
 --- 
 place_tags_009: 
+  name: new_york
+  id: "7"
+place_tags_010: 
   name: paris
   id: "13"
-place_tags_010: 
+place_tags_011: 
   name: piraeus
   id: "11"
-place_tags_011: 
+place_tags_012: 
   name: stockwell
   id: "6"
 place_tags_001: 
@@ -24,11 +27,11 @@ place_tags_005:
   name: camberwell
   id: "5"
 place_tags_006: 
+  name: elephant_and_castle
+  id: "14"
+place_tags_007: 
   name: lambeth
   id: "4"
-place_tags_007: 
+place_tags_008: 
   name: london
   id: "9"
-place_tags_008: 
-  name: new_york
-  id: "7"

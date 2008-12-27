@@ -97,7 +97,9 @@ require 'validates_uri_existence_of'
 gem 'rmagick'
 require 'RMagick'
 
-settings = Setting.all
-settings.each do |setting|
-  Hyperactive.send("#{setting.key}=", setting.value)
+if Setting.table_exists?
+  settings = Setting.all
+  settings.each do |setting|
+    Hyperactive.send("#{setting.key}=", setting.value)
+  end
 end

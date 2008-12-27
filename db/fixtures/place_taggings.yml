@@ -1,17 +1,17 @@
 --- 
 place_taggings_075: 
   place_tag_id: "3"
-  id: "117"
+  id: "118"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "94"
+  place_taggable_id: "95"
   event_date: 
 place_taggings_054: 
   place_tag_id: "3"
-  id: "96"
+  id: "97"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "73"
+  place_taggable_id: "74"
   event_date: 
 place_taggings_012: 
   place_tag_id: "11"
@@ -29,10 +29,10 @@ place_taggings_033:
   event_date: 
 place_taggings_076: 
   place_tag_id: "3"
-  id: "118"
+  id: "119"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "95"
+  place_taggable_id: "96"
   event_date: 
 place_taggings_013: 
   place_tag_id: "12"
@@ -50,17 +50,17 @@ place_taggings_034:
   event_date: 
 place_taggings_055: 
   place_tag_id: "3"
-  id: "97"
+  id: "98"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "74"
+  place_taggable_id: "75"
   event_date: 
 place_taggings_077: 
-  place_tag_id: "3"
-  id: "119"
+  place_tag_id: "8"
+  id: "120"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "96"
+  place_taggable_id: "10"
   event_date: 
 place_taggings_014: 
   place_tag_id: "13"
@@ -78,24 +78,24 @@ place_taggings_035:
   event_date: 
 place_taggings_056: 
   place_tag_id: "3"
-  id: "98"
+  id: "99"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "75"
+  place_taggable_id: "76"
   event_date: 
 place_taggings_080: 
   place_tag_id: "3"
-  id: "122"
+  id: "123"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "8"
+  place_taggable_id: "7"
   event_date: 
 place_taggings_078: 
   place_tag_id: "8"
-  id: "120"
+  id: "121"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "10"
+  place_taggable_id: "9"
   event_date: 
 place_taggings_015: 
   place_tag_id: "3"
@@ -113,17 +113,17 @@ place_taggings_036:
   event_date: 
 place_taggings_057: 
   place_tag_id: "3"
-  id: "99"
+  id: "100"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "76"
+  place_taggable_id: "77"
   event_date: 
 place_taggings_079: 
-  place_tag_id: "8"
-  id: "121"
+  place_tag_id: "3"
+  id: "122"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "9"
+  place_taggable_id: "8"
   event_date: 
 place_taggings_016: 
   place_tag_id: "9"
@@ -141,18 +141,18 @@ place_taggings_037:
   event_date: 
 place_taggings_058: 
   place_tag_id: "3"
-  id: "100"
+  id: "101"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "77"
+  place_taggable_id: "78"
   event_date: 
 place_taggings_081: 
   place_tag_id: "3"
-  id: "123"
+  id: "124"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "7"
-  event_date: 
+  place_taggable_id: "70"
+  event_date: 2009-01-23 20:30:00
 place_taggings_017: 
   place_tag_id: "13"
   id: "32"
@@ -169,17 +169,24 @@ place_taggings_038:
   event_date: 
 place_taggings_060: 
   place_tag_id: "3"
+  id: "103"
+  hide_tag: "0"
+  place_taggable_type: Content
+  place_taggable_id: "80"
+  event_date: 
+place_taggings_059: 
+  place_tag_id: "3"
   id: "102"
   hide_tag: "0"
   place_taggable_type: Content
   place_taggable_id: "79"
   event_date: 
-place_taggings_059: 
+place_taggings_082: 
   place_tag_id: "3"
-  id: "101"
+  id: "125"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "78"
+  place_taggable_id: "104"
   event_date: 
 place_taggings_018: 
   place_tag_id: "3"
@@ -204,10 +211,17 @@ place_taggings_039:
   event_date: 
 place_taggings_061: 
   place_tag_id: "3"
-  id: "103"
+  id: "104"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "80"
+  place_taggable_id: "81"
+  event_date: 
+place_taggings_083: 
+  place_tag_id: "14"
+  id: "126"
+  hide_tag: "0"
+  place_taggable_type: Content
+  place_taggable_id: "104"
   event_date: 
 place_taggings_020: 
   place_tag_id: "3"
@@ -232,10 +246,17 @@ place_taggings_041:
   event_date: 
 place_taggings_062: 
   place_tag_id: "3"
-  id: "104"
+  id: "105"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "81"
+  place_taggable_id: "82"
+  event_date: 
+place_taggings_084: 
+  place_tag_id: "3"
+  id: "127"
+  hide_tag: "0"
+  place_taggable_type: Content
+  place_taggable_id: "105"
   event_date: 
 place_taggings_021: 
   place_tag_id: "3"
@@ -253,10 +274,17 @@ place_taggings_042:
   event_date: 
 place_taggings_063: 
   place_tag_id: "3"
-  id: "105"
+  id: "106"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "82"
+  place_taggable_id: "83"
+  event_date: 
+place_taggings_085: 
+  place_tag_id: "14"
+  id: "128"
+  hide_tag: "0"
+  place_taggable_type: Content
+  place_taggable_id: "105"
   event_date: 
 place_taggings_043: 
   place_tag_id: "3"
@@ -267,10 +295,10 @@ place_taggings_043:
   event_date: 
 place_taggings_064: 
   place_tag_id: "3"
-  id: "106"
+  id: "107"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "83"
+  place_taggable_id: "84"
   event_date: 
 place_taggings_001: 
   place_tag_id: "3"
@@ -288,10 +316,10 @@ place_taggings_022:
   event_date: 
 place_taggings_065: 
   place_tag_id: "3"
-  id: "107"
+  id: "108"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "84"
+  place_taggable_id: "85"
   event_date: 
 place_taggings_002: 
   place_tag_id: "4"
@@ -337,17 +365,17 @@ place_taggings_045:
   event_date: 
 place_taggings_066: 
   place_tag_id: "3"
-  id: "108"
-  hide_tag: "0"
-  place_taggable_type: Content
-  place_taggable_id: "85"
-  event_date: 
-place_taggings_067: 
-  place_tag_id: "3"
   id: "109"
   hide_tag: "0"
   place_taggable_type: Content
   place_taggable_id: "86"
+  event_date: 
+place_taggings_067: 
+  place_tag_id: "3"
+  id: "110"
+  hide_tag: "0"
+  place_taggable_type: Content
+  place_taggable_id: "87"
   event_date: 
 place_taggings_004: 
   place_tag_id: "3"
@@ -372,10 +400,10 @@ place_taggings_046:
   event_date: 2009-04-23 20:00:00
 place_taggings_068: 
   place_tag_id: "3"
-  id: "110"
+  id: "111"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "87"
+  place_taggable_id: "88"
   event_date: 
 place_taggings_005: 
   place_tag_id: "3"
@@ -400,17 +428,17 @@ place_taggings_047:
   event_date: 2009-04-26 20:00:00
 place_taggings_070: 
   place_tag_id: "3"
+  id: "113"
+  hide_tag: "0"
+  place_taggable_type: Content
+  place_taggable_id: "90"
+  event_date: 
+place_taggings_069: 
+  place_tag_id: "3"
   id: "112"
   hide_tag: "0"
   place_taggable_type: Content
   place_taggable_id: "89"
-  event_date: 
-place_taggings_069: 
-  place_tag_id: "3"
-  id: "111"
-  hide_tag: "0"
-  place_taggable_type: Content
-  place_taggable_id: "88"
   event_date: 
 place_taggings_006: 
   place_tag_id: "6"
@@ -435,10 +463,10 @@ place_taggings_048:
   event_date: 2009-04-29 20:00:00
 place_taggings_071: 
   place_tag_id: "3"
-  id: "113"
+  id: "114"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "90"
+  place_taggable_id: "91"
   event_date: 
 place_taggings_007: 
   place_tag_id: "7"
@@ -470,10 +498,10 @@ place_taggings_049:
   event_date: 2009-05-02 20:00:00
 place_taggings_072: 
   place_tag_id: "3"
-  id: "114"
+  id: "115"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "91"
+  place_taggable_id: "92"
   event_date: 
 place_taggings_008: 
   place_tag_id: "3"
@@ -498,17 +526,17 @@ place_taggings_029:
   event_date: 
 place_taggings_051: 
   place_tag_id: "3"
-  id: "93"
+  id: "94"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "70"
-  event_date: 2009-12-23 20:30:00
+  place_taggable_id: "71"
+  event_date: 
 place_taggings_073: 
   place_tag_id: "3"
-  id: "115"
+  id: "116"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "92"
+  place_taggable_id: "93"
   event_date: 
 place_taggings_010: 
   place_tag_id: "6"
@@ -533,17 +561,17 @@ place_taggings_031:
   event_date: 
 place_taggings_052: 
   place_tag_id: "3"
-  id: "94"
+  id: "95"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "71"
+  place_taggable_id: "72"
   event_date: 
 place_taggings_074: 
   place_tag_id: "3"
-  id: "116"
+  id: "117"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "93"
+  place_taggable_id: "94"
   event_date: 
 place_taggings_032: 
   place_tag_id: "3"
@@ -554,10 +582,10 @@ place_taggings_032:
   event_date: 
 place_taggings_053: 
   place_tag_id: "3"
-  id: "95"
+  id: "96"
   hide_tag: "0"
   place_taggable_type: Content
-  place_taggable_id: "72"
+  place_taggable_id: "73"
   event_date: 
 place_taggings_011: 
   place_tag_id: "10"

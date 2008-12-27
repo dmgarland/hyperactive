@@ -10,7 +10,7 @@ class LatestController < ApplicationController
 
       @content = Content.find(:all,
       :conditions => ['moderation_status != ? and updated_on >= ? and updated_on <= ?', "hidden", datestart, dateend], 
-      :order => 'updated_on ASC')
+      :order => 'updated_on DESC')
 
       @comment = Comment.find(:all, 
       :conditions => ['moderation_status != ? and updated_on >= ? and updated_on <= ?','hidden', datestart, dateend])

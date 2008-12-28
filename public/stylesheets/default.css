@@ -487,6 +487,12 @@ margin-top : 0px;
 	background: url(../images/icon_video.gif) no-repeat 0px 5px;
 }
 
+.comment-list {
+	padding: 2px 0 2px 20px;
+	background: url(../images/comment.png) no-repeat 0px 5px;
+}
+
+
 /* Search */
 
 #searchform {

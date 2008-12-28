@@ -25,5 +25,11 @@ class Admin::MainControllerTest < Test::Unit::TestCase
     assert_template 'latest_comments'
     assert assigns(:comments)
   end  
+  
+  def test_edit_comment
+    get :edit_comment, {:id => 1}, as_user(:marcos)
+    assert_response :success
+    assert assigns(:comment)
+  end
 
 end

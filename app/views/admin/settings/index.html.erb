@@ -24,7 +24,7 @@
 	
 	<p>
 	<%= label_tag "Use ssl?" %><br/>
-	<%= check_box_tag(:use_ssl, Hyperactive.use_ssl) %>
+	<%= check_box_tag(:use_ssl, "1", Hyperactive.use_ssl) %>
 	</p>
 	
 	<p>
@@ -39,7 +39,7 @@
 
 	<p>
 	<%= label_tag "Use local CSS?" %><br/>
-	<%= check_box_tag(:use_local_css, Hyperactive.use_local_css) %>
+	<%= check_box_tag(:use_local_css, "1", Hyperactive.use_local_css) %>
 	</p>
 	
 	<p>

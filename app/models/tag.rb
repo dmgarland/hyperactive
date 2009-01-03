@@ -4,10 +4,10 @@ class Tag < ActiveRecord::Base
  
   # Associations
   #
-  has_many_polymorphs :taggables, 
-    {:from => [:videos, :events, :articles], 
-    :through => :taggings,
-    :dependent => :destroy}
+#  has_many_polymorphs :taggables, 
+#    {:from => [:videos, :events, :articles], 
+#    :through => :taggings,
+#    :dependent => :destroy}
   
   # Retrieves a tag cloud from the database
   #

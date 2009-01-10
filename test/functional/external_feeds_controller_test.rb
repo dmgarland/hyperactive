@@ -4,6 +4,13 @@ class ExternalFeedsControllerTest < ActionController::TestCase
 
   fixtures :external_feeds, :collectives
 
+  def test_should_get_index
+    get :index, {:group_id => collectives(:indy_london).id}, as_user(:registered_user)
+    assert assigns(:external_feeds)
+    assert assigns(:group)
+    assert_response :success
+  end
+
   def test_should_get_new
     get :new, {:group_id => collectives(:indy_london).id}, as_user(:registered_user)
     assert_response :success

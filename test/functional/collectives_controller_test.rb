@@ -116,4 +116,32 @@ class CollectivesControllerTest < Test::Unit::TestCase
     assert_redirected_to account_path
   end  
   
+  def test_edit_memberships
+    get :edit_memberships, {:id => 1}, as_user(:registered_user)
+    assert_response :success
+    assert assigns(:collective).name == "Indymedia London"
+  end
+  
+  def test_edit_memberships_security_for_anonymous
+    get :edit_memberships, {:id => 1}
+    assert_security_error
+  end
+  
+  
+  def test_edit_memberships_security_for_anonymous
+    get :edit_memberships, {:id => 1}
+    assert_security_error
+  end
+  
+  def test_edit_memberships_security_for_non_member
+    get :edit_memberships, {:id => 1}, as_user(:hider_user)
+    assert_security_error
+  end
+  
+  
+  def test_edit_memberships_works_for_admin
+    get :edit_memberships, {:id => 1}, as_user(:marcos)
+    assert_response :success
+  end  
+  
 end

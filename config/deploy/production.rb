@@ -1,4 +1,4 @@
-set :deploy_to, "/var/www/londonstaging.escapegoat.org/"
+set :deploy_to, "/var/www/london.indymedia.org.uk/"
 
 role :web, "london.indymedia.org.uk"
 role :app, "london.indymedia.org.uk"

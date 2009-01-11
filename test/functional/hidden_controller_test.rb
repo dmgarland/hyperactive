@@ -83,7 +83,7 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
 
   def test_hide_own_content_by_wrong_registered_user_should_not_work
-    post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user_2).id }
+    post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user_3).id }
     assert_security_error
   end
   

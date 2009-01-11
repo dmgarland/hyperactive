@@ -251,8 +251,8 @@ class ContentController < ApplicationController
   #
   def admin_controls
     @id = params[:id]
-    if current_user.has_permission?("hide") || current_user.has_permission?("edit_own_content") || current_user.has_permission?("edit_all_content")
-      @content = Content.find(@id)
+    @content = Content.find(@id)
+    if current_user.can_hide_content?(@content)
       render :partial => 'shared/content/admin_controls', :layout => false
     else
       render :partial => 'hidden/report_this_controls', :layout => false

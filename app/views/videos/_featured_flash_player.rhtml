@@ -3,12 +3,10 @@
 	<%= render :partial => 'videos/video_summary', :locals => {:video_summary => @featured_videos.first} unless @featured_videos.blank? %>
 </div>
 
-<%# The flash scripts screw up the click_to_globalize plugin, don't use SWFObject if click_to_globalize is running. %>
-<% unless globalize? %>
-	<script type="text/javascript">
-	    var so = new SWFObject("flash/featuredvideos.swf", "vidplayer", "190", "190", "7", "");
-	    so.addParam("menu", "false");
-	    so.write("featuredvideos");
-	</script>
-<% end %>
+<script type="text/javascript">
+    var so = new SWFObject("flash/featuredvideos.swf", "vidplayer", "190", "190", "7", "");
+    so.addParam("menu", "false");
+    so.write("featuredvideos");
+</script>
+
 

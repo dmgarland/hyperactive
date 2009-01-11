@@ -34,8 +34,8 @@
 	<%# link_to image_tag("icon_video.gif"), oggify(video.file.url) %> 
 	<%# link_to "download ogg", oggify(video.file.url) %>
 	
-	<%= link_to image_tag("transmit_add.png"), video.relative_torrent_file) %> 
-	<%= link_to I18n.t('videos.video.download_torrent'), video.relative_torrent_file) %>
+	<%= link_to image_tag("transmit_add.png"), torrentify(video.file.url) %> 
+	<%= link_to I18n.t('videos.video.download_torrent'), torrentify(video.file.url) %>
 	<%= render(:partial => 'videos/help_instructions')%>
 <% else %>
     <strong><%=h video.title.titleize %></strong><br />

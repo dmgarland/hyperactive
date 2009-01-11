@@ -73,6 +73,7 @@ class User < ActiveRecord::Base
   def can_hide_content?(content)
     return true if self.has_permission?("hide")  
     return true if self.has_permission?("hide_own_content")  && content.user == self
+    return true if self.collectives.include?(content.collective)    
     return false
   end
   

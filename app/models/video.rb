@@ -106,7 +106,7 @@ class Video < Media
   # The relative path to the converted ogg file for this video.
   #
   def relative_ogg_file
-    self.file.url.chomp(File.extname(self.file.url)) + ".ogg"
+    self.file.url + ".ogg"
   end
   
   # The thumbnail for this video.

@@ -110,7 +110,7 @@ class Collective < ActiveRecord::Base
   # Upcoming events for this collective.
   #
   def upcoming_events
-    self.events.find(:all, :conditions => ['date > ?', DateTime.now])
+    self.events.upcoming.visible
   end
   
   # Checks to see whether a collective is associated with a given piece of content.

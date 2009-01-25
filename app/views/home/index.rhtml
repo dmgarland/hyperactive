@@ -67,12 +67,11 @@
 		<li id="upcomingevents">
 			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>
-			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>
-<li>			  <li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
+				<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>
+  				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
 			</ul>
 		</li>					
 		<li>
-
 			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
 			<div id="event_poster">
 				<div>
@@ -82,7 +81,13 @@
 				</p>
 				</div>
 			</div>
-		</li>			
+		</li>
+		<li>
+			<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
+			<ul>
+				<%= @home_page_feed unless @home_page_feed.nil? %>
+			</ul>
+		</li>					
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">
@@ -106,14 +111,7 @@
 			<ul>
 				<%= render :partial => '/pages/list_title', :collection => @pages %>
 			</ul>
-		</li>
-		<li>
-			<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
-			<ul>
-				<%= @home_page_feed unless @home_page_feed.nil? %>
-				<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
-			</ul>
-		</li>					
+		</li>			
 	</ul>
 </div>
 <!-- end sidebars -->

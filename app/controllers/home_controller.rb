@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     @cloud = Tag.cloud(:limit => tags_in_cloud)
     @place_cloud = PlaceTag.cloud(:limit => tags_in_cloud)
     @featured_events = Event.featured.upcoming.all(:limit => 5, :order => "date ASC")
-    @recent_events = Event.promoted.upcoming.all(:limit => objects_per_page, :order => 'date ASC')
+    @recent_events = Event.visible.upcoming.all(:limit => objects_per_page, :order => 'date ASC')
     @featured_videos = Video.featured.processed.all(:order => 'created_on ASC', :limit => 5)
     @featured_groups = Collective.frontpage 
     @recent_articles = Article.published.all(:limit => objects_per_page, :order => "created_on DESC")

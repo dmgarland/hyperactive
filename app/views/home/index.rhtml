@@ -64,13 +64,6 @@
 <!-- start sidebars -->
 <div id="sidebar1" class="sidebar">
 	<ul>
-		<li>
-			<h2><%= I18n.t 'home.index.featured_events' %></h2>
-			<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
-				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events', :action => 'index', :moderation_status => 'featured', :page => 1 %></li>
-			</ul>
-		</li>	
 		<li id="upcomingevents">
 			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>

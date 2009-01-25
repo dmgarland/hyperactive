@@ -151,6 +151,17 @@ module ApplicationHelper
       render :partial => "home/subfeature", :locals => {:subfeature => @top_featured_articles[index]}
     end
   end
+
+  def most_recent_event_with_image
+    unless @recent_events.nil?
+      @recent_events.each do |event|
+        if event.has_thumbnail?
+          return event
+        end
+      end
+    end
+    return nil
+  end    
   
   def most_recent_promoted_event_with_image
     unless @featured_events.nil?
@@ -161,7 +172,7 @@ module ApplicationHelper
       end
     end
     return nil
-  end  
+  end    
   
   def downcased_class_name(content)
     case content.class.to_s.humanize.downcase 

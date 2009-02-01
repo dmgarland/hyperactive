@@ -24,9 +24,19 @@ class VideoConversionWorker < BackgrounDRb::Rails
       video_record.processing_status = 1 #the_video.PROCESSING #ProcessingStatuses[:processing]
       video_record.save
     end  
+    video_information = MiniExiftool.new(@video_file)
+    width = video_information["imagewidth"].to_f
+    height = video_information["imageheight"].to_f
+    if width/height == 16/9
+      encode_width = 640
+      encode_height = 360
+    else
+      encode_width = 320
+      encode_height = 240
+    end
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 180x136 #{@video_file}.small.jpg`
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 320x240 #{@video_file}.jpg`
-    `nice -n +19 ffmpeg -i #{@video_file} -ab 64 -ar 22050 -b 500000 -r 25 -s 320x240 #{@video_file}.flv`
+    `nice -n +19 ffmpeg -i #{@video_file} -ab 64 -ar 22050 -b 500000 -r 25 -s #{encode_width}x#{encode_height} #{@video_file}.flv`
     `nice -n +19 ffmpeg2theora #{@video_file} -o #{@video_file}.ogg`
     ogg_file = @video_file + ".ogg"
     `btmakemetafile.bittornado #{@torrent_tracker} #{ogg_file}`

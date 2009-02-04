@@ -77,7 +77,18 @@
   				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
 			</ul>
 		</li>
-	</ul>			
+		<li>
+			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
+			<div id="event_poster">
+				<div>
+				<p>
+					<%= big_thumbnail_for(most_recent_event_with_image) unless most_recent_event_with_image.nil? %><br/>
+					<%= most_recent_event_with_image.title unless most_recent_event_with_image.nil?  %>
+				</p>
+				</div>
+			</div>
+		</li>			
+	</ul>		
     <%= render :partial => 'shared/account_box' %>
 	<ul>
 		<li>

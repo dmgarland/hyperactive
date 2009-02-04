@@ -1,7 +1,11 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+da:
+
+###########################
+# Hyperactive localization
+###########################
 
   # General stuff - yes, no, edit, create, etc.
   general:
@@ -377,7 +381,7 @@ en:
       promoted_events: Kalender
       published_newswire: Nyheder
       latest_poster: Plakater
-      place_tags: Neighbourhoods
+      place_tags: Omegn
       tags: Tags
       info: Info
       network: Indymedia UK Network
@@ -423,7 +427,7 @@ en:
   # just one spot.
   shared:
     account_box: 
-      title: Your account
+      title: Konto
       explanation: You are currently not logged in.  You can {{login}} or {{register_an_account}}.	Registration allows you to edit your own content and help administer the site.
       log_in: log in
       register_an_account: register an account
@@ -579,11 +583,13 @@ en:
       download_torrent: download torrent
       still_converted: This video is still being converted, or else there has been some kind of error.
 
+#############################
+#Standard Rails Localizations
+#############################
 
 # Danish translation file for standard Ruby on Rails internationalization
 # by Lars Hoeg (http://www.lenio.dk/)
 
-da:
   date:
     formats:
       default: "%d.%m.%Y"

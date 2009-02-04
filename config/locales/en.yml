@@ -3,7 +3,10 @@
 
 en:
 
-  # General stuff - yes, no, edit, create, etc.
+###########################
+# Hyperactive localization
+###########################
+
   general:
     add: Add
     are_you_sure: Are you sure?

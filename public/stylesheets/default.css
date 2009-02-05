@@ -509,14 +509,14 @@ margin-top : 0px;
 #tag_cloud { line-height: 150%; } 
 .cloud { text-decoration: none !important; } 
 .cloud1 { font-size: 100%; color: #6A0000 !important; } 
-.cloud2 { font-size: 110%; color: #7A0000 !important; } 
-.cloud3 { font-size: 120%; color: #8A0000 !important; } 
-.cloud4 { font-size: 130%; color: #9A0000 !important; } 
-.cloud5 { font-size: 140%; color: #AA0000 !important; } 
-.cloud6 { font-size: 150%; color: #BA0000 !important; } 
-.cloud7 { font-size: 160%; color: #CA0000 !important; } 
-.cloud8 { font-size: 170%; color: #DA0000 !important; } 
-.cloud9 { font-size: 180%; color: #CA0000 !important; } 
+.cloud2 { font-size: 105%; color: #7A0000 !important; } 
+.cloud3 { font-size: 110%; color: #8A0000 !important; } 
+.cloud4 { font-size: 115%; color: #9A0000 !important; } 
+.cloud5 { font-size: 120%; color: #AA0000 !important; } 
+.cloud6 { font-size: 125%; color: #BA0000 !important; } 
+.cloud7 { font-size: 130%; color: #CA0000 !important; } 
+.cloud8 { font-size: 135%; color: #DA0000 !important; } 
+.cloud9 { font-size: 140%; color: #CA0000 !important; } 
 
 
 
@@ -609,17 +609,8 @@ margin-top : 0px;
    display: none;
 }
 
-.created_on {
-   display: inline;
-   font-weight: normal;   
-   margin: 0px 0px 0px 25px;
-   font-size: 0.9em;
-   color: #aaa;
-   text-align: right;
-}
 
-div.collective-preview
-{
+div.collective-preview {
   margin: 5px;
   height: 150px;
   width: auto;
@@ -629,15 +620,13 @@ div.collective-preview
   border: solid 1px #000000;
 }	
 
-div.collective-preview img
-{
+div.collective-preview img {
   display: inline;
   margin: 3px;
   border: 1px solid #fff;
 }
 
-div.collective-preview-desc
-{
+div.collective-preview-desc {
   text-align: center;
   font-weight: normal;
   width: 120px;

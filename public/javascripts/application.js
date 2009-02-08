@@ -69,6 +69,7 @@ function prepareMapEdit(){
 	$('map-show-link').hide();
 	$('map-explanation').update(
 			"Drag the map around and place the marker where you want it. " +
+			"Click twice to zoom in and once to set the location of the marker. " +
 			"Please make sure you zoom in and set the exact location."
 			);
 	$('map-delete-link').show();

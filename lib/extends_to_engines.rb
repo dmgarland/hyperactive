@@ -41,9 +41,9 @@ Engines::Plugin.class_eval do
   def load_once=(new_value)
     @load_once = new_value
     if @load_once
-      load_paths.each { |p| Dependencies.load_once_paths << p }
+      load_paths.each { |p| ActiveSupport::Dependencies.load_once_paths << p }
     else
-      load_paths.each { |p| Dependencies.load_once_paths.delete(p) }
+      load_paths.each { |p| ActiveSupport::Dependencies.load_once_paths.delete(p) }
     end
   end
   

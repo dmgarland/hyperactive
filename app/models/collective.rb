@@ -8,7 +8,7 @@ class Collective < ActiveRecord::Base
   # Validations
   #
   validates_length_of :name, :maximum => 255
-  validates_length_of :summary, :maximum => 1000
+  validates_length_of :summary, :maximum => 1500
   validates_presence_of :name, :summary
   validates_uniqueness_of :name
   

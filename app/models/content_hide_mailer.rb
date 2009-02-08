@@ -74,7 +74,7 @@ class ContentHideMailer < ActionMailer::Base
     elsif user.is_a? User
       user.login
     else
-      "Error getting user login."
+      "Anonymous"
     end  
   end
   

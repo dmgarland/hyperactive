@@ -119,7 +119,17 @@ module ContentControllerTest
     assert assigns(:content)
     assert_nil assigns(:content).open_street_map_info 
   end        
-    
+  
+  def test_create_for_user_with_auto_promote_does_auto_promote
+    post :create, params_for_valid_content, as_user(:registered_user_3)
+    assert assigns(:content).moderation_status == "promoted"
+  end
+  
+  def test_create_for_user_without_auto_promote_is_published
+    post :create, params_for_valid_content, as_user(:registered_user_2)
+    assert assigns(:content).moderation_status == "published"    
+  end
+  
   def test_moderation_status_cant_be_set_to_featured_without_feature_permission
     post :create, params_for_valid_content
     assert_equal assigns(:content).moderation_status, "published"
@@ -307,7 +317,6 @@ module ContentControllerTest
                           :date => 3.hours.from_now,
                           :body => "This is a test",
                           :summary => "A summary",
-                          :moderation_status => "published",
                           :published_by => "Yoss", 
                           :place => "London", 
                           :collective_id => [collectives(:indy_london).id]

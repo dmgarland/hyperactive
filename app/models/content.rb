@@ -116,6 +116,9 @@ class Content < ActiveRecord::Base
   # status (if one has been submitted). 
   #
   def set_moderation_status(status, user)
+    if user.has_permission?("auto_promote_content")
+      self.moderation_status = "promoted"
+    end
     unless status.nil?
       self.moderation_status = status if user.can_set_moderation_status_to?(status, self)
     end

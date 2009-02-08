@@ -33,3 +33,7 @@ promote_content:
 edit_all_groups:
   id: 9
   title: edit_all_groups
+  
+auto_promote_content:
+  id: 10
+  title: auto_promote_content

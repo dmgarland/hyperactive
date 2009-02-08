@@ -40,6 +40,18 @@
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
 			<li>
+				<h2><%= I18n.t 'home.index.place_tags' %></h2>
+				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+			</li>
+			<li>
+				<h2><%= I18n.t 'home.index.tags' %></h2>
+				<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
+			</li>			
+		</ul>
+	</div>	
+	<div id="unused" class="sidebar_content">
+		<ul>
+			<li>
 				<h2>Links til vennerne</h2>
 				<ul>
 					<li><%= link_to("Modkraft", "http://www.modkraft.dk") %></li>
@@ -50,12 +62,7 @@
 					<li><%= link_to("svenske autonomes website", "http://autonomakarnan.motkraftblogg.net") %></li>                                                                   
 					<li><%= link_to("a-infos", "http://www.ainfos.ca/en/") %></li>
 				</ul>
-			</li>
-		</ul>
-	</div>	
-	<div id="unused" class="sidebar_content">
-		<ul>
-			
+			</li>			
 		</ul>
 	</div>		
 </div>
@@ -75,7 +82,11 @@
 			<ul>
 				<%= @home_page_feed unless @home_page_feed.nil? %>
 			</ul>
-		</li>					
+		</li>
+		<li>
+			<%= render :partial => 'videos/featured_flash_player' %>
+			<p><%=link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'videos' %></p>
+		</li>						
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">
@@ -102,18 +113,6 @@
 	</ul>		
     <%= render :partial => 'shared/account_box' %>
 	<ul>
-		<li>
-			<%= render :partial => 'videos/featured_flash_player' %>
-			<p><%=link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'videos' %></p>
-		</li>	
-		<li>
-			<h2><%= I18n.t 'home.index.place_tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
-		</li>
-		<li>
-			<h2><%= I18n.t 'home.index.tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
-		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.info' %></h2>
 			<ul>

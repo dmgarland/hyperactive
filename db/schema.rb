@@ -9,10 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090130014851) do
+ActiveRecord::Schema.define(:version => 20090208191400) do
 
   create_table "action_alerts", :force => true do |t|
-    t.string   "summary",                          :null => false
+    t.text     "summary",                          :null => false
     t.boolean  "on_front_page", :default => false, :null => false
     t.datetime "created_on"
     t.datetime "updated_on"

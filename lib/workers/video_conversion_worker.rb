@@ -28,11 +28,9 @@ class VideoConversionWorker < BackgrounDRb::Rails
     width = video_information["imagewidth"].to_f
     height = video_information["imageheight"].to_f
     if width/height == 16.0/9.0
-      puts "video is 16x9"
       encode_width = 640
       encode_height = 360
     else
-      puts "video is 320x240"
       encode_width = 320
       encode_height = 240
     end

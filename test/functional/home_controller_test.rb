@@ -19,7 +19,7 @@ class HomeControllerTest < Test::Unit::TestCase
     get :index
     assert_template 'index'
     assert_not_nil assigns(:recent_events)
-    assert_equal 1, assigns(:recent_events).size
+    assert_equal 3, assigns(:recent_events).size
     assert_not_nil assigns(:featured_events)
     assert_equal 1, assigns(:featured_events).size
     assert assigns(:featured_videos)

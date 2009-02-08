@@ -91,7 +91,7 @@ Rails::Initializer.run do |config|
   config.gem 'rio'
   config.gem 'ruby-debug'
   config.gem 'simple-rss'
-  #config.gem 'mini_exiftool'
+  config.gem 'mini_exiftool'
 end
 
 require 'validates_uri_existence_of'

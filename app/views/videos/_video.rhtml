@@ -9,7 +9,7 @@
     <%= I18n.t('videos.video.no_flash') %>
     </div>
 	<script type="text/javascript">
-		var so = new SWFObject('/flash/mediaplayer.swf','mpl','320','260','7');
+		var so = new SWFObject('/flash/mediaplayer.swf','mpl','640','380','7');
 		so.addParam('allowfullscreen','true');
 		so.addVariable('file','<%= video.file.url %>.flv');
 		so.addVariable('image','<%= video.file.url %>.jpg');	  

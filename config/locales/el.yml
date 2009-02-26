@@ -1,0 +1,771 @@
+# Greek translations for Ruby on Rails
+# by Nick Kokkos (nkokkos@gmail.com)
+
+el:
+
+###########################
+# Hyperactive localization
+###########################
+
+  general:
+    add: Add
+    are_you_sure: Are you sure?
+    attached_files: Attached Files
+    back: Back
+    by: by
+    click_here: Click here  
+    contact_email: Contact email
+    create: Create
+    created_on: Created on
+    description: Description
+    edit: Edit
+    editorial_guidelines: Editorial Guidelines
+    event_date: Event date
+    feed_center: feed center
+    file: File
+    file_upload: File upload
+    logout: logout
+    login_cap: Login
+    media_uploads: Media uploads
+    moderation_status: Moderation status
+    more: More
+    name: Name
+    nope: "No"
+    no_tags_found: No tags found.
+    oops: Oops!
+    page: page
+    password: Password
+    places: Neighbourhoods
+    published_by: Published
+    published_cap: Published
+    published_on: Published
+    remove: Remove
+    search: Search
+    summary: Summary
+    tagged_as: Tagged as
+    title: Title
+    update: Update
+    updated_on: Updated on
+    url: URL
+    user_name: User Name
+    welcome: Welcome
+    yep: "Yes"   
+    your_name: Your name
+    latest_updates: Latest updates
+
+  # Action alerts
+  action_alerts:
+    listing_action_alerts: Listing action alerts 
+  
+  # ActiveRbac - login and signup related stuff
+  active_rbac:
+    account:
+      account_explanation: This is your private account information page. No other users can see this page.  
+      admin_explanation: You are an administrative user. From here you can
+      edit_group_membership: Edit membership
+      edit_rss_feeds: Edit RSS feeds
+      login_success: you have successfully been logged in
+      view_site_admin: view the site admin pages
+      you_are_currently_logged_in_as: You are currently logged in as user
+      you_belong_to_groups: You belong to the following group(s)
+      you_have_published_articles: You have published the following articles
+      you_have_published_events: You have published the following events      
+      you_have_published_videos: You have published the following videos      
+      you_may_log_out_at: You may log out at the
+      your_account: Your account
+      your_articles: Your articles
+      your_events: Your events
+      your_groups: Your groups
+      your_videos: Your videos
+    login: 
+      account_explanation: Registering an account allows you to edit your own content.
+      already_logged_in: Already logged in
+      already_logged_in_explanation: You are already logged in. You need to log out before you can log in again.
+      dont_have_an_account: Don't have an account?
+      register: Register an account
+      to_log_out: to log out.
+    logout_success_title: Logout Success
+    logout_success_message: You have successfully been logged out.
+    logout_success_confirmation: Do you really want to log out?
+    register: 
+      desired_user_name: Desired User Name
+      explanation1: <p>You will have to give a user name and password to register an account, giving an email address is optional.</p>
+      explanation2: <p>When you publish anything while logged in, you will be able to edit your contribution later on. This means the content you publish will be tied to your user ID. For the time being the user name will not show up as the author, but this might change.</p>
+      explanation3: <p>If you report an article through the "report or administer this article" form at the bottom of each article, an email will be sent to the publicly archived imc-london-moderation mailing list, citing your user name.</p>
+      explanation4: <p>If you do decide to give an email address, and we see that you are frequently reporting abuse or suggesting good stuff for promotion, we might get in touch with you to offer you hiding and promoting privileges on the site. Giving an email address will also enable you to retrieve your password in case you forget it.</p>
+      register_title: Register
+      sign_up: Sign Up
+      violates: Any user accounts who violate the  
+      will_be_removed: will be removed.
+
+  # Articles
+  articles:
+    archives:
+      title: Listing articles
+    edit:
+      title: Editing article
+    index:
+      title: Listing all articles
+      more_articles: More articles
+    list_featured:
+      title: Listing featured articles
+    list_promoted:
+      title: Listing promoted articles
+    new: 
+      title: New article
+    sidebar:
+      latest_articles_feed: Latest articles feed
+      subscribe_message: Subscribe to our {{articles_feed_path}} or visit our {{feed_center_path}} for more feeds.
+    stick_at_top_controls:
+      title: Front page controls
+      explanation: You have the option of sticking this article at the top of the front page. The article needs to be featured before this will work.
+      label: Stick at top?
+    show:
+      comments: Comments
+    top_nav:
+      all_articles: all articles
+      featured_articles: featured articles
+      promoted_articles: promoted articles
+  
+  # Groups stuff (groups are know as "collectives" in the code)
+  collectives:
+    edit: 
+      editing: Editing
+    edit_memberships:
+      add_new_member: Add a new member
+      back_to_account_page: Back to {{your_account_page}}
+      joined_on: Joined on
+      your_account_page: your account page
+    form:
+      logo_image: Logo image
+      logo_image_explanation: The logo image will be cropped so that it's square.
+    index:
+      newest_groups: Newest groups
+      title: Recently active groups
+    new: 
+      create_an_account: create an account
+      explanation: "You have to be a registered user to register a group. Groups should
+		write a short description of who they are and what they do, and will get
+		their own page listing all their articles, events and media. This can be
+		useful for both groups and campaigns. Any member of the group can
+		publish content as part of that group and add or delete other members."
+      guidelines: "<h2>Groups Guidelines</h2>
+	
+	<p>Only groups working in a  grassroots, non-corporate, non-commercial,
+	autonomous manner on social justice, environmental, cultural and
+	political issues, active in London can create accounts.</p>
+	
+	<p>Groups using language, imagery, or other forms of communication
+	promoting racism, fascism, xenophobia, sexism, homophobia or any other
+	form of discrimination againt people based on who they are rather than
+	what they do (including antisemitism, anti-roma) will be removed.</p>
+	
+	<p>The groups function is not a notice-board for political parties or any
+	other hierarchically structured organizations.	
+	</p>"
+      please_create_account: Please create an account
+      register_explanation: You need to {{create_account}} before you can create a group.
+      title: New group
+    new_collective_box:
+      create_a_group: create a group
+      create_a_group_title: Create a group!
+      explanation: Any registered user can {{create_a_group}}.  If you're not yet a registered user, you can {{register_a_user}}.
+      sign_up_here: sign up here
+    external_feed: This feed has not yet been retrieved.  It should show up in about ten minutes.
+    show: 
+      no_articles_yet: No articles yet.
+      no_events_yet: No events yet.
+      no_feeds_yet: No feeds yet.
+      no_videos_yet: No videos yet.
+      upcoming_events: Upcoming Events
+      group_created: created on
+  
+  # Some general content stuff, mostly related to class names
+  # and the content creation forms for articles, events, and videos.
+  content:
+    class_names:
+      action_alerts: Action alerts
+      article: Article
+      articles: Articles
+      comment: Comment
+      event: Event
+      events: Events
+      feeds: Feeds
+      file_upload: File Upload
+      file_uploads: File Uploads
+      link: Link
+      links: Links
+      photo: Photo
+      photos: Photos
+      tags: Tags
+      video: Video
+      videos: Videos
+    form:
+      allowed_file_types: File* - allowed file types are {{file_types}}
+      contact_email_address: Contact email address
+      delete: Delete
+      moderation_status: Moderation status
+      required_field: required field
+      title: Title
+      upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
+      your_name: Your name
+  
+  # Controller messages, stuff that doesn't show up in normal view templates 
+  # but are messages from the system telling you that something happened, 
+  # i.e. "Your article was created".
+  controllers:
+    collectives:
+      group_created: Group was successfully created.
+      group_updated: Group was successfully updated.
+  
+  # The content hide mailer, which sends messages to an email address when things
+  # on the site are hidden, unhidden, or reported by users.
+  content_hide_mailer:
+      has_been_hidden_by_user: has been hidden by the user
+      has_been_unhidden_by_user: has been unhidden by the user
+      has_been_reported_by_user: has been reported by the user
+      reasons: The following reasons were given
+  
+  # Events
+  events:
+    sidebar:
+      feedbox:
+        title: Upcoming events feed   
+        subscribe_message: Subscribe to our {{upcoming_events_feed_path}} or visit our {{feed_center_path}} for more feeds.
+        upcoming_events_feed: upcoming events feed
+      ical:
+        title: Download as iCal
+        description: You may {{import_path}} using iCal.
+        import: import this event into your calendar
+    archive:
+      listing_events: Listing events
+    edit:
+      title: Editing event
+    file_upload:
+      main_title: File upload
+      title: Title*
+      file: File*
+    form:
+      title: Title
+      date_of_event: Date of Event
+      contact_for_event: Contact email address for event
+      place_for_event: Place <em>*</em> - include street address, room number, etc.
+      description_for_event: Description
+      repeating: Repeating event (optional)
+      no_repeat: Do not repeat this event
+      do_repeat: Repeat
+      every: every
+      every_other: every other
+      every_third: every third
+      every_fourth: every fourth
+      day: day
+      week: week
+      month: month
+      other_month: other month
+      ordinal: [first, second, third, fourth, last]
+      week_days: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+      repeat_note: "Note: you can only repeat events for a maximum of 6 months from the date of the first event."
+      repeat_until: Until
+      repeat_on: Repeat on the
+    index:
+      listing_events: Listing events
+      more_events: More events
+    link:
+      link: Link
+      title: Title
+      url: URL
+      description: Description
+    list_by_day:
+      previous_day: Previous day
+      next_day: Next day
+    list_by_event_date:
+      title: Listing Events by Event Date
+    list_by_event_group: 
+      title: Listing repeated events
+    list_by_week:
+      previous_week: Previous week
+      next_week: Next week
+    list_promoted:
+      title: Listing featured events
+    list_seven_days:
+      title: In the coming week
+    new:
+      title: New event
+    photo:
+      main_title: Photo
+      title: title
+      file: File
+    search:
+      not_found: not found
+      found: found in
+    show:
+      event_date: Event date
+      series_text: This event is part of a series of repeating events.  To see all the events, {{series_path}}.
+      series_link: click here
+      tagged: Tagged as
+      places: Places
+      event_group_photos: Event Group Photos
+      contact_phone: Contact phone
+      comments: Comments
+    upcoming_events:
+      title: Upcoming events
+    video:
+      main_title: Video
+      title: Title
+      file: File* - allowed file types are "mov", "mpg", "mpeg", "mp4", "avi", "wmv"
+      description: Description
+
+  # External feeds, which can be imported into the site (for example on a group page)
+  external_feeds:
+    edit:
+      title: Editing feed
+    index:
+      listing_feeds_for: Listing feeds for
+      too_many_feeds: You can have a maximum of 2 feeds for your group. You need to delete one before you can add any more.
+      new_external_feed: New external feed
+    new:
+      title: New feed
+
+  # Hiding-related stuff, including controls for hiding, unhiding, and reporting content on the site.
+  hidden:
+    common:
+      hide: Hide
+      unhide: Unhide
+      complete: This has been hidden.  Thanks for helping keep the site clean!
+      unhide_complete: An email has been sent indicating that this is now unhidden.  Thanks!
+      no_permission: "<p>You don't have permission to unhide things once they're hidden.</p><p>If you would like to get more involved with the administration of the site, please contact us.</p>"
+    comment_hiding_controls:
+      title: Please state a reason for hiding
+    comment_unhiding_controls:
+      title: Please state a reason for unhiding
+    event_group_hiding:
+      title: Please state a reason for hiding these events
+    hiding_controls:
+      title: Please state a reason for hiding
+      text: This event is part of a series of repeated events.  You can hide all of the events at once by ticking the box below.
+      hide_all: Hide all events in this event group?
+    list:
+      title: Hidden
+      text: "The following content has been hidden under the {{guidelines_path}}."
+      guidelines: editorial guidelines
+    report: 
+      title: What's the trouble?
+      report: Report
+
+  # Feeds
+  feeds:
+    index:
+      action_alerts_explanation: a list of very short, infrequent updates of important happenings in the city.
+      at_the_miro_site: at the Miro site
+      latest_articles: Latest articles
+      latest_articles_explanation: lists latest articles which have been published on the site.
+      latest_videos: Latest videos
+      title: Available Feeds
+      upcoming_events: Upcoming events
+      upcoming_events_by_place: Upcoming events by place
+      upcoming_events_by_tag: Upcoming events by tag
+      upcoming_events_explanation: lists the next events upcoming from the calendar.
+      upcoming_events_by_place_explanation: Allows you to get a feed of events for a specific place, listed by when they were published. So if you want to see all events tagged with the place 'Brixton' on the site as it gets published, you'd type 'Brixton' into this search box and subscribe to the resulting feed
+      upcoming_events_by_tag_explanation: Allows you to get a feed of events for a specific tag, listed by when they were published. So if you want to see everything tagged with "foo" on the site as it gets published, you'd type "foo" into this search box and subscribe to the resulting feed
+      latest_videos_explanation: This will allow you to download Miro, which takes care of feed-reading, Bittorrent and video-playing software in one easy to use package.  You can find out more about its features {{miro_site}}. Once you've installed Miro, you can subscribe to our {{video_feed}} to automatically receive all of our latest videos.
+      video_feed: video feed
+
+  # The home page for the site
+  home:
+    index:
+      promoted_newswire: Promoted Newswire
+      feed_newswire: Global
+      featured_events: Featured Events
+      featured_groups: Featured And Recently Active Groups
+      promoted_events: Upcoming Events
+      published_newswire: Open Newswire
+      latest_poster: Posters!
+      place_tags: Neighbourhoods
+      tags: Tags
+      info: Info
+      network: Indymedia UK Network
+  
+  # Javascript-related messages
+  javascript:
+    no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
+    validation:
+      required_fields_missing: Some required fields are missing!
+  # The site's layouts, including the navigation, header, and footer.
+  layouts: 
+    categories: Categories
+    events: Events
+    footer: 
+      contributions: To contribute to this project {{project_site}}
+      icons_by: Icons by
+      project_site: take a look at the project site
+    groups: Groups
+    home: Home
+    main: Main
+    newswire: Newswire
+    pages: Pages
+    permissions: Permissions
+    publish:  Publish
+    roles: Roles
+    users: Users
+    videos: Videos
+    
+  # The search box and search results
+  search:
+    find_content: 
+      please_enter_search_terms: Please enter some search terms.
+      results_for: Search results for
+    past_events_explanation: There are events for this tag, but they're in the past.  
+    no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
+  
+  # Security messages
+  security:
+    permissions_error: You are not allowed to access this page.
+    please_type_anti_spam_message: You need to type the text from the image into the box so we know you're not a spambot.
+  
+  # Views which are shared across many parts of the site and don't belong in 
+  # just one spot.
+  shared:
+    account_box: 
+      title: Your account
+      explanation: You are currently not logged in.  You can {{login}} or {{register_an_account}}.	Registration allows you to edit your own content and help administer the site.
+      log_in: log in
+      register_an_account: register an account
+    captcha:
+      explanation: Until automated systems acheive a higher level of self-awareness and responsibility, we need you to prove your humanity by taking a little test that spambots are too stupid to pass.
+      no_robots: No robots!
+    content:
+      admin_controls: 
+        report_or_administer: Edit or administer this {{class_name}}
+        unhide_this: Unhide this {{class_name}}
+      comments:
+        add_a_comment: Add a comment
+        allow_comments: Allow comments
+        allows_comments_controls:
+          explanation: You have the option of allowing comments. Untick this box to disable comments.
+        comments_not_allowed: Comments are not allowed on this
+        inappropriate_comment: Inappropriate comment?
+        leave_comment: Leave a comment
+        tech_error: Something has gone wrong.  This comment should have a moderation_status of either "hidden" or "published".
+        unhide_this_comment: Unhide this comment?
+      edit_this_thing: Edit this {{class_name}}
+      grouping_controls:
+        explanation: "You can choose to publish this content as part of one of your groups. Note: <strong>this will make the content editable by all group members.</strong>"
+        no_group: No group
+      groups_display:
+        published_by_group: Published by group
+      hidden_notice: This {{class_name}} has been hidden under the site's {{editorial_guidelines}}.
+      maps: 
+        add_a_map: Add a map?
+        delete_this_map: Delete this map
+        edit_or_delete_map: Edit or delete map?
+        explanation: There is a map linked to this {{content}}. If you want to, you can edit or delete it.  If you do nothing, it will stay the same as it is right now.
+        see_a_map: See a map?
+        title: Map It!
+        will_load_data: "<strong>Note:</strong> clicking the map link will load data from {{openstreetmap}} external server."
+        you_can_attach_a_map: You can attach a map to this
+      place_tag_entry_controls: Neighbourhood tags - e.g. <em>brixton lambeth</em> or <em>elephant_and_castle
+      related_content: More like this (auto-generated)
+      sub_list:
+        add_file_upload: Add File Upload
+        add_link: Add Link
+        add_photo: Add Photo
+        add_video: Add Video
+        multiple_file_uploads: (click again for multiple file uploads)
+        multiple_links: (click again for multiple links)
+        multiple_photos: (click again for multiple photo uploads)
+        multiple_videos: (click again for multiple video uploads)
+      tag_instructions: Tags - separate with spaces
+  
+  # The events timeline.
+  timeline:
+    explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
+   
+  # Videos
+  videos:
+    sidebar: 
+      previous: 
+        title: Previous videos
+      containing_content:
+        related_title: "Related {{post_title}}"
+        explanation: "This video was originally uploaded as part of the following {{post_title}}"
+      feedbox:
+        title: Video feed
+        feed_link: video feed
+        miro_link: at the Miro site
+        explanation: "  <a href='http://subscribe.getMiro.com/?url1={{video_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
+			<p>
+			This will allow you to download Miro, which takes care of
+			feed-reading, Bittorrent and video-playing software in one easy to use package.  
+                        You can find out more about its features 
+			{{miro_path}}. Once you have installed Miro, you can subscribe 
+			to our {{feed_path}} to automatically receive all of our latest videos, 
+                        or click the 'download torrent'
+			link underneath the video above to download only the video file you want.</p>"
+    archives:
+      title: Listing videos
+    editing_video:
+      title: Editing video
+      save: Save changes
+      delete_video: Delete this video
+      sure_delete: Are you sure?
+    feature_flash:
+      title: Featured Videos
+    form:
+      title: Title
+      your_name: Your name
+      contact_email: Contact email address for video
+      file: File* - allowed file types are {{file_types}}
+      description: Description
+    help:
+      video_feed: video feed
+      text: "<h2>Video download help</h2>
+	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can 
+	download it for screenings.  However, we do not currently have the capacity to serve these big files 
+	ourselves.  Instead, we offer a download via Bittorrent, a peer-to-peer filesharing sytem.</p> 
+	<p>In order to download the full-quality video, you will need to have some software installed on your computer.
+	Basically you have two choices:
+	<ul>
+		<li>Bittorrent + VLC</li>
+		<li>Miro</li>
+	</ul>
+	</p>
+	
+	<h2>Bittorrent + VLC</h2>
+        <a href='http://www.bittorrent.com/download'>Bittorrent software</a> shares 
+	the file you are downloading with other people as you download it.  If you want to help us distribute 
+	video files, please leave your Bittorrent client open after your download finishes and you'll be donating
+	your bandwidth and making everyone's downloads faster.</p>
+	
+	<p>All of the full-quality video has been converted into a free format called Ogg Theora.  The easiest way 
+	to watch them is to use the excellent <a href='http://www.videolan.org/vlc/'>VLC</a> video player which
+	you can <a href='http://www.videolan.org/vlc/'>download here</a>. Alternatively, you may download the
+        <a href='http://xiph.org/quicktime/'>Ogg plugin for Quicktime</a>, or
+        <a href='http://www.illiminable.com/ogg/'>Ogg plugin for Windows Media Player</a>. </p>
+	
+	<h2>Miro</h2>
+	<p>Another easy way to see the full-quality video on our site is to press this button:
+	<p>
+		<a href='http://subscribe.getMiro.com/?url1={{feed_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
+	</p>	
+	This will allow you to download Miro, which takes care of
+	feed-reading, Bittorrent and video-playing software in one easy to use package.  
+        You can find out more about its features
+        <a href='http://www.getmiro.com/features/'>at the Miro site</a>.
+        Once you've installed Miro, you can subscribe 
+	to our {{video_path}} to automatically 
+        receive all of our latest videos, or click the 'download torrent'
+	link underneath the video above to download only the video file you want.</p>
+
+	<h2>Security note</h2>
+	<p>{{exclamation_img}} If you are incredibly paranoid about other 
+	people knowing that you are downloading a video, please note that your computer's IP address will be visible
+	to the people who you are sharing the video with.  In this case, don't use Bittorrent or Miro.</p>"
+    index:
+      title: Listing videos
+      more_videos: More videos
+    list_promoted:
+      title: Listing featured videos
+    new:
+      title: New Video
+      create: Create
+      click_once: Please only click once, and be patient, video uploading can take a while.
+    show:
+      comments: Comments
+    video: 
+      published: Published
+      no_flash: "<p>This item requires Macromedia Flash Player 7.</p>
+        <p>To get the latest version please <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>click here</a>.</p>"
+      tagged: Tagged as
+      places: Places
+      contact_email: Contact email
+      download_original: download original
+      download_torrent: download torrent
+      still_converted: This video is still being converted, or else there has been some kind of error.
+
+  number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1,0 / 2,0 == 0,5)
+      separator: ","
+      # Delimets thousands (e.g. 1.000.000 is a million) (always in groups of three)
+      delimiter: "."
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1,00)
+      precision: 3
+        
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        # in Greek currency values would be represented as (e.g €5,78:five euros and seventy eight  cents or €1.012,45: one thousand twelve euros and 45 cents)
+        format: "%u%n"
+        unit: "€"
+        # These three are to override number.format and are optional
+        separator: ","
+        delimiter: "."
+        precision: 2
+        
+    # Used in number_to_percentage()
+    percentage:
+      format:
+        # These three are to override number.format and are optional
+        # separator: 
+        delimiter: ""
+        # precision: 
+        
+    # Used in number_to_precision()
+    precision:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+        
+    # Used in number_to_human_size()
+    human:
+      format:
+        # These three are to override number.format and are optional
+        # separator: 
+        delimiter: ""
+        precision: 1
+        storage_units: [Bytes, KB, MB, GB, TB]
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "μισό λεπτό"
+      less_than_x_seconds:
+        one:   "λιγότερο απο ένα δευτερόλεπτο"
+        other: "λιγότερο απο {{count}} δευτερόλεπτα"
+      x_seconds:
+        one:   "1 δευτερόλεπτο"
+        other: "{{count}} δευτερόλεπτα"
+      less_than_x_minutes:
+        one:   "λιγότερο απο ένα λεπτό"
+        other: "λιγότερο απο {{count}} λεπτά"
+      x_minutes:
+        one:   "ένα λεπτό"
+        other: "{{count}} λεπτά"
+      about_x_hours:
+        one:   "1 ώρα περίπου"
+        other: "{{count}} hours περίπου"
+      x_days:
+        one:   "1 μέρα"
+        other: "{{count}} μέρες"
+      about_x_months:
+        one:   "1 μήνα περίπου"
+        other: "{{count}} μήνες περίπου"
+      x_months:
+        one:   "1 μήνα"
+        other: "{{count}} μήνες"
+      about_x_years:
+        one:   "ένα χρόνο περίπου"
+        other: "{{count}} χρόνια περίπου"
+      over_x_years:
+        one:   "πάνω απο 1 χρόνο"
+        other: "πάνω απο {{count}} χρόνια"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "1 λάθος παρεμπόδισε αυτό το {{model}} να αποθηκευθεί"
+          other:  "{{count}} λάθη εμπόδισαν αυτό το {{model}} να αποθηκευθεί"
+        # The variable :count is also available
+        body: "Υπήρξαν προβλήματα με τα ακόλουθα πεδία :"
+
+
+  activerecord:
+    errors:
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+      messages:
+        inclusion: "δεν συμπεριλαβάνεται στη λίστα"
+        exclusion: "είναι δεσμευμένο"
+        invalid: "είναι άκυρο"
+        confirmation: "δεν ταιριάζει με την επικύρωση"
+        accepted: "πρέπει να είναι αποδεκτό"
+        empty: "δεν πρέπει να είναι άδειο"
+        blank: "δεν πρέπει να είναι κενό"
+        too_long: "είναι πολύ μεγάλο (το μέγιστο μήκος είναι {{count}} χαρακτήρες)"
+        too_short: "είναι πολύ μικρό (το μικρότερο μήκος είναι {{count}} χαρακτήρες)"
+        wrong_length: "έχει λανθασμένο μήκος (πρέπει να είναι {{count}} χαρακτήρες)"
+        taken: "το έχουν ήδη χρησιμοποιήσει"
+        not_a_number: "δεν είναι ένας αριθμός"
+        greater_than: "πρέπει να είναι μεγαλύτερο απο {{count}}"
+        greater_than_or_equal_to: "πρέπει να είναι μεγαλύτερο ή ίσον με {{count}}"
+        equal_to: "πρέπει να είναι ίσον με  {{count}}"
+        less_than: "πρέπει να είναι λιγότερο απο {{count}}"
+        less_than_or_equal_to: "πρέπει να είναι λιγότερο ή ίσον με {{count}}"
+        odd: "πρέπει να είναι περιττός"
+        even: "πρέπει να είναι άρτιος"
+        # Append your own errors here or at the model/attributes scope.
+
+      # You can define own errors for models or model attributes.
+      # The values :model, :attribute and :value are always available for interpolation.
+      #
+      # For example,
+      #   models:
+      #     user:
+      #       blank: "This is a custom blank message for {{model}}: {{attribute}}"
+      #       attributes:
+      #         login:
+      #           blank: "This is a custom blank message for User login"
+      # Will define custom blank validation message for User model and 
+      # custom blank validation message for login attribute of User model.
+      # models:
+        
+    # Translate model names. Used in Model.human_name().
+    #models:
+      # For example,
+      #   user: "Dude"
+      # will translate User model name to "Dude"
+    
+    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
+    #attributes:
+      # For example,
+      #   user:
+      #     login: "Handle"
+      # will translate User attribute "login" as "Handle"
+
+
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+      only_day: "%e"
+      
+    day_names: [Κυριακή, Δευτέρα, Τρίτη, Τετάρτη, Πέμπτη, Παρασκευή, Σάββατο]
+    abbr_day_names: [Κυρ, Δευ, Τρι, Τετ, Πεμ, Παρ, Σαβ]
+      
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Ιανοάριος, Φεβρουάριος, Μάρτιος, Απρίλιος, Μάιος, Ιούνιος, Ιούλιος, Άυγουστος, Σεπτέμβριος, Οκτώβριος, Νοέμβριος, Δεκέμβριος]
+    abbr_month_names: [~, Ιαν, Φεβ, Μάρ, Απρ, Μαι, Ιουν, Ιούλ, Αυγ, Σεπ, Οκτ, Νοε, Δεκ]
+    # Used in date_select and datime_select.
+    # original was: order: [ :year, :month, :day ] 
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+      only_second: "%S"
+    am: "am"
+    pm: "pm"
+
+  datetime:
+    formats:
+      default: "%d-%m-%YT%H:%M:%S%Z"
+    
+
+# Used in array.to_sentence.
+  support:
+    array:
+      sentence_connector: "και"
+      skip_last_comma: false

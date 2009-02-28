@@ -10,7 +10,7 @@ class AutoModerationWorker < BackgrounDRb::Rails
     fields_to_check = ["title", "body", "summary", "published_by"]
     content_to_check = Content.find(:all, :conditions => ["auto_moderation_checked = ?", false])
     content_to_check.each do |content|
-    found_something_to_hide = false
+      found_something_to_hide = false
       fields_to_check.each do |field|
         filters.each do |filter|
           filter.content_filter_expressions.each do |filter_expression|

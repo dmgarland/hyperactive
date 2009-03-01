@@ -78,8 +78,7 @@ class ContentController < ApplicationController
   
   def archives
     @cloud = Tag.cloud(:limit => 20)
-    @content = model_class.paginate(
-      :conditions => ['moderation_status != ?', "hidden"], 
+    @content = model_class.visible.paginate(
       :order => 'created_on desc', 
       :page => page_param)
   end

@@ -13,6 +13,13 @@ class EventsController < ContentController
     end
   end
   
+  def archives
+    @cloud = Tag.cloud(:limit => 20)
+    @content = model_class.visible.paginate(
+      :order => 'date ASC', 
+      :page => page_param)
+  end  
+  
   def list_by_event_group
     event_group_id = params[:id]
     @content = Event.find_all_by_event_group_id(event_group_id, :conditions => ['moderation_status != ?', "hidden"])   

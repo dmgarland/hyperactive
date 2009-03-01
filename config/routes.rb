@@ -109,4 +109,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id'
+  
+  # This should catch anything that's completely unrecognized and throw a 404 in production
+  map.connect '*path' , :controller => 'error' , :action => 'index'
+  
 end

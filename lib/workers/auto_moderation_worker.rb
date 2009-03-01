@@ -23,7 +23,7 @@ class AutoModerationWorker < BackgrounDRb::Rails
           end
         end
       end
-      ContentHideMailer.deliver_hide(content, @filter_message, "marcos") if found_something_to_hide     
+      ContentHideMailer.deliver_hide(content, @filter_message, "marcos") if @found_something_to_hide     
       content.auto_moderation_checked = true
       content.save!
     end

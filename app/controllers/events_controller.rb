@@ -4,10 +4,7 @@ class EventsController < ContentController
     @cloud = Tag.cloud(:limit => 20)
     
     if params[:moderation_status].blank?
-      @content = model_class.paginate(
-        :conditions => ['moderation_status != ? and date >=?', 'hidden', Date.today.to_s], 
-        :order => 'date ASC', 
-        :page => page_param)
+      @content = Event.visible.upcoming.paginate(:order => 'date ASC', :page => page_param)
     else
       @content = model_class.paginate(
         :conditions => ['moderation_status = ? and date >=?', params[:moderation_status], Date.today.to_s], 

@@ -152,6 +152,22 @@ module ContentControllerTest
     assert_equal "featured", assigns(:content).moderation_status, "featured content should be featured."
   end
   
+  def test_moderation_status_can_be_set_to_published_with_hide_permission
+    content = Content.find(@first_id)
+    content.moderation_status = "hidden"
+    content.save!    
+    put :update, {:id => @first_id, :content => {:moderation_status => "published"},:tags => "", :place_tags => ""}, as_user(:marcos)
+    assert_equal assigns(:content).moderation_status, "published"
+  end 
+  
+  def test_moderation_status_cannot_be_set_to_published_without_hide_permission
+    content = Content.find(@first_id)
+    content.moderation_status = "hidden"
+    content.save!
+    put :update, {:id => @first_id, :content => {:moderation_status => "published"},:tags => "", :place_tags => ""}, as_user(:registered_user)
+    assert_equal assigns(:content).moderation_status, "hidden"
+  end    
+  
   def test_moderation_status_can_be_updated_with_feature_permission
     put :update, {:id => @first_id, :content => {:moderation_status => "featured"},:tags => "", :place_tags => ""}, as_user(:marcos)
     assert_equal assigns(:content).moderation_status, "featured"
@@ -166,6 +182,8 @@ module ContentControllerTest
   def test_moderation_status_can_be_updated_with_promote_permission
     put :update, {:id => @first_id, :content => {:moderation_status => "promoted"},:tags => "", :place_tags => ""}, as_user(:marcos)
     assert_equal assigns(:content).moderation_status, "promoted"
+    content = Content.find(@first_id)
+    assert_equal content.moderation_status, "promoted"
   end
   
   def test_moderation_status_cannot_be_updated_without_promote_permission

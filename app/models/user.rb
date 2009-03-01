@@ -100,6 +100,7 @@ class User < ActiveRecord::Base
     return true if self.can_hide_content?(content) && status == "hidden"
     return true if self.can_promote_content? && status == "promoted"
     return true if self.can_feature_content? && status == "featured"
+    return true if self.can_unhide_content?(content) && status == "published"
     return false   
   end
   

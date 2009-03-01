@@ -286,6 +286,8 @@ en:
       previous_week: Previous week
       next_week: Next week
     list_promoted:
+      title: Listing promoted events
+    list_featured:
       title: Listing featured events
     list_seven_days:
       title: In the coming week

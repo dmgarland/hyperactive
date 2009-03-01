@@ -44,6 +44,9 @@ ActionController::Routing::Routes.draw do |map|
   map.promoted_videos '/videos/list_promoted/:page', :controller => 'videos', :action => 'list_promoted'
   map.featured_videos '/videos/list_featured/:page', :controller => 'videos', :action => 'list_featured'
 
+  # a better way to do the same thing
+    
+
   map.resources :action_alerts, :articles, :pages, :videos
   map.resources :events, :collection => { :list_promoted => :get }
   map.resources :groups, :controller => :collectives, :has_many => :external_feeds

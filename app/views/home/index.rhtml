@@ -53,7 +53,7 @@
 			<li>				
 				<h2><%= I18n.t 'home.index.published_newswire' %></h2>
 				<ul>
-					<%= render :partial => '/shared/content/list_title', :collection => @recent_articles %>
+					<%= render :partial => '/shared/content/list_title', :collection => @published_articles %>
 					<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), articles_path %></li>
 				</ul>
 			</li>
@@ -67,7 +67,7 @@
 		<li id="upcomingevents">
 			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>
+				<%= render :partial => '/shared/content/list_title', :collection => @visible_events %>
   				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
 			</ul>
 		</li>					

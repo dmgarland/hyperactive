@@ -75,7 +75,7 @@
 		<li id="upcomingevents">
 			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>
-			<%= render :partial => '/shared/content/list_title', :collection => @recent_events %>
+			<%= render :partial => '/shared/content/list_title', :collection => @promoted_events %>
 <li>			  <li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
 			</ul>
 		</li>					

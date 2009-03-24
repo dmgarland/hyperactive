@@ -12,7 +12,7 @@ xml.rss "version" => "2.0" do
    @alerts.each do |e|
      xml.item do
        xml.title       e.summary.gsub(/<\/?[^>]*>/, "")
-       xml.pubDate     e.created_on
+       xml.pubDate     e.created_on.to_s(:rfc822)
        xml.guid        url_for :only_path => false, :controller => 'action_alerts', :action => 'show', :id => e.id
        xml.link        url_for :only_path => false, :controller => 'action_alerts', :action => 'show', :id => e.id
      end

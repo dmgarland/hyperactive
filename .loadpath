@@ -37,4 +37,10 @@
 	<pathentry path="GEM_LIB/rmagick-2.7.2/lib" type="var"/>
 	<pathentry path="GEM_LIB/rmagick-2.7.2/lib" type="var"/>
 	<pathentry path="GEM_LIB/rmagick-2.7.2/lib" type="var"/>
+	<pathentry path="GEM_LIB/builder-2.1.2/lib" type="var"/>
+	<pathentry path="GEM_LIB/actionpack-2.2.2/lib" type="var"/>
+	<pathentry path="GEM_LIB/actionmailer-2.2.2/lib" type="var"/>
+	<pathentry path="GEM_LIB/rmagick-2.9.0/lib" type="var"/>
+	<pathentry path="GEM_LIB/activerecord-2.2.2/lib" type="var"/>
+	<pathentry path="GEM_LIB/activesupport-2.2.2/lib" type="var"/>
 </loadpath>

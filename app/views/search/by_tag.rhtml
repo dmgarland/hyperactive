@@ -1,7 +1,7 @@
 <% if !@content.nil? %>
     <% if !@content.empty? %>
     <h1>Tagged with &lsquo;<%= h @tagname %>&rsquo;</h1>
-        <%= link_to (image_tag('feed-icon-28x28.png')), {:controller => 'event_feed', :action => 'upcoming_tagged', :scope => params[:scope]} %>
+        <%= link_to(image_tag('feed-icon-28x28.png'), upcoming_events_by_tag_feed_path(params[:scope])) %>
         <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
         <%= page_links(@content) %>
     <% else %>

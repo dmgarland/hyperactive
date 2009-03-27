@@ -39,81 +39,10 @@
 	<% end %>
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
-			<li>				
-				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
-				<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
-				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
-				</ul>
-
-			</li>
-		</ul>
-	</div>	
-	<div id="unused" class="sidebar_content">
-		<ul>
-			<li>
-				<h2>UK and World</h2>
-				<ul>
-					<%= @home_page_feed unless @home_page_feed.nil? %>
-					<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>		
-</div>
-<!-- end content -->
-<!-- start sidebars -->
-<div id="sidebar1" class="sidebar">
-	<ul>
-		<li>
-			<h2><%= I18n.t 'home.index.featured_events' %></h2>
-			<ul>
-				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
-				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events', :action => 'index', :moderation_status => 'featured', :page => 1 %></li>
-			</ul>
-		</li>	
-		<li id="upcomingevents">
-			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
-			<ul>
-			<%= render :partial => '/shared/content/list_title', :collection => @promoted_events %>
-<li>			  <li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
-			</ul>
-		</li>					
-		<li>
-
-			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
-			<div id="event_poster">
-				<div>
-				<p>
-					<%= big_thumbnail_for(most_recent_promoted_event_with_image) unless most_recent_promoted_event_with_image.nil? %><br/>
-					<%= most_recent_promoted_event_with_image.title unless most_recent_promoted_event_with_image.nil?  %>
-				</p>
-				</div>
-			</div>
-		</li>			
-	</ul>
-</div>
-<div id="sidebar2" class="sidebar">
-	<%= render :partial => 'shared/searchbox' %>
-    <%= render :partial => 'shared/account_box' %>
-	<ul>
-		<li>
-			<%= render :partial => 'videos/featured_flash_player' %>
-		</li>	
-		<li>
-			<h2><%= I18n.t 'home.index.place_tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
-		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.tags' %></h2>
 			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
-		</li>
-		<li>
-			<h2><%= I18n.t 'home.index.info' %></h2>
-			<ul>
-				<%= render :partial => '/pages/list_title', :collection => @pages %>
-			</ul>
-		</li>		
+		</li>			
 		<li>
 			<h2><%= I18n.t 'home.index.network' %></h2>
 			<ul>		
@@ -164,6 +93,76 @@
 				</li>     
 			</ul>
 		</li>			
+		</ul>
+	</div>	
+	<div id="unused" class="sidebar_content">
+		<ul>
+			<li>
+				<h2><%= I18n.t 'home.index.place_tags' %></h2>
+				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+			</li>
+			<li>
+				<h2><%= I18n.t 'home.index.info' %></h2>
+				<ul>
+					<%= render :partial => '/pages/list_title', :collection => @pages %>
+				</ul>
+			</li>
+		    <%= render :partial => 'shared/account_box' %>						
+		</ul>
+	</div>		
+</div>
+<!-- end content -->
+<!-- start sidebars -->
+<div id="sidebar1" class="sidebar">
+	<ul>
+			<li>				
+				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
+				<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
+				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
+				</ul>
+			</li>		
+			<li>
+				<%= render :partial => 'videos/featured_flash_player' %>
+			</li>	
+			<li>
+				<h2>UK and World</h2>
+				<ul>
+					<%= @home_page_feed unless @home_page_feed.nil? %>
+					<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
+				</ul>
+			</li>			
+		</li>			
+	</ul>
+</div>
+<div id="sidebar2" class="sidebar">
+	<%= render :partial => 'shared/searchbox' %>
+	<ul>
+		<li>
+			<h2><%= I18n.t 'home.index.featured_events' %></h2>
+			<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
+				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events', :action => 'index', :moderation_status => 'featured', :page => 1 %></li>
+			</ul>
+		</li>	
+		<li>
+			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
+			<div id="event_poster">
+				<div>
+				<p>
+					<%= big_thumbnail_for(most_recent_promoted_event_with_image) unless most_recent_promoted_event_with_image.nil? %><br/>
+					<%= most_recent_promoted_event_with_image.title unless most_recent_promoted_event_with_image.nil?  %>
+				</p>
+				</div>
+			</div>	
+		</li>			
+		<li id="upcomingevents">
+			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
+			<ul>
+			<%= render :partial => '/shared/content/list_title', :collection => @promoted_events %>
+			  <li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
+			</ul>
+		</li>							
 	</ul>
 </div>
 <!-- end sidebars -->

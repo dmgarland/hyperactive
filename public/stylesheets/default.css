@@ -244,6 +244,7 @@ img.right {
 }
 
 
+
 .post {	
 	margin-bottom: 5px; /* was 20 */
 	padding: 0 0 10px 5px; /* was 0 0 15 0 */
@@ -326,9 +327,10 @@ img.right {
 /* Calendar View*/
 
 table#calendar_month {
+	width: 880px;
     background-color:#f1f1f1;
     border: solid #d2d2d2 1px;
-	margin-left: 10px;
+	margin-left: 5px;
 }
 
 
@@ -338,8 +340,11 @@ table#calendar_month td {
 	vertical-align: top;
 }
 
-/* icon on events list could help, use: 
-	background: url(../images/date.png) no-repeat 0px 5px; */
+/* icon on events list could help, use: */
+table#calendar_month td a {
+	background: url(../images/date.png) no-repeat 0px 5px; 
+	padding: 5px 2px 1px 20px;
+}
 
 
 .day-of-week {
@@ -532,13 +537,14 @@ margin-top : 0px;
 /* Footer */
 
 #footer {
-	padding: 25px 5px 50px 10px;
+	margin: 0 auto;
+	padding: 10px 5px 50px 10px;
 	background: #940f04 url(../images/img05.gif) repeat-x;
 }
 
 #footer p {
 	margin: 0;
-	padding: 5px;
+	padding: 0;	
 	text-align: center;
 	font-size: smaller;
 	color: #000000;
@@ -590,8 +596,8 @@ margin-top : 0px;
   clear:left;
 } 
 
-
 #homepage-footer {
+	margin: 0 auto;
 	padding: 30px 5px 25px 10px;
 	background: #E6E6E6 url(../images/img07.gif) repeat-x;
 	text-align : center; 
@@ -627,8 +633,7 @@ margin-top : 0px;
    text-align: right;
 }
 
-div.collective-preview
-{
+div.collective-preview {
   margin: 5px;
   height: 150px;
   width: auto;
@@ -638,15 +643,13 @@ div.collective-preview
   border: solid 1px #000000;
 }	
 
-div.collective-preview img
-{
+div.collective-preview img {
   display: inline;
   margin: 3px;
   border: 1px solid #fff;
 }
 
-div.collective-preview-desc
-{
+div.collective-preview-desc {
   text-align: center;
   font-weight: normal;
   width: 120px;

@@ -40,10 +40,6 @@
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
 		<li>
-			<h2><%= I18n.t 'home.index.tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
-		</li>			
-		<li>
 			<h2><%= I18n.t 'home.index.network' %></h2>
 			<ul>		
 				<li class="list">
@@ -98,10 +94,6 @@
 	<div id="unused" class="sidebar_content">
 		<ul>
 			<li>
-				<h2><%= I18n.t 'home.index.place_tags' %></h2>
-				<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
-			</li>
-			<li>
 				<h2><%= I18n.t 'home.index.info' %></h2>
 				<ul>
 					<%= render :partial => '/pages/list_title', :collection => @pages %>
@@ -132,7 +124,14 @@
 					<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
 				</ul>
 			</li>			
-		</li>			
+		<li>
+			<h2><%= I18n.t 'home.index.tags' %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
+		</li>		
+		<li>
+			<h2><%= I18n.t 'home.index.place_tags' %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+		</li>		
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">

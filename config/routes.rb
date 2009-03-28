@@ -51,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events, :collection => { :list_promoted => :get }
   map.resources :groups, :controller => :collectives, :has_many => :external_feeds
   
+  map.streets 'actions', :controller => "action_alerts", :action => "list"
   map.admin_main 'admin/main', :controller => 'admin/main'
   map.latest_comments 'admin/main/latest_comments', :controller => 'admin/main', :action => 'latest_comments'
   map.admin_action_alerts 'admin/action_alerts', :controller => 'admin/action_alerts'

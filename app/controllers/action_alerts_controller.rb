@@ -1,6 +1,6 @@
 class ActionAlertsController < ApplicationController
 
-  layout "two_column"
+  layout "mobile"
 
   def index
     list

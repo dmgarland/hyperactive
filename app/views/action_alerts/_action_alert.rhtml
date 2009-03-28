@@ -1,5 +1,3 @@
 <p>
-	<%= I18n.t 'general.created_on' %>: <%= action_alert.created_on %><br/>
-	<%= I18n.t 'general.updated_on' %>: <%= action_alert.updated_on %><br/>
-	<%= I18n.t 'general.summary' %>: <%= action_alert.summary %><br/>
+	<strong><%= long_date(action_alert.created_on) %></strong><%= action_alert.summary %>
 </p>

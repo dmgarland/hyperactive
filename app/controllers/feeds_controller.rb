@@ -65,5 +65,24 @@ class FeedsController < ApplicationController
       render :action => "index"
     end
   end
+  
+  def articles_by_tag
+    tagname = params[:scope]
+    @tag = Tag.find_by_name(tagname)
+    
+    if !@tag.nil?
+      @articles = @tag.taggables.find(
+        :all, 
+        :limit => events_per_feed,
+        :conditions => ['moderation_status = ? or moderation_status = ?', "promoted", "featured"],
+        :order => "created_on DESC")
+      response.headers['Content-Type'] = 'application/rss+xml'
+      render :action => 'articles_by_tag', :layout => false
+    else
+      flash[:notice] = 'No articles tagged ' + tagname + ' were found...'
+      render :action => "index"
+    end
+
+  end  
 
 end

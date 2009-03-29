@@ -94,6 +94,7 @@ ActionController::Routing::Routes.draw do |map|
   map.upcoming_events_feed 'feeds/upcoming_events', :controller => 'feeds', :action => 'upcoming_events'
   map.upcoming_events_by_tag_feed 'feeds/upcoming_events_by_tag/:scope', :controller => 'feeds', :action => 'upcoming_events_by_tag'  
   map.upcoming_events_by_place_feed 'feeds/upcoming_events_by_place/:scope', :controller => 'feeds', :action => 'upcoming_events_by_place' 
+  map.articles_by_tag_feed 'feeds/articles_by_tag/:scope', :controller => 'feeds', :action => 'articles_by_tag' 
   
 
   # The job scheduler admin

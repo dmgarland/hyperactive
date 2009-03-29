@@ -2,9 +2,7 @@ class Admin::SnippetsController < ApplicationController
 
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy] 
   before_filter :protect_controller
-  skip_before_filter :sanitize_params
-  before_filter :sanitize_params_allowing_images
-  
+  skip_before_filter :sanitize_params 
   
   layout 'admin'
   

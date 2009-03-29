@@ -5,7 +5,7 @@
   
   <p>
   	<b>Key</b><br/>
-	<%= f.text_field :key %>
+	<%= f.select(:key, {"Disabled" => "disabled", "Main Startpage Snippet" => "homepage", "Right Side Startpage" => "rightsnippet"}) %>
   </p>
 
   <p>

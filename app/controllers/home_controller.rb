@@ -26,6 +26,7 @@ class HomeController < ApplicationController
     @pages = Page.show_on_front
     setup_action_alert
     @snippet = Snippet.find_by_key("homepage")
+    @rightsnippet = Snippet.find_by_key("rightsnippet")
     feed_file = "#{RAILS_ROOT}/public/system/cache/feeds/home_page_feed.rhtml"
     if File.exists?(feed_file)
       file = File.new(feed_file)

@@ -137,6 +137,14 @@
 <div id="sidebar2" class="sidebar">
 	<%= render :partial => 'shared/searchbox' %>
 	<ul>
+		<% unless @rightsnippet.nil? %>
+		<li>
+			<h2><%= @rightsnippet.title %></h2>
+			<ul>
+				<%= @rightsnippet.body %>
+			</ul>
+		</li>	
+		<% end %>		
 		<li>
 			<h2><%= I18n.t 'home.index.featured_events' %></h2>
 			<ul>

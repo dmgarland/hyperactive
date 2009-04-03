@@ -30,7 +30,7 @@ class CollectivesController < ApplicationController
   # GET /collectives
   # GET /collectives.xml
   def index
-    @new_collectives = Collective.all(:limit => objects_per_page, :order => 'created_on DESC')
+    @new_collectives = Collective.visible(:limit => objects_per_page, :order => 'created_on DESC')
     @recently_active_collectives = Collective.recently_active(:limit => objects_per_page)
 
     respond_to do |format|

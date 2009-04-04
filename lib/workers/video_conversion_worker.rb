@@ -27,7 +27,7 @@ class VideoConversionWorker < BackgrounDRb::Rails
     video_information = MiniExiftool.new(@video_file)
     width = video_information["imagewidth"].to_f
     height = video_information["imageheight"].to_f
-    if width/height == 16.0/9.0
+		if width/height == 16.0/9.0 || width/height == 640.0/352.0 || width/height == 720.0/576.0
       encode_width = 640
       encode_height = 360
     else

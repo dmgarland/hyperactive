@@ -4,11 +4,11 @@
     <label class="first" for="photo[]_item_id">
     <%= I18n.t 'content.class_names.photo' %>
     </label><br/><br/>
-    <% if controller.action_name == 'edit' %>
+    <% if controller.action_name == 'edit' || controller.action_name == 'create' %>
         <%= image_tag photo.file.thumb.url %><br/><br/>
     <% end %>
     <label for="photo[]_title">
-      <%= I18n.t 'general.title' %>*<br/>
+      <%= I18n.t 'general.title' %><br/>
     </label><%= text_field 'photo[]', 'title', :size => 30 %><br/><br/>
     <label for="photo[]_file">
     <%= I18n.t 'general.file' %>*<br/>

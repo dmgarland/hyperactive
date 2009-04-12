@@ -1,5 +1,5 @@
 <h1><%= I18n.t 'articles.new.title' %></h1>
-<%= javascript_include_tag "form-valid" %>
+<%# javascript_include_tag "form-valid" %>
 
 <% form_for(:content, :url => articles_path, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>

@@ -59,7 +59,11 @@ module UIEnhancements
             end
             
             define_method("prepare_#{models}") do
-              (eval "@#{parent}").send( models ).select { |item| item.id.nil? }.each { |null_item| null_item.id = Time.now.to_i }
+              start_time = Time.now.to_i
+              (eval "@#{parent}").send( models ).select { |item| item.id.nil? }.each { |null_item| 
+                null_item.id = start_time
+                start_time = start_time + 1
+              } 
             end
             
             define_method "add_#{model}" do

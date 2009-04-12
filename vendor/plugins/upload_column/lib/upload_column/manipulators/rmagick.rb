@@ -36,7 +36,11 @@ module UploadColumn
       def resize!( geometry )
         manipulate! do |img|
           img.change_geometry( geometry ) do |c, r, i|
-            i.resize(c,r)
+            if i.rows > c || i.columns > r
+              i.resize(c,r)
+            else
+              i
+            end
           end
         end
       end

@@ -3,7 +3,7 @@
 <%= error_messages_for :comment %>
 
 <% form_for :comment, :url => {:controller => @content.class.to_s.downcase.pluralize, :action => 'create_comment', :id => @content} do |f| %>
-	<p><strong><%= I18n.t 'general.title' %>:</strong><br/>
+	<p><strong><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('content.class_names.comment').downcase %>:</strong><br/>
 	<%= f.text_field :title %></p>
 	<p><strong><%= I18n.t 'general.your_name' %>:</strong><br/>
 	<%= f.text_field :published_by %></p>

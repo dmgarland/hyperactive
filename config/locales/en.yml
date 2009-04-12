@@ -477,7 +477,7 @@ en:
         multiple_links: (click again for multiple links)
         multiple_photos: (click again for multiple photo uploads)
         multiple_videos: (click again for multiple video uploads)
-      tag_instructions: Tags - separate with spaces
+      tag_instructions: Tags - put in the keywords of your post here, to help people find it. Separate with spaces.
   
   # The events timeline.
   timeline:

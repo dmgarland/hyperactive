@@ -203,7 +203,7 @@ en:
       videos: Videos
     form:
       allowed_file_types: File* - allowed file types are {{file_types}}
-      contact_email_address: Contact email address (will be shown)
+      contact_email_address: Contact email address (optional - will be shown)
       delete: Delete
       moderation_status: Moderation status
       required_field: required field
@@ -249,7 +249,7 @@ en:
     form:
       title: Title
       date_of_event: Date of Event
-      contact_for_event: Contact email address for event (will be shown)
+      contact_for_event: Contact email address for event (optional - will be shown)
       place_for_event: Place <em>*</em> - include street address, room number, etc.
       description_for_event: Description
       repeating: Repeating event (optional)
@@ -516,7 +516,7 @@ en:
     form:
       title: Title
       your_name: Your name
-      contact_email: Contact email address for video (will be shown)
+      contact_email: Contact email address for video (optional - will be shown)
       file: File* - allowed file types are {{file_types}}
       description: Description
     help:

@@ -1,4 +1,21 @@
-<li class="<%= list_titles.class.to_s.downcase %>-list">
+<% if @current_date != list_titles.updated_on.strftime('%Y-%m-%d') %>
+		<% if @current_date != ''%>        
+		</ul >	
+		<% end %>
+		
+		<% if Date.today.strftime('%Y-%m-%d') == list_titles.updated_on.strftime('%Y-%m-%d') %>
+			<p><%= I18n.t('general.today') %></p>
+		<% else %>		
+	                <p><%= list_titles.updated_on.strftime('%d-%m-%Y') %></p>
+		<% end %>		
+
+		<ul>
+		<% @current_date = list_titles.updated_on.strftime('%Y-%m-%d') %>	
+<% end %>
+
+
+<li class="<%= list_titles.class.to_s.downcase %>-list">	        
+
         <% if list_titles.moderation_status == "promoted" %>
            <img alt="Rosette" src="/images/icons/rosette.png"/>
         <% end %>
@@ -17,3 +34,7 @@
         <% end %> 
 	<br/>
 </li>
+
+<% if @all_content.last == list_titles %>
+	</ul>
+<% end %>

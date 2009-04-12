@@ -467,6 +467,7 @@ margin-top : 0px;
 
 .sidebar li li {
 	padding: 0 0 0 25px;
+	min-height: 23px;
 }
 
 .sidebar li h2 {

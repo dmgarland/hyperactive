@@ -4,7 +4,7 @@
 
 <!--[form:event]-->
 <p><em>*</em> = <%= I18n.t("content.form.required_field") %></p>
-<p><label for="content_title"><%= I18n.t("content.form.title") %><em>*</em></label><br/>
+<p><label for="content_title"><%= I18n.t("content.form.title") %> <%= I18n.t 'general.of_your' %> <%= I18n.t('content.class_names.event').downcase %><em>*</em></label><br/>
 <%= f.text_field 'title'  %></p>
 
 <p><label for="content_date"><%= I18n.t('events.form.date_of_event') %><em>*</em></label><br/>

@@ -6,7 +6,7 @@
 <% if controller.action_name == 'edit' %>
     <%= image_tag "#{@content.thumbnail}" %><br/><br/>
 <% end %>
-<p><label for="content_title"><%= I18n.t('videos.form.title') %>*<br/></label>
+<p><label for="content_title"><%= I18n.t('videos.form.title') %>  <%= I18n.t 'general.of_your' %> <%= I18n.t('content.class_names.video').downcase %>*<br/></label>
 <%= f.text_field :title, :size => 30 %></p>
 
 <p><label for="content_published_by"><%= I18n.t('videos.form.your_name') %>:<em>*</em></label><br/>

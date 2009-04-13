@@ -29,7 +29,7 @@
           <%= link_to h(list_titles.title), content_path_for(list_titles) %> 
           <%= list_titles.updated_on.strftime(' %Y-%m-%d %H:%M:%S') %>
         <% else %>
-          <%= link_to h(list_titles.title), content_path_for(list_titles.content) + "#comment-#{list_titles.id}" %> 
+          <%= link_to h(" on #{list_titles.content.class.to_s.downcase} #{list_titles.content.id}: " + list_titles.title), content_path_for(list_titles.content) + "#comment-#{list_titles.id}" %> 
           <%= list_titles.updated_on.strftime(' %Y-%m-%d %H:%M:%S') %>
         <% end %> 
 	<br/>

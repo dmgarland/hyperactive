@@ -1,4 +1,4 @@
-"<%= @comment.title %>" (<%= @comment.id %>) <%= I18n.t 'content_hide_mailer.has_been_hidden_by_user' %> "<%= @user %>."
+"<%= @comment.title %>" (<%= "#{@comment.content.class.to_s.downcase}/#{@comment.content.id}#comment-#{@comment.id}" %>) <%= I18n.t 'content_hide_mailer.has_been_hidden_by_user' %> "<%= @user %>."
 
 <%= I18n.t 'content_hide_mailer.reasons' %>:
 

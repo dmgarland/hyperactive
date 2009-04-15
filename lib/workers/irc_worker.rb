@@ -18,8 +18,9 @@ class IrcWorker < BackgrounDRb::Rails
     @port = Setting.find_by_key("irc_port").value
     @bot_name = Setting.find_by_key("bot_name").value
     @activate_bot = Setting.find_by_key("activate_bot").value
+    @ssl = Setting.find_by_key("irc_over_ssl").value
     if @activate_bot
-      @bot = IRC.new(@bot_name, @server, @port, "HyperactiveBot", :use_ssl => true)
+      @bot = IRC.new(@bot_name, @server, @port, "HyperactiveBot", :use_ssl => @ssl)
       IRCEvent.add_callback('endofmotd') { |event| @bot.add_channel(@channel) }
       IRCEvent.add_callback('join') { |event|
         @bot.send_message(@channel, say_random_quote) if event.from == @bot_name

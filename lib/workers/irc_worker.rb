@@ -39,7 +39,7 @@ class IrcWorker < BackgrounDRb::Rails
 
   def receive_message(event)
     message = event.message if event.message.downcase =~ /marcos:/
-    if message =~ /profound/
+    if message =~ /profound/ || message =~ /think/ || message =~ /what/ || message =~ /how/
       @bot.send_message(event.channel, say_random_quote)
     end
   end

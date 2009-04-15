@@ -99,5 +99,15 @@ module Hyperactive
   @@site_url = "http://foo.org"
   mattr_accessor :site_url
 
+	# What port should the irc bot connect to?
+	#
+	@@irc_port = "6697"
+	mattr_accessor :irc_port
+
+	# Should the irc bot attempt to use SSL?
+	#
+	@@irc_over_ssl = true
+	mattr_accessor :irc_over_ssl
+
 end
 

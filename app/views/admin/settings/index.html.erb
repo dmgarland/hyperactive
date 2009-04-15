@@ -81,6 +81,16 @@
 	<%= label_tag "Site url" %> - will be used for bot notifications in the irc channel.<br/>
 	<%= text_field_tag(:site_url, Hyperactive.site_url) %>
 	</p>		
+
+	<p>
+	<%= label_tag "IRC Bot Port" %> - which port should the irc bot connect to?<br/>
+	<%= text_field_tag(:irc_port, Hyperactive.irc_port) %>
+	</p>		
+
+	<p>
+	<%= label_tag "Connect to IRC using SSL encryption?" %><br/>
+	<%= text_field_tag(:irc_over_ssl, Hyperactive.irc_over_ssl) %>
+	</p>		
 		
 	<p><%= submit_tag %></p>
 <% end %>

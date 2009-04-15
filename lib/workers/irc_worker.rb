@@ -14,12 +14,12 @@ class IrcWorker < BackgrounDRb::Rails
   # 
   def do_work(args)
     @channel = Setting.find_by_key("irc_channel").value
-    puts "channel: #{@channel}"
     @server = Setting.find_by_key("irc_server").value
+    @port = Setting.find_by_key("irc_port").value
     @bot_name = Setting.find_by_key("bot_name").value
     @activate_bot = Setting.find_by_key("activate_bot").value
     if @activate_bot
-      @bot = IRC.new(@bot_name, @server, "6667", "HyperactiveBot")
+      @bot = IRC.new(@bot_name, @server, @port, "HyperactiveBot", :use_ssl => true)
       IRCEvent.add_callback('endofmotd') { |event| @bot.add_channel(@channel) }
       IRCEvent.add_callback('join') { |event|
         @bot.send_message(@channel, say_random_quote) if event.from == @bot_name

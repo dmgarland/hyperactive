@@ -44,8 +44,12 @@ class IrcWorker < BackgrounDRb::Rails
     end
     if message =~ /encode video \d+/
       id = message.scan(/\d+/).first.to_i
-      video = Video.find(id)
-      video.convert
+      begin
+        video = Video.find(id)
+        video.convert
+      rescue
+        notify_irc_channel("I can't find that video, are you sure it exists?")
+      end
     end
     if message =~ /encoding/
       video_count = 0

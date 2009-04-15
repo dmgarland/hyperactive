@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090208214144) do
+ActiveRecord::Schema.define(:version => 20090414222335) do
 
   create_table "action_alerts", :force => true do |t|
     t.text     "summary",                          :null => false
@@ -232,6 +232,12 @@ ActiveRecord::Schema.define(:version => 20090208214144) do
   end
 
   add_index "place_tags", ["name"], :name => "index_place_tags_on_name", :unique => true
+
+  create_table "quotes", :force => true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", :force => true do |t|
     t.datetime "created_at",                                :null => false

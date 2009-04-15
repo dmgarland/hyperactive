@@ -1,0 +1,14 @@
+<h2>New quote</h2>
+
+<% form_for(@quote, :url => admin_quotes_url) do |f| %>
+<%= f.error_messages %>
+
+<%= render :partial => 'form', :locals => {:f => f} %>
+<p>
+<%= f.submit "Create quote" %>
+</p>
+<% end %>
+
+<p>
+<%= link_to 'Back to quotes', admin_quotes_url %>
+</p>

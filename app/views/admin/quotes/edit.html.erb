@@ -1,0 +1,16 @@
+<h2>Edit quote</h2>
+
+<% form_for(@quote, :url => admin_quote_url(@quote), :html => { :method => :put }) do |f| %>
+<%= f.error_messages %>
+
+<%= render :partial => 'form', :locals => {:f => f} %>
+  
+<p>
+<%= f.submit "Update quote" %>
+</p>
+<% end %>
+
+<p>
+<%= link_to 'Show quote', admin_quote_url(@quote) %> |
+<%= link_to 'Back to quotes', admin_quotes_url %>
+</p>

@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.namespace(:admin) do |admin|
+    admin.resources :quotes
     admin.resources :settings
     admin.resources :settings
     admin.resources :settings

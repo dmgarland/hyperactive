@@ -45,6 +45,11 @@ class ApplicationController < ActionController::Base
   #
   include ActiveRbacMixins::ApplicationControllerMixin  
   helper RbacHelper
+
+  # Include the ApplicationHelper so we can use it in our controllers.
+  #
+  include ApplicationHelper
+  helper ApplicationHelper
   
   # Include the ExceptionNotifier plugin so we get emails if the site explodes
   #
@@ -142,5 +147,9 @@ class ApplicationController < ActionController::Base
     @current_action = action_name
     @current_controller = controller_name
   end  
+
+  def notify_irc_channel(message)
+    MiddleMan.get_worker(:irc_bot).notify_irc_channel(message)
+  end
     
 end

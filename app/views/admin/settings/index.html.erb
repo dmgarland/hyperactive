@@ -56,6 +56,26 @@
 	<%= label_tag "Rake path" %><br/>
 	<%= text_field_tag(:rake_path, Hyperactive.rake_path) %>
 	</p>		
+
+	<p>
+	<%= label_tag "Activate IRC bot?" %><br/>
+	<%= check_box_tag(:activate_bot, "1", Hyperactive.activate_bot) %>
+	</p>
+
+	<p>
+	<%= label_tag "IRC Server" %><br/>
+	<%= text_field_tag(:irc_server, Hyperactive.irc_server) %>
+	</p>		
+
+	<p>
+	<%= label_tag "IRC Channel" %><br/>
+	<%= text_field_tag(:irc_channel, Hyperactive.irc_channel) %>
+	</p>		
+
+	<p>
+	<%= label_tag "IRC Bot Name" %><br/>
+	<%= text_field_tag(:bot_name, Hyperactive.bot_name) %>
+	</p>		
 		
 	<p><%= submit_tag %></p>
 <% end %>

@@ -22,5 +22,8 @@ autostart:
     job_key: auto_moderation
     class: auto_moderation_worker
   4:
+    job_key: irc_bot
+    class: irc_worker    
+  5:
     job_key: xapian_indexer
     class: xapian_index_worker

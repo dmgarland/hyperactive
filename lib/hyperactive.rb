@@ -74,6 +74,25 @@ module Hyperactive
   @@rake_path = "/usr/bin/rake"
   mattr_accessor :rake_path
   
-  
+  # Should the irc bot for this site be activated when the job scheduler starts?
+  #
+  @@activate_bot = false
+  mattr_accessor :activate_bot  
+
+  # What server should the irc bot join?
+  # 
+  @@irc_server = "irc.indymedia.org"
+  mattr_accessor :irc_server  
+
+  # What channel should the irc bot join?
+  # 
+  @@irc_channel = "#hyperactive"
+  mattr_accessor :irc_channel 
+
+  # What name should the irc bot use?
+  # 
+  @@bot_name = "hyperactive_bot"
+  mattr_accessor :bot_name
+
 end
 

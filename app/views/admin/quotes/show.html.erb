@@ -1,0 +1,11 @@
+<h2>Show quote</h2>
+
+<p>
+<strong>Body:</strong>
+<%=h @quote.body %>
+</p>
+
+<p>
+<%= link_to 'Edit quote', edit_admin_quote_url(@quote) %> |
+<%= link_to 'Back to quotes', admin_quotes_url %>
+</p>

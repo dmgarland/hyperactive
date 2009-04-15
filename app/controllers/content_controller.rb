@@ -151,6 +151,7 @@ class ContentController < ApplicationController
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
         do_video_conversion
+        notify_irc_channel("#{@content.class.to_s} #{@content.id}: #{@content.title} created. See #{content_path_for(@content).to_s}")
       if(model_class == Event)
         @content.update_all_taggings_with_date
         check_event_group
@@ -207,6 +208,7 @@ class ContentController < ApplicationController
       if(model_class == Event)  
         @content.update_all_taggings_with_date
       end
+      notify_irc_channel("#{@content.class.to_s} #{@content.id}: #{@content.title} updated. See #{content_path_for(@content).to_s}")
       flash[:notice] = "#{model_class.to_s} was successfully updated."
       redirect_to :action => 'show', :id => @content
     else
@@ -300,6 +302,7 @@ class ContentController < ApplicationController
     videos_to_convert = find_videos_needing_conversion
     if videos_to_convert.length > 0
       videos_to_convert.each do |video|
+        notify_irc_channel("Asking video #{video.id}: '#{video.title}' to start converting. If it's not done in a few minutes, something's probably gone wrong.")       
         video.convert
       end
     end

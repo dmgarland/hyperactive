@@ -36,10 +36,14 @@ class VideoConversionWorker < BackgrounDRb::Rails
     end
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s 180x136 #{@video_file}.small.jpg`
     `nice -n +19 ffmpeg -i #{@video_file} -ss 00:00:05 -t 00:00:01 -vcodec mjpeg -vframes 1 -an -f rawvideo -s #{encode_width}x#{encode_height} #{@video_file}.jpg`
+    notify_irc_channel("The image thumbnails are encoded.")
     `nice -n +19 ffmpeg -i #{@video_file} -ab 64 -ar 22050 -b 500000 -r 25 -s #{encode_width}x#{encode_height} #{@video_file}.flv`
+    notify_irc_channel("The flash video is encoded.")
     `nice -n +19 ffmpeg2theora #{@video_file} -o #{@video_file}.ogg -p padma`
+    notify_irc_channel("The ogg theora video is encoded.")
     ogg_file = @video_file + ".ogg"
     `btmakemetafile.bittornado #{@torrent_tracker} #{ogg_file}`
+    notify_irc_channel("There's a torrent.")
     torrent = ogg_file + ".torrent"
     torrent_worker = MiddleMan[:torrents]
     torrent_worker.add_torrent(torrent)
@@ -51,6 +55,11 @@ class VideoConversionWorker < BackgrounDRb::Rails
       FileUtils.rm "#{RAILS_ROOT}/public/system/cache/videos/#{@video_id}.html", :force => true   # never raises exception
       FileUtils.rm "#{RAILS_ROOT}/public/system/cache/featured_videos_json.html", :force => true   # never raises exception
     end
+    notify_irc_channel("Video #{@video_id} is now finished encoding.")
+  end
+
+  def notify_irc_channel(message)
+    MiddleMan.get_worker(:irc_bot).notify_irc_channel(message)    
   end
 
 end

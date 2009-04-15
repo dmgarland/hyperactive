@@ -151,7 +151,7 @@ class ContentController < ApplicationController
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
         do_video_conversion
-        notify_irc_channel("#{@content.class.to_s} #{@content.id}: #{@content.title} created. See #{content_path_for(@content).to_s}")
+        notify_irc_channel("#{@content.class.to_s} #{@content.id}: '#{@content.title}' created. See #{content_path_for(@content).to_s}. Moderation status is currently '#{@content.moderation_status}'.")
       if(model_class == Event)
         @content.update_all_taggings_with_date
         check_event_group
@@ -208,7 +208,7 @@ class ContentController < ApplicationController
       if(model_class == Event)  
         @content.update_all_taggings_with_date
       end
-      notify_irc_channel("#{@content.class.to_s} #{@content.id}: #{@content.title} updated. See #{content_path_for(@content).to_s}")
+      notify_irc_channel("#{@content.class.to_s} #{@content.id}: '#{@content.title}' updated. See #{content_path_for(@content).to_s}. Moderation status is currently '#{@content.moderation_status}'.")
       flash[:notice] = "#{model_class.to_s} was successfully updated."
       redirect_to :action => 'show', :id => @content
     else

@@ -30,6 +30,7 @@ class VideosController < ContentController
       if (!current_user.is_anonymous? || simple_captcha_valid?) && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
+        tell_irc_channel("created")
         do_video_conversion 
         flash[:notice] = "Video was successfully created."
         format.html { redirect_to video_path(@content) }
@@ -63,6 +64,7 @@ class VideosController < ContentController
       if @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
+        tell_irc_channel("updated")
         do_video_conversion
         flash[:notice] = "Video was successfully updated."
         format.html { redirect_to video_path(@content) }

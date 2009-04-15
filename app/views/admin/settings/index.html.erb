@@ -76,6 +76,11 @@
 	<%= label_tag "IRC Bot Name" %><br/>
 	<%= text_field_tag(:bot_name, Hyperactive.bot_name) %>
 	</p>		
+
+	<p>
+	<%= label_tag "Site url" %> - will be used for bot notifications in the irc channel.<br/>
+	<%= text_field_tag(:site_url, Hyperactive.site_url) %>
+	</p>		
 		
 	<p><%= submit_tag %></p>
 <% end %>

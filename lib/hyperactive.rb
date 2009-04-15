@@ -94,5 +94,10 @@ module Hyperactive
   @@bot_name = "hyperactive_bot"
   mattr_accessor :bot_name
 
+  # What base url should be used by the irc bot for notifications?
+  # 
+  @@site_url = "http://foo.org"
+  mattr_accessor :site_url
+
 end
 

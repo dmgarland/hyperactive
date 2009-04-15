@@ -89,7 +89,7 @@
 
 	<p>
 	<%= label_tag "Connect to IRC using SSL encryption?" %><br/>
-	<%= text_field_tag(:irc_over_ssl, Hyperactive.irc_over_ssl) %>
+	<%= check_box_tag(:irc_over_ssl, "1", Hyperactive.irc_over_ssl) %>
 	</p>		
 		
 	<p><%= submit_tag %></p>

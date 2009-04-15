@@ -58,6 +58,9 @@ class IrcWorker < BackgrounDRb::Rails
       end
       notify_irc_channel("There are currently #{video_count} videos encoding.")
     end
+    if message =~ /thanks/ || message =~ /thank you/ 
+      notify_irc_channel("No problem, #{event.from}")
+    end
   end
   
   def say_random_quote

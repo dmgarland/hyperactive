@@ -1,6 +1,9 @@
 class MonthlyArchiveController < ApplicationController
   layout "two_column"
 
+  caches_page :show, :only_path => true
+  caches_page :index, :year_index, :month_index
+
   def index
     @oldest_date = get_oldest_date()
     @oldest_date = Date.new(@oldest_date.year, @oldest_date.month, 1)

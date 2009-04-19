@@ -1,0 +1,3 @@
+<h1><%= I18n.t('general.month_is') + ' ' + @datestart.strftime('%B %Y') %></h1>
+<% @current_date = '' %>
+<%= render(:partial => "monthly_archive/list_titles", :collection => @content) %>

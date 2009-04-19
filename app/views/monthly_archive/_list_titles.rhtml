@@ -1,0 +1,40 @@
+<% if @current_date != list_titles.updated_on.strftime('%Y-%m-%d') %>
+		<% if @current_date != ''%>        
+		</ul >	
+		<% end %>
+		
+		<% if Date.today.strftime('%Y-%m-%d') == list_titles.updated_on.strftime('%Y-%m-%d') %>
+			<p><%= I18n.t('general.today') %></p>
+		<% else %>		
+	                <p><%= list_titles.updated_on.strftime('%d-%m-%Y') %></p>
+		<% end %>		
+
+		<ul>
+		<% @current_date = list_titles.updated_on.strftime('%Y-%m-%d') %>	
+<% end %>
+
+
+<li class="<%= list_titles.class.to_s.downcase %>-list">	        
+
+        <% if list_titles.moderation_status == "promoted" %>
+           <img alt="Rosette" src="/images/icons/rosette.png"/>
+        <% end %>
+
+        <% if list_titles.moderation_status == "featured" %>
+           <img alt="Star" src="/images/icons/star.png" />
+        <% end %>
+
+
+	<% if list_titles.is_a?(Content) %> 
+          <%= link_to h(list_titles.title), content_path_for(list_titles) %> 
+          <%= list_titles.updated_on.strftime(' %Y-%m-%d %H:%M:%S') %>
+        <% else %>
+          <%= link_to h(" on #{list_titles.content.class.to_s.downcase} #{list_titles.content.id}: " + list_titles.title), content_path_for(list_titles.content) + "#comment-#{list_titles.id}" %> 
+          <%= list_titles.updated_on.strftime(' %Y-%m-%d %H:%M:%S') %>
+        <% end %> 
+	<br/>
+</li>
+
+<% if @content.last == list_titles %>
+	</ul>
+<% end %>

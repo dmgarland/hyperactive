@@ -54,6 +54,8 @@ en:
     yep: "Yes"   
     your_name: Your name
     latest_updates: Latest updates
+    monthly_archive: Monthly Archive
+    month_is: Archive for
 
   # Action alerts
   action_alerts:

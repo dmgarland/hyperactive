@@ -1,4 +1,4 @@
-<h1><%= I18n.t('general.monthly_archive') %></h1>
+<h1><%= I18n.t('general.monthly_archive') + ' ' + @year.to_s %></h1>
 <ul>
 <%= render(:partial => "monthly_archive/list_months", :collection => @month_count) %>
 </ul>

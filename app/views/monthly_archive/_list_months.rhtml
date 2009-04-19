@@ -1,5 +1,7 @@
 
 <li>
-<%= link_to list_months.strftime('%B %Y'), :action => "month_index", :year => list_months.year, :month => list_months.month %>
+<%= link_to list_months[:month].strftime('%B %Y'), 
+  :action => "month_index", :year => list_months[:month].year, :month => list_months[:month].month 
+  %> (<%= list_months[:count].to_s + ' ' + I18n.t('content.class_names.articles') %>)
 </li>
 

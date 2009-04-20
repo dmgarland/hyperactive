@@ -330,7 +330,7 @@ class ContentController < ApplicationController
   # Tells the bot's irc channel that content has been created or updated
   #
   def tell_irc_channel(kind_of_change)
-    notify_irc_channel ("#{Hyperactive.site_url}#{content_path_for(@content)} :: '#{@content.title}' #{kind_of_change} by user '#{current_user.login}'. Moderation status is currently '#{@content.moderation_status}'.")
+    notify_irc_channel ("#{Hyperactive.site_url}#{content_path_for(@content)} :: '#{@content.title}' #{kind_of_change}'. Moderation status is currently '#{@content.moderation_status}'.")
     notify_irc_channel(@content.summary)
   end
   

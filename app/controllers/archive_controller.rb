@@ -1,4 +1,4 @@
-class MonthlyArchiveController < ApplicationController
+class ArchiveController < ApplicationController
   layout "two_column"
 
   caches_page :show, :only_path => true

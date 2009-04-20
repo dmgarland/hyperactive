@@ -27,9 +27,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/admin/user/:action/:id', :controller => 'active_rbac/user'
 
   # connect year and month to archive view
-  map.connect '/monthly_archive/', :controller => 'monthly_archive', :action => 'index'
-  map.connect '/monthly_archive/:year', :controller => 'monthly_archive', :action => 'year_index'
-  map.connect '/monthly_archive/:year/:month', :controller => 'monthly_archive', :action => 'month_index'
+  map.connect '/archive/', :controller => 'archive', :action => 'index'
+  map.connect '/archive/:year', :controller => 'archive', :action => 'year_index'
+  map.connect '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
   
   # event mappings for listings
   map.list_by_month '/events/list_by_month', :controller => 'events', :action => 'list_by_month'

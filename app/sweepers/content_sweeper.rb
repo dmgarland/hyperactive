@@ -70,9 +70,9 @@ class ContentSweeper < ActionController::Caching::Sweeper
   def expire_archive_page
     year = content.created_on.year
     month = content.created_on.month
-    expire_page(:controller => 'monthly_archive', :action => 'index')
-    expire_page(:controller => 'monthly_archive', :action => 'year_index', :year => year)
-    expire_page(:controller => 'monthly_archive', :action => 'month_index', :year => year, :month => month)
+    expire_page(:controller => 'archive', :action => 'index')
+    expire_page(:controller => 'archive', :action => 'year_index', :year => year)
+    expire_page(:controller => 'archive', :action => 'month_index', :year => year, :month => month)
   end
   
 end

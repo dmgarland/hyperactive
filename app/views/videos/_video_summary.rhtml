@@ -1,7 +1,7 @@
-<div>
+<div class="video-listing">
 <p>
 <% video_thumb = video_summary.file.url %>
-<%= link_to(image_tag(video_thumb + ".small.jpg"), video_summary) %><br/>
+<%= link_to(image_tag(video_thumb + ".small.jpg", :class => "video"), video_summary) %><br/>
 <strong><%=link_to(h(video_summary.title.titleize), video_summary) %></strong><br />
 <%= video_summary.summary %><br/>
 </p>

@@ -86,7 +86,7 @@ en:
       account_explanation: Registering an account allows you to edit your own content.
       already_logged_in: Already logged in
       already_logged_in_explanation: You are already logged in. You need to log out before you can log in again.
-      dont_have_an_account: Don't have an account?
+      dont_have_an_account: Don\'t have an account?
       register: Register an account
       to_log_out: to log out.
     logout_success_title: Logout Success
@@ -102,6 +102,10 @@ en:
       sign_up: Sign Up
       violates: Any user accounts who violate the  
       will_be_removed: will be removed.
+
+  # Archive - stuff for the monthly archive
+  archive:
+    events_for: Events for 
 
   # Articles
   articles:

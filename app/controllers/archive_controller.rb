@@ -9,7 +9,6 @@ class ArchiveController < ApplicationController
     @oldest_date = Date.new(@oldest_date.year, @oldest_date.month, 1)
     @now = Date.today
 
-   # @months = create_month_list @oldest_date, @now
     @month_count = create_month_count_list @oldest_date, @now
   end
 
@@ -24,19 +23,29 @@ class ArchiveController < ApplicationController
     if @end_date.year > @year
       @end_date = Date.new(@year, 12, 1)
     end
-    #@months = create_month_list @start_date, @end_date
     @month_count = create_month_count_list @start_date, @end_date
   end
 
   def month_index 
-    @year = params[:year].to_i
-    @month = params[:month].to_i
-    
-    @datestart = Date.new(@year, @month, 1)
-    @dateend = Date.new(@year, @month, -1)
+    year = params[:year].to_i
+    month = params[:month].to_i
+    @datestart = Date.new(year, month, 1)
+    @dateend = Date.new(year, month, -1)
 
-    @content = Content.find(:all,
-    :conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', "hidden", @datestart, @dateend])
+    if params[:type] == 'featured'
+      conds = 'moderation_status = ?'
+      modstatus = 'featured'
+    elsif params[:type] == 'promoted'
+      conds = 'moderation_status = ?' 
+      modstatus = 'promoted'
+    else 
+      conds = 'moderation_status != ?'
+      modstatus = 'hidden'
+    end
+
+    conds += ' and created_on >= ? and created_on <= ?'
+    
+    @content = Article.find(:all, :conditions => [conds, modstatus, @datestart, @dateend])
   end
 
   private
@@ -63,7 +72,7 @@ class ArchiveController < ApplicationController
     for month in months
       month_start = Date.new(month.year, month.month, 1)
       month_end = Date.new(month.year, month.month, -1)
-      count = Content.count(:conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 
+      count = Article.count(:conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 
                             "hidden", month_start, month_end])
       month_count << {:month => month, :count => count}
     end

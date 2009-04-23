@@ -30,6 +30,11 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/archive/', :controller => 'archive', :action => 'index'
   map.connect '/archive/:year', :controller => 'archive', :action => 'year_index'
   map.connect '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
+  map.connect '/archive/:year/:month/:type', :controller => 'archive', :action => 'month_index'
+
+  map.archive_default '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
+  map.archive_featured '/archive/:year/:month/featured', :controller => 'archive', :action => 'month_index'
+  map.archive_promoted '/archive/:year/:month/promoted', :controller => 'archive', :action => 'month_index'
   
   # event mappings for listings
   map.list_by_month '/events/list_by_month', :controller => 'events', :action => 'list_by_month'

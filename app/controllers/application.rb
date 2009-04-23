@@ -81,25 +81,7 @@ class ApplicationController < ActionController::Base
   def ssl_required?
     Hyperactive.use_ssl && original_ssl_required? && (RAILS_ENV == "production" || RAILS_ENV == "staging")
   end       
-  
-  # Set up the click-to-globalize plugin so that we can easily do translations
-  #
-  # Available languages which can be clicked-to-globalize
-  #
-  # TODO 2.1 : the old click to globalize plugin screws up in Rails 2.1, 
-  # it needs an upgrade.  Replace it with the newer one and re-enable this code.
-  #self.languages = { :danish => 'da-DK' } unless RAILS_ENV == 'test'
-  
-  # Defines who can click on text to globalize it
-  #
-  def globalize?
-    current_user.has_permission?("translate_ui") && RAILS_ENV != 'test'
-  end
-  
-  # make the globalize? method available to helpers so it can be used in views
-  #
-  helper_method :globalize?
-  
+    
   # The default number of content objects that get retrieved for display on list pages
   #
   def objects_per_page

@@ -9,7 +9,7 @@ class ContentSweeper < ActionController::Caching::Sweeper
     expire_home_page
     expire_index_page_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content)
-    expire_archive_page
+    expire_archive_page_for(content) if content.is_a?(Content)
   end
 
   def after_update(content)
@@ -17,7 +17,7 @@ class ContentSweeper < ActionController::Caching::Sweeper
     expire_index_page_for(content) if content.is_a?(Content)
     expire_cache_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content) 
-    expire_archive_page
+    expire_archive_page_for(content) if content.is_a?(Content)
   end
   
   def after_destroy(content)
@@ -25,7 +25,7 @@ class ContentSweeper < ActionController::Caching::Sweeper
     expire_index_page_for(content) if content.is_a?(Content)
     expire_cache_for(content) if content.is_a?(Content)
     expire_cache_for_content_related_to(content) if content.is_a?(Content)      
-    expire_archive_page
+    expire_archive_page_for(content) if content.is_a?(Content)
   end
   
   private
@@ -67,7 +67,7 @@ class ContentSweeper < ActionController::Caching::Sweeper
   # Expire the archive pages - the index, the one for this year and the one
   # for this month
   #
-  def expire_archive_page
+  def expire_archive_page_for(content)
     year = content.created_on.year
     month = content.created_on.month
     expire_page(:controller => 'archive', :action => 'index')

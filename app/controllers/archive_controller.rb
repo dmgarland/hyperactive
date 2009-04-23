@@ -31,11 +31,12 @@ class ArchiveController < ApplicationController
     month = params[:month].to_i
     @datestart = Date.new(year, month, 1)
     @dateend = Date.new(year, month, -1)
+    @type = params[:type]
 
-    if params[:type] == 'featured'
+    if @type == 'featured'
       conds = 'moderation_status = ?'
       modstatus = 'featured'
-    elsif params[:type] == 'promoted'
+    elsif @type == 'promoted'
       conds = 'moderation_status = ?' 
       modstatus = 'promoted'
     else 

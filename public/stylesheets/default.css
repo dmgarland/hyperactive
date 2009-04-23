@@ -30,6 +30,9 @@ h3 {
 	font-size: 1.3em;
 }
 
+h4 {
+	font-size: 14pt;
+}
 
 
 /* ul {
@@ -72,6 +75,12 @@ img.left {
 img.right {	
 	margin: 0 10px;
 	border: 1px solid #000000;
+}
+
+
+img.video {
+	padding: 5px 10px 15px 0;
+	float: left;
 }
 
 .collective_image {
@@ -295,6 +304,15 @@ img.right {
 	background: #F2F2F2;
 	min-height: 150px; */
 }
+
+.video-listing {
+	padding: 3px;
+	font-size: 120%;
+	border-top: solid #d2d2d2 1px;
+	min-height: 150px;
+	margin-left: 20px;
+}
+
 
 .links {
 	padding-top: 10px;

@@ -1,8 +1,8 @@
 <div class="content-nav-links">
-<%= link_to (image_tag('icons/star.png')), featured_articles_path(1) %>
+<%= link_to image_tag('icons/star.png'), featured_articles_path(1) %>
 <%= link_to(I18n.t('articles.top_nav.featured_articles'), featured_articles_path(1)) %>		
-<%= link_to (image_tag('icons/rosette.png')), promoted_articles_path(1) %>
+<%= link_to image_tag('icons/rosette.png'), promoted_articles_path(1) %>
 <%= link_to(I18n.t('articles.top_nav.promoted_articles'), promoted_articles_path(1)) %>		
-<%= link_to (image_tag('icon_article.gif')), articles_path %>
+<%= link_to image_tag('icon_article.gif'), articles_path %>
 <%= link_to(I18n.t('articles.top_nav.all_articles'), articles_path) %>		
 </div>

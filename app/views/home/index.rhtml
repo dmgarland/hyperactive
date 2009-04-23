@@ -43,7 +43,7 @@
 				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
 					<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
-					<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
+					<li><%= link_to I18n.t('general.more' + ' &rarr;'), promoted_articles_path(1)%></li>
 				</ul>
 			</li>
 		</ul>
@@ -54,7 +54,7 @@
 				<h2><%= I18n.t 'home.index.published_newswire' %></h2>
 				<ul>
 					<%= render :partial => '/shared/content/list_title', :collection => @published_articles %>
-					<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), articles_path %></li>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', articles_path %></li>
 				</ul>
 			</li>
 		</ul>
@@ -68,7 +68,7 @@
 			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @visible_events %>
-  				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
+  				<li><%= link_to I18n.t('general.more') + ' &rarr;', :controller => 'events' %></li>
 			</ul>
 		</li>					
 		<li>
@@ -96,7 +96,7 @@
 	<ul>
 		<li>
 			<%= render :partial => 'videos/featured_flash_player' %>
-			<p><%=link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'videos' %></p>
+			<p><%=link_to I18n.t('general.more') + ' &rarr;', :controller => 'videos' %></p>
 		</li>	
 		<li>
 			<h2><%= I18n.t 'home.index.place_tags' %></h2>

@@ -427,7 +427,7 @@ el:
   shared:
     account_box: 
       title: Your account
-      explanation: You are currently not logged in.  You can {{login}} or {{register_an_account}}.	Registration allows you to edit your own content and help administer the site.
+      explanation: You are currently not logged in. You can {{login}} or {{register_an_account}}. Registration allows you to edit your own content and help administer the site.
       log_in: log in
       register_an_account: register an account
     captcha:

@@ -331,7 +331,7 @@ class ContentController < ApplicationController
   #
   def tell_irc_channel(kind_of_change)
     notify_irc_channel ("#{Hyperactive.site_url}#{content_path_for(@content)} :: '#{@content.title}' #{kind_of_change}'. Moderation status is currently '#{@content.moderation_status}'.")
-    notify_irc_channel(@content.summary)
+    notify_irc_channel(@content.summary.gsub(/<\/?[^>]*>/,""))
   end
-  
+   
 end

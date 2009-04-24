@@ -19,8 +19,10 @@
           I18n.t 'articles.index.title' 
         end %></h2>
 
-<% @current_date = '' %>
-<%= render(:partial => "archive/list_titles", :collection => @content) %>
+      <% @current_date = '' 
+         @date_to_use = :created_on %>
+<%= render(:partial => "shared/list_titles", 
+           :collection => @all_content) %>
 <p>
 <% next_month = @datestart >> 1
 prev_month = @datestart << 1 %>

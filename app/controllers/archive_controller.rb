@@ -46,7 +46,7 @@ class ArchiveController < ApplicationController
 
     conds += ' and created_on >= ? and created_on <= ?'
     
-    @content = Article.find(:all, :conditions => [conds, modstatus, @datestart, @dateend])
+    @all_content = Article.find(:all, :conditions => [conds, modstatus, @datestart, @dateend])
   end
 
   private

@@ -1,16 +1,17 @@
-<% if @current_date != list_titles.updated_on.strftime('%Y-%m-%d') %>
+<% title_date = list_titles.send(@date_to_use)
+  if @current_date != title_date.strftime('%Y-%m-%d') %>
 		<% if @current_date != ''%>        
 		</ul >	
 		<% end %>
 		
-		<% if Date.today.strftime('%Y-%m-%d') == list_titles.updated_on.strftime('%Y-%m-%d') %>
+		<% if Date.today.strftime('%Y-%m-%d') == title_date.strftime('%Y-%m-%d') %>
 			<p><%= I18n.t('general.today') %></p>
 		<% else %>		
-	                <p><%= list_titles.updated_on.strftime('%d-%m-%Y') %></p>
+	                <p><%= title_date.strftime('%d-%m-%Y') %></p>
 		<% end %>		
 
 		<ul>
-		<% @current_date = list_titles.updated_on.strftime('%Y-%m-%d') %>	
+		<% @current_date = title_date.strftime('%Y-%m-%d') %>	
 <% end %>
 
 
@@ -27,10 +28,10 @@
 
 	<% if list_titles.is_a?(Content) %> 
           <%= link_to h(list_titles.title), content_path_for(list_titles) %> 
-          <%= list_titles.updated_on.strftime(' %Y-%m-%d %H:%M:%S') %>
+          <%= title_date.strftime(' %Y-%m-%d %H:%M:%S') %>
         <% else %>
           <%= link_to h(" on #{list_titles.content.class.to_s.downcase} #{list_titles.content.id}: " + list_titles.title), content_path_for(list_titles.content) + "#comment-#{list_titles.id}" %> 
-          <%= list_titles.updated_on.strftime(' %Y-%m-%d %H:%M:%S') %>
+          <%= title_date.strftime(' %Y-%m-%d %H:%M:%S') %>
         <% end %> 
 	<br/>
 </li>

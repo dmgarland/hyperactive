@@ -1,3 +1,4 @@
 <h1><%= I18n.t('general.latest_updates') %></h1>
-<% @current_date = '' %>
-<%= render(:partial => "latest/list_titles", :collection => @all_content) %>
+<% @current_date = '' 
+    @date_to_use = :updated_on %>
+<%= render(:partial => "shared/list_titles", :collection => @all_content) %>

@@ -306,11 +306,10 @@ img.video {
 }
 
 .video-listing {
-	padding: 3px 0 25px;
 	font-size: 120%;
 	border-top: solid #d2d2d2 1px;
-	min-height: 150px;
-	margin-left: 20px;
+	min-height: 170px;
+	margin: 5px 0 0 15px;
 }
 
 

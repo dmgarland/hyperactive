@@ -13,21 +13,17 @@ class ArchiveController < ApplicationController
   end
 
   def year_index
-    if params[:year] == 'this_month'
-      redirect_to :action => 'month_index', :year => Date.today.year, :month => Date.today.month
-    else
-      @year = params[:year].to_i
-      @start_date = get_oldest_date()
-      @start_date = Date.new(@start_date.year, @start_date.month, 1)
-      @end_date = Date.today
-      if @start_date.year < @year
-        @start_date = Date.new(@year, 1, 1)
-      end
-      if @end_date.year > @year
-        @end_date = Date.new(@year, 12, 1)
-      end
-      @month_count = create_month_count_list @start_date, @end_date
+    @year = params[:year].to_i
+    @start_date = get_oldest_date()
+    @start_date = Date.new(@start_date.year, @start_date.month, 1)
+    @end_date = Date.today
+    if @start_date.year < @year
+      @start_date = Date.new(@year, 1, 1)
     end
+    if @end_date.year > @year
+      @end_date = Date.new(@year, 12, 1)
+    end
+    @month_count = create_month_count_list @start_date, @end_date
   end
 
   def month_index 
@@ -51,6 +47,13 @@ class ArchiveController < ApplicationController
     conds += ' and created_on >= ? and created_on <= ?'
     
     @all_content = Article.find(:all, :conditions => [conds, modstatus, @datestart, @dateend])
+  end
+
+  def this_month
+    redirect_to :action => 'month_index', 
+      :year => Date.today.year, 
+      :month => Date.today.month,
+      :type => params[:type]
   end
 
   private

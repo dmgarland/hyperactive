@@ -28,6 +28,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # connect year and month to archive view
   map.connect '/archive/', :controller => 'archive', :action => 'index'
+  map.connect '/archive/this_month', :controller => 'archive', :action => 'this_month'
+  map.connect '/archive/this_month/:type', :controller => 'archive', :action => 'this_month'
   map.connect '/archive/:year', :controller => 'archive', :action => 'year_index'
   map.connect '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
   map.connect '/archive/:year/:month/:type', :controller => 'archive', :action => 'month_index'

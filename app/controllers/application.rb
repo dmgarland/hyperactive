@@ -131,7 +131,9 @@ class ApplicationController < ActionController::Base
   end  
 
   def notify_irc_channel(message)
-    MiddleMan.get_worker(:irc_bot).notify_irc_channel(message)
+  	unless MiddleMan.get_worker(:irc_bot).nil?
+    	MiddleMan.get_worker(:irc_bot).notify_irc_channel(message)
+    end
   end
     
 end

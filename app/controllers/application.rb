@@ -131,8 +131,11 @@ class ApplicationController < ActionController::Base
   end  
 
   def notify_irc_channel(message)
-  	unless MiddleMan.get_worker(:irc_bot).nil?
+    begin
     	MiddleMan.get_worker(:irc_bot).notify_irc_channel(message)
+    rescue
+      # we could do something here if we really wanted to ensure everbody ran 
+      # an irc bot all the time, but there's probably very little point in doing so.
     end
   end
     

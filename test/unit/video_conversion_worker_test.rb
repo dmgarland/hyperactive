@@ -60,11 +60,6 @@ class VideoConversionWorkerTest < Test::Unit::TestCase
     assert_equal "video1", @middleman.jobs.keys.first
     assert_equal(1, @middleman.get_worker(worker_key).video_id)
     assert_equal(@video, @middleman.get_worker(worker_key).video_file) 
-    sleep 1
-    assert File.exists?("#{@video}.jpg")
-    assert File.exists?("#{@video}.small.jpg")
-    sleep 1
-    assert File.exists?("#{@video}.flv")
     @middleman.delete_worker worker_key
     assert_nil @middleman.get_worker(worker_key) 
     assert_nil @middleman.timestamps[worker_key]

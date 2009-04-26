@@ -22,6 +22,7 @@ Released   : 20071004
 <%= Hyperactive.site_name %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %>
 </title>
 <%= stylesheet_link_tag 'default' %>
+<%= stylesheet_link_tag 'tabber' %>
 	<% if using_tiny_mce? %>
 	<%= javascript_include_tag 'tiny_mce/tiny_mce' %>
   	<%= tiny_mce %>   
@@ -34,6 +35,7 @@ Released   : 20071004
 <%= javascript_include_tag 'user-info' %>
 <%= javascript_include_tag 'json' %>
 <%= javascript_include_tag 'cookie' %>
+<%= javascript_include_tag 'stereotabs' %>
  <% if controller.action_name == "timeline" %>
     <%= javascript_include_tag 'uk-timeline' %>
 	<%= javascript_include_tag 'timeline/timeline-api' %>

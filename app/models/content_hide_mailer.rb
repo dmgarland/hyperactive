@@ -11,6 +11,15 @@ class ContentHideMailer < ActionMailer::Base
     @subject    = 'Content Hidden'
     @body      = {:content => content, :reasons => reasons, :user => get_user_login(user)}
   end
+  
+  # Sends an email to the moderation email list, notifying the list that a piece
+  # of Content has been promoted.
+  #
+  def promote(content,reasons, user)
+    setup_email
+    @subject    = 'Content Hidden'
+    @body      = {:content => content, :reasons => reasons, :user => get_user_login(user)}
+  end  
 
   # Sends an email to the moderation email list, notifying the list that a piece
   # of Content has been unhidden.

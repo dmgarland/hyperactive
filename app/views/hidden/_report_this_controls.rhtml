@@ -1,3 +1,4 @@
+<div id="panel_report" class="panel">
 <p><%= I18n.t('hidden.report.title') %></p>
 <% form_remote_tag(:url => {:controller => :hidden, :action => :report, :id => @id }) do -%>
      <div class="editorial-note">
@@ -5,3 +6,4 @@
      </div>
      <%= submit_tag I18n.t('hidden.report.report') %>
  <% end %>
+</div>

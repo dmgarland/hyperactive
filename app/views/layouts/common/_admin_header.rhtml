@@ -15,6 +15,7 @@ Released   : 20071004
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><%= Hyperactive.site_name %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %></title>
     <%= stylesheet_link_tag 'default' %>
+	<%= stylesheet_link_tag 'tabber' %>		
   	<% if using_tiny_mce? %>
 		<%= javascript_include_tag 'tiny_mce/tiny_mce', :plugin => 'tiny_mce' %>
 	  	<%= tiny_mce %>   
@@ -26,6 +27,7 @@ Released   : 20071004
 	<%= javascript_include_tag 'flash' %>
 	<%= javascript_include_tag 'json' %>
 	<%= javascript_include_tag 'cookie' %>	
+	<%= javascript_include_tag 'stereotabs' %>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 </head>

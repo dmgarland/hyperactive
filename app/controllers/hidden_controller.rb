@@ -50,6 +50,23 @@ class HiddenController < ApplicationController
       page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
     end
   end   
+  
+  def promote
+   if params[:promote_all_events_in_event_group]
+      @event_group = Event.find(params[:id]).event_group
+      promote_event_group
+    else
+      content = Content.find(params[:id])
+      content.moderation_status = "promoted"
+      content.save!
+      class_name = content.class.to_s.humanize.downcase
+      ContentHideMailer.deliver_promote(content, params[:promote_reason], current_user)
+      flash[:notice] = "The #{class_name} has been promoted and an email sent."
+      render :update do |page|
+        page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
+      end    
+    end    
+  end
    
   def unhiding_controls
     @id = params[:id]
@@ -138,6 +155,19 @@ class HiddenController < ApplicationController
       page.redirect_to event_path(event)
     end  
   end  
+  
+  def promote_event_group
+    @event_group.events.each do |event|
+      event.moderation_status = "promoted"
+      event.save
+    end
+    event = @event_group.events.first
+    ContentHideMailer.deliver_promote(event, params[:promote_reason], current_user)
+    flash[:notice] = "The events have been promoted and an email sent."
+    render :update do |page|
+      page.redirect_to event_path(event)
+    end  
+  end    
   
   # TODO: this is gross, but it's the quickest way i can think of 
   # to ensure that tags for hidden events don't show up in tag clouds

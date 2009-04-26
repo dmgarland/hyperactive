@@ -231,6 +231,7 @@ en:
   # on the site are hidden, unhidden, or reported by users.
   content_hide_mailer:
       has_been_hidden_by_user: has been hidden by the user
+      has_been_promoted_by_user: has been promoted by the user      
       has_been_unhidden_by_user: has been unhidden by the user
       has_been_reported_by_user: has been reported by the user
       reasons: The following reasons were given
@@ -352,7 +353,7 @@ en:
     event_group_hiding:
       title: Please state a reason for hiding these events
     hiding_controls:
-      title: Please state a reason for hiding
+      title: <p>You can hide this content.  When you hide it, an email will be sent to the moderation email list, identified by your username.</p> <p>Please state a reason for hiding:</p>
       text: This event is part of a series of repeated events.  You can hide all of the events at once by ticking the box below.
       hide_all: Hide all events in this event group?
     list:
@@ -420,6 +421,14 @@ en:
     users: Users
     videos: Videos
     
+  # The promotion controls
+  promotion:
+    common: 
+      promote: Promote
+    promoting_controls:
+      title: Please state a reason for promoting
+
+  
   # The search box and search results
   search:
     find_content: 

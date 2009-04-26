@@ -1,6 +1,32 @@
-<% if current_user.can_hide_content?(@content) %>
-	<%= render :partial => 'hidden/hiding_controls' %>
-<% else %>
-	<%= render :partial => 'hidden/report_this_controls' %>
-<% end %>
+<div id="container">
+	<ul id="tabnav">
+	<% if current_user.can_promote_content? %>
+		<li><a href="#promote" id="tab_promote" class="tab">Promote</a></li>
+	<% end %>		
+			
+	<% if current_user.can_hide_content?(@content) %>
+		<li><a href="#hide" id="tab_hide" class="tab">Hide</a></li>
+	<% end %>
+	
+	<li><a href="#report" id="tab_report" class="tab">Report</a></li>
+
+	</ul>
+	
+<%= render :partial => 'shared/content/promotion_controls' %>	
+<%= render :partial => 'hidden/hiding_controls' %>
+<%= render :partial => 'hidden/report_this_controls' %>
+
+</div>
+<p>
 <%= render :partial => 'shared/content/conditional_edit_link' %>
+</p>
+
+<script type="text/javascript">
+//<![CDATA[
+function loadTabs() {
+  var tabs = new tabset('container'); // name of div to crawl for tabs and panels
+  tabs.autoActivate($('tab_promote')); // name of tab to auto-select if none exists in the url
+}
+loadTabs();
+//]]>
+</script>

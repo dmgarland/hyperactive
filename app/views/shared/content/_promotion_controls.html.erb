@@ -1,0 +1,20 @@
+<% if current_user.can_promote_content? && @content.moderation_status == "published" %>
+<div id="panel_promote" class="panel">
+  <%= I18n.t('promotion.promoting_controls.title') %>:
+  <% form_remote_tag(:url => {:controller => :hidden, :action => :promote, :id => @id }) do -%>
+    <div class="editorial-note">
+    <%= text_area_tag(:promote_reason, nil, :size => "50x3")%>
+    <% if @content.is_a?(Event) && @content.belongs_to_event_group? %>
+      <p>
+          <%= I18n.t('promotion.promoting_controls.text') %>
+      </p>
+      <p>
+          <%= check_box_tag(:promote_all_events_in_event_group) %>
+          <label for="promote_all_events_in_event_group"><%= I18n.t('promotion.promoting_controls.promote_all') %></label>
+      </p>
+    <% end %>
+    </div>
+    <%= submit_tag I18n.t('promotion.common.promote') %>
+  <% end %>
+</div>
+<% end %>

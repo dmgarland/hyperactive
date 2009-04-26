@@ -1,0 +1,43 @@
+ul#tabnav {
+	background-color:#C8CFAD;
+	border-bottom:2px solid #B1BA8D;
+	border-top:2px solid #B1BA8D;
+	height:35px;
+	margin:0pt;
+	padding:0pt;
+	display:block;
+	line-height:35px;
+}
+ul#tabnav li {
+	margin:0;
+	padding:0;
+	float:left;
+	height:35px;
+	list-style-type:none;
+	position:relative;
+}
+ul#tabnav li a {
+	color:#4D5431;
+	font-size:16px;
+	font-weight:bold;
+	line-height:35px;
+	text-decoration:none;
+	display:block;
+	float:left;
+	height:35px;
+	margin:0pt 0pt 0pt 5px;
+	padding:0pt 6px;
+	position:relative;
+}
+ul#tabnav li a:hover, ul#tab li a.active {
+	background:#FFFFFF none repeat scroll 0%;	
+}
+.panel {
+	background:#EAE6C9 none repeat scroll 0%;
+	display:block;
+}
+.content {
+	line-height:15px;
+	padding:13px 35px 15px 15px;
+	text-align:left;
+}

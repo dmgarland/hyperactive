@@ -47,7 +47,7 @@ class Admin::PagesControllerTest < Test::Unit::TestCase
     post :create, {:page => {:title => "A title", :body => "A body"}}, as_user(:marcos)
 
     assert_response :redirect
-    assert_redirected_to admin_page_path assigns(:page)
+    assert_redirected_to admin_page_path(assigns(:page))
 
     assert_equal num_pages + 1, Page.count
   end
@@ -65,7 +65,7 @@ class Admin::PagesControllerTest < Test::Unit::TestCase
   def test_update
     post :update, {:id => 1}, as_user(:marcos)
     assert_response :redirect
-    assert_redirected_to admin_page_path assigns(:page)
+    assert_redirected_to admin_page_path(assigns(:page))
   end
 
   def test_destroy

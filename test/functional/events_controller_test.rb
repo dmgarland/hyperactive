@@ -36,7 +36,7 @@ class EventsControllerTest < Test::Unit::TestCase
 
   # There should be one event on 1994-1-1.
   def test_list_by_day_with_date
-    get :list_by_day, :date => "1994-1-1"
+    get :list_by_day, :date => "2006-2-23"
     assert_response :success
     assert_template 'list_by_day' 
     assert_not_nil assigns(:content)
@@ -111,7 +111,7 @@ class EventsControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:content)
   end
 
-  # There should be one fixture in the week 2006-2-22.
+  # There should be two fixtures in the week 2006-2-22.
   def test_list_seven_days_with_date
     get :list_seven_days, :date => "2006-2-22"
     assert_response :success

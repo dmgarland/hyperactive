@@ -106,6 +106,8 @@ en:
   # Archive - stuff for the monthly archive
   archive:
     events_for: Events for 
+    hide_tags: Hide tags
+    show_tags: Show tags
 
   # Articles
   articles:
@@ -120,6 +122,10 @@ en:
       title: Listing featured articles
     list_promoted:
       title: Listing promoted articles
+    list_tagged_as:
+      title: Listing articles tagged as
+    list_place_tagged_as:
+      title: Listing articles with place tag
     new: 
       title: New article
     sidebar:

@@ -29,24 +29,61 @@ class ArchiveController < ApplicationController
   def month_index 
     year = params[:year].to_i
     month = params[:month].to_i
-    @datestart = Date.new(year, month, 1)
-    @dateend = Date.new(year, month, -1)
+    @start_date = Date.new(year, month, 1)
+    @end_date = Date.new(year, month, -1)
     @type = params[:type]
 
     if @type == 'featured'
-      conds = 'moderation_status = ?'
-      modstatus = 'featured'
+      conds = ['moderation_status = ? and created_on >= ? and created_on <= ?',
+               'featured', @start_date, @end_date]
     elsif @type == 'promoted'
-      conds = 'moderation_status = ?' 
-      modstatus = 'promoted'
+      conds = ['moderation_status = ? and created_on >= ? and created_on <= ?',
+               'promoted', @start_date, @end_date]
     else 
-      conds = 'moderation_status != ?'
-      modstatus = 'hidden'
+      conds = ['moderation_status != ? and created_on >= ? and created_on <= ?',
+               'hidden', @start_date, @end_date]
+      if @type == 'tag'
+        @showtags = true
+      end
     end
 
-    conds += ' and created_on >= ? and created_on <= ?'
+    @all_content = Article.find(:all, :conditions => conds)
+  end
+
+  def tag_index 
+    year = params[:year].to_i
+    month = params[:month].to_i
+    @start_date = Date.new(year, month, 1)
+    @end_date = Date.new(year, month, -1)
+    @showtags = true
+    if !params[:place_tag].nil?
+      @type = 'place_tag'
+      @tagname = params[:place_tag]
+      @tag = PlaceTag.find_by_name(@tagname)
+    else
+      @type = 'tag'
+      @tagname = params[:tag]
+      @tag = Tag.find_by_name(@tagname)
+    end
     
-    @all_content = Article.find(:all, :conditions => [conds, modstatus, @datestart, @dateend])
+    if @tag.nil?
+      # if tag is blank, just show tags
+      @all_content = Article.find(:all,
+                      :conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 'hidden', @start_date, @end_date])
+    elsif @type == 'tag'
+      @all_content = @tag.taggables.find(
+        :all, 
+        :conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 
+          "hidden", @start_date, @end_date],
+        :order => "created_on DESC")
+    else
+      @all_content = @tag.place_taggables.find(
+        :all, 
+        :conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 
+          "hidden", @start_date, @end_date],
+        :order => "created_on DESC")
+    end
+    render :template => "archive/month_index"
   end
 
   def this_month

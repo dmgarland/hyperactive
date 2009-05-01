@@ -1,6 +1,4 @@
-<h1><%= I18n.t('general.month_is') + ' ' + @datestart.strftime('%B %Y') %></h1>
-<%= link_to "#{I18n.t('archive.events_for')} #{@datestart.strftime('%B %Y')}", 
-  :controller => 'events', :action => 'calendar_month', :date=>@datestart %>
+<h1><%= I18n.t('general.month_is') + ' ' + @start_date.strftime('%B %Y') %></h1>
 
 <div class="content-nav-links">
 <%= link_to (image_tag('icons/star.png')), archive_featured_path %>
@@ -11,21 +9,26 @@
 <%= link_to (I18n.t('articles.top_nav.all_articles'), archive_default_path) %>		
 </div>
 
-<h2><%= if @type == 'featured'
-          I18n.t 'articles.list_featured.title' 
-        elsif @type == 'promoted'
-          I18n.t 'articles.list_promoted.title' 
-        else
-          I18n.t 'articles.index.title' 
-        end %></h2>
+<h2><%= archive_title %></h2>
 
-      <% @current_date = '' 
-         @date_to_use = :created_on %>
+<% if @type == nil %>
+  <%= link_to I18n.t('archive.show_tags'), archive_tag_path %>
+<% elsif @type == 'tag' %>
+  <%= link_to I18n.t('archive.hide_tags'), archive_default_path %>
+<% end %>
+
+<% @current_date = '' %>
 <%= render(:partial => "shared/list_titles", 
-           :collection => @all_content) %>
+           :collection => @all_content,
+           :locals => { :date_to_use => :created_on }) %>
+<hr>
 <p>
-<% next_month = @datestart >> 1
-prev_month = @datestart << 1 %>
+<%= link_to "#{I18n.t('archive.events_for')} #{@start_date.strftime('%B %Y')}", 
+  :controller => 'events', :action => 'calendar_month', :date=>@start_date %>
+</p>
+<p>
+<% next_month = @start_date >> 1
+prev_month = @start_date << 1 %>
 <%= link_to "<< " + prev_month.strftime('%B %Y'), :action => "month_index", :year => prev_month.year, :month => prev_month.month, :type => @type %>
 <%= link_to next_month.strftime('%B %Y') + " >>", :action => "month_index", :year => next_month.year, :month => next_month.month, :type => @type %>
    <br />

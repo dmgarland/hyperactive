@@ -40,7 +40,7 @@ class IrcWorker < BackgrounDRb::Rails
 
   def receive_message(event)
     message = event.message if event.message.downcase =~ /#{@bot_name}:/
-    if message =~ /profound/ || message =~ /think/ || message =~ /what/ || message =~ /how/ || message =~ /why/
+    if message =~ /profound/ || message =~ /dirtbag/ || message =~ /think/ || message =~ /what/ || message =~ /how/ || message =~ /why/
       @bot.send_message(event.channel, say_random_quote)
     end
     if message =~ /encode video \d+/

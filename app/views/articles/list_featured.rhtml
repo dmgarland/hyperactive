@@ -2,6 +2,7 @@
 <h1><%= I18n.t 'articles.list_featured.title' %></h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <%= page_links(@content) %>
+<%= link_to(I18n.t('archive.featured_articles_this_month'), archive_this_month_featured_path) %>
 <% content_for :sidebar do %>
 	<%= render :partial => "articles/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/sidebar/tag_cloud" %>

@@ -3,6 +3,7 @@
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <hr/>
 <%= link_to(I18n.t('articles.index.more_articles'), archive_articles_path(:page => 2)) %>
+<%= link_to(I18n.t('archive.all_articles_this_month'), archive_this_month_path) %>
 <% content_for :sidebar do %>
 	<%= render :partial => "articles/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/sidebar/tag_cloud" %>

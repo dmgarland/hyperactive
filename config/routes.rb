@@ -42,6 +42,9 @@ ActionController::Routing::Routes.draw do |map|
   map.archive_promoted '/archive/:year/:month/promoted', :controller => 'archive', :action => 'month_index'
   map.archive_tag     '/archive/:year/:month/tag', :controller => 'archive', :action => 'tag_index'
   map.archive_place_tag '/archive/:year/:month/place_tag', :controller => 'archive', :action => 'place_tag_index'
+  map.archive_this_month '/archive/this_month', :controller => 'archive', :action => 'this_month'
+  map.archive_this_month_featured '/archive/this_month/featured', :controller => 'archive', :action => 'this_month', :type => 'featured'
+  map.archive_this_month_promoted '/archive/this_month/promoted', :controller => 'archive', :action => 'this_month', :type => 'promoted'
   
   # event mappings for listings
   map.list_by_month '/events/list_by_month', :controller => 'events', :action => 'list_by_month'

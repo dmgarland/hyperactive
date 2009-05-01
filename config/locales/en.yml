@@ -105,6 +105,9 @@ en:
 
   # Archive - stuff for the monthly archive
   archive:
+    all_articles_this_month: All articles this month
+    featured_articles_this_month: All featured articles this month
+    promoted_articles_this_month: All promoted articles this month
     events_for: Events for 
     hide_tags: Hide tags
     show_tags: Show tags

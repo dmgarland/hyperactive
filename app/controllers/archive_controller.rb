@@ -73,14 +73,14 @@ class ArchiveController < ApplicationController
     elsif @type == 'tag'
       @all_content = @tag.taggables.find(
         :all, 
-        :conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 
-          "hidden", @start_date, @end_date],
+        :conditions => ['moderation_status != ? and type = ? and created_on >= ? and created_on <= ?', 
+          "hidden", "article", @start_date, @end_date],
         :order => "created_on DESC")
     else
       @all_content = @tag.place_taggables.find(
         :all, 
-        :conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 
-          "hidden", @start_date, @end_date],
+        :conditions => ['moderation_status != ? and type = ? and created_on >= ? and created_on <= ?', 
+          "hidden", "article", @start_date, @end_date],
         :order => "created_on DESC")
     end
     render :template => "archive/month_index"

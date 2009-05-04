@@ -75,6 +75,8 @@ class ContentSweeper < ActionController::Caching::Sweeper
     expire_page(:controller => 'archive', :action => 'month_index', :year => year, :month => month)
     expire_page(:controller => 'archive', :action => 'month_index', :year => year, :month => month, :type => 'featured')
     expire_page(:controller => 'archive', :action => 'month_index', :year => year, :month => month, :type => 'promoted')
+    expire_page(:controller => 'archive', :action => 'month_index', :year => year, :month => month, :type => 'tag')
+    expire_page(:controller => 'archive', :action => 'tag_index', :year => year, :month => month, :type => 'tag')
   end
   
 end

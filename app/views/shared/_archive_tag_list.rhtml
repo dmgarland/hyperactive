@@ -1,0 +1,5 @@
+<% archive_tag_list.split(" ").each do |tag| %>
+    <% url = archive_tag_path if tag_type == "tag" %>
+    <% url = archive_place_tag_path if tag_type == "place"%>
+    <%= link_to(h(tag), "#{url}/#{tag}") %> 
+<% end %>

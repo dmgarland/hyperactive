@@ -2,7 +2,7 @@ class ArchiveController < ApplicationController
   layout "two_column"
 
   caches_page :show, :only_path => true
-  caches_page :index, :year_index, :month_index
+  caches_page :index, :year_index, :month_index, :tag_index
 
   def index
     @oldest_date = get_oldest_date()

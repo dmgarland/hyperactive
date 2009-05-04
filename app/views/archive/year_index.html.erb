@@ -1,4 +1,4 @@
-<h1><%= I18n.t('general.monthly_archive') + ' ' + @year.to_s %></h1>
+<h1><%= I18n.t('archive.monthly_archive') + ' ' + @year.to_s %></h1>
 <ul>
 <%= render(:partial => "archive/list_months", :collection => @month_count) %>
 </ul>
@@ -8,5 +8,5 @@
    <%= link_to "<< " + prevyear.to_s, :action => "year_index", :year => prevyear %>
    <%= link_to nextyear.to_s + " >>", :action => "year_index", :year => nextyear %>
    <br />
-   <%= link_to I18n.t('general.all_years'), :action => "index" %>
+   <%= link_to I18n.t('archive.all_years'), :action => "index" %>
 </p>

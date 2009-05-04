@@ -54,9 +54,6 @@ en:
     yep: "Yes"   
     your_name: Your name
     latest_updates: Latest updates
-    monthly_archive: Monthly Archive
-    month_is: Archive for
-    all_years: Archive showing all years
 
   # Action alerts
   action_alerts:
@@ -105,12 +102,17 @@ en:
 
   # Archive - stuff for the monthly archive
   archive:
+    monthly_archive: Monthly Archive
+    month_is: Archive for
+    all_years: Archive showing all years
     all_articles_this_month: All articles this month
     featured_articles_this_month: All featured articles this month
     promoted_articles_this_month: All promoted articles this month
     events_for: Events for 
     hide_tags: Hide tags
     show_tags: Show tags
+    invalid_date: Invalid date
+    no_future: Cannot show archive for future
 
   # Articles
   articles:

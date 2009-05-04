@@ -14,6 +14,9 @@ class ArchiveController < ApplicationController
 
   def year_index
     @year = params[:year].to_i
+    if !date_ok?(@year, 1)
+      return
+    end
     @start_date = get_oldest_date()
     @start_date = Date.new(@start_date.year, @start_date.month, 1)
     @end_date = Date.today
@@ -29,6 +32,9 @@ class ArchiveController < ApplicationController
   def month_index 
     year = params[:year].to_i
     month = params[:month].to_i
+    if !date_ok?(year, month)
+      return
+    end
     @start_date = Date.new(year, month, 1)
     @end_date = Date.new(year, month, -1)
     @type = params[:type]
@@ -53,6 +59,9 @@ class ArchiveController < ApplicationController
   def tag_index 
     year = params[:year].to_i
     month = params[:month].to_i
+    if !date_ok?(year, month)
+      return
+    end
     @start_date = Date.new(year, month, 1)
     @end_date = Date.new(year, month, -1)
     @showtags = true
@@ -94,6 +103,22 @@ class ArchiveController < ApplicationController
   end
 
   private
+
+  def date_ok?(year, month)
+    if month < 1 || month > 12 || year < 2000
+      flash[:notice] = I18n.t 'archive.invalid_date'
+      redirect_to :action => 'index'
+      return false
+    elsif year > Date.today.year || (year == Date.today.year && month > Date.today.month)
+      flash[:notice] = I18n.t 'archive.no_future'
+      redirect_to :action => 'month_index', 
+        :year => Date.today.year, 
+        :month => Date.today.month,
+        :type => params[:type]
+      return false
+    end
+    return true
+  end
 
   def get_oldest_date
     @oldest_content = Content.find(:first,

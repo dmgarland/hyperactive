@@ -34,6 +34,7 @@ class HiddenController < ApplicationController
       content.save!
       class_name = content.class.to_s.humanize.downcase
       ContentHideMailer.deliver_hide(content, params[:hide_reason], current_user)
+      tell_irc_channel(content)
       flash[:notice] = "The #{class_name} has been hidden and an email sent."
       render :update do |page|
         page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => content
@@ -190,5 +191,12 @@ class HiddenController < ApplicationController
       security_error
     end
   end
+  
+  # Tells the bot's irc channel that content has been created or updated
+  #
+  def tell_irc_channel(content)
+    notify_irc_channel ("#{Hyperactive.site_url}#{content_path_for(content)} :: '#{content.title}' has been hidden.")
+    notify_irc_channel(content.summary.gsub(/<\/?[^>]*>/,""))
+  end  
   
 end

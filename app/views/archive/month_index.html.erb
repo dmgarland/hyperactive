@@ -11,10 +11,10 @@
 
 <h2><%= archive_title %></h2>
 
-<% if @type == nil %>
-  <%= link_to I18n.t('archive.show_tags'), archive_tag_path %>
-<% elsif @type == 'tag' %>
+<% if @showtags %>
   <%= link_to I18n.t('archive.hide_tags'), archive_default_path %>
+<% else %>
+  <%= link_to I18n.t('archive.show_tags'), archive_tag_path %>
 <% end %>
 
 <% @current_date = '' %>

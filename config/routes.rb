@@ -33,7 +33,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/archive/:year', :controller => 'archive', :action => 'year_index'
   map.connect '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
   map.connect '/archive/:year/:month/tag/:tag', :controller => 'archive', :action => 'tag_index'
-  map.connect '/archive/:year/:month/place_tag', :controller => 'archive', :action => 'tag_index'
   map.connect '/archive/:year/:month/place_tag/:place_tag', :controller => 'archive', :action => 'tag_index'
   map.connect '/archive/:year/:month/:type', :controller => 'archive', :action => 'month_index'
 

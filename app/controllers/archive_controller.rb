@@ -5,6 +5,8 @@ class ArchiveController < ApplicationController
   caches_page :index, :year_index, :month_index, :tag_index
 
   before_filter :check_date, :except => [:index, :this_month]
+  before_filter :check_type, :only => :month_index
+
 
   def index
     @oldest_date = get_oldest_date()
@@ -36,20 +38,20 @@ class ArchiveController < ApplicationController
     @type = params[:type]
 
     if @type == 'featured'
-      conds = ['moderation_status = ? and created_on >= ? and created_on <= ?',
-               'featured', @start_date, @end_date]
+      conds = ['moderation_status = ? and type != ? and created_on >= ? and created_on <= ?',
+               'featured', 'event', @start_date, @end_date]
     elsif @type == 'promoted'
-      conds = ['moderation_status = ? and created_on >= ? and created_on <= ?',
-               'promoted', @start_date, @end_date]
+      conds = ['moderation_status = ? and type != ? and created_on >= ? and created_on <= ?',
+               'promoted', 'event', @start_date, @end_date]
     else 
-      conds = ['moderation_status != ? and created_on >= ? and created_on <= ?',
-               'hidden', @start_date, @end_date]
+      conds = ['moderation_status != ? and type != ? and created_on >= ? and created_on <= ?',
+               'hidden', 'event', @start_date, @end_date]
       if @type == 'tag' || @type == 'place_tag'
         @showtags = true
       end
     end
 
-    @all_content = Article.find(:all, :conditions => conds)
+    @all_content = Content.find(:all, :conditions => conds)
   end
 
   def tag_index 
@@ -58,8 +60,8 @@ class ArchiveController < ApplicationController
     @start_date = Date.new(year, month, 1)
     @end_date = Date.new(year, month, -1)
     @showtags = true
-    conditions = ['moderation_status != ? and type = ? and created_on >= ? and created_on <= ?', 
-          "hidden", "article", @start_date, @end_date]
+    conditions = ['moderation_status != ? and type != ? and created_on >= ? and created_on <= ?', 
+          'hidden', 'event', @start_date, @end_date]
     if !params[:place_tag].nil?
       @type = 'place_tag'
       @tagname = params[:place_tag]
@@ -106,6 +108,20 @@ class ArchiveController < ApplicationController
     end
   end
 
+  def check_type
+    type = params[:type]
+    if type.nil?
+      return
+    end
+    allowed_types = ['featured', 'promoted', 'tag', 'place_tag']
+    allowed_types.each do |allowed_type|
+      if type == allowed_type
+        return
+      end
+    end
+    redirect_to :action => 'month_index'
+  end
+
   def get_oldest_date
     @oldest_content = Content.find(:first,
           :conditions => ['moderation_status != ?', "hidden"],
@@ -128,8 +144,9 @@ class ArchiveController < ApplicationController
     for month in months
       month_start = Date.new(month.year, month.month, 1)
       month_end = Date.new(month.year, month.month, -1)
-      count = Article.count(:conditions => ['moderation_status != ? and created_on >= ? and created_on <= ?', 
-                            "hidden", month_start, month_end])
+      count = Content.count(
+        :conditions => ['moderation_status != ? and type != ? and created_on >= ? and created_on <= ?', 
+                            'hidden', 'event', month_start, month_end])
       month_count << {:month => month, :count => count}
     end
     return month_count

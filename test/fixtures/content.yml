@@ -128,7 +128,7 @@ article4:
   published_by: yoss
   place: A place
   moderation_status: published
-  created_on: 2006-2-23
+  created_on: 2006-4-15
   type: Article  
 
 hidden_article:
@@ -139,7 +139,7 @@ hidden_article:
   published_by: yoss
   place: A place
   moderation_status: hidden
-  created_on: 2006-2-23
+  created_on: 2006-5-15
   type: Article 
 
 promoted_article:
@@ -150,7 +150,7 @@ promoted_article:
   published_by: yoss
   place: A place
   moderation_status: promoted
-  created_on: 2006-2-23  
+  created_on: 2006-5-23  
   type: Article   
 
 promoted_article2:
@@ -161,7 +161,7 @@ promoted_article2:
   published_by: yoss
   place: A place
   moderation_status: promoted
-  created_on: 2006-2-23  
+  created_on: 2006-6-15  
   type: Article     
   
 first_video:
@@ -199,7 +199,7 @@ unconverted_video:
   file: foo.mov
   processing_status: 1  
   moderation_status: published  
-  created_on: 2006-2-23  
+  created_on: 2006-4-15  
   type: Video  
   
 video4:
@@ -211,7 +211,7 @@ video4:
   file: foo.mov
   processing_status: 2
   moderation_status: published  
-  created_on: 2006-2-23  
+  created_on: 2006-4-15  
   type: Video
   
 video5:
@@ -223,7 +223,7 @@ video5:
   file: foo.mov
   processing_status: 2
   moderation_status: promoted  
-  created_on: 2006-2-23  
+  created_on: 2006-4-15  
   type: Video
 
 video6:
@@ -235,7 +235,7 @@ video6:
   file: foo.mov
   moderation_status: promoted   
   processing_status: 2
-  created_on: 2006-2-23  
+  created_on: 2006-5-23  
   type: Video    
   
 hidden_video:
@@ -247,5 +247,5 @@ hidden_video:
   file: foo.mov
   processing_status: 2
   moderation_status: hidden
-  created_on: 2006-2-23  
+  created_on: 2006-5-23  
   type: Video  

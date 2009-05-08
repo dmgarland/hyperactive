@@ -11,13 +11,15 @@
 
 <h2><%= archive_title %></h2>
 
-<% if @showtags %>
+<% if !@tagname.nil? -%>
+  <%= link_to I18n.t('archive.show_all_articles'), archive_tag_path %>
+<% elsif @showtags -%>
   <%= link_to I18n.t('archive.hide_tags'), archive_default_path %>
-<% else %>
+<% else -%>
   <%= link_to I18n.t('archive.show_tags'), archive_tag_path %>
-<% end %>
+<% end -%>
 
-<% @current_date = '' %>
+<% @current_date = '' -%>
 <%= render(:partial => "shared/list_titles", 
            :collection => @all_content,
            :locals => { :date_to_use => :created_on }) %>
@@ -27,10 +29,8 @@
   :controller => 'events', :action => 'calendar_month', :date=>@start_date %>
 </p>
 <p>
-<% next_month = @start_date >> 1
-prev_month = @start_date << 1 %>
-<%= link_to "<< " + prev_month.strftime('%B %Y'), :action => "month_index", :year => prev_month.year, :month => prev_month.month, :type => @type %>
-<%= link_to next_month.strftime('%B %Y') + " >>", :action => "month_index", :year => next_month.year, :month => next_month.month, :type => @type %>
-   <br />
-   <%= link_to I18n.t('archive.all_years'), :action => "index" %>
+<%= prev_month_link(@start_date, @type) %>
+<%= next_month_link(@start_date, @type) %>
+<br />
+<%= link_to I18n.t('archive.all_years'), :action => "index" %>
 </p>

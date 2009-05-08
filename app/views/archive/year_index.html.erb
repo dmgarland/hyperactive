@@ -3,10 +3,8 @@
 <%= render(:partial => "archive/list_months", :collection => @month_count) %>
 </ul>
 <p>
-<% nextyear = @year + 1
-   prevyear = @year - 1 %>
-   <%= link_to "<< " + prevyear.to_s, :action => "year_index", :year => prevyear %>
-   <%= link_to nextyear.to_s + " >>", :action => "year_index", :year => nextyear %>
-   <br />
-   <%= link_to I18n.t('archive.all_years'), :action => "index" %>
+<%= prev_year_link(@year) %>
+<%= next_year_link(@year) %>
+<br />
+<%= link_to I18n.t('archive.all_years'), :action => "index" %>
 </p>

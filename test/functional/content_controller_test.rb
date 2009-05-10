@@ -1,7 +1,7 @@
 module ContentControllerTest
-  include ActionView
-  include ActionView::Helpers
-  include ActionView::Helpers::UrlHelper
+  include ::ActionView
+  include ::ActionView::Helpers
+  include ::ActionView::Helpers::UrlHelper
   
   def test_index
     get :index

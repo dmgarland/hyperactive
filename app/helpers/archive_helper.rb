@@ -32,6 +32,10 @@ module ArchiveHelper
 
   def next_month_link(start_date, type)
     next_month = start_date >> 1
+    if next_month.year > Date.today.year || 
+         next_month.year == Date.today.year && next_month.month > Date.today.month
+      return
+    end
     link_to next_month.strftime('%B %Y') + " >>",
             :action => "month_index", 
             :year => next_month.year, 
@@ -46,6 +50,9 @@ module ArchiveHelper
   
   def next_year_link(year)
     next_year = year + 1
+    if next_year > Date.today.year
+      return
+    end
     link_to next_year.to_s + " >>", :action => "year_index", :year => next_year
   end
   

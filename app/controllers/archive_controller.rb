@@ -90,10 +90,13 @@ class ArchiveController < ApplicationController
 
   def check_date
     year = params[:year].to_i
-    month = params[:month].to_i
     # cover the year_index case
     if params[:month].nil?
       month = 1
+      index_type = 'year'
+    else
+      month = params[:month].to_i
+      index_type = 'month'
     end
 
     if month < 1 || month > 12 || year < 2000
@@ -101,10 +104,15 @@ class ArchiveController < ApplicationController
       redirect_to :action => 'index'
     elsif year > Date.today.year || (year == Date.today.year && month > Date.today.month)
       flash[:notice] = I18n.t 'archive.no_future'
-      redirect_to :action => 'month_index', 
-        :year => Date.today.year, 
-        :month => Date.today.month,
-        :type => params[:type]
+      if index_type == 'month'
+        redirect_to :action => 'month_index', 
+          :year => Date.today.year, 
+          :month => Date.today.month,
+          :type => params[:type]
+      else
+        redirect_to :action => 'year_index', 
+          :year => Date.today.year
+      end
     end
   end
 

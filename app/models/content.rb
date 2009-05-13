@@ -113,7 +113,10 @@ class Content < ActiveRecord::Base
 #  end
   
   # Checks to see that the user submitting the content has the proper permission to change the moderation
-  # status (if one has been submitted). 
+  # status (if one has been submitted).
+  #
+  # TODO: we can bypass the security check if the content is featured.  Presumably
+  # the content was featured by someone who had permission to do it. 
   #
   def set_moderation_status(status, user)
     if user.has_permission?("auto_promote_content")

@@ -66,14 +66,22 @@ class ArchiveController < ApplicationController
       @type = 'place_tag'
       @tagname = params[:place_tag]
       @tag = PlaceTag.find_by_name(@tagname)
-      @all_content = @tag.place_taggables.find(:all, :conditions => conditions, 
-                                               :order => "created_on DESC")
+      if !@tag.nil?
+        @all_content = @tag.place_taggables.find(:all, :conditions => conditions, 
+                                                 :order => "created_on DESC")
+      else
+        @all_content = []
+      end
     else
       @type = 'tag'
       @tagname = params[:tag]
       @tag = Tag.find_by_name(@tagname)
-      @all_content = @tag.taggables.find(:all, :conditions => conditions, 
-                                         :order => "created_on DESC")
+      if !@tag.nil?
+        @all_content = @tag.taggables.find(:all, :conditions => conditions, 
+                                           :order => "created_on DESC")
+      else
+        @all_content = []
+      end
     end
     
     render :template => "archive/month_index"

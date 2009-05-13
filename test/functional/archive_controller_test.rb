@@ -102,6 +102,68 @@ class ArchiveControllerTest < ActionController::TestCase
     assert_equal I18n.t('archive.invalid_date'), flash[:notice]
   end
   
-  # TODO: month_index - featured, promoted, tag, invalid_type
-  # tag_index - tag and place_tag
+  def test_month_index_featured
+    get :month_index, :year => '2006', :month => '2', :type => 'featured'
+    assert_response :success
+    assert_template 'month_index'
+  end
+
+  def test_month_index_promoted
+    get :month_index, :year => '2006', :month => '5', :type => 'promoted'
+    assert_response :success
+    assert_template 'month_index'
+    # should be 2 items ...
+    assert_not_nil assigns(:all_content)
+    assert_equal 2, assigns(:all_content).count
+  end
+
+  def test_month_index_tag
+    get :month_index, :year => '2006', :month => '2', :type => 'tag'
+    assert_response :success
+    assert_template 'month_index'
+  end
+
+  def test_month_index_place_tag
+    get :month_index, :year => '2006', :month => '2', :type => 'place_tag'
+    assert_response :success
+    assert_template 'month_index'
+  end
+
+  def test_month_index_bad_type
+    get :month_index, :year => '2006', :month => '2', :type => 'bad'
+    assert_redirected_to :action => 'month_index', 
+                         :year => '2006',
+                         :month => '2'
+  end
+
+  def test_tag_index_tag
+    get :tag_index, :year => '2006', :month => '2', 
+      :type => 'tag', :tag => 'foo_tag'
+    assert_response :success
+    assert_template 'month_index'
+  end
+  
+  def test_place_tag_index_tag
+    get :tag_index, :year => '2006', :month => '2', 
+      :type => 'place_tag', :place_tag => 'stockwell_tag'
+    assert_response :success
+    assert_template 'month_index'
+  end
+
+  # TODO: non-existent tags ...
+  
+  def test_tag_index_bad_tag
+    get :tag_index, :year => '2006', :month => '2', 
+      :type => 'tag', :tag => 'bad_tag'
+    assert_response :success
+    assert_template 'month_index'
+  end
+  
+  def test_place_tag_index_bad_tag
+    get :tag_index, :year => '2006', :month => '2', 
+      :type => 'place_tag', :place_tag => 'bad_tag'
+    assert_response :success
+    assert_template 'month_index'
+  end
+
 end

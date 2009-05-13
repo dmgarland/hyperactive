@@ -92,6 +92,7 @@ Rails::Initializer.run do |config|
   config.gem 'ruby-debug'
   config.gem 'simple-rss'
   config.gem 'mini_exiftool'
+  config.gem 'Ruby-IRC'
 end
 
 require 'validates_uri_existence_of'

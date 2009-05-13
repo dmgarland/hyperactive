@@ -150,18 +150,16 @@ class ArchiveControllerTest < ActionController::TestCase
     assert_template 'month_index'
   end
 
-  # TODO: non-existent tags ...
-  
   def test_tag_index_bad_tag
     get :tag_index, :year => '2006', :month => '2', 
-      :type => 'tag', :tag => 'bad_tag'
+      :type => 'tag', :tag => 'non_existent_tag'
     assert_response :success
     assert_template 'month_index'
   end
   
   def test_place_tag_index_bad_tag
     get :tag_index, :year => '2006', :month => '2', 
-      :type => 'place_tag', :place_tag => 'bad_tag'
+      :type => 'place_tag', :place_tag => 'non_existent_tag'
     assert_response :success
     assert_template 'month_index'
   end

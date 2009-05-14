@@ -193,4 +193,5 @@ class ActiveRbac::LoginControllerTest < ActionController::TestCase
     assert_response :redirect
     assert_redirected_to '/'
   end
+
 end

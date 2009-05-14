@@ -126,15 +126,7 @@ class ArchiveController < ApplicationController
 
   def check_type
     type = params[:type]
-    if type.nil?
-      return
-    end
-    allowed_types = ['featured', 'promoted', 'tag', 'place_tag']
-    allowed_types.each do |allowed_type|
-      if type == allowed_type
-        return
-      end
-    end
+    return if type.nil? || ['featured', 'promoted', 'tag', 'place_tag'].include?(type)
     redirect_to :action => 'month_index'
   end
 

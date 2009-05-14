@@ -93,6 +93,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/logout', :controller => 'active_rbac/login', :action => 'logout'
   map.connect '/register/confirm/:user/:token', :controller => 'active_rbac/registration', :action => 'confirm'
   map.connect '/register/:action/:id', :controller => 'active_rbac/registration'
+  map.connect '/change_password', :controller => 'active_rbac/my_account', :action => 'change_password'
   
   # hide '/active_rbac/*'
   map.connect '/active_rbac/*', :controller => 'home', :action => 'index'

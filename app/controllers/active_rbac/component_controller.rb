@@ -13,7 +13,7 @@ class ActiveRbac::ComponentController < ApplicationController
   
   def protect_with_active_rbac
     # only protect certain controllers
-    return true if [ActiveRbac::LoginController, ActiveRbac::RegistrationController].include?(self.class)
+    return true if [ActiveRbac::LoginController, ActiveRbac::RegistrationController, ActiveRbac::MyAccountController].include?(self.class)
     # protect!
     return true if current_user.has_role? 'Admin'
     flash[:notice] = I18n.t('security.permissions_error')

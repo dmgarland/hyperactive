@@ -32,7 +32,11 @@ class IrcWorker < BackgrounDRb::Rails
 
   def notify_irc_channel(message)
     if @activate_bot
-      @bot.send_message(@channel, message)
+      begin
+        @bot.send_message(@channel, message)
+      rescue
+        # don't do anything exciting, just catch the error
+      end
     end
   end
 

@@ -14,7 +14,7 @@ class Photo < ActiveRecord::Base
   # Macros
   #
   image_column  :file, 
-                :versions => { :thumb => "c120x120", :big_thumb => "180x400", :medium => "480x480" },
+                :versions => { :micro => "c50x50", :thumb => "c120x120", :big_thumb => "180x400", :medium => "480x480" },
                 :extensions => ["gif", "png", "jpg"],
                 :root_dir => File.join(RAILS_ROOT, "public", "system"),
                 :web_root => "/system", 

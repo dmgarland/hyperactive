@@ -8,7 +8,7 @@ a_birthday:
   summary: Foo foo <p>foo</p>  
   published_by: yoss
   place: Japan
-  user_id: 2
+  user: registered_user
   moderation_status: promoted
   type: Event
   collective_id: 1
@@ -22,7 +22,7 @@ zapatista_uprising:
   published_by: yoss
   place: Chiapas
   moderation_status: published
-  user_id: 2
+  user: registered_user
   type: Event
   collective_id: 1
     
@@ -93,7 +93,7 @@ article1:
   published_by: yoss
   place: A place
   moderation_status: published
-  user_id: 2
+  user: registered_user
   created_on: 2006-2-23
   type: Article 
   collective_id: 1
@@ -167,9 +167,9 @@ promoted_article2:
 first_video:
   id: 17
   title: a video
-  summary: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i am a video! length 2 min 55 sec
   content_id: 1
-  user_id: 2
+  user: registered_user
   file: foo.mov
   published_by: foo
   processing_status: 2
@@ -181,7 +181,7 @@ first_video:
 another_video:
   id: 18
   title: another video
-  summary: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i am a video! length 2 min 55 sec
   content_id: 1
   file: foo.mov
   published_by: foo 
@@ -192,8 +192,8 @@ another_video:
 
 unconverted_video:
   id: 19
-  title: a video that hasn't completed processing yet
-  summary: hey, i'm a video! length 2 min 55 sec
+  title: a video that has not completed processing yet
+  summary: hey, i am a video! length 2 min 55 sec
   content_id: 1
   published_by: foo
   file: foo.mov
@@ -205,7 +205,7 @@ unconverted_video:
 video4:
   id: 20
   title: a video
-  summary: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i am a video! length 2 min 55 sec
   content_id: 1
   published_by: foo
   file: foo.mov
@@ -217,7 +217,7 @@ video4:
 video5:
   id: 21
   title: another video
-  summary: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i am a video! length 2 min 55 sec
   content_id: 1
   published_by: foo
   file: foo.mov
@@ -228,8 +228,8 @@ video5:
 
 video6:
   id: 22
-  title: a video that hasn't completed processing yet
-  summary: hey, i'm a video! length 2 min 55 sec
+  title: a video that has not completed processing yet
+  summary: hey, i am a video! length 2 min 55 sec
   content_id: 1
   published_by: foo
   file: foo.mov
@@ -241,7 +241,7 @@ video6:
 hidden_video:
   id: 23
   title: hidden video
-  summary: hey, i'm a video! length 2 min 55 sec
+  summary: hey, i am a video! length 2 min 55 sec
   content_id: 1
   published_by: foo
   file: foo.mov

@@ -1,39 +1,29 @@
 hide:
-  id: 1
   title: hide
 
 edit_own_content:
-  id: 2
   title: edit_own_content
   
 edit_all_content:
-  id: 3
   title: edit_all_content
   
 see_admin_nav:
-  id: 4
   title: see_admin_nav
   
 destroy:
-  id: 5
   title: destroy
   
 hide_own_content:
-  id: 6
   title: hide_own_content
 
 feature_content:
-  id: 7
   title: feature_content
 
 promote_content:
-  id: 8
   title: promote_content
 
 edit_all_groups:
-  id: 9
   title: edit_all_groups
   
 auto_promote_content:
-  id: 10
   title: auto_promote_content

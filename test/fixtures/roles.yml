@@ -1,20 +1,19 @@
 admin:
-  id: 1
   title: Admin
+  static_permissions: [hide, edit_all_content, see_admin_nav, destroy, feature_content, promote_content, edit_all_groups]
 
 anonymous:
-  id: 2
   title: Anonymous
   
 registered:
-  id: 3
   title: Registered
+  static_permissions: [hide_own_content, edit_own_content, hide_own_content]
   
 hider:
-  id: 4
   title: Hider
-  parent_id: 3
+  parent: registered
+  static_permissions: [hide]
 
 auto_promote:
-  id: 5
   title: AutoPromoted
+  static_permissions: [auto_promote_content]

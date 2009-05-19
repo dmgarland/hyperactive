@@ -1,4 +1,3 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 marcos:
   id:                   1
   created_at:           2005-08-03 10:52:26
@@ -10,7 +9,7 @@ marcos:
   password:             bf5d921d2f18ee3077683d6e3d407afb
   password_hash_type:   md5
   password_salt:        0123456789
-  state:                2  
+  state:                2
 
 registered_user:
   id:                   2
@@ -23,7 +22,7 @@ registered_user:
   password:             bf5d921d2f18ee3077683d6e3d407afb
   password_hash_type:   md5
   password_salt:        0123456789
-  state:                2   
+  state:                2
 
 hider_user:
   id:                   3
@@ -36,7 +35,8 @@ hider_user:
   password:             bf5d921d2f18ee3077683d6e3d407afb
   password_hash_type:   md5
   password_salt:        0123456789
-  state:                2   
+  state:                2
+
 registered_user_2:
   id:                   4
   created_at:           2005-08-03 10:52:26
@@ -48,7 +48,8 @@ registered_user_2:
   password:             bf5d921d2f18ee3077683d6e3d407afb
   password_hash_type:   md5
   password_salt:        0123456789
-  state:                2     
+  state:                2
+
 registered_user_3:
   id:                   5
   created_at:           2005-08-03 10:52:26
@@ -60,4 +61,5 @@ registered_user_3:
   password:             bf5d921d2f18ee3077683d6e3d407afb
   password_hash_type:   md5
   password_salt:        0123456789
-  state:                2       
+  state:                2
+

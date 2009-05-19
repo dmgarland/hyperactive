@@ -88,6 +88,7 @@ en:
       to_log_out: to log out.
     logout_success_title: Logout Success
     logout_success_message: You have successfully been logged out.
+    logout_login_again_message: to log in again.
     logout_success_confirmation: Do you really want to log out?
     register: 
       desired_user_name: Desired User Name

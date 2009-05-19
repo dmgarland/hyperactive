@@ -20,7 +20,16 @@ class ActiveRbac::MyAccountControllerTest < ActionController::TestCase
       :password_confirmation => 'new password'
     }
   end
-
+  
+  def test_index
+    get :index, {}, as_user(:registered_user)
+    assert_response :success
+  end
+  
+  def test_index_security
+    get :index, {}
+    assert_redirected_to login_path
+  end
   
   # sets the user to a valid value
   def set_user
@@ -32,13 +41,13 @@ class ActiveRbac::MyAccountControllerTest < ActionController::TestCase
   end
 
 
-  def test_change_password_redirects_to_root_when_not_logged_in
+  def test_change_password_redirects_to_login_path_when_not_logged_in
     # check GET as well as POST
     [ :get, :post ].each do |sym|
       self.send(sym, :change_password)
     
       assert_response :redirect
-      assert_redirected_to '/'
+      assert_redirected_to login_path
       assert flash[:error]
     end
   end

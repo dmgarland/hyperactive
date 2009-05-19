@@ -337,7 +337,7 @@ module ContentControllerTest
                           :summary => "A summary",
                           :published_by => "Yoss", 
                           :place => "London", 
-                          :collective_id => [collectives(:indy_london).id]
+                          :collective_id => collectives(:indy_london).id
                         }, 
                   :tags => "blah, foo bar",
                   :place_tags => "london brixton"}

@@ -1,5 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 first:
-  id: 1
+  post: article1
+  
 another:
-  id: 2
+  post: article1

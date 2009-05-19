@@ -31,6 +31,7 @@ class ExternalFeedsControllerTest < ActionController::TestCase
 
   def test_should_update_external_feed
     put :update, {:group_id => collectives(:indy_london).id, :id => external_feeds(:one).id, :external_feed => {:title => "foo feed" }}, as_user(:registered_user)
+
     assert_redirected_to group_external_feeds_path(assigns(:group))
   end
 

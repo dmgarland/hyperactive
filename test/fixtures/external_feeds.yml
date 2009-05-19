@@ -4,10 +4,10 @@ one:
   url: http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/world/americas/rss.xml
   title: MyString
   summary: MyString
-  collective_id: 1
+  collective: indy_london
 
 two:
   url: http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/world/americas/rss.xml
   title: MyString
   summary: MyString
-  collective_id: 2
+  collective: two

@@ -6,7 +6,7 @@ class SearchController; def rescue_action(e) raise e end; end
 
 class SearchControllerTest < Test::Unit::TestCase
 
-  fixtures :content, :tags, :taggings, :place_tags, :place_taggings
+  fixtures :content, :tags, :taggings, :place_tags, :place_taggings, :collectives
 
   def setup
     @controller = SearchController.new

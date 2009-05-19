@@ -34,29 +34,29 @@ class HiddenControllerTest < Test::Unit::TestCase
   
   
   def test_comment_hiding_controls_without_being_logged_in
-    get :comment_hiding_controls, :id => 1
+    get :comment_hiding_controls, :id => comments(:one).id
     assert_template "hidden/report_comment_controls", "Users who can't hide should be shown the 'report this' controls"
   end  
     
   def test_comment_hiding_controls
-    get :comment_hiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
+    get :comment_hiding_controls, {:id => comments(:one).id}, as_user(:marcos)
     assert_response :success
     assert_template 'comment_hiding_controls'
   end  
   
   def test_hide_content_without_being_logged_in
-    post :hide, :id => 1
+    post :hide, :id => content(:a_birthday).id
     assert_security_error
   end  
   
   def test_hide_comment_without_being_logged_in
-    post :hide_comment, :id => 1
+    post :hide_comment, :id => comments(:one).id
     assert_security_error
   end    
   
   def test_hide_content
-    post :hide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
-    event = Event.find(1)
+    post :hide, {:id => content(:a_birthday).id}, as_user(:marcos)
+    event = Event.find(content(:a_birthday).id)
     assert_response :success
     assert_equal "hidden", event.moderation_status, "Hidden event should be hidden."
     assert_equal "The event has been hidden and an email sent.", flash[:notice]
@@ -71,8 +71,8 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
 
   def test_hide_own_content_by_registered_user_should_work
-    post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user).id }
-    article = Article.find(10)
+    post :hide, {:id => content(:article1).id}, as_user(:marcos)
+    article = Article.find(content(:article1).id)
     assert_response :success
     assert_equal "hidden", article.moderation_status, "Hidden article should be hidden."
     assert_equal "The article has been hidden and an email sent.", flash[:notice]
@@ -83,34 +83,34 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
 
   def test_hide_own_content_by_wrong_registered_user_should_not_work
-    post :hide, {:id => 10}, {:rbac_user_id => users(:registered_user_3).id }
+    post :hide, {:id => content(:article1).id}, as_user(:registered_user_3)
     assert_security_error
   end
   
   def test_unhiding_controls_without_being_logged_in
-    get :unhiding_controls, {:id => 1}
+    get :unhiding_controls, {:id => content(:article1).id}
     assert_template "hidden/unreport_this_controls", "Users who can't hide should be shown the 'unreport this' controls containing a security message."
   end  
    
   def test_unhiding_controls
-    get :unhiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    get :unhiding_controls, {:id => content(:article1).id}, {:rbac_user_id => users(:marcos).id }
     assert_response :success
     assert_template 'unhiding_controls'    
   end
   
   def test_comment_unhiding_controls
-    get :comment_unhiding_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id }
+    get :comment_unhiding_controls, {:id => comments(:one).id}, {:rbac_user_id => users(:marcos).id }
     assert_response :success
     assert_template 'comment_unhiding_controls'    
   end  
 
   def test_unhide_event_without_being_logged_in
-    post :unhide, {:id => 1}
+    post :unhide, {:id => content(:a_birthday).id}
     assert_security_error
   end
   
   def test_unhide_comment_without_being_logged_in
-    post :unhide_comment, {:id => 1}
+    post :unhide_comment, {:id => comments(:one).id}
     assert_security_error
   end  
   
@@ -131,8 +131,8 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
   
   def test_unhide_comment
-    post :unhide_comment, {:id => 1}, {:rbac_user_id => users(:marcos).id }
-    comment = Comment.find(1)
+    post :unhide_comment, {:id => comments(:one).id}, {:rbac_user_id => users(:marcos).id }
+    comment = comments(:one)
     assert_response :success
     assert_equal comment.moderation_status, "published", "Unhidden comment should not be hidden."
     assert_equal "The comment has been unhidden.", flash[:notice]

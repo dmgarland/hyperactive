@@ -48,7 +48,6 @@ class ExternalFeedsController < ApplicationController
   # PUT /external_feeds/1.xml
   def update
     @external_feed = @group.external_feeds.find(params[:id])
-
     respond_to do |format|
       if @external_feed.update_attributes(params[:external_feed])
         flash[:notice] = 'ExternalFeed was successfully updated.'

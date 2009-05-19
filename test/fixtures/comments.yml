@@ -1,6 +1,5 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
-  id: 1
   title: test comment
   body: test test
   created_on: 2006-2-23
@@ -8,19 +7,17 @@ one:
   content_id: 1
   moderation_status: published
 two:
-  id: 2
   title: test comment
   body: test test
   created_on: 2006-2-23
   published_by: foo
-  content_id: 10
+  content: article1
   moderation_status: published
 video_comment:
-  id: 3
   title: test comment
   body: test test
   created_on: 2006-2-23
   published_by: foo
-  content_id: 17  
+  content: first_video
   moderation_status: published
   

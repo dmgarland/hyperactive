@@ -1,8 +1,8 @@
 <div class="collective-preview">
   <% if collective_preview.image.nil? %>
-    <%= link_to image_tag("default_collective.jpg"), group_url(collective_preview) %>
+    <%= link_to image_tag("default_collective.jpg"), group_url(collective_preview.id) %>
   <% else %>
     <%= link_to image_tag(collective_preview.image.thumb), group_url(collective_preview) %>
   <% end %>
-   <div class="collective-preview-desc"><%=link_to collective_preview.name, group_url(collective_preview) %></div>  
+   <div class="collective-preview-desc"><%=link_to collective_preview.name, group_url(collective_preview.id) %></div>  
 </div>

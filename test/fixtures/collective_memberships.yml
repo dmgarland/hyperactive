@@ -1,13 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 registered_membership_in_indy_london:
-  id: 1
-  collective_id: 1
+  collective: indy_london
   user: registered_user
   created_on: 2008-08-16 17:41:16
   updated_on: 2008-08-16 17:41:16
 registered_user_2_membership_in_indy_london:
-  id: 2
-  collective_id: 1
+  collective: indy_london
   user: registered_user_2
   created_on: 2008-08-16 17:41:16
   updated_on: 2008-08-16 17:41:16

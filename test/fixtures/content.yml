@@ -11,7 +11,7 @@ a_birthday:
   user: registered_user
   moderation_status: promoted
   type: Event
-  collective_id: 1
+  collective: indy_london
   
 zapatista_uprising:
   id: 2
@@ -24,7 +24,7 @@ zapatista_uprising:
   moderation_status: published
   user: registered_user
   type: Event
-  collective_id: 1
+  collective: indy_london
     
 hidden_event:
   id: 3
@@ -48,7 +48,7 @@ london_meeting1:
   moderation_status: published
   event_group_id: 1
   type: Event
-  collective_id: 1
+  collective: indy_london
     
 london_meeting2:
   id: 6
@@ -96,7 +96,7 @@ article1:
   user: registered_user
   created_on: 2006-2-23
   type: Article 
-  collective_id: 1
+  collective: indy_london
   
 article2:
   id: 11
@@ -176,7 +176,7 @@ first_video:
   moderation_status: published  
   created_on: 2006-2-23  
   type: Video
-  collective_id: 1
+  collective: indy_london
   
 another_video:
   id: 18

@@ -18,8 +18,8 @@ class ContentHideMailerTest < Test::Unit::TestCase
     @expected.set_content_type "text", "plain", { "charset" => CHARSET }
     @expected.mime_version = '1.0'
     
-    @content = Event.find(1)
-    @user = User.find(1)
+    @content = content(:a_birthday)
+    @user = users(:marcos)
     @reasons = "Email hiding or unhiding reasons"
   end
 

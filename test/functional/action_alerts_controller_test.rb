@@ -16,7 +16,7 @@ class ActionAlertsControllerTest < Test::Unit::TestCase
 
 
   def test_show
-    get :show, :id => 1
+    get :show, :id => action_alerts(:one)
     assert_response :success
     assert_template 'show'
     assert_not_nil assigns(:action_alert)

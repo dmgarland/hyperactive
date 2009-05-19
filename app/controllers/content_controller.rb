@@ -118,7 +118,6 @@ class ContentController < ApplicationController
       format.html # show.html.erb
       format.xml { render :xml => @content }
     end
-    # @related_tags = Event.find_related_tags(@event.tag_names.to_s, :separator => ',')
   end  
 
     

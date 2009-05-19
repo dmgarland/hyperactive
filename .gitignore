@@ -1,0 +1,7 @@
+config/database.yml
+log/
+public/images/simple_captcha/
+public/plugin_assets/
+public/system/
+tmp/
+

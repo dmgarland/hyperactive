@@ -19,7 +19,7 @@
 	<ul> 
 	<% current_user.collectives.each do |c| %>
 		<li><%= render :partial => "shared/collectives/collective_link", :object => c %> 
-		| <%= link_to(I18n.t('general.edit'), edit_group_path(c)) %>
+		| <%= link_to(I18n.t('general.edit'), edit_group_path(c.id)) %>
 		| <%= link_to(I18n.t('active_rbac.account.edit_group_membership'), edit_collective_memberships_path(c)) %>
 		| <%= link_to(I18n.t('active_rbac.account.edit_rss_feeds'), group_external_feeds_path(c)) %>
 		</li>

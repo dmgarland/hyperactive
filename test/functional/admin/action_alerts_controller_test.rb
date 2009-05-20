@@ -33,7 +33,7 @@ class Admin::ActionAlertsControllerTest < Test::Unit::TestCase
   end
 
   def test_show
-    get :show, {:id => 1}, as_user(:marcos)
+    get :show, {:id => action_alerts(:one).id}, as_user(:marcos)
 
     assert_response :success
     assert_template 'show'
@@ -72,7 +72,7 @@ class Admin::ActionAlertsControllerTest < Test::Unit::TestCase
   end
 
   def test_edit
-    get :edit, {:id => 1}, as_user(:marcos)
+    get :edit, {:id => action_alerts(:one).id}, as_user(:marcos)
 
     assert_response :success
     assert_template 'edit'
@@ -82,15 +82,13 @@ class Admin::ActionAlertsControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, {:id => 1}, as_user(:marcos)
+    post :update, {:id => action_alerts(:one).id}, as_user(:marcos)
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+    assert_redirected_to :action => 'show', :id => action_alerts(:one).id
   end
 
   def test_destroy
-    assert_not_nil ActionAlert.find(1)
-
-    post :destroy, {:id => 1}, as_user(:marcos)
+    post :destroy, {:id => action_alerts(:one).id}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to :action => 'list'
 

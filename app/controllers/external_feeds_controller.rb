@@ -2,9 +2,12 @@ class ExternalFeedsController < ApplicationController
 
   layout 'two_column'
 
+  # Filter
+  #
   before_filter :find_group
   
   # Security
+  #
   before_filter :can_edit?, :only => [:edit, :update, :create, :new, :index]
   
   def index

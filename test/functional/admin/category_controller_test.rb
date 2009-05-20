@@ -31,7 +31,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_show
-    get :show, {:id => 1}, as_user(:marcos)
+    get :show, {:id => categories(:another)}, as_user(:marcos)
 
     assert_response :success
     assert_template 'show'
@@ -60,7 +60,7 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_edit
-    get :edit, {:id => 1}, as_user(:marcos)
+    get :edit, {:id => categories(:another)}, as_user(:marcos)
 
     assert_response :success
     assert_template 'edit'
@@ -70,15 +70,13 @@ class Admin::CategoryControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, {:id => 1}, as_user(:marcos)
+    post :update, {:id => categories(:another)}, as_user(:marcos)
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+    assert_redirected_to :action => 'show', :id => categories(:another).id
   end
 
   def test_destroy
-    assert_not_nil Category.find(1)
-
-    post :destroy, {:id => 1}, as_user(:marcos)
+    post :destroy, {:id => categories(:another)}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to :action => 'list'
 

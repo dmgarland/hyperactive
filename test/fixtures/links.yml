@@ -1,6 +1,8 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 first:
-  content: article1
+  post: article1
+  title: foo link
 
 another:
-  content: article1
+  post: article1
+  title: bar link

@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
   
   # Associations
   #
-  belongs_to :content
+  belongs_to :post
   
   # Sets up the Link object with an "http://" in the link box if it's a new link.
   #

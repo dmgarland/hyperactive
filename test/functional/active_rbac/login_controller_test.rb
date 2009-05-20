@@ -1,6 +1,13 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../../test_helper'
+require 'active_rbac/login_controller'
 
 class ActiveRbac::LoginControllerTest < ActionController::TestCase
+
+fixtures :slugs, :users, :roles, :roles_users, :static_permissions
+fixtures :roles_static_permissions, :collectives, :collective_associations
+fixtures :collective_memberships
+
+  tests ActiveRbac::LoginController
 
   def setup
     @valid_data = {
@@ -16,15 +23,6 @@ class ActiveRbac::LoginControllerTest < ActionController::TestCase
       :password => 'password' + 'invalid'
     }
   end
-
-  # TODO: this one is failing randomly.  I'd like to replace the whole access control
-  # system anyway, so this can get sorted out then.
-  #
-  #  def test_should_get_index
-  #    get :index, {}, as_user(:registered_user_2)
-  #    assert_response :success
-  #    assert_template 'index'
-  #  end
 
   def test_should_reset_session_on_login
     @request.session[:some_key] = 'some value'
@@ -75,7 +73,6 @@ class ActiveRbac::LoginControllerTest < ActionController::TestCase
   def test_should_redirect_on_valid_login_with_return_to_in_param
     post :login, :login => @valid_data[:login], :password => @valid_data[:password],
     :return_to => '/articles'
-
     assert_response :redirect
     assert_redirected_to '/articles'
     assert_equal users(:registered_user).id, session[:rbac_user_id]

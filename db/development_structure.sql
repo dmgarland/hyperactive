@@ -5,7 +5,7 @@ CREATE TABLE `action_alerts` (
   `created_on` datetime default NULL,
   `updated_on` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `acts_as_xapian_jobs` (
   `id` int(11) NOT NULL auto_increment,
@@ -59,7 +59,7 @@ CREATE TABLE `collective_memberships` (
   `created_on` datetime default NULL,
   `updated_on` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `collectives` (
   `id` int(11) NOT NULL auto_increment,
@@ -70,7 +70,7 @@ CREATE TABLE `collectives` (
   `updated_on` datetime default NULL,
   `moderation_status` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL auto_increment,
@@ -113,7 +113,7 @@ CREATE TABLE `content` (
   `auto_moderation_checked` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
   KEY `fk_event_event_group` (`event_group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `content_filter_expressions` (
   `id` int(11) NOT NULL auto_increment,
@@ -139,7 +139,7 @@ CREATE TABLE `event_groups` (
   `created_on` datetime default NULL,
   `updated_on` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `external_feeds` (
   `id` int(11) NOT NULL auto_increment,
@@ -210,7 +210,7 @@ CREATE TABLE `open_street_map_infos` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `pages` (
   `id` int(11) NOT NULL auto_increment,
@@ -241,14 +241,22 @@ CREATE TABLE `place_taggings` (
   `event_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `place_taggable_index` (`place_tag_id`,`place_taggable_id`,`place_taggable_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `place_tags` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_place_tags_on_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `quotes` (
+  `id` int(11) NOT NULL auto_increment,
+  `body` text,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL auto_increment,
@@ -290,7 +298,7 @@ CREATE TABLE `sessions` (
   PRIMARY KEY  (`id`),
   KEY `index_sessions_on_session_id` (`session_id`),
   KEY `index_sessions_on_updated_at` (`updated_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `settings` (
   `id` int(11) NOT NULL auto_increment,
@@ -302,7 +310,7 @@ CREATE TABLE `settings` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `slugs` (
   `id` int(11) NOT NULL auto_increment,
@@ -314,7 +322,7 @@ CREATE TABLE `slugs` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_slugs_on_name_and_sluggable_type` (`name`,`sluggable_type`),
   KEY `index_slugs_on_sluggable_id` (`sluggable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `snippets` (
   `id` int(11) NOT NULL auto_increment,
@@ -326,7 +334,7 @@ CREATE TABLE `snippets` (
   `url` varchar(255) default NULL,
   `image` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `static_permissions` (
   `id` int(11) NOT NULL auto_increment,
@@ -346,14 +354,14 @@ CREATE TABLE `taggings` (
   `event_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_taggings_on_tag_id_and_taggable_id_and_taggable_type` (`tag_id`,`taggable_id`,`taggable_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `tags` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_tags_on_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `user_registrations` (
   `id` int(11) NOT NULL auto_increment,
@@ -437,8 +445,6 @@ INSERT INTO schema_migrations (version) VALUES ('20081219232920');
 
 INSERT INTO schema_migrations (version) VALUES ('20081220004942');
 
-INSERT INTO schema_migrations (version) VALUES ('20081225160137');
-
 INSERT INTO schema_migrations (version) VALUES ('20081225162851');
 
 INSERT INTO schema_migrations (version) VALUES ('20081226182333');
@@ -446,6 +452,18 @@ INSERT INTO schema_migrations (version) VALUES ('20081226182333');
 INSERT INTO schema_migrations (version) VALUES ('20090208191400');
 
 INSERT INTO schema_migrations (version) VALUES ('20090208214144');
+
+INSERT INTO schema_migrations (version) VALUES ('20090414203152');
+
+INSERT INTO schema_migrations (version) VALUES ('20090414222335');
+
+INSERT INTO schema_migrations (version) VALUES ('20090415125547');
+
+INSERT INTO schema_migrations (version) VALUES ('20090415155748');
+
+INSERT INTO schema_migrations (version) VALUES ('20090415165733');
+
+INSERT INTO schema_migrations (version) VALUES ('20090415171824');
 
 INSERT INTO schema_migrations (version) VALUES ('3');
 

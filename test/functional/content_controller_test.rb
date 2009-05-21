@@ -274,13 +274,13 @@ module ContentControllerTest
   end
   
   def test_admin_controls
-    get :admin_controls, {:id => 1}, {:rbac_user_id => users(:marcos).id } 
+    get :admin_controls, {:id => @first_id}, {:rbac_user_id => users(:marcos).id } 
     assert_response :success
     assert_template '_admin_controls'
   end  
   
   def test_admin_controls_by_collective_member_should_return_admin_controls
-    get :admin_controls, {:id => 1}, {:rbac_user_id => users(:registered_user_2).id } 
+    get :admin_controls, {:id => @first_id}, {:rbac_user_id => users(:registered_user_2).id } 
     assert_response :success
     assert_template '_admin_controls'    
   end

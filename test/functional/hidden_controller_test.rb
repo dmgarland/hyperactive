@@ -115,8 +115,8 @@ class HiddenControllerTest < Test::Unit::TestCase
   end  
   
   def test_unhide_event
-    post :unhide, {:id => 1}, {:rbac_user_id => users(:marcos).id }
-    event = Event.find(1)
+    post :unhide, {:id => content(:hidden_event).id}, {:rbac_user_id => users(:marcos).id }
+    event = Event.find(content(:hidden_event).id)
     assert_response :success
     assert_equal event.moderation_status, "published", "Unhidden event should not be hidden."
     assert_equal "The event has been unhidden and an email sent.", flash[:notice]

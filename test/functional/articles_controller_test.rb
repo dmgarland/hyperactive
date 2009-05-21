@@ -19,7 +19,7 @@ class ArticlesControllerTest < Test::Unit::TestCase
   end
   
   def test_admin_controls_by_non_content_owner_not_part_of_collective_should_return_report_controls
-    get :admin_controls, {:id => 10}, as_user(:registered_user_3)
+    get :admin_controls, {:id => content(:article3).id}, as_user(:registered_user_3)
     assert_response :success
     assert_template '_report_this_controls'
   end        

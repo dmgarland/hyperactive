@@ -4,7 +4,7 @@ one:
   body: test test
   created_on: 2006-2-23
   published_by: foo
-  content_id: 1
+  content: a_birthday
   moderation_status: published
 two:
   title: test comment

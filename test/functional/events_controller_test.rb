@@ -53,7 +53,7 @@ class EventsControllerTest < Test::Unit::TestCase
   end
     
   def test_list_by_event_group
-    get :list_by_event_group, :id => 1
+    get :list_by_event_group, :id => @first_id
     assert_response :success
     assert_template 'list_by_event_group'
     assert_not_nil assigns(:content)
@@ -188,24 +188,24 @@ class EventsControllerTest < Test::Unit::TestCase
   end
 
   def test_edit_without_being_logged_in
-    get :edit, :id => 1
+    get :edit, :id => @first_id
     assert_security_error
   end
 
   def test_edit
-    get :edit, {:id => 1}, as_user(:marcos)
+    get :edit, {:id => @first_id}, as_user(:marcos)
     assert_template 'edit'
     assert_equal "The Birthday", assigns(:content).title
     assert assigns(:content).valid?
   end
   
   def test_edit_as_registered_fails_if_not_content_owner
-    get :edit, {:id => 1}, as_user(:hider_user)
+    get :edit, {:id => @first_id}, as_user(:hider_user)
     assert_security_error
   end  
   
   def test_edit_as_registered_when_content_owner
-    get :edit, {:id => 2}, as_user(:registered_user)
+    get :edit, {:id => content(:zapatista_uprising).id}, as_user(:registered_user)
     assert_response :success
     assert_template 'edit'
     assert_equal "The Zapatista Uprising", assigns(:content).title
@@ -213,7 +213,7 @@ class EventsControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, event_stub(1), as_user(:marcos)
+    post :update, event_stub(@first_id), as_user(:marcos)
     event = Event.find_by_title("A Changed Event")
     assert_match("bah", event.tag_list)
     assert_match(/blah/, event.tag_list)
@@ -221,63 +221,63 @@ class EventsControllerTest < Test::Unit::TestCase
     assert_no_match(/foo_tag/, event.tag_list)
     assert event.taggings.map(&:event_date).include?(event.date)                  
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+    assert_redirected_to :action => 'show', :id => @first_id
     assert_equal "A Changed Event", assigns(:content).title
   end
   
   def test_update_as_registered_fails_if_not_content_owner
-    post :update, event_stub(1), as_user(:hider_user)
+    post :update, event_stub(@first_id), as_user(:hider_user)
     assert_security_error
   end
   
   def test_update_as_registered_when_content_owner
-    post :update, event_stub(2), as_user(:registered_user)
+    post :update, event_stub(@first_id), as_user(:registered_user)
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 2
+    assert_redirected_to :action => 'show', :id => @first_id
     assert_equal "A Changed Event", assigns(:content).title
   end  
 
   def test_update_as_anonymous_fails
-    post :update, event_stub(2)
+    post :update, event_stub(content(:a_birthday).id)
     assert_security_error
   end
 
   def test_destroy
-    assert_not_nil Event.find(1)
+    assert_not_nil Event.find(content(:a_birthday).id)
 
-    post :destroy, {:id => 1}, as_user(:marcos)
+    post :destroy, {:id => content(:a_birthday).id}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to :action => 'index'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      Event.find(1)
+      Event.find(content(:a_birthday).id)
     }
   end
   
   def test_destroy_as_registered_should_fail
-    e = Event.find(1)
+    e = Event.find(content(:a_birthday).id)
     assert_not_nil(e) 
     
-    post :destroy, {:id => 1}, as_user(:registered_user)
+    post :destroy, {:id => content(:a_birthday).id}, as_user(:registered_user)
     assert_security_error 
     
-    e2 = Event.find(1)
+    e2 = Event.find(content(:a_birthday).id)
     assert_equal(e, e2)   
   end
   
   def test_destroy_as_anonymous_should_fail
-    e = Event.find(1)
+    e = Event.find(content(:a_birthday).id)
     assert_not_nil(e) 
     
-    post :destroy, {:id => 1}
+    post :destroy, {:id => content(:a_birthday).id}
     assert_security_error
     
-    e2 = Event.find(1)
+    e2 = Event.find(content(:a_birthday).id)
     assert_equal(e, e2) 
   end  
 
   def test_ical_download
-    get :ical_download, {:id => 1}    
+    get :ical_download, {:id => content(:a_birthday).id}    
     assert_response :success
     assert assigns(:content)
     assert_match(/#{assigns(:content).title}/, @response.body, "Expected to find a match between the content title and the ical text.")   

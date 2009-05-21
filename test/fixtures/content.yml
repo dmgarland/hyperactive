@@ -1,7 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 a_birthday:
-  id: 1
   title: The Birthday
   date: 2006-2-23
   body: This is a birthday. 
@@ -14,7 +13,6 @@ a_birthday:
   collective: indy_london
   
 zapatista_uprising:
-  id: 2
   title: The Zapatista Uprising
   date: 1994-01-01 00:00:00
   body: El sup on the rampage.
@@ -27,7 +25,6 @@ zapatista_uprising:
   collective: indy_london
     
 hidden_event:
-  id: 3
   title: A Hidden Event
   date: <%= Date.today %>
   body: This event is hidden.
@@ -38,7 +35,6 @@ hidden_event:
   type: Event
     
 london_meeting1:
-  id: 5
   title: London Meeting 1
   date: <%= Date.today + 5 %>
   body: A meeting in London.
@@ -51,7 +47,6 @@ london_meeting1:
   collective: indy_london
     
 london_meeting2:
-  id: 6
   title: London Meeting 2
   date: <%= Date.today + 5 %>
   body: A meeting in London.
@@ -63,7 +58,6 @@ london_meeting2:
   type: Event
   
 london_meeting3:
-  id: 7
   title: London Meeting 2
   date: <%= Date.today + 5 %>
   body: A meeting in London.
@@ -75,7 +69,6 @@ london_meeting3:
   type: Event
   
 past_event:
-  id: 9
   title: An event in the past
   date: 2006-2-23
   body: This event is in the past.
@@ -86,7 +79,6 @@ past_event:
   type: Event
   
 article1:
-  id: 10
   title: An article
   body: This is an Article.
   summary: Foo foo foo
@@ -99,7 +91,6 @@ article1:
   collective: indy_london
   
 article2:
-  id: 11
   title: An article
   body: This is an Article.
   summary: Foo foo foo
@@ -110,7 +101,6 @@ article2:
   type: Article    
 
 article3:
-  id: 12
   title: An article
   body: This is an Article.
   summary: Foo foo foo
@@ -121,7 +111,6 @@ article3:
   type: Article 
   
 article4:
-  id: 13
   title: An article
   body: This is an Article.
   summary: Foo foo foo
@@ -132,7 +121,6 @@ article4:
   type: Article  
 
 hidden_article:
-  id: 14
   title: A hidden article
   body: This is an Article.
   summary: Foo foo foo
@@ -143,7 +131,6 @@ hidden_article:
   type: Article 
 
 promoted_article:
-  id: 15
   title: An article
   body: This is an Article.
   summary: Foo foo foo  
@@ -154,7 +141,6 @@ promoted_article:
   type: Article   
 
 promoted_article2:
-  id: 16
   title: An article
   body: This is an Article.
   summary: Foo foo foo  
@@ -165,10 +151,9 @@ promoted_article2:
   type: Article     
   
 first_video:
-  id: 17
   title: a video
   summary: hey, i am a video! length 2 min 55 sec
-  content_id: 1
+  post: a_birthday
   user: registered_user
   file: foo.mov
   published_by: foo
@@ -179,10 +164,9 @@ first_video:
   collective: indy_london
   
 another_video:
-  id: 18
   title: another video
   summary: hey, i am a video! length 2 min 55 sec
-  content_id: 1
+  post: a_birthday
   file: foo.mov
   published_by: foo 
   processing_status: 2
@@ -191,10 +175,9 @@ another_video:
   type: Video
 
 unconverted_video:
-  id: 19
   title: a video that has not completed processing yet
   summary: hey, i am a video! length 2 min 55 sec
-  content_id: 1
+  post: a_birthday
   published_by: foo
   file: foo.mov
   processing_status: 1  
@@ -206,7 +189,7 @@ video4:
   id: 20
   title: a video
   summary: hey, i am a video! length 2 min 55 sec
-  content_id: 1
+  post: a_birthday
   published_by: foo
   file: foo.mov
   processing_status: 2
@@ -215,10 +198,9 @@ video4:
   type: Video
   
 video5:
-  id: 21
   title: another video
   summary: hey, i am a video! length 2 min 55 sec
-  content_id: 1
+  post: a_birthday
   published_by: foo
   file: foo.mov
   processing_status: 2
@@ -227,10 +209,9 @@ video5:
   type: Video
 
 video6:
-  id: 22
   title: a video that has not completed processing yet
   summary: hey, i am a video! length 2 min 55 sec
-  content_id: 1
+  post: a_birthday
   published_by: foo
   file: foo.mov
   moderation_status: promoted   
@@ -239,10 +220,9 @@ video6:
   type: Video    
   
 hidden_video:
-  id: 23
   title: hidden video
   summary: hey, i am a video! length 2 min 55 sec
-  content_id: 1
+  post: a_birthday
   published_by: foo
   file: foo.mov
   processing_status: 2

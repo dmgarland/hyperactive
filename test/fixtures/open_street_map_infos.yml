@@ -4,4 +4,4 @@ a_birthday_info:
   lat: 1.5
   lng: 1.5
   zoom: 1
-  content_id: 1
+  content: a_birthday

@@ -1,27 +1,24 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 foo_tagging:
-  tag_id: 1
+  tag: foo
   taggable: a_birthday (Content)
   hide_tag: false
   event_date: <%= Date.today %>
   
 bar_tagging:
-  tag_id: 2
+  tag: bar
   taggable: a_birthday (Content)
   hide_tag: false
   event_date: <%= Date.today %>  
 
 hidden_tagging:
-  tag_id: 3
-  taggable_id: 3
-  taggable_type: Event
+  tag: hidden
+  taggable: hidden_event(Event)
   hide_tag: true
   event_date: <%= Date.today %>  
   
 past_tagging:
-  id: 4
-  tag_id: 2
-  taggable_id: 2
-  taggable_type: Event
+  tag: bar
+  taggable: zapatista_uprising (Event)
   hide_tag: false
   event_date: <%= Date.today - 5 %> 

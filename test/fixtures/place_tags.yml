@@ -1,10 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 stockwell:
-  id: 1
   name: stockwell_tag
 london:
-  id: 2
   name: london_tag
 hidden_place_tag:
-  id: 3
   name: hidden_place_tag

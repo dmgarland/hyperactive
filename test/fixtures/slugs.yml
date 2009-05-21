@@ -1,17 +1,12 @@
 indy_slug:
-  id: 1
   name: indymedia-london
-  sluggable_type: Collective
-  sluggable_id: 1
+  sluggable: indy_london (Collective)
   
 other_slug:
   id: 2
   name: mystring
-  sluggable_type: Collective
-  sluggable_id: 2
+  sluggable: two (Collective)
   
 about_the_site_slug:
-  id: 3
   name: about-the-site
-  sluggable_type: Page
-  sluggable_id: 1
+  sluggable: about (Page)

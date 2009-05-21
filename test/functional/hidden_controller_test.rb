@@ -93,13 +93,13 @@ class HiddenControllerTest < Test::Unit::TestCase
   end  
    
   def test_unhiding_controls
-    get :unhiding_controls, {:id => content(:article1).id}, {:rbac_user_id => users(:marcos).id }
+    get :unhiding_controls, {:id => content(:article1).id}, as_user(:marcos)
     assert_response :success
     assert_template 'unhiding_controls'    
   end
   
   def test_comment_unhiding_controls
-    get :comment_unhiding_controls, {:id => comments(:one).id}, {:rbac_user_id => users(:marcos).id }
+    get :comment_unhiding_controls, {:id => comments(:one).id}, as_user(:marcos)
     assert_response :success
     assert_template 'comment_unhiding_controls'    
   end  
@@ -115,7 +115,7 @@ class HiddenControllerTest < Test::Unit::TestCase
   end  
   
   def test_unhide_event
-    post :unhide, {:id => content(:hidden_event).id}, {:rbac_user_id => users(:marcos).id }
+    post :unhide, {:id => content(:hidden_event).id}, as_user(:marcos)
     event = Event.find(content(:hidden_event).id)
     assert_response :success
     assert_equal event.moderation_status, "published", "Unhidden event should not be hidden."
@@ -131,7 +131,7 @@ class HiddenControllerTest < Test::Unit::TestCase
   end
   
   def test_unhide_comment
-    post :unhide_comment, {:id => comments(:one).id}, {:rbac_user_id => users(:marcos).id }
+    post :unhide_comment, {:id => comments(:one).id}, as_user(:marcos)
     comment = comments(:one)
     assert_response :success
     assert_equal comment.moderation_status, "published", "Unhidden comment should not be hidden."
@@ -139,18 +139,18 @@ class HiddenControllerTest < Test::Unit::TestCase
   end  
   
   def test_hide_event_group_controls_without_being_logged_in
-    get :event_group_hiding_controls, {:id => 5}
+    get :event_group_hiding_controls, {:id => content(:london_meeting2).id}
     assert_security_error   
   end
 
   def test_hide_event_group_controls
-    get :event_group_hiding_controls, {:id => 5}, {:rbac_user_id => users(:marcos).id }
+    get :event_group_hiding_controls, {:id => content(:london_meeting2).id}, as_user(:marcos)
     assert_response :success
     assert_template 'event_group_hiding_controls'  
   end
 
   def test_hide_event_group_without_being_logged_in
-    post :hide, {:id => 5, :hide_all_events_in_event_group => true}
+    post :hide, {:id => content(:london_meeting2).id, :hide_all_events_in_event_group => true}
     assert_security_error 
   end
   

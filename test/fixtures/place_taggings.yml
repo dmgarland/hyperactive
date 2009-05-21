@@ -1,21 +1,21 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
-  place_tag_id: 1
+  place_tag: stockwell
   place_taggable: a_birthday (Event)
   hide_tag: false
   event_date: <%= Date.today %>    
 two:
-  place_tag_id: 2
+  place_tag: london
   place_taggable: a_birthday (Event)
   hide_tag: false
   event_date: <%= Date.today %>    
 three:
-  place_tag_id: 3
+  place_tag: hidden_place_tag
   place_taggable: hidden_event (Event)
   hide_tag: true
   event_date: <%= Date.today %>  
 past_tagging:
-  place_tag_id: 2
+  place_tag: london
   place_taggable_id: zapatista_uprising(Event)
   hide_tag: false
   event_date: <%= Date.today - 5 %>   

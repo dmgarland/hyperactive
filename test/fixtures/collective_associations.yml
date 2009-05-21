@@ -8,13 +8,13 @@ upcoming_indy_london_meeting_association:
 zapatista_uprising_associated_with_indy_london:
   collective_associatable: zapatista_uprising
   collective_associatable_type: Content
-  collective_id: indy_london
+  collective: indy_london
   created_on: 2008-08-16 19:29:18
   updated_on: 2008-08-16 19:29:18
 first_article_associated_with_indy_london:
   collective_associatable: article1
   collective_associatable_type: Content
-  collective_id: indy_london
+  collective: indy_london
   created_on: 2008-08-16 19:29:18
   updated_on: 2008-08-16 19:29:18
 a_birthday_associated_with_indy_london:

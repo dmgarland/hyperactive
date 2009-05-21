@@ -1,13 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
-  id: 1
   title: MyString
   key: foo
   body: MyText
   created_on: 2008-07-22 16:35:18
   updated_on: 2008-07-22 16:35:18
 two:
-  id: 2
   title: MyString
   key: bar
   body: MyText

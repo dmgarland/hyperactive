@@ -25,7 +25,7 @@ class ArticlesControllerTest < Test::Unit::TestCase
   end        
 
   def test_admin_controls_by_content_owner_should_return_admin_controls
-    get :admin_controls, {:id => 10}, as_user(:registered_user)
+    get :admin_controls, {:id => content(:article1).id}, as_user(:registered_user)
     assert_response :success
     assert_template '_admin_controls'
   end          

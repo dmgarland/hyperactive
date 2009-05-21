@@ -3,10 +3,6 @@ require 'active_rbac/login_controller'
 
 class ActiveRbac::LoginControllerTest < ActionController::TestCase
 
-fixtures :slugs, :users, :roles, :roles_users, :static_permissions
-fixtures :roles_static_permissions, :collectives, :collective_associations
-fixtures :collective_memberships
-
   tests ActiveRbac::LoginController
 
   def setup

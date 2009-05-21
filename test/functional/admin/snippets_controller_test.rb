@@ -33,23 +33,23 @@ class Admin::SnippetsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_show_snippet
-    get :show, {:id => 1}, as_user(:marcos)
+    get :show, {:id => snippets(:one).id}, as_user(:marcos)
     assert_response :success
   end
 
   def test_should_get_edit
-    get :edit, {:id => 1}, as_user(:marcos)
+    get :edit, {:id => snippets(:one).id}, as_user(:marcos)
     assert_response :success
   end
   
   def test_should_update_snippet
-    put :update, {:id => 1, :snippet => { }}, as_user(:marcos)
+    put :update, {:id => snippets(:one).id, :snippet => { }}, as_user(:marcos)
     assert_redirected_to admin_snippet_path(assigns(:snippet))
   end
   
   def test_should_destroy_snippet
     old_count = Snippet.count
-    delete :destroy, {:id => 1}, as_user(:marcos)
+    delete :destroy, {:id => snippets(:one).id}, as_user(:marcos)
     assert_equal old_count-1, Snippet.count
     
     assert_redirected_to admin_snippets_path

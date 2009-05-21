@@ -11,6 +11,7 @@ class Admin::PagesControllerTest < Test::Unit::TestCase
     @controller = Admin::PagesController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    @id = pages(:about).id
   end
 
   def test_index
@@ -23,7 +24,7 @@ class Admin::PagesControllerTest < Test::Unit::TestCase
 
 
   def test_show
-    get :show, {:id => 1}, as_user(:marcos)
+    get :show, {:id => @id}, as_user(:marcos)
 
     assert_response :success
     assert_template 'show'
@@ -53,7 +54,7 @@ class Admin::PagesControllerTest < Test::Unit::TestCase
   end
 
   def test_edit
-    get :edit, {:id => 1}, as_user(:marcos)
+    get :edit, {:id => @id}, as_user(:marcos)
 
     assert_response :success
     assert_template 'edit'
@@ -63,20 +64,20 @@ class Admin::PagesControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, {:id => 1}, as_user(:marcos)
+    post :update, {:id => @id}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to admin_page_path(assigns(:page))
   end
 
   def test_destroy
-    assert_not_nil Page.find(1)
+    assert_not_nil Page.find(@id)
 
-    post :destroy, {:id => 1}, as_user(:marcos)
+    post :destroy, {:id => @id}, as_user(:marcos)
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      Page.find(1)
+      Page.find(@id)
     }
   end
 end

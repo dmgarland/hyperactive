@@ -1,12 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 foo:
-  id: 1
   name: foo_tag
   
 bar:
-  id: 2
   name: bar_tag
 
 hidden: 
-  id: 3
   name: a_hidden_tag

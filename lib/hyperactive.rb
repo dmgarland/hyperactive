@@ -5,8 +5,8 @@
 # Hyperactive.site_name = "foo" 
 #
 #
-# This configuration options attempt to provide a sane default which can be overridden in 
-# config/initializers/hyperactive.rb.
+# This configuration options attempt to provide a sane default which can be 
+# overridden in config/initializers/hyperactive.rb.
 #
 module Hyperactive
 
@@ -56,7 +56,8 @@ module Hyperactive
   @@content_moderation_statuses = %w(published promoted hidden featured)
   mattr_accessor :content_moderation_statuses
   
-  # What elements should be allowed when pasting into a TinyMCE editor box in the site?
+  # What elements should be allowed when pasting into a TinyMCE editor box in 
+  # the site?
   #
   @@valid_elements_for_tiny_mce = "a[href|alt|title],strong/b,em,i,p,code,tt,br,ul,ol,li,blockquote,strike"
   mattr_accessor :valid_elements_for_tiny_mce
@@ -68,13 +69,14 @@ module Hyperactive
   # 
   mattr_accessor :home_page_feed
   
-  # Where is rake on this system?  Usually it's at /usr/bin/rake, but on some systems
-  # it may be at a different place.
+  # Where is rake on this system?  Usually it's at /usr/bin/rake, but on some 
+  # systems it may be at a different place.
   #
   @@rake_path = "/usr/bin/rake"
   mattr_accessor :rake_path
   
-  # Should the irc bot for this site be activated when the job scheduler starts?
+  # Should the irc bot for this site be activated when the job scheduler 
+  # starts?
   #
   @@activate_bot = false
   mattr_accessor :activate_bot  
@@ -99,7 +101,9 @@ module Hyperactive
   @@site_url = "http://foo.org"
   mattr_accessor :site_url
 
-	# What port should the irc bot connect to?
+	# What port should the irc bot connect to? Note: default irc port for most
+	# servers is 6667, but Indymedia's SSL encrypted port is 6697 so that's 
+	# the default here.
 	#
 	@@irc_port = "6697"
 	mattr_accessor :irc_port

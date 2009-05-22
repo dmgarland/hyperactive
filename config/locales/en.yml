@@ -452,6 +452,7 @@ en:
   
   # Security messages
   security:
+    login_necessary: You need to log in to do that.
     permissions_error: You are not allowed to access this page.
     please_type_anti_spam_message: You need to type the text from the image into the box so we know you're not a spambot.
   

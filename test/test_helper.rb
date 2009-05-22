@@ -60,6 +60,11 @@ class Test::Unit::TestCase
     assert_redirected_to root_path
     assert_equal I18n.t('security.permissions_error'), flash[:error]
   end
+  
+  def assert_login_necessary
+    assert_redirected_to login_path
+    assert_equal I18n.t('security.login_necessary'), flash[:error]
+  end  
    
   def as_user(fixture_name)
     {:rbac_user_id => users(fixture_name).id}

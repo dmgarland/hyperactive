@@ -213,7 +213,7 @@ module ContentControllerTest
   
   def test_edit_does_not_work_for_anonymous
     get :edit, :id => @first_id
-    assert_security_error
+    assert_login_necessary
   end
   
   def test_edit_works_for_content_owner
@@ -238,7 +238,7 @@ module ContentControllerTest
 
   def test_update_does_not_work_for_anonymous
     put :update, {:id => @first_id, :title => "Updated title"}
-    assert_security_error
+    assert_login_necessary
   end
   
   def test_update_works_for_content_owner

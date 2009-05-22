@@ -46,12 +46,12 @@ class HiddenControllerTest < Test::Unit::TestCase
   
   def test_hide_content_without_being_logged_in
     post :hide, :id => content(:a_birthday).id
-    assert_security_error
+    assert_login_necessary
   end  
   
   def test_hide_comment_without_being_logged_in
     post :hide_comment, :id => comments(:one).id
-    assert_security_error
+    assert_login_necessary
   end    
   
   def test_hide_content
@@ -106,12 +106,12 @@ class HiddenControllerTest < Test::Unit::TestCase
 
   def test_unhide_event_without_being_logged_in
     post :unhide, {:id => content(:a_birthday).id}
-    assert_security_error
+    assert_login_necessary
   end
   
   def test_unhide_comment_without_being_logged_in
     post :unhide_comment, {:id => comments(:one).id}
-    assert_security_error
+    assert_login_necessary
   end  
   
   def test_unhide_event
@@ -140,7 +140,7 @@ class HiddenControllerTest < Test::Unit::TestCase
   
   def test_hide_event_group_controls_without_being_logged_in
     get :event_group_hiding_controls, {:id => content(:london_meeting2).id}
-    assert_security_error   
+    assert_login_necessary  
   end
 
   def test_hide_event_group_controls
@@ -151,7 +151,7 @@ class HiddenControllerTest < Test::Unit::TestCase
 
   def test_hide_event_group_without_being_logged_in
     post :hide, {:id => content(:london_meeting2).id, :hide_all_events_in_event_group => true}
-    assert_security_error 
+    assert_login_necessary
   end
   
   def test_hide_event_group

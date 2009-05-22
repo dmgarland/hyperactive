@@ -1,7 +1,11 @@
-# This is the superclass for all controllers in this application.  All 
+# This is the superclass for all controllers in this application.  All
 # controllers have access to any public or protected method in here.
 #
 class ApplicationController < ActionController::Base
+
+  # Filter parameter logging so we don't log people's passwords
+  #
+  filter_parameter_logging :password
 
   # TODO: enable this.
   #
@@ -11,10 +15,10 @@ class ApplicationController < ActionController::Base
   include CacheableUserInfo
   before_filter :write_user_info
 
-  # Writes the user info (from the session) into a cookie so that it can be 
-  # picked up by the javascript and written into the page - i.e. 
-  # "You are currently logged in as *foo*. This allows us to use full-page 
-  # caching but still customize the page a bit for the user, so we can serve 
+  # Writes the user info (from the session) into a cookie so that it can be
+  # picked up by the javascript and written into the page - i.e.
+  # "You are currently logged in as *foo*. This allows us to use full-page
+  # caching but still customize the page a bit for the user, so we can serve
   # static HTML pages directly from Apache without hitting Rails at all.
   #
   def write_user_info
@@ -22,15 +26,15 @@ class ApplicationController < ActionController::Base
   end
 
 
-  # Because we're deployed on mod_rails and also have mod_removeip installed 
-  # on the server, Rails thinks that all requests are local (since mod_rails 
+  # Because we're deployed on mod_rails and also have mod_removeip installed
+  # on the server, Rails thinks that all requests are local (since mod_rails
   # is getting its request from 127.0.0.1 and there is no remote_ip.
-  # This means our normal configuration setup for a production Rails app 
-  # doesn't quite work and we're *always* showing stack traces on errors.  
+  # This means our normal configuration setup for a production Rails app
+  # doesn't quite work and we're *always* showing stack traces on errors.
   # This snippet of code fixes it.
   #
-  # See 
-  # http://thebalance.metautonomo.us/2008/05/30/the-local_request-that-isnt/ 
+  # See
+  # http://thebalance.metautonomo.us/2008/05/30/the-local_request-that-isnt/
   # for a longer explanation.
   #
   def local_request?
@@ -59,12 +63,12 @@ class ApplicationController < ActionController::Base
   #
   include ExceptionNotifiable unless RAILS_ENV == 'test'
 
-  # Include the CacheableFlash plugin. This stores the flash[:notice] and other 
-  # Rails flash messages in a cookie, inserting them into the page with 
-  # javascript when the request completes.  This way we solve a few problems:  
-  # we can still get flash[:messages] on cached pages, and we won't get the 
-  # flash[:message] written into the page when the page caches upon creation 
-  # - currently we are getting for example "Article was successfully created" 
+  # Include the CacheableFlash plugin. This stores the flash[:notice] and other
+  # Rails flash messages in a cookie, inserting them into the page with
+  # javascript when the request completes.  This way we solve a few problems:
+  # we can still get flash[:messages] on cached pages, and we won't get the
+  # flash[:message] written into the page when the page caches upon creation
+  # - currently we are getting for example "Article was successfully created"
   # message stuck into the cached page, which this should fix.
   #
   include CacheableFlash unless RAILS_ENV == 'test'
@@ -74,29 +78,29 @@ class ApplicationController < ActionController::Base
   #
   before_filter :instantiate_controller_and_action_names
 
-  # Include the SSL requirement plugin and allow any action to be accessed as 
+  # Include the SSL requirement plugin and allow any action to be accessed as
   # SSL.
   #
   include SslRequirement
   ssl_allowed :all
 
-  # Turn off the SSL requirement when not in production mode, so we can 
+  # Turn off the SSL requirement when not in production mode, so we can
   # continue to develop and test using Mongrel or Webrick or whatever.
   #
   alias :original_ssl_required? :ssl_required?
   def ssl_required?
-    Hyperactive.use_ssl && original_ssl_required? && 
+    Hyperactive.use_ssl && original_ssl_required? &&
     (RAILS_ENV == "production" || RAILS_ENV == "staging")
   end
 
-  # The default number of content objects that get retrieved for display on 
+  # The default number of content objects that get retrieved for display on
   # list pages.
   #
   def objects_per_page
     10
   end
 
-  # The default number of content objects that get retrieved for display in 
+  # The default number of content objects that get retrieved for display in
   # feeds.
   #
   def events_per_feed
@@ -125,15 +129,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # What do we do if someone tries to access something they're not supposed 
+  # What do we do if someone tries to access something they're not supposed
   # to see?
   #
   def security_error
-    redirect_to root_path
-    flash[:error] = I18n.t('security.permissions_error')
+    if current_user.is_anonymous?
+      store_uri_in_session
+      redirect_to login_path
+      flash[:error] = I18n.t('security.login_necessary')
+    else
+      redirect_to root_path
+      flash[:error] = I18n.t('security.permissions_error')
+    end
   end
 
-  # Grabs the controller and action names so we always have those available 
+  # Grabs the controller and action names so we always have those available
   # during the lifespan of a request.
   #
   def instantiate_controller_and_action_names
@@ -146,9 +156,15 @@ class ApplicationController < ActionController::Base
       MiddleMan.get_worker(:irc_bot).notify_irc_channel(message)
     rescue
       # we could do something here if we really wanted to ensure everbody ran
-      # an irc bot all the time, but there's probably very little point in 
+      # an irc bot all the time, but there's probably very little point in
       # doing so.
     end
+  end
+
+  # Store the URI of the current request in the session.
+  #
+  def store_uri_in_session
+    session[:return_to] = request.request_uri unless !session[:return_to].nil?
   end
 
 end

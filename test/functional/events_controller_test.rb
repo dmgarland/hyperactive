@@ -79,7 +79,7 @@ class EventsControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:content).to_a.length > 0    
   end
 
-    # There should be two fixtures in the month 2006-2.
+  # There should be two fixtures in the month 2006-2.
   def test_list_by_month_with_date
     get :list_by_month, :date => "2006-2-23"
     assert_response :success
@@ -189,7 +189,7 @@ class EventsControllerTest < Test::Unit::TestCase
 
   def test_edit_without_being_logged_in
     get :edit, :id => @first_id
-    assert_security_error
+    assert_login_necessary
   end
 
   def test_edit
@@ -239,7 +239,7 @@ class EventsControllerTest < Test::Unit::TestCase
 
   def test_update_as_anonymous_fails
     post :update, event_stub(content(:a_birthday).id)
-    assert_security_error
+    assert_login_necessary
   end
 
   def test_destroy
@@ -270,7 +270,7 @@ class EventsControllerTest < Test::Unit::TestCase
     assert_not_nil(e) 
     
     post :destroy, {:id => content(:a_birthday).id}
-    assert_security_error
+    assert_login_necessary
     
     e2 = Event.find(content(:a_birthday).id)
     assert_equal(e, e2) 

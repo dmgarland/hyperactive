@@ -169,15 +169,18 @@ class ContentController < ApplicationController
     @open_street_map_info = @content.open_street_map_info
   end
 
-  # Updates the content.  Note that we set the collective ids to an empty array, if the form sent
-  # any collective ids then they'll be updated in the update_attributes line;  if not, we assume that
-  # the user wants the content in no collectives.  This is a somewhat dangerous action and shouldn't
-  # be called from anywhere that doesn't have the grouping controls enabled - it'll reset the 
-  # collectives that the content is in unless it gets params[:content][:collective_ids]
+  # Updates the content.  Note that we set the collective ids to an empty 
+  # array, if the form sent any collective ids then they'll be updated in the
+  # update_attributes line;  if not, we assume that the user wants the content 
+  # in no collectives.  This is a somewhat dangerous action and shouldn't
+  # be called from anywhere that doesn't have the grouping controls enabled - 
+  # it'll reset the collectives that the content is in unless it gets 
+  # params[:content][:collective_ids]
   #
   # Note that all of the "initialize_xxx" stuff halfway
-  # through this method refers to the sub_list plugin, which provides multiple-upload
-  # capabilities for us. See that plugin's documentation to learn more.
+  # through this method refers to the sub_list plugin, which provides 
+  # multiple-upload capabilities for us. See that plugin's documentation to 
+  # learn more.
   #
   def update
     @content = model_class.find(params[:id])

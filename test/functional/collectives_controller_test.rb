@@ -44,7 +44,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
     old_count = Collective.count
     post :create, {:collective => {:name => "ezln", :summary => "foo" }}
     assert_equal old_count, Collective.count
-    assert_security_error
+    assert_login_necessary
   end
 
   def test_should_show_collective
@@ -60,7 +60,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
 
   def test_anonymous_user_cannot_edit
     get :edit, :id => collectives(:indy_london).id
-    assert_security_error
+    assert_login_necessary
   end
 
   def test_should_update_collective
@@ -72,7 +72,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
     collective = collectives(:indy_london)
     put :update, :id => collectives(:indy_london).id, :collective => {:name => "foo foo foo" }
     assert_equal collective.name, collectives(:indy_london).name
-    assert_security_error
+    assert_login_necessary
   end
 
   def test_should_destroy_collective
@@ -88,7 +88,7 @@ class CollectivesControllerTest < Test::Unit::TestCase
     delete :destroy, {:id => collectives(:indy_london).id}
     assert_equal old_count, Collective.count
 
-    assert_security_error
+    assert_login_necessary
   end
 
   def test_admin_user_can_edit
@@ -124,13 +124,13 @@ class CollectivesControllerTest < Test::Unit::TestCase
 
   def test_edit_memberships_security_for_anonymous
     get :edit_memberships, {:id => collectives(:indy_london).id}
-    assert_security_error
+    assert_login_necessary
   end
 
 
   def test_edit_memberships_security_for_anonymous
     get :edit_memberships, {:id => collectives(:indy_london).id}
-    assert_security_error
+    assert_login_necessary
   end
 
   def test_edit_memberships_security_for_non_member

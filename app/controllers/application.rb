@@ -85,7 +85,8 @@ class ApplicationController < ActionController::Base
   #
   alias :original_ssl_required? :ssl_required?
   def ssl_required?
-    Hyperactive.use_ssl && original_ssl_required? && (RAILS_ENV == "production" || RAILS_ENV == "staging")
+    Hyperactive.use_ssl && original_ssl_required? && 
+    (RAILS_ENV == "production" || RAILS_ENV == "staging")
   end
 
   # The default number of content objects that get retrieved for display on 

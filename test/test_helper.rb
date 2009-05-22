@@ -47,20 +47,32 @@ class Test::Unit::TestCase
       value.each { |v| assert_valid_value model_class, attribute, v }
     else
       record = model_class.new(attribute => value)
-      # HACK: this allows the Events to bypass their validate_more_than_two_hours_from_now method
+      # HACK: this allows the Events to bypass their 
+      # validate_more_than_two_hours_from_now method
       record.date = 1.day.from_now if model_class == Event     
-      # HACK: this allows ExternalFeeds to bypass the Collective validations so we can test attributes in isolation
+      # HACK: this allows ExternalFeeds to bypass the Collective validations 
+      # so we can test attributes in isolation
       record.collective_id = 1 if model_class == ExternalFeed
       record.valid? #assert record.valid?, "#{model_class} expected to be valid when #{attribute} is #{value}"
       assert_equal record.errors.invalid?(attribute), false, "#{attribute} expected to be valid when set to #{value}"
     end
   end 
   
+  # Asserts that a (usually) logged-in user attempted to do something which 
+  # they didnt' have permission to do and got kicked out to the front page
+  # of the site.
+  #
   def assert_security_error
     assert_redirected_to root_path
     assert_equal I18n.t('security.permissions_error'), flash[:error]
   end
   
+  # This asserts that an anonymous user attempted to do something for which 
+  # they don't have permission - in this case the standard security code will 
+  # store the URI which the user tried to access and temporarily redirect them 
+  # to the login page - they will be redirected to the original URI after login 
+  # if they have permission.  
+  #
   def assert_login_necessary
     assert_redirected_to login_path
     assert_equal I18n.t('security.login_necessary'), flash[:error]

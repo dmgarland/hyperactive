@@ -13,36 +13,12 @@ require 'capistrano/ext/multistage'
 # form the root of the application path.
 
 set :application, "hyperactive"
-set :repository, "svn://escapegoat.org/hyperactive/trunk"
+set :repository, "git://git.escapegoat.org/hyperactive.git"
 set(:rails_env) { "#{stage}" }
-
-# =============================================================================
-# ROLES
-# =============================================================================
-# You can define any number of roles, each of which contains any number of
-# machines. Roles might include such things as :web, or :app, or :db, defining
-# what the purpose of each machine is. You can also specify options that can
-# be used to single out a specific subset of boxes in a particular role, like
-# :primary => true.
-
-# roles are now found in the deployment files for each environment, 
-# i.e. config/deploy/production.rb and config/deploy/staging.rb
-#
-#role :web, "london.escapegoat.org"
-#role :app, "london.escapegoat.org"
-#role :db,  "london.escapegoat.org", :primary => true
-
-
-# =============================================================================
-# OPTIONAL VARIABLES
-# =============================================================================
 set :user, "yossarian"            # defaults to the currently logged in user
 set :keep_releases, 2            # number of deployed releases to keep
-# set :scm, :darcs               # defaults to :subversion
-# set :svn, "/path/to/svn"       # defaults to searching the PATH
-# set :darcs, "/path/to/darcs"   # defaults to searching the PATH
-# set :cvs, "/path/to/cvs"       # defaults to searching the PATH
-# set :gateway, "gate.host.com"  # default to no gateway
+set :scm, :git               # defaults to :subversion
+set :deploy_via, :remote_cache
 
 # =============================================================================
 # SSH OPTIONS
@@ -167,8 +143,9 @@ namespace :deploy do
       update_code
       deploy.web:disable
       symlink
-      chown_to_www_data  
+      chown_to_yossarian 
       migrate
+      chown_to_www_data
     end
     restart
     backgroundrb.start
@@ -176,9 +153,14 @@ namespace :deploy do
     cleanup
   end
   
+  desc "Change group to yossarian so perms on the server actually work"
+  task :chown_to_yossarian, :roles => [ :app, :db, :web ] do
+          sudo "chown -R yossarian:yossarian #{current_path}/*"
+  end 
+  
   desc "Change group to www-data"
   task :chown_to_www_data, :roles => [ :app, :db, :web ] do
-          sudo "chown -R www-data:yossarian #{current_path}/*"
-  end 
+          sudo "chown -R  www-data:www-data #{current_path}/*"
+  end   
 
 end

@@ -471,6 +471,7 @@ en:
       admin_controls: 
         report_or_administer: Edit or administer this {{class_name}}
         unhide_this: Unhide this {{class_name}}
+      admin_note: Admin note
       comments:
         add_a_comment: Add a comment
         allow_comments: Allow comments

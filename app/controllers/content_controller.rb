@@ -312,12 +312,12 @@ class ContentController < ApplicationController
   
   # Tricky.  Checks through the incoming params[:video] hash, selects an array
   # of :ids for uploaded video objects which contain a file, and then selects
-  # objects from the @content.videos array which correspond to those :ids, or which 
-  # have a processing_status of nil (meaning they are new).
+  # objects from the @content.videos array which correspond to those :ids, or
+  # which have a processing_status of nil (meaning they are new).
   #
-  # Note that this is all necessary because we actually have two arrays, one of which
-  # is the incoming params[:video].values from the form, and the other of which consists
-  # of video objects attached to the @content.
+  # Note that this is all necessary because we actually have two arrays, one of
+  # which is the incoming params[:video].values from the form, and the other of
+  # which consists of video objects attached to the @content.
   #
   def find_videos_needing_conversion
     uploaded_videos = params[:video].to_a

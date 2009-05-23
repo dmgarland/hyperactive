@@ -25,6 +25,16 @@ CREATE TABLE `admin_filters` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `admin_notes` (
+  `id` int(11) NOT NULL auto_increment,
+  `body` text,
+  `notable_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `notable_type` varchar(10) NOT NULL default 'Content',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
@@ -111,6 +121,7 @@ CREATE TABLE `content` (
   `stick_at_top` tinyint(1) default NULL,
   `collective_id` int(11) default NULL,
   `auto_moderation_checked` tinyint(1) default '0',
+  `admin_note` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `fk_event_event_group` (`event_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -464,6 +475,14 @@ INSERT INTO schema_migrations (version) VALUES ('20090415155748');
 INSERT INTO schema_migrations (version) VALUES ('20090415165733');
 
 INSERT INTO schema_migrations (version) VALUES ('20090415171824');
+
+INSERT INTO schema_migrations (version) VALUES ('20090522215700');
+
+INSERT INTO schema_migrations (version) VALUES ('20090522231734');
+
+INSERT INTO schema_migrations (version) VALUES ('20090522232811');
+
+INSERT INTO schema_migrations (version) VALUES ('20090523073847');
 
 INSERT INTO schema_migrations (version) VALUES ('3');
 

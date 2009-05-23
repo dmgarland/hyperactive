@@ -9,6 +9,7 @@ class Content < ActiveRecord::Base
   # Filters
   #
   before_create :set_moderation_status_to_published
+  before_create :stick_user_login_into_admin_note
 
   # Macros
   #
@@ -127,6 +128,11 @@ class Content < ActiveRecord::Base
     end
   end
   
+  def append_admin_note(message)
+    self.admin_note = self.admin_note + "\n#{message}<br/>"
+  end
+    
+  
   protected
   
   # Sets the moderation_status to published unless it's already been set, 
@@ -136,6 +142,18 @@ class Content < ActiveRecord::Base
     if self.moderation_status.blank?
       self.moderation_status = "published" 
     end
+  end
+  
+  # Log who created the content in the admin_note.
+  #
+  def stick_user_login_into_admin_note
+    user_login = ""
+    if self.user.nil?
+      user_login = "AnonymousUser"
+    else
+      user_login = self.user.login
+    end
+    self.admin_note = "Created by: #{user_login}.<br/>"
   end
     
 end

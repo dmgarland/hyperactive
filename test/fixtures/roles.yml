@@ -1,6 +1,6 @@
 admin:
   title: Admin
-  static_permissions: [hide, edit_all_content, see_admin_nav, destroy, feature_content, promote_content, edit_all_groups]
+  static_permissions: [hide, edit_all_content, see_admin_nav, destroy, feature_content, promote_content, edit_all_groups, see_admin_note]
 
 anonymous:
   title: Anonymous

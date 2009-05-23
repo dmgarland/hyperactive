@@ -27,3 +27,6 @@ edit_all_groups:
   
 auto_promote_content:
   title: auto_promote_content
+
+see_admin_note:
+  title: see_admin_note

@@ -3,6 +3,10 @@
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 <%= render :partial => 'articles/stick_at_top_controls', :locals => {:f => f} %>
 
+<% if current_user.has_permission?("see_admin_note") %>
+  <p><strong><%= I18n.t('shared.content.admin_note')%></strong><br/>
+  <%= f.text_area 'admin_note', :cols=>80, :rows=>10 %></p>
+<% end %>
 
 <p><em>*</em> = <%= I18n.t 'content.form.required_field' %></p>
 <p><label for="content_title"><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('content.class_names.article').downcase %><em>*</em></label><br/>

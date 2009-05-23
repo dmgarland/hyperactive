@@ -163,4 +163,9 @@ class HiddenControllerTest < Test::Unit::TestCase
     end
   end
   
+  def test_report
+    post :report, {:id => content(:a_birthday).id}
+    assert_response :success
+  end
+  
 end

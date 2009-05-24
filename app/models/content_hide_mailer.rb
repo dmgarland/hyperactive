@@ -17,7 +17,7 @@ class ContentHideMailer < ActionMailer::Base
   #
   def promote(content,reasons, user)
     setup_email
-    @subject    = 'Content Hidden'
+    @subject    = 'Content Promoted'
     @body      = {:content => content, :reasons => reasons, :user => get_user_login(user)}
   end  
 

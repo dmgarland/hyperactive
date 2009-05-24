@@ -28,7 +28,7 @@ class ContentHideMailerTest < Test::Unit::TestCase
     assert_equal response.subject, "Content Hidden"
     assert_match(/"The Birthday"/, response.body)
     assert_match(/marcos/, response.body)
-    assert_match(/1/, response.body)
+    assert_match(/#{@content.id}/, response.body)
   end
 
   def test_report
@@ -36,7 +36,7 @@ class ContentHideMailerTest < Test::Unit::TestCase
     assert_equal response.subject, "Problem reported with content"
     assert_match(/"The Birthday"/, response.body)
     assert_match(/marcos/, response.body)
-    assert_match(/1/, response.body)
+    assert_match(/#{@content.id}/, response.body)
   end
 
 
@@ -45,7 +45,7 @@ class ContentHideMailerTest < Test::Unit::TestCase
     assert_equal response.subject, "Content Unhidden"
     assert_match(/"The Birthday"/, response.body)
     assert_match(/marcos/, response.body)
-    assert_match(/1/, response.body)
+    assert_match(/#{@content.id}/, response.body)
   end
 
   private

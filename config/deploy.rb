@@ -140,17 +140,17 @@ namespace :deploy do
   task :long_deploy do
     backgroundrb.stop
     transaction do
+      chown_to_yossarian
       update_code
       deploy.web:disable
       symlink
-      chown_to_yossarian 
       migrate
-      chown_to_www_data
     end
     restart
     backgroundrb.start
     deploy.web:enable
     cleanup
+    chown_to_www_data
   end
   
   desc "Change group to yossarian so perms on the server actually work"

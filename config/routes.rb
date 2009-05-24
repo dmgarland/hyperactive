@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-
+  map.admin '/admin', :controller => 'admin/main', :action => 'index' 
   map.namespace(:admin) do |admin|
     admin.resources :quotes
     admin.resources :settings

@@ -14,9 +14,11 @@ class ActiveRecord::Base
   #
   def tag_with tags
     delete_all_tags
-    tags.split(" ").each do |tag|
-      Tag.find_or_create_by_name(tag.downcase.gsub(",","")).taggables << self
-    end
+    unless tags.nil?
+      tags.split(" ").each do |tag|
+        Tag.find_or_create_by_name(tag.downcase.gsub(",","")).taggables << self
+      end
+    end   
   end
 
   # list Tags for a model object.
@@ -40,9 +42,11 @@ class ActiveRecord::Base
   #
   def place_tag_with place_tags
     delete_all_place_tags
-    place_tags.split(" ").each do |tag|
-      PlaceTag.find_or_create_by_name(tag.downcase.gsub(",","")).place_taggables << self
-    end  
+    unless place_tags.nil?
+      place_tags.split(" ").each do |tag|
+        PlaceTag.find_or_create_by_name(tag.downcase.gsub(",","")).place_taggables << self
+      end
+    end
   end
   
   # List PlaceTags for a model object.

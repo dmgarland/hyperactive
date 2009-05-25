@@ -22,6 +22,8 @@ class HomeController < ApplicationController
     setup_featured_articles   
     @promoted_articles = Article.promoted.all(:limit => objects_per_page, :order => "created_on DESC")    
     @published_articles = Article.published.all(:limit => objects_per_page, :order => "created_on DESC")
+    @featured_other_media = OtherMedia.featured.all(:limit => 4, :order => "created_on DESC")
+    @promoted_other_media = OtherMedia.promoted.all(:limit => 4, :order => "created_on DESC")
 
     @pages = Page.show_on_front
     setup_action_alert

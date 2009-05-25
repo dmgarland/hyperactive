@@ -10,7 +10,7 @@
 
 <p><em>*</em> = <%= I18n.t 'content.form.required_field' %></p>
 <p><label for="content_title"><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('content.class_names.article').downcase %><em>*</em></label><br/>
-<%= f.text_field 'title'  %></p>
+<%= f.text_field 'title', {:maxlength => 50} %></p>
 
 <p><label for="content_published_by"><%= I18n.t 'content.form.your_name' %>:<em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>

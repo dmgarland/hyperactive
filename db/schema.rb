@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(:version => 20090523084920) do
     t.datetime "updated_at"
   end
 
-  create_table "admin_notes", :force => true do |t|
-    t.text     "body"
-    t.integer  "notable_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "notable_type", :limit => 10, :default => "Content", :null => false
-  end
-
   create_table "categories", :force => true do |t|
     t.string   "name",        :default => "",    :null => false
     t.text     "description",                    :null => false

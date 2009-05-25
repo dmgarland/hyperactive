@@ -1,0 +1,10 @@
+<h1><%= I18n.t 'other_media.new.title' %></h1>
+
+<% form_for(:content, :url => other_medias_path, :html => {:multipart => true}) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <%= render(:partial => 'shared/captcha') %>
+  <%= submit_tag I18n.t('general.create') %>
+  <span class='warning' style="display: none;"><img src='../images/icons/error.png'/><span> <%= I18n.t 'javascript.validation.required_fields_missing' %></span></span>
+<% end %>
+
+

@@ -1,0 +1,8 @@
+<%= render :partial => "top_nav" %>
+<h1><%= I18n.t 'other_media.list_promoted.title' %></h1>
+<%= render(:partial => "shared/content/list_summary", :collection => @content) %>
+<%= page_links(@content) %>
+<%= link_to(I18n.t('archive.promoted_other_media_this_month'), archive_this_month_promoted_path) %>
+<% content_for :sidebar do %>
+	<%= render :partial => "other_medias/sidebar/feedbox" %>
+<% end %>

@@ -1,12 +1,5 @@
 <%= error_messages_for :content %>
 
-<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
-
-<% if current_user.has_permission?("see_admin_note") %>
-  <p><strong><%= I18n.t('shared.content.admin_note')%></strong><br/>
-  <%= f.text_area 'admin_note', :cols=>80, :rows=>10 %></p>
-<% end %>
-
 <p><em>*</em> = <%= I18n.t 'content.form.required_field' %></p>
 <p><label for="content_title"><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('other_media.index.title').downcase %><em>*</em></label> - <%= I18n.t('other_media.form.title_instructions')%><br/>
 <%= f.text_field 'title', {:maxlength => 50} %></p>
@@ -20,3 +13,5 @@
 
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 <%= render :partial => "shared/content/grouping_controls" %>
+
+<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>

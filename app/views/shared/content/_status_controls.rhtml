@@ -3,3 +3,7 @@
     	<%= f.select 'moderation_status', Hyperactive.content_moderation_statuses %>
 	</p>
 <% end %>
+<% if current_user.has_permission?("see_admin_note") %>
+  <p><strong><%= I18n.t('shared.content.admin_note')%></strong><br/>
+  <%= f.text_area 'admin_note', :cols=>80, :rows=>10 %></p>
+<% end %>

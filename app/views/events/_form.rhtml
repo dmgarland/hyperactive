@@ -1,7 +1,5 @@
 <%= error_messages_for :content %>
 
-<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
-
 <!--[form:event]-->
 <p><em>*</em> = <%= I18n.t("content.form.required_field") %></p>
 <p><label for="content_title"><%= I18n.t("content.form.title") %> <%= I18n.t 'general.of_your' %> <%= I18n.t('content.class_names.event').downcase %><em>*</em></label><br/>
@@ -67,5 +65,6 @@
 <%= render :partial => "shared/content/grouping_controls" %>
 <%= render :partial => "shared/content/maps/open_street_map_edit_controls" %>
 
+<%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
 
 <!--[eoform:event]-->

@@ -492,7 +492,8 @@ en:
       explanation: Until automated systems acheive a higher level of self-awareness and responsibility, we need you to prove your humanity by taking a little test that spambots are too stupid to pass.
       no_robots: No robots!
     content:
-      admin_controls: 
+      admin_controls:
+        title: Admin controls
         report_or_administer: Edit or administer this {{class_name}}
         unhide_this: Unhide this {{class_name}}
       admin_note: Admin note

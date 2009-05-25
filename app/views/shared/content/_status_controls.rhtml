@@ -1,4 +1,5 @@
 <% if current_user.has_role?("Admin")  %>
+    <h1><%= I18n.t("shared.content.admin_controls.title") %></h1>
     <p><label for="content_moderation_status"><%= I18n.t 'general.moderation_status' %></label><br/>
     	<%= f.select 'moderation_status', Hyperactive.content_moderation_statuses %>
 	</p>

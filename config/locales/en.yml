@@ -442,6 +442,8 @@ en:
   other_media: 
     edit:
       title: Editing other media
+    form:
+      title_instructions: "Include where the link is from, so your title should look like<br/><strong>Libcom.org: Title title title title</strong> or <strong>BBC: Title title title title</strong>."
     index:
       explanation: A list of links to items of interest on other sites.
       title: Other media

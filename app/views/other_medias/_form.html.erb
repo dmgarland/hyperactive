@@ -8,7 +8,7 @@
 <% end %>
 
 <p><em>*</em> = <%= I18n.t 'content.form.required_field' %></p>
-<p><label for="content_title"><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('other_media.index.title').downcase %><em>*</em></label><br/>
+<p><label for="content_title"><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('other_media.index.title').downcase %><em>*</em></label> - <%= I18n.t('other_media.form.title_instructions')%><br/>
 <%= f.text_field 'title', {:maxlength => 50} %></p>
 
 <p><label for="content_published_by"><%= I18n.t 'content.form.your_name' %>:<em>*</em></label><br/>

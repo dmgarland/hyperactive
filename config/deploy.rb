@@ -140,7 +140,7 @@ namespace :deploy do
   task :long_deploy do
     backgroundrb.stop
     transaction do
-      chown_to_yossarian
+      chown_current_to_deployment_user
       update_code
       deploy.web:disable
       symlink
@@ -153,14 +153,19 @@ namespace :deploy do
     chown_to_www_data
   end
   
-  desc "Change group to yossarian so perms on the server actually work"
-  task :chown_to_yossarian, :roles => [ :app, :db, :web ] do
-          sudo "chown -R yossarian:yossarian #{current_path}/*"
+  desc "Change group to deployment user so perms on the server actually work"
+  task :chown_current_to_deployment_user, :roles => [ :app, :db, :web ] do
+    sudo "chown -R #{user}:#{user} #{current_path}/*"
   end 
+  
+  desc "Change group to deployment user so perms on the server actually work"
+  task :chown_current_to_deployment_user, :roles => [ :app, :db, :web ] do
+    sudo "chown -R #{user}:#{user} #{current_path}/*"
+  end   
   
   desc "Change group to www-data"
   task :chown_to_www_data, :roles => [ :app, :db, :web ] do
-          sudo "chown -R  www-data:www-data #{current_path}/*"
+    sudo "chown -R  www-data:www-data #{current_path}/*"
   end   
 
 end

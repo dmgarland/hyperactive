@@ -229,3 +229,81 @@ hidden_video:
   moderation_status: hidden
   created_on: 2006-5-23  
   type: Video  
+  
+othermedia1:
+  title: Other media
+  body: This is a link to some other media on the web.
+  summary: Foo foo foo
+  published_by: yoss
+  moderation_status: published
+  user: registered_user
+  created_on: 2006-2-23
+  type: OtherMedia 
+  collective: indy_london
+  
+othermedia2:
+  title: Other media
+  body: This is a link to some other media on the web.
+  summary: Foo foo foo
+  published_by: yoss
+  moderation_status: published
+  user: registered_user
+  created_on: 2006-2-23
+  type: OtherMedia 
+  collective: indy_london
+
+othermedia3:
+  title: Other media
+  body: This is a link to some other media on the web.
+  summary: Foo foo foo
+  published_by: yoss
+  moderation_status: published
+  user: registered_user
+  created_on: 2006-2-23
+  type: OtherMedia 
+  collective: indy_london
+  
+othermedia4:
+  title: Other media
+  body: This is a link to some other media on the web.
+  summary: Foo foo foo
+  published_by: yoss
+  moderation_status: published
+  user: registered_user
+  created_on: 2006-2-23
+  type: OtherMedia 
+  collective: indy_london
+
+hidden_othermedia:
+  title: Other media
+  body: This is a link to some other media on the web.
+  summary: Foo foo foo
+  published_by: yoss
+  moderation_status: hidden
+  user: registered_user
+  created_on: 2006-2-23
+  type: OtherMedia 
+  collective: indy_london
+
+promoted_othermedia:
+  title: Other media
+  body: This is a link to some other media on the web.
+  summary: Foo foo foo
+  published_by: yoss
+  moderation_status: promoted
+  user: registered_user
+  created_on: 2006-2-23
+  type: OtherMedia 
+  collective: indy_london
+
+promoted_othermedia2:
+  title: Other media
+  body: This is a link to some other media on the web.
+  summary: Foo foo foo
+  published_by: yoss
+  moderation_status: promoted
+  user: registered_user
+  created_on: 2006-2-23
+  type: OtherMedia 
+  collective: indy_london   
+    

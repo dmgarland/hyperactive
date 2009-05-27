@@ -6,7 +6,7 @@ class HiddenController < ApplicationController
         [:hide_comment, :unhide_comment]
   after_filter :notify_moderators, :only => [:hide, :unhide, :report, :promote]
       
-  cache_sweeper :content_sweeper, :only => [:hide, :unhide]
+  cache_sweeper :content_sweeper, :only => [:hide, :unhide, :promote]
   cache_sweeper :comment_sweeper, :only => [:hide_comment, :unhide_comment]
      
   def index

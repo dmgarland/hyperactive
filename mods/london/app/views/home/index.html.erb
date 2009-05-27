@@ -39,6 +39,13 @@
 	<% end %>
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
+	    <li>
+	      <h2>Featured Other Media</h2>
+	      <ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @featured_other_media %>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', featured_other_medias_path(1)%></li>				
+	      </ul>
+	    </li>		
 		<li>
 			<h2><%= I18n.t 'home.index.network' %></h2>
 			<ul>		
@@ -93,6 +100,13 @@
 	</div>	
 	<div id="unused" class="sidebar_content">
 		<ul>
+	    <li>
+	      <h2>Promoted Other Media</h2>
+	      <ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @promoted_other_media %>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_other_medias_path(1)%></li>				
+	      </ul>
+	    </li>		
 			<li>
 				<h2><%= I18n.t 'home.index.info' %></h2>
 				<ul>

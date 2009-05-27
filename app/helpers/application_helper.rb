@@ -67,6 +67,8 @@ module ApplicationHelper
       event_path(entity)
     elsif entity.class == Video
       video_path(entity)
+    elsif entity.class == OtherMedia
+      other_media_path(entity)
     end
   end
   
@@ -77,6 +79,8 @@ module ApplicationHelper
       image_tag "date.png"
     elsif entity.class == Video
       image_tag "icon_video.gif"
+    elsif entity.class == OtherMedia
+      image_tag "icons/world_link.png"  
     end    
   end  
   
@@ -184,6 +188,8 @@ module ApplicationHelper
         (I18n.t 'content.class_names.video').downcase
       when 'comment'
         (I18n.t 'content.class_name.comment').downcase
+      when 'other media'
+        (I18n.t 'content.class_names.other_media').downcase
     end 
   end
   

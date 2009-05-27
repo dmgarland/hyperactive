@@ -109,6 +109,9 @@ en:
     all_articles_this_month: All articles this month
     featured_articles_this_month: All featured articles this month
     promoted_articles_this_month: All promoted articles this month
+    all_other_media_this_month: All other media this month
+    featured_other_media_this_month: All featured other media this month
+    promoted_other_media_this_month: All promoted other media this month
     events_for: Events for 
     hide_tags: Hide tags
     show_tags: Show tags
@@ -217,6 +220,7 @@ en:
       file_uploads: File Uploads
       link: Link
       links: Links
+      other_media: Other Media
       photo: Photo
       photos: Photos
       tags: Tags
@@ -433,6 +437,26 @@ en:
     roles: Roles
     users: Users
     videos: Videos
+  
+  # Other media
+  other_media: 
+    edit:
+      title: Editing other media
+    form:
+      title_instructions: "Include where the link is from, so your title should look like<br/><strong>Libcom.org: Title title title title</strong> or <strong>BBC: Title title title title</strong>."
+    index:
+      explanation: A list of links to items of interest on other sites.
+      title: Other media
+    list_featured:
+      title: Featured Other Media
+    list_promoted:
+      title: Promoted Other Media
+    new:
+      title: New link to other media
+    top_nav:
+      featured_other_media: Other media (Featured)
+      promoted_other_media: Other media (Promoted)
+      all_other_media: Other media (All)
     
   # The promotion controls
   promotion:
@@ -468,7 +492,8 @@ en:
       explanation: Until automated systems acheive a higher level of self-awareness and responsibility, we need you to prove your humanity by taking a little test that spambots are too stupid to pass.
       no_robots: No robots!
     content:
-      admin_controls: 
+      admin_controls:
+        title: Admin controls
         report_or_administer: Edit or administer this {{class_name}}
         unhide_this: Unhide this {{class_name}}
       admin_note: Admin note

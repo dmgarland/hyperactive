@@ -68,9 +68,9 @@ class ArchiveControllerTest < ActionController::TestCase
     assert_equal 2006, assigns(:end_date).year
     assert_equal 2, assigns(:end_date).month
     assert_equal 28, assigns(:end_date).day
-    # should be 5 items ...
+    # should be 11 items ...
     assert_not_nil assigns(:all_content)
-    assert_equal 5, assigns(:all_content).count
+    assert_equal 11, assigns(:all_content).count
   end    
 
   def test_next_month

@@ -1,0 +1,8 @@
+<h1><%= I18n.t 'other_media.archives.title' %></h1>
+<%= render(:partial => "shared/content/list_summary", :collection => @content) %>
+<hr/>
+<%= page_links(@content) %>
+<% content_for :sidebar do %>
+	<%= render :partial => "other_medias/sidebar/feedbox" %>
+	<%= render :partial => "shared/content/sidebar/tag_cloud" %>
+<% end %>

@@ -2,4 +2,4 @@
 <% @current_date = '' %>
 <%= render(:partial => "shared/list_titles", 
            :collection => @all_content, 
-           :locals => { :date_to_use => :created_on }) %>
+           :locals => { :date_to_use => :updated_on }) %>

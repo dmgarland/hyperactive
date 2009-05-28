@@ -22,25 +22,41 @@ module ArchiveHelper
   end
 
   def prev_month_link(start_date, type)
-    prev_month = start_date << 1
-    link_to "<< " + prev_month.strftime('%B %Y'), 
-            :action => "month_index", 
-            :year => prev_month.year, 
-            :month => prev_month.month, 
-            :type => type 
+    prev_month = start_date.last_month
+    if @tagname.nil?
+      link_to "<< " + prev_month.strftime('%B %Y'), 
+              :action => "month_index", 
+              :year => prev_month.year, 
+              :month => prev_month.month, 
+              :type => type 
+    else
+      link_to "<< " + prev_month.strftime('%B %Y'), 
+              :action => "tag_index", 
+              :year => prev_month.year, 
+              :month => prev_month.month, 
+              :tag => @tagname
+    end
   end
 
   def next_month_link(start_date, type)
-    next_month = start_date >> 1
+    next_month = start_date.next_month
     if next_month.year > Date.today.year || 
          next_month.year == Date.today.year && next_month.month > Date.today.month
       return
     end
-    link_to next_month.strftime('%B %Y') + " >>",
-            :action => "month_index", 
-            :year => next_month.year, 
-            :month => next_month.month, 
-            :type => type 
+    if @tagname.nil?
+      link_to next_month.strftime('%B %Y') + " >>",
+              :action => "month_index", 
+              :year => next_month.year, 
+              :month => next_month.month, 
+              :type => type 
+    else
+      link_to next_month.strftime('%B %Y') + " >>",
+              :action => "tag_index", 
+              :year => next_month.year, 
+              :month => next_month.month, 
+              :tag => @tagname
+    end
   end
 
   def prev_year_link(year)

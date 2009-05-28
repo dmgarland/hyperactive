@@ -1,8 +1,8 @@
 <h1><%= "#{@date.strftime('%B')}"%> <%= @date.year %></h1>
-<p><%= link_to('<<', :date=>@date.<<(12)) %>
-   <%= link_to('<', :date=>@date.<<(1)) %>
-   <%= link_to('>', :date=>@date.>>(1)) %>
-   <%= link_to('>>', :date=>@date.>>(12)) %>  
+<p><%= link_to('<<', :date=>@date.last_year) %>
+   <%= link_to('<', :date=>@date.last_month) %>
+   <%= link_to('>', :date=>@date.next_month) %>
+   <%= link_to('>>', :date=>@date.next_year) %>  
 </p> 
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <% content_for :sidebar do %>

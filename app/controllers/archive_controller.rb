@@ -141,7 +141,7 @@ class ArchiveController < ApplicationController
     months = []
     while end_date >= start_date
       months << end_date
-      end_date = end_date << 1
+      end_date = end_date.last_month
     end
     return months
   end

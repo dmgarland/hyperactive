@@ -51,7 +51,7 @@ class ArchiveController < ApplicationController
       end
     end
 
-    @all_content = Content.find(:all, :conditions => conds)
+    @all_content = Content.find(:all, :conditions => conds, :order => "created_on DESC")
   end
 
   def tag_index 

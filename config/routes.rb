@@ -29,21 +29,19 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/admin/user/:action/:id', :controller => 'active_rbac/user'
 
   # connect year and month to archive view
-  map.connect '/archive/', :controller => 'archive', :action => 'index'
-  map.connect '/archive/this_month', :controller => 'archive', :action => 'this_month'
+  map.archive_index '/archive/', :controller => 'archive', :action => 'index'
+  map.archive_this_month '/archive/this_month', :controller => 'archive', :action => 'this_month'
   map.connect '/archive/this_month/:type', :controller => 'archive', :action => 'this_month'
   map.connect '/archive/:year', :controller => 'archive', :action => 'year_index'
-  map.connect '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
+  map.archive_default '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
   map.connect '/archive/:year/:month/tag/:tag', :controller => 'archive', :action => 'tag_index'
   map.connect '/archive/:year/:month/place_tag/:place_tag', :controller => 'archive', :action => 'tag_index'
   map.connect '/archive/:year/:month/:type', :controller => 'archive', :action => 'month_index'
 
-  map.archive_default '/archive/:year/:month', :controller => 'archive', :action => 'month_index'
   map.archive_featured '/archive/:year/:month/featured', :controller => 'archive', :action => 'month_index'
   map.archive_promoted '/archive/:year/:month/promoted', :controller => 'archive', :action => 'month_index'
   map.archive_tag     '/archive/:year/:month/tag', :controller => 'archive', :action => 'tag_index'
   map.archive_place_tag '/archive/:year/:month/place_tag', :controller => 'archive', :action => 'place_tag_index'
-  map.archive_this_month '/archive/this_month', :controller => 'archive', :action => 'this_month'
   map.archive_this_month_featured '/archive/this_month/featured', :controller => 'archive', :action => 'this_month', :type => 'featured'
   map.archive_this_month_promoted '/archive/this_month/promoted', :controller => 'archive', :action => 'this_month', :type => 'promoted'
   

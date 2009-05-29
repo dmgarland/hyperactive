@@ -6,6 +6,8 @@
 
 <%= render :partial => "shared/collectives/collective_summary", :collection => @new_collectives %>
 
+<%= link_to I18n.t('collectives.show_all.title'), show_all_groups_path %>
+
 <% content_for :sidebar do %>
 	<%= render :partial => "collectives/sidebar/new_collective_box" %>
 <% end %>

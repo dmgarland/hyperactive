@@ -20,6 +20,12 @@ class CollectivesControllerTest < Test::Unit::TestCase
     assert assigns(:new_collectives)
   end
 
+  def test_should_get_show_all
+    get :show_all
+    assert_response :success
+    assert assigns(:collectives)
+  end
+
   def test_should_get_new
     get :new,{}, as_user(:registered_user)
     assert_match /#{I18n.t('collectives.new.title')}/, @response.body

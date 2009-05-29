@@ -30,6 +30,7 @@ class Collective < ActiveRecord::Base
   named_scope :featured, :conditions => ['moderation_status = "featured"'], :limit => 5
   named_scope :recently_active, :conditions => ['collectives.moderation_status = "featured" or collectives.moderation_status = "promoted"'], :include => "content", :order => 'collectives.moderation_status, content.updated_on DESC', :limit => 5
   named_scope :visible, :conditions => ['moderation_status != "hidden"'], :order => 'created_on DESC', :limit => 5
+  named_scope :all_visible, :conditions => ['moderation_status != "hidden"'], :order => 'name'
   has_friendly_id :name, :use_slug => true
   image_column  :image, 
                 :versions => { :thumb => "c96x96", :small => "c32x32"},

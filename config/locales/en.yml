@@ -169,6 +169,8 @@ en:
     index:
       newest_groups: Newest groups
       title: Recently active groups
+    show_all:
+      title: All groups
     new: 
       create_an_account: create an account
       explanation: "You have to be a registered user to register a group. Groups should

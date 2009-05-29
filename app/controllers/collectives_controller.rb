@@ -39,6 +39,13 @@ class CollectivesController < ApplicationController
     end
   end
 
+  # GET /collectives/show_all
+  def show_all
+    @cloud = Tag.cloud(:limit => tags_in_cloud)
+    @place_cloud = PlaceTag.cloud(:limit => tags_in_cloud)
+    @collectives = Collective.all_visible
+  end
+
   # GET /collectives/1
   # GET /collectives/1.xml
   def show

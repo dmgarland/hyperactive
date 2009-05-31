@@ -186,7 +186,7 @@ class ContentController < ApplicationController
     @content = model_class.find(params[:id])
     #@content.collective_ids = [] 
     @content.update_attributes(params[:content])  
-    @content.set_moderation_status(params[:content][:moderation_status], current_user)
+    @content.set_moderation_status(params[:content][:moderation_status], current_user, true)
     if(model_class == Event)
       check_end_date
     end

@@ -5,3 +5,4 @@ public/plugin_assets/
 public/system/
 tmp/
 mods_enabled.list
+*.swp

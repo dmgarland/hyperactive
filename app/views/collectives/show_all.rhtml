@@ -1,0 +1,7 @@
+<h1><%= I18n.t 'collectives.show_all.title' %></h1>
+
+<%= render :partial => "shared/collectives/collective_summary", :collection => @collectives %>
+
+<% content_for :sidebar do %>
+	<%= render :partial => "collectives/sidebar/new_collective_box" %>
+<% end %>

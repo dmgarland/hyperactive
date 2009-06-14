@@ -487,6 +487,8 @@ en:
   # Views which are shared across many parts of the site and don't belong in 
   # just one spot.
   shared:
+    publish_box:
+      title: Read it, Write it, Do it!
     account_box: 
       title: Your account
       explanation: You are currently not logged in. You can {{login}} or {{register_an_account}}. Registration allows you to edit your own content and help administer the site.

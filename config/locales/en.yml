@@ -416,7 +416,9 @@ en:
       place_tags: Neighbourhoods
       tags: Tags
       info: Info
+      info_alternative: Information and Reference
       network: Indymedia UK Network
+      uk_network_archive: UK Network Archives
   
   # Javascript-related messages
   javascript:

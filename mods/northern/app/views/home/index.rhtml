@@ -110,9 +110,66 @@
 			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
 		</li>
 		<li>
-			<h2><%= I18n.t 'home.index.info' %></h2>
+			<h2><%= I18n.t 'home.index.info_alternative' %></h2>
 			<ul>
 				<%= render :partial => '/pages/list_title', :collection => @pages %>
+			</ul>
+		</li>
+<li>
+			<h2><%= I18n.t 'home.index.network' %></h2>
+			<ul>		
+				<li class="list">
+					<%= link_to "Indymedia UK", "http://www.indymedia.org.uk" %>
+				</li>
+				<li class="list">
+					<%= link_to "Birmingham", "http://www.indymedia.org.uk/en/regions/birmingham/" %>
+				</li>	
+				<li class="list">
+					<%= link_to "Bristol", "http://bristol.indymedia.org/" %>
+				</li>
+				<li class="list">
+					<%= link_to "Cambridge", "http://www.indymedia.org.uk/en/regions/cambridge/" %>
+				</li>						    
+				<li class="list">
+					<%= link_to "Liverpool", "http://www.indymedia.org.uk/en/regions/liverpool/" %>
+				</li>     				
+				<li class="list">
+					<%= link_to "Manchester", "http://www.indymedia.org.uk/en/regions/manchester/" %>
+				</li>             
+				<li class="list">
+					<%= link_to "Oxford", "http://www.indymedia.org.uk/en/regions/oxford/" %>
+				</li>
+				<li class="list">
+					<%= link_to "Scotland", "http://scotland.indymedia.org" %>
+				</li>	
+				<li class="list">
+					<%= link_to "Sheffield", "http://www.indymedia.org.uk/en/regions/sheffield/" %>
+				</li>      
+				<li class="list">
+					<%= link_to "South Coast", "http://www.indymedia.org.uk/en/regions/southcoast/" %>
+				</li>      
+				<li class="list">
+					<%= link_to "World", "http://www.indymedia.org.uk/en/regions/world/" %>
+				</li>     
+			</ul>
+		</li>
+
+		<li>
+				<h2><%= I18n.t 'home.index.uk_network_archive' %></h2>
+			<ul>			
+										
+				<li class="list">
+					<%= link_to "Leeds Bradford", "http://www.indymedia.org.uk/en/regions/leedsbradford/" %>   
+				</li>
+				<li class="list">
+					<%= link_to "London 2003-2008", "http://www.indymedia.org.uk/en/regions/london/" %>
+				</li>    				       
+				<li class="list">
+					<%= link_to "Nottinghamshire", "http://www.indymedia.org.uk/en/regions/nottinghamshire/" %>
+				</li>     
+				<li class="list">
+					<%= link_to "York", "http://york.indymedia.org.uk" %>
+				</li>     
 			</ul>
 		</li>			
 	</ul>

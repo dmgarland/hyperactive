@@ -1,0 +1,12 @@
+<div>
+	<ul>
+		<li>
+		<h2><strong><%= I18n.t 'shared.search_box.title' %></strong></h2>
+		<p><% form_tag(search_path, :method => :get) do %>
+    		<%= text_field(:search, :search_terms, :size => 15) %>
+    		<%= submit_tag(I18n.t('general.search')) %>
+		<% end %>
+		</p>
+		</li>
+	</ul>
+</div>

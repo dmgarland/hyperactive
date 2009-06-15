@@ -489,6 +489,8 @@ en:
   # Views which are shared across many parts of the site and don't belong in 
   # just one spot.
   shared:
+    search_box:
+      title: Search the site
     publish_box:
       title: Read it, Write it, Do it!
     account_box: 

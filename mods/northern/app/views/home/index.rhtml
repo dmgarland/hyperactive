@@ -85,7 +85,7 @@
 			</div>
 		</li>
 		<li>
-			<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
+			<h2><%= I18n.t 'home.index.uk_feed_newswire' %></h2>
 			<ul>
 				<%= @home_page_feed unless @home_page_feed.nil? %>
 			</ul>
@@ -135,7 +135,10 @@
 				</li>     				
 				<li class="list">
 					<%= link_to "Manchester", "http://www.indymedia.org.uk/en/regions/manchester/" %>
-				</li>             
+				</li>
+				<li class="list">
+                                        <%= link_to "Nottinghamshire", "http://www.indymedia.org.uk/en/regions/nottinghamshire/" %>
+                                </li>
 				<li class="list">
 					<%= link_to "Oxford", "http://www.indymedia.org.uk/en/regions/oxford/" %>
 				</li>

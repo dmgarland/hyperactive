@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Industrial
+Description: A three-column, fixed-width blog design.
+Version    : 1.0
+Released   : 20071004
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<% if ((@current_controller == "articles" || @current_controller == "events" || @current_controller == "videos") && @current_action == "show" && @content.is_hidden?) || @current_controller == "hidden" %>
+<meta name="robots" content="noindex,nofollow" />
+<% else %>
+ <meta name="robots" content="index,follow" />
+<% end %>
+<title>
+<%= Hyperactive.site_name %> | <%= @current_controller.humanize.capitalize %> | <%=@current_action.humanize.capitalize %> <%= " | " +  h(@page_title) unless @page_title.nil? %>
+</title>
+<%= stylesheet_link_tag 'default' %>
+<%= stylesheet_link_tag 'tabber' %>
+	<% if using_tiny_mce? %>
+	<%= javascript_include_tag 'tiny_mce/tiny_mce' %>
+  	<%= tiny_mce %>   
+<% end %>
+<%= javascript_include_tag 'prototype' %>
+<%= javascript_include_tag 'application' %>	
+<%= javascript_include_tag 'effects' %>
+<%= javascript_include_tag 'controls' %>
+<%= javascript_include_tag 'flash' %>
+<%= javascript_include_tag 'user-info' %>
+<%= javascript_include_tag 'json' %>
+<%= javascript_include_tag 'cookie' %>
+<%= javascript_include_tag 'stereotabs' %>
+ <% if controller.action_name == "timeline" %>
+    <%= javascript_include_tag 'uk-timeline' %>
+	<%= javascript_include_tag 'timeline/timeline-api' %>
+ <% end %>
+<% default_content_for :javascript do %>
+
+<% end %>
+ <% if (@current_action == "show" && @current_controller == "videos") || (@current_controller == "home" && @current_action == "index")  %>
+    <%= javascript_include_tag 'swfobject' %>
+ <% end %>     
+<% if controller.action_name == "by_place_tag" %>
+    <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_by_place', :scope => params[:scope]) %>
+<% elsif controller.action_name == "by_tag" %>
+    <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'upcoming_events_tagged', :scope => params[:scope]) %>
+<% else %>
+    <%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => 'latest_articles') %>
+<% end %>
+</head>
+
+<% if controller.action_name == "timeline" %>
+<body onload="onLoad();" onresize="onResize();">
+<% else %>
+<body>
+<% end %>
+<!-- start header -->
+<div id="logo">
+	<p><%= link_to image_tag(Hyperactive.banner_image), root_path %></p>
+	<% if Hyperactive.show_site_name_in_banner %>
+		<h1><%= link_to "#{Hyperactive.site_name}", root_path %></h1>
+	<% end %>
+	<!-- <p>By Free CSS Templates</p> -->
+</div>
+<div id="menu">
+	<ul id="main">
+		<%= tab_for(I18n.t('layouts.home'), root_path, :controller_name => "home") %>
+		<%= tab_for(I18n.t('layouts.newswire'), articles_path, :controller_name => "articles") %>
+		<%= tab_for(I18n.t('layouts.mission_statement'), page_path("mission-statement-page"), :controller_name => "pages", :action => "show", :id => 'mission-statement-page') %>
+		<%= tab_for(I18n.t('layouts.editorial_guidelines'), page_path("editorial-guidelines-page"), :controller_name => "pages", :action => "show", :id => 'editorial-guidelines-page') %>
+		<%= tab_for(I18n.t('layouts.contact_us'), page_path("contact-us-page"), :controller_name => "pages", :action => "show", :id => 'contact-us-page') %>
+		<%= tab_for(I18n.t('layouts.groups'), groups_path, :controller_name => "collectives") %>
+	</ul>
+</div>
+<!-- end header -->

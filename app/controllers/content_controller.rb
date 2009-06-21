@@ -12,7 +12,7 @@ class ContentController < ApplicationController
   #
   before_filter :can_edit?, :only => [:edit, :update]
   before_filter :can_destroy?, :only => [:destroy]
-  
+
   uses_tiny_mce(:options => {:theme => 'advanced',
                            :browsers => %w{msie gecko safari opera},
                            :theme_advanced_toolbar_location => "top",
@@ -27,85 +27,85 @@ class ContentController < ApplicationController
                            :theme_advanced_buttons3 => [],
                            :plugins => %w{paste},
                            :valid_elements => Hyperactive.valid_elements_for_tiny_mce},
-              :only => [:new, :edit, :create, :update])  
+              :only => [:new, :edit, :create, :update])
 
 
   layout "two_column"
   helper :date
   require 'calendar_dates/month_display.rb'
   require 'calendar_dates/week.rb'
-  
+
   caches_page :show, :only_path => true
   caches_page :index
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
   cache_sweeper :comment_sweeper, :only => [:create_comment]
-  
+
   # Rails does not pull out single-table inheritance subclasses properly on its own.
   # Must require the STI superclass explicitly in controllers.
-  require_dependency 'content'    
+  require_dependency 'content'
   require_dependency 'post'
   require_dependency 'collective'
-  
+
   include UIEnhancements::SubList
   helper :SubList
 
   # Require SSL for certain actions, mostly having to do with form submissions
   #
   ssl_required :create, :update, :destroy, :new, :edit, :add_photo, :add_file_upload, :add_video, :add_link, :create_comment, :show_comment_form
-  
-  # Note: this is a specially hacked sub_list which properly assigns the 
+
+  # Note: this is a specially hacked sub_list which properly assigns the
   # content to the parent subclass.
   #
   sub_list 'Photo', 'content', 'post' do |photo|
   end
-  
+
   sub_list 'Video', 'content', 'post' do |video|
   end
 
   sub_list 'FileUpload', 'content', 'post' do |file_upload|
   end
-  
-  sub_list 'Link', 'content' do |link|
+
+  sub_list 'Link', 'content', 'post' do |link|
   end
-  
+
   def index
     @cloud = Tag.cloud(:limit => 20)
     @content = model_class.paginate(
-      :conditions => ['moderation_status != ?', "hidden"], 
-      :order => 'created_on desc', 
+      :conditions => ['moderation_status != ?', "hidden"],
+      :order => 'created_on desc',
       :page => page_param)
   end
-  
+
   def archives
     @cloud = Tag.cloud(:limit => 20)
     @content = model_class.visible.paginate(
-      :order => 'created_on desc', 
+      :order => 'created_on desc',
       :page => page_param)
   end
 
   def list_promoted
     if model_class == Event
       order_string = 'date DESC'
-    else 
+    else
       order_string = 'created_on DESC'
     end
     @content = model_class.paginate(
-      :conditions => ['moderation_status = ?', "promoted"],     
+      :conditions => ['moderation_status = ?', "promoted"],
       :order => order_string,
       :page => page_param)
-  end  
-  
+  end
+
   def list_featured
     if model_class == Event
       order_string = 'date DESC'
-    else 
+    else
       order_string = 'created_on DESC'
     end
     @content = model_class.paginate(
-      :conditions => ['moderation_status = ?', "featured"],     
+      :conditions => ['moderation_status = ?', "featured"],
       :order => order_string,
       :page => page_param)
-  end    
+  end
 
   def show
     @content = model_class.find(params[:id])
@@ -118,26 +118,26 @@ class ContentController < ApplicationController
       format.html # show.html.erb
       format.xml { render :xml => @content }
     end
-  end  
+  end
 
-    
+
   def new
     @content = model_class.new
   end
-  
+
   # Creates a content object.  Note that all of the "initialize_xxx" stuff halfway
   # through this method refers to the sub_list plugin, which provides multiple-upload
   # capabilities for us. See that plugin's documentation to learn more.
   #
   def create
     @content = model_class.new(params[:content])
-    @content.set_moderation_status(params[:content][:moderation_status], current_user) 
+    @content.set_moderation_status(params[:content][:moderation_status], current_user)
     @content.user = current_user if !current_user.is_anonymous?
     if(model_class == Event)
       check_end_date
     end
     unless params[:open_street_map_info].blank?
-      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info])
       @content.open_street_map_info = @open_street_map_info
     end
     success = true
@@ -145,7 +145,7 @@ class ContentController < ApplicationController
     success &&= initialize_videos
     success &&= initialize_links
     success &&= initialize_file_uploads
-    success &&= !current_user.is_anonymous? || simple_captcha_valid? 
+    success &&= !current_user.is_anonymous? || simple_captcha_valid?
     if success && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
@@ -158,48 +158,48 @@ class ContentController < ApplicationController
       flash[:notice] = "#{model_class.to_s} was successfully created."
       redirect_to :action => 'show', :id => @content
     else
-      redisplay_publish_form  
+      redisplay_publish_form
       @content.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
       render :action => 'new'
     end
   end
-  
+
   def edit
     @content = model_class.find(params[:id])
     @open_street_map_info = @content.open_street_map_info
   end
 
-  # Updates the content.  Note that we set the collective ids to an empty 
+  # Updates the content.  Note that we set the collective ids to an empty
   # array, if the form sent any collective ids then they'll be updated in the
-  # update_attributes line;  if not, we assume that the user wants the content 
+  # update_attributes line;  if not, we assume that the user wants the content
   # in no collectives.  This is a somewhat dangerous action and shouldn't
-  # be called from anywhere that doesn't have the grouping controls enabled - 
-  # it'll reset the collectives that the content is in unless it gets 
+  # be called from anywhere that doesn't have the grouping controls enabled -
+  # it'll reset the collectives that the content is in unless it gets
   # params[:content][:collective_ids]
   #
   # Note that all of the "initialize_xxx" stuff halfway
-  # through this method refers to the sub_list plugin, which provides 
-  # multiple-upload capabilities for us. See that plugin's documentation to 
+  # through this method refers to the sub_list plugin, which provides
+  # multiple-upload capabilities for us. See that plugin's documentation to
   # learn more.
   #
   def update
     @content = model_class.find(params[:id])
-    #@content.collective_ids = [] 
-    @content.update_attributes(params[:content])  
+    #@content.collective_ids = []
+    @content.update_attributes(params[:content])
     @content.set_moderation_status(params[:content][:moderation_status], current_user, true)
     if(model_class == Event)
       check_end_date
     end
     unless params[:open_street_map_info].blank?
-      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info])
       @content.open_street_map_info = @open_street_map_info
-    end    
+    end
     success = true
     success &&= initialize_photos
     success &&= initialize_videos
     success &&= initialize_file_uploads
-    success &&= initialize_links 
-    success &&= @content.save    
+    success &&= initialize_links
+    success &&= @content.save
     if success
       if params[:open_street_map_info].blank? && @content.has_map_info?
         @content.open_street_map_info.destroy
@@ -207,7 +207,7 @@ class ContentController < ApplicationController
       @content.tag_with params[:tags]
       @content.place_tag_with params[:place_tags]
       do_video_conversion
-      if(model_class == Event)  
+      if(model_class == Event)
         @content.update_all_taggings_with_date
       end
       tell_irc_channel("updated")
@@ -224,7 +224,7 @@ class ContentController < ApplicationController
     @content.destroy
     redirect_to :action => 'index'
   end
-  
+
   def create_comment
     @content = Content.find(params[:id])
     if @content.allows_comments?
@@ -234,7 +234,7 @@ class ContentController < ApplicationController
         flash[:notice] = "Your comment has been added."
         redirect_to :action => 'show', :id => @content
       else
-        @comment.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)      
+        @comment.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
         render :template => 'shared/content/comments/form'
       end
     else
@@ -242,14 +242,14 @@ class ContentController < ApplicationController
       redirect_to :action => 'show', :id => @content
     end
   end
-  
+
   def show_comment_form
     @comment = Comment.new
     @content = model_class.find(params[:id])
     render :template => "shared/content/comments/form"# ,:layout => false
   end
 
-  # Retrieves the administration controls allowing a user to either hide or report a 
+  # Retrieves the administration controls allowing a user to either hide or report a
   # piece of content if it sucks.
   #
   def admin_controls
@@ -261,7 +261,7 @@ class ContentController < ApplicationController
       render :partial => 'hidden/report_this_controls', :layout => false
     end
   end
-  
+
   # Retrieves the open street map controls.  We do it this way so that users can be informed
   # that they're about to use an external service
   #
@@ -277,39 +277,39 @@ class ContentController < ApplicationController
     prepare_videos
     prepare_links
     prepare_file_uploads
-  end 
-  
+  end
+
   # Checks permissions and ownership to see if a given user can edit content.
-  # The first two success cases are pretty self-explanatory: the user can edit 
+  # The first two success cases are pretty self-explanatory: the user can edit
   # the content if he/she has got the correct permissions.
   #
-  # The third success case is more interesting:  the user can edit the content if 
+  # The third success case is more interesting:  the user can edit the content if
   # the user and the content share at least one collective in common.
   #
   def can_edit?
     return true if current_user.can_edit?(Content.find(params[:id]))
     security_error
   end
-  
+
   # Checks permissions to see if the current user can destroy content.
   #
   def can_destroy?
     return true if current_user.can_destroy?(Content.find(params[:id]))
     security_error
   end
-  
+
   # Tells uploaded videos to convert themselves using ffmpeg.
   #
   def do_video_conversion
     videos_to_convert = find_videos_needing_conversion
     if videos_to_convert.length > 0
       videos_to_convert.each do |video|
-        notify_irc_channel("Asking video #{video.id}: '#{video.title}' to start converting. If it's not done in a few minutes, something's probably gone wrong.")       
+        notify_irc_channel("Asking video #{video.id}: '#{video.title}' to start converting. If it's not done in a few minutes, something's probably gone wrong.")
         video.convert
       end
     end
-  end  
-  
+  end
+
   # Tricky.  Checks through the incoming params[:video] hash, selects an array
   # of :ids for uploaded video objects which contain a file, and then selects
   # objects from the @content.videos array which correspond to those :ids, or
@@ -335,5 +335,6 @@ class ContentController < ApplicationController
     notify_irc_channel ("#{Hyperactive.site_url}#{content_path_for(@content)} :: '#{@content.title}' #{kind_of_change}'. Moderation status is currently '#{@content.moderation_status}'.")
     notify_irc_channel(@content.summary.gsub(/<\/?[^>]*>/,""))
   end
-   
+
 end
+

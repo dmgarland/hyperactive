@@ -4,11 +4,11 @@ admin:
 
 anonymous:
   title: Anonymous
-  
+
 registered:
   title: Registered
   static_permissions: [hide_own_content, edit_own_content, hide_own_content]
-  
+
 hider:
   title: Hider
   parent: registered
@@ -17,3 +17,9 @@ hider:
 auto_promote:
   title: AutoPromoted
   static_permissions: [auto_promote_content]
+
+moderator:
+  title: Moderator
+  parent: registered
+  static_permissions: [promote_content, hide]
+

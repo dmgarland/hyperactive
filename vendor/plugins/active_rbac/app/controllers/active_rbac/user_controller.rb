@@ -1,7 +1,7 @@
 # This is the controller that provides CRUD functionality for the User model.
 class ActiveRbac::UserController < ActiveRbac::ComponentController
   unloadable
-  
+
   # The RbacHelper allows us to render +acts_as_tree+ AR elegantly
   helper RbacHelper
 
@@ -15,7 +15,7 @@ class ActiveRbac::UserController < ActiveRbac::ComponentController
 
   # Displays a paginated table of users.
   def list
-    @users = User.paginate :page => (params[:page] ||=1), :per_page => 20
+    @users = User.paginate :page => (params[:page] ||=1), :per_page => 20, :order => 'login ASC'
   end
 
   # Show a user identified by the +:id+ path fragment in the URL.
@@ -27,7 +27,7 @@ class ActiveRbac::UserController < ActiveRbac::ComponentController
     redirect_to :action => 'list'
   end
 
-  # Display a form to create a new user on GET. Handle the form submission 
+  # Display a form to create a new user on GET. Handle the form submission
   # from this form on POST and display errors if there were any.
   def create
     if request.get?
@@ -36,23 +36,23 @@ class ActiveRbac::UserController < ActiveRbac::ComponentController
       # set password and password_confirmation into [:user] parameters
       params[:user][:password] = params[:password]
       params[:user][:password_confirmation] = params[:password_confirmation]
-    
+
       @user = User.new(params[:user])
 
       # set password hash type seperatedly because it is protected
       @user.password_hash_type = params[:user][:password_hash_type]
-    
+
       # assign properties to user
       if @user.save
-        # set the user's roles to the roles from the parameters 
+        # set the user's roles to the roles from the parameters
         params[:user][:roles] = [] if params[:user][:roles].nil?
         @user.roles = params[:user][:roles].collect { |i| Role.find(i) }
 
-        # set the user's groups to the groups from the parameters 
+        # set the user's groups to the groups from the parameters
         params[:user][:groups] = [] if params[:user][:groups].nil?
         @user.groups = params[:user][:groups].collect { |i| Group.find(i) }
 
-        # the above should be successful if we reach here; otherwise we 
+        # the above should be successful if we reach here; otherwise we
         # have an exception and reach the rescue block below
         flash[:success] = 'User was created successfully.'
         redirect_to :action => 'show', :id => @user.to_param
@@ -70,7 +70,7 @@ class ActiveRbac::UserController < ActiveRbac::ComponentController
   # of this form on POST and display errors if any occured.
   def update
     @user = User.find(params[:id])
-    
+
     if request.get?
       # render only
     else
@@ -106,14 +106,14 @@ class ActiveRbac::UserController < ActiveRbac::ComponentController
     flash[:error] = 'You sent an invalid request.'
     redirect_to :action => 'list'
   end
-  
+
   # Display a confirmation form (which asks "do you really want to delete this
   # user?") on GET. Handle the form submission on POST. Redirect to the "list"
   # action if the user has been deleted and redirect to the "show" action with
   # these user's id if it has not been deleted.
   def delete
     @user = User.find(params[:id])
-    
+
     if request.get?
       # render only
     else
@@ -126,9 +126,10 @@ class ActiveRbac::UserController < ActiveRbac::ComponentController
         redirect_to :action => 'show', :id => params[:id]
       end
     end
-    
+
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'This user could not be found.'
     redirect_to :action => 'list'
   end
 end
+

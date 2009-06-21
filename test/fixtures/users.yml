@@ -9,7 +9,7 @@ marcos:
   password_hash_type:   md5
   password_salt:        0123456789
   state:                2
-  roles:                [admin]  
+  roles:                [admin]
 
 registered_user:
   created_at:           2005-08-03 10:52:26
@@ -22,7 +22,7 @@ registered_user:
   password_hash_type:   md5
   password_salt:        0123456789
   state:                2
-  roles:                [registered]  
+  roles:                [registered]
 
 hider_user:
   created_at:           2005-08-03 10:52:26
@@ -35,7 +35,7 @@ hider_user:
   password_hash_type:   md5
   password_salt:        0123456789
   state:                2
-  roles:                [hider]  
+  roles:                [hider]
 
 registered_user_2:
   created_at:           2005-08-03 10:52:26
@@ -62,3 +62,17 @@ registered_user_3:
   password_salt:        0123456789
   state:                2
   roles:                [auto_promote]
+
+moderator_user:
+  created_at:           2005-08-03 10:52:26
+  updated_at:           2005-08-03 10:52:26
+  last_logged_in_at:    2005-08-03 10:52:26
+  login_failure_count:  0
+  login:                moderator
+  email:                foo55@bar.org
+  password:             bf5d921d2f18ee3077683d6e3d407afb
+  password_hash_type:   md5
+  password_salt:        0123456789
+  state:                2
+  roles:                [moderator]
+

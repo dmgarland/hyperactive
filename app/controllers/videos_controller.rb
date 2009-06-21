@@ -1,15 +1,15 @@
 class VideosController < ContentController
-  
+
   layout "two_column"
-  
+
   # Rails does not pull out single-table inheritance subclasses properly on its own.
   # Must require the STI superclass explicitly in controllers.
-  require_dependency 'content'    
+  require_dependency 'content'
   require_dependency 'media'
-  
+
   caches_page :featured_in_player, :only_path => true
-  cache_sweeper :videos_sweeper, :only => [:create, :update, :destroy]  
-  
+  cache_sweeper :videos_sweeper, :only => [:create, :update, :destroy]
+
   def show
     @previous_videos = Video.find(:all, :conditions => ['moderation_status = ? and id != ?', "published", params[:id]], :limit => 5, :order => 'created_on DESC')
     @featured_videos = Video.find_where(:all, :order => 'created_on ASC', :limit => 5) do |video|
@@ -18,48 +18,49 @@ class VideosController < ContentController
     end
     super
   end
-  
+
   def create
-    @content = Video.new(params[:content]) 
-    @content.set_moderation_status(params[:content][:moderation_status], current_user)    
+    @content = Video.new(params[:content])
+    @content.set_moderation_status(params[:content][:moderation_status], current_user)
+    @content.user = current_user unless current_user.is_anonymous?
     unless params[:open_street_map_info].blank?
-      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info])
       @content.open_street_map_info = @open_street_map_info
-    end        
+    end
     respond_to do |format|
       if (!current_user.is_anonymous? || simple_captcha_valid?) && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
         tell_irc_channel("created")
-        do_video_conversion 
+        do_video_conversion
         flash[:notice] = "Video was successfully created."
         format.html { redirect_to video_path(@content) }
         format.xml  { head :created, :location => video_path(@content) }
       else
-        format.html { 
+        format.html {
           @content.errors.add_to_base("You need to type the text from the image into the box so we know you're not a spambot.") unless (simple_captcha_valid?)
-          render :action => "new" 
+          render :action => "new"
         }
         format.xml  { render :xml => @content.errors.to_xml }
       end
-    end    
+    end
   end
-  
+
   # Updates the content.  Note that we set the collective ids to an empty array, if the form sent
   # any collective ids then they'll be updated in the update_attributes line;  if not, we assume that
   # the user wants the content in no collectives.  This is a somewhat dangerous action and shouldn't
-  # be called from anywhere that doesn't have the grouping controls enabled - it'll reset the 
+  # be called from anywhere that doesn't have the grouping controls enabled - it'll reset the
   # collectives that the content is in unless it gets params[:content][:collective_ids]
   #
   def update
     @content = model_class.find(params[:id])
-    # @content.collective_ids = [] 
+    # @content.collective_ids = []
     @content.update_attributes(params[:content])
-    @content.set_moderation_status(params[:content][:moderation_status], current_user)       
+    @content.set_moderation_status(params[:content][:moderation_status], current_user)
     unless params[:open_street_map_info].blank?
-      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info]) 
+      @open_street_map_info = OpenStreetMapInfo.new(params[:open_street_map_info])
       @content.open_street_map_info = @open_street_map_info
-    end    
+    end
     respond_to do |format|
       if @content.save
         @content.tag_with params[:tags]
@@ -73,9 +74,9 @@ class VideosController < ContentController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @content.errors.to_xml }
       end
-    end    
-  end  
-    
+    end
+  end
+
   def featured_in_player
     videos = Video.find_where(:all, :limit => 3, :order => 'created_on DESC') do |video|
       video.moderation_status == "featured"
@@ -93,13 +94,13 @@ class VideosController < ContentController
       format.json {render :text => "vids=#{featured_vids.to_json}"}
     end
   end
-  
+
   protected
-  
+
   def model_class
     Video
   end
-  
+
   def find_videos_needing_conversion
     videos_needing_conversion = []
     uploaded_video = params[:content][:file]
@@ -108,5 +109,6 @@ class VideosController < ContentController
     end
     return videos_needing_conversion
   end
-    
+
 end
+

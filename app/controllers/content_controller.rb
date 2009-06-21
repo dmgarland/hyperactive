@@ -132,7 +132,7 @@ class ContentController < ApplicationController
   def create
     @content = model_class.new(params[:content])
     @content.set_moderation_status(params[:content][:moderation_status], current_user)
-    @content.user = current_user if !current_user.is_anonymous?
+    @content.user = current_user unless current_user.is_anonymous?
     if(model_class == Event)
       check_end_date
     end

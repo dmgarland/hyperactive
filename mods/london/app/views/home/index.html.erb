@@ -27,7 +27,7 @@
 				<% if @snippet.url.blank? %>
 					<h2><%= @snippet.title %></h2>
 				<% else %>
-					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>			
+					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>
 				<% end %>
 					<% if @snippet.has_image? %>
 						<%= image_tag @snippet.image.thumb.url, :class => 'left' %>
@@ -43,109 +43,109 @@
 	      <h2>Featured Other Media</h2>
 	      <ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @featured_other_media %>
-					<li><%= link_to I18n.t('general.more') + ' &rarr;', featured_other_medias_path(1)%></li>				
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', featured_other_medias_path(1)%></li>
 	      </ul>
-	    </li>		
+	    </li>
 		<li>
 			<h2><%= I18n.t 'home.index.network' %></h2>
-			<ul>		
+			<ul>
 				<li class="list">
 					<%= link_to "Indymedia UK", "http://www.indymedia.org.uk" %>
 				</li>
 				<li class="list">
 					<%= link_to "Birmingham", "http://www.indymedia.org.uk/en/regions/birmingham/" %>
-				</li>	
+				</li>
 				<li class="list">
 					<%= link_to "Bristol", "http://bristol.indymedia.org/" %>
 				</li>
 				<li class="list">
 					<%= link_to "Cambridge", "http://www.indymedia.org.uk/en/regions/cambridge/" %>
-				</li>								
+				</li>
 				<li class="list">
 					<%= link_to "Leeds Bradford", "http://www.indymedia.org.uk/en/regions/leedsbradford/" %>
-				</li>	    
+				</li>
 				<li class="list">
 					<%= link_to "Liverpool", "http://www.indymedia.org.uk/en/regions/liverpool/" %>
-				</li>    
+				</li>
 				<li class="list">
 					<%= link_to "London 2003-2008", "http://www.indymedia.org.uk/en/regions/london/" %>
-				</li>    				
+				</li>
 				<li class="list">
 					<%= link_to "Manchester", "http://www.indymedia.org.uk/en/regions/manchester/" %>
-				</li>        
+				</li>
 				<li class="list">
 					<%= link_to "Nottinghamshire", "http://www.indymedia.org.uk/en/regions/nottinghamshire/" %>
-				</li>      
+				</li>
 				<li class="list">
 					<%= link_to "Oxford", "http://www.indymedia.org.uk/en/regions/oxford/" %>
 				</li>
 				<li class="list">
 					<%= link_to "Scotland", "http://scotland.indymedia.org" %>
-				</li>	
+				</li>
 				<li class="list">
 					<%= link_to "Sheffield", "http://www.indymedia.org.uk/en/regions/sheffield/" %>
-				</li>      
+				</li>
 				<li class="list">
 					<%= link_to "South Coast", "http://www.indymedia.org.uk/en/regions/southcoast/" %>
 				</li>
 				<li class="list">
 					<%= link_to "York", "http://york.indymedia.org.uk" %>
-				</li>      
+				</li>
 				<li class="list">
 					<%= link_to "World", "http://www.indymedia.org.uk/en/regions/world/" %>
-				</li>     
+				</li>
 			</ul>
-		</li>			
+		</li>
 		</ul>
-	</div>	
+	</div>
 	<div id="unused" class="sidebar_content">
 		<ul>
 	    <li>
 	      <h2>Promoted Other Media</h2>
 	      <ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @promoted_other_media %>
-					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_other_medias_path(1)%></li>				
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_other_medias_path(1)%></li>
 	      </ul>
-	    </li>		
+	    </li>
 			<li>
 				<h2><%= I18n.t 'home.index.info' %></h2>
 				<ul>
 					<%= render :partial => '/pages/list_title', :collection => @pages %>
 				</ul>
 			</li>
-		    <%= render :partial => 'shared/account_box' %>						
+		    <%= render :partial => 'shared/account_box' %>
 		</ul>
-	</div>		
+	</div>
 </div>
 <!-- end content -->
 <!-- start sidebars -->
 <div id="sidebar1" class="sidebar">
 	<ul>
-			<li>				
+			<li>
 				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
 				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
 				</ul>
-			</li>		
+			</li>
 			<li>
 				<%= render :partial => 'videos/featured_flash_player' %>
-			</li>	
+			</li>
 			<li>
 				<h2>UK and World</h2>
 				<ul>
 					<%= @home_page_feed unless @home_page_feed.nil? %>
 					<li><a href="http://www.indymedia.org.uk/?w=promoted">more &rarr;</a></li>
 				</ul>
-			</li>			
+			</li>
 		<li>
 			<h2><%= I18n.t 'home.index.tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
-		</li>		
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>
+		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.place_tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
-		</li>		
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %>
+		</li>
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">
@@ -153,19 +153,23 @@
 	<ul>
 		<% unless @rightsnippet.nil? %>
 		<li>
-			<h2><%= @rightsnippet.title %></h2>
+		    <% if @rightsnippet.url.blank? %>
+			    <h2><%= @rightsnippet.title %></h2>
+			<% else %>
+			    <h2><%= link_to(@rightsnippet.title, @rightsnippet.url)%></h2>
+			<% end %>
 			<ul>
 				<%= @rightsnippet.body %>
 			</ul>
-		</li>	
-		<% end %>		
+		</li>
+		<% end %>
 		<li>
 			<h2><%= I18n.t 'home.index.featured_events' %></h2>
 			<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @featured_events %>
 				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events', :action => 'index', :moderation_status => 'featured', :page => 1 %></li>
 			</ul>
-		</li>	
+		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
 			<div id="event_poster">
@@ -175,15 +179,16 @@
 					<%= most_recent_promoted_event_with_image.title unless most_recent_promoted_event_with_image.nil?  %>
 				</p>
 				</div>
-			</div>	
-		</li>			
+			</div>
+		</li>
 		<li id="upcomingevents">
 			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
 			<ul>
 			<%= render :partial => '/shared/content/list_title', :collection => @promoted_events %>
 			  <li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), :controller => 'events' %></li>
 			</ul>
-		</li>							
+		</li>
 	</ul>
 </div>
 <!-- end sidebars -->
+

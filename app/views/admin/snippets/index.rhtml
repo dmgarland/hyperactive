@@ -3,17 +3,17 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Body</th>
+    <th>Status</th>
     <th>Created on</th>
     <th>Updated on</th>
   </tr>
-  
+
 <% for snippet in @snippets %>
   <tr>
     <td><%=h snippet.title %></td>
-    <td><%=h snippet.body %></td>
-    <td><%=h snippet.created_on %></td>
-    <td><%=h snippet.updated_on %></td>
+    <td><%=h snippet.key %></td>
+    <td><%=h snippet.created_on.to_s(:short) %></td>
+    <td><%=h snippet.updated_on.to_s(:short) %></td>
     <td><%= link_to 'Show', admin_snippet_path(snippet) %></td>
     <td><%= link_to 'Edit', edit_admin_snippet_path(snippet) %></td>
     <td><%= link_to 'Destroy', admin_snippet_path(snippet), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -24,3 +24,4 @@
 <br />
 
 <%= link_to 'New snippet', new_admin_snippet_path %>
+

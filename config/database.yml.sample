@@ -10,7 +10,6 @@ development:
   database: hyperactive_development
   username: root
   password: 
-  socket: /var/run/mysqld/mysqld.sock
   encoding: utf8
        
 # Warning: The database defined as 'test' will be erased and

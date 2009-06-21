@@ -36,10 +36,11 @@ class HiddenController < ApplicationController
       @content.moderation_status = "hidden"
       @content.save!
       class_name = @content.class.to_s.humanize.downcase
+      class_path = @content.class.to_s.underscore.pluralize
       ContentHideMailer.deliver_hide(@content, params[:hide_reason], current_user)
       flash[:notice] = "The #{class_name} has been hidden and an email sent."
       render :update do |page|
-        page.redirect_to  :controller => class_name.pluralize,
+        page.redirect_to  :controller => class_path,
                           :action => 'show', :id => @content
       end
     end
@@ -48,10 +49,11 @@ class HiddenController < ApplicationController
   def report
     @content = Content.find(params[:id])
     class_name = @content.class.to_s.humanize.downcase
+    class_path = @content.class.to_s.underscore.pluralize
     ContentHideMailer.deliver_report(@content, params[:hide_reason], current_user)
     flash[:notice] = "The #{class_name} has been reported to site admins via email."
     render :update do |page|
-      page.redirect_to  :controller => class_name.pluralize,
+      page.redirect_to  :controller => class_path,
                         :action => 'show', :id => @content
     end
   end
@@ -89,10 +91,11 @@ class HiddenController < ApplicationController
     @content.moderation_status = "published"
     @content.save!
     class_name = @content.class.to_s.humanize.downcase
+    class_path = @content.class.to_s.underscore.pluralize
     ContentHideMailer.deliver_unhide(@content, params[:unhide_reason], current_user)
     flash[:notice] = "The #{class_name} has been unhidden and an email sent."
     render :update do |page|
-      page.redirect_to :controller => class_name.pluralize, :action => 'show', :id => @content
+      page.redirect_to :controller => class_path, :action => 'show', :id => @content
     end
   end
 

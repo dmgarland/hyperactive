@@ -1,49 +1,50 @@
 <% title_date = list_titles.send(date_to_use)
   if @current_date != title_date.strftime('%Y-%m-%d') -%>
-		<% if @current_date != '' -%>        
-		</ul >	
+		<% if @current_date != '' -%>
+		</ul >
 		<% end -%>
-		
+
 		<% if Date.today.strftime('%Y-%m-%d') == title_date.strftime('%Y-%m-%d') -%>
 			<p><%= I18n.t('general.today') %></p>
-		<% else -%>	
+		<% else -%>
 	                <p><%= title_date.strftime('%d-%m-%Y') %></p>
-		<% end -%>		
+		<% end -%>
 
 		<ul>
-		<% @current_date = title_date.strftime('%Y-%m-%d') %>	
+		<% @current_date = title_date.strftime('%Y-%m-%d') %>
 <% end -%>
 
 
-<li class="<%= list_titles.class.to_s.downcase %>-list">	        
+<li class="<%= list_titles.class.to_s.downcase %>-list">
 
         <% if list_titles.moderation_status == "promoted" -%>
-           <img alt="Rosette" src="/images/icons/rosette.png"/>
+           <img alt="Promoted" src="/images/icons/star-blue1.png"/>
         <% end -%>
 
         <% if list_titles.moderation_status == "featured" -%>
-           <img alt="Star" src="/images/icons/star.png" />
+           <img alt="Featured" src="/images/icons/star.png" />
         <% end -%>
 
-	<% if list_titles.is_a?(Content) -%> 
-          <%= link_to h(list_titles.title), content_path_for(list_titles) %> 
+	<% if list_titles.is_a?(Content) -%>
+          <%= link_to h(list_titles.title), content_path_for(list_titles) %>
           <%= title_date.strftime(' %Y-%m-%d %H:%M:%S') %>
           <% if @showtags -%>
             <br />
             <% if list_titles.tag_list.length > 0 -%>
               <em><%= I18n.t 'general.tagged_as' %>:</em> <%= render_archive_tag_list(list_titles) %>
-            <% end -%> 
+            <% end -%>
             <% if list_titles.place_tag_list.length > 0 -%>
               <em><%= I18n.t 'general.places' %>:</em> <%= render_archive_place_tag_list(list_titles) %>
-            <% end -%> 
-          <% end -%> 
+            <% end -%>
+          <% end -%>
         <% else -%>
-          <%= link_to h(" on #{list_titles.content.class.to_s.downcase} #{list_titles.content.id}: " + list_titles.title), content_path_for(list_titles.content) + "#comment-#{list_titles.id}" %> 
+          <%= link_to h(" on #{list_titles.content.class.to_s.downcase} #{list_titles.content.id}: " + list_titles.title), content_path_for(list_titles.content) + "#comment-#{list_titles.id}" %>
           <%= title_date.strftime(' %Y-%m-%d %H:%M:%S') %>
-        <% end -%> 
+        <% end -%>
 	<br/>
 </li>
 
 <% if @all_content.last == list_titles -%>
 	</ul>
 <% end -%>
+

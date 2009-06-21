@@ -2,11 +2,11 @@
 
 <div class="content-nav-links">
 <%= link_to (image_tag('icons/star.png')), archive_featured_path %>
-<%= link_to(I18n.t('articles.top_nav.featured_articles'), archive_featured_path) %>		
-<%= link_to (image_tag('icons/rosette.png')), archive_promoted_path %>
-<%= link_to(I18n.t('articles.top_nav.promoted_articles'), archive_promoted_path) %>		
+<%= link_to(I18n.t('articles.top_nav.featured_articles'), archive_featured_path) %>
+<%= link_to (image_tag('icons/star-blue1.png')), archive_promoted_path %>
+<%= link_to(I18n.t('articles.top_nav.promoted_articles'), archive_promoted_path) %>
 <%= link_to (image_tag('icon_article.gif')), archive_default_path %>
-<%= link_to(I18n.t('articles.top_nav.all_articles'), archive_default_path) %>		
+<%= link_to(I18n.t('articles.top_nav.all_articles'), archive_default_path) %>
 </div>
 
 <h2><%= archive_title %></h2>
@@ -20,12 +20,12 @@
 <% end -%>
 
 <% @current_date = '' -%>
-<%= render(:partial => "shared/list_titles", 
+<%= render(:partial => "shared/list_titles",
            :collection => @all_content,
            :locals => { :date_to_use => :created_on }) %>
 <hr>
 <p>
-<%= link_to "#{I18n.t('archive.events_for')} #{@start_date.strftime('%B %Y')}", 
+<%= link_to "#{I18n.t('archive.events_for')} #{@start_date.strftime('%B %Y')}",
   :controller => 'events', :action => 'calendar_month', :date=>@start_date %>
 </p>
 <p>
@@ -34,3 +34,4 @@
 <br />
 <%= link_to I18n.t('archive.all_years'), :action => "index" %>
 </p>
+

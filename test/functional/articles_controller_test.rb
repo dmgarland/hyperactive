@@ -6,10 +6,10 @@ require 'articles_controller'
 class ArticlesController; def rescue_action(e) raise e end; end
 
 class ArticlesControllerTest < Test::Unit::TestCase
-  
+
   include ContentControllerTest
   fixtures :content
-  
+
   def setup
     @controller = ArticlesController.new
     @request    = ActionController::TestRequest.new
@@ -17,21 +17,22 @@ class ArticlesControllerTest < Test::Unit::TestCase
     @first_id = content(:article1).id
     @hidden_id = content(:hidden_article).id
   end
-  
+
   def test_admin_controls_by_non_content_owner_not_part_of_collective_should_return_report_controls
     get :admin_controls, {:id => content(:article3).id}, as_user(:registered_user_3)
     assert_response :success
     assert_template '_report_this_controls'
-  end        
+  end
 
   def test_admin_controls_by_content_owner_should_return_admin_controls
     get :admin_controls, {:id => content(:article1).id}, as_user(:registered_user)
     assert_response :success
     assert_template '_admin_controls'
-  end          
-  
+  end
+
   def model_class
     Article
   end
 
 end
+

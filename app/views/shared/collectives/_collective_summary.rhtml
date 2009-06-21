@@ -6,6 +6,7 @@
 <% else %>
   <%= image_tag collective_summary.image.small, :class => "left" %>
 <% end %>
-<%= truncate(collective_summary.summary, :length => 400) %>
+<%= truncate(strip_tags(collective_summary.summary), :length => 400) %>
 </p>
 </div>
+

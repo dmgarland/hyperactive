@@ -87,29 +87,29 @@ task :helper_demo do
 end
 
 namespace :deploy do
-  
+
   # This is my experimental solution to the problem of restarting backgroundrb during deployment.
   #
   namespace :backgroundrb do
-    
+
     desc "Start backgroundrb for video encoding"
     task :start do
       run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:start RAILS_ENV=#{stage}"
     end
-    
+
     desc "Stop backgroundrb for video encoding"
     task :stop do
       run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:stop RAILS_ENV=#{stage}"
     end
-    
+
     desc "Restart backgroundrb for video encoding"
     task :restart do
       run "cd #{deploy_to}current; sudo -u www-data rake backgroundrb:restart RAILS_ENV=#{stage}"
     end
-    
+
   end # end of backgroundrb namespace
-    
-  
+
+
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
@@ -129,13 +129,13 @@ namespace :deploy do
    #backgroundrb_config = "#{shared_path}/backgroundrb.yml.production"
     #run "cp #{backgroundrb_config} #{release_path}/config/backgroundrb.yml"
   end
-  
-  
-  
+
+
+
   # You can use "transaction" to indicate that if any of the tasks within it fail,
   # all should be rolled back (for each task that specifies an on_rollback
   # handler).
-  
+
   desc "A task demonstrating the use of transactions."
   task :long_deploy do
     backgroundrb.stop
@@ -152,20 +152,21 @@ namespace :deploy do
     cleanup
     chown_to_www_data
   end
-  
+
   desc "Change group to deployment user so perms on the server actually work"
   task :chown_current_to_deployment_user, :roles => [ :app, :db, :web ] do
     sudo "chown -R #{user}:#{user} #{current_path}/*"
-  end 
-  
+  end
+
   desc "Change group to deployment user so perms on the server actually work"
   task :chown_current_to_deployment_user, :roles => [ :app, :db, :web ] do
     sudo "chown -R #{user}:#{user} #{current_path}/*"
-  end   
-  
+  end
+
   desc "Change group to www-data"
   task :chown_to_www_data, :roles => [ :app, :db, :web ] do
-    sudo "chown -R  www-data:www-data #{current_path}/*"
-  end   
+    sudo "chown -R  www-data:www-data #{deploy_to}/*"
+  end
 
 end
+

@@ -146,6 +146,7 @@ class ContentController < ApplicationController
     success &&= initialize_links
     success &&= initialize_file_uploads
     success &&= !current_user.is_anonymous? || simple_captcha_valid?
+    setup_videos_published_by
     if success && @content.save
         @content.tag_with params[:tags]
         @content.place_tag_with params[:place_tags]
@@ -199,6 +200,7 @@ class ContentController < ApplicationController
     success &&= initialize_videos
     success &&= initialize_file_uploads
     success &&= initialize_links
+    setup_videos_published_by
     success &&= @content.save
     if success
       if params[:open_street_map_info].blank? && @content.has_map_info?
@@ -334,6 +336,18 @@ class ContentController < ApplicationController
   def tell_irc_channel(kind_of_change)
     notify_irc_channel ("#{Hyperactive.site_url}#{content_path_for(@content)} :: '#{@content.title}' #{kind_of_change}'. Moderation status is currently '#{@content.moderation_status}'.")
     notify_irc_channel(@content.summary.gsub(/<\/?[^>]*>/,""))
+  end
+
+  # A hack. It's necessary to have a published_by property in videos, but it doesn't
+  # make a whole lot of sense to ask somebody to put this in the form multiple times.
+  #
+  # This loops through all the videos attached to the article, if there are any,
+  # and sets the published_by property on them.
+  #
+  def setup_videos_published_by
+    @content.videos.each do |video|
+      video.published_by = @content.published_by
+    end
   end
 
 end

@@ -165,7 +165,8 @@ namespace :deploy do
 
   desc "Change group to www-data"
   task :chown_to_www_data, :roles => [ :app, :db, :web ] do
-    sudo "chown -R  www-data:www-data #{deploy_to}/*"
+    sudo "chown -R  www-data:www-data #{deploy_to}/releases/"
+    sudo "chown -R  www-data:www-data #{current_path}"
   end
 
 end

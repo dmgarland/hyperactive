@@ -1,5 +1,5 @@
 <div class="post">
-<h2><%= link_to(collective_summary.name, group_path(collective_summary.id)) %></h2>
+<h2><%= link_to(collective_summary.name, group_path(collective_summary)) %></h2>
 <p>
 <% if collective_summary.image.nil? %>
   <%= image_tag "default_collective_small.jpg", :class => "left" %>

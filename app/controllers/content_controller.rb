@@ -37,7 +37,7 @@ class ContentController < ApplicationController
 
   caches_page :show, :only_path => true
   caches_page :index
-  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy]
+  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy, :sort_photos]
   cache_sweeper :comment_sweeper, :only => [:create_comment]
 
   # Rails does not pull out single-table inheritance subclasses properly on its own.

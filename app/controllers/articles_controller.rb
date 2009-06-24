@@ -3,7 +3,6 @@ class ArticlesController < ContentController
   # Filters
   #
   before_filter :can_edit?, :only => [:photo_list, :sort_photos, :edit, :update]
-  cache_sweeper :content_sweeper, :only => [:sort_photos]
 
   # Displays a page allowing the user to order photos for the article via
   # drag and drop.
@@ -28,6 +27,7 @@ class ArticlesController < ContentController
       photo.position = params['photo-list'].index(photo.id.to_s) + 1
       photo.save
     end
+    @content.update_attribute(:updated_on, Time.now)
 
     render :nothing => true
   end

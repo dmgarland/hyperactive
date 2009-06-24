@@ -2,7 +2,7 @@ class ArticlesController < ContentController
 
   # Filters
   #
-  before_filter :can_edit?, :only => [:photo_list, :sort_photos]
+  before_filter :can_edit?, :only => [:photo_list, :sort_photos, :edit, :update]
 
 
   # Displays a page allowing the user to order photos for the article via

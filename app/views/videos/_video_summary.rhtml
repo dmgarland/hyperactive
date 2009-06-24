@@ -3,7 +3,7 @@
 <% video_thumb = video_summary.file.url %>
 <%= link_to(image_tag(video_thumb + ".small.jpg", :class => "video"), video_summary) %><br/>
 <strong><%=link_to(h(video_summary.title.titleize), video_summary) %></strong><br />
-<%= truncate(video_summary.summary, :length => 400) %><br/>
+<%= truncate(strip_tags(video_summary.summary), :length => 400) %><br/>
 </p>
 </div>
 

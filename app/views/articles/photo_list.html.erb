@@ -1,0 +1,21 @@
+<h2>Photo editing</h2>
+
+<p>Drag and drop to re-arrange the photos. when you're done you may go
+<%= link_to 'back to the article edit page', edit_article_path(@content) %>,
+or just stop editing (you don't need to resave the article after editing).</p>
+
+<ul id="photo-list">
+<% @content.photos.each do |photo| %>
+    <li id="item_<%= photo.id %>">
+    <%= image_tag photo.file.thumb.url %>
+    </li>
+<% end %>
+</ul>
+
+<%= sortable_element 'photo-list',
+	:url => { :action => "sort_photos", :id => @content.id },
+	:complete => visual_effect(:highlight, 'photo-list')
+%>
+
+<p><%= link_to 'Back to edit', edit_article_path(@content) %></p>
+

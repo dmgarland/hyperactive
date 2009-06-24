@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090523084920) do
+ActiveRecord::Schema.define(:version => 20090624214849) do
 
   create_table "action_alerts", :force => true do |t|
     t.text     "summary",                          :null => false
@@ -214,6 +214,7 @@ ActiveRecord::Schema.define(:version => 20090523084920) do
     t.string   "title",      :default => "", :null => false
     t.integer  "content_id"
     t.datetime "created_on"
+    t.integer  "position",   :default => 0,  :null => false
   end
 
   add_index "photos", ["content_id"], :name => "fk2_photo_event"

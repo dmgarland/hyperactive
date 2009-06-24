@@ -30,6 +30,17 @@ class ArticlesControllerTest < Test::Unit::TestCase
     assert_template '_admin_controls'
   end
 
+  def test_photo_list
+    get :photo_list, {:id => @first_id}, as_user(:marcos)
+    assert_response :success
+  end
+
+  def test_photo_list_security
+    get :photo_list, {:id => @first_id}
+    assert_login_necessary
+  end
+
+
   def model_class
     Article
   end

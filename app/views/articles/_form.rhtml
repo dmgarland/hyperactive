@@ -23,7 +23,7 @@
 <%= render :partial => 'shared/content/tag_entry_controls' %>
 
 <noscript>
-<p><a name="noJS"><%= I18n.t 'general.oops' %></a> 
+<p><a name="noJS"><%= I18n.t 'general.oops' %></a>
 <%= I18n.t 'javascript.no_js' %>
 </p>
 </noscript>
@@ -33,6 +33,10 @@
 <p>
 <%= I18n.t 'content.form.upload_instructions' %>
 </p>
+
+<% if @current_action == 'edit' || @current_action == 'update' && @content.has_photos? %>
+    <p>If you are unsatisfied with the order of your photos, <%= link_to 'here', photo_list_article_path %> to re-order them.</p>
+<% end %>
 
 <%= render :partial => "shared/content/sub_list_upload_links" %>
 <%= render :partial => "shared/content/grouping_controls" %>

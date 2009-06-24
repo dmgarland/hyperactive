@@ -3,7 +3,7 @@ class ArticlesController < ContentController
   # Filters
   #
   before_filter :can_edit?, :only => [:photo_list, :sort_photos, :edit, :update]
-
+  cache_sweeper :content_sweeper, :only => [:create, :update, :destroy, :sort_photos]
 
   # Displays a page allowing the user to order photos for the article via
   # drag and drop.

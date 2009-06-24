@@ -1,12 +1,20 @@
 indy_slug:
   name: indymedia-london
   sluggable: indy_london (Collective)
-  
-other_slug:
-  id: 2
-  name: mystring
+
+collective_slug_two:
+  name: tibor-and-his-tractor
   sluggable: two (Collective)
-  
+
+collective_slug_three:
+  name: hansons
+  sluggable: three (Collective)
+
+collective_slug_four:
+  name: superduper
+  sluggable: four (Collective)
+
 about_the_site_slug:
   name: about-the-site
   sluggable: about (Page)
+

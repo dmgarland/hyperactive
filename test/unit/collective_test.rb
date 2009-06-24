@@ -16,29 +16,34 @@ class CollectiveTest < Test::Unit::TestCase
 
   def test_recently_active
     indy_london = collectives(:indy_london)
-    other_collective = collectives(:two)
-    indy_london.moderation_status = "promoted"
-    other_collective.moderation_status = "promoted"
-    other_collective.save!
-    indy_london.save!
+    collective_two = collectives(:two)
 
     o = Video.new(:title => "foo", :summary => "bar", :file => fixture_file_upload("fight_test.wmv"), :published_by => "blah")
+    o.collective = collective_two
+    o.save!
+
+    assert_equal Collective.recently_active.first, collective_two,
+      "collective_two should be the most recently_active collective"
+
+    o = Video.new(
+      :title => "foo",
+      :summary => "bar",
+      :file => fixture_file_upload("fight_test.wmv"),
+      :published_by => "blah"
+    )
+
+    sleep 1
+
     o.collective = indy_london
     o.save!
-    assert_equal Collective.recently_active.first, indy_london,
-      "indy_london should be the most recently_active collective"
 
-    o = Video.new(:title => "foo", :summary => "bar", :file => fixture_file_upload("fight_test.wmv"), :published_by => "blah")
-    o.collective = other_collective
-    o.save!
-    assert_equal other_collective.moderation_status, indy_london.moderation_status
-    assert_equal other_collective, Collective.recently_active.first,
-      "the other collective should now be the most recently active"
+    assert_equal indy_london, Collective.recently_active.first,
+      "indy_london should now be the most recently active"
   end
 
-  def test_featured_collective_takes_precedence_over_recently_active_published_collective
+  def test_featured_collective_takes_precedence_over_recently_active_promoted_collective
     indy_london = collectives(:indy_london)
-    other_collective = collectives(:two)
+    other_collective = collectives(:three)
 
     o = Video.new(:title => "foo", :summary => "bar", :file => fixture_file_upload("fight_test.wmv"), :published_by => "blah")
     o.collective = indy_london

@@ -7,9 +7,23 @@ indy_london:
   updated_on: 2006-2-23
 
 two:
-  name: MyString
+  name: Tibor And His Tractor
+  summary: Blah blah blah
+  moderation_status: featured
+  created_on: 2006-3-23
+  updated_on: 2006-3-23
+
+three:
+  name: Hansons
   summary: MyText
+  moderation_status: promoted
+  created_on: 2006-4-23
+  updated_on: 2006-4-23
+
+four:
+  name: Superduper
+  summary: It is pretty great being us
   moderation_status: published
-  created_on: 2006-2-23
-  updated_on: 2006-2-23
+  created_on: 2006-5-23
+  updated_on: 2006-5-23
 

@@ -13,7 +13,7 @@ class Photo < ActiveRecord::Base
 
   # Macros
   #
-  acts_as_list :scope => :post
+  acts_as_list :scope => 'content_id = #{content_id}'
 
   image_column  :file,
                 :versions => { :micro => "c50x50", :thumb => "c120x120", :big_thumb => "180x400", :medium => "480x480" },

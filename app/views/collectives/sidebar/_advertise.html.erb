@@ -1,0 +1,7 @@
+<p><%= I18n.t 'collectives.advertising' %></p>
+
+<% url_text = url_for({:params => params, :only_path => false, :protocol => "http://"}) %>
+<% javascript = "$('urlform_for_video').focus();$('urlform_for_video').select();" %>
+
+<p><%= text_field(:urlform, :for_video, :onclick => javascript, :readonly => true, :value => url_text, :size => 20) %><%= clippy(url_text) %></p>
+

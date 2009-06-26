@@ -158,6 +158,8 @@ en:
 
   # Groups stuff (groups are know as "collectives" in the code)
   collectives:
+    advertise_this_collective: Link to this group
+    advertising: "You can link to this group using the following URL:"
     edit:
       editing: Editing
     edit_memberships:
@@ -167,14 +169,14 @@ en:
       your_account_page: your account page
     form:
       logo_image: Logo image
-      logo_image_explanation: The logo image will be cropped so that it's square.
+      logo_image_explanation: "The logo image will be cropped so that it's square."
     index:
       newest_groups: Newest groups
       title: Recently active groups
     show_all:
-      title: All groups
+      title: "All groups"
     new:
-      create_an_account: create an account
+      create_an_account: "create an account"
       explanation: "You have to be a registered user to register a group. Groups should
 		write a short description of who they are and what they do, and will get
 		their own page listing all their articles, events and media. This can be

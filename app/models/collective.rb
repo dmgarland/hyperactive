@@ -97,6 +97,12 @@ class Collective < ActiveRecord::Base
     !upcoming_events.empty?
   end
 
+  # Does this collective have other medias?
+  #
+  def has_other_medias?
+    !other_medias.empty?
+  end
+
   # Does this collective have videos?
   #
   def has_videos?

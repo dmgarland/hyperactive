@@ -72,10 +72,10 @@ Released   : 20071004
 	<ul id="main">
 		<%= tab_for(I18n.t('layouts.home'), root_path, :controller_name => "home") %>
 		<%= tab_for(I18n.t('layouts.groups'), groups_path, :controller_name => "collectives") %>
-		<%= tab_for(I18n.t('layouts.mission_statement'), page_path("mission-statement"), :controller_name => "pages", :action => "show", :id => 'mission-statement'), :conditions => {:slug => 'mission-statement'} %>
-		<%= tab_for(I18n.t('general.editorial_guidelines'), page_path("editorial-guidelines"), :controller_name => "pages", :action => "show", :id => 'editorial-guidelines'), :conditions => {:slug => 'editorial-guidelines'} %>
-		<%= tab_for(I18n.t('layouts.contact_us'), page_path("contact-us"), :controller_name => "pages", :action => "show", :id => 'contact-us', :conditions => {:slug => 'contact-us'}) %>
-		<%= tab_for(I18n.t('layouts.get_involved'), page_path("get-involved"), :controller_name => "pages", :action => "show", :id => 'get-involved', :conditions => {:slug => 'get-involved'}) %>
+		<%= tab_for(I18n.t('layouts.mission_statement'), page_path("mission-statement"), :controller_name => "pages", :action => "show", :id => 'mission-statement'), :conditions => {:slug => "mission-statement"} %>
+		<%= tab_for(I18n.t('general.editorial_guidelines'), page_path("editorial-guidelines"), :controller_name => "pages", :action => "show", :id => 'editorial-guidelines'), :conditions => {:slug => "editorial-guidelines"} %>
+		<%= tab_for(I18n.t('layouts.contact_us'), page_path("contact-us"), :controller_name => "pages", :action => "show", :id => 'contact-us', :conditions => {:slug => "contact-us"}) %>
+		<%= tab_for(I18n.t('layouts.get_involved'), page_path("get-involved"), :controller_name => "pages", :action => "show", :id => 'get-involved', :conditions => {:slug => "get-involved"}) %>
 		<%= tab_for(I18n.t('layouts.help'), page_path("help"), :controller_name => "pages", :action => "show", :id => 'help', :conditions => {:slug => 'help'}) %>
 	</ul>
 </div>

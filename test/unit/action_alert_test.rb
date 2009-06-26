@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ActionAlertTest < Test::Unit::TestCase
+class ActionAlertTest < ActiveSupport::TestCase
   fixtures :action_alerts
 
   # Replace this with your real tests.
@@ -8,3 +8,4 @@ class ActionAlertTest < Test::Unit::TestCase
     assert true
   end
 end
+

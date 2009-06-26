@@ -13,7 +13,7 @@ en:
     attached_files: Attached Files
     back: Back
     by: by
-    click_here: Click here  
+    click_here: Click here
     contact_email: Contact email
     create: Create
     created_on: Created on
@@ -51,18 +51,18 @@ en:
     url: URL
     user_name: User Name
     welcome: Welcome
-    yep: "Yes"   
+    yep: "Yes"
     your_name: Your name
     latest_updates: Latest updates
 
   # Action alerts
   action_alerts:
-    listing_action_alerts: Listing action alerts 
-  
+    listing_action_alerts: Listing action alerts
+
   # ActiveRbac - login and signup related stuff
   active_rbac:
     account:
-      account_explanation: This is your private account information page. No other users can see this page.  
+      account_explanation: This is your private account information page. No other users can see this page.
       admin_explanation: You are an administrative user. From here you can
       edit_group_membership: Edit membership
       edit_rss_feeds: Edit RSS feeds
@@ -71,8 +71,9 @@ en:
       you_are_currently_logged_in_as: You are currently logged in as user
       you_belong_to_groups: You belong to the following group(s)
       you_have_published_articles: You have published the following articles
-      you_have_published_events: You have published the following events      
-      you_have_published_videos: You have published the following videos      
+      you_have_published_events: You have published the following events
+      you_have_published_other_medias: You have published the following links to other media
+      you_have_published_videos: You have published the following videos
       you_may_log_out_at: You may log out at the
       you_may: You may
       change_your_password: change your password
@@ -80,27 +81,28 @@ en:
       your_articles: Your articles
       your_events: Your events
       your_groups: Your groups
+      your_other_medias: Your links to other media
       your_videos: Your videos
-    login: 
+    login:
       account_explanation: Registering an account allows you to edit your own content.
       already_logged_in: Already logged in
       already_logged_in_explanation: You are already logged in. You need to log out before you can log in again.
-      dont_have_an_account: Don\'t have an account?
+      dont_have_an_account: "Don't have an account?"
       register: Register an account
       to_log_out: to log out.
     logout_success_title: Logout Success
     logout_success_message: You have successfully been logged out.
     logout_login_again_message: to log in again.
     logout_success_confirmation: Do you really want to log out?
-    register: 
+    register:
       desired_user_name: Desired User Name
-      explanation1: <p>You will have to give a user name and password to register an account, giving an email address is optional.</p>
-      explanation2: <p>When you publish anything while logged in, you will be able to edit your contribution later on. This means the content you publish will be tied to your user ID. For the time being the user name will not show up as the author, but this might change.</p>
-      explanation3: <p>If you report an article through the "report or administer this article" form at the bottom of each article, an email will be sent to the publicly archived imc-london-moderation mailing list, citing your user name.</p>
-      explanation4: <p>If you do decide to give an email address, and we see that you are frequently reporting abuse or suggesting good stuff for promotion, we might get in touch with you to offer you hiding and promoting privileges on the site. Giving an email address will also enable you to retrieve your password in case you forget it.</p>
+      explanation1: "<p>You will have to give a user name and password to register an account, giving an email address is optional.</p>"
+      explanation2: "<p>When you publish anything while logged in, you will be able to edit your contribution later on. This means the content you publish will be tied to your user ID. For the time being the user name will not show up as the author, but this might change.</p>"
+      explanation3: "<p>If you report an article through the 'report or administer this article' form at the bottom of each article, an email will be sent to the publicly archived imc-london-moderation mailing list, citing your user name.</p>"
+      explanation4: "<p>If you do decide to give an email address, and we see that you are frequently reporting abuse or suggesting good stuff for promotion, we might get in touch with you to offer you hiding and promoting privileges on the site. Giving an email address will also enable you to retrieve your password in case you forget it.</p>"
       register_title: Register
       sign_up: Sign Up
-      violates: Any user accounts who violate the  
+      violates: Any user accounts who violate the
       will_be_removed: will be removed.
 
   # Archive - stuff for the monthly archive
@@ -114,7 +116,7 @@ en:
     all_other_media_this_month: All other media this month
     featured_other_media_this_month: All featured other media this month
     promoted_other_media_this_month: All promoted other media this month
-    events_for: Events for 
+    events_for: Events for
     hide_tags: Hide tags
     show_tags: Show tags
     show_all_articles: Show all articles
@@ -138,7 +140,7 @@ en:
       title: Listing articles tagged as
     list_place_tagged_as:
       title: Listing articles with place tag
-    new: 
+    new:
       title: New article
     sidebar:
       latest_articles_feed: Latest articles feed
@@ -153,10 +155,10 @@ en:
       all_articles: all articles
       featured_articles: featured articles
       promoted_articles: promoted articles
-  
+
   # Groups stuff (groups are know as "collectives" in the code)
   collectives:
-    edit: 
+    edit:
       editing: Editing
     edit_memberships:
       add_new_member: Add a new member
@@ -171,7 +173,7 @@ en:
       title: Recently active groups
     show_all:
       title: All groups
-    new: 
+    new:
       create_an_account: create an account
       explanation: "You have to be a registered user to register a group. Groups should
 		write a short description of who they are and what they do, and will get
@@ -179,18 +181,18 @@ en:
 		useful for both groups and campaigns. Any member of the group can
 		publish content as part of that group and add or delete other members."
       guidelines: "<h2>Groups Guidelines</h2>
-	
+
 	<p>Only groups working in a  grassroots, non-corporate, non-commercial,
 	autonomous manner on social justice, environmental, cultural and
 	political issues, active in London can create accounts.</p>
-	
+
 	<p>Groups using language, imagery, or other forms of communication
 	promoting racism, fascism, xenophobia, sexism, homophobia or any other
 	form of discrimination againt people based on who they are rather than
 	what they do (including antisemitism, anti-roma) will be removed.</p>
-	
+
 	<p>The groups function is not a notice-board for political parties or any
-	other hierarchically structured organizations.	
+	other hierarchically structured organizations.
 	</p>"
       please_create_account: Please create an account
       register_explanation: You need to {{create_account}} before you can create a group.
@@ -201,14 +203,14 @@ en:
       explanation: Any registered user can {{create_a_group}}.  If you're not yet a registered user, you can {{register_a_user}}.
       sign_up_here: sign up here
     external_feed: This feed has not yet been retrieved.  It should show up in about ten minutes.
-    show: 
+    show:
       no_articles_yet: No articles yet.
       no_events_yet: No events yet.
       no_feeds_yet: No feeds yet.
       no_videos_yet: No videos yet.
       upcoming_events: Upcoming Events
       group_created: created on
-  
+
   # Some general content stuff, mostly related to class names
   # and the content creation forms for articles, events, and videos.
   content:
@@ -237,31 +239,31 @@ en:
       moderation_status: Moderation status
       required_field: required field
       title: Title
-      upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.    
+      upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.
       your_name: Your name
-  
-  # Controller messages, stuff that doesn't show up in normal view templates 
-  # but are messages from the system telling you that something happened, 
+
+  # Controller messages, stuff that doesn't show up in normal view templates
+  # but are messages from the system telling you that something happened,
   # i.e. "Your article was created".
   controllers:
     collectives:
       group_created: Group was successfully created.
       group_updated: Group was successfully updated.
-  
+
   # The content hide mailer, which sends messages to an email address when things
   # on the site are hidden, unhidden, or reported by users.
   content_hide_mailer:
       has_been_hidden_by_user: has been hidden by the user
-      has_been_promoted_by_user: has been promoted by the user      
+      has_been_promoted_by_user: has been promoted by the user
       has_been_unhidden_by_user: has been unhidden by the user
       has_been_reported_by_user: has been reported by the user
       reasons: The following reasons were given
-  
+
   # Events
   events:
     sidebar:
       feedbox:
-        title: Upcoming events feed   
+        title: Upcoming events feed
         subscribe_message: Subscribe to our {{upcoming_events_feed_path}} or visit our {{feed_center_path}} for more feeds.
         upcoming_events_feed: upcoming events feed
       ical:
@@ -311,7 +313,7 @@ en:
       next_day: Next day
     list_by_event_date:
       title: Listing Events by Event Date
-    list_by_event_group: 
+    list_by_event_group:
       title: Listing repeated events
     list_by_week:
       previous_week: Previous week
@@ -381,7 +383,7 @@ en:
       title: Hidden
       text: "The following content has been hidden under the {{guidelines_path}}."
       guidelines: editorial guidelines
-    report: 
+    report:
       title: What's the trouble?
       report: Report
 
@@ -420,17 +422,17 @@ en:
       info_alternative: Information and Reference
       network: Indymedia UK Network
       uk_network_archive: UK Network Archives
-  
+
   # Javascript-related messages
   javascript:
     no_js: "You don't have JavaScript enabled, so you won't be able to add photos or links to this event! Please enable JavaScript in your browser's preferences if you want to add a photo or a link."
     validation:
       required_fields_missing: Some required fields are missing!
   # The site's layouts, including the navigation, header, and footer.
-  layouts: 
+  layouts:
     categories: Categories
     events: Events
-    footer: 
+    footer:
       contributions: To contribute to this project {{project_site}}
       icons_by: Icons by
       project_site: take a look at the project site
@@ -448,9 +450,9 @@ en:
     mission_statement: Mission Statement
     help: Help!
     get_involved: Get Involved
-  
+
   # Other media
-  other_media: 
+  other_media:
     edit:
       title: Editing other media
     form:
@@ -468,37 +470,37 @@ en:
       featured_other_media: Other media (Featured)
       promoted_other_media: Other media (Promoted)
       all_other_media: Other media (All)
-    
+
   # The promotion controls
   promotion:
-    common: 
+    common:
       promote: Promote
     promoting_controls:
       title: Please state a reason for promoting
 
-  
+
   # The search box and search results
   search:
-    find_content: 
+    find_content:
       please_enter_search_terms: Please enter some search terms.
       results_for: Search results for
-    past_events_explanation: There are events for this tag, but they're in the past.  
+    past_events_explanation: There are events for this tag, but they're in the past.
     no_tags_found: Nothing has been tagged with <strong>&lsquo;{{tag}}&rsquo;</strong>
-  
+
   # Security messages
   security:
     login_necessary: You need to log in to do that.
     permissions_error: You are not allowed to access this page.
     please_type_anti_spam_message: You need to type the text from the image into the box so we know you're not a spambot.
-  
-  # Views which are shared across many parts of the site and don't belong in 
+
+  # Views which are shared across many parts of the site and don't belong in
   # just one spot.
   shared:
     search_box:
       title: Search the site
     publish_box:
       title: Read it, Write it, Do it!
-    account_box: 
+    account_box:
       title: Your account
       explanation: You are currently not logged in. You can {{login}} or {{register_an_account}}. Registration allows you to edit your own content and help administer the site.
       log_in: log in
@@ -529,7 +531,7 @@ en:
       groups_display:
         published_by_group: Published by group
       hidden_notice: This {{class_name}} has been hidden under the site's {{editorial_guidelines}}.
-      maps: 
+      maps:
         add_a_map: Add a map?
         delete_this_map: Delete this map
         edit_or_delete_map: Edit or delete map?
@@ -550,15 +552,15 @@ en:
         multiple_photos: (click again for multiple photo uploads)
         multiple_videos: (click again for multiple video uploads)
       tag_instructions: Tags - put in the keywords of your post here, to help people find it. Separate with spaces.
-  
+
   # The events timeline.
   timeline:
     explanation: "Timeline of the next 100 upcoming events.  Click and drag to see stuff."
-   
+
   # Videos
   videos:
-    sidebar: 
-      previous: 
+    sidebar:
+      previous:
         title: Previous videos
       containing_content:
         related_title: "Related {{post_title}}"
@@ -570,10 +572,10 @@ en:
         explanation: "  <a href='http://subscribe.getMiro.com/?url1={{video_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
 			<p>
 			This will allow you to download Miro, which takes care of
-			feed-reading, Bittorrent and video-playing software in one easy to use package.  
-                        You can find out more about its features 
-			{{miro_path}}. Once you have installed Miro, you can subscribe 
-			to our {{feed_path}} to automatically receive all of our latest videos, 
+			feed-reading, Bittorrent and video-playing software in one easy to use package.
+                        You can find out more about its features
+			{{miro_path}}. Once you have installed Miro, you can subscribe
+			to our {{feed_path}} to automatically receive all of our latest videos,
                         or click the 'download torrent'
 			link underneath the video above to download only the video file you want.</p>"
     archives:
@@ -594,9 +596,9 @@ en:
     help:
       video_feed: video feed
       text: "<h2>Video download help</h2>
-	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can 
-	download it for screenings.  However, we do not currently have the capacity to serve these big files 
-	ourselves.  Instead, we offer a download via Bittorrent, a peer-to-peer filesharing sytem.</p> 
+	<p>Whenever someone uploads a video, our server keeps a full-quality copy of it so that you can
+	download it for screenings.  However, we do not currently have the capacity to serve these big files
+	ourselves.  Instead, we offer a download via Bittorrent, a peer-to-peer filesharing sytem.</p>
 	<p>In order to download the full-quality video, you will need to have some software installed on your computer.
 	Basically you have two choices:
 	<ul>
@@ -604,35 +606,35 @@ en:
 		<li>Miro</li>
 	</ul>
 	</p>
-	
+
 	<h2>Bittorrent + VLC</h2>
-        <a href='http://www.bittorrent.com/download'>Bittorrent software</a> shares 
-	the file you are downloading with other people as you download it.  If you want to help us distribute 
+        <a href='http://www.bittorrent.com/download'>Bittorrent software</a> shares
+	the file you are downloading with other people as you download it.  If you want to help us distribute
 	video files, please leave your Bittorrent client open after your download finishes and you'll be donating
 	your bandwidth and making everyone's downloads faster.</p>
-	
-	<p>All of the full-quality video has been converted into a free format called Ogg Theora.  The easiest way 
+
+	<p>All of the full-quality video has been converted into a free format called Ogg Theora.  The easiest way
 	to watch them is to use the excellent <a href='http://www.videolan.org/vlc/'>VLC</a> video player which
 	you can <a href='http://www.videolan.org/vlc/'>download here</a>. Alternatively, you may download the
         <a href='http://xiph.org/quicktime/'>Ogg plugin for Quicktime</a>, or
         <a href='http://www.illiminable.com/ogg/'>Ogg plugin for Windows Media Player</a>. </p>
-	
+
 	<h2>Miro</h2>
 	<p>Another easy way to see the full-quality video on our site is to press this button:
 	<p>
 		<a href='http://subscribe.getMiro.com/?url1={{feed_path}}' title='Miro: Internet TV'><img src='http://subscribe.getmiro.com/img/buttons/wes1.png' alt='Miro Video Player' border='0' /></a>
-	</p>	
+	</p>
 	This will allow you to download Miro, which takes care of
-	feed-reading, Bittorrent and video-playing software in one easy to use package.  
+	feed-reading, Bittorrent and video-playing software in one easy to use package.
         You can find out more about its features
         <a href='http://www.getmiro.com/features/'>at the Miro site</a>.
-        Once you've installed Miro, you can subscribe 
-	to our {{video_path}} to automatically 
+        Once you've installed Miro, you can subscribe
+	to our {{video_path}} to automatically
         receive all of our latest videos, or click the 'download torrent'
 	link underneath the video above to download only the video file you want.</p>
 
 	<h2>Security note</h2>
-	<p>{{exclamation_img}} If you are incredibly paranoid about other 
+	<p>{{exclamation_img}} If you are incredibly paranoid about other
 	people knowing that you are downloading a video, please note that your computer's IP address will be visible
 	to the people who you are sharing the video with.  In this case, don't use Bittorrent or Miro.</p>"
     index:
@@ -646,7 +648,7 @@ en:
       click_once: Please only click once, and be patient, video uploading can take a while.
     show:
       comments: Comments
-    video: 
+    video:
       published: Published
       no_flash: "<p>This item requires Macromedia Flash Player 7.</p>
         <p>To get the latest version please <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>click here</a>.</p>"
@@ -656,3 +658,4 @@ en:
       download_original: download original
       download_torrent: download torrent
       still_converted: This video is still being converted, or else there has been some kind of error.
+

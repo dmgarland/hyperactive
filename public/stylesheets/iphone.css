@@ -1,0 +1,132 @@
+body {font-family:Georgia;margin: 0;background:#f6f2ef;color: #333;overflow-x: hidden;-webkit-user-select: none;-webkit-text-size-adjust: none;}
+
+/*
+.portrait
+.landscapeRight
+.landscapeLeft
+*/
+
+ul p, ol p, table p, dl p, ul ul, ol ol, ul ol, ol ul, address p, blockquote p, form div div, form div p, fieldset div, table form div {font-size: 1em;}
+.seperation {border-bottom:1px solid #cdc9c7;}
+.side-margins, .panel-no-border {padding:0px 10px;}
+.panel{border-bottom:1px solid #cdc9c7;padding:0px 10px;}
+.heading {color:#258390;font-family:Helvetica Neue;}
+.read-more {background:transparent url(/images/iphone/link-icon.gif) no-repeat scroll 0px 2px;padding-left:22px;}
+a {color:#333;text-decoration:none;}
+img {border:none;}
+.viewport_body .disc-list,.viewport_body .what-were-good-at {background-color:#F6F2EF;}
+.viewport_body .disc-list li, .viewport_body .what-were-good-at li {background:transparent url(/images/iphone/list-disc.gif) no-repeat scroll 0% 50%;border:none;padding:2px 0pt 2px 12px;}
+* ul {margin:0px;padding:0px;}
+
+h3,h4{font-weight:normal;color:#258390;}
+
+/* Header */
+#header {height:54px;}
+#header h1{width:56px;height:40px;float:left;margin:7px 0px 0px 8px;background:url(/images/iphone/logo.png) no-repeat;text-indent:-10000px;overflow:hidden;}
+#header h1 a{width:56px;height:40px;display:block;overflow:hidden;text-indent:-10000px;}
+#header ul {float:right;margin:0.5em 0px;}
+#header ul li {float:left;font-weight:bold;border-bottom:none;list-style-type:none;margin:0pt;padding:10px 9px 11px 0px;position:relative;}
+#header ul li span {background:transparent url(/images/iphone/nav-dot.gif) no-repeat scroll right bottom;display:block;float:left;height:15spx;width:10px;}
+#header ul li a {background:none;display:block;float:left;font-family:Helvetica Neue;font-weight:bold;font-size:14px;margin:0px;padding:4px;}
+
+/* Main Nav */
+ul#main-nav {border-top:1px solid #cdc9c7;border-bottom:4px solid #cbc8c6;margin:0px;padding:0px 0px 0px 6px;overflow:hidden;clear:both;}
+ul#main-nav li {float:left;font-weight:bold;border:none;list-style-type:none;margin:0px;padding:0px;}
+ul#main-nav li a {color:#333;background:none;display:block;font-size:16px;font-family:"Helvetica Neue" Helvetica, Arial, sans-serif;font-weight:bold;margin:0px 3px;padding:6px 3px 6px;}
+ul#main-nav li.selected a{background:transparent url(/images/iphone/nav-on.gif) no-repeat center bottom;color:#258390;}
+.landscapeLeft ul#main-nav li a {margin:0px 10px;padding:6px 10px 4px;}
+.landscapeRight ul#main-nav li a {margin:0px 10px;padding:6px 10px 4px;}
+
+/* Sub Nav */
+#sub-nav {background-color:#FFFFFF;margin:0px;overflow:hidden;padding:0px 0px 0px 2px;}
+#sub-nav li {border:medium none;float:left;margin:0px;padding:0px;}
+#sub-nav li:first-child {float:left;}
+#sub-nav li:last-child {float:right;}
+#sub-nav li a {background:none;color:#333;display:block;font-size:14px;font-family:Helvetica Neue;font-weight:bold;line-height:25px;margin:3px;padding:5px 3px 4px;}
+#sub-nav li.selected a{color:#258390;}
+
+/* Footer */
+#footer {background:transparent url(/images/iphone/footer-repeat.gif) repeat-x scroll 0px 0px;height:57px;}
+#footer p{font-family:"Helvetica Neue-Bold", Helvetica, Arial, sans-serif;line-height:28px;margin:0px;overflow:hidden;font-size:14px;}
+#footer .left {float:left;}
+#footer .right {float:right;}
+#footer p{padding:0 8px;}
+#footer p a {font-weight:bold;}
+#footer .upper {color:#515050;}
+#footer .upper a {color:#515050;padding:3px 12px 4px;border-left:1px dotted #9b948e;}
+#footer .lower {color:#FFF;}
+#footer .lower .left {font-family:Georgia;}
+#footer .lower a {color:#FFF;}
+
+/* iPhone Container */
+.viewport_body ul {background-color:#FFF;}
+.viewport_body ul li {color:#333;font-weight:normal;font-size:16px;}
+.viewport_body a{text-decoration:underline;}
+
+/* Content */
+.image-title-list {border-top:1px solid #BBB;margin-top:20px;}
+.image-title-list li {border-bottom:1px solid #BBB;padding:0px;}
+.image-title-list li a {display:block;height:50px;margin:0px;padding:0px;}
+.image-title-list li img {float:left;margin:0 10px 0 0;}
+.image-title-list li h3 {color:#258390;font-family:Helvetica Neue;font-weight:bold;font-size:15px;margin:0px;padding:8px 0px 0px;}
+.image-title-list li p {color:#333;font-size:14px;margin:0px;padding:0px;}
+
+.jobs-list {border-top:1px solid #BBB;}
+.jobs-list li {border-bottom:1px solid #BBB;}
+.jobs-list li a {color:#258390;font-family:Helvetica Neue;font-weight:bold;}
+
+body ul.work-title-link {background-color:#F6F2EF;border-bottom:1px solid #CDC9C7;overflow:hidden;}
+body ul.work-title-link li {border:none;font-size:16px;color:#515050;font-weight:normal;}
+body ul.work-title-link li em {display:block;}
+body ul.work-title-link li:first-child {float:left;}
+body ul.work-title-link li:last-child {float:right;}
+body ul.work-title-link li a:last-child {background-image:none;margin:0px;padding:8px 15px 8px 8px;}
+
+body ul.awards-list {border:none;}
+body ul.awards-list li {background-color:#F6F2EF;border-bottom:1px solid #CDC9C7;overflow:hidden;font-size:16px;color:#515050;font-weight:normal;}
+body ul.awards-list li:last-child {border:none;}
+body ul.awards-list li .image-holder {float:left;width:100px;}
+body ul.awards-list li p {margin:0px;}
+body ul.awards-list li p span {display:block;}
+
+.block {display:block;}
+
+blockquote {color:#515050;font-size:11px;margin:0px;}
+.cite-inner {color:#515050;font-size:11px;}
+.cite-inner span {display:block;}
+
+/* More Pagination */
+.more-pagination p{margin:8px;}
+
+/* Job Details */
+.job-details{position:relative;}
+.job-details h3{margin-right:60px;}
+.job-details .back-link{position:absolute;top:0;right:8px;margin:0;}
+
+/* Pages */
+#sub-nav.pages-list li:last-child {float:left;}
+
+/* Process */
+.process{padding:0 10px;border-top:1px solid #cdc9c7}
+.first-process{border-top:none;}
+
+/* Styles taken from tank_engine */
+body ul > li {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 8px 0 8px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    list-style: none;
+}
+
+body ul > li > a {
+    display: block;
+    margin: -8px 0 -8px -10px;
+    padding: 8px 32px 8px 10px;
+    text-decoration: none;
+    color: inherit;
+    background: url(/images/tank_engine/listArrow.png) no-repeat right center;
+}
+

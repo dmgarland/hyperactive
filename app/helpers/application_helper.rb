@@ -95,14 +95,15 @@ module ApplicationHelper
   # A convenience method giving access to the thumbnail for this
   # content object.
   #
-  def thumbnail_for(entity)
+  def thumbnail_for(entity, big_thumb = false)
     if entity.class == Video
       video_thumb = entity.file.url
       link_to(image_tag(video_thumb + ".small.jpg", :class => 'left'), entity)
     elsif entity.class == Article || entity.class == Event
       if entity.has_thumbnail?
         if entity.photos.length > 0
-          link_to(image_tag(entity.photos.first.file.thumb.url, :class => 'left'), entity)
+          thumb = big_thumb ? entity.photos.first.file.big_thumb.url : entity.photos.first.file.thumb.url
+          link_to(image_tag(thumb, :class => 'left'), entity)
         elsif entity.contains_videos?
           video = entity.videos.first
           video_thumb = video.file.url
@@ -111,6 +112,8 @@ module ApplicationHelper
       end
     end
   end
+
+
 
   def render_tag_list
     render(:partial => "shared/tag_list", :object=> @content.tag_list, :locals => {:tag_type => "tag"})
@@ -220,7 +223,11 @@ module ApplicationHelper
     EOF
   end
 
-  # Builds navigation tabs
+  # Builds navigation tabs - currently being used only on the mobile templates.
+  #
+  # This method is really just an expanded version of the "tab_for" method
+  # up above, really we should ditch tab_for and use this one instead, probably.
+  #
   def set_main_navlink_for(text, link, link_class, conditions = {}, options = {})
     on = false
     if conditions.is_a?(Array)

@@ -651,6 +651,7 @@ en:
     show:
       comments: Comments
     video:
+      has_been_hidden: "This video has been hidden under our editorial guidelines."
       published: Published
       no_flash: "<p>This item requires Macromedia Flash Player 7.</p>
         <p>To get the latest version please <a href='http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash' target='_blank'>click here</a>.</p>"

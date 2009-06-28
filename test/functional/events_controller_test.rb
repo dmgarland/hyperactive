@@ -27,6 +27,14 @@ class EventsControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:content)
   end
 
+  def test_index_iphone
+    get :index, {:format => "iphone"}
+    assert_response :success
+    assert_template 'index'
+    assert_not_nil assigns(:content)
+    assert_equal 3, assigns(:content).size
+  end
+
   def test_list_by_day
     get :list_by_day
     assert_response :success

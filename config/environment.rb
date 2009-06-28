@@ -1,6 +1,6 @@
 # Be sure to restart your web server when you modify this file.
 
-# Uncomment below to force Rails into production mode when 
+# Uncomment below to force Rails into production mode when
 # you don't control web/app server and can't set it the proper way
 # ENV['RAILS_ENV'] ||= 'production'
 
@@ -20,24 +20,24 @@ end
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
-  
+
   # Skip frameworks you're not going to use (only works if using vendor/rails)
   # config.frameworks -= [ :action_web_service ]#, :action_mailer ]
 
-  # Only load the plugins named here, in the order given. By default, all plugins 
+  # Only load the plugins named here, in the order given. By default, all plugins
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
-  # config.plugins = [:engines, :active_rbac, :white_list, :sanitize_params, :hyperactive, :all] 
+  # config.plugins = [:engines, :active_rbac, :white_list, :sanitize_params, :hyperactive, :all]
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  
+
   # TODO 2.1 : this shouldn't be necessary, the code in vendor/plugins/hyperactive/init.rb should do this job.
   # But it doesn't.
   config.load_paths << "#{RAILS_ROOT}/app/sweepers"
 
 
-  # Force all environments to use the same logger level 
+  # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
 
@@ -52,7 +52,7 @@ Rails::Initializer.run do |config|
 
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
-  # This is necessary if your schema can't be completely dumped by the schema dumper, 
+  # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
 
@@ -61,24 +61,24 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
-  
+
   # allow plugins in mods/
   config.plugin_paths << "#{RAILS_ROOT}/mods"
 
   # See Rails::Configuration for more options
   config.action_mailer.delivery_method = :sendmail
-  
-  # Let's put cached pages in a more convenient place than the root of the 
+
+  # Let's put cached pages in a more convenient place than the root of the
   # public directory.  Note that this requires that the Apache setup points at
   # public/cache so that Apache serves cached pages properly.
-  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/system/cache"  
-      
+  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/system/cache"
+
   # Load any gems found in vendor/gems.  See http://errtheblog.com/posts/50-vendor-everything
   # for more on this.
-  config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir| 
+  config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir|
     File.directory?(lib = "#{dir}/lib") ? lib : dir
   end
-  
+
   # Reload plugin code between requests so that we don't go insane when working on the
   # Hyperactive plugin.
   #config.reload_plugins = true
@@ -109,3 +109,4 @@ begin
 rescue Mysql::Error
   # Ignore MySQL errors in order to allow "rake db:create:all" to run
 end
+

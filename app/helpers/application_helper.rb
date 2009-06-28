@@ -54,7 +54,7 @@ module ApplicationHelper
     end
 
     if(!conditions[:slug].nil?)
-      on = (params[:slug] == conditions[:slug])
+      on = (params[:id] == conditions[:slug])
     end
 
     content_tag :li, link_to(text, link), :class => ("current_page_item" if on), :id => "#{text.downcase.gsub(/ /, "")}-tab"

@@ -5,7 +5,7 @@
     <%= I18n.t 'content.class_names.video' %>
     </label><br/><br/>
     <% if controller.action_name == 'edit' %>
-        <%= image_tag video.file.thumb.url %><br/><br/>
+        <%= thumbnail_for(video) %><br/><br/>
     <% end %>
     <label for="video[]_title">
       <%= I18n.t 'general.title' %>*</label><br/>
@@ -22,3 +22,4 @@
     <%= sub_list_remove_link video, 'Video', I18n.t('content.form.delete') %>
   </fieldset>
 </div>
+

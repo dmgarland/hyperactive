@@ -1,6 +1,6 @@
 class ActionAlertsController < ApplicationController
 
-  layout "mobile"
+  layout "two_column"
 
   def index
     list
@@ -14,5 +14,6 @@ class ActionAlertsController < ApplicationController
   def show
     @action_alert = ActionAlert.find(params[:id])
   end
-  
+
 end
+

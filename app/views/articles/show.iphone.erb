@@ -5,8 +5,8 @@
 <h1 class="title"><%=h @content.title %></h1>
 <p class="byline"><%= image_tag "icon_article.gif" %>
 <small><%= I18n.t 'general.published_cap' %>: <%=h long_date(@content.created_on) %></small> <%= I18n.t 'general.by'%> <strong><%=h @content.published_by.titleize %></strong></p>
-<p><%= render :partial => 'shared/content/content_tags_display.html.erb' %>
-<%= render :partial => 'shared/content/content_place_tags_display.html.erb' %>
+<p><%= render :partial => 'shared/content/content_tags_display' %>
+<%= render :partial => 'shared/content/content_place_tags_display' %>
 <%= render :partial => 'shared/content/groups_display' %>
 </p>
 <%= render :partial => 'shared/content/hidden_notice' %>
@@ -30,7 +30,7 @@
 
 <%= render :partial => "shared/content/list_file_uploads" %>
 <%= render :partial => "shared/content/list_links" %>
-<%= render :partial => "shared/content/email_display" %>     
+<%= render :partial => "shared/content/email_display" %>
 </div>
 
 <% if @content.has_comments? %>
@@ -45,3 +45,4 @@
 	<%= render :partial => "articles/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/related_content" %>
 <% end %>
+

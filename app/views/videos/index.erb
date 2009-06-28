@@ -1,5 +1,5 @@
 <h1><%= I18n.t('videos.index.title') %></h1>
-<%= render :partial => "videos/video_summary.html.erb", :collection => @content unless @content.blank? %>
+<%= render :partial => "videos/video_summary", :collection => @content unless @content.blank? %>
 <hr/>
 <%= link_to( I18n.t('videos.index.more_videos'), archive_videos_path(:page => 2)) %>
 <% content_for :sidebar do %>

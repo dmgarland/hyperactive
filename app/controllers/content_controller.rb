@@ -85,11 +85,19 @@ class ContentController < ApplicationController
   def archives
     @cloud = Tag.cloud(:limit => 20)
     @content = model_class.visible.paginate(:order => 'created_on desc', :page => page_param)
+    respond_to do |format|
+      format.html
+      format.iphone
+    end
   end
 
   def promoted
     @cloud = Tag.cloud(:limit => 20)
     @content = model_class.promoted.paginate(:order => 'created_on desc', :page => page_param)
+    respond_to do |format|
+      format.html
+      format.iphone
+    end
   end
 
   def featured

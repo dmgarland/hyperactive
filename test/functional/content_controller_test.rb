@@ -27,13 +27,13 @@ module ContentControllerTest
     assert_equal 6, assigns(:content).size
   end
 
-#  def test_archives_iphone
-#    get :archives, {:format => "iphone"}
-#    assert_response :success
-#    assert_template 'archives'
-#    assert_not_nil assigns(:content)
-#    assert_equal 6, assigns(:content).size
-#  end
+  def test_archives_iphone
+    get :archives, {:format => "iphone"}
+    assert_response :success
+    assert_template 'archives'
+    assert_not_nil assigns(:content)
+    assert_equal 6, assigns(:content).size
+  end
 
   def test_list_promoted
     get :promoted
@@ -44,14 +44,14 @@ module ContentControllerTest
       "There should be 2 promoted #{model_class.to_s.downcase.pluralize} in the fixtures."
   end
 
-#  def test_list_promoted_iphone
-#    get :promoted, {:format => "iphone"}
-#    assert_response :success
-#    assert_template 'promoted'
-#    assert_not_nil assigns(:content)
-#    assert_equal 2, assigns(:content).size,
-#      "There should be 2 promoted #{model_class.to_s.downcase.pluralize} in the fixtures."
-#  end
+  def test_list_promoted_iphone
+    get :promoted, {:format => "iphone"}
+    assert_response :success
+    assert_template 'promoted'
+    assert_not_nil assigns(:content)
+    assert_equal 2, assigns(:content).size,
+      "There should be 2 promoted #{model_class.to_s.downcase.pluralize} in the fixtures."
+  end
 
   def test_a_show
     get :show, {:id => @first_id}
@@ -62,14 +62,13 @@ module ContentControllerTest
     assert_match(/#{I18n.t('shared.content.admin_controls.report_or_administer', :class_name => class_name)}/, @response.body, "Unhidden content should show hiding controls even if user not logged in.")
   end
 
-#  def test_a_show_iphone
-#    get :show, {:id => @first_id, :format => "iphone"}
-#    assert_response :success
-#    assert_template 'show'
-#    assert_not_nil assigns(:content)
-#    assert assigns(:content).valid?
-#    assert_match(/#{I18n.t('shared.content.admin_controls.report_or_administer', :class_name => class_name)}/, @response.body, "Unhidden content should show hiding controls even if user not logged in.")
-#  end
+  def test_a_show_iphone
+    get :show, {:id => @first_id, :format => "iphone"}
+    assert_response :success
+    assert_template 'show'
+    assert_not_nil assigns(:content)
+    assert assigns(:content).valid?
+  end
 
   def test_a_show_as_admin
     get :show, {:id => @first_id}, as_user(:marcos)
@@ -94,6 +93,13 @@ module ContentControllerTest
 
   def test_new
     get :new
+    assert_response :success
+    assert_template 'new'
+    assert_not_nil assigns(:content)
+  end
+
+  def test_new_iphone
+    get :new, :format => "iphone"
     assert_response :success
     assert_template 'new'
     assert_not_nil assigns(:content)

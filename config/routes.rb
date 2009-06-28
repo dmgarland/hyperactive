@@ -57,19 +57,13 @@ ActionController::Routing::Routes.draw do |map|
   map.archive_videos '/videos/archives/:page', :controller => 'videos', :action => 'archives'
 
   # content listings by moderation status
-  map.promoted_articles '/articles/list_promoted/:page', :controller => 'articles', :action => 'list_promoted'
-  map.featured_articles '/articles/list_featured/:page', :controller => 'articles', :action => 'list_featured'
-  map.promoted_events '/events/list_promoted/:page', :controller => 'events', :action => 'list_promoted'
-  map.featured_events '/events/list_featured/:page', :controller => 'events', :action => 'list_featured'
-  map.promoted_videos '/videos/list_promoted/:page', :controller => 'videos', :action => 'list_promoted'
-  map.featured_videos '/videos/list_featured/:page', :controller => 'videos', :action => 'list_featured'
-  map.promoted_other_medias '/other_medias/list_promoted/:page', :controller => 'other_medias', :action => 'list_promoted'
-  map.featured_other_medias '/other_medias/list_featured/:page', :controller => 'other_medias', :action => 'list_featured'
-
-  # a better way to do the same thing
-  map.resources :action_alerts, :pages, :videos
-  map.resources :articles, :member => {:sort_photos => :post, :photo_list => :get }
-  map.resources :events, :collection => { :list_promoted => :get }
+  map.resources :action_alerts, :pages
+  map.resources :articles,
+    :collection => { :promoted => :get, :featured => :get },
+    :member => {:sort_photos => :post, :photo_list => :get }
+  map.resources :events, :collection => { :promoted => :get, :featured => :get }
+  map.resources :other_medias, :collection => { :promoted => :get, :featured => :get }
+  map.resources :videos, :collection => { :promoted => :get, :featured => :get }
   map.resources :groups, :controller => :collectives,
                          :collection => { :show_all => :get },
                          :has_many => :external_feeds

@@ -78,33 +78,17 @@ class ContentController < ApplicationController
 
   def archives
     @cloud = Tag.cloud(:limit => 20)
-    @content = model_class.visible.paginate(
-      :order => 'created_on desc',
-      :page => page_param)
+    @content = model_class.visible.paginate(:order => 'created_on desc', :page => page_param)
   end
 
-  def list_promoted
-    if model_class == Event
-      order_string = 'date DESC'
-    else
-      order_string = 'created_on DESC'
-    end
-    @content = model_class.paginate(
-      :conditions => ['moderation_status = ?', "promoted"],
-      :order => order_string,
-      :page => page_param)
+  def promoted
+    @cloud = Tag.cloud(:limit => 20)
+    @content = model_class.promoted.paginate(:order => 'created_on desc', :page => page_param)
   end
 
-  def list_featured
-    if model_class == Event
-      order_string = 'date DESC'
-    else
-      order_string = 'created_on DESC'
-    end
-    @content = model_class.paginate(
-      :conditions => ['moderation_status = ?', "featured"],
-      :order => order_string,
-      :page => page_param)
+  def featured
+    @cloud = Tag.cloud(:limit => 20)
+    @content = model_class.featured.paginate(:order => 'created_on DESC', :page => page_param)
   end
 
   def show

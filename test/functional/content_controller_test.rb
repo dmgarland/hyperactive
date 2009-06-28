@@ -19,13 +19,13 @@ module ContentControllerTest
     assert_equal 6, assigns(:content).size
   end
 
-  # There is one fixture with a promoted event.
   def test_list_promoted
-    get :list_promoted
+    get :promoted
     assert_response :success
-    assert_template 'list_promoted'
+    assert_template 'promoted'
     assert_not_nil assigns(:content)
-    assert_equal 2, assigns(:content).size
+    assert_equal 2, assigns(:content).size,
+      "There should be 2 promoted #{model_class.to_s.downcase.pluralize} in the fixtures."
   end
 
   def test_a_show

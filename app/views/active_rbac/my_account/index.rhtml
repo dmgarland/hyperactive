@@ -6,19 +6,23 @@
 <%= I18n.t 'active_rbac.account.you_are_currently_logged_in_as' %> <strong><%=h current_user.login %></strong>.
 </p>
 
+<p><%= I18n.t 'active_rbac.account.you_may' %> <%= link_to(I18n.t('active_rbac.account.change_your_password'), change_password_path) %>.</p>
+
+<p><%= I18n.t 'active_rbac.account.you_may_log_out_at' %> <%= link_to(I18n.t('general.logout'), logout_path) %> <%= I18n.t 'general.page' %>.</p>
+
 <% if current_user.has_permission?("see_admin_nav") %>
 	<p>
 		<%= I18n.t 'active_rbac.account.admin_explanation' %>
-		<%= link_to(I18n.t('active_rbac.account.view_site_admin'), admin_main_path) %>.	
+		<%= link_to(I18n.t('active_rbac.account.view_site_admin'), admin_main_path) %>.
 	</p>
 <% end %>
 
 <% unless current_user.collectives.empty? %>
 	<h2><%= I18n.t 'active_rbac.account.your_groups' %></h2>
 	<p><%= I18n.t 'active_rbac.account.you_belong_to_groups' %>:</p>
-	<ul> 
+	<ul>
 	<% current_user.collectives.each do |c| %>
-		<li><%= render :partial => "shared/collectives/collective_link", :object => c %> 
+		<li><%= render :partial => "shared/collectives/collective_link", :object => c %>
 		| <%= link_to(I18n.t('general.edit'), edit_group_path(c.id)) %>
 		| <%= link_to(I18n.t('active_rbac.account.edit_group_membership'), edit_collective_memberships_path(c)) %>
 		| <%= link_to(I18n.t('active_rbac.account.edit_rss_feeds'), group_external_feeds_path(c)) %>
@@ -45,7 +49,9 @@
 	<%= render :partial => "shared/content/list_title", :collection => current_user.videos %>
 <% end %>
 
+<% unless current_user.other_medias.empty? %>
+	<h2><%= I18n.t 'active_rbac.account.your_other_medias' %></h2>
+	<p><%= I18n.t 'active_rbac.account.you_have_published_other_medias' %>:</p>
+	<%= render :partial => "shared/content/list_title", :collection => current_user.other_medias %>
+<% end %>
 
-<p><%= I18n.t 'active_rbac.account.you_may' %> <%= link_to(I18n.t('active_rbac.account.change_your_password'), change_password_path) %>.</p>
-
-<p><%= I18n.t 'active_rbac.account.you_may_log_out_at' %> <%= link_to(I18n.t('general.logout'), logout_path) %> <%= I18n.t 'general.page' %>.</p>

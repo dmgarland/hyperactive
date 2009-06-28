@@ -9,12 +9,12 @@
 		<ul>
                         <li><h2><%=h @collective.name %>
                             <span class="created_on">
-                            <%= I18n.t 'collectives.show.group_created' %> 
+                            <%= I18n.t 'collectives.show.group_created' %>
                             <%= @collective.created_on.strftime('%D') %></span>
                          </h2></li>
-                       
-                        
-			<li>					
+
+
+			<li>
 					<div id="left">
 					  <% if @collective.image.nil? %>
 					    <%= image_tag "default_collective.jpg", :class => "collective_image" %>
@@ -36,7 +36,7 @@
 			<h2><%= I18n.t 'collectives.show.upcoming_events' %></h2>
 			<ul>
 				<% if @collective.has_upcoming_events? %>
-					<%= render :partial => '/shared/content/list_title', :collection => @collective.upcoming_events %>			
+					<%= render :partial => '/shared/content/list_title', :collection => @collective.upcoming_events %>
 				<% else %>
 					<li class="list"><%= I18n.t 'collectives.show.no_events_yet' %></li>
 				<% end %>
@@ -46,21 +46,21 @@
 			<h2><%= I18n.t 'content.class_names.articles' %></h2>
 			<ul>
 				<% if @collective.has_articles? %>
-					<%= render :partial => '/shared/content/list_title', :collection => @collective.articles %>	
-				<% else %>		
+					<%= render :partial => '/shared/content/list_title', :collection => @collective.articles %>
+				<% else %>
 					<li class="list"><%= I18n.t 'collectives.show.no_articles_yet' %></li>
-				<% end %>				
+				<% end %>
 			</ul>
 		</li>
 		<li>
 			<ul>
 				<h2><%= I18n.t 'content.class_names.videos' %></h2>
-				<% if @collective.has_videos? %>	
-					<%= render :partial => '/shared/content/list_title', :collection => @collective.videos %>			
-				<% else %>		
+				<% if @collective.has_videos? %>
+					<%= render :partial => '/shared/content/list_title', :collection => @collective.videos %>
+				<% else %>
 					<li class="list"><%= I18n.t 'collectives.show.no_videos_yet' %></li>
-				<% end %>				
-			</ul>	
+				<% end %>
+			</ul>
 		</li>
 		<% if @collective.has_feeds? %>
 			<%= render :partial => 'external_feed', :collection => @collective.external_feeds %>
@@ -68,27 +68,30 @@
 		<li>
 			<ul>
 				<h2><%= I18n.t 'content.class_names.feeds' %></h2>
-				<li class="list"><%= I18n.t 'collectives.show.no_feeds_yet' %></li>					
+				<li class="list"><%= I18n.t 'collectives.show.no_feeds_yet' %></li>
 			</ul>
 		</li>
 		<% end %>
-				
+
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">
 	<%= render :partial => 'shared/searchbox' %>
     <%= render :partial => 'shared/account_box' %>
 	<ul>
+	    <li>
+	        <h2><%= I18n.t 'collectives.advertise_this_collective' %></h2>
+	        <%= render(:partial => 'collectives/sidebar/advertise', :object => @collective) %>
+	    </li>
 		<li>
 			<h2><%= I18n.t 'general.places' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %>
 		</li>
 		<li>
 			<h2><%= I18n.t 'content.class_names.tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>
 		</li>
 	</ul>
 </div>
 <!-- end sidebars -->
-
 

@@ -13,11 +13,11 @@
 <!--  sidebar_content_left -->
 	<div id="subfeature_content_1" class="sidebar_content">
 		<%= render_subfeature(0) %>
-		<%= render_subfeature(1) %>
+		<%= render_subfeature(2) %>
 	</div>
 	<!--  sidebar_content_right -->
 	<div id="subfeature_content_2" class="sidebar_content">
-		<%= render_subfeature(2) %>
+		<%= render_subfeature(1) %>
 		<%= render_subfeature(3) %>
 	</div>
 	<% unless @snippet.nil? %>
@@ -43,7 +43,7 @@
 	      <h2>Movement(s) Media</h2>
 	      <ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @featured_other_media %>
-					<li><%= link_to I18n.t('general.more') + ' &rarr;', featured_other_medias_path(1)%></li>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', featured_other_medias_path %></li>
 	      </ul>
 	    </li>
 		<li>
@@ -104,7 +104,7 @@
 	      <h2>Promoted Other Media</h2>
 	      <ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @promoted_other_media %>
-					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_other_medias_path(1)%></li>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_other_medias_path %></li>
 	      </ul>
 	    </li>
 			<li>
@@ -125,7 +125,7 @@
 				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
 				<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
-				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path(1)%></li>
+				<li><%= link_to ((I18n.t('general.more')) + ' &rarr;'), promoted_articles_path %></li>
 				</ul>
 			</li>
 			<li>

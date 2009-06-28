@@ -4,15 +4,17 @@ class EventsController < ContentController
 
   def index
     @cloud = Tag.cloud(:limit => 20)
+    @content = Event.visible.upcoming.paginate(:order => 'date ASC', :page => page_param)
+  end
 
-    if params[:moderation_status].blank?
-      @content = Event.visible.upcoming.paginate(:order => 'date ASC', :page => page_param)
-    else
-      @content = model_class.paginate(
-        :conditions => ['moderation_status = ? and date >=?', params[:moderation_status], Date.today.to_s],
-        :order => 'date ASC',
-        :page => page_param)
-    end
+  def promoted
+    @cloud = Tag.cloud(:limit => 20)
+    @content = Event.promoted.upcoming.paginate(:order => 'date ASC', :page => page_param)
+  end
+
+  def featured
+    @cloud = Tag.cloud(:limit => 20)
+    @content = Event.featured.upcoming.paginate(:order => 'date ASC', :page => page_param)
   end
 
   def archives

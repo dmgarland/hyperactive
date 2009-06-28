@@ -1,0 +1,121 @@
+<!-- start content -->
+<div id="content">
+<% if !@action_alert.nil? %>
+	<div id="action-alert">
+		<p><strong><%= @action_alert.summary %></strong></p>
+	</div>
+<% end %>
+
+<%= render(:partial => "layouts/common/flash_notice") %>
+<%= render(:partial => "home/top_featured", :object => @top_article) unless @top_article.nil? %>
+
+<!-- start sidebars inside content -->
+<!--  sidebar_content_left -->
+	<div id="subfeature_content_1" class="sidebar_content">
+		<%= render_subfeature(0) %>
+		<%= render_subfeature(1) %>
+	</div>
+	<!--  sidebar_content_right -->
+	<div id="subfeature_content_2" class="sidebar_content">
+		<%= render_subfeature(2) %>
+		<%= render_subfeature(3) %>
+	</div>
+	<% unless @snippet.nil? %>
+	<div id="special_content" class="sidebar_content_wide">
+		<ul>
+			<li>
+				<% if @snippet.url.blank? %>
+					<h2><%= @snippet.title %></h2>
+				<% else %>
+					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>
+				<% end %>
+					<% if @snippet.has_image? %>
+						<%= image_tag @snippet.image.thumb.url, :class => 'left' %>
+					<% end %>
+					<%= @snippet.body %>
+			</li>
+		</ul>
+	</div>
+	<% end %>
+	<div id="recent_articles" class="sidebar_content">
+	<%= link_to(image_tag('publish_button.jpg'), page_path('publish-page'))%>	    	
+		<ul>
+			<li>
+				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
+				<ul>
+					<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_articles_path %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="unused" class="sidebar_content">
+		<ul>
+			<li>
+				<h2><%= I18n.t 'home.index.published_newswire' %></h2>
+				<ul>
+					<%= render :partial => '/shared/content/list_title', :collection => @published_articles %>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', articles_path %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- end content -->
+<!-- start sidebars -->
+<div id="sidebar1" class="sidebar">
+	<ul>
+		<li id="upcomingevents">
+			<h2><%= I18n.t 'home.index.promoted_events' %></h2>
+			<ul>
+				<%= render :partial => '/shared/content/list_title', :collection => @visible_events %>
+  				<li><%= link_to I18n.t('general.more') + ' &rarr;', :controller => 'events' %></li>
+			</ul>
+		</li>
+		<li>
+			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
+			<div id="event_poster">
+				<div>
+				<p>
+				  <% unless most_recent_event_with_image.nil? %>
+					  <%= big_thumbnail_for(most_recent_event_with_image)  %><br/>
+					  <%= most_recent_event_with_image.title %>
+					<% end %>
+				</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<h2><%= I18n.t 'home.index.feed_newswire' %></h2>
+			<ul>
+				<%= @home_page_feed unless @home_page_feed.nil? %>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div id="sidebar2" class="sidebar">
+	<%= render :partial => 'shared/searchbox' %>
+    <%= render :partial => 'shared/account_box' %>
+	<ul>
+		<li>
+			<%= render :partial => 'videos/featured_flash_player' %>
+			<p><%=link_to I18n.t('general.more') + ' &rarr;', :controller => 'videos' %></p>
+		</li>
+		<li>
+			<h2><%= I18n.t 'home.index.place_tags' %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %>
+		</li>
+		<li>
+			<h2><%= I18n.t 'home.index.tags' %></h2>
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>
+		</li>
+		<li>
+			<h2><%= I18n.t 'home.index.info' %></h2>
+			<ul>
+				<%= render :partial => '/pages/list_title', :collection => @pages %>
+			</ul>
+		</li>
+	</ul>
+</div>
+<!-- end sidebars -->
+

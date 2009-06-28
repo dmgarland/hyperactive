@@ -1,16 +1,5 @@
 class HomeController < ApplicationController
 
-  acts_as_iphone_controller
-
-#  def determine_layout
-#    if is_iphone_request?
-#      return "main.iphone"
-#    end
-
-#    return "home"
-#  end
-
-
   # Rails does not pull out single-table inheritance subclasses properly on its own.
   # Must require the STI superclass explicitly in controllers.
   require_dependency 'content'

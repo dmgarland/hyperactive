@@ -3,6 +3,8 @@
 #
 class ApplicationController < ActionController::Base
 
+  acts_as_iphone_controller
+
   # Filter parameter logging so we don't log people's passwords
   #
   filter_parameter_logging :password

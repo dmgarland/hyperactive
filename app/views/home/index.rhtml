@@ -43,7 +43,7 @@
 				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
 					<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
-					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_articles_path(1)%></li>
+					<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_articles_path %></li>
 				</ul>
 			</li>
 		</ul>

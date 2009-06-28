@@ -2,10 +2,8 @@ class OtherMediasController < ContentController
   
   layout "two_column"
   
-  
-  # Creates a content object.  Note that all of the "initialize_xxx" stuff halfway
-  # through this method refers to the sub_list plugin, which provides multiple-upload
-  # capabilities for us. See that plugin's documentation to learn more.
+  # Creates an OtherMedia object.  Doesn't have all the initialize_XXXX stuff
+  # from the superclass method.
   #
   def create
     @content = model_class.new(params[:content])

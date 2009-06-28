@@ -6,8 +6,6 @@ class HomeController < ApplicationController
   require_dependency 'post'
   caches_page :index, :unless => Proc.new { |c| c.request.format.iphone? }
 
-  featured_events = []
-
   def index
     @cloud = Tag.cloud(:limit => tags_in_cloud)
     @place_cloud = PlaceTag.cloud(:limit => tags_in_cloud)

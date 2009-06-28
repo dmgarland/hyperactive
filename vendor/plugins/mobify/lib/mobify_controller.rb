@@ -35,7 +35,7 @@ module ActionController
 
     module InstanceMethods
 
-      private
+      protected
 
       def force_iphone_format
         request.format = :iphone

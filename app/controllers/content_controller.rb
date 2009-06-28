@@ -35,8 +35,10 @@ class ContentController < ApplicationController
   require 'calendar_dates/month_display.rb'
   require 'calendar_dates/week.rb'
 
-  caches_page :show, :only_path => true, :unless => Proc.new { |c| c.request.format.iphone? }
-  caches_page :index, :unless => Proc.new { |c| c.request.format.iphone? }
+  caches_page :show, :only_path => true, 
+    :unless => Proc.new { |c| c.request.format.iphone? }
+  caches_page :index, 
+    :unless => Proc.new { |c| c.request.format.iphone? }
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy, :sort_photos]
   cache_sweeper :comment_sweeper, :only => [:create_comment]
 

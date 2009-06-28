@@ -18,3 +18,4 @@ module CacheableFlash
     flash.clear
   end
 end
+

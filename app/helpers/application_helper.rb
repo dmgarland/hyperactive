@@ -220,6 +220,38 @@ module ApplicationHelper
     EOF
   end
 
+  # Builds navigation tabs
+  def set_main_navlink_for(text, link, link_class, conditions = {}, options = {})
+    on = false
+    if conditions.is_a?(Array)
+      conditions.each do |condition|
+        on = true if check_tab_conditions(condition)
+      end
+    else
+      on = check_tab_conditions(conditions)
+    end
+   if options[:use_dot]
+     dot = "<span><!-- Dot --></span>"
+     css_class = "selected"
+   else
+     dot = ""
+     css_class = "selected no-offset"
+   end
+   content_tag :li, link_to(text, link, :class => link_class) + dot, :class => (css_class if on)
+ end
+
+  def check_tab_conditions(conditions)
+    if(!conditions[:controller_name].nil?)
+      on = (controller.controller_name == conditions[:controller_name])
+    end
+
+    if(!conditions[:controller_name].nil? && !conditions[:id].nil?)
+      on = (controller.controller_name == conditions[:controller_name] && params[:id] == conditions[:id])
+    end
+
+    return on
+  end
+
 
 end
 

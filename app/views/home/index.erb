@@ -27,7 +27,7 @@
 				<% if @snippet.url.blank? %>
 					<h2><%= @snippet.title %></h2>
 				<% else %>
-					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>			
+					<h2><%= link_to(@snippet.title, @snippet.url) %></h2>
 				<% end %>
 					<% if @snippet.has_image? %>
 						<%= image_tag @snippet.image.thumb.url, :class => 'left' %>
@@ -39,7 +39,7 @@
 	<% end %>
 	<div id="recent_articles" class="sidebar_content">
 		<ul>
-			<li>				
+			<li>
 				<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 				<ul>
 					<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
@@ -47,10 +47,10 @@
 				</ul>
 			</li>
 		</ul>
-	</div>	
+	</div>
 	<div id="unused" class="sidebar_content">
 		<ul>
-			<li>				
+			<li>
 				<h2><%= I18n.t 'home.index.published_newswire' %></h2>
 				<ul>
 					<%= render :partial => '/shared/content/list_title', :collection => @published_articles %>
@@ -58,7 +58,7 @@
 				</ul>
 			</li>
 		</ul>
-	</div>		
+	</div>
 </div>
 <!-- end content -->
 <!-- start sidebars -->
@@ -70,7 +70,7 @@
 				<%= render :partial => '/shared/content/list_title', :collection => @visible_events %>
   				<li><%= link_to I18n.t('general.more') + ' &rarr;', :controller => 'events' %></li>
 			</ul>
-		</li>					
+		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.latest_poster' %></h2>
 			<div id="event_poster">
@@ -89,7 +89,7 @@
 			<ul>
 				<%= @home_page_feed unless @home_page_feed.nil? %>
 			</ul>
-		</li>					
+		</li>
 	</ul>
 </div>
 <div id="sidebar2" class="sidebar">
@@ -99,21 +99,22 @@
 		<li>
 			<%= render :partial => 'videos/featured_flash_player' %>
 			<p><%=link_to I18n.t('general.more') + ' &rarr;', :controller => 'videos' %></p>
-		</li>	
+		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.place_tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %> 
+			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %>
 		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>  
+			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>
 		</li>
 		<li>
 			<h2><%= I18n.t 'home.index.info' %></h2>
 			<ul>
 				<%= render :partial => '/pages/list_title', :collection => @pages %>
 			</ul>
-		</li>			
+		</li>
 	</ul>
 </div>
 <!-- end sidebars -->
+

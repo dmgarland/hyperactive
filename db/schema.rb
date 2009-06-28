@@ -235,6 +235,14 @@ ActiveRecord::Schema.define(:version => 20090624214849) do
 
   add_index "place_tags", ["name"], :name => "index_place_tags_on_name", :unique => true
 
+  create_table "podcasts", :force => true do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "quotes", :force => true do |t|
     t.text     "body"
     t.datetime "created_at"

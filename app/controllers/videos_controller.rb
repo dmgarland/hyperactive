@@ -7,7 +7,8 @@ class VideosController < ContentController
   require_dependency 'content'
   require_dependency 'media'
 
-  caches_page :featured_in_player, :only_path => true
+  caches_page :featured_in_player, :only_path => true, 
+    :unless => Proc.new { |c| c.request.format.iphone? }
   cache_sweeper :videos_sweeper, :only => [:create, :update, :destroy]
 
   def show

@@ -1,0 +1,40 @@
+<% if !@action_alert.nil? %>
+    <p><strong><%= @action_alert.summary %></strong></p>
+<% end %>
+
+<%= render(:partial => "layouts/common/flash_notice") %>
+
+<h1 class="title"><%= link_to h( @top_article.title), content_path_for( @top_article) %></h1>
+<p><small>
+<% if @top_article.class == Event %>
+	<%=h long_date(@top_article.date) %>
+<% else %>
+	<%=h long_date(@top_article.created_on) unless @top_article.created_on.nil? %>
+<% end %>
+<%= I18n.t 'general.by' %> <%=h @top_article.published_by %>
+| <%= link_to I18n.t('general.more') + ' &rarr;', content_path_for(@top_article) %>
+</small></p>
+
+<p><% if @top_article.has_thumbnail? %>
+	<%= image_tag(@top_article.photos.first.file.big_thumb.url) %>
+<% end %>
+<%= @top_article.summary %>
+</p>
+
+
+
+
+<h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
+<ul class="pages-list">
+	<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
+	<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_articles_path %></li>
+</ul>
+
+<ul class="pages-list">
+    <h2><%= I18n.t 'home.index.promoted_events' %></h2>
+    <ul>
+	    <%= render :partial => '/shared/content/list_title', :collection => @visible_events %>
+	    <li><%= link_to I18n.t('general.more') + ' &rarr;', :controller => 'events' %></li>
+    </ul>
+</ul>
+

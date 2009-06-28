@@ -71,7 +71,7 @@ Released   : 20071004
 <div id="menu">
 	<ul id="main">
 		<%= tab_for(I18n.t('layouts.home'), root_path, :controller_name => "home") %>
-		<%= tab_for(I18n.t('layouts.publish'), page_path("publish-page"), :controller_name => "pages", :action => "show", :id => 'publish-page') %>
+		<%= tab_for(I18n.t('layouts.publish'), page_path("publish-page"), :controller_name => "pages", :action => "show", :slug => 'publish-page') %>
 		<%= tab_for(I18n.t('layouts.newswire'), articles_path, :controller_name => "articles") %>
 		<%= tab_for(I18n.t('layouts.events'), calendar_month_path, :controller_name => "events") %>
 		<%= tab_for(I18n.t('layouts.videos'), videos_path, :controller_name => "videos") %>

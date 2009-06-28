@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>London Indymedia<%= " | " +  h(@page_title) unless @page_title.nil? %></title>
+<meta content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport" />
+<%= javascript_include_tag "iphone" %>
+<%= stylesheet_link_tag 'iphone' %> <!-- media="only screen and (max-device-width: 480px)" -->
+<%= iphone_orientation_js %>
+</head>
+<body>
+
+<div id="header">
+  <h1><a href="/">London Indymedia</a></h1>
+  <ul>
+  <li><a href="tel:+44-0123-456-7890">Dispatch</a></li>
+  </ul>
+</div>
+
+<ul id="main-nav">
+</ul>
+
+<div class="viewport_body">
+  <%= yield :toolbar %>
+  <%= yield %>
+</div>
+
+<div id="footer">
+<p class="upper">Some stuff could go here.</p>
+<p class="lower"><span class="left">More stuff could go here.</span></p>
+</div>
+
+</body>
+</html>
+

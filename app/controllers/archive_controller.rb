@@ -1,8 +1,10 @@
 class ArchiveController < ApplicationController
   layout "two_column"
 
-  caches_page :show, :only_path => true
-  caches_page :index, :year_index, :month_index, :tag_index
+  caches_page :show, :only_path => true, 
+    :unless => Proc.new { |c| c.request.format.iphone? }
+  caches_page :index, :year_index, :month_index, :tag_index, 
+    :unless => Proc.new { |c| c.request.format.iphone? }
 
   before_filter :check_date, :except => [:index, :this_month]
   before_filter :check_type, :only => :month_index

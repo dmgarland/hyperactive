@@ -12,6 +12,7 @@ class ArticlesController < ContentController
 
     respond_to do |format|
       format.html # order.rhtml
+      format.iphone
       format.xml  { render :xml => @content.to_xml }
     end
   end

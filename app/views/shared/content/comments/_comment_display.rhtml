@@ -1,6 +1,6 @@
 <div class="comment">
 <a href="#comment-<%= comment_display.id %>" name="comment-<%= comment_display.id %>"><h3 class="title"><%=h comment_display.title %></h3></a>
-<p class="byline"><%= image_tag "comment.png" %> 
+<p class="byline"><%= image_tag "comment.png" %>
     <small>
         <%= I18n.t 'general.published_by' %>: <%=h long_date(comment_display.created_on) %>
 		<%= I18n.t 'general.by' %>
@@ -11,3 +11,4 @@
 
 <%= render :partial => 'shared/content/comments/hiding_controls', :locals => {:comment => comment_display } %>
 </div>
+

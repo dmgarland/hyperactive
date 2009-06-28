@@ -300,6 +300,15 @@ class EventsControllerTest < Test::Unit::TestCase
       "There should be 1 promoted upcoming event in the fixtures."
   end
 
+  def test_list_promoted_iphone
+    get :promoted, :format => "iphone"
+    assert_response :success
+    assert_template 'promoted'
+    assert_not_nil assigns(:content)
+    assert_equal 1, assigns(:content).size,
+      "There should be 1 promoted upcoming event in the fixtures."
+  end
+
   def event_stub(id)
     {
       :id => id,

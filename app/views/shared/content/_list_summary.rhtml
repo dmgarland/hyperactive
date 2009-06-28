@@ -1,10 +1,10 @@
 <div class="post">
 	<h1 class="title"><%= link_to h(list_summary.title), content_path_for(list_summary) %></h1>
 	<p class="byline"><small><%= icon_image_for(list_summary) %><%= moderation_status_icon_for(list_summary) %>
-	<% if list_summary.class == Event %>	
+	<% if list_summary.class == Event %>
 		<%= I18n.t 'general.event_date' %>: <%=h long_date(list_summary.date) %>
 	<% else %>
-		<%= I18n.t 'general.published_on' %>: <%=h long_date(list_summary.created_on) unless list_summary.created_on.nil? %>	
+		<%= I18n.t 'general.published_on' %>: <%=h long_date(list_summary.created_on) unless list_summary.created_on.nil? %>
 	<% end %>
 	<%= I18n.t 'general.by' %> <%=h list_summary.published_by %>
 	</small></p>
@@ -15,3 +15,4 @@
 		<%= list_summary.summary %></p>
 	</div>
 </div>
+

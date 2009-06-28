@@ -1,4 +1,4 @@
-<%= render :partial => "top_nav" %>
+<%= render :partial => "articles/top_nav.html.erb" %>
 <h1><%= I18n.t 'articles.index.title' %></h1>
 <%= render(:partial => "shared/content/list_summary", :collection => @content) %>
 <hr/>
@@ -9,3 +9,4 @@
 	<%= render :partial => "articles/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/sidebar/tag_cloud" %>
 <% end %>
+

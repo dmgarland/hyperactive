@@ -35,9 +35,9 @@ class ContentController < ApplicationController
   require 'calendar_dates/month_display.rb'
   require 'calendar_dates/week.rb'
 
-  caches_page :show, :only_path => true, 
+  caches_page :show, :only_path => true,
     :unless => Proc.new { |c| c.request.format.iphone? }
-  caches_page :index, 
+  caches_page :index,
     :unless => Proc.new { |c| c.request.format.iphone? }
   cache_sweeper :content_sweeper, :only => [:create, :update, :destroy, :sort_photos]
   cache_sweeper :comment_sweeper, :only => [:create_comment]
@@ -76,6 +76,10 @@ class ContentController < ApplicationController
       :conditions => ['moderation_status != ?', "hidden"],
       :order => 'created_on desc',
       :page => page_param)
+    respond_to do |format|
+      format.html
+      format.iphone
+    end
   end
 
   def archives

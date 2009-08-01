@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<title>London Indymedia<%= " | " +  h(@page_title) unless @page_title.nil? %></title>
+<title><%= Hyperactive.site_name %><%= " | " +  h(@page_title) unless @page_title.nil? %></title>
 <meta content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport" />
 <%= javascript_include_tag "iphone" %>
 <%= stylesheet_link_tag 'iphone' %> <!-- media="only screen and (max-device-width: 480px)" -->
@@ -11,15 +11,17 @@
 <body>
 
 <div id="header">
-  <h1><a href="/">London Indymedia</a></h1>
+  <h1><a href="/"><%= Hyperactive.site_name %></a></h1>
   <% if Hyperactive.show_dispatch_number_on_mobile_template %>
       <ul>
-      <li><a href="tel:+44-0123-456-7890">Dispatch</a></li>
+      <li><a href="tel:<%= Hyperactive.dispatch_number %>">Dispatch</a></li>
       </ul>
   <% end %>
 </div>
 
 <ul id="main-nav">
+<li><%= link_to("Publish", page_path('mobile-publish'))%></li>
+<li><a href="#events">Events</li>
 </ul>
 
 <div class="viewport_body">

@@ -21,15 +21,12 @@
 <%= @top_article.summary %>
 </p>
 
-
-
-
 <h2><%= I18n.t 'home.index.promoted_newswire' %></h2>
 <ul class="pages-list">
 	<%= render :partial => '/shared/content/list_title', :collection => @promoted_articles %>
 	<li><%= link_to I18n.t('general.more') + ' &rarr;', promoted_articles_path %></li>
 </ul>
-
+<a name ="events"/>
 <ul class="pages-list">
     <h2><%= I18n.t 'home.index.promoted_events' %></h2>
     <ul>

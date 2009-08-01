@@ -22,6 +22,7 @@ class Collective < ActiveRecord::Base
   has_many :articles, :order => "created_on DESC"
   has_many :events, :order => "content.date ASC"
   has_many :videos, :order => "created_on DESC"
+  has_many :playlist_items, :order => "created_at DESC"
 
   # Macros
   #

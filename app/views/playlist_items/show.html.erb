@@ -1,0 +1,9 @@
+<p>
+  <b>Title:</b>
+  <%= link_to(h(@playlist_item.title), h(@playlist_item.uri)) %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_playlist_item_path(@group, @playlist_item) %> |
+<%= link_to 'Back', group_playlist_items_path(@group) %>
+

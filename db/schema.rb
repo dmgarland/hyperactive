@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090624214849) do
+ActiveRecord::Schema.define(:version => 20090801155535) do
 
   create_table "action_alerts", :force => true do |t|
     t.text     "summary",                          :null => false
@@ -235,12 +235,12 @@ ActiveRecord::Schema.define(:version => 20090624214849) do
 
   add_index "place_tags", ["name"], :name => "index_place_tags_on_name", :unique => true
 
-  create_table "podcasts", :force => true do |t|
-    t.string   "title"
-    t.text     "summary"
-    t.string   "file"
+  create_table "playlist_items", :force => true do |t|
+    t.string   "uri"
+    t.integer  "collective_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title",         :null => false
   end
 
   create_table "quotes", :force => true do |t|

@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :other_medias
 
   map.admin '/admin', :controller => 'admin/main', :action => 'index'
   map.namespace(:admin) do |admin|
@@ -66,7 +65,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :videos, :collection => { :promoted => :get, :featured => :get }
   map.resources :groups, :controller => :collectives,
                          :collection => { :show_all => :get },
-                         :has_many => :external_feeds
+                         :has_many => [:external_feeds, :playlist_items]
 
   map.streets 'actions', :controller => "action_alerts", :action => "list"
   map.admin_main 'admin/main', :controller => 'admin/main'

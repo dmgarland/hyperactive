@@ -83,14 +83,10 @@
 	        <h2><%= I18n.t 'collectives.advertise_this_collective' %></h2>
 	        <%= render(:partial => 'collectives/sidebar/advertise', :object => @collective) %>
 	    </li>
-		<li>
-			<h2><%= I18n.t 'general.places' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @place_cloud, :locals => {:tag_type => "place"}) %>
-		</li>
-		<li>
-			<h2><%= I18n.t 'content.class_names.tags' %></h2>
-			<%= render(:partial => "shared/tag_cloud", :object=> @cloud, :locals => {:tag_type => "tag"}) %>
-		</li>
+	    <li>
+	        <h2><%= I18n.t 'collectives.playlist' %> :: <%= link_to "Play all", formatted_group_playlist_items_path(@collective, :m3u)%></h2>
+	        <%= render(:partial => 'collectives/sidebar/playlist', :object => @collective) %>
+	    </li>
 	</ul>
 </div>
 <!-- end sidebars -->

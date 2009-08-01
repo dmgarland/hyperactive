@@ -173,6 +173,7 @@ en:
     index:
       newest_groups: Newest groups
       title: Recently active groups
+    playlist: M3U Playlist
     show_all:
       title: "All groups"
     new:

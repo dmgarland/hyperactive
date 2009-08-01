@@ -1,0 +1,6 @@
+<ul>
+<% playlist.playlist_items.each do |item| %>
+  <li class="list"><%= link_to(h(item.title), h(item.uri)) %></li>
+<% end %>
+</ul>
+

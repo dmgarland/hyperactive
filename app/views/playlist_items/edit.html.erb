@@ -1,0 +1,21 @@
+<h1>Editing playlist_item</h1>
+
+<% form_for(:playlist_item, :url => group_playlist_item_path(@group, @playlist_item), :html => {:method => :put}) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :uri %><br />
+    <%= f.text_field :uri %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', group_playlist_item_path(@group, @playlist_item) %> |
+<%= link_to 'Back', group_playlist_items_path(@group) %>
+

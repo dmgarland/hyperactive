@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class CollectiveTest < Test::Unit::TestCase
+class CollectiveTest < ActiveSupport::TestCase
   fixtures :collectives
 
   def test_validation
@@ -64,6 +64,11 @@ class CollectiveTest < Test::Unit::TestCase
     indy_london.events.first.save!
     indy_london.reload
     assert_not_equal indy_london.updated_on, start_time
+  end
+
+  test "has many playlist items" do
+    c = Collective.new
+    assert c.respond_to?("playlist_items")
   end
 
 end

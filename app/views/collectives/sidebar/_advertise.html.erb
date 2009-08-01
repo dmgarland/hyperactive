@@ -3,5 +3,5 @@
 <% url_text = url_for({:params => params, :only_path => false, :protocol => "http://"}) %>
 <% javascript = "$('urlform_for_video').focus();$('urlform_for_video').select();" %>
 
-<p><%= text_field(:urlform, :for_video, :onclick => javascript, :readonly => true, :value => url_text, :size => 20) %><%= clippy(url_text) %></p>
+<p><%= text_field(:urlform, :for_video, :onclick => javascript, :readonly => true, :value => url_text, :size => 20) %>Click the icon to copy the url: <%= clippy(url_text) %></p>
 

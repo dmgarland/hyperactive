@@ -1,0 +1,12 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  uri: MyString
+  collective: indy_london
+  title: foo on the bar
+
+two:
+  uri: MyString
+  collective: indy_london
+  title: bar on the foo
+

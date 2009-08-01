@@ -115,8 +115,19 @@ module Hyperactive
 
 	# What is the mobile subdomain?
 	#
-	@@mobile_subdomain = :mob
+	@@mobile_subdomain = "mob"
 	mattr_accessor :mobile_subdomain
+
+
+  # Should the dispatch number show up on the mobile template?
+  #
+	@@show_dispatch_number_on_mobile_template = false
+	mattr_accessor :show_dispatch_number_on_mobile_template
+
+  # The dispatch number for the site
+  #
+  @@dispatch_number = "123456"
+  mattr_accessor :dispatch_number
 
 end
 

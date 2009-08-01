@@ -12,9 +12,11 @@
 
 <div id="header">
   <h1><a href="/">London Indymedia</a></h1>
-  <ul>
-  <li><a href="tel:+44-0123-456-7890">Dispatch</a></li>
-  </ul>
+  <% if Hyperactive.show_dispatch_number_on_mobile_template %>
+      <ul>
+      <li><a href="tel:+44-0123-456-7890">Dispatch</a></li>
+      </ul>
+  <% end %>
 </div>
 
 <ul id="main-nav">

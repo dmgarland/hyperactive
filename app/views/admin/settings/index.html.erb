@@ -16,47 +16,48 @@
 	<%= label_tag "Banner image" %><br/>
 	<%= text_field_tag(:banner_image, Hyperactive.banner_image) %>
 	</p>
-	
+
 	<p>
 	<%= label_tag "Torrent tracker" %><br/>
 	<%= text_field_tag(:torrent_tracker, Hyperactive.torrent_tracker) %>
-	</p>	
-	
+	</p>
+
 	<p>
 	<%= label_tag "Use ssl?" %><br/>
 	<%= check_box_tag(:use_ssl, "1", Hyperactive.use_ssl) %>
 	</p>
-	
+
 	<p>
 	<%= label_tag "Moderation email recipient" %><br/>
 	<%= text_field_tag(:moderation_email_recipients, Hyperactive.moderation_email_recipients) %>
-	</p>	
-	
+	</p>
+
 	<p>
 	<%= label_tag "Moderation email from" %><br/>
 	<%= text_field_tag(:moderation_email_from, Hyperactive.moderation_email_from) %>
-	</p>	
+	</p>
 
 	<p>
 	<%= label_tag "Use local CSS?" %><br/>
 	<%= check_box_tag(:use_local_css, "1", Hyperactive.use_local_css) %>
 	</p>
-	
+
 	<p>
 	<%= label_tag "Valid elements for tiny mce" %><br/>
 	<%= text_field_tag(:valid_elements_for_tiny_mce, Hyperactive.valid_elements_for_tiny_mce) %>
-	</p>	
+	</p>
 
 	<p>
 	<%= label_tag "Home page feed" %><br/>
 	<%= text_field_tag(:home_page_feed, Hyperactive.home_page_feed) %>
-	</p>	
-	
+	</p>
+
 	<p>
 	<%= label_tag "Rake path" %><br/>
 	<%= text_field_tag(:rake_path, Hyperactive.rake_path) %>
-	</p>		
+	</p>
 
+    <h2>Internet Relay Chat Notification</h2>
 	<p>
 	<%= label_tag "Activate IRC bot?" %><br/>
 	<%= check_box_tag(:activate_bot, "1", Hyperactive.activate_bot) %>
@@ -65,32 +66,50 @@
 	<p>
 	<%= label_tag "IRC Server" %><br/>
 	<%= text_field_tag(:irc_server, Hyperactive.irc_server) %>
-	</p>		
+	</p>
 
 	<p>
 	<%= label_tag "IRC Channel" %><br/>
 	<%= text_field_tag(:irc_channel, Hyperactive.irc_channel) %>
-	</p>		
+	</p>
 
 	<p>
 	<%= label_tag "IRC Bot Name" %><br/>
 	<%= text_field_tag(:bot_name, Hyperactive.bot_name) %>
-	</p>		
+	</p>
 
 	<p>
 	<%= label_tag "Site url" %> - will be used for bot notifications in the irc channel.<br/>
 	<%= text_field_tag(:site_url, Hyperactive.site_url) %>
-	</p>		
+	</p>
 
 	<p>
 	<%= label_tag "IRC Bot Port" %> - which port should the irc bot connect to?<br/>
 	<%= text_field_tag(:irc_port, Hyperactive.irc_port) %>
-	</p>		
+	</p>
 
 	<p>
 	<%= label_tag "Connect to IRC using SSL encryption?" %><br/>
 	<%= check_box_tag(:irc_over_ssl, "1", Hyperactive.irc_over_ssl) %>
-	</p>		
-		
+	</p>
+
+	<h2>Mobile site settings</h2>
+
+	<p>
+	<%= label_tag "Mobile subdomain" %><br/>
+	<%= text_field_tag(:mobile_subdomain, Hyperactive.mobile_subdomain) %>
+	</p>
+
+	<p>
+	<%= label_tag "Show dispatch number in mobile site?" %><br/>
+	<%= check_box_tag(:show_dispatch_number_on_mobile_template, "1", Hyperactive.show_dispatch_number_on_mobile_template) %>
+	</p>
+
+	<p>
+	<%= label_tag "Dispatch number" %><br/>
+	<%= text_field_tag(:dispatch_number, Hyperactive.dispatch_number) %>
+	</p>
+
 	<p><%= submit_tag %></p>
 <% end %>
+

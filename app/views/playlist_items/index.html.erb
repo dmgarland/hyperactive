@@ -19,3 +19,5 @@
 
 <%= link_to 'New playlist_item', new_group_playlist_item_path(@group) %>
 
+<p><%= I18n.t 'collectives.edit_memberships.back_to_account_page', :your_account_page => link_to(I18n.t('collectives.edit_memberships.your_account_page'), account_path) %></p>
+

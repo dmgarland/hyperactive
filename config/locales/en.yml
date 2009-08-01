@@ -65,6 +65,7 @@ en:
       account_explanation: This is your private account information page. No other users can see this page.
       admin_explanation: You are an administrative user. From here you can
       edit_group_membership: Edit membership
+      edit_m3u_playlists: Edit M3U playlists
       edit_rss_feeds: Edit RSS feeds
       login_success: you have successfully been logged in
       view_site_admin: view the site admin pages

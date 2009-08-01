@@ -7,7 +7,7 @@ module ActionController
     end
 
     module ClassMethods
-      def acts_as_iphone_controller(options = {})
+      def acts_as_mobified_controller(options = {})
         include ActionController::IphoneController::InstanceMethods
         @@iphone_options = options
         if options[:test_mode]

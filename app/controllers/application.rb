@@ -3,7 +3,10 @@
 #
 class ApplicationController < ActionController::Base
 
-  acts_as_iphone_controller
+  # The default mobile subdomain is :mob, if the site is accessed through
+  # that subdomain then it'll show up with mobile templates.
+  #
+  acts_as_iphone_controller :subdomain => Hyperactive.mobile_subdomain
 
   # Filter parameter logging so we don't log people's passwords
   #

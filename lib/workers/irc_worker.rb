@@ -1,18 +1,23 @@
 # Hangs out in your irc channel and tells you what's going on.
 #
 class IrcWorker < BackgrounDRb::Rails
-  
+
   require 'rubygems'
   require 'IRC'
 
   def initialize(key, args={})
     super(key, args)
-    #do_work(args)
-  end  
-   
-  # Join the channel defined in the site's settings and start hanging out
-  # 
+  end
+
+  # Connect to the server if there is no bot.
+  #
   def do_work(args)
+    connect_to_irc if @bot.nil?
+  end
+
+  # Join the channel defined in the site's settings and start hanging out.
+  #
+  def connect_to_irc
     @channel = Setting.find_by_key("irc_channel").value
     @server = Setting.find_by_key("irc_server").value
     @port = Setting.find_by_key("irc_port").value
@@ -25,6 +30,7 @@ class IrcWorker < BackgrounDRb::Rails
       IRCEvent.add_callback('join') { |event|
         @bot.send_message(@channel, say_random_quote) if event.from == @bot_name
       }
+      IRCEvent.add_callback('disconnect') {|event| @bot.join(@channel) }
       IRCEvent.add_callback('privmsg') { |event| receive_message(event) }
       @bot.connect
     end
@@ -63,11 +69,11 @@ class IrcWorker < BackgrounDRb::Rails
       end
       notify_irc_channel("There are currently #{video_count} videos encoding.")
     end
-    if message =~ /thanks/ || message =~ /thank you/ 
+    if message =~ /thanks/ || message =~ /thank you/
       notify_irc_channel("No problem, #{event.from}")
     end
   end
-  
+
   def say_random_quote
     quotes = Quote.find(:all)
     quote = quotes[rand(quotes.length)]
@@ -75,3 +81,4 @@ class IrcWorker < BackgrounDRb::Rails
   end
 
 end
+

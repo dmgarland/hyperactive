@@ -30,7 +30,10 @@ class IrcWorker < BackgrounDRb::Rails
       IRCEvent.add_callback('join') { |event|
         @bot.send_message(@channel, say_random_quote) if event.from == @bot_name
       }
-      IRCEvent.add_callback('disconnect') {|event| @bot.join(@channel) }
+      IRCEvent.add_callback('disconnect') {|event|
+        sleep(20)
+        @bot.join(@channel)
+      }
       IRCEvent.add_callback('privmsg') { |event| receive_message(event) }
       @bot.connect
     end

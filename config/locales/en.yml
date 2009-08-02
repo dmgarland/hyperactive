@@ -243,6 +243,7 @@ en:
       delete: Delete
       moderation_status: Moderation status
       required_field: required field
+      source: Source - what is the original URL? Include the http:// part.
       title: Title
       upload_instructions: Click on the "add photo", "add video", or "add file upload" link for each file you want to upload. You can upload as many files as you want by clicking the "add" links multiple times.
       your_name: Your name

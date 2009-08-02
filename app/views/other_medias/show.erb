@@ -1,8 +1,8 @@
 <% @page_title = @content.title %>
 <% css_class = @content.is_hidden? ? "hidden_post" : "post" %>
 <div class="<%= css_class %>">
-<h1 class="title"><%=h @content.title %></h1>
-<p class="byline"><%= image_tag "icon_article.gif" %>
+<h1 class="title"><%= link_to(h(@content.title), @content.source) %></h1>
+<p class="byline"><%= icon_image_for(@content) %>
 <small><%= I18n.t 'general.published_cap' %>: <%=h long_date(@content.created_on) %></small> <%= I18n.t 'general.by'%> <strong><%=h @content.published_by.titleize %></strong></p>
 <p><%= render :partial => 'shared/content/content_tags_display' %></p>
 <%= render :partial => 'shared/content/groups_display' %>
@@ -11,6 +11,7 @@
 <div class='article'>
 <%= auto_link(@content.summary) %>
 </div>
+<%= icon_image_for(@content) %> <%= link_to "See original ->", @content.source %>
 <%= render :partial => 'shared/content/admin_controls_link' %>
 
 </div>
@@ -18,3 +19,4 @@
 	<%= render :partial => "other_medias/sidebar/feedbox" %>
 	<%= render :partial => "shared/content/related_content" %>
 <% end %>
+

@@ -1,12 +1,14 @@
 <%= error_messages_for :content %>
 
 <p><em>*</em> = <%= I18n.t 'content.form.required_field' %></p>
-<p><label for="content_title"><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('other_media.index.title').downcase %><em>*</em></label> - <%= I18n.t('other_media.form.title_instructions')%><br/>
+<p><label for="content_title"><%= I18n.t 'general.title' %> <%= I18n.t 'general.of_your' %> <%= I18n.t('other_media.index.title').downcase %><em>*</em></label><br/>
 <%= f.text_field 'title', {:maxlength => 50} %></p>
 
 <p><label for="content_published_by"><%= I18n.t 'content.form.your_name' %>:<em>*</em></label><br/>
 <%= f.text_field 'published_by' %></p>
 
+<p><label for="source"><%= I18n.t 'content.form.source' %>:<em>*</em></label><br/>
+<%= f.text_field 'source' %></p>
 
 <p><label for="content_summary"><%= I18n.t 'general.summary' %><em>*</em></label><br/>
 <%= f.text_area 'summary', :cols=>80, :rows=>10  %></p>
@@ -15,3 +17,4 @@
 <%= render :partial => "shared/content/grouping_controls" %>
 
 <%= render :partial => 'shared/content/status_controls', :locals => {:f => f} %>
+

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090801223759) do
+ActiveRecord::Schema.define(:version => 20090802211512) do
 
   create_table "action_alerts", :force => true do |t|
     t.text     "summary",                          :null => false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(:version => 20090801223759) do
     t.datetime "created_on"
     t.datetime "updated_on"
     t.text     "summary",                                    :null => false
-    t.text     "source"
+    t.string   "source"
     t.string   "published_by",            :default => "",    :null => false
     t.datetime "end_date"
     t.integer  "event_group_id"

@@ -243,6 +243,14 @@ ActiveRecord::Schema.define(:version => 20090802211512) do
     t.string   "title",         :null => false
   end
 
+  create_table "podcasts", :force => true do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "quotes", :force => true do |t|
     t.text     "body"
     t.datetime "created_at"

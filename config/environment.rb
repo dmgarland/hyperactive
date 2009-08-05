@@ -95,7 +95,6 @@ Rails::Initializer.run do |config|
   config.gem 'Ruby-IRC', :lib => 'IRC'
 end
 
-require 'validates_uri_existence_of'
 gem 'rmagick'
 require 'RMagick'
 
@@ -110,3 +109,4 @@ rescue Mysql::Error
   # Ignore MySQL errors in order to allow "rake db:create:all" to run
 end
 
+require 'validates_uri_existence_of'

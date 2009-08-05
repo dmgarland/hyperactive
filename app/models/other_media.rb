@@ -1,3 +1,5 @@
+require 'validates_uri_existence_of'
+
 # OtherMedia is basically a really chopped-down Article.
 #
 # People are always browsing the web and they think "wow, this article i'm
